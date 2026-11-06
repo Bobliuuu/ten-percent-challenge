@@ -104,3 +104,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 2026-11-06 v2/c2_fb: canonical artifact = ~/ten-percent-artifacts/artC2_fb_fixed + tenpct-c2fb:/art_c2fb (good body.bin 0304a803); re-verified, harness tree 6290414d
 - 2026-11-06 07:28 EST REAL C2 stage 1 PASS: base .7675 cand .799 (+3.15pt, CI [+1.60,+4.70]), NI p=.001, 9.404%, tree 6290414d; harness lock 0d963d1
 - 2026-11-06 07:40 EST REAL C2 stage 2 PASS_BOTH_STAGES: cand .802 vs base .7675 (+3.45pt, CI [+1.85,+5.05]), NI p=.001, same tree 6290414d, memory 852B sha 3cc96ec2
+- 2026-11-06 07:50 EST SUBMITTED proof issue https://github.com/DeusExperiments/ten-percent-challenge/issues/2 (C2, 9.404%, stage1 .799 vs .7675, stage2 .802; artifact download link still to add)
