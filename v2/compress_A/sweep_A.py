@@ -12,8 +12,7 @@ img = (modal.Image.debian_slim().pip_install("torch","transformers==4.46.3","dat
        .add_local_file("../commercial/A/pool.jsonl","/root/base/pool.jsonl"))
 vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
-@app.function(image=img, gpu=["L40S","A100-40GB","A100-80GB","A10G"], timeout=14400, max_containers=40, volumes={"/hf":vol})
-def run(cfg):
+def run_impl(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
     os.environ["HF_HOME"]="/hf"; sys.path.insert(0,"/root")
     from datasets import load_dataset
@@ -29,7 +28,7 @@ def run(cfg):
     rd=lambda f:[json.loads(x) for x in open("/root/base/"+f)]
     T=None; calsrc=rd("calib.jsonl"); auxsrc=None; DEV=rd("dev.jsonl"); POOL=rd("pool.jsonl")
     LET="ABCDEFGH"
-    def blk(r,ans=None):
+    def blkf(r,ans=None):
         t=r["inst"]+"\n\nText: "+r["text"]+"\n\nOptions:\n"
         for l,c in zip(LET,r["names"]): t+=f"{l}. {c}\n"
         return t+"Answer:"+(f" {LET[ans]}" if ans is not None else "")
@@ -39,15 +38,15 @@ def run(cfg):
     nsh=cfg.get("shots",0); _sh=[]
     for k in sorted(_by):
         for _ in range(nsh): _sh.append(_rg.choice(_by[k]))
-    _rg.shuffle(_sh); PRE="".join(blk(x,x["answer"])+"\n\n" for x in _sh)
-    def fmt(r,ans=False): return PRE+blk(r,r["answer"] if ans else None)
+    _rg.shuffle(_sh); PRE="".join(blkf(x,x["answer"])+"\n\n" for x in _sh)
+    def fmt(r,ans=False): return PRE+blkf(r,r["answer"] if ans else None)
     ev=DEV
     nev=cfg.get("nev",0)
     if nev: ev=ev[:nev]
     other=POOL+DEV
     letter_ids=[tok.encode(" "+l)[0] for l in LET]
     rng=np.random.RandomState(0)
-    cal_txt=[blk(r,r["answer"]) for r in calsrc]
+    cal_txt=[blkf(r,r["answer"]) for r in calsrc]
     if auxsrc is not None:
         for i in rng.permutation(len(auxsrc))[:600]:
             r=auxsrc[int(i)]; cal_txt.append(r["question"]+"\n"+"\n".join(f"{l}. {c}" for l,c in zip("ABCD",r["choices"]))+"\nAnswer: "+"ABCD"[r["answer"]])
@@ -62,7 +61,7 @@ def run(cfg):
     if keepN:
         cnt=torch.zeros(V)
         for r in other[:6000]+calsrc:
-            ids=tok.encode(blk(r,r["answer"])); cnt.index_add_(0,torch.tensor(ids),torch.ones(len(ids)))
+            ids=tok.encode(blkf(r,r["answer"])); cnt.index_add_(0,torch.tensor(ids),torch.ones(len(ids)))
         cnt.index_add_(0,torch.tensor(tok.encode(PRE)),torch.ones(len(tok.encode(PRE)))*100) if PRE else None
         keep=set(cnt.topk(keepN)[1].tolist())
         vinv=tok.convert_ids_to_tokens(list(range(len(tok))))
@@ -87,7 +86,8 @@ def run(cfg):
             return out
     Wl=model.get_output_embeddings().weight.data[letter_ids].clone()
     @torch.no_grad()
-    def predict(rows,rm,bs=16):
+    def predict(rows,rm,bs=None):
+        bs=bs or (16 if cfg.get('shots',0)==0 else 2)
         enc=[rm(tok.encode(fmt(r)))[-3500:] for r in rows]
         order=np.argsort([-len(e) for e in enc]); out=np.zeros((len(rows),8),dtype=np.float32)
         for b in range(0,len(rows),bs):
@@ -102,6 +102,8 @@ def run(cfg):
     y=np.array([r["answer"] for r in ev]); score=lambda lg: float((lg.argmax(1)==y).mean())
     if mode=="eval":
         base_lg=predict(ev,lambda x:x); base_pred=base_lg.argmax(1); base_acc=score(base_lg)
+        CAL=calsrc[:cfg.get("nbias",1000)]; yc=np.array([r["answer"] for r in CAL])
+        base_lgc=predict(CAL,lambda x:x)
     layers=model.model.layers; nl0=len(layers)
     def get_inps(n):
         ins=[];kw={}
@@ -115,6 +117,10 @@ def run(cfg):
         layers[0]=layers[0].m
         return ins,kw
     inps,kw=get_inps(len(stream))
+    OFF=cfg.get("offload",False)
+    if OFF and (cfg.get("L",0)>0 or cfg.get("levels")):
+        for _l in model.model.layers: _l.cpu()
+        torch.cuda.empty_cache()
     # ---- layer drop (block influence)
     ndrop=cfg.get("drop",0); dropl=[]
     if ndrop:
@@ -195,6 +201,7 @@ def run(cfg):
                     for j,x in enumerate(cur):
                         o=l(x,**kw); cur[j]=o[0] if isinstance(o,tuple) else o
                 continue
+            if OFF and (cfg.get("L",0)>0 or cfg.get("levels")): l.cuda()
             mods={n:l.get_submodule(n) for n in linn}
             Hs={}; nsm={}
             def mkh(key):
@@ -237,10 +244,12 @@ def run(cfg):
                     o=l(x,**kw)
                     cur[j]=o[0] if isinstance(o,tuple) else o   # table mode: layer unmodified -> fp propagation
             print("layer",oli,round(time.time()-t0),flush=True)
+            if OFF and (cfg.get("L",0)>0 or cfg.get("levels")): l.cpu(); torch.cuda.empty_cache()
     if mode=="table":
         out=dict(model=M,rot=rot,g=g,lay_lo=LO,lay_hi=HI,table=table)
         os.makedirs("/hf/v2tables",exist_ok=True); json.dump(out,open(f"/hf/v2tables/{M.replace('/','_')}_rot{int(rot)}_g{g}_{LO}_{HI}.json","w")); vol.commit()
         print("TABLE_JSON "+json.dumps(out),flush=True); return out
+    if OFF: model.cuda(); torch.cuda.empty_cache()
     # embedding quant
     emb=model.get_input_embeddings(); hdim=emb.weight.shape[1]; ebits=cfg.get("ebits",16)
     if ebits<16:
@@ -249,6 +258,18 @@ def run(cfg):
             blk=w[:,c:c+64]; s=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s,Lv)[0]
         emb.weight.data=wq.to(torch.bfloat16)
     lg=predict(ev,remap); pred=lg.argmax(1); acc=score(lg); agree=float((pred==base_pred).mean())
+    def fitb(lc,yc_):
+        b=torch.zeros(8,requires_grad=True); X=torch.tensor(lc); Y=torch.tensor(yc_)
+        opt=torch.optim.LBFGS([b],max_iter=100)
+        def cl():
+            opt.zero_grad(); l=torch.nn.functional.cross_entropy(X+b,Y)+1e-3*(b**2).sum(); l.backward(); return l
+        opt.step(cl); return b.detach().numpy()
+    acc_bias=agree_bias=base_acc_bias=None
+    if mode=="eval":
+        lgc=predict(CAL,remap); bq=fitb(lgc,yc); bb=fitb(base_lgc,yc)
+        acc_bias=score(lg+bq); agree_bias=float(((lg+bq).argmax(1)==(base_lg+bb).argmax(1)).mean()); base_acc_bias=score(base_lg+bb)
+        os.makedirs("/home/ubuntu/w/logits",exist_ok=True); np.save(f"/home/ubuntu/w/logits/{cfg.get('name','x')}.npy",lg)
+        if not os.path.exists(f"/home/ubuntu/w/logits/base_{M.replace('/','_')}.npy"): np.save(f"/home/ubuntu/w/logits/base_{M.replace('/','_')}.npy",base_lg)
     # ---- exact byte accounting (bits)
     lin_total=sum(l.get_submodule(n).weight.numel() for l in layers for n in linn)
     other_layer=sum(p.numel() for l in layers for p in l.parameters())-lin_total
@@ -260,13 +281,15 @@ def run(cfg):
     head_bits=8*hdim*16 + (0 if (keepN or tied) else V*hdim*16)
     misc_bits=(other_layer+model.model.norm.weight.numel())*16+cfg.get("slack_bytes",1_000_000)*8  # norms/biases fp16 + tokenizer/keeplist slack
     tot=body_bits+emb_bits+head_bits+misc_bits; base_bf16=base_params*2
-    res=dict(cfg={k:v for k,v in cfg.items() if k!="levels"},n_levels_cfg=len(levels),n=len(ev),base_acc=base_acc,acc=acc,agree=agree,
+    res=dict(acc_bias=acc_bias,agree_bias=agree_bias,base_acc_bias=base_acc_bias,cfg={k:v for k,v in cfg.items() if k!="levels"},n_levels_cfg=len(levels),n=len(ev),base_acc=base_acc,acc=acc,agree=agree,
         b_wrong=int(((base_pred==y)&(pred!=y)).sum()),c_fixed=int(((base_pred!=y)&(pred==y)).sum()),
         params=base_params,nkeep=nkeep,dropped=dropl,bytes=tot/8,ratio_bf16=tot/8/base_bf16,
         body_bpw=(body_bits/max(1,lin_total)),body_bpw_ent_only=stats["ent_bits"]/max(1,stats["nq"]),
         parts_MB=dict(body=body_bits/8e6,emb=emb_bits/8e6,head=head_bits/8e6,misc=misc_bits/8e6),
         oov=oov[0]/max(1,oov[1]),secs=time.time()-t0)
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
+
+run=app.function(image=img, gpu=["L40S","A100-40GB","A100-80GB","A10G"], timeout=14400, max_containers=40, volumes={"/hf":vol})(run_impl)
 
 @app.local_entrypoint()
 def main(cfgs:str, out:str):
