@@ -10,3 +10,4 @@ __pycache__/
 *.safetensors
 *.npy
 v2/c2_fb/feats/
+v2/demo/out/

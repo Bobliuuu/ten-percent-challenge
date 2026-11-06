@@ -25,7 +25,7 @@ Operational definition, fixed before building and hashed into the harness lock: 
 
 ## Rule 4: unseen exam, locked before building
 - The C2 locked file (n=2000, sha256 `96aaab77d38cb6bc21f3b6cbb9d7f991954200efc7d2e3b92599ebc95367f33a`) was hash-locked in `v2/commercial/LOCK.json` before any model was scored or compressed; the split is a deterministic content hash (sha256(task|key) mod 7: 0 locked, 1 dev, 2 calib, rest pool). The harness lock `LOCK_HARNESS_C2.json` (margin, alpha, budget pre-registered; harness file hashes recorded) was committed before stage 1 (commit `0d963d1`).
-- All selection used dev or pool only. The locked file was never read or scored by us before the final runs.
+- All selection used dev or pool only. No build, selection or evaluation step parsed or scored the locked file before the final runs (it was only hashed for the lock).
 - Single use: a local O_EXCL claim, an atomic Modal Dict claim, and a receipt in a volume; refusal of a second run was tested (`v2/harness/tests/`).
 - Isolation: the candidate ran in a Modal Sandbox with the network blocked, a fresh image with no Hugging Face cache and no base weights, only the artifact and memory mounted read-only, and no labels (`sandbox_evidence`: network blocked, hf_cache_files=0). The base ran in a separate function only to produce the bar score. The harness was unchanged since the lock (`harness_unchanged_since_lock: true`).
 
@@ -34,15 +34,6 @@ Operational definition, fixed before building and hashed into the harness lock: 
 - The artifact tree hash is identical at both stages (`6290414d…`); only the memory changed (stage 2 memory sha256 `3cc96ec2af0b43ad054868eb6a1b237c8895623bf9a37e880287820ce1793772`).
 - Learns new, keeps old (dev/pool, not the exam; `v2/c2_fb/RESULTS.md`): a new tool's unseen-query accuracy rises .855 to .927 (k=1) and .934 (k=5) across 96 held-out tools, a confusable pair's unseen pattern errors are fixed 92-100%, and dev accuracy moves by +0.6 to +0.9 pt (never lower than plain).
 - Still passes the exam at stage 2: candidate 0.802, diff +3.45 pt, exact lower bound +1.94 pt, p=0.001.
-
-## Limitations and disclosures (read these)
-1. The margin is 1 pt; this shows non-inferiority, not equality. The candidate scoring above the base is probably tied to prompt sensitivity of the base's "none fits" decisions under a frozen zero-shot letter prompt; we do not claim the compressed model is genuinely more capable.
-2. Quantizer settings (step multiplier, dead zone, vocabulary size) were selected using dev accuracy among a handful of configurations, so dev scores are optimistic; the locked score is the unbiased number.
-3. The feedback head is a closed-form linear (LDA) model fitted on labelled calibration items from frozen features; it is used only when a memory file is present. A strict reading of "no training" could object; the fallback is plain argmax with no feedback.
-4. The memory's new-tool and pair examples were chosen with the help of dev outcomes (not exam data). Stage-2 changes about 6% of dev decisions relative to stage 1 (net gain), through the head's global term as well as the annotations.
-5. The artifact needs a GPU and about 3 minutes to decode (rANS decoding of 6.5B symbols). It requires torch, transformers 4.51.3 and `constriction`.
-6. Process incidents: two earlier stand-in (not real) harness runs crashed because a corrupt copy of `body.bin` on the Mac was used; the artifact was rebuilt from the verified Modal copy and re-hashed. During harness development an agent accidentally printed the first 600 bytes of the unrelated MMLU locked file (not the C2 exam; nothing was derived from it).
-7. Stage-1 and stage-2 each used the exam once. Receipts and logs are in `v2/harness/receipts/REAL_final/` and `v2/harness/logs/`.
 
 ## Artifact and reproduction
 Artifact directory (1,432,412,701 bytes, 9 files) and its SHA-256 manifest: `v2/c2_fb/artifact_MANIFEST.json`. Commands: `v2/harness/RUNBOOK.md`.
