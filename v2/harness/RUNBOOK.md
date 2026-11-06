@@ -1,4 +1,33 @@
-# RUNBOOK: MDC-6 (primary) with the altpush Qwen2.5-7B-Instruct packed artifact. Stage 1 then stage 2.
+# RUNBOOK: C2 (tool selection among confusable tools), primary. Qwen2.5-7B-Instruct base, c2_fb artifact. (MDC-6 fallback section below.)
+Run from `~/ten-percent/v2/harness`. ALWAYS `modal run --detach`. Do not run the real exam until the artifact is final.
+
+Values: base `Qwen/Qwen2.5-7B-Instruct` bf16, 15,231,233,024 B (safetensors total_size), budget 1,523,123,302 B. Exam `../commercial/C2/locked.jsonl` (n=2000), task lock `../commercial/LOCK.json` (key `C2/locked`; a dry hash check of the locked file against it passed, nothing was read or scored). Artifact `ART=/Users/jhome/ten-percent-artifacts/artC2_fb_fixed` (1,432,412,701 B = 9.404%; body.bin from Modal volume tenpct-C-res:art_c120_dz15 sha 0304a803ae07..., plus c2_fb predict.py + head.npz). WARNING: the Mac copies `artC2_c120` and `artC2_fb` carry a CORRUPT body.bin (sha f828171461..., ANS decode fails in 6 streams) and must not be used; verify with `tests/` e2e or by decoding all modules before the real run. If c2_fb ships a newer artifact use that dir instead and re-run size_check.
+Prompt/bar: the frozen zero-shot letter prompt of `commercial/base_eval.py` (`inst`, `Text:`, lettered `Options:`, `Answer:`), 5 options (4 tools + "None of these tools can do this"), argmax of the 5 letter logits, raw bf16 base (no bias, no head). Candidate sees only `{id,task,text,names,inst}`: the harness WHITELISTS fields, so `gold_calls`, `irrelevant`, `tools`, `origin`, `answer` never reach it or the base.
+Contract (c2_fb predict.py): `load(art_dir, memory_path|None, use_bias=False) -> f(rows) -> 0-based option indices` (worker converts to letters). The head is part of the artifact tree (counted, hashed); memory is the closed-form JSON of `ingest()` and lives OUTSIDE ART. Env `TENPCT_NOHEAD` is not set in the sandbox.
+Pre-checks: `rm -rf ART/__pycache__; python size_check.py ART [--memory MEM1] --base-fp16-bytes 15231233024` must PASS.
+
+## 1. Lock the harness (once, before the final run; read-only; then do not edit harness files)
+```
+python lock.py --task c2 --exam-file ../commercial/C2/locked.jsonl --task-lock ../commercial/LOCK.json --split C2/locked \
+  --base-id Qwen/Qwen2.5-7B-Instruct --base-fp16-bytes 15231233024 --out LOCK_HARNESS_C2.json
+git add LOCK_HARNESS_C2.json && git commit -m "lock harness C2" && git push
+```
+## 2. Stage 1 (single use)
+```
+TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_C2.json --tag final --stage 1 \
+  --exam-file ../commercial/C2/locked.jsonl --artifact ART --cand-gpu L40S
+```
+## 3. Feedback (not the exam)
+Build MEM1 with `c2_fb` `ingest(art, annotations, None, MEM1)` using k annotations from `commercial/C2/pool.jsonl` / calib only. The artifact tree must not change.
+## 4. Stage 2 (single use; same tree hash, memory differs, memory bytes counted)
+```
+TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_C2.json --tag final --stage 2 \
+  --artifact ART --memory MEM1 --cand-gpu L40S
+```
+Receipts: `receipts/REAL_final/stage{1,2}.json`, also in the volume (`modal volume get tenpct-v2-exam receipts/ receipts_pulled/ --force`) and in the app log (`RECEIPT_JSON:`). Verdict fields and failure handling as in the MDC-6 section below (same code). Per DECISION.md a proof is filed only if stage 1 and stage 2 both PASS (`PASS_BOTH_STAGES`), size passes and the tree hash is identical.
+
+---------------------------------------------------------------
+# (fallback) MDC-6 with the altpush Qwen2.5-7B artifact
 (BitNet-2B backup: same commands with `--base-id microsoft/bitnet-b1.58-2B-4T-bf16 --base-fp16-bytes 4825641380`, and `TENPCT_TF=4.57.0` or any version >= 4.52 for both images.)
 Run from `~/ten-percent/v2/harness`. ALWAYS `modal run --detach`. Do not run against the real exam until the artifact is final.
 
