@@ -62,3 +62,6 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/compress_A sweep_A.py (task A PII, engine adapted): cfg_1.json 15 cfgs (fp baselines + uniform GPTQ L=3/4/6 on 1.5B/3B/7B) ap-ADnjPMffxvs1SzL3H1jINo 03:06 --detach; GPU list fallback (L40S/A100/A10G); Modal GPU-starved by other agents, AWS p4d no capacity.
 - v2/feedback2 ana.py local numpy on features (results_q15_L8.json); q05 feat app ap-02rVhZxnSMRFvbZgat0HnN stopped (no A10G capacity)
 - b3b: 3B ECSQ (c*group-rms step, deadzone dz, 8-bit scales) c1.2/dz.15: ratio .1005 acc .8039 agree .8875, acc_b(bias) .8547 vs base_b .868; c1.4/dz.1: ratio .0926 acc .781; results/out_b3b_*. c: 7B c1.2dz.15, 7B c1.0dz.25, 3B c1.0dz.25 running (out_c_*)
+- v2/lowbit build_artifact.py: bitnet2b ap-l8gkEU3Yzje0hEn7Skk78l (03:20), falcon-e 3B+1B ap-j6uIBTKSolIvazueZFm1TG (03:35); artifacts in Volume lowbit-data:/art/<tag>
+- v2/alt: Modal GPU queue stuck ~40min (backlog, 0 runners) for probe fn; deployed app tenpct-alt-probe3 (spawn_probe.py cfg_p1.json), results via 'modal app logs tenpct-alt-probe3'
+- big32.py (32B only, mem 96GB, broader GPU list) ap-AFSM7dGkglhpKVb9v1tT7M; 72B app ap-kBzN... still queued
