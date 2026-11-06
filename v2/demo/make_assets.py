@@ -105,6 +105,25 @@ def frontier_png():
     f.im.save(f"{OUT}/frontier.png")
 
 
+def task_card_png():
+    D = json.load(open(os.path.join(os.path.dirname(__file__), "demo_outputs.json")))
+    e = next(x for x in D["examples"] if x["base"]["pred"] == x["gold_idx"] == x["ours"]["pred"] and "subarray" in x["query"])
+    f = Fr(bg)
+    title(f, "The task: pick the right tool", "a real query from the dev set; 4 confusable tools, or 'none fits'")
+    f.rrect((80, 150, W - 80, 640), CARD, 22)
+    f.text(116, 176, "QUERY", 18, MUT, bold=True, under=CARD)
+    h = f.wtext(116, 206, e["query"], 30, TXT, W - 232, bold=True, under=CARD)
+    for i, name in enumerate(e["options"]):
+        y = 206 + h + 26 + i * 62
+        gold = i == e["gold_idx"]
+        f.rrect((116, y, W - 116, y + 52), mix(CARD2, GRN, 0.18) if gold else CARD2, 12, under=CARD, outline=(GRN if gold else None))
+        f.text(136, y + 26, f"{'ABCDE'[i]}   {name}", 24, TXT, under=CARD2, anchor="lm", mono=True)
+        if gold:
+            f.text(W - 140, y + 26, "correct", 22, GRN, bold=True, under=CARD2, anchor="rm")
+    f.text(640, 680, "the answer is one of 5 letters: that is why the output head can shrink to 5 rows", 20, MUT, anchor="ma")
+    f.im.save(f"{OUT}/task_card.png")
+
+
 def pipeline_png():
     f = Fr(bg)
     D = {"meta": {}}
@@ -113,5 +132,5 @@ def pipeline_png():
 
 
 if __name__ == "__main__":
-    size_png(); results_png(); frontier_png(); pipeline_png()
+    size_png(); results_png(); frontier_png(); pipeline_png(); task_card_png()
     print("assets written:", sorted(os.listdir(OUT)))

@@ -208,9 +208,9 @@ def s_how(f, t, d, D):
         a = rev(t, 1.0 + i * 3.0, 0.7)
         x = 50 + i * 244
         f.rrect((x, 230, x + 214, 470), CARD, 20, a=a, outline=col)
-        f.text(x + 107, 275, h, 30, col, bold=True, a=a, under=CARD, anchor="mm")
+        f.text(x + 107, 275, h, 26, col, bold=True, a=a, under=CARD, anchor="mm")
         for j, ln in enumerate(sub.split("\n")):
-            f.text(x + 107, 340 + j * 34, ln, 22, TXT, a=a, under=CARD, anchor="mm")
+            f.text(x + 107, 340 + j * 34, ln, 18, TXT, a=a, under=CARD, anchor="mm")
         if i < 4:
             f.text(x + 227, 350, ">", 40, MUT, a=a, anchor="mm")
     f.text(640, 560, "No retraining of the weights. The answer is one of five letters,", 26, MUT, a=rev(t, 14), anchor="ma")
