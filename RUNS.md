@@ -31,3 +31,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 ## v2/moe (Qwen3-30B-A3B-Instruct-2507 prune+quant sweep) 2026-11-06
 - 02:09 modal run --detach v2/moe/moe_sweep.py -> ap-Nd5vsC3yUJbqKwqz0sBpza (H100:2/A100-80GB:2; results /vol/results.json in volume moe-10pct-vol). Earlier apps ap-1h8zo.., ap-r9nr.. stopped (spawn never scheduled).
 - v2/alt base_eval.py (4 models MDC-6 dev) modal run --detach ap-maRPOeFFWWZpFZ3jKp8KQo 02:24
+- v2/prune smoke: ap-Ti6TO54xMEQVtjDHUHiBUe (02:10, modal run --detach prune.py --cfgs smoke.json), results volume tenpct-prune
