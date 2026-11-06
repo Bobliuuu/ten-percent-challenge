@@ -1,0 +1,62 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-nUhHrME3GymVFODFhTlGfA
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackQ/q.py
+├── ✓ Uploaded /Users/jhome/.cache/huggingface/token
+└── ✓ Created Function run.
+
+[1AGenerating validation split: 0 examples [00:00, ? examples/s]
+[1AGenerating validation split: 400 examples [00:00, 3830.38 examples/s]
+[1AGenerating validation split: 1200 examples [00:00, 6000.61 examples/s]
+[1AGenerating validation split: 2000 examples [00:00, 6546.60 examples/s]
+[1AGenerating validation split: 2800 examples [00:00, 6887.81 examples/s]
+[1AGenerating validation split: 3672 examples [00:00, 7096.76 examples/s]
+[1AGenerating validation split: 4572 examples [00:00, 7194.19 examples/s]
+[1AGenerating validation split: 5372 examples [00:00, 6789.96 examples/s]
+[1AGenerating validation split: 6172 examples [00:00, 6845.63 examples/s]
+[1AGenerating validation split: 7244 examples [00:01, 6764.83 examples/s]
+[1AGenerating validation split: 8144 examples [00:01, 6901.83 examples/s]
+[1AGenerating validation split: 9044 examples [00:01, 7119.84 examples/s]
+[1AGenerating validation split: 10144 examples [00:01, 7059.37 examples/s]
+[1AGenerating validation split: 11016 examples [00:01, 7316.29 examples/s]
+[1AGenerating validation split: 12116 examples [00:01, 7758.78 examples/s]
+[1AGenerating validation split: 13116 examples [00:01, 8214.11 examples/s]
+[1AGenerating validation split: 14116 examples [00:01, 8304.36 examples/s]
+[1AGenerating validation split: 15088 examples [00:02, 8481.43 examples/s]
+[1AGenerating validation split: 16388 examples [00:02, 8366.15 examples/s]
+[1AGenerating validation split: 17388 examples [00:02, 8642.58 examples/s]
+[1AGenerating validation split: 18660 examples [00:02, 8247.04 examples/s]
+[1AGenerating validation split: 19760 examples [00:02, 8605.38 examples/s]
+[1AGenerating validation split: 20660 examples [00:02, 8548.37 examples/s]
+[1AGenerating validation split: 21532 examples [00:02, 8537.37 examples/s]
+[1AGenerating validation split: 22532 examples [00:02, 8658.32 examples/s]
+[1AGenerating validation split: 23632 examples [00:03, 8841.22 examples/s]
+[1AGenerating validation split: 25103 examples [00:03, 8173.87 examples/s]
+[1AGenerating validation split: 26103 examples [00:03, 8219.15 examples/s]
+[1AGenerating validation split: 27003 examples [00:03, 8299.66 examples/s]
+[1AGenerating validation split: 28003 examples [00:03, 8416.26 examples/s]
+[1AGenerating validation split: 29374 examples [00:03, 8272.07 examples/s]
+[1AGenerating validation split: 30474 examples [00:03, 8588.16 examples/s]
+[1AGenerating validation split: 31574 examples [00:03, 8877.57 examples/s]
+[1AGenerating validation split: 32945 examples [00:04, 8637.54 examples/s]
+[1AGenerating validation split: 33845 examples [00:04, 8382.73 examples/s]
+[1AGenerating validation split: 34845 examples [00:04, 8388.17 examples/s]
+[1AGenerating validation split: 35816 examples [00:04, 8356.67 examples/s]
+[1AGenerating validation split: 36916 examples [00:04, 8824.30 examples/s]
+[1AGenerating validation split: 37916 examples [00:04, 9027.30 examples/s]
+[1AGenerating validation split: 38916 examples [00:04, 8788.70 examples/s]
+[1AGenerating validation split: 39887 examples [00:04, 8686.48 examples/s]
+[1AGenerating validation split: 40987 examples [00:05, 9008.26 examples/s]
+[1AGenerating validation split: 42387 examples [00:05, 8725.40 examples/s]
+[1AGenerating validation split: 43458 examples [00:05, 8692.21 examples/s]
+[1AGenerating validation split: 44458 examples [00:05, 8972.51 examples/s]
+[1AGenerating validation split: 45558 examples [00:05, 9166.70 examples/s]
+[1AGenerating validation split: 46529 examples [00:05, 8653.68 examples/s]
+[1AGenerating validation split: 47629 examples [00:05, 8961.35 examples/s]
+[1AGenerating validation split: 48629 examples [00:05, 8799.06 examples/s]
+[1AGenerating validation split: 49729 examples [00:06, 8867.33 examples/s]Generating validation split: 50000 examples [00:06, 8237.02 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.8615937829017639, "agree": 1.0}, "sec": 9.993317127227783}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.12152722933964906, "ratio_fix": 0.1376102329678173, "dev": {"acc": 0.8558018803596497, "agree": 0.966646671295166}, "sec": 23.833356857299805}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.09576951603401065, "ratio_fix": 0.1070931619326214, "dev": {"acc": 0.8390253782272339, "agree": 0.9169163107872009}, "sec": 23.63034462928772}
+{"cfg": {"method": "gptq", "alpha": 1.0, "g": 128}, "ratio_ent": 0.07953094300725916, "ratio_fix": 0.2596785171086009, "dev": {"acc": 0.8480128049850464, "agree": 0.9354903101921082}, "sec": 23.104440212249756}

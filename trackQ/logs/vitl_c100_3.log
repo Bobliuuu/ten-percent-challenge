@@ -1,0 +1,20 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-n5L0c5YwfffROgiD6ofZik
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackQ/q.py
+├── ✓ Uploaded /Users/jhome/.cache/huggingface/token
+└── ✓ Created Function run.
+
+[1ALoading weights:   0%|          | 0/392 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 392/392 [00:00<00:00, 4601.86it/s]
+
+[1AGenerating train split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating train split:  30%|███       | 15100/50000 [00:00<00:00, 149897.97 examples/s]
+[1AGenerating train split:  69%|██████▉   | 34700/50000 [00:00<00:00, 176178.80 examples/s]
+[1AGenerating train split: 100%|██████████| 50000/50000 [00:00<00:00, 182363.58 examples/s]
+
+[1AGenerating test split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000 [00:00<00:00, 179600.66 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.9322947859764099, "agree": 1.0}, "sec": 27.349685668945312}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.11595040411256242, "ratio_fix": 0.12967412718031143, "dev": {"acc": 0.9316956400871277, "agree": 0.9868184328079224}, "sec": 70.35716700553894}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.08869606285691005, "ratio_fix": 0.09848879052181135, "dev": {"acc": 0.9231076240539551, "agree": 0.9676452875137329}, "sec": 69.92252159118652}
