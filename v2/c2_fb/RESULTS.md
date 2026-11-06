@@ -11,28 +11,28 @@ Score per option = log-softmax(base letter logits) + lam0 * LDA_relevance(option
 `ingest(art, annotations, mem_in, mem_out)` does one forward pass over the annotated rows, then folds each into those statistics (no gradients). An annotation = the correct option index (4 = none fits); right/wrong is inferred by comparing with the system's own answer before the update.
 Hyper-parameters (lam0=1.0, lam_t=2, n0t=2, eta=1, a=0.5, eta_n=1) were tuned only on pool (annotations from calib+pool-half-A, evaluation on pool-half-B), then run once on dev.
 
-## k=0 gate (the shipped head is ON at k=0, it helps)
-Chosen on pool: lam0=1.0 (pool acc .7788 -> .7952, irrelevance recall .594 -> .627). On dev: raw bf16-faithful artifact .804 (harness-style batch 32 re-extraction; the packed-artifact run gave .8025) -> .812 with the head (irrelevance recall .591 -> .621, relevant .852 -> .855). If the maintainer wants the exact reproduction of the .8025 headline, `TENPCT_NOHEAD=1` (or setting meta lam0=0) gives the plain argmax. The head is fit on calib, so it is part of the artifact (bytes counted), not feedback.
+## Gate / stage-1 contract (updated on coordinator request)
+`predict.load(art, None)` (stage 1, no memory) NEVER consults the head: decisions are the plain letter-logit argmax of art_c120_dz15 (verified by `verify_final.py`, see below). `head.npz` (476,506 B) sits in the artifact tree and is counted, but is only used when a non-empty memory file is supplied (lam0=1.0 term + memory terms). Reason: the head alone adds +0.8 pt on dev (.804 -> .812, pool .7788 -> .7952, lam0 chosen on pool), but that gain is only claimed together with feedback, so stage 1 stays identical to the plain artifact. The "before" columns below are therefore the PLAIN artifact (dev .804 in the feature-extraction run, .8025 in the packed-artifact run; 3 items differ by batch size) and the "after" columns are with memory (head on). Part of every "after" gain on dev total (+0.7 pt) is the head's lam0 term, not the annotation; retention rows should be read with that in mind.
 
 ## S2: NEW tool, k annotated queries for it (96 held-out tools, 4 folds; the head used for a tool's fold was refit WITHOUT any calib item showing a fold tool), eval = UNSEEN dev items whose gold is that tool; retention = full dev acc; 12 seeds
-| k | tools | unseen dev items | new-tool acc before -> after | dev acc before -> after | annotated items acc after | memory bytes |
+| k | tools | unseen dev items | new-tool acc before -> after | dev acc before -> after | annotated items acc after | memory bytes (one tool) |
 |---|---|---|---|---|---|---|
-| 1 | 96 | n=519 | .865 -> .927 | .8123 -> .8120 | .989 | 436 |
-| 5 | 96 | n=519 | .865 -> .934 | .8123 -> .8110 | .990 | 436 |
-| 10 | 63 | n=380 (tools with >=11 annotation items) | .874 -> .927 | .8122 -> .8107 | .992 | 440 |
-| 25 | 5 | n=67 | .552 -> .583 | .8116 -> .8096 | .974 | 446 |
-Hard subset (tools the base mostly gets wrong, base acc <= .6): k=1 13 tools (82 items) .256 -> .538; k=5 .256 -> .586; k=10 6 tools .196 -> .454. Note: k=25 only exists for 5 tools in C2 (annotations are scarce per tool; 'search' dominates), so the k=25 row is low-n and not representative. Memory per tool ~ 440 B (64 fp32 + count), 10 new tools ~ 4.4 KB.
-Retention cost: -0.03 to -0.2 pt dev (mostly from the added tool-bias terms); never an improvement.
+| 1 | 96 | 519 | .855 -> .927 | .804 -> .812 | .989 | 436 |
+| 5 | 96 | 519 | .855 -> .934 | .804 -> .811 | .990 | 436 |
+| 10 | 63 (>=11 annotation items) | 380 | .861 -> .927 | .804 -> .8107 | .992 | 440 |
+| 25 | 5 (only 5 tools have 26+ items) | 67 | .537 -> .583 | .804 -> .8096 | .973 | 446 |
+Hard subset (tools the plain artifact mostly gets wrong, acc <= .6): k=1 14 tools / 87 items .230 -> .564; k=5 .230 -> .610; k=10 7 tools / 56 items .161 -> .503; k=25 1 tool .0 -> .037. k=25 is low-n (annotations are scarce per tool in C2). 10 new tools ~ 4.4 KB.
 
-## S3: confusable pair (tool A wrongly picked for B), k annotated pattern errors; eval = unseen dev items with the same A/B error pattern (the pattern errors of the base) and dev items offering both with gold in {A,B}
+## S3: confusable pair (tool A wrongly picked for B), k annotated pattern errors from pool; eval = unseen dev items with the same A->B error pattern of the plain artifact, and dev items offering both tools with gold in {A,B}
 | k | patterns | unseen pattern errors fixed | group acc before -> after | dev before -> after | bytes |
 |---|---|---|---|---|---|
-| 1 | 15 (35 err items) | 94% | .357 -> .634 | .8120 -> .8115 | ~456 |
-| 5 | 6 (12 err items) | 100% | .381 -> .692 | .8120 -> .8099 | ~458 |
-(Only pairs with >=2 dev error items are scored; k=10/25 do not exist for pairs in C2.)
+| 1 | 14 (35 err items) | 92% | .337 -> .651 | .804 -> .8117 | ~450 |
+| 5 | 5 (13 err items) | 100% | .249 -> .817 | .804 -> .8115 | ~455 |
+(Only patterns with >=2 dev error items are scored; k=10/25 do not exist for pairs in C2.)
 
-## S1: systematic 'none fits' miscalibration, errors-only annotation (none-related errors in pool), unseen = dev items with none-related errors
-Honest result: weak. Natural dev none-related errors are two-sided (over- and under-calling none), so a one-dimensional none bias cannot fix them: k=1..25 changes the fixed-fraction of those errors by +1 to +2 pt and dev by -0.5 pt (k=1) to 0 pt (k=25). With an injected systematic shift of the none logit (+3 / -3 / +6 added to the deployed model): +3 dev .802 -> .798/.802/.807/.805 (k=1/5/10/25); -3 .806 -> .809/.808/.808/.808; +6 .7625 -> .769/.789/.786/.778 (recovers up to +2.6 pt of the 4.8 pt lost). Irrelevance accuracy moves +1..+3 pt. The only real S1 gain is the k=0 head (+3 pt irrelevance recall). The prototype for 'none' (lam_n) was tested on pool and did not beat the count bias, so it ships off. Say S1 is a limited fix, not a headline.
+## S1: systematic 'none fits' miscalibration, annotations = none-related errors from pool; unseen = dev items with none-related errors
+Natural (no shift), plain .804, irrelevance recall .591: after memory k=1/5/10/25 dev .8083/.8100/.8094/.8109, irrelevance .597/.631/.630/.626, fraction of the plain none-related errors fixed 11-14% (mostly the head term; the count bias adds little because natural none errors are two-sided).
+Injected systematic shift of the deployed none logit (added to the raw E logit for deployed model, annotations and eval): shift +3: plain dev .739 -> .8016/.8036/.8053/.8064 (k=1/5/10/25), unseen none-errors fixed 39-40%; shift -3: .8005 -> .807/.808/.808/.809; shift +6: .492 -> .781/.783/.788/.787 (66-68% fixed). So a strongly miscalibrated none option is repaired by 1 annotation (log-count-ratio bias, 1 scalar), and a mild natural miscalibration is not a one-dimensional problem. The none prototype (lam_n) did not beat the count bias on pool; it ships off.
 
 ## Why this is not RAG and not weight training
 - No weights change (artifact tree hash identical before/after feedback; only the memory JSON differs). No gradients, no optimiser.

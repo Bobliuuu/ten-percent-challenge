@@ -1,0 +1,45 @@
+{
+ "tree_sha256": "d0e5836155881d6384cfdd9883944766b0a2cfee0a76d563142d78d21e38da0a",
+ "tree_scheme": "sha256 over sorted(os.walk): relpath bytes + sha256(file) digest bytes",
+ "total_bytes": 1432412701,
+ "files": {
+  "body.bin": {
+   "sha256": "f828171461298823a446eb28f30328a7c4d850ee96d9584470dfafcdbb3c9ada",
+   "bytes": 1383834952
+  },
+  "config.json": {
+   "sha256": "7828f592b6286e3c101f79b3099f2c7ad20631a36066956317221e7fb58c49ab",
+   "bytes": 1805
+  },
+  "emb.bin": {
+   "sha256": "4c32c1dc369de3453de2b488fd5d6607ab559f7c830f258731cf843276ea87e5",
+   "bytes": 46033008
+  },
+  "head.npz": {
+   "sha256": "0531b1649d1345e2276a4301e71483226a37d73290ac0f8ad4f9947cf981c143",
+   "bytes": 476506
+  },
+  "index.json.xz": {
+   "sha256": "ee7040032a7d5826a3438dd1fd431b42401d89b9c7318c97753fe2136925b419",
+   "bytes": 35920
+  },
+  "misc.bin.xz": {
+   "sha256": "d5394370ab38a2c3de769fdec3ecde15e20f62ea899ca6fff6bab59f8b24e816",
+   "bytes": 491640
+  },
+  "predict.py": {
+   "sha256": "b09b66c8fb7b9acf389b20c274463593bf8af03a68099f6bfcbfa97794fdf10d",
+   "bytes": 11986
+  },
+  "signs.bin": {
+   "sha256": "133e1d84dc874619a945bb2e51aef17487b656c4f5fab5c879615259a3885c1c",
+   "bytes": 103936
+  },
+  "tok.tar.xz": {
+   "sha256": "b855a59378fd70df4f5d3f3281b8981aab80e27ce3de502f63cac69f1393efae",
+   "bytes": 1422948
+  }
+ },
+ "mac_copy": "/Users/jhome/ten-percent-artifacts/artC2_fb",
+ "modal_volume": "tenpct-c2fb:/art_c2fb"
+}

@@ -44,11 +44,12 @@ class Ctx:
         s.H, s.rows, s.y = H, rows, y; s.L = L.copy(); s.L[:, 4] += delta
         s.U = H.proj(FO); s.G = H.gscore(s.U); s.N = len(rows)
         s.T = np.array([[tn(n) for n in r["names"][:4]] for r in rows])
-        s.S0 = P._lsm(s.L[:, :5].astype(np.float64)) + H.pr["lam0"] * s.G
+        s.Sp = P._lsm(s.L[:, :5].astype(np.float64)); s.S0 = s.Sp + H.pr["lam0"] * s.G
         s.mg = s.S0[:, 4] - s.S0[:, :4].max(1)
     def scores(s, M):
-        p = s.H.pr; S = s.S0.copy()
-        if M.empty(): return S
+        p = s.H.pr
+        if M.empty(): return s.Sp.copy()
+        S = s.S0.copy()
         if P.NONE in M.tp: x, z = M.tp[P.NONE]; S[:, 4] += p["eta_n"] * np.log((x + p["ba"]) / (z + p["ba"]))
         if P.NONE in M.proto:
             mu = P._dec(M.proto[P.NONE]["mu"]); d = s.H.Ci @ (mu - s.H.m[3]); S[:, 4] += p["lam_n"] * ((s.U[:, 4] - 0.5 * (mu + s.H.m[3])) @ d)

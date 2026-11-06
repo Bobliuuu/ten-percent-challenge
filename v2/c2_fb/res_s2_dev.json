@@ -4,42 +4,42 @@
    "1": {
     "n_tools": 96,
     "n_eval": 519,
-    "new_before": 0.8651252408477842,
+    "new_before": 0.8554913294797688,
     "new_after": 0.9269428387925498,
-    "dev_before": 0.81225,
-    "dev_after": 0.8119635416666666,
+    "dev_before": 0.8040000000000002,
+    "dev_after": 0.8119657118055557,
     "ann_after": 0.9887604367373155,
-    "bytes": 435.82204861111114
+    "bytes": 436.015625
    },
    "5": {
     "n_tools": 96,
     "n_eval": 519,
-    "new_before": 0.8651252408477842,
+    "new_before": 0.8554913294797688,
     "new_after": 0.9343288375080283,
-    "dev_before": 0.81225,
-    "dev_after": 0.8110112847222221,
+    "dev_before": 0.8040000000000002,
+    "dev_after": 0.8110130208333333,
     "ann_after": 0.9899165061014772,
-    "bytes": 436.0442708333333
+    "bytes": 436.3098958333333
    },
    "10": {
     "n_tools": 63,
     "n_eval": 380,
-    "new_before": 0.8736842105263158,
+    "new_before": 0.8605263157894737,
     "new_after": 0.9267543859649123,
-    "dev_before": 0.8121587301587299,
-    "dev_after": 0.8107056878306877,
+    "dev_before": 0.8040000000000004,
+    "dev_after": 0.8107149470899472,
     "ann_after": 0.9917324561403509,
-    "bytes": 440.4563492063492
+    "bytes": 440.6441798941799
    },
    "25": {
     "n_tools": 5,
     "n_eval": 67,
-    "new_before": 0.5522388059701493,
+    "new_before": 0.5373134328358209,
     "new_after": 0.5833333333333334,
-    "dev_before": 0.8116,
-    "dev_after": 0.8095916666666666,
-    "ann_after": 0.9740298507462685,
-    "bytes": 445.95
+    "dev_before": 0.804,
+    "dev_after": 0.8096249999999999,
+    "ann_after": 0.9725870646766168,
+    "bytes": 446.2666666666666
    }
   },
   "detail": {
@@ -50,7 +50,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 456.0
@@ -61,7 +61,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -70,12 +70,12 @@
      "t": "calculate_distance",
      "n_ann": 19,
      "n_eval": 6,
-     "base_new": 1.0,
+     "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8107500000000001,
+     "base_dev": 0.804,
+     "dev": 0.810625,
      "ann_after": 1.0,
-     "bytes": 436.25
+     "bytes": 443.0
     },
     {
      "t": "calculate_investment_return",
@@ -83,7 +83,7 @@
      "n_eval": 13,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8102083333333333,
      "ann_after": 1.0,
      "bytes": 452.0
@@ -94,10 +94,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8130000000000001,
+     "base_dev": 0.804,
+     "dev": 0.81275,
      "ann_after": 1.0,
-     "bytes": 434.3333333333333
+     "bytes": 442.25
     },
     {
      "t": "cosine_similarity",
@@ -105,7 +105,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -116,7 +116,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 458.0
@@ -125,9 +125,9 @@
      "t": "euclidean_distance",
      "n_ann": 15,
      "n_eval": 8,
-     "base_new": 0.75,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8106666666666668,
      "ann_after": 1.0,
      "bytes": 449.75
@@ -138,7 +138,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -149,7 +149,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8128333333333334,
      "ann_after": 1.0,
      "bytes": 464.0
@@ -160,10 +160,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.812875,
+     "base_dev": 0.804,
+     "dev": 0.8130000000000001,
      "ann_after": 1.0,
-     "bytes": 426.75
+     "bytes": 422.0
     },
     {
      "t": "get_city_from_zipcode",
@@ -171,7 +171,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -180,12 +180,12 @@
      "t": "get_order",
      "n_ann": 12,
      "n_eval": 3,
-     "base_new": 0.3333333333333333,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.814,
+     "base_dev": 0.804,
+     "dev": 0.8138749999999999,
      "ann_after": 1.0,
-     "bytes": 433.5
+     "bytes": 433.0
     },
     {
      "t": "getuserbyname",
@@ -193,7 +193,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8123333333333335,
      "ann_after": 1.0,
      "bytes": 424.0
@@ -204,10 +204,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8130000000000001,
+     "base_dev": 0.804,
+     "dev": 0.8129166666666667,
      "ann_after": 1.0,
-     "bytes": 434.0
+     "bytes": 437.1666666666667
     },
     {
      "t": "is_valid_ip_address",
@@ -215,7 +215,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -226,7 +226,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -237,10 +237,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
-     "bytes": 436.5
+     "bytes": 433.25
     },
     {
      "t": "monthly_mortgage_payment",
@@ -248,7 +248,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -259,7 +259,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -270,7 +270,7 @@
      "n_eval": 3,
      "base_new": 0.6666666666666666,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8134999999999999,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -281,7 +281,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.81225,
      "ann_after": 1.0,
      "bytes": 437.0
@@ -292,7 +292,7 @@
      "n_eval": 14,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8125,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -303,7 +303,7 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
      "bytes": 434.6666666666667
@@ -314,7 +314,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 438.0
@@ -325,7 +325,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8147916666666665,
      "ann_after": 1.0,
      "bytes": 425.5833333333333
@@ -336,7 +336,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -347,7 +347,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -358,7 +358,7 @@
      "n_eval": 12,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -369,7 +369,7 @@
      "n_eval": 10,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -380,10 +380,10 @@
      "n_eval": 7,
      "base_new": 0.5714285714285714,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.8148333333333334,
+     "base_dev": 0.804,
+     "dev": 0.8154583333333334,
      "ann_after": 1.0,
-     "bytes": 422.75
+     "bytes": 421.5
     },
     {
      "t": "final_velocity",
@@ -391,7 +391,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -402,7 +402,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 466.0
@@ -413,7 +413,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -424,7 +424,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 420.0
@@ -433,9 +433,9 @@
      "t": "get_holidays_by_year",
      "n_ann": 11,
      "n_eval": 4,
-     "base_new": 0.5,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8155,
      "ann_after": 1.0,
      "bytes": 448.5
@@ -444,9 +444,9 @@
      "t": "get_pokemon_move_info",
      "n_ann": 17,
      "n_eval": 7,
-     "base_new": 0.8571428571428571,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8155,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -457,7 +457,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -468,7 +468,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -479,10 +479,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
-     "bytes": 439.6666666666667
+     "bytes": 436.0
     },
     {
      "t": "linear_regression_prediction",
@@ -490,7 +490,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8145833333333332,
      "ann_after": 1.0,
      "bytes": 457.1666666666667
@@ -501,7 +501,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -512,7 +512,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -523,7 +523,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -534,7 +534,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 429.5833333333333
@@ -545,7 +545,7 @@
      "n_eval": 29,
      "base_new": 0.0,
      "new": 0.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8125,
      "ann_after": 0.8333333333333334,
      "bytes": 429.0
@@ -556,7 +556,7 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.816125,
      "ann_after": 1.0,
      "bytes": 430.1666666666667
@@ -567,10 +567,10 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 0.4791666666666667,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8154583333333334,
      "ann_after": 1.0,
-     "bytes": 437.3333333333333
+     "bytes": 438.75
     },
     {
      "t": "average",
@@ -578,7 +578,7 @@
      "n_eval": 10,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8082083333333334,
      "ann_after": 1.0,
      "bytes": 412.0
@@ -589,7 +589,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -600,7 +600,7 @@
      "n_eval": 6,
      "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
      "bytes": 440.5
@@ -611,7 +611,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -622,10 +622,10 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8090833333333333,
+     "base_dev": 0.804,
+     "dev": 0.8091666666666667,
      "ann_after": 1.0,
-     "bytes": 455.5833333333333
+     "bytes": 457.1666666666667
     },
     {
      "t": "density",
@@ -633,7 +633,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 412.0
@@ -644,7 +644,7 @@
      "n_eval": 3,
      "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8071666666666668,
      "ann_after": 1.0,
      "bytes": 444.5833333333333
@@ -655,7 +655,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8085000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -666,7 +666,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -677,7 +677,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -688,7 +688,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8053750000000001,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -697,9 +697,9 @@
      "t": "get_ip_location",
      "n_ann": 16,
      "n_eval": 7,
-     "base_new": 0.42857142857142855,
+     "base_new": 0.2857142857142857,
      "new": 0.8928571428571429,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8105000000000001,
      "ann_after": 1.0,
      "bytes": 432.5
@@ -710,7 +710,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 438.0
@@ -721,7 +721,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 450.0
@@ -732,7 +732,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8080833333333333,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -743,7 +743,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -752,10 +752,10 @@
      "t": "loginuser",
      "n_ann": 18,
      "n_eval": 4,
-     "base_new": 1.0,
+     "base_new": 0.75,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8091666666666666,
      "ann_after": 1.0,
      "bytes": 431.8333333333333
     },
@@ -765,10 +765,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8090833333333333,
      "ann_after": 1.0,
-     "bytes": 434.0
+     "bytes": 435.5833333333333
     },
     {
      "t": "numerical_derivative",
@@ -776,7 +776,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 438.0
@@ -787,7 +787,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -798,7 +798,7 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8074583333333334,
      "ann_after": 1.0,
      "bytes": 448.0
@@ -809,7 +809,7 @@
      "n_eval": 3,
      "base_new": 0.6666666666666666,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8098333333333333,
      "ann_after": 1.0,
      "bytes": 427.3333333333333
@@ -820,7 +820,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -829,20 +829,20 @@
      "t": "whois",
      "n_ann": 18,
      "n_eval": 5,
-     "base_new": 0.8,
+     "base_new": 0.6,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
-     "bytes": 425.5
+     "bytes": 423.75
     },
     {
      "t": "bacterial_growth",
      "n_ann": 30,
      "n_eval": 11,
-     "base_new": 1.0,
+     "base_new": 0.9090909090909091,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -853,7 +853,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -864,7 +864,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -875,7 +875,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8110833333333335,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -886,10 +886,10 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8053750000000001,
+     "base_dev": 0.804,
+     "dev": 0.8051666666666666,
      "ann_after": 1.0,
-     "bytes": 434.75
+     "bytes": 443.0
     },
     {
      "t": "dice_roll_probability",
@@ -897,7 +897,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8103333333333335,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -908,10 +908,10 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 0.9791666666666666,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8114583333333334,
      "ann_after": 1.0,
-     "bytes": 443.25
+     "bytes": 444.75
     },
     {
      "t": "find_first_non_repeating_char",
@@ -919,7 +919,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 456.0
@@ -930,7 +930,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -941,7 +941,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.81175,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -952,7 +952,7 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -963,7 +963,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119166666666667,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -974,7 +974,7 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 0.25,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.81175,
      "ann_after": 0.75,
      "bytes": 416.75
@@ -985,10 +985,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8097916666666666,
+     "base_dev": 0.804,
+     "dev": 0.8098749999999999,
      "ann_after": 1.0,
-     "bytes": 417.5833333333333
+     "bytes": 416.0
     },
     {
      "t": "is_rotation",
@@ -996,7 +996,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.811875,
      "ann_after": 1.0,
      "bytes": 420.0
@@ -1007,7 +1007,7 @@
      "n_eval": 5,
      "base_new": 0.4,
      "new": 0.4000000000000001,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.81175,
      "ann_after": 1.0,
      "bytes": 422.25
@@ -1018,10 +1018,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8119999999999999,
+     "base_dev": 0.804,
+     "dev": 0.8119166666666667,
      "ann_after": 1.0,
-     "bytes": 446.0
+     "bytes": 447.5833333333333
     },
     {
      "t": "min_meeting_rooms",
@@ -1029,7 +1029,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8115000000000001,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -1040,7 +1040,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8115000000000001,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -1051,7 +1051,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -1062,7 +1062,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -1073,7 +1073,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -1084,10 +1084,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8119999999999999,
+     "base_dev": 0.804,
+     "dev": 0.8119166666666667,
      "ann_after": 1.0,
-     "bytes": 424.0
+     "bytes": 425.5833333333333
     },
     {
      "t": "wire_resistance",
@@ -1095,7 +1095,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1108,7 +1108,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 456.0
@@ -1119,7 +1119,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1128,12 +1128,12 @@
      "t": "calculate_distance",
      "n_ann": 19,
      "n_eval": 6,
-     "base_new": 1.0,
+     "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
-     "bytes": 438.5
+     "bytes": 440.75
     },
     {
      "t": "calculate_investment_return",
@@ -1141,7 +1141,7 @@
      "n_eval": 13,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
      "bytes": 452.0
@@ -1152,10 +1152,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8130000000000001,
+     "base_dev": 0.804,
+     "dev": 0.812875,
      "ann_after": 1.0,
-     "bytes": 439.0833333333333
+     "bytes": 443.8333333333333
     },
     {
      "t": "cosine_similarity",
@@ -1163,7 +1163,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -1174,7 +1174,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 458.0
@@ -1183,12 +1183,12 @@
      "t": "euclidean_distance",
      "n_ann": 15,
      "n_eval": 8,
-     "base_new": 0.75,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
-     "bytes": 443.0
+     "bytes": 440.75
     },
     {
      "t": "find_kth_smallest_number",
@@ -1196,7 +1196,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -1207,7 +1207,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8036666666666666,
      "ann_after": 1.0,
      "bytes": 464.0
@@ -1218,7 +1218,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -1229,7 +1229,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1238,12 +1238,12 @@
      "t": "get_order",
      "n_ann": 12,
      "n_eval": 3,
-     "base_new": 0.3333333333333333,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.814,
+     "base_dev": 0.804,
+     "dev": 0.8138749999999999,
      "ann_after": 1.0,
-     "bytes": 431.75
+     "bytes": 427.75
     },
     {
      "t": "getuserbyname",
@@ -1251,7 +1251,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8099583333333333,
      "ann_after": 1.0,
      "bytes": 424.0
@@ -1262,10 +1262,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8129583333333334,
+     "base_dev": 0.804,
+     "dev": 0.8129166666666667,
      "ann_after": 1.0,
-     "bytes": 434.0
+     "bytes": 435.5833333333333
     },
     {
      "t": "is_valid_ip_address",
@@ -1273,7 +1273,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8121666666666667,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -1284,7 +1284,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1295,10 +1295,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
-     "bytes": 434.3333333333333
+     "bytes": 431.0833333333333
     },
     {
      "t": "monthly_mortgage_payment",
@@ -1306,7 +1306,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -1317,7 +1317,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8115833333333334,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1328,7 +1328,7 @@
      "n_eval": 3,
      "base_new": 0.6666666666666666,
      "new": 0.9444444444444443,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8134166666666666,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -1339,7 +1339,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 431.5
@@ -1350,7 +1350,7 @@
      "n_eval": 14,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8112500000000001,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -1361,7 +1361,7 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
      "bytes": 431.75
@@ -1372,7 +1372,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8145000000000001,
      "ann_after": 1.0,
      "bytes": 438.0
@@ -1383,10 +1383,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.8144166666666665,
+     "base_dev": 0.804,
+     "dev": 0.8142083333333332,
      "ann_after": 1.0,
-     "bytes": 425.5833333333333
+     "bytes": 427.1666666666667
     },
     {
      "t": "calculate_electric_field",
@@ -1394,7 +1394,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -1405,7 +1405,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -1416,7 +1416,7 @@
      "n_eval": 12,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -1427,7 +1427,7 @@
      "n_eval": 10,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -1438,10 +1438,10 @@
      "n_eval": 7,
      "base_new": 0.5714285714285714,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.8140833333333334,
+     "base_dev": 0.804,
+     "dev": 0.8145000000000001,
      "ann_after": 1.0,
-     "bytes": 421.1666666666667
+     "bytes": 420.3333333333333
     },
     {
      "t": "final_velocity",
@@ -1449,7 +1449,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8140833333333334,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -1460,7 +1460,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.81175,
      "ann_after": 1.0,
      "bytes": 466.0
@@ -1471,7 +1471,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8148333333333334,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -1482,7 +1482,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 420.0
@@ -1491,9 +1491,9 @@
      "t": "get_holidays_by_year",
      "n_ann": 11,
      "n_eval": 4,
-     "base_new": 0.5,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8155,
      "ann_after": 1.0,
      "bytes": 448.4166666666667
@@ -1502,9 +1502,9 @@
      "t": "get_pokemon_move_info",
      "n_ann": 17,
      "n_eval": 7,
-     "base_new": 0.8571428571428571,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8152500000000001,
      "ann_after": 1.0,
      "bytes": 441.5833333333333
@@ -1515,7 +1515,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -1526,7 +1526,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 422.0
@@ -1537,10 +1537,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8116249999999999,
      "ann_after": 1.0,
-     "bytes": 439.4166666666667
+     "bytes": 437.5833333333333
     },
     {
      "t": "linear_regression_prediction",
@@ -1548,10 +1548,10 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.8147916666666665,
+     "base_dev": 0.804,
+     "dev": 0.8149999999999998,
      "ann_after": 1.0,
-     "bytes": 455.5833333333333
+     "bytes": 454.0
     },
     {
      "t": "merge_dictionaries",
@@ -1559,7 +1559,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8142916666666667,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -1570,7 +1570,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -1581,7 +1581,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8134166666666668,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -1592,7 +1592,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149583333333332,
      "ann_after": 1.0,
      "bytes": 431.1666666666667
@@ -1603,10 +1603,10 @@
      "n_eval": 29,
      "base_new": 0.0,
      "new": 0.04597701149425287,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8121666666666666,
      "ann_after": 0.8833333333333333,
-     "bytes": 429.0
+     "bytes": 430.5833333333333
     },
     {
      "t": "std_deviation",
@@ -1614,7 +1614,7 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8135,
      "ann_after": 1.0,
      "bytes": 430.1666666666667
@@ -1625,7 +1625,7 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 0.6666666666666666,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8156666666666665,
      "ann_after": 1.0,
      "bytes": 435.9166666666667
@@ -1636,7 +1636,7 @@
      "n_eval": 10,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8066666666666666,
      "ann_after": 1.0,
      "bytes": 412.0
@@ -1647,7 +1647,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8086666666666668,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1658,10 +1658,10 @@
      "n_eval": 6,
      "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8093749999999998,
      "ann_after": 1.0,
-     "bytes": 439.0
+     "bytes": 443.5
     },
     {
      "t": "california_alimony",
@@ -1669,7 +1669,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8079583333333332,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -1680,7 +1680,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8090833333333333,
      "ann_after": 1.0,
      "bytes": 455.5833333333333
@@ -1691,7 +1691,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 412.0
@@ -1702,10 +1702,10 @@
      "n_eval": 3,
      "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8043333333333332,
      "ann_after": 1.0,
-     "bytes": 451.1666666666667
+     "bytes": 450.8333333333333
     },
     {
      "t": "find_duplicate_number",
@@ -1713,7 +1713,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8052083333333332,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1724,7 +1724,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8050416666666665,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1735,7 +1735,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8058333333333335,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -1746,7 +1746,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8017083333333335,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -1755,12 +1755,12 @@
      "t": "get_ip_location",
      "n_ann": 16,
      "n_eval": 7,
-     "base_new": 0.42857142857142855,
+     "base_new": 0.2857142857142857,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8083749999999998,
+     "base_dev": 0.804,
+     "dev": 0.8082916666666665,
      "ann_after": 1.0,
-     "bytes": 438.5833333333333
+     "bytes": 437.9166666666667
     },
     {
      "t": "getlearningresources",
@@ -1768,10 +1768,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8090833333333333,
      "ann_after": 1.0,
-     "bytes": 438.0
+     "bytes": 439.5833333333333
     },
     {
      "t": "independent_samples_t_test",
@@ -1779,7 +1779,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 450.0
@@ -1790,7 +1790,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8042500000000001,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1801,7 +1801,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1810,9 +1810,9 @@
      "t": "loginuser",
      "n_ann": 18,
      "n_eval": 4,
-     "base_new": 1.0,
+     "base_new": 0.75,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.808625,
      "ann_after": 1.0,
      "bytes": 435.0
@@ -1823,10 +1823,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.808625,
+     "base_dev": 0.804,
+     "dev": 0.80875,
      "ann_after": 1.0,
-     "bytes": 434.0
+     "bytes": 437.1666666666667
     },
     {
      "t": "numerical_derivative",
@@ -1834,7 +1834,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8090833333333333,
      "ann_after": 1.0,
      "bytes": 439.5833333333333
@@ -1845,7 +1845,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 442.0
@@ -1856,7 +1856,7 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8064999999999999,
      "ann_after": 1.0,
      "bytes": 448.0
@@ -1867,7 +1867,7 @@
      "n_eval": 3,
      "base_new": 0.6666666666666666,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8097499999999999,
      "ann_after": 1.0,
      "bytes": 422.75
@@ -1878,7 +1878,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -1887,20 +1887,20 @@
      "t": "whois",
      "n_ann": 18,
      "n_eval": 5,
-     "base_new": 0.8,
+     "base_new": 0.6,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
-     "bytes": 423.75
+     "bytes": 426.9166666666667
     },
     {
      "t": "bacterial_growth",
      "n_ann": 30,
      "n_eval": 11,
-     "base_new": 1.0,
+     "base_new": 0.9090909090909091,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 430.0
@@ -1911,7 +1911,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8113333333333332,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -1922,7 +1922,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -1933,7 +1933,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8085416666666667,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -1944,10 +1944,10 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8040000000000002,
      "ann_after": 1.0,
-     "bytes": 440.25
+     "bytes": 454.0
     },
     {
      "t": "dice_roll_probability",
@@ -1955,7 +1955,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8085000000000001,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1966,10 +1966,10 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
-     "bytes": 447.0833333333333
+     "bytes": 447.8333333333333
     },
     {
      "t": "find_first_non_repeating_char",
@@ -1977,7 +1977,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8097499999999999,
      "ann_after": 1.0,
      "bytes": 456.0
@@ -1988,7 +1988,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8106666666666665,
      "ann_after": 1.0,
      "bytes": 440.0
@@ -1999,7 +1999,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8034166666666668,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -2010,7 +2010,7 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8125,
      "ann_after": 1.0,
      "bytes": 434.0
@@ -2021,7 +2021,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8112916666666669,
      "ann_after": 1.0,
      "bytes": 426.0
@@ -2032,7 +2032,7 @@
      "n_eval": 4,
      "base_new": 0.25,
      "new": 0.5208333333333334,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8112083333333334,
      "ann_after": 0.7666666666666666,
      "bytes": 429.4166666666667
@@ -2043,10 +2043,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8088333333333333,
+     "base_dev": 0.804,
+     "dev": 0.8089999999999998,
      "ann_after": 1.0,
-     "bytes": 419.1666666666667
+     "bytes": 416.0
     },
     {
      "t": "is_rotation",
@@ -2054,7 +2054,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
      "bytes": 420.0
@@ -2065,7 +2065,7 @@
      "n_eval": 5,
      "base_new": 0.4,
      "new": 0.4000000000000001,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8100833333333335,
      "ann_after": 0.8166666666666668,
      "bytes": 429.0
@@ -2076,7 +2076,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 446.0
@@ -2087,7 +2087,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8094583333333333,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -2098,7 +2098,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8115000000000001,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -2109,7 +2109,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 436.0
@@ -2120,7 +2120,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8110833333333334,
      "ann_after": 1.0,
      "bytes": 432.0
@@ -2131,7 +2131,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 444.0
@@ -2142,10 +2142,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8119999999999999,
+     "base_dev": 0.804,
+     "dev": 0.81175,
      "ann_after": 1.0,
-     "bytes": 424.0
+     "bytes": 428.75
     },
     {
      "t": "wire_resistance",
@@ -2153,7 +2153,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 428.0
@@ -2166,7 +2166,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 459.0
@@ -2177,7 +2177,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 431.0
@@ -2186,9 +2186,9 @@
      "t": "calculate_distance",
      "n_ann": 19,
      "n_eval": 6,
-     "base_new": 1.0,
+     "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
      "bytes": 441.3333333333333
@@ -2199,7 +2199,7 @@
      "n_eval": 13,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
      "bytes": 455.0
@@ -2208,12 +2208,12 @@
      "t": "euclidean_distance",
      "n_ann": 15,
      "n_eval": 8,
-     "base_new": 0.75,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
-     "bytes": 445.6666666666667
+     "bytes": 443.5
     },
     {
      "t": "find_kth_smallest_number",
@@ -2221,7 +2221,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
      "bytes": 449.0
@@ -2232,7 +2232,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8030833333333335,
      "ann_after": 1.0,
      "bytes": 467.0
@@ -2243,10 +2243,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
-     "dev": 0.8129166666666666,
+     "base_dev": 0.804,
+     "dev": 0.8130000000000001,
      "ann_after": 1.0,
-     "bytes": 428.0
+     "bytes": 425.0
     },
     {
      "t": "get_city_from_zipcode",
@@ -2254,7 +2254,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 443.0
@@ -2263,12 +2263,12 @@
      "t": "get_order",
      "n_ann": 12,
      "n_eval": 3,
-     "base_new": 0.3333333333333333,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
-     "bytes": 437.3333333333333
+     "bytes": 432.3333333333333
     },
     {
      "t": "is_hotel_available",
@@ -2276,7 +2276,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 437.0
@@ -2287,7 +2287,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 443.0
@@ -2298,10 +2298,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
-     "bytes": 438.0
+     "bytes": 437.0
     },
     {
      "t": "monthly_mortgage_payment",
@@ -2309,7 +2309,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8130000000000001,
      "ann_after": 1.0,
      "bytes": 449.0
@@ -2320,7 +2320,7 @@
      "n_eval": 14,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
      "bytes": 425.0
@@ -2331,10 +2331,10 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.814,
      "ann_after": 1.0,
-     "bytes": 445.3333333333333
+     "bytes": 445.5833333333333
     },
     {
      "t": "assess_diabetes_risk",
@@ -2342,10 +2342,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8145000000000001,
      "ann_after": 1.0,
-     "bytes": 441.0
+     "bytes": 444.3333333333333
     },
     {
      "t": "binary_search",
@@ -2353,10 +2353,10 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.814,
+     "base_dev": 0.804,
+     "dev": 0.8137916666666666,
      "ann_after": 1.0,
-     "bytes": 430.0
+     "bytes": 431.5
     },
     {
      "t": "calculate_electric_field",
@@ -2364,7 +2364,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 449.0
@@ -2375,7 +2375,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 433.0
@@ -2386,7 +2386,7 @@
      "n_eval": 12,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 425.0
@@ -2397,7 +2397,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8145000000000001,
      "ann_after": 1.0,
      "bytes": 429.0
@@ -2408,7 +2408,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8115000000000001,
      "ann_after": 1.0,
      "bytes": 469.0
@@ -2419,7 +2419,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8148749999999998,
      "ann_after": 1.0,
      "bytes": 445.0
@@ -2428,9 +2428,9 @@
      "t": "get_holidays_by_year",
      "n_ann": 11,
      "n_eval": 4,
-     "base_new": 0.5,
+     "base_new": 0.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8155,
      "ann_after": 1.0,
      "bytes": 450.6666666666667
@@ -2439,9 +2439,9 @@
      "t": "get_pokemon_move_info",
      "n_ann": 17,
      "n_eval": 7,
-     "base_new": 0.8571428571428571,
+     "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8147500000000001,
      "ann_after": 1.0,
      "bytes": 447.5
@@ -2452,7 +2452,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8101250000000001,
      "ann_after": 1.0,
      "bytes": 445.0
@@ -2463,10 +2463,10 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
-     "dev": 0.8139583333333332,
+     "base_dev": 0.804,
+     "dev": 0.814375,
      "ann_after": 1.0,
-     "bytes": 464.5
+     "bytes": 461.5
     },
     {
      "t": "neuronal_activity_rate",
@@ -2474,7 +2474,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8149999999999998,
      "ann_after": 1.0,
      "bytes": 445.0
@@ -2485,7 +2485,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8130833333333333,
      "ann_after": 1.0,
      "bytes": 433.0
@@ -2496,7 +2496,7 @@
      "n_eval": 29,
      "base_new": 0.0,
      "new": 0.040229885057471264,
-     "base_dev": 0.815,
+     "base_dev": 0.804,
      "dev": 0.8117083333333334,
      "ann_after": 0.8916666666666667,
      "bytes": 434.3333333333333
@@ -2507,7 +2507,7 @@
      "n_eval": 10,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.806,
      "ann_after": 1.0,
      "bytes": 415.0
@@ -2518,10 +2518,10 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8085416666666667,
+     "base_dev": 0.804,
+     "dev": 0.8087916666666667,
      "ann_after": 1.0,
-     "bytes": 431.0
+     "bytes": 435.5
     },
     {
      "t": "calculate_factorial",
@@ -2529,10 +2529,10 @@
      "n_eval": 6,
      "base_new": 0.8333333333333334,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8088333333333333,
+     "base_dev": 0.804,
+     "dev": 0.8087916666666667,
      "ann_after": 1.0,
-     "bytes": 439.0
+     "bytes": 440.4166666666667
     },
     {
      "t": "california_alimony",
@@ -2540,7 +2540,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8078333333333334,
      "ann_after": 1.0,
      "bytes": 437.0
@@ -2551,10 +2551,10 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8090833333333333,
      "ann_after": 1.0,
-     "bytes": 457.0
+     "bytes": 458.5
     },
     {
      "t": "find_majority_element",
@@ -2562,7 +2562,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8048333333333333,
      "ann_after": 1.0,
      "bytes": 443.0
@@ -2573,7 +2573,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8050833333333333,
      "ann_after": 1.0,
      "bytes": 439.0
@@ -2584,7 +2584,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8014166666666669,
      "ann_after": 1.0,
      "bytes": 447.0
@@ -2593,9 +2593,9 @@
      "t": "get_ip_location",
      "n_ann": 16,
      "n_eval": 7,
-     "base_new": 0.42857142857142855,
+     "base_new": 0.2857142857142857,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8071666666666667,
      "ann_after": 1.0,
      "bytes": 438.1666666666667
@@ -2606,10 +2606,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8090833333333333,
      "ann_after": 1.0,
-     "bytes": 441.0
+     "bytes": 442.5
     },
     {
      "t": "independent_samples_t_test",
@@ -2617,7 +2617,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 453.0
@@ -2628,7 +2628,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.803125,
      "ann_after": 1.0,
      "bytes": 431.0
@@ -2637,10 +2637,10 @@
      "t": "loginuser",
      "n_ann": 18,
      "n_eval": 4,
-     "base_new": 1.0,
+     "base_new": 0.75,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8085416666666668,
+     "base_dev": 0.804,
+     "dev": 0.8086250000000001,
      "ann_after": 1.0,
      "bytes": 437.0
     },
@@ -2650,7 +2650,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 441.0
@@ -2661,7 +2661,7 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8064999999999999,
      "ann_after": 1.0,
      "bytes": 451.0
@@ -2672,7 +2672,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 439.0
@@ -2681,20 +2681,20 @@
      "t": "whois",
      "n_ann": 18,
      "n_eval": 5,
-     "base_new": 0.8,
+     "base_new": 0.6,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
-     "bytes": 429.3333333333333
+     "bytes": 427.6666666666667
     },
     {
      "t": "bacterial_growth",
      "n_ann": 30,
      "n_eval": 11,
-     "base_new": 1.0,
+     "base_new": 0.9090909090909091,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 433.0
@@ -2705,7 +2705,7 @@
      "n_eval": 9,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8108333333333332,
      "ann_after": 1.0,
      "bytes": 449.0
@@ -2716,7 +2716,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 431.0
@@ -2727,10 +2727,10 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8040000000000002,
      "ann_after": 1.0,
-     "bytes": 445.6666666666667
+     "bytes": 456.3333333333333
     },
     {
      "t": "dice_roll_probability",
@@ -2738,7 +2738,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8085000000000001,
      "ann_after": 1.0,
      "bytes": 443.0
@@ -2749,7 +2749,7 @@
      "n_eval": 4,
      "base_new": 0.5,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
      "bytes": 444.9166666666667
@@ -2760,7 +2760,7 @@
      "n_eval": 8,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.811,
      "ann_after": 1.0,
      "bytes": 429.0
@@ -2771,7 +2771,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8089999999999998,
      "ann_after": 1.0,
      "bytes": 419.0
@@ -2782,7 +2782,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8100000000000002,
      "ann_after": 1.0,
      "bytes": 423.0
@@ -2793,7 +2793,7 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 449.0
@@ -2804,7 +2804,7 @@
      "n_eval": 6,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.80925,
      "ann_after": 1.0,
      "bytes": 435.0
@@ -2815,7 +2815,7 @@
      "n_eval": 5,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8115000000000001,
      "ann_after": 1.0,
      "bytes": 439.0
@@ -2826,7 +2826,7 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 447.0
@@ -2837,7 +2837,7 @@
      "n_eval": 3,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 427.0
@@ -2848,10 +2848,10 @@
      "n_eval": 4,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.812,
-     "dev": 0.8119999999999999,
+     "base_dev": 0.804,
+     "dev": 0.8118333333333333,
      "ann_after": 1.0,
-     "bytes": 431.0
+     "bytes": 434.0
     }
    ],
    "25": [
@@ -2861,7 +2861,7 @@
      "n_eval": 13,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.813,
+     "base_dev": 0.804,
      "dev": 0.8095,
      "ann_after": 1.0,
      "bytes": 455.0
@@ -2872,9 +2872,9 @@
      "n_eval": 29,
      "base_new": 0.0,
      "new": 0.03735632183908046,
-     "base_dev": 0.815,
-     "dev": 0.8109583333333332,
-     "ann_after": 0.94,
+     "base_dev": 0.804,
+     "dev": 0.8110416666666667,
+     "ann_after": 0.9366666666666666,
      "bytes": 433.75
     },
     {
@@ -2883,10 +2883,10 @@
      "n_eval": 7,
      "base_new": 1.0,
      "new": 1.0,
-     "base_dev": 0.809,
-     "dev": 0.8089999999999998,
+     "base_dev": 0.804,
+     "dev": 0.8090833333333333,
      "ann_after": 1.0,
-     "bytes": 457.0
+     "bytes": 458.5833333333333
     },
     {
      "t": "project_investment_growth",
@@ -2894,7 +2894,7 @@
      "n_eval": 7,
      "base_new": 0.8571428571428571,
      "new": 1.0,
-     "base_dev": 0.809,
+     "base_dev": 0.804,
      "dev": 0.8064999999999999,
      "ann_after": 1.0,
      "bytes": 451.0
@@ -2903,9 +2903,9 @@
      "t": "bacterial_growth",
      "n_ann": 30,
      "n_eval": 11,
-     "base_new": 1.0,
+     "base_new": 0.9090909090909091,
      "new": 1.0,
-     "base_dev": 0.812,
+     "base_dev": 0.804,
      "dev": 0.8119999999999999,
      "ann_after": 1.0,
      "bytes": 433.0

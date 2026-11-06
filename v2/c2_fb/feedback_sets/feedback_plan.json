@@ -1,0 +1,34 @@
+{
+ "seed": 20261106,
+ "new_tool": "get_ip_location",
+ "new_tool_pool_idx": [
+  244,
+  1027,
+  1373,
+  1931,
+  3879
+ ],
+ "new_tool_dev_eval_n": 7,
+ "new_tool_dev_plain_recall": 0.2857142857142857,
+ "pair_gold_pred": [
+  "domain_information",
+  "whois"
+ ],
+ "pair_pool_idx": [
+  769
+ ],
+ "pair_dev_err_n": 2,
+ "pair_dev_err_idx": [
+  709,
+  1092
+ ],
+ "new_tool_dev_idx": [
+  4,
+  336,
+  455,
+  1315,
+  1378,
+  1400,
+  1739
+ ]
+}
