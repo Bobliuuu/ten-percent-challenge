@@ -27,7 +27,7 @@ for f in files:
     print(e["name"], len(zw) * 32 / (R * C), flush=True)
 body.close()
 open(f"{out}/signs.bin", "wb").write(signs.getvalue())
-mc = torch.load(f"{pk}/misc.pt")
+mc = torch.load(f"{pk}/misc.pt",weights_only=False)
 keep = mc["keep"].numpy().astype(np.int64)
 ec = mc["ecode"][keep].numpy().astype(np.uint8); es = mc["escale"][keep].numpy().astype(np.float16)
 H = ec.shape[1]; pk4 = (ec[:, 0::2] | (ec[:, 1::2] << 4)).astype(np.uint8)

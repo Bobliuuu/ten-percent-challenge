@@ -1,0 +1,34 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "vocab": 24000,
+  "ebits": 4,
+  "ncal": 384,
+  "callen": 512,
+  "L": 109,
+  "ec": {
+   "K": 7,
+   "dz": 0.15,
+   "sbits": 8
+  },
+  "pack": "/home/ubuntu/pack7b_c109"
+ },
+ {
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "vocab": 24000,
+  "ebits": 4,
+  "ncal": 384,
+  "callen": 512,
+  "L": 109,
+  "ec": {
+   "K": 7,
+   "dz": 0.2,
+   "sbits": 8
+  },
+  "pack": "/home/ubuntu/pack7b_dz2"
+ }
+]
