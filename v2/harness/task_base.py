@@ -20,14 +20,15 @@ def base_predict(rows, base_id, task="mmlu"):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
     fmt = fmt_mmlu if task == "mmlu" else fmt_mdc6
+    dev = "cuda" if torch.cuda.is_available() else "cpu"
     tok = AutoTokenizer.from_pretrained(base_id)
-    m = AutoModelForCausalLM.from_pretrained(base_id, torch_dtype=torch.bfloat16, device_map="cuda").eval()
+    m = AutoModelForCausalLM.from_pretrained(base_id, torch_dtype=torch.bfloat16).to(dev).eval()
     ids = [tok.encode(" " + l)[0] for l in LETTERS]
     out = []
     with torch.no_grad():
         for r in rows:
             k = len(r["choices"]) if "choices" in r else len(r["names"])
             x = tok.encode(fmt(r))[-1024:]
-            lg = m(torch.tensor([x]).cuda()).logits[0, -1, ids[:k]]
+            lg = m(torch.tensor([x]).to(dev)).logits[0, -1, ids[:k]]
             out.append(LETTERS[int(lg.argmax())])
     return out

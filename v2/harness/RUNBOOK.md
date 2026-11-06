@@ -1,31 +1,35 @@
-# RUNBOOK: MDC-6 (primary) with the BitNet-2B ternary artifact. Stage 1 then stage 2.
-Run from `~/ten-percent/v2/harness`. ALWAYS `modal run --detach`. Never run these against the real exam until the artifact is final.
-Values: base = `microsoft/bitnet-b1.58-2B-4T-bf16` (bf16 master), base bytes 4,825,641,380, budget = 482,564,138 B (10%). Exam = `../alt/locked.jsonl` (n=2008), task lock = `../alt/LOCK.json`.
-Artifact dir `ART` must contain `predict.py` with `load(artifact_dir, memory_path|None) -> f(rows) -> list of letters "A".."N"` where rows = `{id,task,text,names,inst}` (no answers; format the prompt exactly as `../alt/base_eval.py` `fmt`: predict argmax over the first len(names) letters). It may use only torch/transformers/numpy/safetensors/scipy (candidate image) and no network. Memory (feedback) file lives OUTSIDE ART.
+# RUNBOOK: MDC-6 (primary) with the altpush Qwen2.5-7B-Instruct packed artifact. Stage 1 then stage 2.
+(BitNet-2B backup: same commands with `--base-id microsoft/bitnet-b1.58-2B-4T-bf16 --base-fp16-bytes 4825641380`, and `TENPCT_TF=4.57.0` or any version >= 4.52 for both images.)
+Run from `~/ten-percent/v2/harness`. ALWAYS `modal run --detach`. Do not run against the real exam until the artifact is final.
 
-## 0. Pre-checks (Mac, light)
+Values: base = `Qwen/Qwen2.5-7B-Instruct` (bf16). Denominator CONFIRMED from the safetensors headers: 7,615,616,512 params, `total_size` 15,231,233,024 bytes = bf16 bytes. Budget (10%) = 1,523,123,302 B. Artifact `ART=/Users/jhome/ten-percent-artifacts/art7b_c115`: 1,482,962,994 B = 9.736% -> PASS. Exam = `../alt/locked.jsonl` (n=2008), task lock `../alt/LOCK.json`.
+Note: ART had a stray `__pycache__/` (counted by size_check and by the tree hash); it was removed. Always `rm -rf ART/__pycache__` and never import `predict.py` from inside ART before the run.
+Artifact contract: `predict.py: load(artifact_dir, memory_path|None) -> f(rows) -> list of letters or 0-based class indices`; rows = `{id,task,text,names,inst}`, no answers. Candidate image: torch, transformers==4.51.3 (TENPCT_TF), constriction, numpy, safetensors, scipy; no network; GPU `--cand-gpu L40S` (load ~3 min, 7B bf16 body). The memory/feedback file lives OUTSIDE ART; the current predict.py ignores `memory`, so the feedback agent must ship a predict.py that consumes it BEFORE stage 1 (stage 2 requires an identical artifact tree).
+Base bar score = raw bf16 Qwen2.5-7B-Instruct, zero-shot letter argmax, NO per-task bias (conservative: the candidate's shipped bias is part of the candidate).
+
+## 0. Pre-check (Mac, light)
 ```
-python size_check.py ART [--memory MEM1] --base-fp16-bytes 4825641380      # must say PASS; every file counts
+rm -rf ART/__pycache__; python size_check.py ART [--memory MEM1] --base-fp16-bytes 15231233024     # must PASS
 ```
-## 1. Lock the harness (once, BEFORE the final artifact run; read-only, never overwritten)
+## 1. Lock the harness (once, before the final run; read-only, never overwritten)
 ```
 python lock.py --task mdc6 --exam-file ../alt/locked.jsonl --task-lock ../alt/LOCK.json --split locked \
-  --base-id microsoft/bitnet-b1.58-2B-4T-bf16 --base-fp16-bytes 4825641380 --out LOCK_HARNESS_MDC6.json
-git add LOCK_HARNESS_MDC6.json && git commit -m "lock harness MDC-6" && git push
+  --base-id Qwen/Qwen2.5-7B-Instruct --base-fp16-bytes 15231233024 --out LOCK_HARNESS_MDC6_7B.json
+git add LOCK_HARNESS_MDC6_7B.json && git commit -m "lock harness MDC-6 7B" && git push
 ```
-(hashes the exam file bytes only; margin 1.0 pt and alpha .05 are pre-registered in the lock.)
+(hashes the exam file bytes only; margin 1.0 pt and alpha .05 are pre-registered; harness file hashes are recorded and compared inside the container at run time, so do not edit harness files after this step.)
 ## 2. Stage 1 (single use)
 ```
-TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_MDC6.json --tag final --stage 1 \
-  --exam-file ../alt/locked.jsonl --artifact ART --cand-gpu A10G
+TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_MDC6_7B.json --tag final --stage 1 \
+  --exam-file ../alt/locked.jsonl --artifact ART --cand-gpu L40S
 ```
-`TENPCT_GPU` = GPU for the base (bar score); `--cand-gpu` = GPU of the no-network candidate sandbox (omit for CPU). Receipt: `receipts/REAL_final/stage1.json` (local, written by the entrypoint) and in the Modal volume (`modal volume get tenpct-v2-exam receipts/ receipts_pulled/ --force`); the full receipt is also in the app log as `RECEIPT_JSON:`. If the Mac dies, pull from the volume/log.
+`TENPCT_GPU` = GPU for the base (bar score); `--cand-gpu` = GPU of the no-network candidate sandbox (omit for CPU). The artifact dir is uploaded from the Mac to the sandbox volume (1.5 GB); its tree sha256 is recorded as `artifact_tree_sha256` in the receipt (stage 2 refuses if it differs). Receipt: `receipts/REAL_final/stage1.json` (local, written by the entrypoint) and in the Modal volume (`modal volume get tenpct-v2-exam receipts/ receipts_pulled/ --force`); the full receipt is also in the app log as `RECEIPT_JSON:`. If the Mac dies, pull from the volume/log.
 ## 3. Feedback (not the exam)
 Build MEM1 from <= k annotations drawn from `../alt/pool.jsonl` only; artifact tree must not change (weights, code, tokenizer identical).
 ## 4. Stage 2 (single use; artifact tree hash must equal stage 1, memory must differ, memory counted in size)
 ```
-TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_MDC6.json --tag final --stage 2 \
-  --artifact ART --memory MEM1 --cand-gpu A10G
+TENPCT_GPU=A100-40GB modal run --detach exam_remote.py --lock LOCK_HARNESS_MDC6_7B.json --tag final --stage 2 \
+  --artifact ART --memory MEM1 --cand-gpu L40S
 ```
 The exam file is already in the volume; base predictions are reused from stage 1.
 ## 5. Read the verdict

@@ -15,6 +15,19 @@ sys.path.insert(0, a.artifact)
 spec = importlib.util.spec_from_file_location("artifact_predict", os.path.join(a.artifact, "predict.py"))
 mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
 f = mod.load(a.artifact, a.memory)
-pred = [str(x) for x in f(inputs)]
+L = "ABCDEFGHIJKLMN"
+def to_letter(x):   # accept a letter or a 0-based class index (int / digit string)
+    s = str(x).strip()
+    return s if s in tuple(L) else (L[int(s)] if s.isdigit() and int(s) < len(L) else "?")
+pred = [to_letter(x) for x in f(inputs)]
 assert len(pred) == len(inputs)
-print("CAND_JSON:" + json.dumps(dict(pred=pred, seconds=time.time() - t0, evidence=ev)), flush=True)
+alt = None
+import inspect
+if "use_bias" in inspect.signature(mod.load).parameters:   # secondary, non-gating variant from the SAME run: bias off
+    del f
+    import gc; gc.collect()
+    try:
+        import torch; torch.cuda.empty_cache()
+    except Exception: pass
+    alt = [to_letter(x) for x in mod.load(a.artifact, a.memory, use_bias=False)(inputs)]
+print("CAND_JSON:" + json.dumps(dict(pred=pred, pred_nobias=alt, seconds=time.time() - t0, evidence=ev)), flush=True)
