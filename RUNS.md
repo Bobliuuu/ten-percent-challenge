@@ -101,3 +101,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/lowbit_fb DONE: 7B + BitNet feedback verified on box i-0aad61d1dd9c5c95e (terminated). See v2/lowbit_fb/RESULTS.md
 - v2/compress_A DONE: AWS box terminated; results v2/compress_A/results (modal_results.jsonl, wave14_a.json, 7B jsons). Best: 14B u3 g256 ends4 ratio .0935 acc .747 vs base .747; 14B u3 g128 .0953 acc .752
 - 2026-11-06 v2/c2_fb verify_final: modal app tenpct-c2fb-final (deployed, spawn fc-01M6RAZX9J4Q4NYMT1V1PWYTSX) -> Volume tenpct-c2fb:/final/result.json; final artifact tenpct-c2fb:/art_c2fb
+- 2026-11-06 v2/c2_fb: canonical artifact = ~/ten-percent-artifacts/artC2_fb_fixed + tenpct-c2fb:/art_c2fb (good body.bin 0304a803); re-verified, harness tree 6290414d
