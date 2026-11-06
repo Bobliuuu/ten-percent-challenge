@@ -279,7 +279,7 @@ def run(cfg):
         body_bits_per_w_ent=(wbits_ent+extra)/max(1,stats["nq"]) if stats["nq"] else 16,
         body_frac_params=total_orig_linear/base_params,oov=(oov_count[0]/max(1,oov_count[1]) if keepN else 0), secs=time.time()-t0)
     print(json.dumps(res),flush=True)
-    return res
+    print("RESULT_JSON "+__import__("json").dumps(res,default=str),flush=True); return res
 
 @app.local_entrypoint()
 def main(cfgs:str, out:str):

@@ -7,7 +7,8 @@ img = (modal.Image.debian_slim().pip_install("torch","transformers","numpy")
 def go(cfg):
     import sys; sys.path.insert(0,"/root"); import engine, traceback
     L=lambda f: json.load(open(f))
-    try: return engine.run(cfg,L("/root/dev2.json"),L("/root/dev2_hard.json"),L("/root/vocab.json"))
+    try:
+        r=engine.run(cfg,L("/root/dev2.json"),L("/root/dev2_hard.json"),L("/root/vocab.json")); print("RESULT_JSON "+json.dumps(r),flush=True); return r
     except Exception: return dict(cfg=cfg,error=traceback.format_exc())
 @app.local_entrypoint()
 def main(cfgfile: str, out: str):

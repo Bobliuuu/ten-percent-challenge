@@ -17,7 +17,10 @@ def run(plan):
     for k,v in SETS.items(): r[k]=float((C.predict(P,v).argmax(1)==B[k].argmax(1)).mean())
     r["d2acc"]=float((C.predict(P,SETS["d2"]).argmax(1)==np.array(d["l2"])).mean())
     r["params"]=P.params(); r["ratio"]=P.params()/C.BASE_PARAMS
-    return dict(plan=plan,**r)
+    _o=dict(plan=plan,**r); print('RESULT_JSON '+__import__('json').dumps(_o,default=str),flush=True); return _o
+def mk(nl,nh,nf,rank,lam=1e-3,vocab=True):
+    src=sorted(set(int(round(i*11/(nl-1))) for i in range(nl))) if nl<12 else list(range(12))
+    return dict(layers=[(s,nh,nf) for s in src],vocab=vocab,rank=rank,lam=lam,tag=f"L{nl}h{nh}f{nf}r{rank}")
 @app.local_entrypoint()
 def main(out="sweep1.json"):
     plans=[mk(nl,nh,nf,128) for nl in (12,8,6,4,3,2) for nh in (12,6,3) for nf in (3072,1536,768,384)]

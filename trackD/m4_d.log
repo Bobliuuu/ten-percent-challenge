@@ -1,0 +1,33 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-tHKRXhYQSKHvxeeF4pk8Ty
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackD/msweep.py
+├── ✓ Uploaded vocab.json
+├── ✓ Uploaded dev2_hard.json
+├── ✓ Uploaded dev2.json
+├── ✓ Uploaded engine.py
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14415.39it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13426.37it/s]
+vqs_d4k12_g128 MB 39.7/40.2 acc 0.8883 agree2 0.9377 hard 0.6227
+RESULT_JSON {"cfg": {"name": "vqs_d4k12_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 39742850.625, "bytes_fixed": 40229740.0, "bytes_ent": 39967670.16258775, "acc2": 0.8882636427879333, "base_acc2": 0.9296624064445496, "agree2": 0.9377009868621826, "agree_hard": 0.6226666569709778, "bitsmap_hist": {"12": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18459.71it/s]
+vqs_d4k13_g128 MB 42.5/43.0 acc 0.8971 agree2 0.9482 hard 0.6547
+RESULT_JSON {"cfg": {"name": "vqs_d4k13_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 13, "vq": [4], "vqshare": 1}, "bytes_huff": 42521821.0, "bytes_fixed": 42986860.0, "bytes_ent": 42757508.556467324, "acc2": 0.8971061110496521, "base_acc2": 0.9296624064445496, "agree2": 0.9481511116027832, "agree_hard": 0.6546666622161865, "bitsmap_hist": {"13": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15103.37it/s]
+RESULT_JSON {"cfg": {"name": "vqs_d4k11_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 11, "vq": [4], "vqshare": 1}, "bytes_huff": 37006634.875, "bytes_fixed": 37526380.0, "bytes_ent": 37226992.311064884, "acc2": 0.8830385804176331, "base_acc2": 0.9296624064445496, "agree2": 0.9348874688148499, "agree_hard": 0.6306666731834412, "bitsmap_hist": {"11": 73}}
+vqs_d4k11_g128 MB 37.0/37.5 acc 0.8830 agree2 0.9349 hard 0.6307
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15720.13it/s]
+vqs_d4k12_g64 MB 41.1/41.6 acc 0.8911 agree2 0.9397 hard 0.6427
+RESULT_JSON {"cfg": {"name": "vqs_d4k12_g64", "g": 64, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 41115389.125, "bytes_fixed": 41582188.0, "bytes_ent": 41341194.53697374, "acc2": 0.8910771608352661, "base_acc2": 0.9296624064445496, "agree2": 0.9397106170654297, "agree_hard": 0.6426666378974915, "bitsmap_hist": {"12": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13810.16it/s]

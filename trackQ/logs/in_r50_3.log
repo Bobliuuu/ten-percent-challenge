@@ -61,3 +61,18 @@ https://modal.com/apps/jerry-zhu/main/ap-txRX8kLvkFDgeZ1MEyK8OG
 {"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.128065735146428, "ratio_fix": 0.27416156930898705, "dev": {"acc": 0.7541441917419434, "agree": 0.942081093788147}, "sec": 11.62804627418518}
 {"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.11798157089866154, "ratio_fix": 0.27416156930898705, "dev": {"acc": 0.7463551163673401, "agree": 0.915917694568634}, "sec": 12.365287780761719}
 {"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.11069638501332404, "ratio_fix": 0.27416156930898705, "dev": {"acc": 0.7329738140106201, "agree": 0.8739764094352722}, "sec": 12.17980670928955}
+{"cfg": {"method": "rtn", "alpha": 0.7, "g": 128}, "ratio_ent": 0.11835707574280409, "ratio_fix": 0.27416156930898705, "dev": {"acc": 0.5256640911102295, "agree": 0.5803874731063843}, "sec": 11.40564227104187}
+timm/resnet50.tv_in1k 25557032 {'dev': 0.7549430727958679, 'exam': 0.7594632506370544}
+{'base': 1} ent1.000 fix1.000 {'dev': {'acc': 0.7549430727958679, 'agree': 1.0}}
+{'method': 'gptq', 'bits': 4, 'g': 128} ent0.143 fix0.159 {'dev': {'acc': 0.7437587380409241, 'agree': 0.9173157811164856}}
+{'method': 'gptq', 'bits': 3, 'g': 128} ent0.119 fix0.131 {'dev': {'acc': 0.6722588539123535, 'agree': 0.766726553440094}}
+{'method': 'gptq', 'alpha': 1.0, 'g': 128} ent0.105 fix0.274 {'dev': {'acc': 0.7361693382263184, 'agree': 0.8923507332801819}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128} ent0.111 fix0.274 {'dev': {'acc': 0.7423607110977173, 'agree': 0.901138424873352}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128} ent0.118 fix0.274 {'dev': {'acc': 0.7497503757476807, 'agree': 0.9227082133293152}}
+{'method': 'gptq', 'alpha': 0.55, 'g': 128} ent0.128 fix0.274 {'dev': {'acc': 0.7541441917419434, 'agree': 0.942081093788147}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128, 'sp': 0.3} ent0.118 fix0.274 {'dev': {'acc': 0.7463551163673401, 'agree': 0.915917694568634}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128, 'sp': 0.3} ent0.111 fix0.274 {'dev': {'acc': 0.7329738140106201, 'agree': 0.8739764094352722}}
+{'method': 'rtn', 'alpha': 0.7, 'g': 128} ent0.118 fix0.274 {'dev': {'acc': 0.5256640911102295, 'agree': 0.5803874731063843}}
+[modal-client] 2026-11-06T01:34:48-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-txRX8kLvkFDgeZ1MEyK8OG

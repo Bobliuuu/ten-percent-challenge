@@ -1,3 +1,12 @@
 # RUNS (detached relaunch 2026-11-06, after laptop crash)
 trackQ missing models relaunched with modal run --detach: vitl_c100 in_vitl in_deitb in_cnxb in_r50 in_r101 (specs trackQ/out/*_2.spec.json, logs trackQ/logs/*_3.log)
 trackS: sweep_bases.py --detach (trackS/run2.log)
+
+## 01:30-01:40 EST relaunches (all `modal run --detach`)
+- trackD: c3,c4,c5 -> o3,o4,o5 (trackD/m{3,4,5}_d.log); msweep.py go() prints RESULT_JSON
+- trackE: sweep.py (fixed missing `mk`, the real cause of the empty sweep1.json) -> trackE/sweep3.log, prints RESULT_JSON
+- trackR: run.py c3 -> r3 (trackR/r3_d.log); prints RESULT_JSON
+- trackS: sweep_bases.py (trackS/run2.log)
+- trackQ: 6 missing models (trackQ/logs/*_3.log); trackQ/salvage.py merges partial cfgs from all logs
+- CAVEAT: Modal says detached local entrypoint keeps only the last triggered function alive after the client dies; .map() fan-outs (D,E,R,S) may lose results if the Mac dies. Recover from `modal app logs` RESULT_JSON lines.
+- Deadline: 7am 2026-11-07. Fallback if Modal limits hit: AWS.

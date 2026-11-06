@@ -1,0 +1,255 @@
+[modal-client] 2026-11-06T01:30:59-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (b4c7068d). Retrying...
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Z78Nurjz6oW5CO2eKzMQqM
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackS/sweep_bases.py
+└── ✓ Created Function run_model.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 3861.04it/s]
+[minilm_nli 7s] params 106995075 emb 96000768 share 0.8972447376666637 labels {0: 'entailment', 1: 'neutral', 2: 'contradiction'}
+
+[1AGenerating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 4358/4358 [00:00<00:00, 189550.95 examples/s]
+
+[1AGenerating train split:   0%|          | 0/1801350 [00:00<?, ? examples/s]
+[1AGenerating train split:   3%|▎         | 57000/1801350 [00:00<00:03, 561559.02 examples/s]
+[1AGenerating train split:   8%|▊         | 145000/1801350 [00:00<00:02, 745455.10 examples/s]
+[1AGenerating train split:  15%|█▍        | 262000/1801350 [00:00<00:02, 763057.08 examples/s]
+[1AGenerating train split:  20%|█▉        | 352000/1801350 [00:00<00:01, 807521.94 examples/s]
+[1AGenerating train split:  26%|██▋       | 475000/1801350 [00:00<00:01, 789092.49 examples/s]
+[1AGenerating train split:  31%|███▏      | 565000/1801350 [00:00<00:01, 817819.46 examples/s]
+[1AGenerating train split:  38%|███▊      | 686000/1801350 [00:00<00:01, 810177.37 examples/s]
+[1AGenerating train split:  43%|████▎     | 772000/1801350 [00:00<00:01, 811988.40 examples/s]
+[1AGenerating train split:  47%|████▋     | 855000/1801350 [00:01<00:01, 815802.13 examples/s]
+[1AGenerating train split:  54%|█████▍    | 973675/1801350 [00:01<00:01, 804128.12 examples/s]
+[1AGenerating train split:  59%|█████▉    | 1063675/1801350 [00:01<00:00, 824080.19 examples/s]
+[1AGenerating train split:  66%|██████▌   | 1182675/1801350 [00:01<00:00, 808151.34 examples/s]
+[1AGenerating train split:  71%|███████   | 1274675/1801350 [00:01<00:00, 831912.27 examples/s]
+[1AGenerating train split:  78%|███████▊  | 1396675/1801350 [00:01<00:00, 821138.41 examples/s]
+[1AGenerating train split:  85%|████████▍ | 1522675/1801350 [00:01<00:00, 808767.38 examples/s]
+[1AGenerating train split:  90%|████████▉ | 1612675/1801350 [00:01<00:00, 828316.15 examples/s]
+[1AGenerating train split:  96%|█████████▌| 1732675/1801350 [00:02<00:00, 816107.05 examples/s]
+[1AGenerating train split: 100%|██████████| 1801350/1801350 [00:02<00:00, 811070.14 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/3760 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 3760/3760 [00:00<00:00, 416902.37 examples/s]
+[minilm_nli 21s] calib wikitext103 194005
+
+[1AGenerating train split:   0%|          | 0/120000 [00:00<?, ? examples/s]
+[1AGenerating train split:  78%|███████▊  | 94000/120000 [00:00<00:00, 928338.84 examples/s]
+[1AGenerating train split: 100%|██████████| 120000/120000 [00:00<00:00, 952765.50 examples/s]
+
+[1AGenerating test split:   0%|          | 0/7600 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 7600/7600 [00:00<00:00, 681723.53 examples/s]
+[minilm_nli 26s] calib agnews 120000
+
+[1AGenerating train split:   0%|          | 0/392702 [00:00<?, ? examples/s]
+[1AGenerating train split:  10%|█         | 41000/392702 [00:00<00:00, 401438.14 examples/s]
+[1AGenerating train split:  25%|██▌       | 100000/392702 [00:00<00:00, 507750.50 examples/s]
+[1AGenerating train split:  39%|███▉      | 155000/392702 [00:00<00:00, 522142.59 examples/s]
+[1AGenerating train split:  56%|█████▌    | 218000/392702 [00:00<00:00, 541547.14 examples/s]
+[1AGenerating train split:  71%|███████▏  | 280000/392702 [00:00<00:00, 551499.99 examples/s]
+[1AGenerating train split:  94%|█████████▍| 369000/392702 [00:00<00:00, 553138.89 examples/s]Generating train split: 100%|██████████| 392702/392702 [00:00<00:00, 540760.13 examples/s]
+
+[1AGenerating validation_matched split:   0%|          | 0/9815 [00:00<?, ? examples/s]Generating validation_matched split: 100%|██████████| 9815/9815 [00:00<00:00, 415401.24 examples/s]
+
+[1AGenerating validation_mismatched split:   0%|          | 0/9832 [00:00<?, ? examples/s]
+[1AGenerating validation_mismatched split: 100%|██████████| 9832/9832 [00:00<00:00, 412033.74 examples/s]
+FAILED TypeError("unsupported operand type(s) for +: 'Column' and 'Column'")
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/sweep_bases.py", line 60, in run_model
+    if m: addc(m["premise"] + m["hypothesis"], "mnli_train")
+               ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'Column' and 'Column'
+/usr/local/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+
+[1ALoading weights:   0%|          | 0/202 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 202/202 [00:00<00:00, 3256.10it/s]
+[mdeberta_nli 5s] params 278811651 emb 192768000 share 0.6913914799062684 labels {0: 'entailment', 1: 'neutral', 2: 'contradiction'}
+[mdeberta_nli 10s] calib wikitext103 194005
+[mdeberta_nli 12s] calib agnews 120000
+Traceback (most recent call last):
+FAILED TypeError("unsupported operand type(s) for +: 'Column' and 'Column'")
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/sweep_bases.py", line 60, in run_model
+    if m: addc(m["premise"] + m["hypothesis"], "mnli_train")
+               ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'Column' and 'Column'
+
+[1ALoading weights:   0%|          | 0/393 [00:00<?, ?it/s]
+[1ALoading weights:  84%|████████▍ | 331/393 [00:00<00:00, 3308.09it/s]
+[1ALoading weights: 100%|██████████| 393/393 [00:00<00:00, 3345.04it/s]
+[transformers] [1mXLMRobertaForSequenceClassification LOAD REPORT[0m from: joeddav/xlm-roberta-large-xnli
+Key                         | Status     |  | 
+----------------------------+------------+--+-
+roberta.pooler.dense.weight | UNEXPECTED |  | 
+roberta.pooler.dense.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[xlmrL_xnli 14s] params 559893507 emb 256002048 share 0.45723346457739866 labels {0: 'contradiction', 1: 'neutral', 2: 'entailment'}
+[xlmrL_xnli 19s] calib wikitext103 194005
+[xlmrL_xnli 21s] calib agnews 120000
+FAILED TypeError("unsupported operand type(s) for +: 'Column' and 'Column'")
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/sweep_bases.py", line 60, in run_model
+    if m: addc(m["premise"] + m["hypothesis"], "mnli_train")
+               ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'Column' and 'Column'
+
+[1ALoading weights:   0%|          | 0/104 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 104/104 [00:00<00:00, 3466.42it/s]
+[distilmbert_sent 4s] params 135326979 emb 91812096 share 0.678446357691913 labels {0: 'positive', 1: 'neutral', 2: 'negative'}
+[distilmbert_sent 9s] calib wikitext103 194005
+[distilmbert_sent 11s] calib agnews 120000
+
+[1AGenerating train split:   0%|          | 0/3599994 [00:00<?, ? examples/s]
+[1AGenerating train split:   1%|          | 33000/3599994 [00:00<00:11, 322777.21 examples/s]
+[1AGenerating train split:   3%|▎         | 92000/3599994 [00:00<00:07, 470773.24 examples/s]
+[1AGenerating train split:   4%|▍         | 148000/3599994 [00:00<00:06, 509080.61 examples/s]
+[1AGenerating train split:   6%|▌         | 205000/3599994 [00:00<00:06, 530762.20 examples/s]
+[1AGenerating train split:   8%|▊         | 288000/3599994 [00:00<00:06, 539405.78 examples/s]
+[1AGenerating train split:  10%|▉         | 348000/3599994 [00:00<00:05, 556414.78 examples/s]
+[1AGenerating train split:  12%|█▏        | 434000/3599994 [00:00<00:05, 555234.24 examples/s]
+[1AGenerating train split:  14%|█▍        | 514000/3599994 [00:00<00:05, 543527.66 examples/s]
+[1AGenerating train split:  16%|█▌        | 569000/3599994 [00:01<00:05, 544503.42 examples/s]
+[1AGenerating train split:  18%|█▊        | 652000/3599994 [00:01<00:05, 537610.91 examples/s]
+[1AGenerating train split:  20%|█▉        | 710000/3599994 [00:01<00:05, 521730.34 examples/s]
+[1AGenerating train split:  21%|██▏       | 769000/3599994 [00:01<00:05, 536959.35 examples/s]
+[1AGenerating train split:  23%|██▎       | 828000/3599994 [00:01<00:05, 535750.02 examples/s]
+[1AGenerating train split:  25%|██▍       | 888000/3599994 [00:01<00:04, 551006.41 examples/s]
+[1AGenerating train split:  27%|██▋       | 960999/3599994 [00:01<00:05, 524231.89 examples/s]
+[1AGenerating train split:  28%|██▊       | 1017999/3599994 [00:01<00:04, 526148.25 examples/s]
+[1AGenerating train split:  30%|██▉       | 1074999/3599994 [00:02<00:04, 536797.40 examples/s]
+[1AGenerating train split:  31%|███▏      | 1129999/3599994 [00:02<00:04, 537448.66 examples/s]
+[1AGenerating train split:  34%|███▎      | 1212999/3599994 [00:02<00:04, 535836.60 examples/s]
+[1AGenerating train split:  35%|███▌      | 1266999/3599994 [00:02<00:04, 532594.35 examples/s]
+[1AGenerating train split:  37%|███▋      | 1328999/3599994 [00:02<00:04, 551581.25 examples/s]
+[1AGenerating train split:  39%|███▉      | 1408999/3599994 [00:02<00:04, 541764.38 examples/s]
+[1AGenerating train split:  41%|████      | 1468999/3599994 [00:02<00:03, 556282.82 examples/s]
+[1AGenerating train split:  43%|████▎     | 1553999/3599994 [00:02<00:03, 547078.91 examples/s]
+[1AGenerating train split:  45%|████▍     | 1610999/3599994 [00:03<00:03, 528726.86 examples/s]
+[1AGenerating train split:  46%|████▋     | 1666999/3599994 [00:03<00:03, 535222.44 examples/s]
+[1AGenerating train split:  48%|████▊     | 1726999/3599994 [00:03<00:03, 551467.45 examples/s]
+[1AGenerating train split:  50%|████▉     | 1782999/3599994 [00:03<00:03, 551821.89 examples/s]
+[1AGenerating train split:  52%|█████▏    | 1860998/3599994 [00:03<00:03, 532762.87 examples/s]
+[1AGenerating train split:  53%|█████▎    | 1918998/3599994 [00:03<00:03, 544035.01 examples/s]
+[1AGenerating train split:  55%|█████▍    | 1977998/3599994 [00:03<00:02, 553756.07 examples/s]
+[1AGenerating train split:  57%|█████▋    | 2039998/3599994 [00:03<00:02, 549977.33 examples/s]
+[1AGenerating train split:  58%|█████▊    | 2099998/3599994 [00:03<00:02, 560217.73 examples/s]
+[1AGenerating train split:  60%|█████▉    | 2158998/3599994 [00:04<00:02, 552292.27 examples/s]
+[1AGenerating train split:  62%|██████▏   | 2214998/3599994 [00:04<00:02, 551195.63 examples/s]
+[1AGenerating train split:  63%|██████▎   | 2278998/3599994 [00:04<00:02, 567990.88 examples/s]
+[1AGenerating train split:  66%|██████▌   | 2357998/3599994 [00:04<00:02, 548008.10 examples/s]
+[1AGenerating train split:  68%|██████▊   | 2436998/3599994 [00:04<00:02, 536898.94 examples/s]
+[1AGenerating train split:  69%|██████▉   | 2500998/3599994 [00:04<00:01, 557490.71 examples/s]
+[1AGenerating train split:  72%|███████▏  | 2584998/3599994 [00:04<00:01, 551446.32 examples/s]
+[1AGenerating train split:  73%|███████▎  | 2642998/3599994 [00:04<00:01, 546632.21 examples/s]
+[1AGenerating train split:  75%|███████▌  | 2700996/3599994 [00:05<00:01, 525469.95 examples/s]
+[1AGenerating train split:  77%|███████▋  | 2757996/3599994 [00:05<00:01, 530168.14 examples/s]
+[1AGenerating train split:  78%|███████▊  | 2819996/3599994 [00:05<00:01, 553889.57 examples/s]
+[1AGenerating train split:  80%|███████▉  | 2875996/3599994 [00:05<00:01, 553949.49 examples/s]
+[1AGenerating train split:  82%|████████▏ | 2939996/3599994 [00:05<00:01, 572435.19 examples/s]
+[1AGenerating train split:  84%|████████▍ | 3026996/3599994 [00:05<00:01, 570179.76 examples/s]
+[1AGenerating train split:  86%|████████▌ | 3084996/3599994 [00:05<00:00, 570211.98 examples/s]
+[1AGenerating train split:  88%|████████▊ | 3149996/3599994 [00:05<00:00, 586021.37 examples/s]
+[1AGenerating train split:  90%|████████▉ | 3231996/3599994 [00:05<00:00, 568267.79 examples/s]
+[1AGenerating train split:  92%|█████████▏| 3293996/3599994 [00:06<00:00, 578597.38 examples/s]
+[1AGenerating train split:  94%|█████████▎| 3370996/3599994 [00:06<00:00, 551426.28 examples/s]
+[1AGenerating train split:  96%|█████████▌| 3456996/3599994 [00:06<00:00, 545093.22 examples/s]
+[1AGenerating train split:  98%|█████████▊| 3518996/3599994 [00:06<00:00, 560763.68 examples/s]
+[1AGenerating train split:  99%|█████████▉| 3575996/3599994 [00:06<00:00, 554986.70 examples/s]Generating train split: 100%|██████████| 3599994/3599994 [00:06<00:00, 546236.03 examples/s]
+
+[1AGenerating test split:   0%|          | 0/400000 [00:00<?, ? examples/s]
+[1AGenerating test split:  13%|█▎        | 52000/400000 [00:00<00:00, 507194.57 examples/s]
+[1AGenerating test split:  28%|██▊       | 111000/400000 [00:00<00:00, 554390.87 examples/s]
+[1AGenerating test split:  48%|████▊     | 192000/400000 [00:00<00:00, 537349.35 examples/s]
+[1AGenerating test split:  62%|██████▏   | 249000/400000 [00:00<00:00, 545114.51 examples/s]
+[1AGenerating test split:  76%|███████▋  | 305000/400000 [00:00<00:00, 545904.81 examples/s]
+[1AGenerating test split:  90%|█████████ | 362000/400000 [00:00<00:00, 547848.45 examples/s]
+[1AGenerating test split: 100%|██████████| 400000/400000 [00:00<00:00, 550949.66 examples/s]
+[distilmbert_sent 34s] calib amz_train 100000
+
+[1AGenerating train split:   0%|          | 0/560000 [00:00<?, ? examples/s]
+[1AGenerating train split:   5%|▌         | 29000/560000 [00:00<00:01, 286136.95 examples/s]
+[1AGenerating train split:  12%|█▏        | 67000/560000 [00:00<00:01, 338228.29 examples/s]
+[1AGenerating train split:  18%|█▊        | 103000/560000 [00:00<00:01, 342797.12 examples/s]
+[1AGenerating train split:  25%|██▌       | 140000/560000 [00:00<00:01, 348374.32 examples/s]
+[1AGenerating train split:  34%|███▍      | 193000/560000 [00:00<00:01, 343680.42 examples/s]
+[1AGenerating train split:  41%|████      | 230000/560000 [00:00<00:00, 349663.89 examples/s]
+[1AGenerating train split:  48%|████▊     | 267000/560000 [00:00<00:00, 353136.97 examples/s]
+[1AGenerating train split:  57%|█████▋    | 318000/560000 [00:00<00:00, 341722.87 examples/s]
+[1AGenerating train split:  63%|██████▎   | 355000/560000 [00:01<00:00, 343327.08 examples/s]
+[1AGenerating train split:  72%|███████▏  | 405000/560000 [00:01<00:00, 334866.23 examples/s]
+[1AGenerating train split:  82%|████████▏ | 457000/560000 [00:01<00:00, 333545.82 examples/s]
+[1AGenerating train split:  89%|████████▉ | 499000/560000 [00:01<00:00, 350074.31 examples/s]
+[1AGenerating train split:  96%|█████████▌| 535000/560000 [00:01<00:00, 350791.06 examples/s]Generating train split: 100%|██████████| 560000/560000 [00:01<00:00, 345525.52 examples/s]
+
+[1AGenerating test split:   0%|          | 0/38000 [00:00<?, ? examples/s]
+[1AGenerating test split:  95%|█████████▍| 36000/38000 [00:00<00:00, 346063.89 examples/s]
+[1AGenerating test split: 100%|██████████| 38000/38000 [00:00<00:00, 359039.08 examples/s]
+[distilmbert_sent 42s] calib yelp_train 59990
+
+[1AGenerating train split:   0%|          | 0/45615 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 45615/45615 [00:00<00:00, 994915.14 examples/s]
+
+[1AGenerating test split:   0%|          | 0/12284 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 12284/12284 [00:00<00:00, 1122746.36 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 501261.31 examples/s]
+[distilmbert_sent 46s] calib tweet_train 45615
+
+[1AGenerating train split:   0%|          | 0/45000 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 45000/45000 [00:00<00:00, 1445193.22 examples/s]
+
+[1AGenerating test split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 50000/50000 [00:00<00:00, 1439303.80 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 5000/5000 [00:00<00:00, 953294.24 examples/s]
+[distilmbert_sent 50s] calib tweet_emoji 45000
+
+[1AGenerating train split:   0%|          | 0/25000 [00:00<?, ? examples/s]
+[1AGenerating train split:  64%|██████▍   | 16000/25000 [00:00<00:00, 144913.50 examples/s]Generating train split: 100%|██████████| 25000/25000 [00:00<00:00, 167591.43 examples/s]
+
+[1AGenerating test split:   0%|          | 0/25000 [00:00<?, ? examples/s]
+[1AGenerating test split:  76%|███████▌  | 19000/25000 [00:00<00:00, 175072.50 examples/s]Generating test split: 100%|██████████| 25000/25000 [00:00<00:00, 190376.73 examples/s]
+
+[1AGenerating unsupervised split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating unsupervised split:  34%|███▍      | 17000/50000 [00:00<00:00, 162788.16 examples/s]
+[1AGenerating unsupervised split:  80%|████████  | 40000/50000 [00:00<00:00, 197151.61 examples/s]
+[1AGenerating unsupervised split: 100%|██████████| 50000/50000 [00:00<00:00, 196311.45 examples/s]
+[distilmbert_sent 59s] dev 8000 of 42284 stress 3000 calib texts 564610
+
+[1AFetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+[1AFetching 5 files:  40%|████      | 2/5 [00:00<00:00, 18.20it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 28.33it/s]
+[distilmbert_sent 95s] counted 48835944
+[distilmbert_sent 113s] BASE dev acc 0.708 n 8000 stress n 3000
+[distilmbert_sent 114s] K=8000 rows=8191 tok_raw=52379 tok_xz=24800 unk_rate=0.00257 (base 0.00267) seqlen_ratio=1.055
+RES {"model": "distilmbert_sent", "K": 8000, "kept": 8191, "eb": 16, "wb": 16, "tok_raw": 52379, "tok_xz": 24800, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 18.377814574151273, "pct_coded": 18.372729044932008, "pct_w_only": 18.40193705942405, "agree": 0.947375, "agree_hard": 0.8265, "disagree_n": 421, "stress_agree": 0.9323333333333333, "acc": 0.70425, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0025710614121682955, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.054602385097908}
+[distilmbert_sent 132s] rANS roundtrip OK
+RES {"model": "distilmbert_sent", "K": 8000, "kept": 8191, "eb": 8, "wb": 8, "tok_raw": 52379, "tok_xz": 24800, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 9.562094758011881, "pct_coded": 9.141768641033261, "pct_w_only": 9.153999883496994, "agree": 0.946375, "agree_hard": 0.823, "disagree_n": 429, "stress_agree": 0.9323333333333333, "acc": 0.70425, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0025710614121682955, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.054602385097908}
+RES {"model": "distilmbert_sent", "K": 8000, "kept": 8191, "eb": 6, "wb": 8, "tok_raw": 52379, "tok_xz": 24800, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 9.30834604586559, "pct_coded": 8.904374610257406, "pct_w_only": 8.916169258459542, "agree": 0.947, "agree_hard": 0.824, "disagree_n": 424, "stress_agree": 0.932, "acc": 0.70425, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0025710614121682955, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.054602385097908}
