@@ -58,3 +58,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - smoke cs.py ap-ATMlSLGcerWPVo3x5HKZmM; sweep1.json (24 cfgs: 3B/7B/14B base+uniform L, 14B alloc) ap-2rnXuDRmAVFJPg3VT2bxRn; results vol tenpct-C-res, logs v2/compress_C/
 - v2/commercial base_eval relaunch w/ GPU fallback list: ap-B0ywSZ8eQoTmust48jvK15 (03:03); ap-9kKy.. stopped (never scheduled)
 - v2/prune p3 (ffn recon variants skip0/lam, late-block drops) ap-L0HhmWzmbdSMtbOOjfoKiP 03:20 --detach
+- sweep1 relaunched after remap fix: ap-aQKtFFclKXKorbsukxGXxY
+- v2/compress_A sweep_A.py (task A PII, engine adapted): cfg_1.json 15 cfgs (fp baselines + uniform GPTQ L=3/4/6 on 1.5B/3B/7B) ap-ADnjPMffxvs1SzL3H1jINo 03:06 --detach; GPU list fallback (L40S/A100/A10G); Modal GPU-starved by other agents, AWS p4d no capacity.
