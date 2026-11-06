@@ -1,0 +1,152 @@
+{
+ "stage1": {
+  "all": {
+   "n": 2000,
+   "base": 0.7675,
+   "cand": 0.799,
+   "diff": 0.0315,
+   "diff_ci95": [
+    0.015,
+    0.047
+   ]
+  },
+  "gold_tool_unseen_in_train_splits(non-None)": {
+   "n": 168,
+   "base": 0.7917,
+   "cand": 0.8393,
+   "diff": 0.0476,
+   "diff_ci95": [
+    -0.006,
+    0.1012
+   ]
+  },
+  "ALL_candidate_tools_unseen": {
+   "n": 0
+  },
+  "toolset_unseen": {
+   "n": 1562,
+   "base": 0.7458,
+   "cand": 0.7746,
+   "diff": 0.0288,
+   "diff_ci95": [
+    0.0102,
+    0.0474
+   ]
+  },
+  "not_exact_dup": {
+   "n": 1991,
+   "base": 0.7675,
+   "cand": 0.7991,
+   "diff": 0.0316,
+   "diff_ci95": [
+    0.0151,
+    0.0472
+   ]
+  },
+  "not_neardup(jac<.8)": {
+   "n": 1837,
+   "base": 0.7572,
+   "cand": 0.7893,
+   "diff": 0.0321,
+   "diff_ci95": [
+    0.0158,
+    0.0484
+   ]
+  },
+  "gold_is_None": {
+   "n": 393,
+   "base": 0.7684,
+   "cand": 0.6412,
+   "diff": -0.1272,
+   "diff_ci95": [
+    -0.1628,
+    -0.0941
+   ]
+  },
+  "gold_not_None": {
+   "n": 1607,
+   "base": 0.7673,
+   "cand": 0.8376,
+   "diff": 0.0703,
+   "diff_ci95": [
+    0.0535,
+    0.0865
+   ]
+  }
+ },
+ "stage2": {
+  "all": {
+   "n": 2000,
+   "base": 0.7675,
+   "cand": 0.802,
+   "diff": 0.0345,
+   "diff_ci95": [
+    0.0185,
+    0.051
+   ]
+  },
+  "gold_tool_unseen_in_train_splits(non-None)": {
+   "n": 168,
+   "base": 0.7917,
+   "cand": 0.8631,
+   "diff": 0.0714,
+   "diff_ci95": [
+    0.0179,
+    0.131
+   ]
+  },
+  "ALL_candidate_tools_unseen": {
+   "n": 0
+  },
+  "toolset_unseen": {
+   "n": 1562,
+   "base": 0.7458,
+   "cand": 0.7778,
+   "diff": 0.032,
+   "diff_ci95": [
+    0.0128,
+    0.0512
+   ]
+  },
+  "not_exact_dup": {
+   "n": 1991,
+   "base": 0.7675,
+   "cand": 0.8021,
+   "diff": 0.0347,
+   "diff_ci95": [
+    0.0191,
+    0.0502
+   ]
+  },
+  "not_neardup(jac<.8)": {
+   "n": 1837,
+   "base": 0.7572,
+   "cand": 0.7937,
+   "diff": 0.0365,
+   "diff_ci95": [
+    0.0191,
+    0.0533
+   ]
+  },
+  "gold_is_None": {
+   "n": 393,
+   "base": 0.7684,
+   "cand": 0.6539,
+   "diff": -0.1145,
+   "diff_ci95": [
+    -0.1476,
+    -0.0814
+   ]
+  },
+  "gold_not_None": {
+   "n": 1607,
+   "base": 0.7673,
+   "cand": 0.8382,
+   "diff": 0.0709,
+   "diff_ci95": [
+    0.0535,
+    0.0896
+   ]
+  }
+ }
+}

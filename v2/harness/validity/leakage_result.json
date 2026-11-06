@@ -1,0 +1,47 @@
+{
+ "n_locked": 2000,
+ "dev": {
+  "n": 2000,
+  "exact_dup_query_in_locked": 5,
+  "near_dup_jac80": 49,
+  "identical_toolset_as_a_locked_item": 271,
+  "gold_tool_name_also_gold_in_locked": 1392
+ },
+ "pool": {
+  "n": 4000,
+  "exact_dup_query_in_locked": 3,
+  "near_dup_jac80": 108,
+  "identical_toolset_as_a_locked_item": 547,
+  "gold_tool_name_also_gold_in_locked": 2800
+ },
+ "calib": {
+  "n": 2000,
+  "exact_dup_query_in_locked": 1,
+  "near_dup_jac80": 62,
+  "identical_toolset_as_a_locked_item": 296,
+  "gold_tool_name_also_gold_in_locked": 1445
+ },
+ "fb:ann_combined_k6.json": {
+  "n": 6,
+  "exact_dup_query_in_locked": 0,
+  "near_dup_jac80": 0,
+  "identical_toolset_as_a_locked_item": 0,
+  "gold_tool_name_also_gold_in_locked": 5
+ },
+ "fb:ann_newtool_k5.json": {
+  "n": 5,
+  "exact_dup_query_in_locked": 0,
+  "near_dup_jac80": 0,
+  "identical_toolset_as_a_locked_item": 0,
+  "gold_tool_name_also_gold_in_locked": 5
+ },
+ "fb:ann_pair_k1.json": {
+  "n": 1,
+  "exact_dup_query_in_locked": 0,
+  "near_dup_jac80": 0,
+  "identical_toolset_as_a_locked_item": 0,
+  "gold_tool_name_also_gold_in_locked": 0
+ },
+ "locked_internal_dup_queries": 2,
+ "locked_query_strings_found_in_artifact_text_files": 0
+}
