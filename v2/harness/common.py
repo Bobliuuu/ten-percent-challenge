@@ -61,7 +61,9 @@ def exam_sha256(rows):
 
 def candidate_view(rows):
     """What the candidate sees: no answers."""
-    return [{k: v for k, v in r.items() if k != "answer"} for r in rows]
+    """Whitelist (NOT blacklist): rows may carry label-leaking side fields (C2: gold_calls, irrelevant, tools, origin)."""
+    keep = ("id", "task", "text", "names", "inst", "subject", "question", "choices")
+    return [{k: r[k] for k in keep if k in r} for r in rows]
 
 
 def labels(rows):

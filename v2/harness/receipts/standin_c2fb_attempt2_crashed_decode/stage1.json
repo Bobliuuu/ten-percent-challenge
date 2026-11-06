@@ -1,0 +1,59 @@
+{
+  "status": "candidate_crashed",
+  "key": "7cc05cd39379d452:standin:c2fb:stage1",
+  "stage": 1,
+  "started_utc": "2026-11-06T11:44:16.400192+00:00",
+  "artifact_tree_sha256": "f26dc2b695de6578f68ccf7dbc8f6933d278ce0440b09190ac8589cb1b8668bb",
+  "memory_sha256": null,
+  "returncode": 1,
+  "stderr_tail": "Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.\nTraceback (most recent call last):\n  File \"/cand/_worker/worker.py\", line 17, in <module>\n    f = mod.load(a.artifact, a.memory)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/cand/runs/c2fb/stage1/artifact/predict.py\", line 185, in load\n    B = _build(art, dev)\n        ^^^^^^^^^^^^^^^^\n  File \"/cand/runs/c2fb/stage1/artifact/predict.py\", line 47, in _build\n    wi = torch.from_numpy(dec(e[\"cw\"], e[\"ow\"], e[\"lw\"], R * C).astype(np.uint8)).to(dev).view(R, C)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/cand/runs/c2fb/stage1/artifact/predict.py\", line 46, in dec\n    return constriction.stream.stack.AnsCoder(body[off // 4: off // 4 + ln].copy()).decode(m, n)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Invalid compressed data: ANS compressed data never ends in a zero word.\n",
+  "size": {
+    "base_fp16_bytes": 15231233024,
+    "fraction": 0.1,
+    "budget_bytes": 1523123302.4,
+    "candidate_bytes": 1432412701,
+    "memory_bytes": 0,
+    "n_files": 9,
+    "byte_ratio": 0.09404443479677145,
+    "within_budget": true,
+    "files": [
+      {
+        "file": "body.bin",
+        "bytes": 1383834952
+      },
+      {
+        "file": "config.json",
+        "bytes": 1805
+      },
+      {
+        "file": "emb.bin",
+        "bytes": 46033008
+      },
+      {
+        "file": "head.npz",
+        "bytes": 476506
+      },
+      {
+        "file": "index.json.xz",
+        "bytes": 35920
+      },
+      {
+        "file": "misc.bin.xz",
+        "bytes": 491640
+      },
+      {
+        "file": "predict.py",
+        "bytes": 11986
+      },
+      {
+        "file": "signs.bin",
+        "bytes": 103936
+      },
+      {
+        "file": "tok.tar.xz",
+        "bytes": 1422948
+      }
+    ]
+  },
+  "finished_utc": "2026-11-06T11:47:10.601296+00:00"
+}

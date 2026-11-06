@@ -102,6 +102,7 @@ def run_exam(spec):
         cmd = ["python", "/cand/_worker/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", f"/cand/{inp_rel}"]
         if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
         app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
+        candvol.commit(); candvol.reload()
         sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=(spec.get("cand_gpu") or None), block_network=True, timeout=7200,
                                   volumes={"/cand": candvol.read_only()})
         try:
@@ -126,7 +127,7 @@ def run_exam(spec):
     rep_nb = None
     if o.get("pred_nobias"):
         rep_nb = S.paired_report(y, bp, [c if c in C.LETTERS else "?" for c in o["pred_nobias"]], margin=lock["margin"], alpha=lock["alpha"])
-    if "task" in rows[0]:
+    if "task" in rows[0] and rows[0]["task"] != "C2":
         pt = {}
         for r, yy, b_, c_ in zip(rows, y, bp, cp):
             d_ = pt.setdefault(r["task"], [0, 0, 0]); d_[0] += 1; d_[1] += b_ == yy; d_[2] += c_ == yy

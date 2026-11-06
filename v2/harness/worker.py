@@ -23,7 +23,8 @@ pred = [to_letter(x) for x in f(inputs)]
 assert len(pred) == len(inputs)
 alt = None
 import inspect
-if "use_bias" in inspect.signature(mod.load).parameters:   # secondary, non-gating variant from the SAME run: bias off
+_p = inspect.signature(mod.load).parameters
+if "use_bias" in _p and _p["use_bias"].default is True:   # only when the default is bias ON   # secondary, non-gating variant from the SAME run: bias off
     del f
     import gc; gc.collect()
     try:

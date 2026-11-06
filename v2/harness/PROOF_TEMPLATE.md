@@ -1,20 +1,20 @@
 # GitHub issue body template: complete proof for the 10% challenge
 (Fill every <...>. Link evidence by commit permalink in github.com/Bobliuuu/ten-percent-challenge. Do not open until stage 1 AND stage 2 receipts both say PASS and `REAL_RESULT: true`.)
 
-**Title:** Proof: <BASE> compressed to <X.XX>% of FP16, MMLU <cand acc> vs base <base acc>, locked exam, feedback-grown
+**Title:** Proof: <BASE> compressed to <X.XX>% of FP16, C2 tool selection <cand acc> vs base <base acc>, locked exam, feedback-grown
 
 ## Summary
 | item | value | evidence |
 |---|---|---|
-| Base | Qwen/Qwen2.5-14B-Instruct (14,770,033,664 params), MMLU zero-shot | v2/TASK.md |
-| Base FP16 bytes | 29,540,067,328 | LOCK_HARNESS.json `base_fp16_bytes` |
-| Artifact bytes (ALL files + memory) | <N> = <X.XX>% (budget 2,954,006,733) | receipts `size.files` (every file listed) |
-| Locked exam score, base / candidate (stage 1) | <..> / <..> (n=2027) | receipt_stage1 |
+| Base | Qwen/Qwen2.5-7B-Instruct (7,615,616,512 params), C2 zero-shot letter prompt | v2/DECISION.md, v2/commercial/TASK_C.md |
+| Base bf16 bytes | 15,231,233,024 | LOCK_HARNESS_C2.json `base_fp16_bytes` |
+| Artifact bytes (ALL files + memory) | <N> = <X.XX>% (budget 1,523,123,302) | receipts `size.files` (every file listed) |
+| Locked exam score, base / candidate (stage 1) | <..> / <..> (n=2000) | receipt_stage1 |
 | Paired non-inferiority (margin 1.0 pt, alpha .05) | diff <..> pt, exact 95% lower bound <..> pt, p=<..> | receipt_stage1 `report` |
 | After feedback (stage 2) | cand <..>, lower bound <..>, PASS | receipt_stage2 |
 
 ## Rule 1: one trained model, >0.5B, commercial-class task
-- Base: <id@revision>, <params> params (> 0.5B). Task: MMLU, 57 subjects, general knowledge/reasoning QA (not toy, not narrow). Evidence: TASK.md, LOCK_HARNESS.json.
+- Base: Qwen2.5-7B-Instruct, 7.6B params (> 0.5B). Task C2: choose the correct API tool among 4 confusable candidate tools or "none fits" (agentic/tool use, a maintainer-named commercial example; items from xLAM/apigen, many tools, broad distribution). Evidence: v2/commercial/TASK_C.md, build_c2.py, LOCK_HARNESS_C2.json. Disclose: hard-distractor variant built after C (random distractors) showed a ceiling on dev.
 - The bar is the base's own score on the same locked items, computed by the harness in the same run (base function, `base_seconds`, `_base_pred` in the receipt).
 
 ## Rule 2: about 10% of FP16, no weight training
@@ -27,16 +27,16 @@
 - Result: base <..>% (CI <..>), candidate <..>% (CI <..>), discordant b=<..> c=<..>, McNemar p=<..>, exact lower bound on diff <..> pt > -1.0 pt. Honest statement: this shows the candidate is not worse than the base by more than 1 pt; it does not claim identical accuracy.
 
 ## Rule 4: unseen held-out exam, locked before building
-- locked.jsonl sha256 <9165abc0...> (n=2027) recorded in v2/base/LOCK.json at 2026-11-06T06:57Z (commit <..>), BEFORE any compressed artifact existed (first artifact commit <..> at <UTC>). LOCK_HARNESS.json written <UTC>, read-only, pre-registers margin/alpha/budget.
-- Split rule is deterministic hash of item content (TASK.md); dev/calib/pool disjoint; all selection used dev only (logs: <links>). Overlaps by question text only: locked-dev 4, locked-calib 6, locked-pool 34 (disclosed; distinct items).
+- locked.jsonl sha256 <9165abc0...> (n=2000) recorded in v2/base/LOCK.json at 2026-11-06T06:57Z (commit <..>), BEFORE any compressed artifact existed (first artifact commit <..> at <UTC>). LOCK_HARNESS.json written <UTC>, read-only, pre-registers margin/alpha/budget.
+- Split rule is deterministic hash of item content (h=sha256(task|key)%7: 0 locked, 1 dev, 2 calib, rest pool; v2/commercial/LOCK.json); dev/calib/pool disjoint; all selection used dev only (logs: <links>). Hyperparameters (c, dz, vocab, head lam) selected on dev/pool (disclosed). Harness agent printed 600 bytes of the unrelated MMLU locked file (not used).
 - Single use: local O_EXCL claim, atomic Modal Dict claim, receipt in volume; refusal on second run tested (tests log <link>). The exam was run once per stage: Modal app ids <..>, `modal app logs` saved at <path>.
 - Isolation: candidate ran in a Modal Sandbox with block_network=True, fresh image with no HF cache or base weights, only the artifact + memory mounted read-only, no labels (`sandbox_evidence`: network blocked, hf_cache_files=0). The base ran in a separate function, only to produce the bar score.
 - Harness hashes unchanged since lock (`harness_unchanged_since_lock: true`).
 
 ## Rule 5: grows with few annotations, learns new, keeps old, still passes
-- Feedback: <k> annotations (labelled items drawn from pool.jsonl, never from locked), simulating a user marking the model's wrong answers. Evidence: v2/feedback/<..>.
-- Mechanism: external memory file only (<format>), size <bytes> counted in the budget. Artifact tree hash identical at both stages (<sha>); only memory changed (<sha0> -> <sha1>).
-- Learns new: accuracy on held-out items of the fed-back kind (dev-side test, not locked): before <..> after <..>. Keeps old: dev accuracy on unrelated items before <..> after <..>.
+- Feedback: <k> annotations (items drawn from C2 pool/calib, never from locked; answer = correct option index, 4 = none fits), simulating a user marking the model's wrong answers. Evidence: v2/feedback/<..>.
+- Mechanism: external memory file only: closed-form per-tool prototype means and (true,pred) tallies from c2_fb `ingest` (no retrieval of stored cases, no prompt edits, no gradients; v2/c2_fb/RESULTS.md), size <bytes> counted in the budget. Artifact tree hash identical at both stages (<sha>); only memory changed (<sha0> -> <sha1>).
+- Learns new: accuracy on held-out items of the fed-back kind (v2/c2_fb/RESULTS.md S2/S3; dev-side, not locked): before <..> after <..>. Keeps old: dev accuracy on unrelated items before <..> after <..>.
 - Still passes the locked exam at stage 2: cand <..>, lower bound <..> pt, `PASS_BOTH_STAGES: true`.
 
 ## Reproduce

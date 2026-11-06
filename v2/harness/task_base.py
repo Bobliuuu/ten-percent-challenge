@@ -19,7 +19,7 @@ def fmt_mdc6(r):
 def base_predict(rows, base_id, task="mmlu"):
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
-    fmt = fmt_mmlu if task == "mmlu" else fmt_mdc6
+    fmt = fmt_mmlu if task == "mmlu" else fmt_mdc6   # mdc6 and c2 (5 options: 4 tools + none) share the same frozen letter prompt
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     tok = AutoTokenizer.from_pretrained(base_id)
     m = AutoModelForCausalLM.from_pretrained(base_id, torch_dtype=torch.bfloat16).to(dev).eval()

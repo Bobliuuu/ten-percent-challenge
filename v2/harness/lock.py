@@ -9,12 +9,12 @@ import common as C, stats as S
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--exam-file", required=True); ap.add_argument("--task-lock", required=True); ap.add_argument("--split", required=True)
-ap.add_argument("--task", default="mmlu", choices=["mmlu", "mdc6"]); ap.add_argument("--base-id", required=True); ap.add_argument("--base-revision"); ap.add_argument("--base-fp16-bytes", type=int, required=True)
+ap.add_argument("--task", default="mmlu", choices=["mmlu", "mdc6", "c2"]); ap.add_argument("--base-id", required=True); ap.add_argument("--base-revision"); ap.add_argument("--base-fp16-bytes", type=int, required=True)
 ap.add_argument("--margin", type=float, default=S.MARGIN); ap.add_argument("--alpha", type=float, default=S.ALPHA)
 ap.add_argument("--budget-fraction", type=float, default=C.BUDGET_FRACTION); ap.add_argument("--out", required=True); ap.add_argument("--standin", action="store_true")
 a = ap.parse_args()
 if os.path.exists(a.out): sys.exit(f"REFUSING: {a.out} exists (a lock is never overwritten).")
-if not a.standin and (a.budget_fraction != C.BUDGET_FRACTION or a.split != "locked"): sys.exit("real lock: split=locked, fraction 0.10")
+if not a.standin and (a.budget_fraction != C.BUDGET_FRACTION or not a.split.endswith("locked")): sys.exit("real lock: split=locked (or C2/locked), fraction 0.10")
 TL = json.load(open(a.task_lock))
 if "splits" in TL: T = TL["splits"][a.split]
 else: T = dict(n=TL["n"][a.split], file_sha256=TL["file_sha256"][a.split])   # v2/alt/LOCK.json layout
