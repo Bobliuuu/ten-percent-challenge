@@ -1,0 +1,25 @@
+40 relerr_so_far 0.0061154185612695856 1172
+layer 25 relerr_so_far 0.006233920461656256 1009
+layer 47 relerr_so_far 0.008323534931882894 1028
+layer 41 relerr_so_far 0.006381121651636466 1199
+layer 26 relerr_so_far 0.006339000929258896 1036
+layer 42 relerr_so_far 0.006655258431152624 1225
+layer 27 relerr_so_far 0.006448710867240416 1064
+RESULT_JSON {"name": "m_mlp13_attn14", "cfg": {"name": "m_mlp13_attn14", "logk": 13, "plan": [["q_proj|k_proj|v_proj|o_proj", 14]]}, "n": 1987, "base_acc": 0.8012078510317061, "acc": 0.6195269250125818, "agree": 0.7050830397584298, "flips_lost": 427, "flips_gain": 66, "dropped": [], "body_bits_per_w": 1.6535714285714285, "body_ent_bits_per_w": 1.6480671671174822, "rel_proxy_err": 0.008323534931882894, "body_bytes": 2731282368.0, "fixed_bytes_est": 107579968.0, "total_bytes_est": 2838862336.0, "ratio_bf16": 0.09610209430054824, "ratio_bf16_entropy": 0.09579436556990792, "budget": 2954006733, "secs": 1074.4022681713104, "per": null}
+layer 43 relerr_so_far 0.006953040857103044 1251
+layer 28 relerr_so_far 0.006561383653651476 1091
+layer 44 relerr_so_far 0.007214558473615358 1278
+layer 29 relerr_so_far 0.0066849933309387835 1119
+layer 45 relerr_so_far 0.007467490359065742 1304
+layer 30 relerr_so_far 0.00681938373644063 1147
+layer 46 relerr_so_far 0.007560783082584587 1330
+layer 31 relerr_so_far 0.006969874088215328 1174
+layer 47 relerr_so_far 0.007146489810526122 1356
+layer 32 relerr_so_far 0.007131763311537608 1202
+layer 33 relerr_so_far 0.007322237354173261 1229
+RESULT_JSON {"name": "m_k14", "cfg": {"name": "m_k14", "logk": 14}, "n": 1987, "base_acc": 0.8012078510317061, "acc": 0.657775541016608, "agree": 0.7448414695520886, "flips_lost": 353, "flips_gain": 68, "dropped": [], "body_bits_per_w": 1.75, "body_ent_bits_per_w": 1.743882514843865, "rel_proxy_err": 0.007146489810526122, "body_bytes": 2890403776.0, "fixed_bytes_est": 107579968.0, "total_bytes_est": 2997983744.0, "ratio_bf16": 0.10148872413565273, "ratio_bf16_entropy": 0.10114671168628793, "budget": 2954006733, "secs": 1401.561939716339, "per": null}
+layer 34 relerr_so_far 0.007532994610376145 1257
+layer 35 relerr_so_far 0.007753325450285064 1285
+layer 36 relerr_so_far 0.007983118748854042 1312
+layer 37 relerr_so_far 0.008221887473696055 1340
+layer 38 relerr_so_far 0.008471581119944581 1368

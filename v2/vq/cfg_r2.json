@@ -1,0 +1,5 @@
+[{"name":"sens12","mode":"sens","slogk":12,"big":true},
+ {"name":"m_k13","logk":13},
+ {"name":"m_k13_s09","logk":13,"smult":0.9},
+ {"name":"m_k13_s11","logk":13,"smult":1.1},
+ {"name":"m_k13_n512","logk":13,"ncal":512}]
