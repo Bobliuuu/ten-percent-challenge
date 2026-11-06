@@ -1,4 +1,4 @@
-"""Final real-code-path verification on Modal (C2 DEV only). Overlays predict.py+head.npz on the volume copy of art_c120_dz15.
+"""Final real-code-path verification on Modal (C2 DEV only). Uses the canonical GOOD artifact copy on Volume tenpct-c2fb:/art_c2fb (body.bin sha 0304a803...).
  (a) plain art_c120_dz15 with its ORIGINAL predict.py (raw, no bias) vs new predict.load(art, None): decisions must agree 100%.
  (b) new load(art, memory) for the default feedback sets: dev acc (retention), new-tool / pair-error items before/after.
  (c) GPU predict.ingest(art, ann) vs the memory file produced from stored features (make_feedback_memory.py).
@@ -9,13 +9,13 @@ app = modal.App("tenpct-c2fb-final")
 img = (modal.Image.debian_slim().pip_install("torch", "transformers==4.51.3", "numpy", "safetensors", "constriction", "accelerate")
        .add_local_file(R + "commercial/C2/dev.jsonl", "/root/c_dev.jsonl")
        .add_local_dir(R + "c2_fb/artifact_code", "/root/code").add_local_dir(R + "c2_fb/feedback_sets", "/root/fb")
-       .add_local_file(R + "compress_C/artifact_src/predict.py", "/root/orig_predict.py"))
+       .add_local_file(R + "compress_C/artifact_src/predict.py", "/root/orig_predict.py").add_local_file(R + "harness/common.py", "/root/common.py"))
 vol = modal.Volume.from_name("tenpct-c2fb", create_if_missing=True); cres = modal.Volume.from_name("tenpct-C-res")
 
 @app.function(image=img, gpu=["H100", "A100-80GB", "L40S", "A10G"], cpu=8, memory=65536, timeout=14400, volumes={"/d": vol, "/a": cres})
 def run():
     import numpy as np, shutil, time, importlib.util, hashlib, torch
-    t0 = time.time(); import tempfile; art = tempfile.mkdtemp() + "/art"; shutil.copytree("/a/art_c120_dz15", art); shutil.rmtree(art + "/__pycache__", ignore_errors=True)
+    t0 = time.time(); import tempfile; art = tempfile.mkdtemp() + "/art"; shutil.copytree("/d/art_c2fb", art); shutil.rmtree(art + "/__pycache__", ignore_errors=True)
     def tree():
         h = hashlib.sha256()
         for r, _, fs in sorted(os.walk(art)):
@@ -26,7 +26,9 @@ def run():
     for r in dev: r.pop("tools", None); r.pop("gold_calls", None)
     y = np.array([r["answer"] for r in dev]); out = {}
     O = imp("orig", "/root/orig_predict.py"); fo = O.load(art, None, use_bias=False); pplain = np.array(fo(dev)); out["plain_orig_dev_acc"] = float((pplain == y).mean()); del fo; torch.cuda.empty_cache()
-    shutil.copy("/root/code/predict.py", art + "/predict.py"); shutil.copy("/root/code/head.npz", art + "/head.npz"); th = tree(); out["tree_sha256"] = th
+    th = tree(); out["tree_sha256_walkscheme"] = th
+    import sys; sys.path.insert(0, "/root"); import common; out["tree_sha256_harness"] = common.tree_sha256(art)
+    assert open(art + "/predict.py", "rb").read() == open("/root/code/predict.py", "rb").read() and open(art + "/head.npz", "rb").read() == open("/root/code/head.npz", "rb").read()
     P = imp("newp", "/root/code/predict.py"); f0 = P.load(art, None); p1 = np.array(f0(dev))
     out["stage1_dev_acc"] = float((p1 == y).mean()); out["stage1_agree_with_plain"] = float((p1 == pplain).mean())
     LG, _, FO = f0.build["run"](dev); H = P.Head(art); plan = json.load(open("/root/fb/feedback_plan.json")); tn = P.tool_name

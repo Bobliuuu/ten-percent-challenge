@@ -1,6 +1,7 @@
 {
  "plain_orig_dev_acc": 0.8025,
- "tree_sha256": "52dd2397d025f34a85b6905fc844dadd3a1b42b865397041083c7512ec4c642f",
+ "tree_sha256_walkscheme": "52dd2397d025f34a85b6905fc844dadd3a1b42b865397041083c7512ec4c642f",
+ "tree_sha256_harness": "6290414d96f3119799516442cab5106243dede6a5b29256f24669f0581ee9661",
  "stage1_dev_acc": 0.8025,
  "stage1_agree_with_plain": 1.0,
  "real_load_memory_combined_dev_acc": null,
@@ -48,5 +49,5 @@
  "gpu_ingest_tp_equal": true,
  "tree_unchanged": true,
  "pycache_present": false,
- "secs": 616.32306432724
+ "secs": 600.2882673740387
 }

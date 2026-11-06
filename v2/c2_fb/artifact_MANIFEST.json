@@ -1,10 +1,12 @@
 {
- "tree_sha256": "d0e5836155881d6384cfdd9883944766b0a2cfee0a76d563142d78d21e38da0a",
- "tree_scheme": "sha256 over sorted(os.walk): relpath bytes + sha256(file) digest bytes",
+ "canonical": "/Users/jhome/ten-percent-artifacts/artC2_fb_fixed",
+ "modal_volume": "tenpct-c2fb:/art_c2fb",
+ "tree_sha256_harness_common": "6290414d96f3119799516442cab5106243dede6a5b29256f24669f0581ee9661",
+ "tree_sha256_walkscheme": "52dd2397d025f34a85b6905fc844dadd3a1b42b865397041083c7512ec4c642f",
  "total_bytes": 1432412701,
  "files": {
   "body.bin": {
-   "sha256": "f828171461298823a446eb28f30328a7c4d850ee96d9584470dfafcdbb3c9ada",
+   "sha256": "0304a803ae079beca3ff270cd4cd72567392924ddd95af30e258496a0921e4a4",
    "bytes": 1383834952
   },
   "config.json": {
@@ -39,7 +41,5 @@
    "sha256": "b855a59378fd70df4f5d3f3281b8981aab80e27ce3de502f63cac69f1393efae",
    "bytes": 1422948
   }
- },
- "mac_copy": "/Users/jhome/ten-percent-artifacts/artC2_fb",
- "modal_volume": "tenpct-c2fb:/art_c2fb"
+ }
 }
