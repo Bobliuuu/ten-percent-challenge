@@ -15,3 +15,9 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - v2/base: frozen Qwen2.5-14B MMLU splits + LOCK.json + v2/TASK.md (no remote run; base_acc 0.8007 reused from trackR r3_d.log)
 - v2/feedback: fb.py Qwen2.5-0.5B dev run, app ap-GCpvnS4S856sWJvhetuJbl (modal run --detach, 01:58)
 - v2/feedback MMLU stand-in (Qwen2.5-0.5B) fb.py: ap-RfMCr7dRtZEyaMdesBgDJJ (earlier SST-2 app ap-GCpv... stopped, superseded)
+- 02:05 harvested trackR r3.json (14B). v2 agents running: engine ap-ur2s..., exam-stand-in, feedback.
+
+## v2/engine (workstream 2, 14B base) 2026-11-06
+- smoke 0.5B (v2/engine/smoke_out.json): engine works.
+- launched `modal run --detach v2/engine/sweep.py --cfgs cfg_tables.json` (4 table shards, per-module proxy err/entropy vs L) -> v2/engine/log_tables.txt
+- launched cfg_A.json (14B uniform L in {3,4,5,6,8}, rot vs norot, g256, drop6) -> v2/engine/log_A.txt

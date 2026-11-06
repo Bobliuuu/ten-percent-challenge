@@ -1,0 +1,1 @@
+[{"model":"Qwen/Qwen2.5-0.5B-Instruct","L":4,"g":128,"vocab":32768,"ebits":4,"nev":200,"name":"smoke"},{"model":"Qwen/Qwen2.5-0.5B-Instruct","L":4,"g":128,"rot":false,"vocab":32768,"ebits":4,"nev":200,"name":"smoke_norot"}]

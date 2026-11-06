@@ -1,0 +1,27 @@
+{
+  "alpha": 0.05,
+  "base_fp16_bytes": 988065536,
+  "base_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "base_revision": null,
+  "budget_bytes": 1086872089.6000001,
+  "budget_fraction": 1.1,
+  "criterion": "exact one-sided non-inferiority on paired correctness; see CRITERION.md",
+  "exam_content_sha256": "55b738c064a50e763adb6425211a87768ef7d705e545fd3c975d3b20d59fc8c8",
+  "exam_file_sha256": "79ec82baa943a6227e92137fb2396cdcf8e24d1018c02efb78388d231a45c0a4",
+  "harness_sha256": {
+    "common.py": "7b0bbf9244b8e00adc7471b215501d36582f2c2d95bd55d977d6c58a754f9e9f",
+    "exam_remote.py": "6210de984ba2a286146deb08564272a137283c61506602dff12e493aec2474fe",
+    "lock.py": "4c67e3b397deb7a9c05d3c1c50e38f470b8543d1dd576a722badf7f03a774981",
+    "size_check.py": "9c6528cd20f98c5f244d0c11054d8451b5dbe63e67571345807350cb380d9737",
+    "standin_predict.py": "31810117e888f4c2e1b95ed260478ac7f9bd0daef40e04de11e850762750c235",
+    "stats.py": "8a54cc5a957325fae475e39bfe1fd7f4fbd3026f7c3053cc2864c6d95b5082ec",
+    "task_base.py": "8a20d441b7b7e90a06c64ca0595688f2b2037dffe0258ab0126a077a946fee68",
+    "worker.py": "98c91ee448a2ff98c85219e1bfe29a22b4b1830826c084f9fc1c13692b98a519"
+  },
+  "locked_utc": "2026-11-06T06:59:50.440878+00:00",
+  "margin": 0.01,
+  "n_rows": 300,
+  "split": "dev300",
+  "standin": true,
+  "task_lock_sha256": "1c366889f2a6dfaac9bebf91f8f0d1e78bf1f190050ed98ede169f854c78996f"
+}
