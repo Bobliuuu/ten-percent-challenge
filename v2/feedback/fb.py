@@ -154,4 +154,4 @@ def run(model="Qwen/Qwen2.5-0.5B-Instruct", tag="dev05", npool=3500):
 
 @app.local_entrypoint()
 def main(model:str="Qwen/Qwen2.5-0.5B-Instruct",tag:str="dev05"):
-    run.spawn(model,tag)
+    run.remote(model,tag)
