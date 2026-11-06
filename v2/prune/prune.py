@@ -177,14 +177,14 @@ def run(cfg):
         with torch.no_grad():
             for j,x in enumerate(cur):
                 o=l(x,**kw); cur[j]=o[0] if isinstance(o,tuple) else o
-    def collect(l,names):
+    def collect(l,names,skip0=False):
         mods={n:l.get_submodule(n) for n in names}; Hs={}; hds=[]
         for n,m in mods.items():
             Hs[n]=torch.zeros(m.in_features,m.in_features,device="cuda"); 
         cnt={n:0 for n in names}
         def mk(n):
             def hook(m,i,o):
-                x=i[0].reshape(-1,i[0].shape[-1]).float(); cnt[n]+=x.shape[0]; Hs[n]+=x.T@x
+                x=(i[0][:,1:] if skip0 else i[0]).reshape(-1,i[0].shape[-1]).float(); cnt[n]+=x.shape[0]; Hs[n]+=x.T@x
             return hook
         hds=[m.register_forward_hook(mk(n)) for n,m in mods.items()]
         with torch.no_grad():
@@ -202,14 +202,14 @@ def run(cfg):
         if do_proc:
             # --- stage 1: prune
             if ffn_keep<1.0 or head_keep<1.0:
-                Hs=collect(l,["self_attn.o_proj","mlp.down_proj"])
+                Hs=collect(l,["self_attn.o_proj","mlp.down_proj"],cfg.get("skip0",False))
                 if head_keep<1.0:
                     H=Hs["self_attn.o_proj"]; Wo=at.o_proj.weight.data.float(); ng=at.num_key_value_heads; hd=at.head_dim
                     gw=at.num_heads//ng*hd
                     sc=torch.stack([(H.diagonal()[k*gw:(k+1)*gw]*(Wo[:,k*gw:(k+1)*gw]**2).sum(0)).sum() for k in range(ng)])
                     nk=max(1,int(round(ng*head_keep))); kg=sorted(sc.topk(nk)[1].tolist())
                     cols=torch.cat([torch.arange(k*gw,(k+1)*gw) for k in kg]).cuda()
-                    Wn=ls_recon(H,Wo,cols) if head_rec else Wo[:,cols]
+                    Wn=ls_recon(H,Wo,cols,cfg.get('lam',0.01)) if head_rec else Wo[:,cols]
                     kvr=torch.cat([torch.arange(k*hd,(k+1)*hd) for k in kg]).cuda()
                     at.q_proj=lin(at.q_proj.weight.data[cols],at.q_proj.bias.data[cols])
                     at.k_proj=lin(at.k_proj.weight.data[kvr],at.k_proj.bias.data[kvr])
@@ -221,7 +221,7 @@ def run(cfg):
                     H=Hs["mlp.down_proj"]; Wd=ml.down_proj.weight.data.float(); I=Wd.shape[1]
                     sc=H.diagonal()*(Wd**2).sum(0); nk=int(round(I*ffn_keep))
                     keep=sorted(sc.topk(nk)[1].tolist()); keep_t=torch.tensor(keep,device="cuda")
-                    Wn=ls_recon(H,Wd,keep_t) if ffn_rec else Wd[:,keep_t]
+                    Wn=ls_recon(H,Wd,keep_t,cfg.get('lam',0.01)) if ffn_rec else Wd[:,keep_t]
                     ml.gate_proj=lin(ml.gate_proj.weight.data[keep_t]); ml.up_proj=lin(ml.up_proj.weight.data[keep_t]); ml.down_proj=lin(Wn)
                     p_=nk/I; stat["idx_bits"]+=I*(-(p_*math.log2(p_)+(1-p_)*math.log2(max(1-p_,1e-9)))) if p_<1 else 0
                 del Hs
