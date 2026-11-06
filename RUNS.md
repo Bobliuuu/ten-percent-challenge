@@ -76,3 +76,9 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/alt probe p1 (spawned on deployed tenpct-alt-probe3, ids in v2/alt/ids.txt, collect.py): 7B L3 g128 ratio 0.0919 acc .8547 vs base .8726; p2 mixed-bit queue ids_p2.txt
 - v2/alt p3 (14B/32B on tenpct-alt-probe80, A100-80GB; ids_p3.txt)
 - e_0: 7B vocab33k(dev-incl, optimistic) c1.15 dz.15 ncal128: ratio .1007 acc .8671 vs .8721 agree .9577. NOTE vocab was built incl DEV text; fixed (nodev) in push.py; honest vocab study out_v2: 3B 33k agree .9886, 24k .9881, 16k .9821. Added pack capture + pack_artifact.py + artifact_src/predict.py + verify_artifact.py
+- v2/commercial C2 (hard distractors) build_c2.py + dev eval of 3 bases via spawn_eval.py C2 (redeployed tenpct-commercial-base) 03:52; first results log v2/commercial/base_results.log (app ap-bY3PXKNev6XDXLOu2UH4Ev)
+- v2/commercial bino.py (Binoculars zero-shot probe, B dev) deployed tenpct-commercial-bino 03:53
+- build bitnet2b V42000 e4
+- sweep3 (32B base/L3/g256/drop4, 14B cal512) launched 03:59
+- v2/compress_A AWS box g5.12xlarge eu-north-1 i-09f24d8981aa83348 (Modal starved): runner_aws.py cfg_2.json (7B/3B/1.5B GPTQ sweep) 09:3x UTC; TERMINATE at end
+- lowbit dev_harness_test v32k_e4 & v42k_e4 (above)
