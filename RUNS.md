@@ -13,3 +13,5 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - 02:25 stopped off-goal trackS-bases, trackE (BERT/small). Q,D finished. Kept trackR (Qwen 14B). Logs in modal-logs/final.
 
 - v2/base: frozen Qwen2.5-14B MMLU splits + LOCK.json + v2/TASK.md (no remote run; base_acc 0.8007 reused from trackR r3_d.log)
+- v2/feedback: fb.py Qwen2.5-0.5B dev run, app ap-GCpvnS4S856sWJvhetuJbl (modal run --detach, 01:58)
+- v2/feedback MMLU stand-in (Qwen2.5-0.5B) fb.py: ap-RfMCr7dRtZEyaMdesBgDJJ (earlier SST-2 app ap-GCpv... stopped, superseded)
