@@ -179,5 +179,6 @@ def main(lock: str, tag: str, stage: int = 1, exam_file: str = "", artifact: str
     import uuid
     spec = dict(nonce=uuid.uuid4().hex, lock=L, stage=stage, tag=tag, artifact_vol=artifact_vol, memory_vol=memory_vol or None, cand_gpu=cand_gpu)
     rec = run_exam.remote(spec)
-    json.dump(rec, open(f"{receipts_dir}/stage{stage}.json", "w"), indent=2)
+    outp = f"{receipts_dir}/stage{stage}.json" if rec.get("status") != "refused" else f"{receipts_dir}/stage{stage}.refused_{int(time.time())}.json"
+    json.dump(rec, open(outp, "w"), indent=2)   # a refusal never overwrites a real receipt
     print({k: rec.get(k) for k in ("status", "reason", "PASS", "REAL_RESULT", "size_ok")}, rec.get("report", {}).get("diff_cand_minus_base"))
