@@ -477,3 +477,73 @@ layer 30 428.5485010147095
 layer 41 758.727386713028
 layer 33 460.78036522865295
 layer 31 440.7182855606079
+layer 37 1215.8849425315857
+layer 45 941.2296524047852
+layer 42 775.4888982772827
+layer 34 473.65507459640503
+layer 32 453.743355512619
+layer 35 486.50543546676636
+layer 46 960.3451068401337
+layer 33 466.8843376636505
+layer 43 792.5604238510132
+layer 38 1240.9478256702423
+layer 36 498.73490810394287
+layer 34 480.0216450691223
+layer 44 809.5358338356018
+layer 47 979.5427680015564
+layer 37 510.98317289352417
+layer 35 493.1531970500946layer 
+39 1266.0554656982422
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 4, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w4g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8729857819905213, "agree": 0.9943127962085309, "b_wrong": 2, "c_fixed": 4, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 6957260488.0, "bytes_entropy": 6444196648.078125, "ratio_bf16": 0.23551945263866936, "ratio_fp32": 0.11775972631933468, "ratio_bf16_ent": 0.21815104808410155, "ratio_fp32_ent": 0.10907552404205077, "body_bits_per_w": 4.15625, "body_bits_per_w_ent": 3.8455859956760254, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 993.5325543880463}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 4, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w4g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8729857819905213, "agree": 0.9943127962085309, "b_wrong": 2, "c_fixed": 4, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 6957260488.0, "bytes_entropy": 6444196648.078125, "ratio_bf16": 0.23551945263866936, "ratio_fp32": 0.11775972631933468, "ratio_bf16_ent": 0.21815104808410155, "ratio_fp32_ent": 0.10907552404205077, "body_bits_per_w": 4.15625, "body_bits_per_w_ent": 3.8455859956760254, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 993.5325543880463}
+layer 38 523.2101013660431
+layer 45 826.6676690578461
+layer 36 506.2741115093231
+layer 39 536.0838453769684
+layer 40 1291.105162858963
+layer 46 843.636073589325
+layer 37 519.5188608169556
+layer 40 549.2171852588654
+layer 38 532.4735498428345
+layer 47 860.5613198280334
+layer 41 562.1274991035461
+layer 41 1315.9336762428284
+layer 39 544.9450657367706
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8682464454976303, "agree": 0.9829383886255925, "b_wrong": 9, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5292850888.0, "bytes_entropy": 4920038955.34375, "ratio_bf16": 0.17917531565620676, "ratio_fp32": 0.08958765782810338, "ratio_bf16_ent": 0.16655476443955888, "ratio_fp32_ent": 0.08327738221977944, "body_bits_per_w": 3.1484375, "body_bits_per_w_ent": 2.9226970777625128, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 874.7212951183319}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8682464454976303, "agree": 0.9829383886255925, "b_wrong": 9, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5292850888.0, "bytes_entropy": 4920038955.34375, "ratio_bf16": 0.17917531565620676, "ratio_fp32": 0.08958765782810338, "ratio_bf16_ent": 0.16655476443955888, "ratio_fp32_ent": 0.08327738221977944, "body_bits_per_w": 3.1484375, "body_bits_per_w_ent": 2.9226970777625128, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 874.7212951183319}
+layer 42 574.706823348999
+layer 40 557.1641273498535
+layer 43 587.4338328838348
+layer 42 1340.9737207889557
+layer 41 569.3988077640533
+layer 44 600.0555992126465
+layer 42 581.5888440608978
+layer 45 612.9001231193542
+layer 43 1366.0910196304321
+layer 43 593.7843148708344
+layer 46 625.2870366573334
+layer 44 606.9390664100647
+layer 47 638.8182163238525
+layer 44 1391.2484698295593
+layer 45 620.5673818588257
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8691943127962085, "agree": 0.9838862559241706, "b_wrong": 8, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5537996488.0, "bytes_entropy": 5233567206.59375, "ratio_bf16": 0.18747406451408885, "ratio_fp32": 0.09373703225704443, "ratio_bf16_ent": 0.17716842512518696, "ratio_fp32_ent": 0.08858421256259348, "body_bits_per_w": 3.296875, "body_bits_per_w_ent": 3.1125407861338723, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 651.9730477333069}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8691943127962085, "agree": 0.9838862559241706, "b_wrong": 8, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5537996488.0, "bytes_entropy": 5233567206.59375, "ratio_bf16": 0.18747406451408885, "ratio_fp32": 0.09373703225704443, "ratio_bf16_ent": 0.17716842512518696, "ratio_fp32_ent": 0.08858421256259348, "body_bits_per_w": 3.296875, "body_bits_per_w_ent": 3.1125407861338723, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 651.9730477333069}
+layer 46 633.6829974651337
+layer 45 1416.2936189174652
+layer 47 646.7855756282806
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8559241706161137, "agree": 0.9592417061611375, "b_wrong": 28, "c_fixed": 12, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 3860684488.0, "bytes_entropy": 3754775851.90625, "ratio_bf16": 0.13069315127594824, "ratio_fp32": 0.06534657563797412, "ratio_bf16_ent": 0.12710789756214363, "ratio_fp32_ent": 0.06355394878107182, "body_bits_per_w": 2.28125, "body_bits_per_w_ent": 2.2171215262677935, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 659.8906047344208}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8559241706161137, "agree": 0.9592417061611375, "b_wrong": 28, "c_fixed": 12, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 3860684488.0, "bytes_entropy": 3754775851.90625, "ratio_bf16": 0.13069315127594824, "ratio_fp32": 0.06534657563797412, "ratio_bf16_ent": 0.12710789756214363, "ratio_fp32_ent": 0.06355394878107182, "body_bits_per_w": 2.28125, "body_bits_per_w_ent": 2.2171215262677935, "body_frac_params": 0.8945177716285535, "oov": 0.0010794299691099297, "secs": 659.8906047344208}
+layer 46 1441.3442845344543
+layer 47 1466.6408836841583
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 4, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w4g128_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7876195269250126, "agree": 0.9330649219929542, "b_wrong": 64, "c_fixed": 38, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 6957161128.0, "bytes_entropy": 6444089960.8125, "ratio_bf16": 0.23551608907152183, "ratio_fp32": 0.11775804453576091, "ratio_bf16_ent": 0.21814743647196674, "ratio_fp32_ent": 0.10907371823598337, "body_bits_per_w": 4.15625, "body_b
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7539003522898843, "agree": 0.8827377956718672, "b_wrong": 143, "c_fixed": 50, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5292751528.0, "bytes_entropy": 4919960940.03125, "ratio_bf16": 0.17917195208905923, "ratio_fp32": 0.08958597604452961, "ratio_bf16_ent": 0.16655212343973877, "ratio_fp32_ent": 0.08327606171986938, "body_bits_per_w": 3.1484375, "bo
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7559134373427278, "agree": 0.8897835933568193, "b_wrong": 135, "c_fixed": 46, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5537897128.0, "bytes_entropy": 5233472706.359375, "ratio_bf16": 0.18747070094694132, "ratio_fp32": 0.09373535047347066, "ratio_bf16_ent": 0.17716522607241145, "ratio_fp32_ent": 0.08858261303620572, "body_bits_per_w": 3.296875, "body
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.603422244589834, "agree": 0.676899849018621, "b_wrong": 463, "c_fixed": 71, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 3860585128.0, "bytes_entropy": 3754632797.0625, "ratio_bf16": 0.13068978770880071, "ratio_fp32": 0.06534489385440036, "ratio_bf16_ent": 0.12710305482288506, "ratio_fp32_ent": 0.06355152741144253, "body_bits_per_w": 2.28125, "body_bits
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 4, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w4g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8729857819905213, "agree": 0.9943127962085309, "b_wrong": 2, "c_fixed": 4, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 6957260488.0, "bytes_entropy": 6444196648.078125, "ratio_bf16": 0.23551945263866936, "ratio_fp32": 0.11775972631933468, "ratio_bf16_ent": 0.21815104808410155, "ratio_fp32_ent": 0.10907552404205077, "body_bits_per_w": 4.15625, "body
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8682464454976303, "agree": 0.9829383886255925, "b_wrong": 9, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5292850888.0, "bytes_entropy": 4920038955.34375, "ratio_bf16": 0.17917531565620676, "ratio_fp32": 0.08958765782810338, "ratio_bf16_ent": 0.16655476443955888, "ratio_fp32_ent": 0.08327738221977944, "body_bits_per_w": 3.1484375, "bod
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8691943127962085, "agree": 0.9838862559241706, "b_wrong": 8, "c_fixed": 6, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 5537996488.0, "bytes_entropy": 5233567206.59375, "ratio_bf16": 0.18747406451408885, "ratio_fp32": 0.09373703225704443, "ratio_bf16_ent": 0.17716842512518696, "ratio_fp32_ent": 0.08858421256259348, "body_bits_per_w": 3.296875, "body_b
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "agnews", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1055, "base_acc": 0.8710900473933649, "acc": 0.8559241706161137, "agree": 0.9592417061611375, "b_wrong": 28, "c_fixed": 12, "params": 14770033664, "tied": false, "nkeep": 32957, "vocab": 152064, "dropped": [], "bytes": 3860684488.0, "bytes_entropy": 3754775851.90625, "ratio_bf16": 0.13069315127594824, "ratio_fp32": 0.06534657563797412, "ratio_bf16_ent": 0.12710789756214363, "ratio_fp32_ent": 0.06355394878107182, "body_bits_per_w": 2.28125, "body_
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.603422244589834, "agree": 0.676899849018621, "b_wrong": 463, "c_fixed": 71, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 3860585128.0, "bytes_entropy": 3754632797.0625, "ratio_bf16": 0.13068978770880071, "ratio_fp32": 0.06534489385440036, "ratio_bf16_ent": 0.12710305482288506, "ratio_fp32_ent": 0.06355152741144253, "body_bits_per_w": 2.28125, "body_bits_per_w_ent": 2.217095068712083, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 1505.1156840324402}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 2, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w2g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.603422244589834, "agree": 0.676899849018621, "b_wrong": 463, "c_fixed": 71, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 3860585128.0, "bytes_entropy": 3754632797.0625, "ratio_bf16": 0.13068978770880071, "ratio_fp32": 0.06534489385440036, "ratio_bf16_ent": 0.12710305482288506, "ratio_fp32_ent": 0.06355152741144253, "body_bits_per_w": 2.28125, "body_bits_per_w_ent": 2.217095068712083, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 1505.1156840324402}
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-w42ucNl5zjHNkUixgnzW94
