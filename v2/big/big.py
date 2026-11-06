@@ -27,8 +27,11 @@ def impl(cfg):
     for n_,c_ in model.model.named_children():
         if n_!="layers": c_.cuda()
     for l_ in model.model.layers:
-        l_.register_forward_pre_hook(lambda m,a: m.cuda() if STREAM[0] else None)
-        l_.register_forward_hook(lambda m,a,o: m.cpu() if STREAM[0] else None)
+        def _pre(m,a):
+            if STREAM[0]: m.cuda()
+        def _post(m,a,o):
+            if STREAM[0]: m.cpu()
+        l_.register_forward_pre_hook(_pre); l_.register_forward_hook(_post)
     print("cpu-resident model, layers streamed to 1 GPU",flush=True)
     model.config.use_cache=False
     base_params=sum(p.numel() for p in model.parameters())

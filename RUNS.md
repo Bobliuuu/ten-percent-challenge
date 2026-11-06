@@ -36,3 +36,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - RESTART: Modal multi-GPU never scheduled; AWS p4d no capacity us-east-1. big.py now streams layers CPU->1xA100-80GB. app ap-SjLIvn2lK3iXZYsXaxkizC (cfg_1.json, same configs)
 - cfg_B.json (14B layer-drop x uniform L, g256) -> v2/engine/log_B.txt
 - v2/moe sweep1 (RTN prune+quant) run on AWS g7e.2xlarge i-0198fb51c29cfc844 us-east-2 (Modal blocked: 10-GPU cap); results v2/moe/results/sweep1_rtn.*
+- relaunch (hook return bug fixed): ap-L6BWuA91mY58R5HPIZxQyo
