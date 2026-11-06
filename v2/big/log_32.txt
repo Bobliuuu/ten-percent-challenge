@@ -9,3 +9,4 @@ https://modal.com/apps/jerry-zhu/main/ap-AFSM7dGkglhpKVb9v1tT7M
 ├── ✓ Uploaded split.py
 ├── ✓ Created Function run72.
 └── ✓ Created Function run32.
+Stopping app - user stopped from CLI.
