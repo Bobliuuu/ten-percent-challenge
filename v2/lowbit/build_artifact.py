@@ -180,7 +180,7 @@ def run(cfg):
     print("SIZES",json.dumps(out),flush=True); vol.commit()
     out2=verify.remote(cfg,out); return out2
 
-@app.function(image=img, gpu="A100-40GB", cpu=8, memory=65536, timeout=14400, volumes={"/hf":hf,"/d":vol})
+@app.function(image=img, gpu=["A100-40GB","A100-80GB","H100"], cpu=8, memory=65536, timeout=14400, volumes={"/hf":hf,"/d":vol})
 def verify(cfg,out):
     import torch, numpy as np, time, io, lzma, struct, shutil
     os.environ["HF_HOME"]="/hf"; vol.reload()
