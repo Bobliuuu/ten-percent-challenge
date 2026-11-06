@@ -1,0 +1,81 @@
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:09,  1.59it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:01<00:08,  1.58it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:08,  1.57it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:02<00:07,  1.57it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:03<00:07,  1.57it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:03<00:06,  1.57it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:04<00:05,  1.57it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:05<00:05,  1.57it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:05<00:04,  1.57it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:06<00:03,  1.57it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:07<00:03,  1.55it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:07<00:02,  1.56it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:08<00:01,  1.56it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:08<00:01,  1.56it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:09<00:00,  1.56it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:09<00:00,  2.04it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:09<00:00,  1.64it/s]
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 7381.93it/s]
+captured 95 batches 2.116204261779785
+[g_0.3b2_0.7b1] layer 0 done 14s
+[g_0.3b2_0.7b1] layer 1 done 25s
+[g_0.3b2_0.7b1] layer 2 done 36s
+[g_0.3b2_0.7b1] layer 3 done 47s
+[g_0.3b2_0.7b1] layer 4 done 58s
+[g_0.3b2_0.7b1] layer 5 done 69s
+[g_0.3b2_0.7b1] layer 6 done 79s
+[g_0.3b2_0.7b1] layer 7 done 90s
+[g_0.3b2_0.7b1] layer 8 done 101s
+[g_0.3b2_0.7b1] layer 9 done 112s
+[g_0.3b2_0.7b1] layer 10 done 123s
+[g_0.3b2_0.7b1] layer 11 done 134s
+[g_0.3b2_0.7b1] layer 12 done 145s
+[g_0.3b2_0.7b1] layer 13 done 156s
+[g_0.3b2_0.7b1] layer 14 done 166s
+[g_0.3b2_0.7b1] layer 15 done 177s
+[g_0.3b2_0.7b1] layer 16 done 188s
+[g_0.3b2_0.7b1] layer 17 done 199s
+[g_0.3b2_0.7b1] layer 18 done 210s
+[g_0.3b2_0.7b1] layer 19 done 220s
+[g_0.3b2_0.7b1] layer 20 done 231s
+[g_0.3b2_0.7b1] layer 21 done 242s
+[g_0.3b2_0.7b1] layer 22 done 253s
+[g_0.3b2_0.7b1] layer 23 done 263s
+[g_0.3b2_0.7b1] layer 24 done 274s
+[g_0.3b2_0.7b1] layer 25 done 285s
+[g_0.3b2_0.7b1] layer 26 done 296s
+[g_0.3b2_0.7b1] layer 27 done 306s
+[g_0.3b2_0.7b1] layer 28 done 317s
+[g_0.3b2_0.7b1] layer 29 done 328s
+[g_0.3b2_0.7b1] layer 30 done 339s
+[g_0.3b2_0.7b1] layer 31 done 349s
+[g_0.3b2_0.7b1] layer 32 done 360s
+[g_0.3b2_0.7b1] layer 33 done 371s
+[g_0.3b2_0.7b1] layer 34 done 382s
+[g_0.3b2_0.7b1] layer 35 done 392s
+[g_0.3b2_0.7b1] layer 36 done 403s
+[g_0.3b2_0.7b1] layer 37 done 414s
+[g_0.3b2_0.7b1] layer 38 done 424s
+[g_0.3b2_0.7b1] layer 39 done 435s
+[g_0.3b2_0.7b1] layer 40 done 446s
+[g_0.3b2_0.7b1] layer 41 done 456s
+[g_0.3b2_0.7b1] layer 42 done 467s
+[g_0.3b2_0.7b1] layer 43 done 477s
+[g_0.3b2_0.7b1] layer 44 done 488s
+[g_0.3b2_0.7b1] layer 45 done 498s
+[g_0.3b2_0.7b1] layer 46 done 509s
+[g_0.3b2_0.7b1] layer 47 done 519s
+RESULT_JSON {"name": "g_0.3b2_0.7b1", "tiers": [[0.3, 2], [0.7, 1]], "g": 128, "attn_bits": 4, "emb_bits": 6, "damp": 0.01, "dev_acc": 0.45042778057372923, "bytes_raw": 5925761536.0, "bytes_ent": 5798404772.934978, "ratio_raw": 0.09704142762976478, "ratio_ent": 0.09495580841760898, "secs": 543.385600566864}
+captured 95 batches 1.8710954189300537
+[g_0.4b2_0.6b1] layer 0 done 13s
+[g_0.4b2_0.6b1] layer 1 done 24s
+[g_0.4b2_0.6b1] layer 2 done 35s
+[g_0.4b2_0.6b1] layer 3 done 46s
+[g_0.4b2_0.6b1] layer 4 done 57s
+[g_0.4b2_0.6b1] layer 5 done 68s
+[g_0.4b2_0.6b1] layer 6 done 78s
+[g_0.4b2_0.6b1] layer 7 done 89s
+[g_0.4b2_0.6b1] layer 8 done 100s
+[g_0.4b2_0.6b1] layer 9 done 111s
+[g_0.4b2_0.6b1] layer 10 done 122s
+[g_0.4b2_0.6b1] layer 11 done 133s
+[g_0.4b2_0.6b1] layer 12 done 144s
+[g_0.4b2_0.6b1] layer 13 done 154s
+[g_0.4b2_0.6b1] layer 14 done 165s
+[g_0.4b2_0.6b1] layer 15 done 176s
+[g_0.4b2_0.6b1] layer 16 done 187s
+[g_0.4b2_0.6b1] layer 17 done 197s
+[g_0.4b2_0.6b1] layer 18 done 208s
+[g_0.4b2_0.6b1] layer 19 done 219s
+[g_0.4b2_0.6b1] layer 20 done 230s
+[g_0.4b2_0.6b1] layer 21 done 240s
+[g_0.4b2_0.6b1] layer 22 done 251s
+[g_0.4b2_0.6b1] layer 23 done 262s
+[g_0.4b2_0.6b1] layer 24 done 273s
+[g_0.4b2_0.6b1] layer 25 done 284s
+[g_0.4b2_0.6b1] layer 26 done 294s
+[g_0.4b2_0.6b1] layer 27 done 305s
