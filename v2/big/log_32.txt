@@ -1,0 +1,11 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-AFSM7dGkglhpKVb9v1tT7M
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/big/big32.py
+├── ✓ Uploaded ../base/pool.jsonl
+├── ✓ Uploaded ../base/calib.jsonl
+├── ✓ Uploaded ../base/dev.jsonl
+├── ✓ Uploaded split.py
+├── ✓ Created Function run72.
+└── ✓ Created Function run32.
