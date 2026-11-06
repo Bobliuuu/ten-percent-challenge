@@ -41,3 +41,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/prune p1+p2 (54 cfgs, removal-only + dense GPTQ) ap-pJN1EDGqCWbeSc6GNLkwPe 02:50 detached; smoke ok (drop4+fullpatch acc .806/.8125 on n=160); results in vol tenpct-prune + v2/prune/results/
 - v2/commercial build_data.py ap-SPmnKvzT9zzcRJjlIrrKSF (02:45, done, locked); base_eval.py 3 Qwen2.5-Instruct bases ap-9kKyWhppjlUwKM3R8CjGn5 (02:49) --detach
 - relaunch w/ GPU fallback list: ap-kBzNrHTOH6QarbefrjofPT
+- v2/alt probe relaunch ap-mPCfr6Mzw2aaNluQlRxUZw (earlier ap-85gE... queued 20min w/o GPU, left running)
