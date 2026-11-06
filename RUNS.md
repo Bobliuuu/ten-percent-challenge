@@ -34,3 +34,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/prune smoke: ap-Ti6TO54xMEQVtjDHUHiBUe (02:10, modal run --detach prune.py --cfgs smoke.json), results volume tenpct-prune
 - v2/alt probe.py cfg_p1.json (8 cfgs 7B/3B/1.5B) --detach ap-85gE4bWbBMMQHJsRo2gsTP 02:29
 - RESTART: Modal multi-GPU never scheduled; AWS p4d no capacity us-east-1. big.py now streams layers CPU->1xA100-80GB. app ap-SjLIvn2lK3iXZYsXaxkizC (cfg_1.json, same configs)
+- cfg_B.json (14B layer-drop x uniform L, g256) -> v2/engine/log_B.txt
+- v2/moe sweep1 (RTN prune+quant) run on AWS g7e.2xlarge i-0198fb51c29cfc844 us-east-2 (Modal blocked: 10-GPU cap); results v2/moe/results/sweep1_rtn.*
