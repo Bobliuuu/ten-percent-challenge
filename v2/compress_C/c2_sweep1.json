@@ -1,0 +1,104 @@
+[
+{
+"name": "c114_dz15",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 114,
+"ec": {
+"K": 7,
+"dz": 0.15,
+"sbits": 8
+},
+"pack": "/res/pack_c114_dz15"
+},
+{
+"name": "c120_dz15",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 120,
+"ec": {
+"K": 7,
+"dz": 0.15,
+"sbits": 8
+},
+"pack": "/res/pack_c120_dz15"
+},
+{
+"name": "c110_dz15",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 110,
+"ec": {
+"K": 7,
+"dz": 0.15,
+"sbits": 8
+},
+"pack": "/res/pack_c110_dz15"
+},
+{
+"name": "c114_dz20",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 114,
+"ec": {
+"K": 7,
+"dz": 0.2,
+"sbits": 8
+},
+"pack": "/res/pack_c114_dz20"
+},
+{
+"name": "c125_dz15",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 125,
+"ec": {
+"K": 7,
+"dz": 0.15,
+"sbits": 8
+},
+"pack": "/res/pack_c125_dz15"
+},
+{
+"name": "c130_dz10",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"g": 128,
+"drop": 0,
+"vocab": 24000,
+"ebits": 4,
+"ncal": 384,
+"callen": 512,
+"L": 130,
+"ec": {
+"K": 7,
+"dz": 0.1,
+"sbits": 8
+},
+"pack": "/res/pack_c130_dz10"
+}
+]
