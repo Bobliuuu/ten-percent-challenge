@@ -142,6 +142,17 @@ def run(cfg):
         return best[1]
     def qidx(x,s,Lv):
         half=(Lv-1)/2; qi=torch.clamp(torch.round(x/s+half),0,Lv-1); return (qi-half)*s,qi
+    EC=cfg.get("ec"); 
+    if EC:
+        K_=EC.get("K",7); DZ=EC.get("dz",0.1); SB=EC.get("sbits",8)
+    def qparams_ec(x,c):
+        rms=x.pow(2).mean(1,keepdim=True).sqrt(); s=(c*rms).clamp(min=1e-6)
+        if SB==8: s=torch.exp2(torch.round(torch.log2(s)*16)/16)
+        else: s=s.half().float().clamp(min=1e-8)
+        return s
+    def qidx_ec(x,s):
+        u=x/s; qi=torch.sign(u)*torch.floor(u.abs()+0.5-DZ).clamp(min=0,max=K_)
+        return qi*s,qi+K_
     HB=128
     def hada(n):
         Hm=torch.ones(1,1)
@@ -157,14 +168,14 @@ def run(cfg):
         dead=torch.diag(H)==0; H[dead,dead]=1; W[:,dead]=0
         H=H+damp*torch.mean(torch.diag(H))*torch.eye(C,device=H.device)
         Hinv=torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)),upper=True)
-        Q=torch.zeros_like(W); hist=torch.zeros(Lv,device=W.device); s=None
+        Q=torch.zeros_like(W); hist=torch.zeros(2*K_+1 if EC else Lv,device=W.device); s=None; cc=Lv/100.0
         for i1 in range(0,C,blocksize):
             i2=min(i1+blocksize,C); W1=W[:,i1:i2].clone(); Q1=torch.zeros_like(W1); Err1=torch.zeros_like(W1); Hi=Hinv[i1:i2,i1:i2]
             for i in range(i2-i1):
                 if (i1+i)%g==0:
-                    s=qparams(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],Lv)
+                    s=(qparams_ec(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],cc) if EC else qparams(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],Lv))
                 w=W1[:,i]; d=Hi[i,i]
-                q,qi=qidx(w.unsqueeze(1),s,Lv); q=q.flatten()
+                q,qi=(qidx_ec(w.unsqueeze(1),s) if EC else qidx(w.unsqueeze(1),s,Lv)); q=q.flatten()
                 hist+=torch.bincount(qi.long().flatten(),minlength=Lv).float()
                 Q1[:,i]=q; err=(w-q)/d
                 W1[:,i:]-=err.unsqueeze(1)@Hi[i,i:].unsqueeze(0); Err1[:,i]=err
@@ -228,7 +239,7 @@ def run(cfg):
                         What=unrot_cols(Q,sg) if rot else Q
                         m.weight.data=What.to(torch.bfloat16)
                         nn_=W.numel(); stats["nq"]+=nn_; e_=ent(hist)
-                        stats["ent_bits"]+=nn_*e_; stats["scale_bits"]+=nn_/g*16; lb+=nn_*(e_+16/g)
+                        stats["ent_bits"]+=nn_*e_; stats["scale_bits"]+=nn_/g*((SB if EC else 16)); lb+=nn_*(e_+(SB if EC else 16)/g)
             del Hs
             layer_bits.append(lb/ sum(mods[n].weight.numel() for n in linn))
             with torch.no_grad():
