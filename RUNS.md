@@ -60,3 +60,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/prune p3 (ffn recon variants skip0/lam, late-block drops) ap-L0HhmWzmbdSMtbOOjfoKiP 03:20 --detach
 - sweep1 relaunched after remap fix: ap-aQKtFFclKXKorbsukxGXxY
 - v2/compress_A sweep_A.py (task A PII, engine adapted): cfg_1.json 15 cfgs (fp baselines + uniform GPTQ L=3/4/6 on 1.5B/3B/7B) ap-ADnjPMffxvs1SzL3H1jINo 03:06 --detach; GPU list fallback (L40S/A100/A10G); Modal GPU-starved by other agents, AWS p4d no capacity.
+- v2/feedback2 ana.py local numpy on features (results_q15_L8.json); q05 feat app ap-02rVhZxnSMRFvbZgat0HnN stopped (no A10G capacity)
