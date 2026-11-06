@@ -4,7 +4,8 @@ import modal, json, os
 app = modal.App("tenpct-commercial-base")
 img = (modal.Image.debian_slim().pip_install("torch","transformers==4.51.3","numpy","accelerate","scikit-learn")
        .add_local_file("A/dev.jsonl","/root/A_dev.jsonl").add_local_file("B/dev.jsonl","/root/B_dev.jsonl").add_local_file("C/dev.jsonl","/root/C_dev.jsonl")
-       .add_local_file("A/calib.jsonl","/root/A_calib.jsonl").add_local_file("B/calib.jsonl","/root/B_calib.jsonl").add_local_file("C/calib.jsonl","/root/C_calib.jsonl"))
+       .add_local_file("A/calib.jsonl","/root/A_calib.jsonl").add_local_file("B/calib.jsonl","/root/B_calib.jsonl").add_local_file("C/calib.jsonl","/root/C_calib.jsonl")
+       .add_local_file("C2/dev.jsonl","/root/C2_dev.jsonl").add_local_file("C2/calib.jsonl","/root/C2_calib.jsonl"))
 vol = modal.Volume.from_name("commercial-data", create_if_missing=True)
 hf = modal.Volume.from_name("hf-cache", create_if_missing=True)
 L="ABCDEFGHIJKLMN"
@@ -23,7 +24,7 @@ def shots(T, calib):
     else: out=[rng.choice(by[k]) for k in ks[:5]]
     rng.shuffle(out); return out
 @app.function(image=img, gpu=["A100-40GB","L40S","A10G","L4"], timeout=7200, volumes={"/hf":hf,"/d":vol})
-def run(M):
+def run(M, tasks="A,B,C"):
     import torch, numpy as np, time, collections
     os.environ["HF_HOME"]="/hf"
     from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -34,7 +35,7 @@ def run(M):
     ids=[tok.encode(" "+l)[0] for l in L]
     res=dict(model=M,params=sum(p.numel() for p in model.parameters()),tasks={})
     os.makedirs("/d/base",exist_ok=True)
-    for T in "ABC":
+    for T in tasks.split(","):
         rows=[json.loads(x) for x in open(f"/root/{T}_dev.jsonl")]; calib=[json.loads(x) for x in open(f"/root/{T}_calib.jsonl")]
         sh=shots(T,calib); pre="".join(block(s,s["answer"])+"\n\n" for s in sh)
         y=np.array([r["answer"] for r in rows]); out={}
@@ -58,7 +59,7 @@ def run(M):
                 dom=collections.defaultdict(list)
                 for r,p,yy in zip(rows,pred,y): dom[r["src"].split("_")[0]].append(int(p==yy))
                 m["per_domain"]={k:float(np.mean(v)) for k,v in dom.items()}; m["chance_majority"]=float(max(y.mean(),1-y.mean()))
-            if T=="C":
+            if T in("C","C2"):
                 irr=np.array([r["irrelevant"] for r in rows]); m["acc_relevant"]=float((pred==y)[~irr].mean()); m["acc_irrelevant"]=float((pred==y)[irr].mean()); m["chance_majority"]=float(np.bincount(y).max()/len(y))
             out[mode]=m; np.save(f"/d/base/{T}_{mode}_{M.replace('/','_')}.npy",lg)
         if T=="C":  # generative exact tool-call match
