@@ -86,6 +86,7 @@ def gparams(Wg, bits):
 def gptq(W, H, bits, g, damp=0.01):
     """W [E,o,i] float32, H [E,i,i]. returns dq [E,o,i], ints uint8."""
     E, o, i = W.shape; W = W.clone(); H = H.clone(); qmax = 2 ** bits - 1
+    H = torch.nan_to_num(H, nan=0.0, posinf=0.0, neginf=0.0); W = torch.nan_to_num(W)
     d = torch.diagonal(H, dim1=1, dim2=2); dead = d == 0
     idx = torch.arange(i, device=W.device)
     H[:, idx, idx] = torch.where(dead, torch.ones_like(d), d); W.masked_fill_(dead[:, None, :], 0)
@@ -95,7 +96,10 @@ def gptq(W, H, bits, g, damp=0.01):
         L = torch.linalg.cholesky(H); Hinv = torch.cholesky_inverse(L); U = torch.linalg.cholesky(Hinv, upper=True)
     except Exception as ex:
         print("cholesky fail, boost damp", ex, flush=True)
-        H[:, idx, idx] += 0.5 * md[:, None]; L = torch.linalg.cholesky(H); Hinv = torch.cholesky_inverse(L); U = torch.linalg.cholesky(Hinv, upper=True)
+        H[:, idx, idx] += 0.5 * md[:, None]
+        try: L = torch.linalg.cholesky(H); Hinv = torch.cholesky_inverse(L); U = torch.linalg.cholesky(Hinv, upper=True)
+        except Exception: 
+            print("cholesky fail again -> RTN fallback", flush=True); return rtn(W, bits, g)
     Q = torch.zeros_like(W); QI = torch.zeros(W.shape, dtype=torch.uint8, device=W.device)
     for i1 in range(0, i, g):
         i2 = min(i1 + g, i); W1 = W[:, :, i1:i2].clone(); Err = torch.zeros_like(W1); U1 = U[:, i1:i2, i1:i2]
@@ -184,7 +188,7 @@ def run_config(c):
             n_other += int((tb > 0).sum()) * 2048 * 2 + 2 * 2048 * 2 + 2 * 128 * 2
             # next inputs
             for s in store:
-                o = layer(s[0], **s[1]); s[0] = o[0] if isinstance(o, tuple) else o
+                o = layer(s[0], **s[1]); s[0] = torch.nan_to_num(o[0] if isinstance(o, tuple) else o, nan=0.0, posinf=6e4, neginf=-6e4)
         del Hs, Ha; torch.cuda.empty_cache()
         print(f"[{name}] layer {li} done {time.time()-t0:.0f}s", flush=True)
     del store

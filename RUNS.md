@@ -68,3 +68,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - compress_B cfg1 stopped early (base zero-shot at chance on B dev); results v2/compress_B/res1
 - 03:35 stopped MMLU-family apps (v2big, moe, prune, engine, vq) to free capped Modal GPUs for lowbit + altpush; logs in modal-logs/final
 - v2/commercial base_eval DEPLOYED app tenpct-commercial-base (modal deploy + spawn_eval.py, 03:25) after run --detach spawn jobs sat at 0 tasks; fc ids 01M6QZDXCK.., 01M6QZEC3S.., 01M6QZETVG..
+- v2/moe finished: GPTQ sweep on g7e box, box terminated; see v2/moe/RESULTS.md
