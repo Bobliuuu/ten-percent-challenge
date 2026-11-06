@@ -22,6 +22,8 @@
 
 ## 📊 The result
 
+<p align="center"><img src="assets/demo.gif" alt="A 7B model in 1.4 GB: size shrinks from 15.23 GB to 1.43 GB, then the locked-exam scores" width="720"><br><sub>🎞️ 16-second summary · <a href="assets/demo.mp4">MP4</a></sub></p>
+
 **Base:** `Qwen/Qwen2.5-7B-Instruct` (7.6B parameters, 15.23 GB in bf16). **Task C2, tool selection:** pick the right API among four confusable tools, or "none fits" 🛠️ (an agentic tool-use task, 2000 locked items).
 
 | | Base (bf16) | ✨ **Ours** |
