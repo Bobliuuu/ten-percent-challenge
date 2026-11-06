@@ -99,3 +99,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/compress_A 14B wave5 cfg_14b.json (8 cfgs) ap-YFsncRqBuJd1IVvyhbtjJy ~11:20; FINDING: 14B u3 g128 ratio .0953 acc .752 vs base .748 (dev)
 
 - v2/lowbit_fb DONE: 7B + BitNet feedback verified on box i-0aad61d1dd9c5c95e (terminated). See v2/lowbit_fb/RESULTS.md
+- v2/compress_A DONE: AWS box terminated; results v2/compress_A/results (modal_results.jsonl, wave14_a.json, 7B jsons). Best: 14B u3 g256 ends4 ratio .0935 acc .747 vs base .747; 14B u3 g128 .0953 acc .752
