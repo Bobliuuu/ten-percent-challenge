@@ -9,17 +9,19 @@ import common as C, stats as S
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--exam-file", required=True); ap.add_argument("--task-lock", required=True); ap.add_argument("--split", required=True)
-ap.add_argument("--base-id", required=True); ap.add_argument("--base-revision"); ap.add_argument("--base-fp16-bytes", type=int, required=True)
+ap.add_argument("--task", default="mmlu", choices=["mmlu", "mdc6"]); ap.add_argument("--base-id", required=True); ap.add_argument("--base-revision"); ap.add_argument("--base-fp16-bytes", type=int, required=True)
 ap.add_argument("--margin", type=float, default=S.MARGIN); ap.add_argument("--alpha", type=float, default=S.ALPHA)
 ap.add_argument("--budget-fraction", type=float, default=C.BUDGET_FRACTION); ap.add_argument("--out", required=True); ap.add_argument("--standin", action="store_true")
 a = ap.parse_args()
 if os.path.exists(a.out): sys.exit(f"REFUSING: {a.out} exists (a lock is never overwritten).")
 if not a.standin and (a.budget_fraction != C.BUDGET_FRACTION or a.split != "locked"): sys.exit("real lock: split=locked, fraction 0.10")
-T = json.load(open(a.task_lock))["splits"][a.split]
+TL = json.load(open(a.task_lock))
+if "splits" in TL: T = TL["splits"][a.split]
+else: T = dict(n=TL["n"][a.split], file_sha256=TL["file_sha256"][a.split])   # v2/alt/LOCK.json layout
 fsha = C.sha256_file(a.exam_file)
 if fsha != T["file_sha256"]: sys.exit("exam file sha256 does not match task LOCK.json")
 if not a.standin and a.base_fp16_bytes <= 2 * 500_000_000: sys.exit("rule 1: base must be > 0.5B params")
-lock = dict(standin=a.standin, split=a.split, n_rows=T["n"], exam_file_sha256=fsha, exam_content_sha256=T["content_sha256"],
+lock = dict(standin=a.standin, split=a.split, n_rows=T["n"], exam_file_sha256=fsha, exam_content_sha256=T.get("content_sha256"), task=a.task,
             task_lock_sha256=C.sha256_file(a.task_lock), base_id=a.base_id, base_revision=a.base_revision,
             base_fp16_bytes=a.base_fp16_bytes, budget_fraction=a.budget_fraction,
             budget_bytes=a.budget_fraction * a.base_fp16_bytes, margin=a.margin, alpha=a.alpha,

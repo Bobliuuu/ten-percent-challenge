@@ -41,7 +41,7 @@ def tree_sha256(path):
     return h.hexdigest()
 
 
-LETTERS = "ABCD"
+LETTERS = "ABCDEFGHIJKLMN"   # MMLU uses A-D, MDC-6 up to 14 classes
 
 
 def load_exam(path):
@@ -53,13 +53,15 @@ def exam_sha256(rows):
     """TASK.md hash_def: sha256 over rows in file order of f'{id}\\t{answer}\\t{question}\\t{choices joined by |}\\n'."""
     h = hashlib.sha256()
     for r in rows:
+        if "question" not in r:   # MDC-6 style rows: canonical JSON of the whole row
+            h.update((json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8")); continue
         h.update(f"{r['id']}\t{r['answer']}\t{r['question']}\t{'|'.join(r['choices'])}\n".encode("utf-8"))
     return h.hexdigest()
 
 
 def candidate_view(rows):
     """What the candidate sees: no answers."""
-    return [{k: r[k] for k in ("id", "subject", "question", "choices")} for r in rows]
+    return [{k: v for k, v in r.items() if k != "answer"} for r in rows]
 
 
 def labels(rows):
