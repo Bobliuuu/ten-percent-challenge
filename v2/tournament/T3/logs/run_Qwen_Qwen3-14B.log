@@ -1,0 +1,9 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-h90dr3V2Rg7Jj4NsRGkdnZ
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T3/probe_base.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T3/scorer.py
+├── ✓ Created Function run_big.
+├── ✓ Created Function run_small.
+└── ✓ Created Function run_oss.
+SPAWNED Qwen/Qwen3-14B fc-01M6S91DYQNM077QCYANQC6E8V

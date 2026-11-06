@@ -1,0 +1,13 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-JgHiveJpW82d96OzvyjYsj
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/probe_base.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/probe_items.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+├── ✓ Created Function probe_Qwen3_30B_A3B_Instruct_2507.
+├── ✓ Created Function probe_Qwen2_5_32B_Instruct.
+├── ✓ Created Function probe_Qwen3_14B.
+├── ✓ Created Function probe_Qwen3_8B.
+├── ✓ Created Function probe_Llama_3_1_8B_Instruct.
+└── ✓ Created Function probe_gpt_oss_20b.

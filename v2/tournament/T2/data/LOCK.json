@@ -1,0 +1,183 @@
+{
+ "doc": [
+  "Build T2 PII-redaction splits. Refuses to overwrite data/LOCK.json. Hash-split (like v2/base/build_splits.py).",
+  "S1 = ai4privacy/open-pii-masking-500k-ai4privacy (English; CC-BY-4.0 + Llama-3 community licence terms) -> build/dev/calib/pool + S1 locked slice",
+  "S3 = gretelai/gretel-pii-masking-en-v1 (Apache-2.0)  -> dev/calib/pool ONLY (OOD dev proxy; never locked)",
+  "S2 = nvidia/Nemotron-PII (CC-BY-4.0, 50+ industries, documents chunked to 1-2 sentence windows) -> LOCKED OOD block only; no other split exists.",
+  "Split: h=int(sha256(source|parent-doc-key)[:8],16); h%10: 0 locked(S1,S2) / 1 dev / 2 calib / 3 build / 4-9 pool.",
+  " (S3: 0 and 1 -> dev, no locked.) Chunks inherit the parent document's bucket. Kinds by # canonical gold entries: nopii(0) one(1) few(2-3) many(4+)."
+ ],
+ "utc": "2026-11-06T19:20:11.741701+00:00",
+ "splits": {
+  "s1_dev": {
+   "n": 14819,
+   "content_sha256": "d9ec6106111abc904e4bd5e7c8f1bfc8374b98ec49d0b1e87c3e730482220c8d",
+   "file_sha256": "e17304089143ba0ca1b1da60b1b8c67f5e02c52cb2c8d814e6e7c7157b9eac3e",
+   "kinds": {
+    "one": 4561,
+    "few": 8602,
+    "many": 1032,
+    "nopii": 624
+   }
+  },
+  "s1_calib": {
+   "n": 14786,
+   "content_sha256": "e01feede64daa162975a3b7613b264984d82f29edebca9afb02b880e6ed335df",
+   "file_sha256": "0a20b11d594223e47d399cc654c8d0250a3a4f928fb49f9fd2f72eadd854a799",
+   "kinds": {
+    "one": 4491,
+    "nopii": 662,
+    "few": 8576,
+    "many": 1057
+   }
+  },
+  "s1_build": {
+   "n": 14962,
+   "content_sha256": "e1cea71fc0b29d1f1c1d6800872de42a25aac36871f9f8ca6f6e0ef83c3e97fe",
+   "file_sha256": "c6becf505ba98d4cf1f32e8d84caf01819fd28e939c300e4b3c0cf3cf9a49d39",
+   "kinds": {
+    "few": 8530,
+    "one": 4701,
+    "many": 1098,
+    "nopii": 633
+   }
+  },
+  "s1_pool": {
+   "n": 89987,
+   "content_sha256": "cf2476e4b7ba5c0748a6df943e2ce5b5481bf33ca52e4fd5f95b85a0b9be48ec",
+   "file_sha256": "ba0603011870f78982f19a844f5893751eaed8edd331190d54fc3c0377f867c5",
+   "kinds": {
+    "few": 51828,
+    "many": 6480,
+    "one": 27910,
+    "nopii": 3769
+   }
+  },
+  "s3_dev": {
+   "n": 12006,
+   "content_sha256": "92553151f483c5abf242ae51ff96497c2cdb0a65405a6f46c9260811b8c1720e",
+   "file_sha256": "b2d1531bc4eb2b2301ec1f9fb363bf6e94cc8a308cfede253ed7aa23c0cbdde9",
+   "kinds": {
+    "many": 8274,
+    "few": 3178,
+    "one": 549,
+    "nopii": 5
+   }
+  },
+  "s3_calib": {
+   "n": 5856,
+   "content_sha256": "75347937e8c7fb12d2a6c1500853844d2a4ef5d3cf325f4ae14ca0f8bad62d90",
+   "file_sha256": "1cbbee410009b4c35f4b268b3718ae5f5471189a2d19d7ab0ce3fba96d13108f",
+   "kinds": {
+    "many": 4053,
+    "few": 1539,
+    "one": 256,
+    "nopii": 8
+   }
+  },
+  "s3_pool": {
+   "n": 42080,
+   "content_sha256": "f31a184e08a19cf6022277bbeec9961699f0b9f2a94baf3685dc074b51f2c923",
+   "file_sha256": "6cc629533ea07f688c8dafdb2fcbadf0c5afc17de51a064c28da196bf8ab8ea5",
+   "kinds": {
+    "few": 11156,
+    "many": 29008,
+    "one": 1884,
+    "nopii": 32
+   }
+  },
+  "s1_locked": {
+   "n": 1800,
+   "content_sha256": "dc7f67f7940d8d1e3d5ae9ddc902939758418f3d3de3c7076435e173ac2bcef8",
+   "file_sha256": "97d30f4ef93072959fd42bde86dadf80fbe2b7d4da681b110a53285326cdc06e",
+   "kinds": {
+    "nopii": 450,
+    "one": 450,
+    "few": 450,
+    "many": 450
+   }
+  },
+  "s2_locked": {
+   "n": 800,
+   "content_sha256": "e7f4ed87bc00561045e2ff5e353c3c36d790b0030e43956f2c275b46f05f1550",
+   "file_sha256": "aff7e9a0e93131b7b985c9a4ce5c288e37da6c420a025de470349b381f93adeb",
+   "kinds": {
+    "nopii": 200,
+    "one": 200,
+    "few": 200,
+    "many": 200
+   }
+  }
+ },
+ "audit": {
+  "S1_locked_vs_S1other+S3": {
+   "nopii": {
+    "cand": 579,
+    "kept": 450,
+    "rejected": {
+     "near": 18,
+     "internal": 1
+    }
+   },
+   "one": {
+    "cand": 1125,
+    "kept": 450,
+    "rejected": {
+     "near": 12
+    }
+   },
+   "few": {
+    "cand": 1125,
+    "kept": 450,
+    "rejected": {
+     "near": 1
+    }
+   },
+   "many": {
+    "cand": 1038,
+    "kept": 450,
+    "rejected": {
+     "near": 1
+    }
+   }
+  },
+  "S2_locked_vs_S1+S3+S1locked": {
+   "nopii": {
+    "cand": 500,
+    "kept": 200,
+    "rejected": {
+     "exact": 2
+    }
+   },
+   "one": {
+    "cand": 500,
+    "kept": 200,
+    "rejected": {}
+   },
+   "few": {
+    "cand": 500,
+    "kept": 200,
+    "rejected": {}
+   },
+   "many": {
+    "cand": 500,
+    "kept": 200,
+    "rejected": {
+     "internal": 1
+    }
+   }
+  }
+ },
+ "locked_kind_totals": {
+  "nopii": 650,
+  "one": 650,
+  "few": 650,
+  "many": 650
+ },
+ "locked_total": 2600,
+ "checks": {
+  "each_kind_ge_300": true,
+  "total_ge_2000": true,
+  "s2_ge_500": true
+ }
+}

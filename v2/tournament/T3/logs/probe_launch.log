@@ -1,0 +1,13 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-oYZc7rqNsOhVZ9Z7u309Yg
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T3/probe_base.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T3/scorer.py
+├── ✓ Created Function orchestrate.
+├── ✓ Created Function _run.
+└── ✓ Created Function run_h100.
+SPAWNED orchestrator fc-01M6S684R08X42WEDPN545ZY9X
+[modal-client] 2026-11-06T14:44:35-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-oYZc7rqNsOhVZ9Z7u309Yg

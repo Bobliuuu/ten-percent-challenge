@@ -1,0 +1,8 @@
+# bulk/raw data and locked exam rows stay OFF the public repo (they live on Modal volumes tenpct-t{1,2,3}-exam; hashes are committed)
+**/raw/
+**/data/*.jsonl
+**/data/*.json.gz
+!**/data/LOCK.json
+__pycache__/
+.pytest_cache/
+*.pyc

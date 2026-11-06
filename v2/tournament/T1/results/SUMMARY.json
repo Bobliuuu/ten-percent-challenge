@@ -1,0 +1,86 @@
+{
+ "Llama-3.1-8B-Instruct": {
+  "model": "Llama-3.1-8B-Instruct",
+  "fp16_bytes": 16060522496,
+  "budget_10pct_bytes": 1606052249,
+  "parse_fail_rate": 0.02,
+  "n": 600,
+  "secs": 189.0973265171051,
+  "acc": {
+   "S1/all": 0.36,
+   "S1/multi": 0.51,
+   "S1/nocall": 0.0,
+   "S1/single": 0.57,
+   "S3/all": 0.30666666666666664,
+   "S3/multi": 0.36,
+   "S3/nocall": 0.0,
+   "S3/single": 0.56
+  },
+  "finish_length_truncations": 0,
+  "R8_in_60_92": false,
+  "mean_S1_S3": 0.3333333333333333
+ },
+ "Qwen3-14B": {
+  "model": "Qwen3-14B",
+  "fp16_bytes": 29536614400,
+  "budget_10pct_bytes": 2953661440,
+  "parse_fail_rate": 0.005,
+  "n": 600,
+  "secs": 368.46538162231445,
+  "acc": {
+   "S1/all": 0.8433333333333334,
+   "S1/multi": 0.73,
+   "S1/nocall": 1.0,
+   "S1/single": 0.8,
+   "S3/all": 0.6966666666666667,
+   "S3/multi": 0.53,
+   "S3/nocall": 0.81,
+   "S3/single": 0.75
+  },
+  "finish_length_truncations": 2,
+  "R8_in_60_92": true,
+  "mean_S1_S3": 0.77
+ },
+ "Qwen3-30B-A3B-Instruct-2507": {
+  "model": "Qwen3-30B-A3B-Instruct-2507",
+  "fp16_bytes": 61064245248,
+  "budget_10pct_bytes": 6106424524,
+  "parse_fail_rate": 0.0033333333333333335,
+  "n": 600,
+  "secs": 147.17942571640015,
+  "acc": {
+   "S1/all": 0.8133333333333334,
+   "S1/multi": 0.71,
+   "S1/nocall": 0.97,
+   "S1/single": 0.76,
+   "S3/all": 0.65,
+   "S3/multi": 0.53,
+   "S3/nocall": 0.67,
+   "S3/single": 0.75
+  },
+  "finish_length_truncations": 3,
+  "R8_in_60_92": true,
+  "mean_S1_S3": 0.7316666666666667
+ },
+ "Qwen3-8B": {
+  "model": "Qwen3-8B",
+  "fp16_bytes": 16381470720,
+  "budget_10pct_bytes": 1638147072,
+  "parse_fail_rate": 0.005,
+  "n": 600,
+  "secs": 213.31240487098694,
+  "acc": {
+   "S1/all": 0.84,
+   "S1/multi": 0.74,
+   "S1/nocall": 1.0,
+   "S1/single": 0.78,
+   "S3/all": 0.6866666666666666,
+   "S3/multi": 0.57,
+   "S3/nocall": 0.74,
+   "S3/single": 0.75
+  },
+  "finish_length_truncations": 3,
+  "R8_in_60_92": true,
+  "mean_S1_S3": 0.7633333333333333
+ }
+}

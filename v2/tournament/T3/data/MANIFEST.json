@@ -1,0 +1,64 @@
+{
+ "utc": "2026-11-06T19:20:25.458645+00:00",
+ "files": {
+  "calib_S1.jsonl": {
+   "sha256": "7c5dbb0575e8a9af5df1bfcaa4c34c067d169f951aa4b2eeb8b0e8b405763b01",
+   "n": 10178,
+   "by_kind": {
+    "S1_human": 6394,
+    "S1_ai": 3784
+   }
+  },
+  "dev_S1.jsonl": {
+   "sha256": "fdaada95dc9e1b5fe2d351e5447fa2a69326bd6516c45502404b3c613cd50e37",
+   "n": 9863,
+   "by_kind": {
+    "S1_human": 6215,
+    "S1_ai": 3648
+   }
+  },
+  "dev_S3.jsonl": {
+   "sha256": "9abd0fc44fc62225a329f396cf8cef81c24a17dbd6bc0cc62c91a5ff55c21ab3",
+   "n": 7129,
+   "by_kind": {
+    "S3_human": 3452,
+    "S3_ai": 3677
+   }
+  },
+  "locked_S1.jsonl": {
+   "sha256": "0000d117b65d3ca7a1432ba69380ff920843d205e7bf788c0c2870c34751513e",
+   "n": 1600,
+   "by_kind": {
+    "S1_ai": 800,
+    "S1_human": 800
+   }
+  },
+  "locked_S2.jsonl": {
+   "sha256": "169db1e32941d869753711e625b9461cc4303471c7048c6eb2c2f52ec8d8d9ff",
+   "n": 800,
+   "by_kind": {
+    "S2_human": 400,
+    "S2_ai": 400
+   }
+  },
+  "pool_S1.jsonl": {
+   "sha256": "cd3ae97843475317ef8b42d55451fd4e9ecf1936fee63f578a9e6fafd99d836d",
+   "n": 40703,
+   "by_kind": {
+    "S1_human": 25494,
+    "S1_ai": 15209
+   }
+  },
+  "pool_S3.jsonl": {
+   "sha256": "173cecb8747bbd44473d2b6d3ae3b52e42b3b044e304422b25d5f9d64e2d7414",
+   "n": 42582,
+   "by_kind": {
+    "S3_human": 20889,
+    "S3_ai": 21693
+   }
+  }
+ },
+ "volume": "tenpct-t3-exam:/data/*.jsonl",
+ "note": "locked_* never read for decisions; no model scored on locked_* or any S2 row. Modal volume files cannot be chmod'ed; local copies are 0444.",
+ "exact_text_overlap_locked_vs_others_recheck": 0
+}

@@ -1,0 +1,249 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Kol5b3ev62t3ND3RPSwNTk
+Building image im-cnERuKrEPMLwYkqTz3Xg3s
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install huggingface_hub pandas pyarrow
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting huggingface_hub
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Collecting pandas
+  Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+Collecting pyarrow
+  Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface_hub)
+  Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting filelock>=3.10.0 (from huggingface_hub)
+  Downloading filelock-4.2.9-py3-none-any.whl.metadata (2.3 kB)
+Collecting fsspec>=2023.5.0 (from huggingface_hub)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub)
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface_hub)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: packaging>=20.9 in ./usr/local/lib/python3.12/site-packages (from huggingface_hub) (26.3)
+Collecting pyyaml>=5.1 (from huggingface_hub)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting tqdm>=4.42.1 (from huggingface_hub)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting typing-extensions>=4.1.0 (from huggingface_hub)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface_hub)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface_hub)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting numpy>=2.0.2 (from pandas)
+  Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting python-dateutil>=2.9.0 (from pandas)
+  Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting tzdata (from python-dateutil>=2.9.0->pandas)
+  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 1.2 GB/s  0:00:00
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 764.0 MB/s  0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 774.7 MB/s  0:00:00
+Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_x86_64.whl (55.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 MB 762.0 MB/s  0:00:00
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+Downloading filelock-4.2.9-py3-none-any.whl (164 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 806.6 MB/s  0:00:00
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 1.5 GB/s  0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Installing collected packages: tzdata, typing-extensions, truststore, tqdm, pyyaml, pyarrow, numpy, idna, hf-xet, h11, fsspec, filelock, click, python-dateutil, httpcore2, anyio, pandas, httpx2, huggingface_hub
+
+Successfully installed anyio-4.16.0 click-8.5.1 filelock-4.2.9 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface_hub-2.4.0 idna-3.20 numpy-2.5.4 pandas-3.1.1 pyarrow-26.0.1 python-dateutil-4.0.0 pyyaml-6.0.3 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 tzdata-2026.6
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Image saved, took 1.51s
+
+Built image im-cnERuKrEPMLwYkqTz3Xg3s in 12.55s
+
+
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T3/build_data.py
+└── ✓ Created Function build.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+S2 locked candidates 32487 Counter({('ai', 'mistral-chat'): 7767, ('ai', 'llama-chat'): 7576, ('ai', 'mpt-chat'): 7470, ('ai', 'gpt4'): 3867, ('ai', 'cohere-chat'): 3848, ('human', 'human'): 1959})
+{
+ "n_locked": 2400,
+ "per_split": {
+  "dev_S1": {
+   "before": 9874,
+   "dropped_exact": 9,
+   "dropped_near_j50": 2,
+   "after": 9863
+  },
+  "calib_S1": {
+   "before": 10183,
+   "dropped_exact": 5,
+   "dropped_near_j50": 0,
+   "after": 10178
+  },
+  "pool_S1": {
+   "before": 40747,
+   "dropped_exact": 41,
+   "dropped_near_j50": 3,
+   "after": 40703
+  },
+  "dev_S3": {
+   "before": 7129,
+   "dropped_exact": 0,
+   "dropped_near_j50": 0,
+   "after": 7129
+  },
+  "pool_S3": {
+   "before": 42582,
+   "dropped_exact": 0,
+   "dropped_near_j50": 0,
+   "after": 42582
+  }
+ },
+ "locked_internal_exact_dups": 3,
+ "meta": {
+  "locked_S1": {
+   "n": 1600,
+   "file_sha256": "0000d117b65d3ca7a1432ba69380ff920843d205e7bf788c0c2870c34751513e",
+   "by_kind": {
+    "S1_ai": 800,
+    "S1_human": 800
+   },
+   "by_domain": {
+    "finance": 410,
+    "medicine": 316,
+    "wiki_csai": 242,
+    "open_qa": 222,
+    "reddit_eli5": 410
+   }
+  },
+  "locked_S2": {
+   "n": 800,
+   "file_sha256": "169db1e32941d869753711e625b9461cc4303471c7048c6eb2c2f52ec8d8d9ff",
+   "by_kind": {
+    "S2_human": 400,
+    "S2_ai": 400
+   },
+   "by_domain": {
+    "poetry": 100,
+    "reviews": 100,
+    "abstracts": 100,
+    "recipes": 100,
+    "wiki": 100,
+    "reddit": 100,
+    "news": 100,
+    "books": 100
+   }
+  },
+  "dev_S1": {
+   "n": 9863,
+   "file_sha256": "fdaada95dc9e1b5fe2d351e5447fa2a69326bd6516c45502404b3c613cd50e37",
+   "by_kind": {
+    "S1_human": 6215,
+    "S1_ai": 3648
+   },
+   "by_domain": {
+    "reddit_eli5": 7684,
+    "open_qa": 451,
+    "wiki_csai": 200,
+    "finance": 1177,
+    "medicine": 351
+   }
+  },
+  "calib_S1": {
+   "n": 10178,
+   "file_sha256": "7c5dbb0575e8a9af5df1bfcaa4c34c067d169f951aa4b2eeb8b0e8b405763b01",
+   "by_kind": {
+    "S1_human": 6394,
+    "S1_ai": 3784
+   },
+   "by_domain": {
+    "reddit_eli5": 7912,
+    "open_qa": 563,
+    "wiki_csai": 231,
+    "finance": 1128,
+    "medicine": 344
+   }
+  },
+  "pool_S1": {
+   "n": 40703,
+   "file_sha256": "cd3ae97843475317ef8b42d55451fd4e9ecf1936fee63f578a9e6fafd99d836d",
+   "by_kind": {
+    "S1_human": 25494,
+    "S1_ai": 15209
+   },
+   "by_domain": {
+    "reddit_eli5": 31549,
+    "open_qa": 2208,
+    "wiki_csai": 961,
+    "finance": 4545,
+    "medicine": 1440
+   }
+  },
+  "dev_S3": {
+   "n": 7129,
+   "file_sha256": "9abd0fc44fc62225a329f396cf8cef81c24a17dbd6bc0cc62c91a5ff55c21ab3",
+   "by_kind": {
+    "S3_human": 3452,
+    "S3_ai": 3677
+   },
+   "by_domain": {
+    "cmv": 626,
+    "eli5": 831,
+    "tldr": 710,
+    "xsum": 942,
+    "wp": 861,
+    "roct": 732,
+    "hswag": 447,
+    "yelp": 622,
+    "squad": 728,
+    "sci": 630
+   }
+  },
+  "pool_S3": {
+   "n": 42582,
+   "file_sha256": "173cecb8747bbd44473d2b6d3ae3b52e42b3b044e304422b25d5f9d64e2d7414",
+   "by_kind": {
+    "S3_human": 20889,
+    "S3_ai": 21693
+   },
+   "by_domain": {
+    "cmv": 4033,
+    "eli5": 4880,
+    "tldr": 4044,
+    "xsum": 5498,
+    "wp": 5015,
+    "roct": 4383,
+    "hswag": 2669,
+    "yelp": 3788,
+    "squad": 4161,
+    "sci": 4111
+   }
+  }
+ }
+}
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Kol5b3ev62t3ND3RPSwNTk

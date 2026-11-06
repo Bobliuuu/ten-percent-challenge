@@ -1,0 +1,156 @@
+{
+ "n_locked": 2400,
+ "per_split": {
+  "dev_S1": {
+   "before": 9874,
+   "dropped_exact": 9,
+   "dropped_near_j50": 2,
+   "after": 9863
+  },
+  "calib_S1": {
+   "before": 10183,
+   "dropped_exact": 5,
+   "dropped_near_j50": 0,
+   "after": 10178
+  },
+  "pool_S1": {
+   "before": 40747,
+   "dropped_exact": 41,
+   "dropped_near_j50": 3,
+   "after": 40703
+  },
+  "dev_S3": {
+   "before": 7129,
+   "dropped_exact": 0,
+   "dropped_near_j50": 0,
+   "after": 7129
+  },
+  "pool_S3": {
+   "before": 42582,
+   "dropped_exact": 0,
+   "dropped_near_j50": 0,
+   "after": 42582
+  }
+ },
+ "locked_internal_exact_dups": 3,
+ "meta": {
+  "locked_S1": {
+   "n": 1600,
+   "file_sha256": "0000d117b65d3ca7a1432ba69380ff920843d205e7bf788c0c2870c34751513e",
+   "by_kind": {
+    "S1_ai": 800,
+    "S1_human": 800
+   },
+   "by_domain": {
+    "finance": 410,
+    "medicine": 316,
+    "wiki_csai": 242,
+    "open_qa": 222,
+    "reddit_eli5": 410
+   }
+  },
+  "locked_S2": {
+   "n": 800,
+   "file_sha256": "169db1e32941d869753711e625b9461cc4303471c7048c6eb2c2f52ec8d8d9ff",
+   "by_kind": {
+    "S2_human": 400,
+    "S2_ai": 400
+   },
+   "by_domain": {
+    "poetry": 100,
+    "reviews": 100,
+    "abstracts": 100,
+    "recipes": 100,
+    "wiki": 100,
+    "reddit": 100,
+    "news": 100,
+    "books": 100
+   }
+  },
+  "dev_S1": {
+   "n": 9863,
+   "file_sha256": "fdaada95dc9e1b5fe2d351e5447fa2a69326bd6516c45502404b3c613cd50e37",
+   "by_kind": {
+    "S1_human": 6215,
+    "S1_ai": 3648
+   },
+   "by_domain": {
+    "reddit_eli5": 7684,
+    "open_qa": 451,
+    "wiki_csai": 200,
+    "finance": 1177,
+    "medicine": 351
+   }
+  },
+  "calib_S1": {
+   "n": 10178,
+   "file_sha256": "7c5dbb0575e8a9af5df1bfcaa4c34c067d169f951aa4b2eeb8b0e8b405763b01",
+   "by_kind": {
+    "S1_human": 6394,
+    "S1_ai": 3784
+   },
+   "by_domain": {
+    "reddit_eli5": 7912,
+    "open_qa": 563,
+    "wiki_csai": 231,
+    "finance": 1128,
+    "medicine": 344
+   }
+  },
+  "pool_S1": {
+   "n": 40703,
+   "file_sha256": "cd3ae97843475317ef8b42d55451fd4e9ecf1936fee63f578a9e6fafd99d836d",
+   "by_kind": {
+    "S1_human": 25494,
+    "S1_ai": 15209
+   },
+   "by_domain": {
+    "reddit_eli5": 31549,
+    "open_qa": 2208,
+    "wiki_csai": 961,
+    "finance": 4545,
+    "medicine": 1440
+   }
+  },
+  "dev_S3": {
+   "n": 7129,
+   "file_sha256": "9abd0fc44fc62225a329f396cf8cef81c24a17dbd6bc0cc62c91a5ff55c21ab3",
+   "by_kind": {
+    "S3_human": 3452,
+    "S3_ai": 3677
+   },
+   "by_domain": {
+    "cmv": 626,
+    "eli5": 831,
+    "tldr": 710,
+    "xsum": 942,
+    "wp": 861,
+    "roct": 732,
+    "hswag": 447,
+    "yelp": 622,
+    "squad": 728,
+    "sci": 630
+   }
+  },
+  "pool_S3": {
+   "n": 42582,
+   "file_sha256": "173cecb8747bbd44473d2b6d3ae3b52e42b3b044e304422b25d5f9d64e2d7414",
+   "by_kind": {
+    "S3_human": 20889,
+    "S3_ai": 21693
+   },
+   "by_domain": {
+    "cmv": 4033,
+    "eli5": 4880,
+    "tldr": 4044,
+    "xsum": 5498,
+    "wp": 5015,
+    "roct": 4383,
+    "hswag": 2669,
+    "yelp": 3788,
+    "squad": 4161,
+    "sci": 4111
+   }
+  }
+ }
+}
