@@ -1,0 +1,54 @@
+{
+ "task": "v2/commercial suites A (PII span category), B (AI-vs-human, MAGE), C (tool selection, apigen/xLAM)",
+ "rule": [
+  "h=int(sha256(task|key)[:8],16); key=source_text(A), text(B), query(C); h%7==0 LOCKED, ==1 DEV, else POOL (C: ==2 CALIB, rest POOL). A/B CALIB from disjoint train sides.",
+  "Built by build_data.py (Modal app ap-SPmnKvzT9zzcRJjlIrrKSF) BEFORE any model scored. locked.jsonl chmod 444; never read for building/choosing.",
+  "Post-build scrub (before any scoring): a public GitHub-token-shaped string inside xLAM tool default params was replaced by ghp_REDACTEDEXAMPLETOKEN in C/*.jsonl (push protection). Hashes below are post-scrub."
+ ],
+ "utc": "2026-11-06T07:46:01.163066Z",
+ "file_sha256": {
+  "A/locked": "91268e6dc50c388dab04d2cb2b82c18c32e60719903739656c490d4774547a04",
+  "A/dev": "15cd09a9c7ff4e19b9042facdfc517b9d78f5707ae3adf38a791b0ec2802ba48",
+  "A/pool": "02770d6dcfa81f7c46195490b6a3235f0552da8fa785067a368349d5ef269d41",
+  "A/calib": "a7b208a6e8401504144a87f1f7ae24bab7c08c2f398444035e832fa13093726e",
+  "B/locked": "a31c5f0a84df2c35c09df7ce5918b532ade799b896dd0b1f00fb128a0cf2ffc9",
+  "B/dev": "9fb01befc0e3483c4bd2c2ffed32bcd1d7b09a597a42c25b939b22f7645ded61",
+  "B/pool": "01ac49dae026bfdbc2ebde858c2912ac7a01811b319adfbffdb3445bb4626d62",
+  "B/calib": "79fb61040bb723d7c5bec8f5e022ba6a4b769cd8c88fd17d3427c159a9d2bb0e",
+  "C/locked": "16d2ab5252049c4d902d146d0f90eac8d39170efa5b54a1d1553fd1ddc726ecf",
+  "C/dev": "bc5fdf1c7c52a13a1540f60c96e502353fc5ad00228bec547f14b570b278610b",
+  "C/pool": "324c31a2ffe07caa4d54d969637d30f1771ef1cc6ae359cea31bbf13fe20886c",
+  "C/calib": "1f132d04122317f1162d4507bc29e8643ee6f6c8693a32fe116d9d3f92bb3d5e"
+ },
+ "n": {
+  "A/locked": 2000,
+  "A/dev": 2000,
+  "A/pool": 4000,
+  "A/calib": 2000,
+  "B/locked": 2000,
+  "B/dev": 2000,
+  "B/pool": 4000,
+  "B/calib": 2000,
+  "C/locked": 2000,
+  "C/dev": 2000,
+  "C/pool": 4000,
+  "C/calib": 2000
+ },
+ "overlap_locked_text": {
+  "A": {
+   "dev": 0,
+   "pool": 0,
+   "calib": 0
+  },
+  "B": {
+   "dev": 0,
+   "pool": 0,
+   "calib": 0
+  },
+  "C": {
+   "dev": 0,
+   "pool": 0,
+   "calib": 0
+  }
+ }
+}
