@@ -1,0 +1,38 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-YWG12QssBveXTVpZldJPWd
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb4.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:06,  3.40s/it]
+[1ALoading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.45s/it]
+[1ALoading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  1.92s/it]
+[1ALoading checkpoint shards: 100%|██████████| 3/3 [00:06<00:00,  2.33s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    88s] B:first sizes {'ann': 120, 'dev': 58, 'teach': 100, 'neigh_pool': 420, 'neigh_dev': 80, 'neigh': 100} ann_wrong 120 120 base teach 0.0 dev 0.0 neigh base-right 330 / 420
+[   107s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.22413793103448276, 'gain': 0.22413793103448276, 'neigh_dev': 1.0}
+[   126s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.4482758620689655, 'gain': 0.4482758620689655, 'neigh_dev': 1.0}
+[   146s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.6625}
+[   166s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.5, 'ridge': 0.1}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.5625}
+[   186s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.0125}
+[   207s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.7413793103448276, 'gain': 0.7413793103448276, 'neigh_dev': 0.0125}
+[   229s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   250s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   271s] {'cfg': {'m': 'lmhead_lda', 'alpha': 3.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   292s] {'cfg': {'m': 'lmhead_lda', 'alpha': 3.5, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   313s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 50, 'dev': 0.15517241379310345, 'gain': 0.15517241379310345, 'neigh_dev': 0.2125}
+[   362s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.7}
+[   399s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.9125}
+[   437s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.9125}
+[   474s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.9125}
+[   475s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.5, 'ridge': 0.01}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[   527s] lmhead_lda 0 real 0.37 neigh 1.0 shuf 0.0
+[   580s] lmhead_lda 1 real 0.35 neigh 1.0 shuf 0.0
+[   633s] lmhead_lda 2 real 0.36 neigh 1.0 shuf 0.0
+[   724s] blend 0 real 0.99 neigh 0.91 shuf 0.0

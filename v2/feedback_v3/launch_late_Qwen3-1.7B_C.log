@@ -1,0 +1,73 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-LlqnZuzXboI0Fv3qub6iXY
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.35s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.40it/s]
+[    41s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    53s] sizes teach=62 dev=37 neigh=0 neigh_dev=6 ann_wrong=71/71; base teach acc=0.000 dev=0.000
+[    57s] annotations 25; sites 76
+[    78s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'nsites': 76, 'dev': 0.5135135135135135, 'gain': 0.5135135135135135, 'neigh_dev': 0.8333333333333334}
+[    98s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 1000.0}, 'nsites': 76, 'dev': 0.5135135135135135, 'gain': 0.5135135135135135, 'neigh_dev': 0.8333333333333334}
+[   118s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 30000.0}, 'nsites': 76, 'dev': 0.35135135135135137, 'gain': 0.35135135135135137, 'neigh_dev': 0.8333333333333334}
+[   140s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 10}, 'nsites': 76, 'dev': 0.4864864864864865, 'gain': 0.4864864864864865, 'neigh_dev': 0.3333333333333333}
+[   159s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 76, 'dev': 0.6486486486486487, 'gain': 0.6486486486486487, 'neigh_dev': 0.3333333333333333}
+[   176s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 30000.0}, 'nsites': 76, 'dev': 0.4594594594594595, 'gain': 0.4594594594594595, 'neigh_dev': 1.0}
+[   199s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 10}, 'nsites': 76, 'dev': 0.5135135135135135, 'gain': 0.5135135135135135, 'neigh_dev': 0.5}
+[   216s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 1000.0}, 'nsites': 76, 'dev': 0.6486486486486487, 'gain': 0.6486486486486487, 'neigh_dev': 0.6666666666666666}
+[   232s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 30000.0}, 'nsites': 76, 'dev': 0.5945945945945946, 'gain': 0.5945945945945946, 'neigh_dev': 1.0}
+[   262s] {'cfg': {'m': 'memit_down', 'ls': 'd6_70', 'lam': 10}, 'nsites': 76, 'dev': 0.2972972972972973, 'gain': 0.2972972972972973, 'neigh_dev': 0.3333333333333333}
+[   286s] {'cfg': {'m': 'memit_down', 'ls': 'd6_70', 'lam': 1000.0}, 'nsites': 76, 'dev': 0.2702702702702703, 'gain': 0.2702702702702703, 'neigh_dev': 0.3333333333333333}
+[   311s] {'cfg': {'m': 'memit_down', 'ls': 'd6_70', 'lam': 30000.0}, 'nsites': 76, 'dev': 0.5135135135135135, 'gain': 0.5135135135135135, 'neigh_dev': 1.0}
+[   330s] {'cfg': {'m': 'memit_down', 'ls': 'd1_75', 'lam': 10}, 'nsites': 76, 'dev': 0.4864864864864865, 'gain': 0.4864864864864865, 'neigh_dev': 0.8333333333333334}
+[   346s] {'cfg': {'m': 'memit_down', 'ls': 'd1_75', 'lam': 1000.0}, 'nsites': 76, 'dev': 0.5945945945945946, 'gain': 0.5945945945945946, 'neigh_dev': 1.0}
+[   362s] {'cfg': {'m': 'memit_down', 'ls': 'd1_75', 'lam': 30000.0}, 'nsites': 76, 'dev': 0.2702702702702703, 'gain': 0.2702702702702703, 'neigh_dev': 1.0}
+[   383s] {'cfg': {'m': 'memit_o', 'ls': 'd3_80', 'lam': 10}, 'nsites': 76, 'dev': 0.21621621621621623, 'gain': 0.21621621621621623, 'neigh_dev': 0.5}
+[   400s] {'cfg': {'m': 'memit_o', 'ls': 'd3_80', 'lam': 10000.0}, 'nsites': 76, 'dev': 0.40540540540540543, 'gain': 0.40540540540540543, 'neigh_dev': 1.0}
+[   421s] {'cfg': {'m': 'memit_o', 'ls': 'd3_90', 'lam': 10}, 'nsites': 76, 'dev': 0.2972972972972973, 'gain': 0.2972972972972973, 'neigh_dev': 0.16666666666666666}
+[   438s] {'cfg': {'m': 'memit_o', 'ls': 'd3_90', 'lam': 10000.0}, 'nsites': 76, 'dev': 0.4864864864864865, 'gain': 0.4864864864864865, 'neigh_dev': 1.0}
+[   446s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3}, 'nsites': 76, 'dev': 0.08108108108108109, 'gain': 0.08108108108108109, 'neigh_dev': 0.6666666666666666}
+[   456s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.5}, 'nsites': 76, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   467s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.8}, 'nsites': 76, 'dev': 0.02702702702702703, 'gain': 0.02702702702702703, 'neigh_dev': 0.0}
+[   478s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2}, 'nsites': 76, 'dev': 0.05405405405405406, 'gain': 0.05405405405405406, 'neigh_dev': 0.0}
+[   485s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.08}, 'nsites': 76, 'dev': 0.05405405405405406, 'gain': 0.05405405405405406, 'neigh_dev': 0.6666666666666666}
+[   495s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.12}, 'nsites': 76, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.16666666666666666}
+[   506s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.15}, 'nsites': 76, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   508s] chosen {'memit_down': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 30000.0}, 'memit_o': {'m': 'memit_o', 'ls': 'd3_90', 'lam': 10000.0}, 'lmhead_mean': {'m': 'lmhead_mean', 'alpha': 0.08}, 'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.3}}
+/usr/local/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/usr/local/lib/python3.11/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[   597s] memit_down 0 real teach 0.5967741935483871 neigh nan shuf 0.06451612903225806
+[   685s] memit_down 1 real teach 0.5967741935483871 neigh nan shuf 0.25806451612903225
+[   775s] memit_down 2 real teach 0.5 neigh nan shuf 0.11290322580645161
+[   865s] memit_o 0 real teach 0.5967741935483871 neigh nan shuf 0.0
+[   953s] memit_o 1 real teach 0.5483870967741935 neigh nan shuf 0.0
+[  1045s] memit_o 2 real teach 0.5 neigh nan shuf 0.0
+[  1069s] lmhead_mean 0 real teach 0.03225806451612903 neigh nan shuf 0.04838709677419355
+[  1093s] lmhead_mean 1 real teach 0.016129032258064516 neigh nan shuf 0.0
+[  1118s] lmhead_mean 2 real teach 0.03225806451612903 neigh nan shuf 0.0
+[  1143s] lmhead_lda 0 real teach 0.1774193548387097 neigh nan shuf 0.20967741935483872
+[  1168s] lmhead_lda 1 real teach 0.1774193548387097 neigh nan shuf 0.16129032258064516
+[  1195s] lmhead_lda 2 real teach 0.1935483870967742 neigh nan shuf 0.16129032258064516
+/root/fb3.py:397: RuntimeWarning: Mean of empty slice
+  results["w4"]["runs"].append(dict(q=q,seed=seed,teach=t.tolist(),neigh=nb.tolist(),drift=dr)); log("w4",q,seed,t.mean(),nb.mean())
+[  1227s] w4 none 0 0.1774193548387097 nan
+[  1250s] w4 none 1 0.3387096774193548 nan
+[  1274s] w4 none 2 0.16129032258064516 nan
+[  1297s] w4 orig 0 0.11290322580645161 nan
+[  1319s] w4 orig 1 0.08064516129032258 nan
+[  1342s] w4 orig 2 0.14516129032258066 nan
+[  1365s] w4 new 0 0.08064516129032258 nan
+[  1387s] w4 new 1 0.08064516129032258 nan
+[  1409s] w4 new 2 0.06451612903225806 nan
+[  1411s] DONE
+Qwen3-1.7B_C_late
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-LlqnZuzXboI0Fv3qub6iXY

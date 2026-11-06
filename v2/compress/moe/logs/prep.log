@@ -1,0 +1,40 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-N7xZYSvqEkOS0RSC3rdpkM
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/moe/prep_data.py
+└── ✓ Created Function prep.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]
+[1AGenerating train split: 100%|██████████| 7473/7473 [00:00<00:00, 179688.90 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1319/1319 [00:00<00:00, 97636.63 examples/s]
+
+[1AGenerating train split:   0%|          | 0/18612 [00:00<?, ? examples/s]
+[1AGenerating train split:  86%|████████▌ | 16000/18612 [00:00<00:00, 151541.67 examples/s]Generating train split: 100%|██████████| 18612/18612 [00:00<00:00, 152732.61 examples/s]
+
+[1AGenerating train split:   0%|          | 0/70000 [00:00<?, ? examples/s]
+[1AGenerating train split:  57%|█████▋    | 40000/70000 [00:00<00:00, 296943.45 examples/s]
+[1AGenerating train split: 100%|██████████| 70000/70000 [00:00<00:00, 328670.41 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/10000 [00:00<?, ? examples/s]
+[1AGenerating validation split: 100%|██████████| 10000/10000 [00:00<00:00, 326052.29 examples/s]
+
+[1AGenerating test split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000 [00:00<00:00, 319626.90 examples/s]
+OK databricks/databricks-dolly-15k () n=15011
+OK NousResearch/hermes-function-calling-v1 ('func_calling_singleturn',) n=1893
+OK abisee/cnn_dailymail ('3.0.0',) n=11490
+OK fancyzhx/ag_news () n=7600
+OK stanfordnlp/sst2 () n=872
+OK ai4privacy/pii-masking-200k () n=209261
+OK openai/gsm8k ('main',) n=7473
+OK iamtarun/python_code_instructions_18k_alpaca () n=18612
+OK papluca/language-identification () n=70000
+{'chat': 12131, 'json': 1893, 'sumcls': 6872, 'pii': 7997, 'math': 7473, 'code': 18176, 'multi': 45592}
+evalA 400 {'chat': 110, 'sumcls': 100, 'json': 90, 'pii': 100}
+calibA 480 {'chat': 130, 'sumcls': 120, 'json': 110, 'pii': 120}
+evalB 120 {'math': 40, 'multi': 40, 'code': 40}
+calibB 480 {'math': 170, 'multi': 150, 'code': 160}
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-N7xZYSvqEkOS0RSC3rdpkM

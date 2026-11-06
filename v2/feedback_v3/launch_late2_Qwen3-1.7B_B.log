@@ -1,0 +1,69 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rnWxq0uAIHoRknrBEka8Fm
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.19it/s]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.34it/s]
+[     4s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    75s] sizes teach=100 dev=50 neigh=200 neigh_dev=100 ann_wrong=116/116; base teach acc=0.000 dev=0.000
+[    78s] annotations 25; sites 50
+[   104s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'nsites': 50, 'dev': 0.9, 'gain': 0.9, 'neigh_dev': 0.97}
+[   126s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 1000.0}, 'nsites': 50, 'dev': 0.9, 'gain': 0.9, 'neigh_dev': 0.98}
+[   148s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 30000.0}, 'nsites': 50, 'dev': 0.78, 'gain': 0.78, 'neigh_dev': 0.88}
+[   172s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 10}, 'nsites': 50, 'dev': 0.88, 'gain': 0.88, 'neigh_dev': 0.96}
+[   193s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.97}
+[   214s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 30000.0}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.99}
+[   239s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 10}, 'nsites': 50, 'dev': 0.8, 'gain': 0.8, 'neigh_dev': 0.55}
+[   259s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 1000.0}, 'nsites': 50, 'dev': 0.86, 'gain': 0.86, 'neigh_dev': 0.96}
+[   279s] {'cfg': {'m': 'memit_down', 'ls': 'd3_90', 'lam': 30000.0}, 'nsites': 50, 'dev': 0.9, 'gain': 0.9, 'neigh_dev': 0.99}
+Stopping app - user stopped from CLI.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/jhome/ten-percent/v2/feedback_v3/fb3.py:407 in main                   │
+│                                                                              │
+│   406 def main(model:str="Qwen/Qwen3-1.7B", task:str="A", tag:str="", sweep: │
+│ ❱ 407 │   print(run.remote(model,task,tag,sweep))                            │
+│   408                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_obj │
+│ ect.py:49 in wrapped                                                         │
+│                                                                              │
+│    48 │   │   await self.hydrate()                                           │
+│ ❱  49 │   │   return await method(self, *args, **kwargs)                     │
+│    50                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2081 in remote                                                     │
+│                                                                              │
+│   2080 │   │                                                                 │
+│ ❱ 2081 │   │   return await self._call_function(args, kwargs)                │
+│   2082                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2018 in _call_function                                             │
+│                                                                              │
+│   2017 │   │                                                                 │
+│ ❱ 2018 │   │   return await invocation.run_function()                        │
+│   2019                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:498 in run_function                                                │
+│                                                                              │
+│    497 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  498 │   │   │   │   return await _process_result(                         │
+│    499 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_uti │
+│ ls/function_utils.py:574 in _process_result                                  │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

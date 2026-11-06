@@ -1,0 +1,87 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-uHx5O6CDHfQPwNwl1FtYSJ
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   119s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   173s] sizes teach=99 dev=54 neigh=200 neigh_dev=100 ann_wrong=82/82; base teach acc=0.000 dev=0.000
+[   177s] annotations 25; sites 64
+[   220s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   260s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 300}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   300s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10000.0}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   336s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   370s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 300}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.0}
+[   405s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.03}
+[   435s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.61}
+[   462s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 300}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.61}
+[   490s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 64, 'dev': 0.8703703703703703, 'gain': 0.8703703703703703, 'neigh_dev': 0.91}
+[   534s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.01}
+[   574s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 300}, 'nsites': 64, 'dev': 0.9629629629629629, 'gain': 0.9629629629629629, 'neigh_dev': 0.07}
+[   617s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10000.0}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.06}
+[   653s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   684s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 300}, 'nsites': 64, 'dev': 0.9814814814814815, 'gain': 0.9814814814814815, 'neigh_dev': 0.12}
+[   718s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10000.0}, 'nsites': 64, 'dev': 0.6666666666666666, 'gain': 0.6666666666666666, 'neigh_dev': 0.26}
+[   755s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10}, 'nsites': 64, 'dev': 0.1111111111111111, 'gain': 0.1111111111111111, 'neigh_dev': 0.01}
+[   796s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.03}
+[   828s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10}, 'nsites': 64, 'dev': 1.0, 'gain': 1.0, 'neigh_dev': 0.52}
+[   857s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 64, 'dev': 0.9259259259259259, 'gain': 0.9259259259259259, 'neigh_dev': 0.88}
+[   869s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.05}, 'nsites': 64, 'dev': 0.35185185185185186, 'gain': 0.35185185185185186, 'neigh_dev': 0.96}
+[   881s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.1}, 'nsites': 64, 'dev': 0.9629629629629629, 'gain': 0.9629629629629629, 'neigh_dev': 0.8}
+[   896s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   910s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.4}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   923s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.05}, 'nsites': 64, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.99}
+[   936s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1}, 'nsites': 64, 'dev': 0.037037037037037035, 'gain': 0.037037037037037035, 'neigh_dev': 1.0}
+[   948s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2}, 'nsites': 64, 'dev': 0.7222222222222222, 'gain': 0.7222222222222222, 'neigh_dev': 0.98}
+[   961s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.4}, 'nsites': 64, 'dev': 0.9814814814814815, 'gain': 0.9814814814814815, 'neigh_dev': 0.64}
+[   962s] chosen {'memit_down': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10000.0}, 'memit_o': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10000.0}, 'lmhead_mean': {'m': 'lmhead_mean', 'alpha': 0.05}, 'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2}}
+[  1030s] memit_down 0 real teach 0.8383838383838383 neigh 0.905 shuf 0.8383838383838383
+[  1099s] memit_down 1 real teach 0.8787878787878788 neigh 0.91 shuf 0.8787878787878788
+[  1167s] memit_down 2 real teach 0.898989898989899 neigh 0.85 shuf 0.898989898989899
+Stopping app - user stopped from CLI.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/jhome/ten-percent/v2/feedback_v3/fb3.py:395 in main                   │
+│                                                                              │
+│   394 │   results["w4"]=dict(base_teach=qb_t.tolist(),base_neigh=qb_n.tolist │
+│ ❱ 395 │   cfg=chosen["memit_down"]                                           │
+│   396 │   if cfg:                                                            │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_obj │
+│ ect.py:49 in wrapped                                                         │
+│                                                                              │
+│    48 │   │   await self.hydrate()                                           │
+│ ❱  49 │   │   return await method(self, *args, **kwargs)                     │
+│    50                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2081 in remote                                                     │
+│                                                                              │
+│   2080 │   │                                                                 │
+│ ❱ 2081 │   │   return await self._call_function(args, kwargs)                │
+│   2082                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2018 in _call_function                                             │
+│                                                                              │
+│   2017 │   │                                                                 │
+│ ❱ 2018 │   │   return await invocation.run_function()                        │
+│   2019                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:498 in run_function                                                │
+│                                                                              │
+│    497 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  498 │   │   │   │   return await _process_result(                         │
+│    499 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_uti │
+│ ls/function_utils.py:574 in _process_result                                  │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

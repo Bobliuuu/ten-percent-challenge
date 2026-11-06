@@ -1,0 +1,103 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-R9D3ezxgK10gddmQW0oafj
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]
+[1AFetching 3 files:  33%|███▎      | 1/3 [00:01<00:03,  1.71s/it]
+[1AFetching 3 files:  67%|██████▋   | 2/3 [00:32<00:16, 16.11s/it]
+[1AFetching 3 files: 100%|██████████| 3/3 [00:36<00:00, 12.32s/it]Fetching 3 files: 100%|██████████| 3/3 [00:36<00:00, 12.32s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[1ALoading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 35.85it/s]
+[   382s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   417s] sizes teach=100 dev=50 neigh=200 neigh_dev=100 ann_wrong=692/692; base teach acc=0.000 dev=0.000
+
+[1AGenerating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 4358/4358 [00:00<00:00, 290873.42 examples/s]
+
+[1AGenerating train split:   0%|          | 0/1801350 [00:00<?, ? examples/s]
+[1AGenerating train split:   4%|▎         | 66000/1801350 [00:00<00:02, 638097.82 examples/s]
+[1AGenerating train split:   8%|▊         | 137000/1801350 [00:00<00:02, 673998.20 examples/s]
+[1AGenerating train split:  12%|█▏        | 218000/1801350 [00:00<00:02, 729563.61 examples/s]
+[1AGenerating train split:  17%|█▋        | 299000/1801350 [00:00<00:01, 756162.54 examples/s]
+[1AGenerating train split:  21%|██        | 381000/1801350 [00:00<00:01, 774191.75 examples/s]
+[1AGenerating train split:  27%|██▋       | 494000/1801350 [00:00<00:01, 760581.51 examples/s]
+[1AGenerating train split:  32%|███▏      | 574000/1801350 [00:00<00:01, 768838.00 examples/s]
+[1AGenerating train split:  36%|███▋      | 654000/1801350 [00:00<00:01, 772697.96 examples/s]
+[1AGenerating train split:  41%|████      | 735000/1801350 [00:00<00:01, 780781.85 examples/s]
+[1AGenerating train split:  45%|████▌     | 815000/1801350 [00:01<00:01, 783286.66 examples/s]
+[1AGenerating train split:  50%|████▉     | 897000/1801350 [00:01<00:01, 789070.17 examples/s]
+[1AGenerating train split:  55%|█████▌    | 999675/1801350 [00:01<00:01, 744225.30 examples/s]
+[1AGenerating train split:  60%|█████▉    | 1078675/1801350 [00:01<00:00, 752418.85 examples/s]
+[1AGenerating train split:  66%|██████▌   | 1191675/1801350 [00:01<00:00, 751027.03 examples/s]
+[1AGenerating train split:  70%|███████   | 1268675/1801350 [00:01<00:00, 755559.87 examples/s]
+[1AGenerating train split:  75%|███████▍  | 1345675/1801350 [00:01<00:00, 758013.49 examples/s]
+[1AGenerating train split:  79%|███████▉  | 1424675/1801350 [00:01<00:00, 763448.24 examples/s]
+[1AGenerating train split:  84%|████████▎ | 1505675/1801350 [00:01<00:00, 773296.72 examples/s]
+[1AGenerating train split:  88%|████████▊ | 1589675/1801350 [00:02<00:00, 788984.30 examples/s]
+[1AGenerating train split:  93%|█████████▎| 1669675/1801350 [00:02<00:00, 791109.66 examples/s]
+[1AGenerating train split:  97%|█████████▋| 1751675/1801350 [00:02<00:00, 799105.83 examples/s]
+[1AGenerating train split: 100%|██████████| 1801350/1801350 [00:02<00:00, 768752.81 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/3760 [00:00<?, ? examples/s]
+[1AGenerating validation split: 100%|██████████| 3760/3760 [00:00<00:00, 247172.33 examples/s]
+[   430s] annotations 25; sites 60
+[   479s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   522s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 300}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.03}
+[   564s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.47}
+[   607s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10}, 'nsites': 60, 'dev': 0.18, 'gain': 0.18, 'neigh_dev': 0.27}
+[   641s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 300}, 'nsites': 60, 'dev': 0.18, 'gain': 0.18, 'neigh_dev': 0.91}
+[   675s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.14, 'gain': 0.14, 'neigh_dev': 0.89}
+[   710s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'nsites': 60, 'dev': 0.42, 'gain': 0.42, 'neigh_dev': 0.98}
+[   737s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 300}, 'nsites': 60, 'dev': 0.42, 'gain': 0.42, 'neigh_dev': 0.98}
+[   763s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.32, 'gain': 0.32, 'neigh_dev': 0.98}
+[   817s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10}, 'nsites': 60, 'dev': 0.04, 'gain': 0.04, 'neigh_dev': 0.39}
+[   862s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 300}, 'nsites': 60, 'dev': 0.1, 'gain': 0.1, 'neigh_dev': 0.82}
+[   907s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.16, 'gain': 0.16, 'neigh_dev': 0.82}
+[   947s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   980s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 300}, 'nsites': 60, 'dev': 0.02, 'gain': 0.02, 'neigh_dev': 0.0}
+[  1012s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.91}
+[  1055s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.07}
+[  1088s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.82}
+[  1122s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10}, 'nsites': 60, 'dev': 0.34, 'gain': 0.34, 'neigh_dev': 0.98}
+[  1149s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 60, 'dev': 0.1, 'gain': 0.1, 'neigh_dev': 0.99}
+[  1157s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.05}, 'nsites': 60, 'dev': 0.04, 'gain': 0.04, 'neigh_dev': 1.0}
+[  1165s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.1}, 'nsites': 60, 'dev': 0.18, 'gain': 0.18, 'neigh_dev': 1.0}
+[  1174s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 60, 'dev': 0.04, 'gain': 0.04, 'neigh_dev': 0.0}
+[  1184s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.4}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  1191s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.05}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 1.0}
+[  1199s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1}, 'nsites': 60, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 1.0}
+[  1208s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2}, 'nsites': 60, 'dev': 0.08, 'gain': 0.08, 'neigh_dev': 1.0}
+[  1216s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.4}, 'nsites': 60, 'dev': 0.36, 'gain': 0.36, 'neigh_dev': 1.0}
+[  1217s] chosen {'memit_down': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'memit_o': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10}, 'lmhead_mean': {'m': 'lmhead_mean', 'alpha': 0.1}, 'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.4}}
+[  1276s] memit_down 0 real teach 0.48 neigh 0.93 shuf 0.04
+[  1338s] memit_down 1 real teach 0.5 neigh 0.745 shuf 0.0
+[  1397s] memit_down 2 real teach 0.33 neigh 0.93 shuf 0.01
+[  1457s] memit_o 0 real teach 0.37 neigh 0.95 shuf 0.0
+[  1517s] memit_o 1 real teach 0.41 neigh 0.735 shuf 0.0
+[  1576s] memit_o 2 real teach 0.29 neigh 0.96 shuf 0.0
+[  1600s] lmhead_mean 0 real teach 0.15 neigh 0.99 shuf 0.18
+[  1624s] lmhead_mean 1 real teach 0.19 neigh 0.99 shuf 0.16
+[  1647s] lmhead_mean 2 real teach 0.16 neigh 0.99 shuf 0.12
+[  1671s] lmhead_lda 0 real teach 0.41 neigh 0.99 shuf 0.21
+[  1696s] lmhead_lda 1 real teach 0.39 neigh 0.99 shuf 0.09
+[  1720s] lmhead_lda 2 real teach 0.39 neigh 0.995 shuf 0.16
+[  1763s] w4 none 0 0.35 0.9
+[  1797s] w4 none 1 0.47 0.84
+[  1827s] w4 none 2 0.3 0.905
+[  1859s] w4 orig 0 0.28 0.9
+[  1892s] w4 orig 1 0.38 0.89
+[  1923s] w4 orig 2 0.23 0.915
+[  1955s] w4 new 0 0.33 0.9
+[  1988s] w4 new 1 0.43 0.865
+[  2019s] w4 new 2 0.3 0.91
+[  2020s] DONE
+Qwen3-4B-Instruct-2507_A
+[modal-client] 2026-11-06T15:36:39-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-R9D3ezxgK10gddmQW0oafj

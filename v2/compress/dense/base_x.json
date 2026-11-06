@@ -1,0 +1,1 @@
+[{"model": "Qwen/Qwen3-8B", "mode": "base", "size": "x", "name": "base"}, {"model": "Qwen/Qwen3-1.7B", "mode": "base", "size": "x", "name": "base"}, {"model": "Qwen/Qwen3-4B", "mode": "base", "size": "x", "name": "base"}]

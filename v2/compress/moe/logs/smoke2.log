@@ -1,0 +1,12 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-lUaEJ0IP43BpFfz2L8GEKz
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/moe/moe_job.py
+├── ✓ Uploaded pack_bytes.py
+├── ✓ Created Function run.
+└── ✓ Created Function download.
+Stopping app - user stopped from CLI.
+ERR RemoteError('')
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-lUaEJ0IP43BpFfz2L8GEKz

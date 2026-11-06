@@ -1,0 +1,1 @@
+[{"name":"smoke_k64_12l","k":64,"exp_bits":2.5,"attn_bits":6,"emb_bits":6,"max_layers":12,"nseq":64,"rans_check":true,"group":0}]
