@@ -21,3 +21,5 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - smoke 0.5B (v2/engine/smoke_out.json): engine works.
 - launched `modal run --detach v2/engine/sweep.py --cfgs cfg_tables.json` (4 table shards, per-module proxy err/entropy vs L) -> v2/engine/log_tables.txt
 - launched cfg_A.json (14B uniform L in {3,4,5,6,8}, rot vs norot, g256, drop6) -> v2/engine/log_A.txt
+- relaunch (run.remote): ap-MFVbuvP2PA7PZBG1ZF36dh
+- v2/alt: MDC-6 multi-domain classification hedge splits built+locked (modal --detach ap-KxQu03girs6DrjhkPdspoF, 02:07)

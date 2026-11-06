@@ -1,0 +1,25 @@
+{
+ "task": "MDC-6: multi-domain text classification (ag_news topic, dbpedia_14 entity type, yelp_polarity, amazon_polarity, emotion, tweet_eval offensive/toxicity), letter-choice prompt, zero-shot",
+ "rule": [
+  "h=int(sha256(task|text|label)[:8],16) over each task's TEST split; h%7==0 -> LOCKED, h%7==1 -> DEV, else POOL (capped, ascending-h order). CALIB = random 600/task from TRAIN splits (disjoint from test).",
+  "Built by build_data.py (Modal app ap-KxQu03girs6DrjhkPdspoF) BEFORE any model was scored or any compressor built. locked.jsonl chmod 444; never read for building/choosing."
+ ],
+ "utc": "2026-11-06T07:07:37.811419+00:00",
+ "file_sha256": {
+  "locked": "57ef21e996c39ee4eed5507912aaa92174d4b8d3c4fb260be00c9ff8ee05f63b",
+  "dev": "66de5439c78efdfcf733e5f5bfdeacf4766c8d17023221a92cec41b1a5403337",
+  "pool": "8631a1cbc6b1b5c085ad66ee550b8444a409a5399f3c0e69a45c5b82d6db7fb3",
+  "calib": "59302a30a0e13406d2faf3d4c9a760a1d2f0cacc9e39bb4f9cedf0d403ccd46c"
+ },
+ "n": {
+  "locked": 2008,
+  "dev": 2009,
+  "pool": 4614,
+  "calib": 3600
+ },
+ "overlap_locked_text": {
+  "dev": 0,
+  "pool": 0,
+  "calib": 0
+ }
+}
