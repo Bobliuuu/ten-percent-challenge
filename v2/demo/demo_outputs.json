@@ -1,0 +1,387 @@
+{
+ "meta": {
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "artifact_bytes": 1432412701,
+  "base_bytes": 15231233024,
+  "artifact_load_secs": 228.6086893081665,
+  "dev_acc_base": 0.768,
+  "dev_acc_ours": 0.803,
+  "n_dev": 2000
+ },
+ "examples": [
+  {
+   "id": "C2-dev-1508",
+   "query": "What is the largest possible sum of a subarray in the sequence [2, -3, 5, -1, 2, -4, 6, -1]",
+   "options": [
+    "find_pairs_with_sum",
+    "find_missing_number",
+    "find_max_subarray_sum",
+    "find_duplicate_number",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 2,
+   "base": {
+    "pred": 2,
+    "probs": [
+     1.1180700755525523e-05,
+     1.6976997356806712e-07,
+     0.9740219761454363,
+     9.866933785476519e-06,
+     0.025956806450049053
+    ]
+   },
+   "ours": {
+    "pred": 2,
+    "probs": [
+     1.0672958301474678e-06,
+     3.652085498953387e-08,
+     0.9996177031429323,
+     1.2094046188962774e-06,
+     0.00037998363576358975
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1867",
+   "query": "I need 25 lorem ipsum words for one part of my project and 40 for another.",
+   "options": [
+    "sentence",
+    "paragraph",
+    "v1_loremipsum",
+    "word",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 3,
+   "base": {
+    "pred": 3,
+    "probs": [
+     7.434481500833692e-05,
+     1.5429774098407283e-06,
+     5.385520335960299e-06,
+     0.9932264197131275,
+     0.00669230697411847
+    ]
+   },
+   "ours": {
+    "pred": 3,
+    "probs": [
+     0.00010877553824672543,
+     5.708016383305501e-07,
+     0.00020321945959695886,
+     0.9987766677695623,
+     0.0009107664309556986
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1136",
+   "query": "What information can be retrieved about a person with email 'john.doe@example.com'?",
+   "options": [
+    "check_email",
+    "is_valid_email",
+    "email",
+    "email_validate_regex",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 2,
+   "base": {
+    "pred": 2,
+    "probs": [
+     7.867157866846715e-06,
+     3.215127607211705e-08,
+     0.9971902588828536,
+     9.395980158603773e-07,
+     0.0028009022099875526
+    ]
+   },
+   "ours": {
+    "pred": 2,
+    "probs": [
+     9.422265974553354e-07,
+     4.69107000255286e-08,
+     0.9999799582190859,
+     1.2751650343968764e-07,
+     1.892512711319862e-05
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-12",
+   "query": "Reverse the phrase 'Data science is exciting.'",
+   "options": [
+    "is_palindrome",
+    "reverse_string",
+    "is_valid_palindrome",
+    "reverse_words",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 1,
+   "base": {
+    "pred": 3,
+    "probs": [
+     7.204510257376228e-06,
+     0.03540850252256818,
+     5.913822145625923e-07,
+     0.8058938028325282,
+     0.1586898987524316
+    ]
+   },
+   "ours": {
+    "pred": 1,
+    "probs": [
+     2.7229805259858112e-06,
+     0.9382081033747798,
+     3.685153407320704e-07,
+     0.001811167713802198,
+     0.05997763741555127
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1458",
+   "query": "I need to know what's happening in the news for both the UK and Germany today. Can you get the latest news for these two countries?",
+   "options": [
+    "latest",
+    "world",
+    "health",
+    "science",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 0,
+   "base": {
+    "pred": 1,
+    "probs": [
+     5.710582707737787e-05,
+     0.9796064240291447,
+     7.576689386387625e-08,
+     5.311669336554778e-06,
+     0.020331082707547646
+    ]
+   },
+   "ours": {
+    "pred": 0,
+    "probs": [
+     0.9947286858908919,
+     5.1173678162395915e-05,
+     9.878843867458281e-08,
+     1.8456110119483034e-07,
+     0.005219857081405975
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1269",
+   "query": "Provide location details for Sydney and London.",
+   "options": [
+    "country_location_api",
+    "ecoweather",
+    "location_search",
+    "location_info",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 3,
+   "base": {
+    "pred": 3,
+    "probs": [
+     4.764761631397547e-05,
+     3.451581749045619e-06,
+     0.00021354180126200554,
+     0.8173581124672411,
+     0.18237724653343382
+    ]
+   },
+   "ours": {
+    "pred": 2,
+    "probs": [
+     2.3778937960119006e-05,
+     1.1838836099356402e-06,
+     0.9785236441650491,
+     0.0035291073027654404,
+     0.01792228571061526
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1692",
+   "query": "How many paragraphs can be generated with the default settings?",
+   "options": [
+    "v1_loremipsum",
+    "generate_signature",
+    "sentence",
+    "word",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 4,
+   "base": {
+    "pred": 4,
+    "probs": [
+     0.00010889639104182152,
+     7.337381112314788e-07,
+     3.0586755096304833e-07,
+     3.726229592382498e-06,
+     0.9998863377737036
+    ]
+   },
+   "ours": {
+    "pred": 0,
+    "probs": [
+     0.4999927059636528,
+     1.6443559523491302e-06,
+     9.462615163694256e-06,
+     3.4811015784402594e-06,
+     0.4999927059636528
+    ]
+   }
+  },
+  {
+   "id": "C2-dev-1554",
+   "query": "Fetch the net share purchase activity for Apple and Tesla.",
+   "options": [
+    "full_stock_price",
+    "stockprice",
+    "stock_earnings",
+    "stock_splits",
+    "None of these tools can do this"
+   ],
+   "gold_idx": 4,
+   "base": {
+    "pred": 4,
+    "probs": [
+     1.4738893622811376e-05,
+     2.5612356669325504e-06,
+     1.4449502868771698e-07,
+     3.2886916944685737e-06,
+     0.9999792666839872
+    ]
+   },
+   "ours": {
+    "pred": 4,
+    "probs": [
+     0.00026110081633301405,
+     5.4189745612741935e-06,
+     1.9935293333238123e-06,
+     0.0003352600844895078,
+     0.9993962265952829
+    ]
+   }
+  }
+ ],
+ "feedback": {
+  "tool": "get_ip_location",
+  "annotations": [
+   {
+    "query": "Find the location of the IP 12.34.56.78 and tell me its coordinates.",
+    "correct_option_text": "get_ip_location"
+   },
+   {
+    "query": "Where is the IP address 8.8.8.8 located geographically?",
+    "correct_option_text": "get_ip_location"
+   },
+   {
+    "query": "Can you find the location of the IP address 8.8.8.8?",
+    "correct_option_text": "get_ip_location"
+   },
+   {
+    "query": "What is the latitude and longitude of the IP address '8.8.8.8'?",
+    "correct_option_text": "get_ip_location"
+   },
+   {
+    "query": "I need the latitude and longitude coordinates of the IP address 192.168.1.1. Can you help me with that?",
+    "correct_option_text": "get_ip_location"
+   }
+  ],
+  "memory_bytes": 428,
+  "test": [
+   {
+    "query": "Locate the IP address '8.8.4.4'.",
+    "options": [
+     "get_ip_location",
+     "get_ip_zipcode",
+     "ip_address_lookup",
+     "ip_lookup",
+     "None of these tools can do this"
+    ],
+    "gold_idx": 0,
+    "before_pred": 2,
+    "after_pred": 0,
+    "before_probs": [
+     3.848200619894244e-05,
+     4.055973612953389e-06,
+     0.8476225932565455,
+     0.14729472058788262,
+     0.005040148175759957
+    ],
+    "after_probs": [
+     0.9999999999999734,
+     6.062026590257456e-22,
+     2.6038456195985265e-14,
+     6.589713898195379e-16,
+     1.6023720637210046e-17
+    ]
+   },
+   {
+    "query": "Find the location of IP address 8.8.8.8.",
+    "options": [
+     "get_ip_location",
+     "ip_lookup",
+     "ip_address_lookup",
+     "get_ip_zipcode",
+     "None of these tools can do this"
+    ],
+    "gold_idx": 0,
+    "before_pred": 1,
+    "after_pred": 0,
+    "before_probs": [
+     0.005396684836922622,
+     0.9075828402149915,
+     0.08441835429896066,
+     5.290723647823977e-05,
+     0.002549213412646844
+    ],
+    "after_probs": [
+     1.0,
+     6.383459261290354e-23,
+     1.3046507348653921e-24,
+     5.446066608753797e-29,
+     2.4961320498171935e-26
+    ]
+   },
+   {
+    "query": "Can you find the location of IP address 1.1.1.1?",
+    "options": [
+     "get_ip_location",
+     "get_ip_zipcode",
+     "ip_lookup",
+     "ip_address_lookup",
+     "None of these tools can do this"
+    ],
+    "gold_idx": 0,
+    "before_pred": 2,
+    "after_pred": 0,
+    "before_probs": [
+     0.04205067810488461,
+     5.88043530967337e-06,
+     0.9570690222788351,
+     0.00019473327299368643,
+     0.0006796859079770077
+    ],
+    "after_probs": [
+     1.0,
+     5.344181174682854e-30,
+     1.6685858316753094e-23,
+     3.8933641784850517e-28,
+     1.0469722861256936e-27
+    ]
+   }
+  ]
+ },
+ "_extra_not_in_schema": {
+  "dev_acc_ours_with_memory": 0.809,
+  "newtool_dev_items": 7,
+  "newtool_before_correct": 2,
+  "newtool_after_correct": 7,
+  "tree_sha256": "6290414d96f3119799516442cab5106243dede6a5b29256f24669f0581ee9661",
+  "body_sha256": "0304a803ae079beca3ff270cd4cd72567392924ddd95af30e258496a0921e4a4",
+  "gpu": "NVIDIA A100-SXM4-40GB"
+ }
+}
