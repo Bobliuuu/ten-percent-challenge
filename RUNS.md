@@ -23,3 +23,7 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - launched cfg_A.json (14B uniform L in {3,4,5,6,8}, rot vs norot, g256, drop6) -> v2/engine/log_A.txt
 - relaunch (run.remote): ap-MFVbuvP2PA7PZBG1ZF36dh
 - v2/alt: MDC-6 multi-domain classification hedge splits built+locked (modal --detach ap-KxQu03girs6DrjhkPdspoF, 02:07)
+v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST log v2/entropy/launch.log
+
+## v2/big (workstream: Qwen2.5-32B/72B) Fri  6 Nov 2026 02:10:21 EST
+- big.py = engine sweep with device_map multi-GPU. cfg_1.json: 72B/32B base(vocab trim only)+u3 g128, 32B u4. app ap-w8qFX9hULeT0K9n9ntxLLD, log v2/big/log_1.txt

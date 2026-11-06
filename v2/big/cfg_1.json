@@ -1,0 +1,52 @@
+[
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"L": 0,
+"rot": true,
+"cap": "36GiB",
+"name": "32B_u0_g128"
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"L": 3,
+"rot": true,
+"cap": "36GiB",
+"name": "32B_u3_g128"
+},
+{
+"model": "Qwen/Qwen2.5-72B-Instruct",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"L": 0,
+"rot": true,
+"cap": "40GiB",
+"name": "72B_u0_g128"
+},
+{
+"model": "Qwen/Qwen2.5-72B-Instruct",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"L": 3,
+"rot": true,
+"cap": "40GiB",
+"name": "72B_u3_g128"
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"L": 4,
+"rot": true,
+"cap": "36GiB",
+"name": "32B_u4_g128"
+}
+]
