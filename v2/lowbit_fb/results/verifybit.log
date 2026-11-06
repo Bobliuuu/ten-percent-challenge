@@ -1,0 +1,10 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+You have loaded a BitNet model on CPU and have a CUDA device available, make sure to set your model on a GPU device in order to run your model.
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+{'dev_acc_head': 0.867595818815331, 'dev_acc_nohead': 0.8531607765057242}
+1 {'bytes': 625, 'task_acc': 0.925, 'total': 0.8606271777003485, 'others_unchanged': True}
+5 {'bytes': 1785, 'task_acc': 0.9375, 'total': 0.8631159780985564, 'others_unchanged': True}
+10 {'bytes': 3498, 'task_acc': 0.9, 'total': 0.8556495769039323, 'others_unchanged': True}
+25 {'bytes': 4110, 'task_acc': 0.9175, 'total': 0.8591338974614235, 'others_unchanged': True}
+VERIFY_DONE

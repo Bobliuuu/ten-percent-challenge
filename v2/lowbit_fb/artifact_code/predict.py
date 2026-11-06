@@ -91,6 +91,9 @@ def _lsm(L):
     L = L - L.max(); return L - np.log(np.exp(L).sum())
 
 def _fwd(B, r):
+    with B["torch"].no_grad(): return _fwd_(B, r)
+
+def _fwd_(B, r):
     """-> (letter logits float32 [K], feature float32 [d])"""
     torch = B["torch"]; model = B["model"]; mdc = "names" in r; K = len(r["names"]) if mdc else 4
     x = torch.tensor([B["remap"](B["tok"].encode((_fmt_mdc if mdc else _fmt_mmlu)(r)))[-1024:]]).cuda()
