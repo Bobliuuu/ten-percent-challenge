@@ -1,0 +1,48 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-JexL7fCooyxCmqvBcc65rd
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb4.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.01s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.95it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    43s] B:first sizes {'ann': 116, 'dev': 50, 'teach': 100, 'neigh_pool': 420, 'neigh_dev': 80, 'neigh': 100} ann_wrong 116 116 base teach 0.0 dev 0.0 neigh base-right 364 / 420
+[    51s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.12, 'gain': 0.12, 'neigh_dev': 0.975}
+[    62s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.44, 'gain': 0.44, 'neigh_dev': 0.975}
+[    73s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.96, 'gain': 0.96, 'neigh_dev': 0.8375}
+[    84s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.5, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.98, 'gain': 0.98, 'neigh_dev': 0.4625}
+[    97s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.98, 'gain': 0.98, 'neigh_dev': 0.025}
+[   109s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   120s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   132s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   144s] {'cfg': {'m': 'lmhead_lda', 'alpha': 3.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   156s] {'cfg': {'m': 'lmhead_lda', 'alpha': 3.5, 'ridge': 0.1}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   168s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 50, 'dev': 0.04, 'gain': 0.04, 'neigh_dev': 0.0}
+[   192s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.95}
+[   212s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.5, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.95}
+[   231s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.95}
+[   252s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 50, 'dev': 0.92, 'gain': 0.92, 'neigh_dev': 0.95}
+[   253s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.5, 'ridge': 0.01}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[   279s] lmhead_lda 0 real 0.52 neigh 0.99 shuf 0.0
+[   306s] lmhead_lda 1 real 0.53 neigh 0.99 shuf 0.0
+[   333s] lmhead_lda 2 real 0.51 neigh 0.99 shuf 0.0
+[   379s] blend 0 real 0.86 neigh 0.97 shuf 0.0
+[   424s] blend 1 real 0.99 neigh 0.79 shuf 0.0
+[   468s] blend 2 real 0.89 neigh 0.99 shuf 0.0
+[   513s] memit_down 0 real 0.86 neigh 0.97 shuf 0.0
+[   557s] memit_down 1 real 1.0 neigh 0.71 shuf 0.0
+[   601s] memit_down 2 real 0.9 neigh 0.9 shuf 0.0
+[   625s] codec fp16row 0 0.54 0.98 2 6016.0
+[   638s] codec fp16row 1 0.53 0.98 2 6016.0
+[   651s] codec fp16row 2 0.52 0.98 2 6016.0
+[   664s] codec req4_newscale 0 0.56 0.98 2 0
+[   677s] codec req4_newscale 1 0.54 0.98 2 0
+[   691s] codec req4_newscale 2 0.54 0.98 2 0
+[   705s] codec snap_orig 0 0.53 0.99 2 0

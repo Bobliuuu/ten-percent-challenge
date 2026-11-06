@@ -1,0 +1,12 @@
+[modal-client] 2026-11-06T14:48:48-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (34517e2d). Retrying...
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-OgAbuwKClgxYByKaY7WTAF
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/dense/dense.py
+├── ✓ Uploaded data/dense_data.json
+├── ✓ Created Function run_s.
+├── ✓ Created Function run_m.
+└── ✓ Created Function run_l.

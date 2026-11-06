@@ -1,0 +1,89 @@
+[modal-client] 2026-11-06T15:27:38-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (6371438a). Retrying...
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-j3FWPd9Sz8Qy4P7FF4fxXP
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/moe/moe_job.py
+├── ✓ Uploaded pack_bytes.py
+├── ✓ Created Function download.
+└── ✓ Created Function run.
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Warp Exception on (GPC 1, TPC 2, SM 0): Misaligned Address
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Global Exception on (GPC 1, TPC 2, SM 0): Multiple Warp Errors
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics Exception: ESR 0x517730=0xd01000f 0x517734=0x24 0x517728=0x1f81fb60 0x51772c=0x1174
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Warp Exception on (GPC 1, TPC 4, SM 0): Misaligned Address
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Global Exception on (GPC 1, TPC 4, SM 0): Multiple Warp Errors
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics Exception: ESR 0x519730=0xd01000f 0x519734=0x24 0x519728=0x1f81fb60 0x51972c=0x1174
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Warp Exception on (GPC 1, TPC 7, SM 0): Misaligned Address
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics SM Global Exception on (GPC 1, TPC 7, SM 0): Multiple Warp Errors
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 13, Graphics Exception: ESR 0x51c730=0xd02000f 0x51c734=0x24 0x51c728=0x1f81fb60 0x51c72c=0x1174
+
+[gpu-health] [WARN] GPU-95c59528-971e-ec20-e211-d0e8b38d15db: XID: NVRM: Xid (PCI:0000:3a:00): 43, pid=48165, name=gvisor_sentry, channel 0x00000002
+
+
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:02<00:40,  2.71s/it]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:02<00:30,  2.03s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:05<00:35,  2.56s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:04<00:30,  2.18s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:07<00:29,  2.26s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:06<00:27,  2.10s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:08<00:25,  2.09s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:08<00:25,  2.09s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:11<00:24,  2.20s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:10<00:23,  2.10s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:13<00:21,  2.15s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:12<00:21,  2.10s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:14<00:18,  2.08s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:15<00:20,  2.31s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:16<00:16,  2.01s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:17<00:17,  2.21s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:18<00:14,  2.00s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:19<00:14,  2.12s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:20<00:11,  1.97s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:22<00:12,  2.16s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:22<00:09,  1.94s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:24<00:10,  2.11s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:24<00:07,  1.96s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:26<00:08,  2.08s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:26<00:05,  1.96s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:28<00:06,  2.21s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:03,  1.96s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:30<00:01,  1.93s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:31<00:04,  2.32s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.60s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
+loaded 35 61.064794624
+
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:33<00:02,  2.34s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:34<00:00,  1.80s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:34<00:00,  2.14s/it]
+loaded 38 61.064794624
+
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:02<00:33,  2.21s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:04<00:29,  2.12s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:06<00:26,  2.05s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:08<00:24,  2.00s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:10<00:22,  2.06s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:12<00:20,  2.02s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:14<00:18,  2.00s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:16<00:15,  1.99s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:18<00:14,  2.01s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:20<00:11,  1.99s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:22<00:10,  2.02s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:24<00:08,  2.05s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:26<00:06,  2.03s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:04,  2.03s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:30<00:02,  2.00s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.58s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
+loaded 35 61.064794624

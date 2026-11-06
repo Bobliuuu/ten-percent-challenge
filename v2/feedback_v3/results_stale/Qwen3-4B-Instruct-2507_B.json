@@ -1,0 +1,1 @@
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "task": "B", "sizes": {"ann": 120, "dev": 58, "teach": 100, "neigh": 200, "neigh_dev": 100}, "base": {"teach": 0.0, "dev": 0.0}, "sweep": [{"cfg": {"m": "memit_down", "ls": "d3_35", "lam": 10}, "nsites": 50, "dev": 0.0, "gain": 0.0, "neigh_dev": 0.0}], "final": []}

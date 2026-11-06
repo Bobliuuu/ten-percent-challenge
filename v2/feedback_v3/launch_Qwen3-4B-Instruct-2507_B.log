@@ -1,0 +1,62 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-HuqqPRNj1ptqKN40UPkHCJ
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+[1ALoading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:07,  3.84s/it]
+[1ALoading checkpoint shards:  67%|██████▋   | 2/3 [00:08<00:04,  4.04s/it]
+[1ALoading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.29s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:08<00:00,  2.75s/it]
+[   199s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   345s] sizes teach=100 dev=58 neigh=200 neigh_dev=100 ann_wrong=120/120; base teach acc=0.000 dev=0.000
+[   349s] annotations 25; sites 50
+[   412s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10}, 'nsites': 50, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+Stopping app - user stopped from CLI.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/jhome/ten-percent/v2/feedback_v3/fb3.py:395 in main                   │
+│                                                                              │
+│   394 │   results["w4"]=dict(base_teach=qb_t.tolist(),base_neigh=qb_n.tolist │
+│ ❱ 395 │   cfg=chosen["memit_down"]                                           │
+│   396 │   if cfg:                                                            │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_obj │
+│ ect.py:49 in wrapped                                                         │
+│                                                                              │
+│    48 │   │   await self.hydrate()                                           │
+│ ❱  49 │   │   return await method(self, *args, **kwargs)                     │
+│    50                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2081 in remote                                                     │
+│                                                                              │
+│   2080 │   │                                                                 │
+│ ❱ 2081 │   │   return await self._call_function(args, kwargs)                │
+│   2082                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2018 in _call_function                                             │
+│                                                                              │
+│   2017 │   │                                                                 │
+│ ❱ 2018 │   │   return await invocation.run_function()                        │
+│   2019                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:498 in run_function                                                │
+│                                                                              │
+│    497 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  498 │   │   │   │   return await _process_result(                         │
+│    499 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_uti │
+│ ls/function_utils.py:574 in _process_result                                  │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

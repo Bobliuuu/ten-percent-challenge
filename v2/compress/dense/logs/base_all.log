@@ -1,0 +1,9 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-KfbAZvVl8PySsnjKFs2ieG
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/dense/dense.py
+├── ✓ Uploaded data/dense_data.json
+├── ✓ Created Function run_m.
+├── ✓ Created Function run_s.
+└── ✓ Created Function run_l.

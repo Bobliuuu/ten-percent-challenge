@@ -1,0 +1,72 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-gVCMul2YstnEZycPpQNg0B
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb3.py
+└── ✓ Created Function run.
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.09it/s]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.08s/it]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:03<00:02,  1.13s/it]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:04<00:01,  1.05s/it]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.18it/s]
+[   272s] data ready
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   293s] sizes teach=100 dev=50 neigh=200 neigh_dev=100 ann_wrong=705/705; base teach acc=0.000 dev=0.000
+[   298s] annotations 25; sites 52
+[   340s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.11}
+[   379s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 300}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.18}
+[   417s] {'cfg': {'m': 'memit_down', 'ls': 'd3_35', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.22}
+[   453s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10}, 'nsites': 52, 'dev': 0.08, 'gain': 0.08, 'neigh_dev': 0.91}
+[   484s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 300}, 'nsites': 52, 'dev': 0.08, 'gain': 0.08, 'neigh_dev': 0.9}
+[   515s] {'cfg': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.06, 'gain': 0.06, 'neigh_dev': 0.99}
+[   545s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10}, 'nsites': 52, 'dev': 0.4, 'gain': 0.4, 'neigh_dev': 0.93}
+[   571s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 300}, 'nsites': 52, 'dev': 0.4, 'gain': 0.4, 'neigh_dev': 0.93}
+[   596s] {'cfg': {'m': 'memit_down', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.32, 'gain': 0.32, 'neigh_dev': 0.97}
+[   644s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10}, 'nsites': 52, 'dev': 0.1, 'gain': 0.1, 'neigh_dev': 0.82}
+[   684s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 300}, 'nsites': 52, 'dev': 0.14, 'gain': 0.14, 'neigh_dev': 0.84}
+[   723s] {'cfg': {'m': 'memit_down', 'ls': 'd6_40', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.12, 'gain': 0.12, 'neigh_dev': 0.95}
+[   756s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10}, 'nsites': 52, 'dev': 0.08, 'gain': 0.08, 'neigh_dev': 0.63}
+[   783s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 300}, 'nsites': 52, 'dev': 0.04, 'gain': 0.04, 'neigh_dev': 0.79}
+[   810s] {'cfg': {'m': 'memit_down', 'ls': 'd1_50', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.98}
+[   846s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.84}
+[   877s] {'cfg': {'m': 'memit_o', 'ls': 'd3_50', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.95}
+[   906s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10}, 'nsites': 52, 'dev': 0.2, 'gain': 0.2, 'neigh_dev': 0.92}
+[   931s] {'cfg': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10000.0}, 'nsites': 52, 'dev': 0.12, 'gain': 0.12, 'neigh_dev': 1.0}
+[   939s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.05}, 'nsites': 52, 'dev': 0.26, 'gain': 0.26, 'neigh_dev': 1.0}
+[   947s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.1}, 'nsites': 52, 'dev': 0.64, 'gain': 0.64, 'neigh_dev': 0.65}
+[   956s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 52, 'dev': 0.3, 'gain': 0.3, 'neigh_dev': 0.0}
+[   965s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.4}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[   972s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.05}, 'nsites': 52, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 1.0}
+[   979s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1}, 'nsites': 52, 'dev': 0.08, 'gain': 0.08, 'neigh_dev': 1.0}
+[   987s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2}, 'nsites': 52, 'dev': 0.44, 'gain': 0.44, 'neigh_dev': 1.0}
+[   995s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.4}, 'nsites': 52, 'dev': 0.68, 'gain': 0.68, 'neigh_dev': 0.49}
+[   997s] chosen {'memit_down': {'m': 'memit_down', 'ls': 'd3_50', 'lam': 10000.0}, 'memit_o': {'m': 'memit_o', 'ls': 'd3_65', 'lam': 10000.0}, 'lmhead_mean': {'m': 'lmhead_mean', 'alpha': 0.05}, 'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2}}
+[  1065s] memit_down 0 real teach 0.02 neigh 0.925 shuf 0.0
+[  1132s] memit_down 1 real teach 0.03 neigh 0.94 shuf 0.0
+[  1203s] memit_down 2 real teach 0.04 neigh 0.87 shuf 0.0
+[  1259s] memit_o 0 real teach 0.11 neigh 0.965 shuf 0.01
+[  1314s] memit_o 1 real teach 0.2 neigh 0.83 shuf 0.01
+[  1370s] memit_o 2 real teach 0.13 neigh 0.94 shuf 0.01
+[  1390s] lmhead_mean 0 real teach 0.18 neigh 0.985 shuf 0.14
+[  1409s] lmhead_mean 1 real teach 0.18 neigh 0.985 shuf 0.14
+[  1430s] lmhead_mean 2 real teach 0.17 neigh 0.985 shuf 0.13
+[  1450s] lmhead_lda 0 real teach 0.48 neigh 0.985 shuf 0.28
+[  1471s] lmhead_lda 1 real teach 0.47 neigh 0.985 shuf 0.27
+[  1491s] lmhead_lda 2 real teach 0.45 neigh 0.98 shuf 0.26
+[  1534s] w4 none 0 0.01 0.945
+[  1573s] w4 none 1 0.05 0.935
+[  1611s] w4 none 2 0.03 0.875
+[  1646s] w4 orig 0 0.01 0.955
+[  1685s] w4 orig 1 0.03 0.945
+[  1722s] w4 orig 2 0.03 0.905
+[  1757s] w4 new 0 0.01 0.945
+[  1795s] w4 new 1 0.05 0.93
+[  1833s] w4 new 2 0.03 0.87
+Qwen3-8B_A
+[  1834s] DONE
+[modal-client] 2026-11-06T15:40:08-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-gVCMul2YstnEZycPpQNg0B
