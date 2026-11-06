@@ -6,3 +6,4 @@
 4. Commit and push after EVERY result. Log each launched run (app id, command, time) in `RUNS.md`.
 5. Pull remote logs/results into the repo before stopping or terminating any box.
 6. Pass these rules to every subagent.
+7. SOURCE OF TRUTH for the goal: GOAL_README.md (github.com/DeusExperiments/ten-percent-challenge). Base must be >0.5B params; size is 10% of fp16; commercial non-narrow task; locked exam; feedback with few annotations. Re-read it before planning.

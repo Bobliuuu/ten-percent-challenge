@@ -43,3 +43,50 @@ RESULT_JSON {"cfg": {"name": "mix50_g128_e4", "g": 128, "ebits": 4, "eg": 64, "a
 
 [1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
 [1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 22019.93it/s]
+mix60_g128_e3 MB 42.9/47.1 acc 0.9188 agree2 0.9835 hard 0.8093
+RESULT_JSON {"cfg": {"name": "mix60_g128_e3", "g": 128, "ebits": 3, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.6, 4], [0.4, 3]]}, "bytes_huff": 42872991.625, "bytes_fixed": 47076826.0, "bytes_ent": 42920234.96578331, "acc2": 0.9188103079795837, "base_acc2": 0.9296624064445496, "agree2": 0.9835209250450134, "agree_hard": 0.809333324432373, "bitsmap_hist": {"3": 29, "4": 44}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 21252.24it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14800.05it/s]
+mix60_g128_e4 MB 44.4/48.5 acc 0.9188 agree2 0.9819 hard 0.8353
+RESULT_JSON {"cfg": {"name": "mix60_g128_e4", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.6, 4], [0.4, 3]]}, "bytes_huff": 44371456.125, "bytes_fixed": 48513196.0, "bytes_ent": 44356604.96578331, "acc2": 0.9188103079795837, "base_acc2": 0.9296624064445496, "agree2": 0.9819132089614868, "agree_hard": 0.8353333473205566, "bitsmap_hist": {"3": 29, "4": 44}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16749.55it/s]
+mix35_g64_e3 MB 44.0/47.0 acc 0.9164 agree2 0.9803 hard 0.8120
+RESULT_JSON {"cfg": {"name": "mix35_g64_e3", "g": 64, "ebits": 3, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.35, 4], [0.65, 3]]}, "bytes_huff": 44001156.75, "bytes_fixed": 46959130.0, "bytes_ent": 44052191.816053584, "acc2": 0.9163987040519714, "base_acc2": 0.9296624064445496, "agree2": 0.9803054928779602, "agree_hard": 0.8119999766349792, "bitsmap_hist": {"3": 47, "4": 26}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18478.33it/s]
+RESULT_JSON {"cfg": {"name": "mix30_g128_e4_eg128", "g": 128, "ebits": 4, "eg": 128, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.3, 4], [0.7, 3]]}, "bytes_huff": 41390090.125, "bytes_fixed": 45756664.0, "bytes_ent": 41509586.25016181, "acc2": 0.9147909879684448, "base_acc2": 0.9296624064445496, "agree2": 0.9811093211174011, "agree_hard": 0.8080000281333923, "bitsmap_hist": {"3": 51, "4": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 22022.23it/s]
+RESULT_JSON {"cfg": {"name": "mix30_g128_e4_noawq", "g": 128, "ebits": 4, "eg": 64, "awq": [0], "method": "gptq", "bits": 3, "mix": [[0.3, 4], [0.7, 3]]}, "bytes_huff": 41742255.375, "bytes_fixed": 45920812.0, "bytes_ent": 41673895.46407526, "acc2": 0.915996789932251, "base_acc2": 0.9296624064445496, "agree2": 0.979099690914154, "agree_hard": 0.8113333582878113, "bitsmap_hist": {"3": 51, "4": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 26977.76it/s]
+mix30_g64_e3 MB 43.2/46.2 acc 0.9160 agree2 0.9783 hard 0.8027
+mix30_g128_e4_eg128 MB 41.4/45.8 acc 0.9148 agree2 0.9811 hard 0.8080
+mix30_g128_e4_noawq MB 41.7/45.9 acc 0.9160 agree2 0.9791 hard 0.8113
+RESULT_JSON {"cfg": {"name": "mix30_g64_e3", "g": 64, "ebits": 3, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.3, 4], [0.7, 3]]}, "bytes_huff": 43226886.75, "bytes_fixed": 46213402.0, "bytes_ent": 43275990.3411981, "acc2": 0.915996789932251, "base_acc2": 0.9296624064445496, "agree2": 0.9782958030700684, "agree_hard": 0.8026666641235352, "bitsmap_hist": {"3": 51, "4": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13600.95it/s]
+vqs_d4k12_g128 MB 39.7/40.2 acc 0.8895 agree2 0.9397 hard 0.6380
+RESULT_JSON {"cfg": {"name": "vqs_d4k12_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 39741142.0, "bytes_fixed": 40229740.0, "bytes_ent": 39965983.085226685, "acc2": 0.8894694447517395, "base_acc2": 0.9296624064445496, "agree2": 0.9397106170654297, "agree_hard": 0.6380000114440918, "bitsmap_hist": {"12": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 20791.02it/s]
+RESULT_JSON {"cfg": {"name": "vqs_d4k11_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 11, "vq": [4], "vqshare": 1}, "bytes_huff": 37005318.625, "bytes_fixed": 37524844.0, "bytes_ent": 37225718.674219474, "acc2": 0.8862540125846863, "base_acc2": 0.9296624064445496, "agree2": 0.9324758648872375, "agree_hard": 0.6353333592414856, "bitsmap_hist": {"11": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13998.66it/s]
+vqs_d4k13_g128 MB 42.5/43.0 acc 0.8935 agree2 0.9397 hard 0.6393
+vqs_d4k11_g128 MB 37.0/37.5 acc 0.8863 agree2 0.9325 hard 0.6353
+RESULT_JSON {"cfg": {"name": "vqs_d4k13_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 13, "vq": [4], "vqshare": 1}, "bytes_huff": 42523292.375, "bytes_fixed": 42988396.0, "bytes_ent": 42759223.65663064, "acc2": 0.8934887647628784, "base_acc2": 0.9296624064445496, "agree2": 0.9397106170654297, "agree_hard": 0.6393333077430725, "bitsmap_hist": {"13": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 29224.04it/s]

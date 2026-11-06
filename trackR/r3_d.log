@@ -183,3 +183,75 @@ layer 23 430.4920299053192
 layer 13 432.24231910705566
 layer 23 438.1664044857025
 layer 24 442.3262927532196
+layer 5 167.30476665496826
+layer 14 449.6550302505493
+layer 24 450.3194525241852
+
+layer 7 448.7978870868683
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+layer 25 454.1874988079071
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:09,  1.41s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:08,  1.44s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.43s/it]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.45s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.45s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.46s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:01,  1.43s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.15s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.33s/it]
+layer 25 463.3862314224243
+layer 26 466.0633337497711
+layer 15 467.0954222679138
+layer 6 187.48555397987366
+layer 26 475.58072876930237
+layer 8 473.95537757873535
+layer 27 478.47016501426697
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 16 484.89228081703186
+layer 27 488.0322935581207
+layer 7 209.00756216049194
+layer 28 490.92948508262634
+layer 28 501.00314807891846
+layer 9 499.0065350532532
+layer 17 502.35152792930603
+layer 29 503.4926383495331
+layer 8 227.86979818344116
+layer 0 61.58996343612671
+layer 29 514.093686580658
+layer 30 515.9636454582214
+layer 18 519.9404799938202
+layer 30 527.1669118404388
+layer 10 523.9798996448517
+layer 31 528.4760982990265
+layer 1 78.50824546813965
+layer 9 248.87557363510132
+layer 19 538.1695458889008
+layer 31 540.2855763435364
+layer 32 540.8256661891937
+layer 2 95.3825523853302
+layer 10 268.39749550819397
+layer 33 552.69025182724
+layer 11 549.0742478370667
+layer 32 553.3672115802765
+layer 20 556.1032321453094
+layer 3 112.2315182685852
+layer 34 564.5277609825134
+layer 33 566.4873688220978
+layer 11 287.41460704803467
+layer 21 573.7991697788239
+layer 35 576.4171845912933
+layer 12 574.585925579071
+layer 34 579.6033797264099
+layer 4 129.11025214195251
+layer 36 588.2190561294556
+layer 12 307.5137972831726
+layer 22 591.2951984405518
+layer 35 592.6733553409576
+layer 5 145.9691731929779
+layer 37 600.0328478813171
+layer 13 601.1342260837555
+layer 36 605.44411444664
+layer 13 326.5026009082794
+layer 23 608.7772214412689
+layer 38 611.949538230896
+layer 6 163.01868295669556
+layer 37 617.703200340271
