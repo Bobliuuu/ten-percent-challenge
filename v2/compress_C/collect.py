@@ -1,5 +1,5 @@
 import json,subprocess,os,glob,shutil
-d="resv"; shutil.rmtree(d,ignore_errors=True); os.makedirs(d)
+d="resv"; shutil.rmtree(d,ignore_errors=True); os.makedirs(d,exist_ok=True)
 subprocess.run(["modal","volume","get","--force","tenpct-C-res","/",d],capture_output=True)
 rows={}
 for f in glob.glob(d+"/**/*.json",recursive=True):
