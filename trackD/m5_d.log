@@ -90,3 +90,8 @@ RESULT_JSON {"cfg": {"name": "vqs_d4k13_g128", "g": 128, "ebits": 4, "eg": 64, "
 
 [1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
 [1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 29224.04it/s]
+vqs_d4k12_g64 MB 41.1/41.6 acc 0.8895 agree2 0.9389 hard 0.6373
+RESULT_JSON {"cfg": {"name": "vqs_d4k12_g64", "g": 64, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 41113220.375, "bytes_fixed": 41580652.0, "bytes_ent": 41339288.22028662, "acc2": 0.8894694447517395, "base_acc2": 0.9296624064445496, "agree2": 0.938906729221344, "agree_hard": 0.637333333492279, "bitsmap_hist": {"12": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 21276.38it/s]

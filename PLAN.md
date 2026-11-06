@@ -1,5 +1,5 @@
 # PLAN v2 (2026-11-06 02:10 EST) — SOURCE OF TRUTH: GOAL_README.md = github.com/DeusExperiments/ten-percent-challenge
-Deadline per README: issue by **2026-11-12 17:05 UTC** (~6 days). User's own target: ASAP / "7am".
+Deadline per README: issue by **2026-11-12 17:05 UTC** (~6 days). 7am deadline REMOVED by user (2026-11-06 02:15). User authorized: open the submission issue the second a COMPLETE WORKING PROOF is done (never an incomplete/failing one).
 
 ## Real rules (README, updated after our early work)
 1. ONE trained model **> 0.5B params** (before or after the cut); **commercial-class, non-toy, non-narrow task**; its score is the bar.
