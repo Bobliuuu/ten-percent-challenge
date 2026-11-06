@@ -249,14 +249,15 @@ def run_impl(cfg):
         out=dict(model=M,rot=rot,g=g,lay_lo=LO,lay_hi=HI,table=table)
         os.makedirs("/hf/v2tables",exist_ok=True); json.dump(out,open(f"/hf/v2tables/{M.replace('/','_')}_rot{int(rot)}_g{g}_{LO}_{HI}.json","w")); vol.commit()
         print("TABLE_JSON "+json.dumps(out),flush=True); return out
+    inps=None; cur=None
     if OFF: model.cuda(); torch.cuda.empty_cache()
     # embedding quant
     emb=model.get_input_embeddings(); hdim=emb.weight.shape[1]; ebits=cfg.get("ebits",16)
     if ebits<16:
-        w=emb.weight.data.float(); wq=torch.zeros_like(w); Lv=2**ebits
+        w=emb.weight.data.cpu().float(); wq=torch.zeros_like(w); Lv=2**ebits
         for c in range(0,w.shape[1],64):
-            blk=w[:,c:c+64]; s=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s,Lv)[0]
-        emb.weight.data=wq.to(torch.bfloat16)
+            blk=w[:,c:c+64].cuda(); s_=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s_,Lv)[0].cpu(); del blk
+        emb.weight.data=wq.to(torch.bfloat16).cuda(); del w,wq; torch.cuda.empty_cache()
     lg=predict(ev,remap); pred=lg.argmax(1); acc=score(lg); agree=float((pred==base_pred).mean())
     def fitb(lc,yc_):
         b=torch.zeros(8,requires_grad=True); X=torch.tensor(lc); Y=torch.tensor(yc_)
