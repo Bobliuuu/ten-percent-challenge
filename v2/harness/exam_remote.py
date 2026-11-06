@@ -88,13 +88,14 @@ def run_exam(spec):
         else:
             o = run_base.remote(view, lock["base_id"]); bp, bs = o["pred"], o["seconds"]
         # --- candidate: no-network sandbox, artifact+memory only ---
-        cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", "/tmp/inputs.json"]
+        inp_rel = f"inputs/{key.replace(':', '_')}.json"   # question rows only, no answers
+        os.makedirs(os.path.dirname(f"/cand/{inp_rel}"), exist_ok=True); json.dump(view, open(f"/cand/{inp_rel}", "w")); candvol.commit()
+        cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", f"/cand/{inp_rel}"]
         if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
         app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
         sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=GPU, block_network=True, timeout=7200,
                                   volumes={"/cand": candvol.read_only()})
         try:
-            with sb.open("/tmp/inputs.json", "w") as f: f.write(json.dumps(view))
             p = sb.exec(*cmd); out = p.stdout.read(); err = p.stderr.read(); rc = p.wait()
         finally:
             sb.terminate()
