@@ -11,7 +11,7 @@ img = (modal.Image.debian_slim().pip_install("torch","transformers==4.51.3","dat
        .add_local_file("pool.jsonl","/root/base/pool.jsonl"))
 vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
-@app.function(image=img, gpu="A100-80GB", timeout=7200, volumes={"/hf":vol})
+@app.function(image=img, gpu=["A100-80GB","H100","H200"], timeout=7200, volumes={"/hf":vol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
     os.environ["HF_HOME"]="/hf"; sys.path.insert(0,"/root")
