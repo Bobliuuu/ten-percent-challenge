@@ -1,0 +1,84 @@
+{
+ "utc": "2026-11-06T19:15:43.975489+00:00",
+ "rule": "Build T1 (agentic tool use) splits. Refuses to overwrite data/LOCK.json.\nItem schema (jsonl): id, source(S1|S2|S3), kind(nocall|single|multi), query, tools[{name,description,parameters(JSON schema)}],\n  gold[{name, arguments{param: value}}]   (S2: arguments{param:[allowed values]} with '' = may be omitted; gold_alts=true)\nSources:\n  S1 = xLAM function-calling-60k (Salesforce, CC-BY-4.0; fetched from ungated mirror NobodyExistsOnTheInternet/xlam-function-calling-60k, 60000 rows)\n       split by sha256(query|tools): h%7==0 locked-S1 slice, 1 dev, 2 calib, else pool(build).\n       xLAM has no real irrelevance rows (its 1166 empty-answer rows are ill-posed: matching tools exist), so kind=nocall is\n       SYNTHESISED: query paired with the tool list of another item of the SAME split whose tools share no content tokens with the query.\n  S3 = Team-ACE/ToolACE (apache-2.0), OOD DEV PROXY only (h%7==1 -> s3_dev, others s3_pool). First turn of each dialogue only.\n  S2 = BFCL v3 (gorilla-llm/Berkeley-Function-Calling-Leaderboard, apache-2.0) -> locked OOD block, never used elsewhere.\nLocked rows are never inspected here except for counts.",
+ "splits": {
+  "locked": {
+   "n": 2637,
+   "counts": {
+    "S1/multi": 500,
+    "S1/nocall": 400,
+    "S1/single": 500,
+    "S2/multi": 437,
+    "S2/nocall": 300,
+    "S2/single": 500
+   },
+   "file_sha256": "76b9571d7b79bf09d73f12be1da772e61a5d97dc46f728f16af9cbee0ce89f05"
+  },
+  "s1_dev": {
+   "n": 8425,
+   "counts": {
+    "S1/multi": 3748,
+    "S1/nocall": 1474,
+    "S1/single": 3203
+   },
+   "file_sha256": "ca8be1be54d1771d0294e62e3f8fc7901551c87afff1e9c5992845715b91c473"
+  },
+  "s1_calib": {
+   "n": 8444,
+   "counts": {
+    "S1/multi": 3609,
+    "S1/nocall": 1444,
+    "S1/single": 3391
+   },
+   "file_sha256": "356a44cb1bcd2a336b857b779b1ad6665fe99419f27ec0ced4783453a97f33e6"
+  },
+  "s1_pool": {
+   "n": 33692,
+   "counts": {
+    "S1/multi": 14732,
+    "S1/nocall": 5542,
+    "S1/single": 13418
+   },
+   "file_sha256": "8afb8ff6438a1c56aaf8495d19d2e5e3944b65516182e9020975afb7b6e111ed"
+  },
+  "s3_dev": {
+   "n": 1481,
+   "counts": {
+    "S3/multi": 567,
+    "S3/nocall": 163,
+    "S3/single": 751
+   },
+   "file_sha256": "6ef99b3fd8762b001cd499bb7ff5f2a61ec2d318e9f29e1c6704620db64d3887"
+  },
+  "s3_pool": {
+   "n": 8887,
+   "counts": {
+    "S3/multi": 3464,
+    "S3/nocall": 1092,
+    "S3/single": 4331
+   },
+   "file_sha256": "38b35569871cfe51b410a840267bdd351f6b316fef6bdd7c28b61a878d81919a"
+  }
+ },
+ "audit": {
+  "dropped": {
+   "S1locked:exact_dup_vs_other": 338,
+   "S1locked:near_dup_vs_other": 760,
+   "S1locked:internal_dup": 33,
+   "S2locked:exact_dup_vs_other": 3,
+   "S2locked:internal_dup": 250,
+   "S2locked:near_dup_vs_other": 8
+  },
+  "S1_clean": 7142,
+  "S2_clean": 3112
+ },
+ "locked_totals": {
+  "n": 2637,
+  "per_kind": {
+   "single": 1000,
+   "multi": 937,
+   "nocall": 700
+  },
+  "S2": 1237
+ }
+}
