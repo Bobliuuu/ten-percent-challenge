@@ -121,15 +121,14 @@ On the dev side (not the exam), the feedback gives: new-tool accuracy .855 → .
 <summary>📅 <b>Timeline of the proof (all 2026-11-06, EST)</b></summary>
 
 ```mermaid
-timeline
-    02:47 : Task suites frozen and hash-locked
-    03:43 : Harder tool-selection suite (C2) locked
-    05:05 : Packed 7B artifact verified (9.40%)
-    06:36 : Task, base and pass criterion pre-registered
-    07:19 : Harness locked for the real exam
-    07:28 : Stage 1 on the locked exam passes
-    07:40 : Stage 2 (feedback) passes
-    07:50 : Proof filed
+flowchart TB
+    A["🕐 02:47<br/>Task suites frozen and hash-locked"] --> B["🕐 03:43<br/>Harder tool-selection suite (C2) locked"]
+    B --> C["🕐 05:05<br/>Packed 7B artifact verified at 9.40%"]
+    C --> D["🕐 06:36<br/>Task, base and pass criterion pre-registered"]
+    D --> E["🕐 07:19<br/>Harness locked for the real exam"]
+    E --> F["🕐 07:28<br/>✅ Stage 1 on the locked exam passes"]
+    F --> G["🕐 07:40<br/>✅ Stage 2 (feedback) passes"]
+    G --> H["🕐 07:50<br/>📮 Proof filed"]
 ```
 </details>
 
