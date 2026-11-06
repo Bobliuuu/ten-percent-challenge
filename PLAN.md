@@ -22,7 +22,7 @@ Expected: all done by ~03:00 EST. Rate limit hit -> retry; still blocked -> AWS 
 
 ## B. Next steps (strict 07:00 today deadline)
 1. 01:50-03:00 Harvest D/E/R/S/Q results (modal app logs RESULT_JSON, salvage.py); commit+push each.
-2. 03:00-04:00 Pick recipe: merge best of I (GPTQ bases), J (calibration recovery), K (embedding), D (mixed-bit), E (layer/head plan), S. Target <10% bytes, agreement >=99% vs base. Gap now: trackA dev2 0.907 vs 0.93.
+2. 03:00-04:00 Pick recipe: merge best of I (GPTQ bases), J (calibration recovery), K (embedding), D (mixed-bit), E (layer/head plan), S. Target: <10% bytes and MINIMUM disagreement vs base (strict NI test needs <=~4 flips/872 = ~99.5% agreement; 99% is NOT assured; trackN odds if equal in expectation: d=0.5%->77%, 1%->57%, 2%->36%, 3%->28%). Gap now: trackA dev2 0.907 vs 0.93.
 3. 04:00-05:00 Add trackL correction + trackB feedback memory; rebuild artifact (trackM/build.py), verify (trackM/verify.py: reload matches, bytes <=10%).
 4. 05:00-05:30 Feedback test (new learned, old kept) per trackB protocol.
 5. 05:30-06:15 Locked exam ONCE via trackC final_exam; never use it to choose. Fallback: trackH insurance base.
@@ -31,3 +31,6 @@ Contingency: if recipe merge misses target by 04:30, ship trackA model.bin + tra
 
 ## C. Rules
 Follow AGENTS.md: detach everything, results in repo, push after every result, log runs in RUNS.md.
+
+## D. Honest feasibility (added 01:58)
+Strict NI test (trackC/trackN) needs <=~4 flips on 872. trackA: dev2 (OOD) agree 0.966, old dev 0.992; exam-domain agreement unmeasured. Goal = minimize flips, ship best artifact, run locked exam ONCE, report true result and odds. Do not claim a pass without the receipt.
