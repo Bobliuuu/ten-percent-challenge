@@ -71,3 +71,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/moe finished: GPTQ sweep on g7e box, box terminated; see v2/moe/RESULTS.md
 - v2/engine: cfg_B/cfg_C aborted (apps stopped on request); see v2/engine/RESULTS.md
 - c: 7B c1.2dz.15 vocab16k->12000 ratio .0948 acc .8596 vs base .8721 agree .9457 (acc_b .8766 vs .889). vocab study (cfg_v, L=0): 3B vocab12k agree .977, 33k agree .9925 (ebits4), ebits3/2 hurt. Next: 7B vocab33k c1.15 (out_e_*), 3B ncal512 (out_d_0)
+- sweep1 trimmed (GPU cap, 3 containers): sweep2.json relaunched (see modal app list tenpct-C newest)
