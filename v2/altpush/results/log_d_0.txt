@@ -1,0 +1,41 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 49.25it/s]
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 66
+layer 1 102
+layer 2 139
+layer 3 175
+layer 4 212
+layer 5 223
+layer 6 234
+layer 7 246
+layer 8 257
+layer 9 297
+layer 10 313
+layer 11 330
+layer 12 347
+layer 13 364
+layer 14 382
+layer 15 398
+layer 16 415
+layer 17 431
+layer 18 449
+layer 19 466
+layer 20 482
+layer 21 499
+layer 22 515
+layer 23 533
+layer 24 550
+layer 25 566
+layer 26 583
+layer 27 599
+layer 28 617
+layer 29 634
+layer 30 650
+layer 31 667
+layer 32 683
+layer 33 701
+layer 34 719
+layer 35 734
+RESULT_JSON {"per_task": {"ag_news": 0.8175, "dbpedia": 0.8625, "yelp": 0.9575, "amazon": 0.945, "emotion": 0.6, "offensive": 0.3119266055045872}, "cfg": {"model": "Qwen/Qwen2.5-3B-Instruct", "g": 128, "drop": 0, "vocab": 12000, "ebits": 4, "ncal": 512, "callen": 512, "L": 120, "ec": {"K": 7, "dz": 0.15, "sbits": 8}}, "bi": null, "n_levels_cfg": 0, "n": 2009, "base_acc": 0.834245893479343, "acc": 0.8198108511697362, "agree": 0.8840219014435042, "base_acc_b": 0.8680935788949726, "acc_b": 0.8641114982578397, "agree_b": 0.9118964659034345, "per_task_b": {"ag_news": 0.83, "dbpedia": 0.9475, "yelp": 0.9575, "amazon": 0.9475, "emotion": 0.6033333333333334, "offensive": 0.7522935779816514}, "b_wrong": 109, "c_fixed": 80, "params": 3085938688, "nkeep": 12143, "dropped": [], "bytes": 620352176.0956249, "ratio_bf16": 0.1005127189512757, "body_bpw": 1.7461680719965977, "body_bpw_ent_only": 1.6752916139269631, "parts_MB": {"body": 605.599920095625, "emb": 13.211584, "head": 0.057344, "misc": 1.483328}, "oov": 0.043272694524495676, "secs": 751.8185560703278}

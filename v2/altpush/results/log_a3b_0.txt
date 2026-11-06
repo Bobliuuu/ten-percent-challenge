@@ -1,0 +1,42 @@
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:32<00:32, 32.59s/it]Fetching 2 files: 100%|██████████| 2/2 [00:49<00:00, 24.87s/it]Fetching 2 files: 100%|██████████| 2/2 [00:49<00:00, 24.87s/it]
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 48.41it/s]
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 83
+layer 1 91
+layer 2 100
+layer 3 109
+layer 4 117
+layer 5 126
+layer 6 134
+layer 7 143
+layer 8 161
+layer 9 184
+layer 10 198
+layer 11 211
+layer 12 225
+layer 13 238
+layer 14 252
+layer 15 265
+layer 16 279
+layer 17 293
+layer 18 306
+layer 19 320
+layer 20 333
+layer 21 347
+layer 22 360
+layer 23 374
+layer 24 387
+layer 25 401
+layer 26 415
+layer 27 428
+layer 28 442
+layer 29 455
+layer 30 469
+layer 31 482
+layer 32 496
+layer 33 509
+layer 34 523
+layer 35 536
+RESULT_JSON {"per_task": {"ag_news": 0.815, "dbpedia": 0.67, "yelp": 0.9425, "amazon": 0.9375, "emotion": 0.5733333333333334, "offensive": 0.23853211009174313}, "cfg": {"model": "Qwen/Qwen2.5-3B-Instruct", "g": 128, "drop": 0, "vocab": 12000, "ebits": 4, "ncal": 128, "callen": 512, "L": 3}, "bi": null, "n_levels_cfg": 0, "n": 2009, "base_acc": 0.834245893479343, "acc": 0.7685415629666501, "agree": 0.8451966152314584, "b_wrong": 190, "c_fixed": 58, "params": 3085938688, "nkeep": 12143, "dropped": [], "bytes": 596153822.6111327, "ratio_bf16": 0.09659197457962145, "body_bpw": 1.6763952882702793, "body_bpw_ent_only": 1.543676903751522, "parts_MB": {"body": 581.4015666111327, "emb": 13.211584, "head": 0.057344, "misc": 1.483328}, "oov": 0.04339763887932815, "secs": 549.6896023750305}

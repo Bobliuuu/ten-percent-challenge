@@ -1,0 +1,33 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 120.94it/s]
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 56
+layer 1 79
+layer 2 102
+layer 3 125
+layer 4 148
+layer 5 172
+layer 6 195
+layer 7 218
+layer 8 241
+layer 9 264
+layer 10 287
+layer 11 310
+layer 12 333
+layer 13 356
+layer 14 379
+layer 15 402
+layer 16 425
+layer 17 448
+layer 18 471
+layer 19 494
+layer 20 517
+layer 21 540
+layer 22 563
+layer 23 586
+layer 24 609
+layer 25 632
+layer 26 655
+layer 27 678
+RESULT_JSON {"per_task": {"ag_news": 0.8825, "dbpedia": 0.9775, "yelp": 0.965, "amazon": 0.97, "emotion": 0.55, "offensive": 0.6513761467889908}, "cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "g": 128, "drop": 0, "vocab": 24000, "ebits": 4, "ncal": 384, "callen": 512, "L": 115, "ec": {"K": 7, "dz": 0.15, "sbits": 8}, "pack": "/home/ubuntu/pack7b"}, "bi": null, "n_levels_cfg": 0, "n": 2009, "base_acc": 0.8720756595321055, "acc": 0.8730711796913887, "agree": 0.9542060726729716, "base_acc_b": 0.8889995022399204, "acc_b": 0.8820308611249378, "agree_b": 0.960179193628671, "per_task_b": {"ag_news": 0.875, "dbpedia": 0.9775, "yelp": 0.9625, "amazon": 0.965, "emotion": 0.5566666666666666, "offensive": 0.8532110091743119}, "b_wrong": 34, "c_fixed": 36, "params": 7615616512, "nkeep": 24122, "dropped": [], "bytes": 1517666280.1089842, "ratio_bf16": 0.09964172156762245, "body_bpw": 1.8021836463760068, "body_bpw_ent_only": 1.7310285038567232, "parts_MB": {"body": 1469.9710161089843, "emb": 45.928288, "head": 0.100352, "misc": 1.666624}, "oov": 0.021340443598188555, "secs": 706.2374997138977}

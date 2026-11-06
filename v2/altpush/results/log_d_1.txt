@@ -1,0 +1,29 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 49.00it/s]
+Traceback (most recent call last):
+  File "/home/ubuntu/run_local.py", line 29, in <module>
+    r=push.run(cfgs[i]); r["_idx"]=i
+      ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/push.py", line 24, in run
+    model=AutoModelForCausalLM.from_pretrained(M,torch_dtype=torch.bfloat16).cuda().eval()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/v/lib/python3.12/site-packages/transformers/modeling_utils.py", line 3654, in cuda
+    return super().cuda(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1098, in cuda
+    return self._apply(lambda t: t.cuda(device))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 966, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/ubuntu/v/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1098, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+                                 ^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 44.00 MiB. GPU 0 has a total capacity of 44.39 GiB of which 32.69 MiB is free. Process 5314 has 31.22 GiB memory in use. Process 6249 has 7.51 GiB memory in use. Including non-PyTorch memory, this process has 5.62 GiB memory in use. Of the allocated memory 5.08 GiB is allocated by PyTorch, and 125.61 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

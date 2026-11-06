@@ -1,0 +1,41 @@
+{
+ "artifact": "art7b_c115 (Qwen2.5-7B-Instruct, MDC-6, ECSQ c=1.15 dz=.15 vocab24k ncal384)",
+ "base_fp16_bytes": 15231233024,
+ "total_bytes": 1482962994,
+ "tree_sha256": "f5c7ba7550b0e57bda41d0838f3f0669e8297d5229fa37a91958bf6236a93040",
+ "files": {
+  "body.bin": {
+   "bytes": 1434967224,
+   "sha256": "c248b86e3dfe94cb180005bc75c4e3f49653d20d540ccec3b227739ef0dee0ae"
+  },
+  "config.json": {
+   "bytes": 1805,
+   "sha256": "7828f592b6286e3c101f79b3099f2c7ad20631a36066956317221e7fb58c49ab"
+  },
+  "emb.bin": {
+   "bytes": 45928288,
+   "sha256": "a6a9b9b28b4877f2b23bbada23ae902e161b3802c3897bea45ced27d1a464a65"
+  },
+  "index.json.xz": {
+   "bytes": 40564,
+   "sha256": "9e004f3492e754bb0a97ba05a6b6afee7f055324da5460162e3c236c88fa6caf"
+  },
+  "misc.bin.xz": {
+   "bytes": 491640,
+   "sha256": "d5394370ab38a2c3de769fdec3ecde15e20f62ea899ca6fff6bab59f8b24e816"
+  },
+  "predict.py": {
+   "bytes": 5353,
+   "sha256": "698b38b0f6803507ca754e8c48e95e0895a28d2a61672960d7bd2265f267ce80"
+  },
+  "signs.bin": {
+   "bytes": 103936,
+   "sha256": "133e1d84dc874619a945bb2e51aef17487b656c4f5fab5c879615259a3885c1c"
+  },
+  "tok.tar.xz": {
+   "bytes": 1424184,
+   "sha256": "5ae540ef3ed365f43c081a9d890a11de2fa7c634dee6991abe6e731dfe674f99"
+  }
+ },
+ "ratio": 0.09736329236531809
+}
