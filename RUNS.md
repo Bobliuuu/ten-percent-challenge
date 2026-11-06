@@ -92,3 +92,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/alt: 14B (A100-40GB, ncal64) L3 ratio .0953 acc .8457 vs base .8721; attn4 ratio .100 acc .8522; no better than 7B. 80GB queue (32B) cancelled (no capacity). results_14B.json
 - v2/compress_C push_c2.py (altpush recipe on C2, 7B) c2_sweep1.json 6 cfgs (ECSQ c in 1.1-1.3), pack to vol tenpct-C-res; 04:52
 - v2/compress_A wave1 results (7B u3 g128 ratio .0919 acc .621 vs base .657; calibrated bias .667) in v2/compress_A/results; wave3 mixed-bit cfg_3.json running on AWS eu-north-1 i-09f24d8981aa83348
+- v2/compress_A 14B sweep sweep_A14.py cfg_14.json (6 cfgs) ap-MFklLcNtzsaBSsWCjaHyZr 10:3x --detach (local process must stay alive for spawn stagger)
+- C2 7B sweep1 results v2/compress_C/c2res; finish (pack+verify) launched for c114_dz15 (ap-moylEuKrVoyDi2KkXPxQZm) and c120_dz15
