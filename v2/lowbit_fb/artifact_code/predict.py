@@ -105,8 +105,8 @@ class Head:
         z = np.load(os.path.join(d, "head.npz"))
         s.meta = json.loads(bytes(z["meta"]).decode()); s.mu0 = z["mu0"].astype(np.float32); s.P = z["P"].astype(np.float32)
         s.Ci = z["Ci"].astype(np.float32); s.keys = s.meta["keys"]; s.cmu = z["cmu"].astype(np.float32); s.cn = z["cn"].astype(np.float64)
-        s.idx = {k: i for i, k in enumerate(s.keys)}; s.T = s.meta["tasks"]
-    def proj(s, f): return (f - s.mu0) @ s.P.T
+        s.idx = {k: i for i, k in enumerate(s.keys)}; s.T = s.meta["tasks"]; s.c0, s.c1 = s.meta.get("cols", [0, s.P.shape[1]])
+    def proj(s, f): return (f[s.c0:s.c1] - s.mu0) @ s.P.T
     def score(s, z, mus): return z @ (s.Ci @ mus.T) - 0.5 * np.einsum("cr,rs,cs->c", mus, s.Ci, mus)
 
 def _key(task, name): return task + "\x1f" + name

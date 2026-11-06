@@ -3,8 +3,11 @@ python ana_fb.py <featdir> [export]   -> results_fb.json (+ head params), prints
 import numpy as np, json, sys, itertools, os
 D = sys.argv[1]; SEEDS = 10; KS = (1, 5, 10, 25); R = 96; ALPHA = float(os.environ.get("ALPHA", "0.1"))
 TASKS = ["ag_news", "dbpedia", "yelp", "amazon", "emotion", "offensive"]; HOLD = {"ag_news": 3, "dbpedia": 12, "emotion": 2}
+COLSN = os.environ.get("COLS", "both"); OUT = os.environ.get("OUT", "results_fb.json"); HEADOUT = os.environ.get("HEADOUT", "artifact_code/head.npz")
+FULL = [None]
 def ld(n):
-    z = np.load(f"{D}/{n}.npz"); return {k: z[k] for k in z.files}
+    z = np.load(f"{D}/{n}.npz"); d = {k: z[k] for k in z.files}; F = d["X"].shape[1]; FULL[0] = F; h = F // 2
+    d["X"] = d["X"][:, {"both": slice(0, F), "last": slice(0, h), "mean": slice(h, F)}[COLSN]]; return d
 def lsm(L): L = L - L.max(1, keepdims=True); return L - np.log(np.exp(L).sum(1, keepdims=True))
 class Head:
     """PCA(R) over all calib features; shared shrunk within-class inverse covariance pooled over all (task,class) groups."""
@@ -98,7 +101,7 @@ def scenA(tn, P, split):
     return dict(base=fin(base)), out
 def tuneA(tn):
     best = None
-    for n0, w in itertools.product((0.5, 2, 8), (2, 6, 20)):
+    for n0, w in itertools.product((2, 8), (2, 6, 20)):
         P = dict(n0=n0, w=w, lam=0.3); r, o = scenA(tn, P, "pool")
         sc = np.mean([o[k]["gated"]["new"] + o[k]["gated"]["old"] for k in (5, 10)]) - 3 * max(0, r["base"]["old"] - o[5]["gated"]["old"] - 0.01)
         if best is None or sc > best[0]: best = (sc, P)
@@ -116,7 +119,7 @@ if __name__ == "__main__":
             c += ((L + lam * H.score(Zd[md], mus)).argmax(1) == dev["y"][md]).sum()
         return c / ntot
     RES["dev_total_base"], RES["dev_total_head"] = float(dev_total(False)), float(dev_total(True)); print("DEV total base", RES["dev_total_base"], "head", RES["dev_total_head"])
-    RES["head_on"] = bool(RES["dev_total_head"] > RES["dev_total_base"])
+    RES["head_on"] = bool(RES["dev_total_head"] > RES["dev_total_base"] + 0.003)   # strict gate: needs >= +0.3pt on dev
     if not RES["head_on"]:
         for tn in TASKS: RES["k0"][tn]["lam0"] = 0.0
     for tn in TASKS:
@@ -126,7 +129,7 @@ if __name__ == "__main__":
     for tn in HOLD:
         P = tuneA(tn); r, o = scenA(tn, P, "dev"); RES["A"][tn] = dict(params=P, base=r["base"], byk=o); print("A", tn, P, r["base"], flush=True)
         for k in KS: print("  k", k, {m: {q: round(v, 3) for q, v in d.items()} for m, d in o[k].items()}, flush=True)
-    json.dump(RES, open("results_fb.json", "w"), indent=1)
+    json.dump(RES, open(OUT, "w"), indent=1)
     if len(sys.argv) > 2 and sys.argv[2] == "export":
         keys, cmu, cn, T = [], [], [], {}
         for tn in TASKS:
@@ -137,5 +140,6 @@ if __name__ == "__main__":
         rows = [json.loads(l) for l in open("../alt/calib.jsonl")]; nm = {}
         for r in rows: nm[r["task"]] = r["names"]
         meta = dict(keys=[tn + "\x1f" + nm[tn][c] for tn, c in keys], tasks=T, R=R, alpha=ALPHA)
-        np.savez("artifact_code/head.npz", mu0=H.mu0.astype(np.float16), P=H.P.astype(np.float16), Ci=H.Ci.astype(np.float32), cmu=np.array(cmu, np.float32), cn=np.array(cn, np.float32), meta=np.frombuffer(json.dumps(meta).encode(), np.uint8))
-        print("head.npz bytes", os.path.getsize("artifact_code/head.npz"))
+        F = FULL[0]; cols = {"both": [0, F], "last": [0, F // 2], "mean": [F // 2, F]}[COLSN]; meta["cols"] = cols
+        np.savez(HEADOUT, mu0=H.mu0.astype(np.float16), P=H.P.astype(np.float16), Ci=H.Ci.astype(np.float32), cmu=np.array(cmu, np.float32), cn=np.array(cn, np.float32), meta=np.frombuffer(json.dumps(meta).encode(), np.uint8))
+        print("head.npz bytes", os.path.getsize(HEADOUT))

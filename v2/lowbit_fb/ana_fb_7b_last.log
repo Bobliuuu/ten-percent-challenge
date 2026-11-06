@@ -1,0 +1,48 @@
+k0 ag_news {'lam0': 0.0, 'pool_base': 0.8938, 'pool_head': 0.8962, 'pool_best_lam': 0.03, 'dev_base': 0.875, 'dev_head_at_lam0': 0.875, 'dev_head_at_best': 0.8775}
+k0 dbpedia {'lam0': 1, 'pool_base': 0.9675, 'pool_head': 0.9738, 'pool_best_lam': 1, 'dev_base': 0.9775, 'dev_head_at_lam0': 0.9825, 'dev_head_at_best': 0.9825}
+k0 yelp {'lam0': 0.0, 'pool_base': 0.9625, 'pool_head': 0.9625, 'pool_best_lam': 0.03, 'dev_base': 0.9625, 'dev_head_at_lam0': 0.9625, 'dev_head_at_best': 0.9625}
+k0 amazon {'lam0': 0.0, 'pool_base': 0.9675, 'pool_head': 0.9663, 'pool_best_lam': 0.03, 'dev_base': 0.9625, 'dev_head_at_lam0': 0.9625, 'dev_head_at_best': 0.965}
+k0 emotion {'lam0': 1, 'pool_base': 0.6012, 'pool_head': 0.6238, 'pool_best_lam': 1, 'dev_base': 0.5567, 'dev_head_at_lam0': 0.5633, 'dev_head_at_best': 0.5633}
+k0 offensive {'lam0': 10, 'pool_base': 0.7932, 'pool_head': 0.8094, 'pool_best_lam': 10, 'dev_base': 0.8532, 'dev_head_at_lam0': 0.8073, 'dev_head_at_best': 0.8073}
+DEV total base 0.8815331010452961 head 0.8810353409656545
+B ag_news {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.875, 'ship_k0_acc': 0.875}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.078, 'acc': 0.879, 'corr_ok': 0.994, 'rec': 0.1}, 'head_fb': {'fix': 0.136, 'acc': 0.886, 'corr_ok': 0.993, 'rec': 0.2}, 'combo': {'fix': 0.14, 'acc': 0.887, 'corr_ok': 0.994, 'rec': 0.3}}
+  k 5 {'bias': {'fix': 0.112, 'acc': 0.886, 'corr_ok': 0.997, 'rec': 0.06}, 'head_fb': {'fix': 0.182, 'acc': 0.89, 'corr_ok': 0.991, 'rec': 0.28}, 'combo': {'fix': 0.184, 'acc': 0.89, 'corr_ok': 0.991, 'rec': 0.3}}
+  k 10 {'bias': {'fix': 0.142, 'acc': 0.889, 'corr_ok': 0.995, 'rec': 0.11}, 'head_fb': {'fix': 0.184, 'acc': 0.887, 'corr_ok': 0.987, 'rec': 0.32}, 'combo': {'fix': 0.194, 'acc': 0.887, 'corr_ok': 0.985, 'rec': 0.34}}
+  k 25 {'bias': {'fix': 0.15, 'acc': 0.891, 'corr_ok': 0.996, 'rec': 0.104}, 'head_fb': {'fix': 0.322, 'acc': 0.852, 'corr_ok': 0.928, 'rec': 0.5}, 'combo': {'fix': 0.34, 'acc': 0.853, 'corr_ok': 0.926, 'rec': 0.52}}
+B dbpedia {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 0.5, 'ba': 1} {'base_acc': 0.9775, 'ship_k0_acc': 0.9775}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.0, 'acc': 0.977, 'corr_ok': 0.999, 'rec': 0.0}, 'head_fb': {'fix': 0.356, 'acc': 0.986, 'corr_ok': 1.0, 'rec': 1.0}, 'combo': {'fix': 0.356, 'acc': 0.986, 'corr_ok': 1.0, 'rec': 1.0}}
+  k 5 {'bias': {'fix': 0.056, 'acc': 0.979, 'corr_ok': 1.0, 'rec': 0.0}, 'head_fb': {'fix': 0.511, 'acc': 0.987, 'corr_ok': 0.998, 'rec': 0.92}, 'combo': {'fix': 0.511, 'acc': 0.987, 'corr_ok': 0.998, 'rec': 0.92}}
+  k 10 {'bias': {'fix': 0.078, 'acc': 0.979, 'corr_ok': 1.0, 'rec': 0.01}, 'head_fb': {'fix': 0.522, 'acc': 0.985, 'corr_ok': 0.996, 'rec': 0.83}, 'combo': {'fix': 0.522, 'acc': 0.985, 'corr_ok': 0.996, 'rec': 0.83}}
+  k 25 {'bias': {'fix': 0.111, 'acc': 0.98, 'corr_ok': 1.0, 'rec': 0.068}, 'head_fb': {'fix': 0.556, 'acc': 0.975, 'corr_ok': 0.985, 'rec': 0.768}, 'combo': {'fix': 0.556, 'acc': 0.975, 'corr_ok': 0.985, 'rec': 0.768}}
+B yelp {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 0.5, 'ba': 1} {'base_acc': 0.9625, 'ship_k0_acc': 0.9625}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.02, 'acc': 0.963, 'corr_ok': 0.999, 'rec': 0.0}, 'head_fb': {'fix': 0.08, 'acc': 0.965, 'corr_ok': 1.0, 'rec': 0.3}, 'combo': {'fix': 0.08, 'acc': 0.965, 'corr_ok': 1.0, 'rec': 0.5}}
+  k 5 {'bias': {'fix': 0.027, 'acc': 0.963, 'corr_ok': 0.999, 'rec': 0.04}, 'head_fb': {'fix': 0.14, 'acc': 0.966, 'corr_ok': 0.999, 'rec': 0.2}, 'combo': {'fix': 0.14, 'acc': 0.966, 'corr_ok': 0.999, 'rec': 0.2}}
+  k 10 {'bias': {'fix': 0.02, 'acc': 0.963, 'corr_ok': 0.999, 'rec': 0.02}, 'head_fb': {'fix': 0.22, 'acc': 0.967, 'corr_ok': 0.996, 'rec': 0.27}, 'combo': {'fix': 0.22, 'acc': 0.967, 'corr_ok': 0.996, 'rec': 0.27}}
+  k 25 {'bias': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': 0.0}, 'head_fb': {'fix': 0.493, 'acc': 0.918, 'corr_ok': 0.934, 'rec': 0.648}, 'combo': {'fix': 0.493, 'acc': 0.919, 'corr_ok': 0.935, 'rec': 0.648}}
+B amazon {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.9625, 'ship_k0_acc': 0.9625}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.12, 'acc': 0.958, 'corr_ok': 0.991, 'rec': 0.0}, 'head_fb': {'fix': 0.287, 'acc': 0.971, 'corr_ok': 0.998, 'rec': 0.0}, 'combo': {'fix': 0.28, 'acc': 0.971, 'corr_ok': 0.997, 'rec': 0.0}}
+  k 5 {'bias': {'fix': 0.107, 'acc': 0.96, 'corr_ok': 0.993, 'rec': 0.14}, 'head_fb': {'fix': 0.253, 'acc': 0.97, 'corr_ok': 0.997, 'rec': 0.2}, 'combo': {'fix': 0.24, 'acc': 0.969, 'corr_ok': 0.997, 'rec': 0.2}}
+  k 10 {'bias': {'fix': 0.04, 'acc': 0.962, 'corr_ok': 0.998, 'rec': 0.08}, 'head_fb': {'fix': 0.253, 'acc': 0.97, 'corr_ok': 0.998, 'rec': 0.19}, 'combo': {'fix': 0.26, 'acc': 0.97, 'corr_ok': 0.997, 'rec': 0.19}}
+  k 25 {'bias': {'fix': 0.04, 'acc': 0.964, 'corr_ok': 1.0, 'rec': 0.0}, 'head_fb': {'fix': 0.273, 'acc': 0.943, 'corr_ok': 0.969, 'rec': 0.584}, 'combo': {'fix': 0.267, 'acc': 0.942, 'corr_ok': 0.969, 'rec': 0.584}}
+B emotion {'lam0': 0.0, 'w': 3, 'lam_fb': 0.3, 'eta': 0.5, 'ba': 1} {'base_acc': 0.5566666666666666, 'ship_k0_acc': 0.5566666666666666}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.005, 'acc': 0.558, 'corr_ok': 0.998, 'rec': 0.0}, 'head_fb': {'fix': 0.031, 'acc': 0.564, 'corr_ok': 0.988, 'rec': 0.1}, 'combo': {'fix': 0.034, 'acc': 0.567, 'corr_ok': 0.992, 'rec': 0.1}}
+  k 5 {'bias': {'fix': 0.006, 'acc': 0.559, 'corr_ok': 0.999, 'rec': 0.04}, 'head_fb': {'fix': 0.032, 'acc': 0.565, 'corr_ok': 0.989, 'rec': 0.14}, 'combo': {'fix': 0.039, 'acc': 0.569, 'corr_ok': 0.992, 'rec': 0.14}}
+  k 10 {'bias': {'fix': 0.008, 'acc': 0.56, 'corr_ok': 1.0, 'rec': 0.03}, 'head_fb': {'fix': 0.032, 'acc': 0.566, 'corr_ok': 0.99, 'rec': 0.14}, 'combo': {'fix': 0.039, 'acc': 0.569, 'corr_ok': 0.992, 'rec': 0.14}}
+  k 25 {'bias': {'fix': 0.007, 'acc': 0.56, 'corr_ok': 1.0, 'rec': 0.028}, 'head_fb': {'fix': 0.035, 'acc': 0.565, 'corr_ok': 0.987, 'rec': 0.108}, 'combo': {'fix': 0.04, 'acc': 0.568, 'corr_ok': 0.989, 'rec': 0.104}}
+B offensive {'lam0': 0.0, 'w': 3, 'lam_fb': 3, 'eta': 0.5, 'ba': 1} {'base_acc': 0.8532110091743119, 'ship_k0_acc': 0.8532110091743119}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.075, 'acc': 0.85, 'corr_ok': 0.983, 'rec': 0.3}, 'head_fb': {'fix': 0.156, 'acc': 0.806, 'corr_ok': 0.918, 'rec': 0.1}, 'combo': {'fix': 0.15, 'acc': 0.809, 'corr_ok': 0.923, 'rec': 0.1}}
+  k 5 {'bias': {'fix': 0.019, 'acc': 0.837, 'corr_ok': 0.977, 'rec': 0.18}, 'head_fb': {'fix': 0.188, 'acc': 0.8, 'corr_ok': 0.905, 'rec': 0.34}, 'combo': {'fix': 0.188, 'acc': 0.794, 'corr_ok': 0.899, 'rec': 0.42}}
+  k 10 {'bias': {'fix': 0.019, 'acc': 0.835, 'corr_ok': 0.975, 'rec': 0.14}, 'head_fb': {'fix': 0.188, 'acc': 0.792, 'corr_ok': 0.896, 'rec': 0.39}, 'combo': {'fix': 0.188, 'acc': 0.786, 'corr_ok': 0.889, 'rec': 0.41}}
+  k 25 {'bias': {'fix': 0.019, 'acc': 0.82, 'corr_ok': 0.958, 'rec': 0.168}, 'head_fb': {'fix': 0.212, 'acc': 0.771, 'corr_ok': 0.867, 'rec': 0.476}, 'combo': {'fix': 0.231, 'acc': 0.769, 'corr_ok': 0.861, 'rec': 0.48}}
+A ag_news {'n0': 2, 'w': 2, 'lam': 0.3} {'new': 0.4423076923076923, 'old': 0.8716216216216216, 'fa': 0.10472972972972973, 'rec': nan}
+  k 1 {'gated': {'new': 0.522, 'old': 0.87, 'fa': 0.107, 'rec': 1.0}, 'comb': {'new': 0.328, 'old': 0.906, 'fa': 0.058, 'rec': nan}, 'bias': {'new': 0.681, 'old': 0.392, 'fa': 0.595, 'rec': nan}}
+  k 5 {'gated': {'new': 0.527, 'old': 0.869, 'fa': 0.107, 'rec': 0.82}, 'comb': {'new': 0.385, 'old': 0.903, 'fa': 0.064, 'rec': nan}, 'bias': {'new': 0.826, 'old': 0.191, 'fa': 0.799, 'rec': nan}}
+  k 10 {'gated': {'new': 0.519, 'old': 0.867, 'fa': 0.11, 'rec': 0.69}, 'comb': {'new': 0.41, 'old': 0.9, 'fa': 0.07, 'rec': nan}, 'bias': {'new': 0.92, 'old': 0.11, 'fa': 0.881, 'rec': nan}}
+  k 25 {'gated': {'new': 0.554, 'old': 0.868, 'fa': 0.109, 'rec': 0.64}, 'comb': {'new': 0.423, 'old': 0.897, 'fa': 0.074, 'rec': nan}, 'bias': {'new': 0.959, 'old': 0.055, 'fa': 0.937, 'rec': nan}}
