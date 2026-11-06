@@ -89,3 +89,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/commercial C2 + bino results pulled: v2/commercial/{base_results,bino_results}.log, TASK_A/B/C.md, RECOMMENDATION.md
 - v2/lowbit_fb 7B: Modal app tenpct-lowbit-fb-feat7b (deployed; GPU starved) AND AWS g6e.2xlarge i-0aad61d1dd9c5c95e us-east-2 name lowbit-fb-7b (key swarm-gpu) launched 2026-11-06 ~05:00 EST for 7B feature extraction + ingest/stage-2 verification. TERMINATE at end. Artifact copy: ~/ten-percent-artifacts/art7b_c115_fb, Modal volume lowbit-data:/art7b
 - h: 7B c1.09 dz.15 (not packed): acc .8611 acc_b .8785 (noise vs c1.15 .8731/.882). Artifact uploaded to Modal volume altpush-artifacts:/art7b_c115; MANIFEST.json written; fast-decode test: no load gain.
+- v2/alt: 14B (A100-40GB, ncal64) L3 ratio .0953 acc .8457 vs base .8721; attn4 ratio .100 acc .8522; no better than 7B. 80GB queue (32B) cancelled (no capacity). results_14B.json
