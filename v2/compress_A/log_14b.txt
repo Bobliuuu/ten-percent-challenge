@@ -1,0 +1,34 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-YFsncRqBuJd1IVvyhbtjJy
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress_A/sweep_A14.py
+├── ✓ Uploaded ../commercial/A/pool.jsonl
+├── ✓ Uploaded ../commercial/A/calib.jsonl
+├── ✓ Uploaded ../commercial/A/dev.jsonl
+├── ✓ Uploaded split.py
+└── ✓ Created Function run_impl.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  1.96it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.70it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.61it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.62it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:01,  1.61it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.63it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:04<00:00,  1.60it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.05it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.78it/s]
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.58it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.17it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.01it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.00it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.02it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.16it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.28it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  3.00it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.40it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)

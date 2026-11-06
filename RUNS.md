@@ -96,3 +96,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - C2 7B sweep1 results v2/compress_C/c2res; finish (pack+verify) launched for c114_dz15 (ap-moylEuKrVoyDi2KkXPxQZm) and c120_dz15
 - v2/compress_A wave4 (7B first/last-layer high-bit variants, cfg_4.json 8 cfgs) Modal ap-Au2nHMXAkz5bzLJB5scUIG 11:0x --detach
 - 2026-11-06 v2/c2_fb feat extraction C2 dev/calib/pool: modal app tenpct-c2fb-feat (deploy+spawn: dev fc-01M6R5VXTVNXP34G972FMVF2CJ, calib ...YH9Q123HAM79QJS1, pool ...0XDZK2G4VCE7E7QCEC) -> Volume tenpct-c2fb:/f
+- v2/compress_A 14B wave5 cfg_14b.json (8 cfgs) ap-YFsncRqBuJd1IVvyhbtjJy ~11:20; FINDING: 14B u3 g128 ratio .0953 acc .752 vs base .748 (dev)
