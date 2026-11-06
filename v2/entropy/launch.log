@@ -22,3 +22,73 @@ https://modal.com/apps/jerry-zhu/main/ap-Z5sHkXMgfCjOah2aIsBJLY
 [1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.82s/it]
 [1ALoading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.48s/it]
 [1ALoading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.69s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 61
+layer 1 77
+layer 2 77
+layer 3 77
+layer 4 78
+layer 5 78
+layer 6 78
+layer 7 78
+layer 8 94
+layer 9 110
+layer 10 110
+layer 11 111
+layer 12 111
+layer 13 111
+layer 14 111
+layer 15 111
+layer 16 111
+layer 17 111
+layer 18 111
+layer 19 111
+layer 20 111
+layer 21 112
+layer 22 112
+layer 23 112
+layer 24 128
+layer 25 145
+layer 26 145
+layer 27 146
+layer 28 146
+layer 29 146
+layer 30 146
+layer 31 146
+layer 32 146
+layer 33 146
+layer 34 146
+layer 35 146
+layer 36 146
+layer 37 147
+layer 38 147
+layer 39 147
+layer 40 163
+layer 41 163
+layer 42 163
+layer 43 163
+layer 44 164
+layer 45 164
+layer 46 164
+layer 47 180
+DUMPED L8_rot1
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  5.64it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:01,  5.88it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00,  5.95it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  6.00it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00,  6.03it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:01<00:00,  6.06it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  6.06it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  6.23it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  6.08it/s]
+layer 0 32
+layer 1 48
+layer 2 48
+layer 3 48
+layer 4 48
+layer 5 49
+layer 6 49
+layer 7 49

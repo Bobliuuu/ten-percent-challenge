@@ -1,0 +1,33 @@
+cfg | fixed | H0 | best-ctx(name) | mix | RC real | scale lossless bits/scale | total bpp(RC+scale) | bytes | ratio_bf16 (REST=94.6MB incl 4bit emb32k)
+L4_rot1 fixed+fp16 scale: idx 2.0000 scale 16.00b/128 -> 2.1250 bpp, 3.604 GB, ratio 0.1220
+L4_rot1 H0+fp16 scale: idx 1.9183 scale 16.00b/128 -> 2.0433 bpp, 3.469 GB, ratio 0.1174
+L4_rot1 RC ctx+lossless scale: idx 1.9114 scale 10.39b/128 -> 1.9925 bpp, 3.385 GB, ratio 0.1146
+   best ctx colhist*row*col 1.9125  mix 1.9119  RCok True  gain RC vs H0 0.0069 bpp (0.36%)
+L6_rot1 fixed+fp16 scale: idx 3.0000 scale 16.00b/128 -> 3.1250 bpp, 5.255 GB, ratio 0.1779
+L6_rot1 H0+fp16 scale: idx 2.4282 scale 16.00b/128 -> 2.5532 bpp, 4.311 GB, ratio 0.1459
+L6_rot1 RC ctx+lossless scale: idx 2.4173 scale 10.88b/128 -> 2.5023 bpp, 4.227 GB, ratio 0.1431
+   best ctx colhist*row*scale 2.4186  mix 2.4187  RCok True  gain RC vs H0 0.0110 bpp (0.45%)
+L8_rot1 fixed+fp16 scale: idx 3.0000 scale 16.00b/128 -> 3.1250 bpp, 5.255 GB, ratio 0.1779
+L8_rot1 H0+fp16 scale: idx 2.7835 scale 16.00b/128 -> 2.9085 bpp, 4.897 GB, ratio 0.1658
+L8_rot1 RC ctx+lossless scale: idx 2.7701 scale 10.47b/128 -> 2.8519 bpp, 4.804 GB, ratio 0.1626
+   best ctx colhist*row*scale 2.7713  mix 2.7719  RCok True  gain RC vs H0 0.0134 bpp (0.48%)
+L16_rot1 fixed+fp16 scale: idx 4.0000 scale 16.00b/128 -> 4.1250 bpp, 6.906 GB, ratio 0.2338
+L16_rot1 H0+fp16 scale: idx 3.6497 scale 16.00b/128 -> 3.7747 bpp, 6.328 GB, ratio 0.2142
+L16_rot1 RC ctx+lossless scale: idx 3.6319 scale 10.74b/128 -> 3.7159 bpp, 6.230 GB, ratio 0.2109
+   best ctx colhist*row*scale 3.6328  mix 3.6356  RCok True  gain RC vs H0 0.0178 bpp (0.49%)
+L4_rot0 fixed+fp16 scale: idx 2.0000 scale 16.00b/128 -> 2.1250 bpp, 3.604 GB, ratio 0.1220
+L4_rot0 H0+fp16 scale: idx 1.8632 scale 16.00b/128 -> 1.9882 bpp, 3.378 GB, ratio 0.1143
+L4_rot0 RC ctx+lossless scale: idx 1.8337 scale 10.45b/128 -> 1.9153 bpp, 3.257 GB, ratio 0.1103
+   best ctx colhist*row*scale 1.8348  mix 1.8343  RCok True  gain RC vs H0 0.0295 bpp (1.59%)
+L6_rot0 fixed+fp16 scale: idx 3.0000 scale 16.00b/128 -> 3.1250 bpp, 5.255 GB, ratio 0.1779
+L6_rot0 H0+fp16 scale: idx 2.3347 scale 16.00b/128 -> 2.4597 bpp, 4.156 GB, ratio 0.1407
+L6_rot0 RC ctx+lossless scale: idx 2.2925 scale 10.93b/128 -> 2.3779 bpp, 4.021 GB, ratio 0.1361
+   best ctx colhist*row*scale 2.2938  mix 2.2940  RCok True  gain RC vs H0 0.0422 bpp (1.81%)
+L8_rot0 fixed+fp16 scale: idx 3.0000 scale 16.00b/128 -> 3.1250 bpp, 5.255 GB, ratio 0.1779
+L8_rot0 H0+fp16 scale: idx 2.6609 scale 16.00b/128 -> 2.7859 bpp, 4.695 GB, ratio 0.1589
+L8_rot0 RC ctx+lossless scale: idx 2.6134 scale 10.57b/128 -> 2.6960 bpp, 4.546 GB, ratio 0.1539
+   best ctx colhist*row*scale 2.6147  mix 2.6159  RCok True  gain RC vs H0 0.0475 bpp (1.78%)
+L16_rot0 fixed+fp16 scale: idx 4.0000 scale 16.00b/128 -> 4.1250 bpp, 6.906 GB, ratio 0.2338
+L16_rot0 H0+fp16 scale: idx 3.4630 scale 16.00b/128 -> 3.5880 bpp, 6.019 GB, ratio 0.2038
+L16_rot0 RC ctx+lossless scale: idx 3.4044 scale 10.87b/128 -> 3.4893 bpp, 5.856 GB, ratio 0.1982
+   best ctx colhist*row*scale 3.4053  mix 3.4093  RCok True  gain RC vs H0 0.0586 bpp (1.69%)
