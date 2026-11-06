@@ -1,0 +1,5 @@
+7B-attn4+down4
+7B-attn5
+7B-attn4+edge4
+7B-attn4+ncal512
+7B-attn4+vdown4only-lastlayers

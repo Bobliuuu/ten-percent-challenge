@@ -1,0 +1,1 @@
+[{"vocab": 16384, "ebits": 4, "ncal": 128, "callen": 512, "g": 128, "L": 3, "drop": 0, "model": "Qwen/Qwen2.5-14B-Instruct"}, {"vocab": 16384, "ebits": 4, "ncal": 128, "callen": 512, "g": 128, "L": 3, "drop": 0, "model": "Qwen/Qwen2.5-32B-Instruct"}, {"vocab": 16384, "ebits": 4, "ncal": 128, "callen": 512, "g": 128, "L": 4, "drop": 0, "model": "Qwen/Qwen2.5-14B-Instruct"}]
