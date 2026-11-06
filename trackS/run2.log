@@ -293,3 +293,41 @@ RES {"model": "distilmbert_sent", "K": 60000, "kept": 43819, "eb": 6, "wb": 6, "
 RES {"model": "distilmbert_sent", "K": 60000, "kept": 43819, "eb": 4, "wb": 6, "tok_raw": 296181, "tok_xz": 141300, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 9.916411889563483, "pct_coded": 9.33343329213094, "pct_w_only": 9.324495080910658, "agree": 0.988125, "agree_hard": 0.953, "disagree_n": 95, "stress_agree": 0.9886666666666667, "acc": 0.705625, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0026971803012816728, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.0000748318818915}
 RES {"model": "distilmbert_sent", "K": 60000, "kept": 43819, "eb": 5, "wb": 5, "tok_raw": 296181, "tok_xz": 141300, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 9.94772277325874, "pct_coded": 9.49177711470251, "pct_w_only": 9.483130115540376, "agree": 0.986125, "agree_hard": 0.945, "disagree_n": 111, "stress_agree": 0.986, "acc": 0.708, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0026971803012816728, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.0000748318818915}
 RES {"model": "distilmbert_sent", "K": 60000, "kept": 43819, "eb": 4, "wb": 5, "tok_raw": 296181, "tok_xz": 141300, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 9.172027161870751, "pct_coded": 8.70082731283863, "pct_w_only": 8.69072566823501, "agree": 0.98225, "agree_hard": 0.9295, "disagree_n": 142, "stress_agree": 0.983, "acc": 0.707125, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0026971803012816728, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.0000748318818915}
+RES {"model": "distilmbert_sent", "K": 60000, "kept": 43819, "eb": 4, "wb": 4, "tok_raw": 296181, "tok_xz": 141300, "nparam": 135326979, "emb_share": 0.678446357691913, "pct_packed": 8.179514191613778, "pct_coded": 7.68876513972043, "pct_w_only": 7.67680219921262, "agree": 0.973125, "agree_hard": 0.8935, "disagree_n": 215, "stress_agree": 0.977, "acc": 0.70675, "base_acc": 0.708, "n": 8000, "unk_rate": 0.0026971803012816728, "unk_base": 0.0026708962733065444, "seqlen_ratio": 1.0000748318818915}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 3513.92it/s]
+[nlptown_stars 5s] params 167360261 emb 81315072 share 0.4858684583432862 labels {0: '1 star', 1: '2 stars', 2: '3 stars', 3: '4 stars', 4: '5 stars'}
+[nlptown_stars 10s] calib wikitext103 194005
+[nlptown_stars 12s] calib agnews 120000
+
+[1AGenerating train split:   0%|          | 0/650000 [00:00<?, ? examples/s]
+[1AGenerating train split:   4%|▎         | 24000/650000 [00:00<00:02, 232028.62 examples/s]
+[1AGenerating train split:  10%|▉         | 63000/650000 [00:00<00:01, 320416.53 examples/s]
+[1AGenerating train split:  15%|█▌        | 98000/650000 [00:00<00:01, 330934.40 examples/s]
+[1AGenerating train split:  21%|██▏       | 139000/650000 [00:00<00:01, 357355.63 examples/s]
+[1AGenerating train split:  29%|██▉       | 191000/650000 [00:00<00:01, 346260.33 examples/s]
+[1AGenerating train split:  35%|███▍      | 226000/650000 [00:00<00:01, 345507.62 examples/s]
+[1AGenerating train split:  41%|████      | 264000/650000 [00:00<00:01, 355118.25 examples/s]
+[1AGenerating train split:  48%|████▊     | 315000/650000 [00:00<00:00, 343790.76 examples/s]
+[1AGenerating train split:  54%|█████▍    | 351000/650000 [00:01<00:00, 346033.66 examples/s]
+[1AGenerating train split:  62%|██████▏   | 402000/650000 [00:01<00:00, 337442.66 examples/s]
+[1AGenerating train split:  70%|███████   | 456000/650000 [00:01<00:00, 340860.97 examples/s]
+[1AGenerating train split:  76%|███████▋  | 496000/650000 [00:01<00:00, 352688.64 examples/s]
+[1AGenerating train split:  85%|████████▍ | 551000/650000 [00:01<00:00, 353533.59 examples/s]
+[1AGenerating train split:  90%|█████████ | 587000/650000 [00:01<00:00, 352774.37 examples/s]
+[1AGenerating train split:  97%|█████████▋| 628000/650000 [00:01<00:00, 365730.44 examples/s]Generating train split: 100%|██████████| 650000/650000 [00:01<00:00, 348304.61 examples/s]
+
+[1AGenerating test split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating test split:  66%|██████▌   | 33000/50000 [00:00<00:00, 316043.84 examples/s]Generating test split: 100%|██████████| 50000/50000 [00:00<00:00, 333574.89 examples/s]
+[nlptown_stars 21s] calib yelp_train 149980
+[nlptown_stars 22s] calib amz_train 60000
+[nlptown_stars 26s] dev 8000 of 50000 stress 3000 calib texts 523985
+
+[1AFetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]
+[1AFetching 4 files:  50%|█████     | 2/4 [00:00<00:00, 18.87it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 24.84it/s]
+[nlptown_stars 68s] counted 53741566
+[nlptown_stars 110s] BASE dev acc 0.55025 n 8000 stress n 3000
+[nlptown_stars 111s] K=8000 rows=8139 tok_raw=53923 tok_xz=24744 unk_rate=0.00000 (base 0.00000) seqlen_ratio=1.011
+RES {"model": "nlptown_stars", "K": 8000, "kept": 8139, "eb": 16, "wb": 16, "tok_raw": 53923, "tok_xz": 24744, "nparam": 167360261, "emb_share": 0.4858684583432862, "pct_packed": 27.546209443205807, "pct_coded": 27.541856401741672, "pct_w_only": 27.57403114948536, "agree": 0.9575, "agree_hard": 0.859, "disagree_n": 340, "stress_agree": 0.898, "acc": 0.549875, "base_acc": 0.55025, "n": 8000, "unk_rate": 4.362270243417784e-06, "unk_base": 4.426420695504665e-06, "seqlen_ratio": 1.0109574327874051}
+[nlptown_stars 152s] rANS roundtrip OK
+RES {"model": "nlptown_stars", "K": 8000, "kept": 8139, "eb": 8, "wb": 8, "tok_raw": 53923, "tok_xz": 24744, "nparam": 167360261, "emb_share": 0.4858684583432862, "pct_packed": 14.282109743264913, "pct_coded": 13.665935597677224, "pct_w_only": 13.6800381184874, "agree": 0.956, "agree_hard": 0.8535, "disagree_n": 352, "stress_agree": 0.8963333333333333, "acc": 0.550125, "base_acc": 0.55025, "n": 8000, "unk_rate": 4.362270243417784e-06, "unk_base": 4.426420695504665e-06, "seqlen_ratio": 1.0109574327874051}

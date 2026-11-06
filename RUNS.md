@@ -10,3 +10,4 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - trackQ: 6 missing models (trackQ/logs/*_3.log); trackQ/salvage.py merges partial cfgs from all logs
 - CAVEAT: Modal says detached local entrypoint keeps only the last triggered function alive after the client dies; .map() fan-outs (D,E,R,S) may lose results if the Mac dies. Recover from `modal app logs` RESULT_JSON lines.
 - Deadline: 7am 2026-11-07. Fallback if Modal limits hit: AWS.
+- 02:25 stopped off-goal trackS-bases, trackE (BERT/small). Q,D finished. Kept trackR (Qwen 14B). Logs in modal-logs/final.

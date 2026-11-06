@@ -262,3 +262,92 @@ layer 38 629.9180459976196
 layer 14 626.466638803482
 layer 7 179.95711064338684
 layer 40 635.5837669372559
+layer 39 642.0901262760162
+layer 25 643.9060418605804
+layer 15 364.6948792934418
+layer 41 647.4949984550476
+layer 8 197.05271077156067
+layer 40 654.3011605739594
+layer 15 651.4590194225311
+layer 42 659.4129655361176
+layer 26 661.3346464633942
+layer 9 213.82596397399902
+layer 16 383.6001441478729
+layer 41 666.7466549873352
+layer 43 671.3077630996704
+layer 42 678.913510799408
+layer 27 679.1023128032684
+layer 16 677.7114584445953
+layer 10 230.8111696243286
+layer 44 683.1901679039001
+layer 17 402.6989915370941
+layer 43 691.8863823413849
+layer 45 695.2564580440521
+layer 28 696.9700100421906
+layer 11 248.00461411476135
+layer 18 421.64140343666077
+layer 44 704.0673491954803
+layer 17 703.2680702209473
+layer 46 707.0961270332336
+layer 29 714.4773852825165
+layer 45 716.2570083141327
+layer 12 265.2818660736084
+layer 47 718.9411506652832
+layer 19 440.6232998371124
+layer 46 728.4257283210754
+layer 18 728.7160878181458
+layer 30 731.9416739940643
+layer 13 282.2293758392334
+layer 47 740.643280506134
+layer 20 459.87603211402893
+layer 31 749.7549312114716
+layer 14 299.2152726650238
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7539003522898843, "agree": 0.8827377956718672, "b_wrong": 143, "c_fixed": 50, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5292751528.0, "bytes_entropy": 4919960940.03125, "ratio_bf16": 0.17917195208905923, "ratio_fp32": 0.08958597604452961, "ratio_bf16_ent": 0.16655212343973877, "ratio_fp32_ent": 0.08327606171986938, "body_bits_per_w": 3.1484375, "body_bits_per_w_ent": 2.9227100021309322, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 754.5553386211395}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 128, "vocab": 32768, "ebits": 4, "name": "combo_w3g128_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7539003522898843, "agree": 0.8827377956718672, "b_wrong": 143, "c_fixed": 50, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5292751528.0, "bytes_entropy": 4919960940.03125, "ratio_bf16": 0.17917195208905923, "ratio_fp32": 0.08958597604452961, "ratio_bf16_ent": 0.16655212343973877, "ratio_fp32_ent": 0.08327606171986938, "body_bits_per_w": 3.1484375, "body_bits_per_w_ent": 2.9227100021309322, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 754.5553386211395}
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.59it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.16it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.41it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  3.10it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:01<00:00,  4.07it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  6.23it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  4.50it/s]
+layer 19 753.9400913715363
+layer 21 479.05131912231445
+layer 15 316.2922124862671
+layer 32 767.3207771778107
+{"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7559134373427278, "agree": 0.8897835933568193, "b_wrong": 135, "c_fixed": 46, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5537897128.0, "bytes_entropy": 5233472706.359375, "ratio_bf16": 0.18747070094694132, "ratio_fp32": 0.09373535047347066, "ratio_bf16_ent": 0.17716522607241145, "ratio_fp32_ent": 0.08858261303620572, "body_bits_per_w": 3.296875, "body_bits_per_w_ent": 3.1125437287584186, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 776.278801202774}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-14B-Instruct", "task": "mmlu", "bits": 3, "g": 64, "vocab": 32768, "ebits": 4, "name": "combo_w3g64_v32k_e4"}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7559134373427278, "agree": 0.8897835933568193, "b_wrong": 135, "c_fixed": 46, "params": 14770033664, "tied": false, "nkeep": 32921, "vocab": 152064, "dropped": [], "bytes": 5537897128.0, "bytes_entropy": 5233472706.359375, "ratio_bf16": 0.18747070094694132, "ratio_fp32": 0.09373535047347066, "ratio_bf16_ent": 0.17716522607241145, "ratio_fp32_ent": 0.08858261303620572, "body_bits_per_w": 3.296875, "body_bits_per_w_ent": 3.1125437287584186, "body_frac_params": 0.8945177716285535, "oov": 0.009401122946772993, "secs": 776.278801202774}
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  3.39it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:01,  3.60it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:01,  3.92it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  3.12it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:01<00:00,  3.59it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  5.64it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  4.87it/s]
+layer 22 498.1927123069763
+layer 20 779.0302064418793
+layer 16 333.15744400024414
+layer 33 785.0739114284515
+layer 0 39.35915160179138
+layer 23 517.2910997867584
+layer 17 350.52922773361206
+layer 34 802.7737572193146
+layer 1 51.6593382358551
+layer 21 803.9269070625305
+layer 0 39.19830918312073
+layer 24 536.5283172130585
+layer 2 63.93532180786133
+layer 18 367.620756149292
+layer 35 820.3797588348389
+layer 1 52.11993885040283
+layer 3 76.14139533042908
+layer 22 828.8633162975311
+layer 19 384.5210590362549
+layer 25 555.6207890510559
+layer 36 838.137372970581
+layer 2 65.17985010147095
+layer 4 88.42533326148987
