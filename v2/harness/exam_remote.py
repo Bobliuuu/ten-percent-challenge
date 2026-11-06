@@ -31,10 +31,10 @@ GPU = os.environ.get("TENPCT_GPU", "A100-80GB")
 
 @app.function(image=base_img, gpu=GPU, timeout=7200, volumes={"/hf": modal.Volume.from_name("tenpct-v2-hf", create_if_missing=True)},
               env={"HF_HOME": "/hf"})
-def run_base(inputs, base_id):
+def run_base(inputs, base_id, task="mmlu"):
     """Sees only the question rows (no answers). Returns letters."""
     sys.path.insert(0, "/h"); import task_base
-    t0 = time.time(); p = task_base.base_predict(inputs, base_id)
+    t0 = time.time(); p = task_base.base_predict(inputs, base_id, task)
     return dict(pred=p, seconds=time.time() - t0)
 
 
@@ -84,7 +84,8 @@ def run_exam(spec):
     rec = dict(status="started", key=key, stage=stage, started_utc=C.now(), artifact_tree_sha256=art_sha, memory_sha256=mem_sha)
     json.dump(rec, open(f"{rdir}/receipt.json", "w")); examvol.commit()
     rows = C.load_exam(exam_path)
-    assert C.exam_sha256(rows) == lock["exam_content_sha256"], "content hash mismatch"
+    assert (not lock.get("exam_content_sha256")) or C.exam_sha256(rows) == lock["exam_content_sha256"], "content hash mismatch"
+    assert len(rows) == lock["n_rows"]
     harness_ok = all(_sha_file(f"/h/{f}") == h for f, h in lock["harness_sha256"].items() if f in FILES)
     sz = size_check.measure(art, mem, lock["base_fp16_bytes"], lock["budget_fraction"])
     view = C.candidate_view(rows); y = C.labels(rows)
@@ -92,14 +93,14 @@ def run_exam(spec):
         # --- base bar score (own process; stage 2 reuses stage 1 predictions) ---
         if prev: bp, bs = prev["_base_pred"], prev["base_seconds"]
         else:
-            o = run_base.remote(view, lock["base_id"]); bp, bs = o["pred"], o["seconds"]
+            o = run_base.remote(view, lock["base_id"], lock.get("task", "mmlu")); bp, bs = o["pred"], o["seconds"]
         # --- candidate: no-network sandbox, artifact+memory only ---
         inp_rel = f"inputs/{key.replace(':', '_')}.json"   # question rows only, no answers
         os.makedirs(os.path.dirname(f"/cand/{inp_rel}"), exist_ok=True); json.dump(view, open(f"/cand/{inp_rel}", "w")); candvol.commit()
         cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", f"/cand/{inp_rel}"]
         if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
         app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
-        sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=GPU, block_network=True, timeout=7200,
+        sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=(spec.get("cand_gpu") or None), block_network=True, timeout=7200,
                                   volumes={"/cand": candvol.read_only()})
         try:
             p = sb.exec(*cmd); out = p.stdout.read(); err = p.stderr.read(); rc = p.wait()
@@ -120,6 +121,11 @@ def run_exam(spec):
     bad = [c for c in cp if c not in C.LETTERS]
     if bad: cp = [c if c in C.LETTERS else "?" for c in cp]
     rep = S.paired_report(y, bp, cp, margin=lock["margin"], alpha=lock["alpha"])
+    if "task" in rows[0]:
+        pt = {}
+        for r, yy, b_, c_ in zip(rows, y, bp, cp):
+            d_ = pt.setdefault(r["task"], [0, 0, 0]); d_[0] += 1; d_[1] += b_ == yy; d_[2] += c_ == yy
+        rep["per_task_n_basecorrect_candcorrect"] = pt
     valid = bool(sz["within_budget"] and harness_ok and not lock["standin"] and o["evidence"]["network"].startswith("blocked"))
     rec.update(status="completed", finished_utc=C.now(), standin=lock["standin"], size=sz, report=rep, harness_unchanged_since_lock=harness_ok,
                sandbox_evidence=o["evidence"], base_seconds=bs, cand_seconds=o["seconds"], base_id=lock["base_id"],
@@ -145,7 +151,7 @@ def make_standin_fullcopy(base_id: str, dest: str):
 
 @app.local_entrypoint()
 def main(lock: str, tag: str, stage: int = 1, exam_file: str = "", artifact: str = "", artifact_vol: str = "",
-         memory: str = "", memory_vol: str = "", receipts_dir: str = ""):
+         memory: str = "", memory_vol: str = "", receipts_dir: str = "", cand_gpu: str = ""):
     L = json.load(open(lock))
     receipts_dir = receipts_dir or f"{HERE}/receipts/{'standin' if L['standin'] else 'REAL'}_{tag}"
     os.makedirs(receipts_dir, exist_ok=True)
@@ -166,7 +172,7 @@ def main(lock: str, tag: str, stage: int = 1, exam_file: str = "", artifact: str
         with candvol.batch_upload(force=True) as b:
             b.put_file(memory, f"{base}/memory/{os.path.basename(memory)}"); memory_vol = f"{base}/memory/{os.path.basename(memory)}"
     import uuid
-    spec = dict(nonce=uuid.uuid4().hex, lock=L, stage=stage, tag=tag, artifact_vol=artifact_vol, memory_vol=memory_vol or None)
+    spec = dict(nonce=uuid.uuid4().hex, lock=L, stage=stage, tag=tag, artifact_vol=artifact_vol, memory_vol=memory_vol or None, cand_gpu=cand_gpu)
     rec = run_exam.remote(spec)
     json.dump(rec, open(f"{receipts_dir}/stage{stage}.json", "w"), indent=2)
     print({k: rec.get(k) for k in ("status", "reason", "PASS", "REAL_RESULT", "size_ok")}, rec.get("report", {}).get("diff_cand_minus_base"))

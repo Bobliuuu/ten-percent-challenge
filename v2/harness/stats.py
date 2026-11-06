@@ -67,7 +67,13 @@ def paired_report(y, base_pred, cand_pred, margin=MARGIN, alpha=ALPHA):
     d = c - b
     p_ni = ni_pvalue(n, b, c, -margin)
     lb = exact_lower_bound(n, b, c, alpha)
+    diff = (c - b) / n
+    se = np.sqrt(max((b + c) - (c - b) ** 2 / n, 0.0)) / n      # paired Wald SE of the accuracy difference
+    z = 1.959964
+    stmt = (f"candidate - base accuracy = {100*diff:+.2f} pt, paired 95% CI [{100*(diff-z*se):+.2f}, {100*(diff+z*se):+.2f}] pt "
+            f"(n={n}, base-only-right b={b}, cand-only-right c={c})")
     return dict(
+        diff_ci95_paired_wald=(float(diff - z * se), float(diff + z * se)), plain_statement=stmt,
         n=n, base_correct=int(bc.sum()), cand_correct=int(cc.sum()),
         base_acc=float(bc.mean()), cand_acc=float(cc.mean()),
         base_ci95=clopper_pearson(int(bc.sum()), n), cand_ci95=clopper_pearson(int(cc.sum()), n),
