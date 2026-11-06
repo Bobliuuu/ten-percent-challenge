@@ -12,7 +12,7 @@ vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 ovol = modal.Volume.from_name("tenpct-prune", create_if_missing=True)
 BASE_BYTES = 29540067328
 
-@app.function(image=img, gpu="A100-80GB", timeout=14400, max_containers=40, volumes={"/hf":vol,"/out":ovol})
+@app.function(image=img, gpu=["H100","A100-80GB"], timeout=14400, max_containers=40, volumes={"/hf":vol,"/out":ovol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn, torch.nn.functional as F
     os.environ["HF_HOME"]="/hf"
