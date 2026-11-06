@@ -1,0 +1,59 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Au2nHMXAkz5bzLJB5scUIG
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress_A/sweep_A.py
+├── ✓ Uploaded ../commercial/A/pool.jsonl
+├── ✓ Uploaded ../commercial/A/calib.jsonl
+├── ✓ Uploaded ../commercial/A/dev.jsonl
+├── ✓ Uploaded split.py
+└── ✓ Created Function run_impl.
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.63s/it]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.63s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.56s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.26s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.39s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.42s/it]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.36s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.36s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.35s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.62s/it]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.58s/it]/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.54s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.27s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.38s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  3.00s/it]
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.48s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.49s/it]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.55s/it]/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.60s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.51s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:14<00:05,  5.17s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.53s/it]
+
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.97s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.79s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.94s/it]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.91s/it]/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.82s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:10<00:00,  2.31s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:10<00:00,  2.52s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)

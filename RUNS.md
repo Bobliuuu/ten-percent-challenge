@@ -94,3 +94,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/compress_A wave1 results (7B u3 g128 ratio .0919 acc .621 vs base .657; calibrated bias .667) in v2/compress_A/results; wave3 mixed-bit cfg_3.json running on AWS eu-north-1 i-09f24d8981aa83348
 - v2/compress_A 14B sweep sweep_A14.py cfg_14.json (6 cfgs) ap-MFklLcNtzsaBSsWCjaHyZr 10:3x --detach (local process must stay alive for spawn stagger)
 - C2 7B sweep1 results v2/compress_C/c2res; finish (pack+verify) launched for c114_dz15 (ap-moylEuKrVoyDi2KkXPxQZm) and c120_dz15
+- v2/compress_A wave4 (7B first/last-layer high-bit variants, cfg_4.json 8 cfgs) Modal ap-Au2nHMXAkz5bzLJB5scUIG 11:0x --detach
