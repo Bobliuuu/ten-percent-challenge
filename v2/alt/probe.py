@@ -14,6 +14,7 @@ vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 @app.function(image=img, gpu="A100-40GB", timeout=7200, volumes={"/hf":vol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"]="expandable_segments:True"
     os.environ["HF_HOME"]="/hf"; sys.path.insert(0,"/root")
     from datasets import load_dataset
     from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -77,6 +78,8 @@ def run(cfg):
                     else: out.append(i); p+=1
             return out
     Wl=model.get_output_embeddings().weight.data[letter_ids].clone()
+    if not model.config.tie_word_embeddings:
+        model.lm_head.weight.data=torch.zeros(1,1,dtype=torch.bfloat16,device='cuda'); torch.cuda.empty_cache()
     @torch.no_grad()
     def predict(rows,rm,bs=16):
         enc=[rm(tok.encode(fmt(r)))[-1024:] for r in rows]
