@@ -1,0 +1,32 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "ncal": 16,
+  "callen": 512,
+  "L": 0,
+  "ebits": 4,
+  "vocab": 33000
+ },
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "ncal": 16,
+  "callen": 512,
+  "L": 0,
+  "ebits": 4,
+  "vocab": 24000
+ },
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "ncal": 16,
+  "callen": 512,
+  "L": 0,
+  "ebits": 4,
+  "vocab": 16000
+ }
+]
