@@ -11,3 +11,55 @@ https://modal.com/apps/jerry-zhu/main/ap-moylEuKrVoyDi2KkXPxQZm
 ├── ✓ Uploaded ../commercial/C2/dev.jsonl
 ├── ✓ Created Function finish.
 └── ✓ Created Function run.
+262
+23.self_attn.k_proj 1.7517438616071428
+23.self_attn.o_proj 1.7488839285714286
+23.self_attn.q_proj 1.7392677774234695
+23.self_attn.v_proj 1.7752162388392858
+24.mlp.down_proj 1.7475595363778957
+24.mlp.gate_proj 1.73273482746139
+24.mlp.up_proj 1.73172715824083
+24.self_attn.k_proj 1.7483956473214286
+24.self_attn.o_proj 1.7521947743941326
+24.self_attn.q_proj 1.7391282684948979
+24.self_attn.v_proj 1.7581438337053572
+25.mlp.down_proj 1.7478984111064189
+25.mlp.gate_proj 1.7323191285593629
+25.mlp.up_proj 1.731559370475386
+25.self_attn.k_proj 1.7568533761160714
+25.self_attn.o_proj 1.7477155412946428
+25.self_attn.q_proj 1.7427779217155612
+25.self_attn.v_proj 1.7719552176339286
+26.mlp.down_proj 1.740447880218388
+26.mlp.gate_proj 1.732444498069498
+26.mlp.up_proj 1.7315169522200773
+26.self_attn.k_proj 1.7595040457589286
+26.self_attn.o_proj 1.7485326650191326
+26.self_attn.q_proj 1.7504583864795917
+26.self_attn.v_proj 1.7800467354910714
+27.mlp.down_proj 1.7469760497104247
+27.mlp.gate_proj 1.731781359344836
+27.mlp.up_proj 1.7311069090854247
+27.self_attn.k_proj 1.7551967075892858
+27.self_attn.o_proj 1.7470603475765305
+27.self_attn.q_proj 1.7504982461734695
+27.self_attn.v_proj 1.7854352678571428
+ 1,444,358,644 body.bin
+         1,805 config.json
+    46,033,008 emb.bin
+        35,976 index.json.xz
+       491,640 misc.bin.xz
+         5,353 predict.py
+       103,936 signs.bin
+     1,423,180 tok.tar.xz
+TOTAL 1492453542 body_bpw_actual(w only) 1.7424415172765095 scale bits/w 0.02834137517042373
+ 
+load secs 157.4124834537506
+RESULT_JSON {"acc_art_bias": 0.793, "acc_art_raw": 0.7845, "acc_run_raw": 0.7845, "agree_raw_vs_run": 1.0, "max_abs_logit_diff": 0.0}
+ Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+FINISH_JSON {"name": "c114_dz15", "total_bytes": 1492453542, "ratio": 0.09798639017920129}
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-moylEuKrVoyDi2KkXPxQZm
