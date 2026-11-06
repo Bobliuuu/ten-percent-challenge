@@ -340,3 +340,7 @@ def main(cfgs:str):
     import time
     for c in cs:
         run.spawn(c); time.sleep(15)   # detached: results printed as RESULT_JSON in app logs
+
+@app.local_entrypoint()
+def fin(name:str):
+    finish.remote(name)
