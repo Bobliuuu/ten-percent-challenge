@@ -93,8 +93,29 @@ def run(cfg):
             out[idx]=lgt
         return out
     y=np.array([r["answer"] for r in ev]); score=lambda lg: float((lg.argmax(1)==y).mean())
+    cbrows=[]; _cnt={}
+    for r in calsrc:
+        if _cnt.get(r["task"],0)<cfg.get("nbias",120): cbrows.append(r); _cnt[r["task"]]=_cnt.get(r["task"],0)+1
+    ycb=np.array([r["answer"] for r in cbrows])
+    def fitbias(lg):
+        # per-task additive logit bias fit on calibration rows (TRAIN-split data), tiny (<=14 floats/task)
+        B={}
+        for t in set(r["task"] for r in cbrows):
+            ix=[i for i,r in enumerate(cbrows) if r["task"]==t]; k=len(cbrows[ix[0]]["names"])
+            X=torch.tensor(lg[ix][:,:k]); Y=torch.tensor(ycb[ix]); b=torch.zeros(k,requires_grad=True)
+            opt=torch.optim.Adam([b],lr=0.1)
+            for _ in range(200):
+                opt.zero_grad(); l=torch.nn.functional.cross_entropy(X+b,Y)+1e-3*(b**2).sum(); l.backward(); opt.step()
+            B[t]=b.detach().numpy()
+        return B
+    def apply_bias(lg,rows,B):
+        lg=lg.copy()
+        for i,r in enumerate(rows):
+            b=B[r["task"]]; lg[i,:len(b)]+=b
+        return lg
     if mode=="eval":
         base_lg=predict(ev,lambda x:x); base_pred=base_lg.argmax(1); base_acc=score(base_lg)
+        base_B=fitbias(predict(cbrows,lambda x:x)); base_acc_b=score(apply_bias(base_lg,ev,base_B))
     layers=model.model.layers; nl0=len(layers)
     def get_inps(n):
         ins=[];kw={}
@@ -176,7 +197,7 @@ def run(cfg):
                     s=(qparams_ec(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],cc) if EC else qparams(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],Lv))
                 w=W1[:,i]; d=Hi[i,i]
                 q,qi=(qidx_ec(w.unsqueeze(1),s) if EC else qidx(w.unsqueeze(1),s,Lv)); q=q.flatten()
-                hist+=torch.bincount(qi.long().flatten(),minlength=Lv).float()
+                hist+=torch.bincount(qi.long().flatten(),minlength=hist.numel()).float()
                 Q1[:,i]=q; err=(w-q)/d
                 W1[:,i:]-=err.unsqueeze(1)@Hi[i,i:].unsqueeze(0); Err1[:,i]=err
             Q[:,i1:i2]=Q1; W[:,i2:]-=Err1@Hinv[i1:i2,i2:]
@@ -259,6 +280,9 @@ def run(cfg):
             blk=w[:,c:c+64]; s=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s,Lv)[0]
         emb.weight.data=wq.to(torch.bfloat16)
     lg=predict(ev,remap); pred=lg.argmax(1); acc=score(lg); agree=float((pred==base_pred).mean())
+    qB=fitbias(predict(cbrows,remap)); lgb=apply_bias(lg,ev,qB); acc_b=score(lgb); agree_b=float((lgb.argmax(1)==apply_bias(base_lg,ev,base_B).argmax(1)).mean())
+    ptb={}
+    for r_,p_,y_ in zip(ev,lgb.argmax(1),y): ptb.setdefault(r_["task"],[]).append(int(p_==y_))
     # ---- exact byte accounting (bits)
     lin_total=sum(l.get_submodule(n).weight.numel() for l in layers for n in linn)
     other_layer=sum(p.numel() for l in layers for p in l.parameters())-lin_total
@@ -272,7 +296,7 @@ def run(cfg):
     tot=body_bits+emb_bits+head_bits+misc_bits; base_bf16=base_params*2
     pt={}
     for r_,p_,y_ in zip(ev,pred,y): pt.setdefault(r_["task"],[]).append(int(p_==y_))
-    res=dict(per_task={k:float(np.mean(v)) for k,v in pt.items()},cfg={k:v for k,v in cfg.items() if k!="levels"},bi=(bi.tolist() if ndrop else None),n_levels_cfg=len(levels),n=len(ev),base_acc=base_acc,acc=acc,agree=agree,
+    res=dict(per_task={k:float(np.mean(v)) for k,v in pt.items()},cfg={k:v for k,v in cfg.items() if k!="levels"},bi=(bi.tolist() if ndrop else None),n_levels_cfg=len(levels),n=len(ev),base_acc=base_acc,acc=acc,agree=agree,base_acc_b=base_acc_b,acc_b=acc_b,agree_b=agree_b,per_task_b={k:float(np.mean(v)) for k,v in ptb.items()},
         b_wrong=int(((base_pred==y)&(pred!=y)).sum()),c_fixed=int(((base_pred!=y)&(pred==y)).sum()),
         params=base_params,nkeep=nkeep,dropped=dropl,bytes=tot/8,ratio_bf16=tot/8/base_bf16,
         body_bpw=(body_bits/max(1,lin_total)),body_bpw_ent_only=stats["ent_bits"]/max(1,stats["nq"]),
