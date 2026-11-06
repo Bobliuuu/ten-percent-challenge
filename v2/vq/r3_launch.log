@@ -7,3 +7,8 @@ https://modal.com/apps/jerry-zhu/main/ap-jE5fcOErt6qqwFq87X7NL1
 ├── ✓ Uploaded ../base/dev.jsonl
 ├── ✓ Created Function run_big.
 └── ✓ Created Function run.
+Stopping app - user stopped from CLI.
+ERR RemoteError('')
+ERR RemoteError('')
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-jE5fcOErt6qqwFq87X7NL1
