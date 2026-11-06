@@ -37,10 +37,27 @@ def _impl(cfg):
             last=att.sum(1).cuda()-1
             out[idx]=(hs[torch.arange(len(idx)),last]@Wl.T).float().cpu().numpy()
         return out
+    STREAM=bool(os.environ.get("VQ_STREAM_EVAL"))
+    def to_eval():
+        model._ev=True
+        if STREAM:
+            model.model.embed_tokens.cuda(); model.model.norm.cuda(); model.model.rotary_emb.cuda()
+            if not getattr(model,"_hooked",False):
+                def pre(m,a,kw):
+                    if model._ev: m.cuda()
+                    return None
+                def post(m,a,o):
+                    if model._ev: m.cpu()
+                    return None
+                for ly in model.model.layers: ly.register_forward_pre_hook(pre,with_kwargs=True); ly.register_forward_hook(post)
+                model._hooked=True
+        else: model.cuda()
+    def predict_s(rows):
+        return predict(rows,bs=48 if STREAM else 16)
     bkey=f"{RES}/baselg_{M.replace('/','_')}_{len(ev)}.npy"
     if os.path.exists(bkey): base_lg=np.load(bkey)
     else:
-        model.cuda(); base_lg=predict(ev); (None if RES_GPU else model.cpu()); torch.cuda.empty_cache(); np.save(bkey,base_lg); pass
+        to_eval(); base_lg=predict_s(ev); model._ev=False; (None if RES_GPU else model.cpu()); torch.cuda.empty_cache(); np.save(bkey,base_lg); pass
     base_pred=base_lg.argmax(1); base_acc=float((base_pred==y).mean()); print("base_acc",base_acc,flush=True)
 
     # ---------- rotations
@@ -293,11 +310,11 @@ def _impl(cfg):
         (None if RES_GPU else l.cpu()); torch.cuda.empty_cache()
         print("layer",li,"relerr_so_far",st["err_num"]/st["err_den"],round(time.time()-t0),flush=True)
     # ---------- eval
-    model.cuda(); lg=None
-    for ebs in [16,8,4,2,1]:
+    to_eval(); lg=None
+    for ebs in ([48,24,12,4] if STREAM else [16,8,4,2,1]):
         try: lg=predict(ev,bs=ebs); break
         except torch.OutOfMemoryError: torch.cuda.empty_cache(); print("eval OOM, bs",ebs,flush=True); import time as _t; _t.sleep(30)
-    pred=lg.argmax(1); acc=float((pred==y).mean()); agree=float((pred==base_pred).mean())
+    model._ev=False; pred=lg.argmax(1); acc=float((pred==y).mean()); agree=float((pred==base_pred).mean())
     # ---------- bytes
     nbody=st["nq"]; other=sum(p.numel() for ly in layers for p_n,p in ly.named_parameters())-nbody
     other_b=other*2+model.model.norm.weight.numel()*2
