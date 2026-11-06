@@ -27,3 +27,6 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 
 ## v2/big (workstream: Qwen2.5-32B/72B) Fri  6 Nov 2026 02:10:21 EST
 - big.py = engine sweep with device_map multi-GPU. cfg_1.json: 72B/32B base(vocab trim only)+u3 g128, 32B u4. app ap-w8qFX9hULeT0K9n9ntxLLD, log v2/big/log_1.txt
+
+## v2/moe (Qwen3-30B-A3B-Instruct-2507 prune+quant sweep) 2026-11-06
+- 02:09 modal run --detach v2/moe/moe_sweep.py -> ap-Nd5vsC3yUJbqKwqz0sBpza (H100:2/A100-80GB:2; results /vol/results.json in volume moe-10pct-vol). Earlier apps ap-1h8zo.., ap-r9nr.. stopped (spawn never scheduled).
