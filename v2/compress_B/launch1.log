@@ -1,0 +1,527 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-UsSTn86RRIJ8e3GahrSVbH
+Building image im-osYJEn7OuWiYzRC9cw03Za
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install scikit-learn
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting scikit-learn
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Requirement already satisfied: numpy>=1.24.1 in ./usr/local/lib/python3.12/site-packages (from scikit-learn) (2.5.4)
+Collecting scipy>=1.10.0 (from scikit-learn)
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting joblib>=1.4.0 (from scikit-learn)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn)
+  Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn)
+  Downloading threadpoolctl-3.8.0-py3-none-any.whl.metadata (29 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 751.1 MB/s  0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 787.3 MB/s  0:00:00
+Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+Installing collected packages: threadpoolctl, scipy, narwhals, cloudpickle, joblib, scikit-learn
+
+Successfully installed cloudpickle-3.1.2 joblib-1.6.0 narwhals-2.28.0 scikit-learn-1.9.1 scipy-1.18.1 threadpoolctl-3.8.0
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Image saved, took 1.06s
+
+Built image im-osYJEn7OuWiYzRC9cw03Za in 8.57s
+
+
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress_B/sweep_B.py
+├── ✓ Uploaded ../commercial/B/pool.jsonl
+├── ✓ Uploaded ../commercial/B/calib.jsonl
+├── ✓ Uploaded ../commercial/B/dev.jsonl
+└── ✓ Created Function run.
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 30
+layer 0 33
+layer 1 35
+layer 2 40
+layer 1 40
+layer 0 42
+layer 3 45
+layer 2 48
+layer 4 50
+layer 1 52
+layer 5 55
+layer 3 56
+layer 6 60
+layer 4 64
+layer 7 65
+layer 2 62
+layer 8 70
+layer 5 72
+layer 9 75
+layer 3 73
+layer 10 79
+layer 6 80
+layer 11 84
+layer 4 83
+layer 7 87
+layer 12 89
+layer 13 94
+layer 5 93
+layer 8 95
+layer 14 99
+layer 9 103
+layer 15 104
+layer 6 104
+layer 16 109
+layer 10 111
+layer 17 114
+layer 7 114
+layer 11 119
+layer 18 119
+layer 19 124
+layer 8 124
+layer 12 126
+layer 20 129
+layer 21 134
+layer 13 134
+layer 9 134
+layer 22 139
+layer 14 142
+layer 23 144
+layer 10 144
+layer 24 149
+layer 15 150
+layer 25 155
+layer 11 155
+layer 16 157
+layer 26 159
+layer 27 164
+layer 17 165
+layer 12 165
+layer 18 173
+layer 13 175
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 6, "drop": 0, "ncal": 192, "name": "1.5B_d0_L6"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.513, "acc_bias": 0.513, "auc": 0.414594239200377, "agree": 0.8205, "b_wrong": 168, "c_fixed": 191, "params": 1543714304, "nkeep": 32960, "dropped": [], "bytes": 446896074.9015429, "ratio_bf16": 0.14474701495722583, "body_bpw": 2.55659379780686, "body_bpw_ent_only": 2.419496316225732, "parts_MB": {"body": 418.7047789015429, "emb": 26.89536, "head": 0.006144, "misc": 1.289792}, "oov": 0.009001675550302533, "secs": 179.6775140762329}
+layer 19 181
+layer 14 186
+layer 20 188
+layer 21 196
+layer 15 196
+layer 22 204
+layer 0 24
+layer 16 206
+layer 1 29
+layer 23 212
+layer 2 34
+layer 17 216
+layer 24 219
+layer 3 39
+layer 4 44
+layer 25 227
+layer 18 227
+layer 5 49
+layer 6 54
+layer 26 235
+layer 19 237
+layer 7 59
+layer 27 243
+layer 8 64
+layer 20 247
+layer 9 69
+layer 10 74
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 4, "drop": 0, "ncal": 192, "name": "1.5B_d0_L4"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.502, "base_acc_bias": 0.5135, "base_auc": 0.5005058687783394, "acc": 0.5135, "acc_bias": 0.5105, "auc": 0.4844456608867865, "agree": 0.8215, "b_wrong": 167, "c_fixed": 190, "params": 1543714304, "nkeep": 32960, "dropped": [], "bytes": 363255580.06206053, "ratio_bf16": 0.11765634972766974, "body_bpw": 2.0458884485316378, "body_bpw_ent_only": 1.9113317895837192, "parts_MB": {"body": 335.06428406206055, "emb": 26.89536, "head": 0.006144, "misc": 1.289792}, "oov": 0.009001675550302533, "secs": 257.9856026172638}
+layer 21 257
+layer 11 79
+layer 12 84
+layer 22 267
+layer 13 89
+layer 14 94
+layer 23 277
+layer 15 99
+layer 16 104
+layer 24 288
+layer 17 109
+layer 0 33
+layer 18 114
+layerlayer 25 298
+ 19 119
+layer 1 41
+layer 20 125
+layer 2 49
+layer 21 layer 26 309
+130
+layer 22 135
+layer 3 57
+layerlayer 23 140
+ 27 319
+layer 4 65
+layer 24 145
+layer 25 150
+layer 5 72
+layer 26 155
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 3, "drop": 0, "ncal": 192, "name": "1.5B_d0_L3"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.5135, "acc_bias": 0.5135, "auc": 0.5203623441488846, "agree": 0.82, "b_wrong": 168, "c_fixed": 192, "params": 1543714304, "nkeep": 32960, "dropped": [], "bytes": 302286906.6725293, "ratio_bf16": 0.09790895436067984, "body_bpw": 1.673616288999299, "body_bpw_ent_only": 1.5409117303475612, "parts_MB": {"body": 274.0956106725293, "emb": 26.89536, "head": 0.006144, "misc": 1.289792}, "oov": 0.009001675550302533, "secs": 336.39037919044495}
+layer 6 80
+layer 27 160
+layer 7 88
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 8, "drop": 0, "ncal": 192, "name": "1.5B_d0_L8"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.5135, "acc_bias": 0.5145, "auc": 0.48643310973699827, "agree": 0.841, "b_wrong": 147, "c_fixed": 171, "params": 1543714304, "nkeep": 32960, "dropped": [], "bytes": 505239258.23744136, "ratio_bf16": 0.16364402950995827, "body_bpw": 2.9128348253207617, "body_bpw_ent_only": 2.773965000319166, "parts_MB": {"body": 477.04796223744137, "emb": 26.89536, "head": 0.006144, "misc": 1.289792}, "oov": 0.009001675550302533, "secs": 175.5098798274994}layer 8 96
+
+layer 9 103
+layer 10 111
+layer 11 119
+layer 0 42
+layer 0 28
+layer 12 127
+layer 1 33
+layer 1 52
+layer 13 134
+layer 2 38
+layer 3 43
+layer 2 62
+layer 18 142
+layer 4 48
+layer 5 52
+layer 19 150
+layer 3 72
+layer 6 57
+layer 20 158
+layer 7 62
+layer 4 83
+layer 8 67
+layer 21 166
+layer 9 72
+layer 5 93
+layer 22 173
+layer 10 77
+layer 11 82
+layer 23 181
+layer 6 103
+layer 12 87
+layerlayer 27 189
+ 13 92
+layer 7 114
+layer 18 97
+layer 19 102
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 3, "drop": 7, "ncal": 192, "name": "1.5B_d7_L3"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.502, "base_acc_bias": 0.5135, "base_auc": 0.5005058687783394, "acc": 0.487, "acc_bias": 0.514, "auc": 0.49403365053123727, "agree": 0.194, "b_wrong": 821, "c_fixed": 791, "params": 1543714304, "nkeep": 32960, "dropped": [14, 15, 16, 17, 24, 25, 26], "bytes": 233696192.4005664, "ratio_bf16": 0.07569282470047203, "body_bpw": 1.6736559239627362, "body_bpw_ent_only": 1.5409511681221255, "parts_MB": {"body": 205.5765764005664, "emb": 26.89536, "head": 0.006144, "misc": 1.218112}, "oov": 0.009001675550302533, "secs": 201.03566646575928}
+layer 8 124
+layer 20 107
+layer 21 112
+layer 9 134
+layer 22 117
+layer 23 122
+layer 10 144
+layer 27 127
+layer 11 154
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 6, "drop": 7, "ncal": 192, "name": "1.5B_d7_L6"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.529, "acc_bias": 0.513, "auc": 0.5372086250876889, "agree": 0.3455, "b_wrong": 627, "c_fixed": 682, "params": 1543714304, "nkeep": 32960, "dropped": [14, 15, 16, 17, 24, 25, 26], "bytes": 342160393.8519531, "ratio_bf16": 0.11082374276294621, "body_bpw": 2.556693069903361, "body_bpw_ent_only": 2.4195950944312052, "parts_MB": {"body": 314.04077785195307, "emb": 26.89536, "head": 0.006144, "misc": 1.218112}, "oov": 0.009001675550302533, "secs": 138.81620979309082}
+layer 0 33
+layer 12 165
+layer 1 41
+layer 2 49
+layer 13 175
+layer 3 56
+layer 18 185
+layer 0 29
+layer 4 64
+layer 1 33
+layer 19 195
+layer 5 72
+layer 2 38
+layer 3 43
+layer 6 79
+layer 20 206
+layer 4 48
+layer 7 87layer
+ 5 53
+layer 21 216
+layer 6 58
+layer 8 95
+layer 7 63
+layer 22 226
+layer 8 68
+layer 9 103
+layer 9 73
+layer 10 110
+layer 23 236
+layer 10 78
+layer 11 83
+layer 11 118
+layer 27 247
+layer 19 89
+layer 12 126
+layer 20 94
+layer 21 99
+layer 13 134
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 4, "drop": 7, "ncal": 192, "name": "1.5B_d7_L4"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.507, "acc_bias": 0.514, "auc": 0.5286969200547198, "agree": 0.4405, "b_wrong": 554, "c_fixed": 565, "params": 1543714304, "nkeep": 32960, "dropped": [14, 15, 16, 17, 24, 25, 26], "bytes": 279428976.0565527, "ratio_bf16": 0.09050540483187514, "body_bpw": 2.0459791994316663, "body_bpw_ent_only": 1.911422088986733, "parts_MB": {"body": 251.30936005655272, "emb": 26.89536, "head": 0.006144, "misc": 1.218112}, "oov": 0.009001675550302533, "secs": 261.0029649734497}
+layer 22 104
+layer 18 141
+layer 27 109
+layer 19 149
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 3, "drop": 11, "ncal": 192, "name": "1.5B_d11_L3"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.52, "acc_bias": 0.512, "auc": 0.4988151362343147, "agree": 0.7035, "b_wrong": 278, "c_fixed": 315, "params": 1543714304, "nkeep": 32960, "dropped": [12, 13, 14, 15, 16, 17, 18, 23, 24, 25, 26], "bytes": 194502798.9532031, "ratio_bf16": 0.06299831466522549, "body_bpw": 1.67370630563867, "body_bpw_ent_only": 1.5410012991429554, "parts_MB": {"body": 166.4241429532031, "emb": 26.89536, "head": 0.006144, "misc": 1.177152}, "oov": 0.009001675550302533, "secs": 119.06985878944397}
+layer 20 157
+layer 21 165
+layer 22 172
+layer 0 42
+layer 23 180
+layer 0 29
+layer 27 188
+layer 1 33
+layer 1 52
+layer 2 38
+layer 3 43
+layer 2 62
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 8, "drop": 7, "ncal": 192, "name": "1.5B_d7_L8"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.502, "base_acc_bias": 0.5135, "base_auc": 0.5005058687783394, "acc": 0.5175, "acc_bias": 0.5135, "auc": 0.5141287998951236, "agree": 0.5795, "b_wrong": 405, "c_fixed": 436, "params": 1543714304, "nkeep": 32960, "dropped": [14, 15, 16, 17, 24, 25, 26], "bytes": 385913507.7385937, "ratio_bf16": 0.12499511947859547, "body_bpw": 2.912899304729979, "body_bpw_ent_only": 2.7740291589353028, "parts_MB": {"body": 357.7938917385937, "emb": 26.89536, "head": 0.006144, "misc": 1.218112}, "oov": 0.009001675550302533, "secs": 200.09054493904114}
+layer 4 48
+layer 5 53
+layer 3 73
+layer 6 58
+layer 7 63
+layer 4 83
+layer 8 68
+layer 9 73
+layer 5 93
+layer 10 78
+layer 0 33
+layer 11 83
+layer 6 104
+layer 19 88
+layer 1 41
+layer 20 94
+layer 7 114
+layer 2 48
+layer 21 99
+layerlayer 22  3 56
+104
+layer 8 124
+layer 27 109
+layer 4 64
+layer 9 134
+layer 5 72
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 6, "drop": 11, "ncal": 192, "name": "1.5B_d11_L6"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.4805, "acc_bias": 0.5135, "auc": 0.49910684889284285, "agree": 0.249, "b_wrong": 772, "c_fixed": 730, "params": 1543714304, "nkeep": 32960, "dropped": [12, 13, 14, 15, 16, 17, 18, 23, 24, 25, 26], "bytes": 282310643.4870703, "ratio_bf16": 0.09143875999450166, "body_bpw": 2.556778559898069, "body_bpw_ent_only": 2.4196801591025565, "parts_MB": {"body": 254.23198748707028, "emb": 26.89536, "head": 0.006144, "misc": 1.177152}, "oov": 0.009001675550302533, "secs": 119.65618777275085}
+layer 10 145
+layer 6 79
+layer 7 87
+layer 11 155
+layer 8 95
+layer 19 165
+layer 0 28
+layer 9 102
+layer 1 33
+layer 20 176
+layer 10 110
+layer 2 38
+layer 3 43
+layer 11 118
+layer 21 186
+layer 4 48
+layer 19 126
+layer 5 53
+layer 22 196
+layer 6 58
+layer 20 133
+layer 7 63
+layer 27 206
+layer 21 141
+layer 8 68
+layer 9 73
+layer 22 149
+layer 10 78
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 4, "drop": 11, "ncal": 192, "name": "1.5B_d11_L4"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.4915, "acc_bias": 0.514, "auc": 0.48974952740547856, "agree": 0.57, "b_wrong": 440, "c_fixed": 420, "params": 1543714304, "nkeep": 32960, "dropped": [12, 13, 14, 15, 16, 17, 18, 23, 24, 25, 26], "bytes": 231528390.0989355, "ratio_bf16": 0.07499068626202725, "body_bpw": 2.0460679370158976, "body_bpw_ent_only": 1.9115103850904456, "parts_MB": {"body": 203.44973409893552, "emb": 26.89536, "head": 0.006144, "misc": 1.177152}, "oov": 0.009001675550302533, "secs": 218.89478063583374}
+layerlayer 19 83
+ 27 156
+layer 21 88
+layer 27 93
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 8, "drop": 11, "ncal": 192, "name": "1.5B_d11_L8"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.502, "base_acc_bias": 0.5135, "base_auc": 0.5005058687783394, "acc": 0.486, "acc_bias": 0.5125, "auc": 0.43867279246570756, "agree": 0.181, "b_wrong": 835, "c_fixed": 803, "params": 1543714304, "nkeep": 32960, "dropped": [12, 13, 14, 15, 16, 17, 18, 23, 24, 25, 26], "bytes": 317725401.46124995, "ratio_bf16": 0.10290939218415442, "body_bpw": 2.912940248233872, "body_bpw_ent_only": 2.7740698987401715, "parts_MB": {"body": 289.64674546124996, "emb": 26.89536, "head": 0.006144, "misc": 1.177152}, "oov": 0.009001675550302533, "secs": 166.92893624305725}
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 4, "drop": 14, "ncal": 192, "name": "1.5B_d14_L4"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.4865, "acc_bias": 0.5135, "auc": 0.5262926673545014, "agree": 0.18, "b_wrong": 835, "c_fixed": 805, "params": 1543714304, "nkeep": 32960, "dropped": [11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 24, 25, 26], "bytes": 195606592.76838866, "ratio_bf16": 0.06335582700164857, "body_bpw": 2.0462122442774553, "body_bpw_ent_only": 1.9116539744054284, "parts_MB": {"body": 167.55865676838866, "emb": 26.89536, "head": 0.006144, "misc": 1.146432}, "oov": 0.009001675550302533, "secs": 102.00019860267639}
+layer 0 42
+layer 0 33
+layer 1 52
+layer 1 41
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "vocab": 32768, "ebits": 4, "L": 0, "drop": 0, "name": "1.5B_bf16body"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.501, "acc_bias": 0.5135, "auc": 0.4800149308846149, "agree": 0.9315, "b_wrong": 69, "c_fixed": 68, "params": 1543714304, "nkeep": 32960, "dropped": [], "bytes": 2648582720.0, "ratio_bf16": 0.8578603933179594, "body_bpw": 16.0, "body_bpw_ent_only": 0.0, "parts_MB": {"body": 2620.391424, "emb": 26.89536, "head": 0.006144, "misc": 1.289792}, "oov": 0.009001675550302533, "secs": 34.188666105270386}
+
+layer 2 63
+layer 2 49
+layer 3 56
+layer 3 73
+layer 4 64
+layer 4 83
+layer 5 72
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]layer 5 94
+layer 6 81
+layer 6 104
+layer 7 90
+layer 8 98
+layer 7 115
+
+layer 9 106
+layer 8 125
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:59<00:59, 59.84s/it][modal-client] 2026-11-06T08:16:43+0000 Modal Client → Modal Worker Heartbeat attempt failed (attempt_dur=69.57, time_since_heartbeat_success=69.57, error=ConnectionError('Deadline exceeded'))
+layer 10 114
+layer 9 135
+layer 19 121
+layer 21 129
+layer 10 146
+layer 27 137
+layer 19 156
+
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [01:38<00:00, 47.36s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [01:38<00:00, 49.24s/it]
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 8, "drop": 14, "ncal": 192, "name": "1.5B_d14_L8"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.502, "base_acc_bias": 0.5135, "base_auc": 0.5005058687783394, "acc": 0.487, "acc_bias": 0.5145, "auc": 0.5582939963233198, "agree": 0.181, "b_wrong": 834, "c_fixed": 804, "params": 1543714304, "nkeep": 32960, "dropped": [11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 24, 25, 26], "bytes": 266587012.44052732, "ratio_bf16": 0.08634596821113841, "body_bpw": 2.9130191681229047, "body_bpw_ent_only": 2.7741484259929403, "parts_MB": {"body": 238.5390764405273, "emb": 26.89536, "head": 0.006144, "misc": 1.146432}, "oov": 0.009001675550302533, "secs": 145.87061858177185}
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+layer 21 166
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.26s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.08s/it]
+layer 27 177
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-1.5B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 6, "drop": 14, "ncal": 192, "name": "1.5B_d14_L6"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5015, "base_acc_bias": 0.5135, "base_auc": 0.5007095172380666, "acc": 0.4865, "acc_bias": 0.5135, "auc": 0.5109054500731033, "agree": 0.18, "b_wrong": 835, "c_fixed": 805, "params": 1543714304, "nkeep": 32960, "dropped": [11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 23, 24, 25, 26], "bytes": 237423555.27791014, "ratio_bf16": 0.07690009565329199, "body_bpw": 2.5568774785049535, "body_bpw_ent_only": 2.419778585577068, "parts_MB": {"body": 209.37561927791015, "emb": 26.89536, "head": 0.006144, "misc": 1.146432}, "oov": 0.009001675550302533, "secs": 188.1534068584442}
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+layer 0 136
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.88s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.72s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.89s/it]
+layer 1 143
+layer 0 45layer
+ 2 150
+layer 3 156
+layer 1 55
+layer 4 163
+layer 5 170
+layer 2 66
+layer 6 176
+layer 3 76
+layer 7 183
+layer 0 58
+layer 8 190
+layer 4 86
+layer 9 196
+layer 5 96
+layer 1 71
+layer 10 203
+layer 11 209
+layer 6 106
+layer 2 85
+layer 12 216
+layer 7 116
+layer 13 222
+layer 3 98
+layer 14 229
+layer 8 126
+layer 15 236
+layer 4 111
+layer 9 137
+layer 16 242
+layer 17 249
+layer 10 147
+layer 5 125
+layer 18 255
+layer 11 157
+layer 19 262
+layer 6 139
+layer 20 269
+layer 12 167
+layer 21 275
+layer 7 152
+layer 13 177
+layer 22 282
+layer 23 289
+layer 14 187
+layer 8 166
+layer 24 295
+layer 15 197
+layer 25 302
+layer layer 926 308
+ 179
+layer 16 207
+layer 27 315
+layer 28 322
+layer 10 192
+layer 17 217
+layer 29 328
+layer 18 228
+layer 30 335
+layer 11 206
+layer 31 342
+layer 19 238
+layer 32 348
+layer 12 219
+layer 20 248
+layer 33 355
+layer 34 361
+layer 13 233
+layer 21 258
+layer 35 368
+layer 22 268
+layer 14 246
+layer 23 278
+layer 15 260
+layer 24 288
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-3B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 3, "drop": 0, "ncal": 192, "name": "3B_d0_L3"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5075, "base_acc_bias": 0.515, "base_auc": 0.5762615947025382, "acc": 0.5155, "acc_bias": 0.5135, "auc": 0.4440592191707755, "agree": 0.788, "b_wrong": 204, "c_fixed": 220, "params": 3085938688, "nkeep": 32960, "dropped": [], "bytes": 618782085.6767187, "ratio_bf16": 0.10025832465222308, "body_bpw": 1.6764775192615937, "body_bpw_ent_only": 1.5437587256334266, "parts_MB": {"body": 581.4300856767187, "emb": 35.86048, "head": 0.008192, "misc": 1.483328}, "oov": 0.009001675550302533, "secs": 394.271146774292}
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.06s/it]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.19it/s]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.15it/s]
+layer 16 273
+layer 25 298
+layer 26 308
+layer 17 287
+layer 27 319
+layer 18 300
+layer 28 329
+layer 0 38
+layer 1 45
+layer 19 314
+layer 29 339
+layer 2 51
+layer 30 349
+layer 3 58
+layer 20 327
+layer 4 64
+layer 31 359
+layer 5 71
+layer 21 341
+layer 6 77
+layer 32 369
+layer 7 84
+layer 22 354
+layer 33 379
+layer 8 90
+layer 9 97
+layer 34 389
+layer 23 368
+layer 10 103
+layer 35 399
+layer 11 110
+layer 24 381
+layer 12 116
+layer 13 123
+layer 25 395
+layer 14 129
+RESULT_JSON {"cfg": {"model": "Qwen/Qwen2.5-3B-Instruct", "g": 128, "vocab": 32768, "ebits": 4, "L": 4, "drop": 0, "ncal": 192, "name": "3B_d0_L4"}, "n_levels_cfg": 0, "n": 2000, "base_acc": 0.5075, "base_acc_bias": 0.515, "base_auc": 0.5762365764642425, "acc": 0.512, "acc_bias": 0.5135, "auc": 0.5009441883132804, "agree": 0.7925, "b_wrong": 203, "c_fixed": 212, "params": 3085938688, "nkeep": 32960, "dropped": [], "bytes": 748425955.6405859, "ratio_bf16": 0.12126390562309608, "body_bpw": 2.0502886426600875, "body_bpw_ent_only": 1.915710092199092, "parts_MB": {"body": 711.073955640586, "emb": 35.86048, "head": 0.008192, "misc": 1.483328}, "oov": 0.009001675550302533, "secs": 426.10336995124817}
+layer 15 136
+
+[1ALoading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.18it/s]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.12it/s]
+[1ALoading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.13it/s]
+layer 26 408
+layer 16 142
+layer 17 149
+layer 18 155
+layer 27 422
+layer 19 162
+layer 20 168
+layer 28 435
+layer 21 175

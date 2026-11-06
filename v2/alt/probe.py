@@ -5,13 +5,13 @@ Modes: cfg["mode"]="table" (per-module proxy error/entropy vs L, shardable by la
 Always launch with: modal run --detach sweep.py --cfgs cfgs.json --out out.json   (results: RESULT_JSON / TABLE_JSON log lines)
 """
 import modal, json
-app = modal.App("tenpct-alt-probe")
+app = modal.App("tenpct-alt-probe3")
 img = (modal.Image.debian_slim().pip_install("torch","transformers==4.51.3","datasets","numpy","accelerate")
        .add_local_file("dev.jsonl","/root/base/dev.jsonl").add_local_file("calib.jsonl","/root/base/calib.jsonl")
        .add_local_file("pool.jsonl","/root/base/pool.jsonl"))
 vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
-@app.function(image=img, gpu="A100-40GB", timeout=14400, max_containers=40, volumes={"/hf":vol})
+@app.function(image=img, gpu="A100-40GB", timeout=7200, volumes={"/hf":vol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
     os.environ["HF_HOME"]="/hf"; sys.path.insert(0,"/root")

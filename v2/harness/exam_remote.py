@@ -72,8 +72,14 @@ def run_exam(spec):
         if prev["artifact_tree_sha256"] != art_sha: return refuse("artifact changed since stage 1 (only memory may change)")
         if prev["memory_sha256"] == mem_sha: return refuse("memory identical to stage 1; nothing fed back")
     # --- atomic single-use claim (before labels are read) ---
-    if not claims.put(key, dict(t=C.now(), art=art_sha, mem=mem_sha), skip_if_exists=True) or os.path.exists(rdir):
-        return refuse(f"exam already run for {key}; single use per stage")
+    mine = dict(t=C.now(), art=art_sha, mem=mem_sha, nonce=spec["nonce"])
+    if not claims.put(key, mine, skip_if_exists=True):
+        # Modal restarts a pre-empted function with the same input: the SAME nonce while the receipt is still "started"
+        # (nothing scored yet) is a resume of this very run, not a second run.
+        cur = claims.get(key); rp = f"{rdir}/receipt.json"
+        if not (cur and cur.get("nonce") == spec["nonce"] and os.path.exists(rp) and json.load(open(rp)).get("status") == "started"):
+            return refuse(f"exam already run for {key}; single use per stage")
+    elif os.path.exists(rdir): return refuse("receipt dir exists")
     os.makedirs(rdir, exist_ok=True)
     rec = dict(status="started", key=key, stage=stage, started_utc=C.now(), artifact_tree_sha256=art_sha, memory_sha256=mem_sha)
     json.dump(rec, open(f"{rdir}/receipt.json", "w")); examvol.commit()
@@ -159,7 +165,8 @@ def main(lock: str, tag: str, stage: int = 1, exam_file: str = "", artifact: str
     if memory:
         with candvol.batch_upload(force=True) as b:
             b.put_file(memory, f"{base}/memory/{os.path.basename(memory)}"); memory_vol = f"{base}/memory/{os.path.basename(memory)}"
-    spec = dict(lock=L, stage=stage, tag=tag, artifact_vol=artifact_vol, memory_vol=memory_vol or None)
+    import uuid
+    spec = dict(nonce=uuid.uuid4().hex, lock=L, stage=stage, tag=tag, artifact_vol=artifact_vol, memory_vol=memory_vol or None)
     rec = run_exam.remote(spec)
     json.dump(rec, open(f"{receipts_dir}/stage{stage}.json", "w"), indent=2)
     print({k: rec.get(k) for k in ("status", "reason", "PASS", "REAL_RESULT", "size_ok")}, rec.get("report", {}).get("diff_cand_minus_base"))

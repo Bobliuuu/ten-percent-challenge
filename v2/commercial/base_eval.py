@@ -22,7 +22,7 @@ def shots(T, calib):
     elif T=="B": out=[rng.choice(by[k]) for k in ks for _ in range(2)]
     else: out=[rng.choice(by[k]) for k in ks[:5]]
     rng.shuffle(out); return out
-@app.function(image=img, gpu="A100-40GB", timeout=7200, volumes={"/hf":hf,"/d":vol})
+@app.function(image=img, gpu=["A100-40GB","L40S","A10G","L4"], timeout=7200, volumes={"/hf":hf,"/d":vol})
 def run(M):
     import torch, numpy as np, time, collections
     os.environ["HF_HOME"]="/hf"
@@ -83,5 +83,5 @@ def run(M):
     print("RESULT_JSON "+json.dumps(res)); return res
 @app.local_entrypoint()
 def main():
-    import time
-    for m in os.environ["MODEL"].split(","): run.spawn(m); time.sleep(15)
+    ms=os.environ["MODEL"].split(",")
+    for r in run.map(ms): print("DONE",r["model"])   # detached entrypoint stays alive; RESULT_JSON printed in app logs by each run
