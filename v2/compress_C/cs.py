@@ -9,7 +9,7 @@ img = (modal.Image.debian_slim().pip_install("torch","transformers==4.51.3","num
 vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 rvol = modal.Volume.from_name("tenpct-C-res", create_if_missing=True)
 
-@app.function(image=img, gpu=["A100-80GB","H100","A100-40GB"], timeout=14400, max_containers=60, volumes={"/hf":vol,"/res":rvol})
+@app.function(image=img, gpu=["A100-80GB","H100"], timeout=14400, max_containers=60, volumes={"/hf":vol,"/res":rvol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
     os.environ["HF_HOME"]="/hf"

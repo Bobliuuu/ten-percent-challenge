@@ -1,0 +1,317 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-daQ7cXgbOb3UZ1hXgM5JL4
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress_C/cs.py
+├── ✓ Uploaded ../commercial/C/pool.jsonl
+├── ✓ Uploaded ../commercial/C/calib.jsonl
+├── ✓ Uploaded ../commercial/C/dev.jsonl
+└── ✓ Created Function run.
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.51it/s]Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:05,  1.18it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.15s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:04,  1.13it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:03<00:03,  1.26it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:08,  1.43s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.44s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:05<00:04,  1.42s/it]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.39s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:04,  1.40s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:03,  1.92s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:08<00:02,  1.38s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:02,  2.01s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.48s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.12s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:10<00:00,  1.29s/it]
+
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.65s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.46s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 47
+layer 1 58
+layer 0 67
+layer 2 68
+layer 3 79
+layer 4 89
+layer 1 90
+layer 5 100
+layer 6 111
+layer 2 113
+layer 7 121
+layer 8 132
+layer 3 136
+layer 9 143
+layer 10 153
+layer 4 160
+layer 11 164
+layer 12 175
+layer 5 183
+layer 13 186
+layer 14 198
+layer 6 206
+layer 15 209
+layer 16 220
+layer 7 229
+layer 17 231
+layer 18 242
+layer 8 252
+layer 19 254
+layer 20 265
+layer 21 276
+layer 9 276
+layer 22 287
+layer 23 297
+layer 10 299
+layer 24 308
+layer 25 319
+layer 11 322
+layer 26 330
+layer 27 342
+layer 12 345
+layer 28 353
+layer 29 364
+layer 13 368
+layer 30 375
+layer 31 386
+layer 14 391
+layer 32 397
+layer 33 408
+layer 15 415
+layer 34 419
+layer 35 430
+layer 16 438
+layer 36 441
+layer 37 453
+layer 17 461
+layer 38 464
+layer 39 475
+layer 18 484
+layer 40 486
+layer 41 497
+layer 19 508
+layer 42 509
+layer 43 520
+layer 44 531
+layer 20 531
+layer 45 542
+layer 46 553
+layer 21 555
+layer 47 563
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+layer 22 578
+layer 23 601
+layer 24 625
+layer 25 648
+layer 26 672
+layer 27 695
+layer 28 719
+layer 29 742
+RESULT_JSON {"name": "14b_alloc1.7", "cfg": {"name": "14b_alloc1.7", "model": "Qwen/Qwen2.5-14B-Instruct", "nev": 500, "levels_file": "../engine/levels_1.7.json", "g": 128, "vocab": 32768, "ebits": 4, "stagger": 3}, "n": 500, "exact": 0.682, "name_match": 0.958, "ok": [1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1], "params": 14770033664, "nkeep": 32941, "dropped": [], "bytes": 3002089948.3042965, "ratio_bf16": 0.10162772870387875, "body_bpw": 1.707658011000071, "parts_MB": {"body": 2820.2095003042964, "emb": 179.19904, "misc": 2.681408}, "oov": 0.0019605440509741453, "secs": 751.0802857875824}
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  1.99it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.61it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:03,  1.42it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.53it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:02,  1.41it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:04<00:01,  1.31it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:05<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:05<00:00,  1.54it/s]
+layer 30 765
+layer 31 788
+layer 0 39
+layer 1 50
+layer 32 811
+layer 2 61
+layer 3 72
+layer 33 835
+layer 4 84
+layer 5 95
+layer 34 858
+layer 6 107
+layer 7 118
+layer 35 881
+layer 8 129
+layer 9 140
+layer 10 151
+layer 36 904
+layer 11 162
+layer 12 173
+layer 37 927
+layer 13 184
+layer 14 195
+layer 38 950
+layer 15 206
+layer 16 217
+layer 39 974
+layer 17 228
+layer 18 239
+layer 40 997
+layer 19 251
+layer 20 262
+layer 41 1020
+layer 21 273
+layer 22 284
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+layer 42 1043
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:02,  1.37it/s]
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.34s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.03s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.05s/it]
+layer 23 295
+layer 24 306
+layer 43 1066
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 25 317
+layer 26 328
+layer 44 1089
+layer 27 340
+layer 0 56
+layer 28 351
+layer 45 1113
+layer 29 362
+layer 1 80
+layer 30 373
+layer 46 1136
+layer 31 384
+layer 2 106
+layer 32 396
+layer 47 1159
+layer 33 407
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
+layer 3 132
+layer 34 418
+layer 35 429
+layer 36 440
+layer 4 157
+layer 37 451
+layer 38 461
+layer 5 181
+layer 39 473
+layer 40 484
+layer 6 206
+layer 41 495
+layer 42 506
+layer 7 230
+layer 43 518
+layer 44 529
+layer 45 540
+layer 8 255
+layer 46 551
+layer 47 562
+layer 9 279
+layer 10 304
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  3.60it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.87it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:01,  2.70it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.64it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:01<00:01,  2.58it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.59it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:02<00:00,  2.58it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:02<00:00,  3.00it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 11 329
+layer 0 31
+layer 1 40
+layer 2 50
+layer 12 353
+layer 3 59
+layer 4 68
+RESULT_JSON {"name": "14b_alloc1.6", "cfg": {"name": "14b_alloc1.6", "model": "Qwen/Qwen2.5-14B-Instruct", "nev": 500, "levels_file": "../engine/levels_1.6.json", "g": 128, "vocab": 32768, "ebits": 4, "stagger": 3}, "n": 500, "exact": 0.664, "name_match": 0.952, "ok": [1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1], "params": 14770033664, "nkeep": 32941, "dropped": [], "bytes": 2835708645.8648434, "ratio_bf16": 0.0959953345528422, "body_bpw": 1.6069128841005618, "parts_MB": {"body": 2653.8281978648433, "emb": 179.19904, "misc": 2.681408}, "oov": 0.0019605440509741453, "secs": 1410.6231088638306}
+
+[1ALoading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.49s/it]
+layer 13 378
+[1ALoading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.46s/it]
+layer 5 78
+[1ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.37s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.25s/it]
+[1ALoading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.32s/it]
+layer 6 87
+layer 7 96
+layer 14 403
+layer 8 106
+layer 9 115
+layer 0 46
+RESULT_JSON {"name": "14b_alloc1.9", "cfg": {"name": "14b_alloc1.9", "model": "Qwen/Qwen2.5-14B-Instruct", "nev": 500, "levels_file": "../engine/levels_1.9.json", "g": 128, "vocab": 32768, "ebits": 4, "stagger": 3}, "n": 500, "exact": 0.746, "name_match": 0.978, "ok": [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1], "params": 14770033664, "nkeep": 32941, "dropped": [], "bytes": 3333351419.818945, "ratio_bf16": 0.11284170014938921, "body_bpw": 1.908239317284808, "parts_MB": {"body": 3151.470971818945, "emb": 179.19904, "misc": 2.681408}, "oov": 0.0019605440509741453, "secs": 705.1590416431427}
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.05it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.66it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.50it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.60it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:02,  1.49it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:04<00:01,  1.36it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:04<00:00,  1.31it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.63it/s]
+layer 10 124
+layer 15 427
+layer 11 134
+layer 1 70
+layer 12 143
+layer 16 452
+layer 0 33
+layer 13 152
+layer 14 162
+layer 1 44
+layer 2 94
+layer 15 171
+layer 2 55
+layer 17 476
+layer 16 180
+layer 3 66
+layer 17 189
+layer 3 118
+layer 4 77
+layerlayer  18 199
+18 501
+layer 5 88
+layer 19 208
+layer 4 142
+layer 20 217
+layer 6 99
+layer 19 525
+layer 21 226
+layer 7 110
+layer 22 236
+layer 5 166
+layer 8 121
+layer 23 246
+layer 20 550
+layer 9 132
+layer 24 255
+layer 10 143
+layer 6 190
+layer 25 265
+layer 21 574
+layer 11 154
+layer 26 274
+layer 12 165
+layer 27 284
+layer 7 215
+layer 28 293
+layer 13 176
+layer 22 599
