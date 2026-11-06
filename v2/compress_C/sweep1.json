@@ -1,0 +1,231 @@
+[
+{
+"name": "3b_base",
+"model": "Qwen/Qwen2.5-3B-Instruct",
+"nev": 500,
+"stagger": 8
+},
+{
+"name": "7b_base",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"nev": 500,
+"stagger": 8
+},
+{
+"name": "14b_base",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"stagger": 8
+},
+{
+"name": "3b_L3",
+"model": "Qwen/Qwen2.5-3B-Instruct",
+"nev": 500,
+"L": 3,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "3b_L4",
+"model": "Qwen/Qwen2.5-3B-Instruct",
+"nev": 500,
+"L": 4,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "3b_L6",
+"model": "Qwen/Qwen2.5-3B-Instruct",
+"nev": 500,
+"L": 6,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "3b_L8",
+"model": "Qwen/Qwen2.5-3B-Instruct",
+"nev": 500,
+"L": 8,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "7b_L3",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"nev": 500,
+"L": 3,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "7b_L4",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"nev": 500,
+"L": 4,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "7b_L6",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"nev": 500,
+"L": 6,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "7b_L8",
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"nev": 500,
+"L": 8,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_L3",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"L": 3,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_L4",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"L": 4,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_L6",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"L": 6,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_L8",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"L": 8,
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.5",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.5.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.6",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.6.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.6_v16k",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.6.json",
+"g": 128,
+"vocab": 16384,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.7",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.7.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.7_v16k",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.7.json",
+"g": 128,
+"vocab": 16384,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.9",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.9.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc2.1",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_2.1.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc2.4",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_2.4.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8
+},
+{
+"name": "14b_alloc1.7_drop4",
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"nev": 500,
+"levels_file": "../engine/levels_1.7.json",
+"g": 128,
+"vocab": 32768,
+"ebits": 4,
+"stagger": 8,
+"drop": 4
+}
+]
