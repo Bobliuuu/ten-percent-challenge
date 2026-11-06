@@ -1,0 +1,212 @@
+{
+ "{\"eta\": 0.3, \"ba\": 0.5}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.5583333333333333,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5148313492063491,
+    "dev_before": 0.7895,
+    "dev_after": 0.78978125,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.8333333333333334,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.519047619047619,
+    "dev_before": 0.7895,
+    "dev_after": 0.789875,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.75,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.6571428571428571,
+    "dev_before": 0.7895,
+    "dev_after": 0.7907500000000001,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ },
+ "{\"eta\": 0.3, \"ba\": 1.0}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.5395833333333333,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5033730158730158,
+    "dev_before": 0.7895,
+    "dev_after": 0.7897786458333332,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.8125,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.5101190476190476,
+    "dev_before": 0.7895,
+    "dev_after": 0.78984375,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.75,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.6571428571428571,
+    "dev_before": 0.7895,
+    "dev_after": 0.7907500000000001,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ },
+ "{\"eta\": 0.6, \"ba\": 0.5}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.60625,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5489087301587302,
+    "dev_before": 0.7895,
+    "dev_after": 0.7898411458333333,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.8541666666666666,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.5279761904761904,
+    "dev_before": 0.7895,
+    "dev_after": 0.78990625,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.78125,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.675,
+    "dev_before": 0.7895,
+    "dev_after": 0.7908124999999999,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ },
+ "{\"eta\": 0.6, \"ba\": 1.0}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.5583333333333333,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5148313492063491,
+    "dev_before": 0.7895,
+    "dev_after": 0.78978125,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.84375,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.5235119047619047,
+    "dev_before": 0.7895,
+    "dev_after": 0.789890625,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.765625,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.6660714285714286,
+    "dev_before": 0.7895,
+    "dev_after": 0.79078125,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ },
+ "{\"eta\": 1.0, \"ba\": 0.5}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.65,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5638392857142858,
+    "dev_before": 0.7895,
+    "dev_after": 0.7898645833333333,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.8645833333333334,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.5324404761904761,
+    "dev_before": 0.7895,
+    "dev_after": 0.789921875,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.859375,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.719642857142857,
+    "dev_before": 0.7895,
+    "dev_after": 0.79096875,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ },
+ "{\"eta\": 1.0, \"ba\": 1.0}": {
+  "summary": {
+   "1": {
+    "n_pairs": 24,
+    "n_err_eval": 60,
+    "fixed_unseen_errs": 0.6270833333333333,
+    "grp_before": 0.25992063492063494,
+    "grp_after": 0.5645337301587302,
+    "dev_before": 0.7895,
+    "dev_after": 0.7898671875000001,
+    "bytes": 453.0
+   },
+   "5": {
+    "n_pairs": 4,
+    "n_err_eval": 12,
+    "fixed_unseen_errs": 0.8645833333333334,
+    "grp_before": 0.3952380952380952,
+    "grp_after": 0.5324404761904761,
+    "dev_before": 0.7895,
+    "dev_after": 0.789921875,
+    "bytes": 446.0
+   },
+   "10": {
+    "n_pairs": 2,
+    "n_err_eval": 8,
+    "fixed_unseen_errs": 0.796875,
+    "grp_before": 0.24285714285714285,
+    "grp_after": 0.6839285714285714,
+    "dev_before": 0.7895,
+    "dev_after": 0.79084375,
+    "bytes": 434.0
+   }
+  },
+  "detail": null
+ }
+}

@@ -9,3 +9,4 @@ __pycache__/
 *.pth
 *.safetensors
 *.npy
+v2/c2_fb/feats/

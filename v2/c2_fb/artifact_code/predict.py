@@ -101,3 +101,92 @@ def _build(art, dev="cuda"):
                     if len(msk): FO[i, q] = hm[j, torch.from_numpy(msk).to(dev)].mean(0).cpu().numpy()
         return out, FQ, FO
     return dict(run=run, bias=bias)
+
+# ---------------------------------------------------------------------------------------------------------------
+# Feedback head for C2 (tool use). Shipped in the artifact: head.npz (global, fixed). Outside: memory JSON (closed-form statistics).
+# Features of the DECODED model: per-option mean-pooled hidden at 2/3 depth (contextualised by the query, since options follow it).
+# No retrieval: annotations are folded into (a) per-tool running prototype means, (b) per-tool (true,pred) tallies, (c) sums of
+# none-margin for none-gold / tool-gold items. Nothing per item is kept; the prompt tokens are never touched.
+# ---------------------------------------------------------------------------------------------------------------
+def _lsm(L):
+    L = L - L.max(-1, keepdims=True); return L - np.log(np.exp(L).sum(-1, keepdims=True))
+def _enc(a): return base64.b64encode(np.asarray(a, np.float32).tobytes()).decode()
+def _dec(s): return np.frombuffer(base64.b64decode(s), np.float32).copy()
+NONE = "\x00none"
+def tool_name(opt): return opt.split(":")[0].strip()
+
+class Head:
+    def __init__(s, d):
+        z = np.load(os.path.join(d, "head.npz"))
+        s.meta = json.loads(bytes(z["meta"]).decode()); s.mu0 = z["mu0"].astype(np.float32); s.P = z["P"].astype(np.float32)
+        s.Ci = z["Ci"].astype(np.float32); s.m = z["m"].astype(np.float32)   # m: [4, r] = mpos, mneg, mposE, mnegE
+        s.pr = s.meta["p"]
+    def proj(s, FO): return (FO.astype(np.float32) - s.mu0) @ s.P.T          # [N,5,r]
+    def gscore(s, U):
+        """global option-relevance LDA score [N,5]"""
+        g = np.zeros(U.shape[:2], np.float32)
+        for lo, hi, a, b in ((0, 4, 0, 1), (4, 5, 2, 3)):
+            d = s.Ci @ (s.m[a] - s.m[b]); c = 0.5 * (s.m[a] + s.m[b])
+            g[:, lo:hi] = (U[:, lo:hi] - c) @ d
+        return g
+    def tscore(s, u, mu, neg=None):
+        neg = s.m[1] if neg is None else neg
+        d = s.Ci @ (mu - neg); return float((u - 0.5 * (mu + neg)) @ d)
+
+class Mem:
+    """{"v":1,"proto":{tool:{"n":count,"mu":b64 fp32[r]}},"tp":{tool:[true,pred]}}   (tool "\x00none" = the 'none fits' option)"""
+    def __init__(s, path=None):
+        m = json.load(open(path)) if path else {}
+        s.proto = m.get("proto", {}); s.tp = m.get("tp", {})
+    def dump(s, path): json.dump({"v": 1, "proto": s.proto, "tp": s.tp}, open(path, "w"), separators=(",", ":"))
+    def empty(s): return not s.proto and not s.tp
+
+def _scores(H, M, lg, U, g, names, use_mem=True):
+    """lg [5] raw logits, U [5,r], g [5] global score -> option scores [5] (base log-softmax + gated head + memory terms)"""
+    p = H.pr if H else {}
+    s = _lsm(lg[:5].astype(np.float64))
+    if H: s = s + p["lam0"] * g
+    if not (H and use_mem) or M.empty(): return s
+    if NONE in M.proto: s[4] += p["lam_n"] * H.tscore(U[4], _dec(M.proto[NONE]["mu"]), H.m[3])
+    if NONE in M.tp: a, b = M.tp[NONE]; s[4] += p["eta_n"] * np.log((a + p["ba"]) / (b + p["ba"]))
+    for o in range(4):
+        t = tool_name(names[o]); e = M.proto.get(t)
+        if e: s[o] += p["lam_t"] * H.tscore(U[o], _dec(e["mu"]))
+        if t in M.tp:
+            a, b = M.tp[t]; s[o] += p["eta"] * np.log((a + p["ba"]) / (b + p["ba"]))
+    return s
+
+def decide(H, M, rows, LG, FO):
+    U = H.proj(FO) if H else None; G = H.gscore(U) if H else None
+    return [int(_scores(H, M, LG[i], U[i] if H else None, G[i] if H else None, r["names"]).argmax()) for i, r in enumerate(rows)]
+
+def ingest_feats(H, M, rows, LG, FO):
+    """fold annotated rows (row["answer"] = correct option index, 4 = none fits) into M. In-place."""
+    U = H.proj(FO); G = H.gscore(U); p = H.pr
+    for i, r in enumerate(rows):
+        pred = int(_scores(H, M, LG[i], U[i], G[i], r["names"]).argmax()); y = int(r["answer"])
+        t = NONE if y == 4 else tool_name(r["names"][y]); e = M.proto.get(t)
+        n, mu = (e["n"], _dec(e["mu"])) if e else (p["n0t"], H.m[2] if y == 4 else H.m[0])
+        mu = (n * mu + p["w"] * U[i, y]) / (n + p["w"]); M.proto[t] = {"n": float(n + p["w"]), "mu": _enc(mu)}
+        if y != 4: M.tp.setdefault(t, [0, 0])[0] += 1
+        M.tp.setdefault(NONE if pred == 4 else tool_name(r["names"][pred]), [0, 0])[1] += 1
+        if y == 4: M.tp.setdefault(NONE, [0, 0])[0] += 1
+    return M
+
+def ingest(art, annotations, memory_in, memory_out, B=None):
+    """annotations: rows {inst,text,names,answer}; answer = index of the correct option (4 = 'None of these tools can do this')."""
+    B = B or _build(art); H = Head(art); M = Mem(memory_in)
+    LG, _, FO = B["run"](annotations); ingest_feats(H, M, annotations, LG, FO); M.dump(memory_out); return os.path.getsize(memory_out)
+
+def load(art, memory=None, use_bias=False, dev="cuda"):
+    """f(rows) -> predicted option indices. rows: {task,text,names,inst}. With memory=None and the head gated OFF this is exactly the base argmax."""
+    B = _build(art, dev)
+    H = Head(art) if os.path.exists(os.path.join(art, "head.npz")) and os.environ.get("TENPCT_NOHEAD") != "1" else None
+    M = Mem(memory) if memory else Mem()
+    def f(rows):
+        LG, _, FO = B["run"](rows)
+        if use_bias:
+            for i, r in enumerate(rows): b = B["bias"][r["task"]]; LG[i, :len(b)] += b
+        return decide(H, M, rows, LG, FO)
+    f.logits = lambda rows: B["run"](rows)[0]; f.build = B
+    return f
