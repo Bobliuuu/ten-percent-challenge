@@ -55,6 +55,7 @@ def q_results(f, t):
         if p > 0.97:
             f.text(x + 120, y0 - h - 28, f"{v*100:.2f}%", 42, TXT, bold=True, anchor="mm")
         f.text(x + 120, y0 + 30, lab, 26, MUT, a=rev(t, t0, 0.4), anchor="mm")
+    f.text(60, 690, "bars start at 70% accuracy", 20, MUT)
     f.text(1200, 120, "+3.15 pts", 52, GRN, bold=True, a=rev(t, 3.3, 0.5), anchor="ra")
     f.text(1200, 185, "p = 0.001, passes both stages", 24, MUT, a=rev(t, 3.6, 0.5), anchor="ra")
 
