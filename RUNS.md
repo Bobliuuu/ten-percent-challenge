@@ -48,3 +48,7 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 ## v2/vq (workstream: sub-2-bit VQ on Qwen2.5-14B) 2026-11-06
 - Modal app ap-1oMnzKOD2q3XLQnR7fkqot (`modal run --detach v2/vq/vq.py --cfgs cfg_modal_r1.json`): m_k14, m_mlp12_attn16, m_mlp13_attn14; results -> Modal Volume `vq-results` /<name>.json + RESULT_JSON in logs.
 - Lambda A100 (ssh lambda-final, ~/vq): `vq_local.py cfg_14b_r1.json` (b14_k13, b14_k16, b14_k12) -> ~/vq/res/*.json, log ~/vq/r1.log. (Modal was GPU-queued for >2h; AWS p4d/p4de had no capacity.)
+
+## v2/altpush (MDC-6 max compression) 2026-11-06
+- AWS g6e.2xlarge (L40S) i-076f90d86ce833547 us-east-2, ip 3.14.244.84, key swarm-gpu, name altpush-l40s; runs via v2/altpush/run_local.py (modal stub). TERMINATE at end. (Modal probe ap-85gE4... had 0 tasks scheduled for 15+ min, so used AWS.)
+- a3b: Qwen2.5-3B uniform L=2/3/4 g128 -> results/out_a3b_*.jsonl. L3: ratio .0966 acc .7685 (base .834) agree .845; L4: ratio .1176 acc .8188 agree .917
