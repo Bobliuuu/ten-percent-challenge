@@ -82,3 +82,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - sweep3 (32B base/L3/g256/drop4, 14B cal512) launched 03:59
 - v2/compress_A AWS box g5.12xlarge eu-north-1 i-09f24d8981aa83348 (Modal starved): runner_aws.py cfg_2.json (7B/3B/1.5B GPTQ sweep) 09:3x UTC; TERMINATE at end
 - lowbit dev_harness_test v32k_e4 & v42k_e4 (above)
+- sweep4 (module-type mixed L patterns 14B/7B) launched
+- v2/lowbit_fb feat extraction (frozen features of decoded BitNet-2B artifact; MDC-6 calib/dev/pool + hold prompts): deployed app ap-J6HRpwu4XyNcBx8c7vSIWC (tenpct-lowbit-fb-feat), spawned run(calib|dev|pool|hold) 04:2x EST 2026-11-06; out Volume lowbit-data:/fb/*.npz
