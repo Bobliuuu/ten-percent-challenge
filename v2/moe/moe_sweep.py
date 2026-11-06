@@ -3,6 +3,9 @@ Launch: modal run --detach v2/moe/moe_sweep.py
 """
 import modal, json, os, math, time
 app = modal.App("moe-10pct")
+def _commit():
+    if os.environ.get("MOE_LOCAL") != "1": vol.commit()
+
 vol = modal.Volume.from_name("moe-10pct-vol", create_if_missing=True)
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.join(HERE, "..", "base")
@@ -27,7 +30,7 @@ GRID = [  # (name, keep_frac, bits, score)
     ("f0.5_b4", .5, 4, "reap"), ("f0.25_b3", .25, 3, "reap"), ("f0.5_b3_g64", .5, 3, "reap"),
 ]
 
-@app.function(image=img, gpu=["H100:2","A100-80GB:2"], cpu=16, memory=300000, timeout=24*3600, volumes={"/vol": vol})
+@app.function(image=img, gpu=["H100","A100-80GB"], cpu=16, memory=300000, timeout=24*3600, volumes={"/vol": vol})
 def run(grid_json: str = ""):
     import torch, numpy as np, torch.nn.functional as F
     from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -36,14 +39,14 @@ def run(grid_json: str = ""):
     tok = AutoTokenizer.from_pretrained(MODEL); tok.padding_side = "left"
     t0 = time.time()
     model = AutoModelForCausalLM.from_pretrained(MODEL, torch_dtype=torch.bfloat16, device_map="auto",
-                                                 max_memory={0: "62GiB", 1: "62GiB"}); model.eval()
+                                                 max_memory={0: os.environ.get("MOE_MAXMEM", "77GiB")}); model.eval()
     print("loaded", time.time() - t0, flush=True)
     cfg = model.config
     NE, TK, NL = cfg.num_experts, cfg.num_experts_per_tok, cfg.num_hidden_layers
     letters = [tok.encode(" " + l)[0] for l in "ABCD"]
     lm_rows = model.lm_head.weight[letters].detach().clone().float()  # 4 rows kept (fp16 in size acct)
-    dev = [json.loads(l) for l in open("/data/dev.jsonl")]
-    calib = [json.loads(l) for l in open("/data/calib.jsonl")]
+    dev = [json.loads(l) for l in open(os.environ.get("MOE_DATA","/data")+"/dev.jsonl")]
+    calib = [json.loads(l) for l in open(os.environ.get("MOE_DATA","/data")+"/calib.jsonl")]
     blocks = [l.mlp for l in model.model.layers]
     S = dict(collect=False, valid=None)
     stats = {"cnt": torch.zeros(NL, NE, dtype=torch.float64), "reap": torch.zeros(NL, NE, dtype=torch.float64),
@@ -82,7 +85,7 @@ def run(grid_json: str = ""):
             b.forward = (lambda f: (lambda x: f(x)[0]))(f0)
     print("decoder src mlp line:", [l for l in src.split("\n") if "self.mlp" in l], "tuple_ok", tuple_ok, flush=True)
 
-    def batches(texts, maxtok=24000, maxlen=1024):
+    def batches(texts, maxtok=12000, maxlen=1024):
         enc = [tok.encode(t)[-maxlen:] for t in texts]
         idx = sorted(range(len(enc)), key=lambda i: len(enc[i]))
         i = 0
@@ -109,7 +112,7 @@ def run(grid_json: str = ""):
     def emit(name, d):
         d["name"] = name; d["t"] = time.time() - t0; out_all[name] = d
         print("RESULT_JSON " + json.dumps(d), flush=True)
-        json.dump(out_all, open("/vol/results.json", "w"), indent=1); vol.commit()
+        json.dump(out_all, open(os.path.join(os.environ.get("MOE_OUT","/vol"),"results.json"), "w"), indent=1); _commit()
 
     # base
     base_acc, base_preds = evaluate(dev)
@@ -117,20 +120,28 @@ def run(grid_json: str = ""):
     # calibration stats
     ctexts = [fmt(r) + " " + "ABCD"[r["answer"]] for r in calib]
     S["collect"] = True
-    for sel, ids, am in batches(ctexts, maxtok=24000, maxlen=768):
+    for sel, ids, am in batches(ctexts, maxtok=12000, maxlen=768):
         S["valid"] = am.reshape(-1).bool()
         with torch.no_grad(): model.model(input_ids=ids.to("cuda:0"), attention_mask=am.to("cuda:0"))
     S["collect"] = False
-    torch.save(stats, "/vol/stats.pt"); vol.commit()
+    torch.save(stats, os.path.join(os.environ.get("MOE_OUT","/vol"),"stats.pt")); _commit()
     print("calib done", time.time() - t0, "min cnt/layer0", stats["cnt"][0].min().item(), flush=True)
-    # originals on CPU
-    orig = {}
-    for li, b in enumerate(blocks):
-        orig[li] = {m: torch.stack([getattr(ex, m).weight.detach().cpu() for ex in b.experts]) for m in ("gate_proj", "up_proj", "down_proj")}
-    attn_orig = {}
-    for li, l in enumerate(model.model.layers):
-        for m in ("q_proj", "k_proj", "v_proj", "o_proj"): attn_orig[(li, m)] = getattr(l.self_attn, m).weight.detach().cpu().clone()
-    emb_orig = model.model.embed_tokens.weight.detach().cpu().clone()
+    # originals: lazily read from safetensors (box has only 64GB RAM)
+    import glob
+    from safetensors import safe_open
+    from huggingface_hub import snapshot_download
+    sd = snapshot_download(MODEL)
+    widx = json.load(open(os.path.join(sd, "model.safetensors.index.json")))["weight_map"]
+    _fh = {}
+    def getw(name):
+        f = widx[name]
+        if f not in _fh: _fh[f] = safe_open(os.path.join(sd, f), "pt", device="cpu")
+        return _fh[f].get_tensor(name)
+    class _O:
+        def __getitem__(self, li): return self
+    orig_expert = lambda li, m, ki: torch.stack([getw(f"model.layers.{li}.mlp.experts.{e}.{m}.weight") for e in ki])
+    attn_orig = {(li, m): getw(f"model.layers.{li}.self_attn.{m}.weight") for li in range(NL) for m in ("q_proj", "k_proj", "v_proj", "o_proj")}
+    emb_orig = getw("model.embed_tokens.weight")
 
     def quant(W, bits, g, clip=True):
         """W [..., in] float; groupwise asym along last dim. returns dequant, int tensor (uint8)."""
@@ -186,10 +197,16 @@ def run(grid_json: str = ""):
             km = torch.zeros(NE, dtype=torch.bool); km[top] = True; keepm[li] = km
             ki = top.sort().values.tolist()
             for m in ("gate_proj", "up_proj", "down_proj"):
-                W = orig[li][m][ki].cuda(); dq, q = quant(W, bits, g)
-                for j, e in enumerate(ki):
-                    p_ = getattr(b.experts[e], m).weight; p_.data.copy_(dq[j].to(torch.bfloat16).to(p_.device))
-                n = W.numel(); raw += n * bits + n / g * (16 + bits); ent += ent_bits(q, bits) + n / g * (16 + bits)
+                hist = torch.zeros(2 ** bits, dtype=torch.float64); ntot = 0
+                for c0 in range(0, len(ki), 8):
+                    kc = ki[c0:c0 + 8]
+                    W = orig_expert(li, m, kc).cuda(); dq, q = quant(W, bits, g)
+                    for j, e in enumerate(kc):
+                        p_ = getattr(b.experts[e], m).weight; p_.data.copy_(dq[j].to(torch.bfloat16).to(p_.device))
+                    hist += torch.bincount(q.reshape(-1).long(), minlength=2 ** bits).double().cpu(); ntot += W.numel()
+                    del W, dq, q
+                p = hist / hist.sum(); H = float(-(p[p > 0] * torch.log2(p[p > 0])).sum())
+                n = ntot; raw += n * bits + n / g * (16 + bits); ent += H * n + n / g * (16 + bits)
         ob = sum(other_bytes(keepn) for _ in [0])
         tot_raw = (fixed_raw + raw) / 8 + ob; tot_ent = (fixed_ent + ent) / 8 + ob
         acc, p = evaluate(dev)
@@ -202,3 +219,8 @@ def run(grid_json: str = ""):
 @app.local_entrypoint()
 def main(grid: str = ""):
     run.remote(grid)
+
+if __name__ == "__main__":
+    import sys
+    os.environ["MOE_LOCAL"] = "1"
+    run.local(sys.argv[1] if len(sys.argv) > 1 else "")

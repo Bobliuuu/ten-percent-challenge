@@ -14,7 +14,8 @@ def run(cfg):
     t0=time.time(); dev="cuda"
     M=cfg.get("model","Qwen/Qwen2.5-14B-Instruct"); name=cfg["name"]
     tok=AutoTokenizer.from_pretrained(M)
-    model=AutoModelForCausalLM.from_pretrained(M,torch_dtype=torch.bfloat16).eval()
+    RES_GPU=bool(os.environ.get("VQ_GPU_RESIDENT"))
+    model=AutoModelForCausalLM.from_pretrained(M,torch_dtype=torch.bfloat16,**({"device_map":"cuda"} if RES_GPU else {})).eval()
     model.config.use_cache=False
     base_params=sum(p.numel() for p in model.parameters())
     rd=lambda f:[json.loads(l) for l in open(f)]
@@ -44,7 +45,7 @@ def run(cfg):
     bkey=f"/res/baselg_{M.replace('/','_')}_{len(ev)}.npy"
     if os.path.exists(bkey): base_lg=np.load(bkey)
     else:
-        model.cuda(); base_lg=predict(ev); model.cpu(); torch.cuda.empty_cache(); np.save(bkey,base_lg); rvol.commit()
+        model.cuda(); base_lg=predict(ev); (None if RES_GPU else model.cpu()); torch.cuda.empty_cache(); np.save(bkey,base_lg); rvol.commit()
     base_pred=base_lg.argmax(1); base_acc=float((base_pred==y).mean()); print("base_acc",base_acc,flush=True)
 
     # ---------- rotations
@@ -92,7 +93,7 @@ def run(cfg):
     def ldlq(Wn,H,C,chunk=128,damp=0.01):
         R,Cc=Wn.shape; Cn=0.5*(C**2).sum(1)
         H=(H+H.T)/2; dg=torch.diag(H); dead=dg==0; H[dead,dead]=1
-        H=H.double(); md=torch.mean(torch.diag(H)); eye=torch.eye(Cc,device=dev,dtype=torch.float64)
+        cdt=torch.float32 if RES_GPU else torch.float64; H=H.to(cdt); md=torch.mean(torch.diag(H)); eye=torch.eye(Cc,device=dev,dtype=cdt)
         for dm in [damp,damp*10,damp*100,1.0]:
             try:
                 Hd=H+dm*md*eye; U=torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(Hd)),upper=True).float(); break
@@ -149,7 +150,7 @@ def run(cfg):
                 for j,x in enumerate(c2):
                     o=l(x,**kw); o=o[0] if isinstance(o,tuple) else o
                     s+=1-torch.nn.functional.cosine_similarity(x.float().flatten(0,1),o.float().flatten(0,1),dim=-1).mean().item(); c2[j]=o
-                bi[li]=s/len(c2); l.cpu()
+                bi[li]=s/len(c2); (None if RES_GPU else l.cpu())
         del c2
         cand=list(range(2,nl0-1)); dropl=sorted(sorted(cand,key=lambda i:bi[i].item())[:ndrop])
         keepl=[i for i in range(nl0) if i not in dropl]
@@ -215,7 +216,7 @@ def run(cfg):
         with torch.no_grad():
             for j,x in enumerate(cur):
                 o=l(x,**kw); cur[j]=o[0] if isinstance(o,tuple) else o
-        l.cpu(); torch.cuda.empty_cache()
+        (None if RES_GPU else l.cpu()); torch.cuda.empty_cache()
         print("layer",li,"relerr_so_far",st["err_num"]/st["err_den"],round(time.time()-t0),flush=True)
     # ---------- eval
     model.cuda(); lg=predict(ev); pred=lg.argmax(1); acc=float((pred==y).mean()); agree=float((pred==base_pred).mean())

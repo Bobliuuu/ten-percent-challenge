@@ -21,7 +21,8 @@ claims = modal.Dict.from_name("tenpct-v2-claims", create_if_missing=True)
 base_img = modal.Image.debian_slim().pip_install("torch", "transformers", "accelerate", "numpy", "scipy", "huggingface_hub")
 cand_img = modal.Image.debian_slim().pip_install("torch", "transformers", "accelerate", "numpy", "safetensors", "scipy")
 orch_img = modal.Image.debian_slim().pip_install("numpy", "scipy")
-for f in FILES:
+if modal.is_local():
+  for f in FILES:
     base_img = base_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
     cand_img = cand_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
     orch_img = orch_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
@@ -81,21 +82,28 @@ def run_exam(spec):
     harness_ok = all(_sha_file(f"/h/{f}") == h for f, h in lock["harness_sha256"].items() if f in FILES)
     sz = size_check.measure(art, mem, lock["base_fp16_bytes"], lock["budget_fraction"])
     view = C.candidate_view(rows); y = C.labels(rows)
-    # --- base bar score (own process; stage 2 reuses stage 1 predictions) ---
-    if prev: bp, bs = prev["_base_pred"], prev["base_seconds"]
-    else:
-        o = run_base.remote(view, lock["base_id"]); bp, bs = o["pred"], o["seconds"]
-    # --- candidate: no-network sandbox, artifact+memory only ---
-    cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", "/tmp/inputs.json"]
-    if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
-    app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
-    sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=GPU, block_network=True, timeout=7200,
-                              volumes={"/cand": candvol.read_only()})
-    try:
-        with sb.open("/tmp/inputs.json", "w") as f: f.write(json.dumps(view))
-        p = sb.exec(*cmd); out = p.stdout.read(); err = p.stderr.read(); rc = p.wait()
-    finally:
-        sb.terminate()
+    try:   # harness/infra failures before any scoring RELEASE the claim (no label was used); candidate crashes do not
+        # --- base bar score (own process; stage 2 reuses stage 1 predictions) ---
+        if prev: bp, bs = prev["_base_pred"], prev["base_seconds"]
+        else:
+            o = run_base.remote(view, lock["base_id"]); bp, bs = o["pred"], o["seconds"]
+        # --- candidate: no-network sandbox, artifact+memory only ---
+        cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", "/tmp/inputs.json"]
+        if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
+        app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
+        sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=GPU, block_network=True, timeout=7200,
+                                  volumes={"/cand": candvol.read_only()})
+        try:
+            with sb.open("/tmp/inputs.json", "w") as f: f.write(json.dumps(view))
+            p = sb.exec(*cmd); out = p.stdout.read(); err = p.stderr.read(); rc = p.wait()
+        finally:
+            sb.terminate()
+    except Exception as e:
+        import traceback
+        os.makedirs("/exam/aborts", exist_ok=True)
+        json.dump(dict(key=key, t=C.now(), labels_scored=False, error=traceback.format_exc()[-3000:]), open(f"/exam/aborts/{key.replace(':', '_')}_{int(time.time())}.json", "w"))
+        claims.pop(key); import shutil; shutil.rmtree(rdir, ignore_errors=True); examvol.commit()
+        print("INFRA_ABORT (claim released, nothing scored):", repr(e)); raise
     line = [l for l in out.splitlines() if l.startswith("CAND_JSON:")]
     if rc != 0 or not line:
         rec.update(status="candidate_crashed", returncode=rc, stderr_tail=err[-2000:], size=sz, finished_utc=C.now())

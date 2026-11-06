@@ -1,0 +1,56 @@
+[
+ {
+  "name": "p2_gptq2_g128",
+  "bits": 2,
+  "g": 128
+ },
+ {
+  "name": "p2_gptq2_g64",
+  "bits": 2,
+  "g": 64
+ },
+ {
+  "name": "p2_gptq3_g128",
+  "bits": 3,
+  "g": 128
+ },
+ {
+  "name": "p2_gptq3_g64",
+  "bits": 3,
+  "g": 64
+ },
+ {
+  "name": "p2_gptq4_g128",
+  "bits": 4,
+  "g": 128
+ },
+ {
+  "name": "p2_gptq4_g64",
+  "bits": 4,
+  "g": 64
+ },
+ {
+  "name": "p2_gptq2_lr64",
+  "bits": 2,
+  "g": 128,
+  "lr_rank": 64
+ },
+ {
+  "name": "p2_gptq2_lr128",
+  "bits": 2,
+  "g": 128,
+  "lr_rank": 128
+ },
+ {
+  "name": "p2_gptq3_lr32",
+  "bits": 3,
+  "g": 128,
+  "lr_rank": 32
+ },
+ {
+  "name": "p2_gptq3_lr64",
+  "bits": 3,
+  "g": 128,
+  "lr_rank": 64
+ }
+]

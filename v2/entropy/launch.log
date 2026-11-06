@@ -1,0 +1,24 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Z5sHkXMgfCjOah2aIsBJLY
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/entropy/run.py
+├── ✓ Uploaded ../base/calib.jsonl
+├── ✓ Uploaded ../engine/split.py
+├── ✓ Uploaded coders.py
+├── ✓ Created Function analyze.
+├── ✓ Created Function selftest.
+├── ✓ Created Function dump.
+├── ✓ Created Function run_cfg.
+└── ✓ Created Function orch.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:13,  1.88s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:11,  1.85s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:05<00:09,  1.81s/it]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:07<00:07,  1.81s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:09<00:05,  1.79s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:10<00:03,  1.82s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:12<00:01,  1.82s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.48s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:13<00:00,  1.69s/it]

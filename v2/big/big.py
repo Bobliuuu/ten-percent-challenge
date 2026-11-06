@@ -22,9 +22,14 @@ def impl(cfg):
     M=cfg.get("model","Qwen/Qwen2.5-14B-Instruct"); split=cfg.get("split","dev"); mode=cfg.get("mode","eval")
     assert split in ("dev",), "locked exam must not be touched by the engine"
     tok=AutoTokenizer.from_pretrained(M)
-    ng=torch.cuda.device_count(); cap=cfg.get("cap","40GiB")
-    model=AutoModelForCausalLM.from_pretrained(M,torch_dtype=torch.bfloat16,device_map="auto",max_memory={i:cap for i in range(ng)}).eval()
-    print("devmap gpus",ng,flush=True)
+    model=AutoModelForCausalLM.from_pretrained(M,torch_dtype=torch.bfloat16,low_cpu_mem_usage=True).eval()
+    STREAM=[True]
+    for n_,c_ in model.model.named_children():
+        if n_!="layers": c_.cuda()
+    for l_ in model.model.layers:
+        l_.register_forward_pre_hook(lambda m,a: m.cuda() if STREAM[0] else None)
+        l_.register_forward_hook(lambda m,a,o: m.cpu() if STREAM[0] else None)
+    print("cpu-resident model, layers streamed to 1 GPU",flush=True)
     model.config.use_cache=False
     base_params=sum(p.numel() for p in model.parameters())
     rd=lambda f:[json.loads(x) for x in open("/root/base/"+f)]
@@ -81,7 +86,7 @@ def impl(cfg):
             return out
     Wl=model.get_output_embeddings().weight.data[letter_ids].clone().cuda(0)
     @torch.no_grad()
-    def predict(rows,rm,bs=16):
+    def predict(rows,rm,bs=cfg.get("bs",48)):
         enc=[rm(tok.encode(fmt(r)))[-1024:] for r in rows]
         order=np.argsort([-len(e) for e in enc]); out=np.zeros((len(rows),4),dtype=np.float32)
         for b in range(0,len(rows),bs):
@@ -96,6 +101,7 @@ def impl(cfg):
     y=np.array([r["answer"] for r in ev]); score=lambda lg: float((lg.argmax(1)==y).mean())
     if mode=="eval":
         base_lg=predict(ev,lambda x:x); base_pred=base_lg.argmax(1); base_acc=score(base_lg)
+    STREAM[0]=False
     layers=model.model.layers; nl0=len(layers)
     def get_inps(n):
         ins=[];kw={}
@@ -115,11 +121,11 @@ def impl(cfg):
         bi=torch.zeros(nl0); cur=[x.clone() for x in inps]
         with torch.no_grad():
             for li,l in enumerate(layers):
-                s=0
+                l.cuda(); s=0
                 for j,x in enumerate(cur):
                     o=l(x,**kw); o=o[0] if isinstance(o,tuple) else o
                     s+=1-torch.nn.functional.cosine_similarity(x.float().flatten(0,1),o.float().flatten(0,1),dim=-1).mean().item(); cur[j]=o
-                bi[li]=s/len(cur)
+                bi[li]=s/len(cur); l.cpu()
         dropl=sorted(sorted(range(2,nl0-1),key=lambda i:bi[i].item())[:ndrop])
     orig_idx=[i for i in range(nl0) if i not in dropl]
     if dropl:
@@ -185,11 +191,12 @@ def impl(cfg):
         cur=[x.clone() for x in inps]
         for ni,l in enumerate(layers):
             oli=orig_idx[ni]
+            l.cuda()
             if mode=="table" and not (LO<=oli<HI):
                 with torch.no_grad():
                     for j,x in enumerate(cur):
                         o=l(x,**kw); cur[j]=o[0] if isinstance(o,tuple) else o
-                continue
+                l.cpu(); continue
             mods={n:l.get_submodule(n) for n in linn}
             torch.cuda.set_device(mods["mlp.down_proj"].weight.device); Hb=hada(HB); PGRID=PGRID0.cuda()
             Hs={}; nsm={}
@@ -232,6 +239,7 @@ def impl(cfg):
                 for j,x in enumerate(cur):
                     o=l(x,**kw)
                     cur[j]=o[0] if isinstance(o,tuple) else o   # table mode: layer unmodified -> fp propagation
+            l.cpu(); torch.cuda.empty_cache()
             print("layer",oli,round(time.time()-t0),flush=True)
     if mode=="table":
         out=dict(model=M,rot=rot,g=g,lay_lo=LO,lay_hi=HI,table=table)
@@ -244,6 +252,7 @@ def impl(cfg):
         for c in range(0,w.shape[1],64):
             blk=w[:,c:c+64]; s=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s,Lv)[0]
         emb.weight.data=wq.to(torch.bfloat16)
+    STREAM[0]=True; del inps; torch.cuda.empty_cache()
     lg=predict(ev,remap); pred=lg.argmax(1); acc=score(lg); agree=float((pred==base_pred).mean())
     # ---- exact byte accounting (bits)
     lin_total=sum(l.get_submodule(n).weight.numel() for l in layers for n in linn)
@@ -264,9 +273,9 @@ def impl(cfg):
         oov=oov[0]/max(1,oov[1]),secs=time.time()-t0)
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
 
-@app.function(image=img, gpu="A100-80GB:2", timeout=28800, max_containers=8, volumes={"/hf":vol})
+@app.function(image=img, gpu="A100-80GB", memory=163840, timeout=43200, max_containers=8, volumes={"/hf":vol})
 def run32(cfg): return impl(cfg)
-@app.function(image=img, gpu="A100-80GB:4", timeout=43200, max_containers=8, volumes={"/hf":vol})
+@app.function(image=img, gpu="A100-80GB", memory=286720, timeout=64800, max_containers=8, volumes={"/hf":vol})
 def run72(cfg): return impl(cfg)
 
 @app.local_entrypoint()
