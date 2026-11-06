@@ -44,3 +44,7 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/alt probe relaunch ap-mPCfr6Mzw2aaNluQlRxUZw (earlier ap-85gE... queued 20min w/o GPU, left running)
 - v2/feedback2 feat.py (1.5B feature extraction for no-RAG feedback study) modal run --detach ap-SJ6DvDkqMKmI47PMMZ3bPL 02:43; vol tenpct-fb2:/f2
 - cfg_C.json (14B sensitivity-allocated per-module L at body bpw targets 1.5..2.4, g128) -> v2/engine/log_C.txt; tables in v2/engine/tables
+
+## v2/vq (workstream: sub-2-bit VQ on Qwen2.5-14B) 2026-11-06
+- Modal app ap-1oMnzKOD2q3XLQnR7fkqot (`modal run --detach v2/vq/vq.py --cfgs cfg_modal_r1.json`): m_k14, m_mlp12_attn16, m_mlp13_attn14; results -> Modal Volume `vq-results` /<name>.json + RESULT_JSON in logs.
+- Lambda A100 (ssh lambda-final, ~/vq): `vq_local.py cfg_14b_r1.json` (b14_k13, b14_k16, b14_k12) -> ~/vq/res/*.json, log ~/vq/r1.log. (Modal was GPU-queued for >2h; AWS p4d/p4de had no capacity.)
