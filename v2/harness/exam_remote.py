@@ -18,15 +18,16 @@ examvol = modal.Volume.from_name("tenpct-v2-exam", create_if_missing=True)
 candvol = modal.Volume.from_name("tenpct-v2-cand", create_if_missing=True)
 claims = modal.Dict.from_name("tenpct-v2-claims", create_if_missing=True)
 
-base_img = modal.Image.debian_slim().pip_install("torch", "transformers", "accelerate", "numpy", "scipy", "huggingface_hub")
-cand_img = modal.Image.debian_slim().pip_install("torch", "transformers", "accelerate", "numpy", "safetensors", "scipy")
+base_img = modal.Image.debian_slim().pip_install("torch", f"transformers=={os.environ.get('TENPCT_TF', '4.51.3')}", "accelerate", "numpy", "scipy", "huggingface_hub")
+TF = os.environ.get("TENPCT_TF", "4.51.3")   # transformers pin (BitNet backup needs >=4.52)
+cand_img = modal.Image.debian_slim().pip_install("torch", f"transformers=={TF}", "accelerate", "numpy", "safetensors", "scipy", "constriction")
 orch_img = modal.Image.debian_slim().pip_install("numpy", "scipy")
 if modal.is_local():
   for f in FILES:
     base_img = base_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
     cand_img = cand_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
     orch_img = orch_img.add_local_file(f"{HERE}/{f}", f"/h/{f}")
-GPU = os.environ.get("TENPCT_GPU", "A100-80GB")
+GPU = os.environ.get("TENPCT_GPU", "A100-80GB") or None   # TENPCT_GPU="" -> CPU base (stand-in tests only)
 
 
 @app.function(image=base_img, gpu=GPU, timeout=7200, volumes={"/hf": modal.Volume.from_name("tenpct-v2-hf", create_if_missing=True)},
@@ -97,7 +98,8 @@ def run_exam(spec):
         # --- candidate: no-network sandbox, artifact+memory only ---
         inp_rel = f"inputs/{key.replace(':', '_')}.json"   # question rows only, no answers
         os.makedirs(os.path.dirname(f"/cand/{inp_rel}"), exist_ok=True); json.dump(view, open(f"/cand/{inp_rel}", "w")); candvol.commit()
-        cmd = ["python", "/h/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", f"/cand/{inp_rel}"]
+        import shutil; os.makedirs("/cand/_worker", exist_ok=True); shutil.copy("/h/worker.py", "/cand/_worker/worker.py"); candvol.commit()
+        cmd = ["python", "/cand/_worker/worker.py", "--artifact", f"/cand/{spec['artifact_vol']}", "--inputs", f"/cand/{inp_rel}"]
         if mem: cmd += ["--memory", f"/cand/{spec['memory_vol']}"]
         app_ = modal.App.lookup("tenpct-v2-exam", create_if_missing=True)
         sb = modal.Sandbox.create("sleep", "infinity", app=app_, image=cand_img, gpu=(spec.get("cand_gpu") or None), block_network=True, timeout=7200,
@@ -121,13 +123,16 @@ def run_exam(spec):
     bad = [c for c in cp if c not in C.LETTERS]
     if bad: cp = [c if c in C.LETTERS else "?" for c in cp]
     rep = S.paired_report(y, bp, cp, margin=lock["margin"], alpha=lock["alpha"])
+    rep_nb = None
+    if o.get("pred_nobias"):
+        rep_nb = S.paired_report(y, bp, [c if c in C.LETTERS else "?" for c in o["pred_nobias"]], margin=lock["margin"], alpha=lock["alpha"])
     if "task" in rows[0]:
         pt = {}
         for r, yy, b_, c_ in zip(rows, y, bp, cp):
             d_ = pt.setdefault(r["task"], [0, 0, 0]); d_[0] += 1; d_[1] += b_ == yy; d_[2] += c_ == yy
         rep["per_task_n_basecorrect_candcorrect"] = pt
     valid = bool(sz["within_budget"] and harness_ok and not lock["standin"] and o["evidence"]["network"].startswith("blocked"))
-    rec.update(status="completed", finished_utc=C.now(), standin=lock["standin"], size=sz, report=rep, harness_unchanged_since_lock=harness_ok,
+    rec.update(report_nobias_secondary=rep_nb, status="completed", finished_utc=C.now(), standin=lock["standin"], size=sz, report=rep, harness_unchanged_since_lock=harness_ok,
                sandbox_evidence=o["evidence"], base_seconds=bs, cand_seconds=o["seconds"], base_id=lock["base_id"],
                lock_exam_file_sha256=lock["exam_file_sha256"], size_ok=bool(sz["within_budget"]),
                PASS=bool(sz["within_budget"] and rep["non_inferior"] and harness_ok and o["evidence"]["network"].startswith("blocked")),
