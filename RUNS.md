@@ -37,3 +37,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - cfg_B.json (14B layer-drop x uniform L, g256) -> v2/engine/log_B.txt
 - v2/moe sweep1 (RTN prune+quant) run on AWS g7e.2xlarge i-0198fb51c29cfc844 us-east-2 (Modal blocked: 10-GPU cap); results v2/moe/results/sweep1_rtn.*
 - relaunch (hook return bug fixed): ap-L6BWuA91mY58R5HPIZxQyo
+- v2/lowbit eval_base.py (6 native-ternary models, MMLU+MDC dev) --detach ap-ClEyfeb37OiaBTZN0VR5EU 02:44; results Volume lowbit-data:/base
