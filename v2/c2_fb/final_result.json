@@ -1,15 +1,15 @@
 {
- "plain_orig_dev_acc": 0.803,
- "tree_sha256": "51341d298f8d369e2718da99d48c7834cff5b7ce2e08f673e8595ed8b074ec8c",
- "stage1_dev_acc": 0.803,
+ "plain_orig_dev_acc": 0.8025,
+ "tree_sha256": "52dd2397d025f34a85b6905fc844dadd3a1b42b865397041083c7512ec4c642f",
+ "stage1_dev_acc": 0.8025,
  "stage1_agree_with_plain": 1.0,
  "real_load_memory_combined_dev_acc": null,
  "feedback": {
   "newtool_k5": {
    "mem_bytes": 428,
-   "dev_acc": 0.7995,
-   "dev_acc_stage1": 0.803,
-   "changed_vs_stage1": 21,
+   "dev_acc": 0.8095,
+   "dev_acc_stage1": 0.8025,
+   "changed_vs_stage1": 121,
    "newtool_items": 7,
    "newtool_before": 0.2857142857142857,
    "newtool_after": 1.0,
@@ -19,21 +19,21 @@
   },
   "pair_k1": {
    "mem_bytes": 448,
-   "dev_acc": 0.8015,
-   "dev_acc_stage1": 0.803,
-   "changed_vs_stage1": 12,
+   "dev_acc": 0.812,
+   "dev_acc_stage1": 0.8025,
+   "changed_vs_stage1": 109,
    "newtool_items": 7,
    "newtool_before": 0.2857142857142857,
-   "newtool_after": 0.2857142857142857,
+   "newtool_after": 0.42857142857142855,
    "pair_err_items": 2,
    "pair_before": 0.0,
    "pair_after": 1.0
   },
   "combined_k6": {
    "mem_bytes": 852,
-   "dev_acc": 0.798,
-   "dev_acc_stage1": 0.803,
-   "changed_vs_stage1": 33,
+   "dev_acc": 0.8085,
+   "dev_acc_stage1": 0.8025,
+   "changed_vs_stage1": 128,
    "newtool_items": 7,
    "newtool_before": 0.2857142857142857,
    "newtool_after": 1.0,
@@ -42,11 +42,11 @@
    "pair_after": 1.0
   }
  },
- "real_load_combined_dev_acc": 0.798,
+ "real_load_combined_dev_acc": 0.8085,
  "gpu_ingest_bytes": 428,
  "gpu_ingest_maxdiff_mu": 4.76837158203125e-07,
  "gpu_ingest_tp_equal": true,
  "tree_unchanged": true,
  "pycache_present": false,
- "secs": 583.5062091350555
+ "secs": 616.32306432724
 }
