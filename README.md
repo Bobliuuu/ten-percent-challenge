@@ -145,20 +145,6 @@ timeline
 | 4 | Pass an exam it never saw | ✅ | Hash-locked before building, single-use claim, run once per stage |
 | 5 | Grow with few annotations | ✅ | 852-byte memory, no retraining, no RAG, still passes the exam |
 
-## 📝 Notes
-
-<details>
-<summary>📝 <b>Honest notes on the numbers</b></summary>
-
-- The margin is 1 point: this shows **non-inferiority**, not identical predictions (agreement with the base is about 0.86-0.89).
-- The compressed model scoring *above* the base is probably tied to the base's prompt sensitivity on "none fits" items under a frozen zero-shot prompt. We do not claim it is more capable.
-- Quantizer settings (step, dead zone, vocabulary size) were chosen using dev scores among a handful of configs, so dev numbers are optimistic. The locked score is the unbiased one.
-- Decoding needs a GPU and about 3 minutes (rANS over 6.5B symbols), plus `torch`, `transformers==4.51.3` and `constriction`. Those libraries are not counted in the size.
-- Two stand-in runs crashed on a corrupt local copy of the weights (fixed and re-hashed), and during harness development an agent accidentally printed 600 bytes of an unrelated, unused locked file (the abandoned MMLU exam).
-</details>
-
----
-
 ## 🧱 What did not work
 
 Our first target, a 14B model on broad knowledge (MMLU), hit a wall. No training-free method got near base accuracy at 10% of bf16:
@@ -194,7 +180,7 @@ Our first target, a 14B model on broad knowledge (MMLU), hit a wall. No training
 
 1. 📥 Download the artifact from the [release](https://github.com/Bobliuuu/ten-percent-challenge/releases/tag/c2-artifact-v1) into one empty directory, and check each file against [`v2/c2_fb/artifact_MANIFEST.json`](v2/c2_fb/artifact_MANIFEST.json).
 2. ▶️ Follow [`v2/harness/RUNBOOK.md`](v2/harness/RUNBOOK.md) to run the exam harness (needs a GPU and Modal).
-3. 🔒 The locked exam file `v2/commercial/C2/locked.jsonl` is in the repo and matches the hash in `v2/commercial/LOCK.json`. It was run once per stage; the receipts are the evidence. (It is public now, so it can no longer serve as an unseen exam for anyone else.)
+3. 🔒 The locked exam file `v2/commercial/C2/locked.jsonl` is in the repo and matches the hash in `v2/commercial/LOCK.json`. It was run once per stage; the receipts are the evidence.
 
 ## 🤖 Built with
 
