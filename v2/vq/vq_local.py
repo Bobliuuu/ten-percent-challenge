@@ -160,6 +160,48 @@ def run(cfg):
         for k,l in enumerate(layers): l.self_attn.layer_idx=k
         model.config.num_hidden_layers=len(layers); print("dropped",dropl,flush=True)
     orig_idx=[i for i in range(nl0) if i not in dropl]
+    if cfg.get("mode")=="sens":
+        sr=np.random.RandomState(5); rows=[calib[i] for i in sr.permutation(len(calib))[:cfg.get("nsens_rows",384)]]
+        ysn=np.array([r["answer"] for r in rows]); model.cuda()
+        def lsm(a): a=a-a.max(1,keepdims=True); return a-np.log(np.exp(a).sum(1,keepdims=True))
+        lp0=lsm(predict(rows)); p0=np.exp(lp0)
+        def stats(lg):
+            lp=lsm(lg); return float((p0*(lp0-lp)).sum(1).mean()), float(-lp[np.arange(len(ysn)),ysn].mean())
+        ce0=float(-lp0[np.arange(len(ysn)),ysn].mean()); print("sens base ce",ce0,flush=True)
+        nS=cfg.get("nsens_seq",48); sl=cfg.get("slogk",12); sres={}
+        if sl not in cbs: cbs[sl]=get_cb(sl)
+        C=cbs[sl]
+        gps=[("q_proj",["self_attn.q_proj","self_attn.k_proj","self_attn.v_proj"],"self_attn.q_proj"),
+             ("o_proj",["self_attn.o_proj"],"self_attn.o_proj"),
+             ("gate_proj",["mlp.gate_proj","mlp.up_proj"],"mlp.gate_proj"),
+             ("down_proj",["mlp.down_proj"],"mlp.down_proj")]
+        for li in range(nl0):
+            l=layers[li]; Hs={}; nsm={}
+            for gname,names,hookn in gps:
+                m=l.get_submodule(hookn); Hs[gname]=torch.zeros(m.in_features,m.in_features,device=dev); nsm[gname]=0
+            def mk2(gname):
+                def hook(m,i,o):
+                    x=i[0].reshape(-1,i[0].shape[-1]).float(); nsm[gname]+=x.shape[0]; Hs[gname]+=x.T@x
+                return hook
+            hds=[l.get_submodule(hn).register_forward_hook(mk2(gn)) for gn,_,hn in gps]
+            with torch.no_grad():
+                for a in range(0,nS,4): model.model(input_ids=stream[a:a+4].cuda())
+            for h_ in hds: h_.remove()
+            for gname,names,hookn in gps:
+                Hraw=Hs[gname]/nsm[gname]; n_in=Hraw.shape[0]; rin=Rot(n_in,zlib.crc32(f'{li}.{gname}.in'.encode()))
+                Hr=rin.fwd(Hraw); Hr=rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
+                for n in names:
+                    m=l.get_submodule(n); W0=m.weight.data.clone(); W=W0.float(); od=W.shape[0]
+                    rout=Rot(od,zlib.crc32(f'{li}.{n}.out'.encode()))
+                    Wr=rin.fwd(W); Wr=rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma=float(Wr.std())
+                    idx=ldlq(Wr/sigma,Hr,C); m.weight.data=decode(idx,C,sigma,rin,rout).to(torch.bfloat16)
+                    kl,ce=stats(predict(rows)); m.weight.data=W0
+                    sres[f"L{li}.{n}"]=dict(kl=kl,dce=ce-ce0,n=int(W.numel()))
+                    print(f"sens L{li}.{n} kl={kl:.5f} dce={ce-ce0:.5f}",flush=True)
+                del Hr
+            del Hs; torch.cuda.empty_cache()
+            json.dump(dict(ce0=ce0,slogk=sl,res=sres),open(f"{RES}/{name}.json","w")); pass
+        print("RESULT_JSON "+json.dumps(dict(name=name,ce0=ce0,slogk=sl,res=sres)),flush=True); return sres
     # ---------- quantize
     logk0=cfg.get("logk",14); plan=cfg.get("plan",[])  # list of [regex, logk]
     smult=cfg.get("smult",1.0)
@@ -244,6 +286,10 @@ def run(cfg):
         budget=2954006733,secs=time.time()-t0,per=st["per"] if cfg.get("keep_per") else None)
     json.dump(res,open(f"{RES}/{name}.json","w"),default=str); pass
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
+
+@app.function(image=img, gpu=["A100-80GB","H100","L40S"], memory=49152, timeout=14400, max_containers=12, volumes={"/hf":vol,RES+"":rvol})
+def run_big(cfg):
+    return run.get_raw_f()(cfg)
 
 
 if __name__=="__main__":
