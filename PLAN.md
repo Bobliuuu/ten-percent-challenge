@@ -28,3 +28,11 @@ Prize needs a complete working proof as a GitHub issue.
 - BERT-SST2 runs in flight (D,E,Q,S): let finish, no new launches for them.
 
 ## Rules: AGENTS.md (detach, results in repo, push every result).
+
+## E. MAINTAINER RULINGS (issue #1 reply by tokenbender, 2026-11-06 05:57Z; verified) — see v2/RULES.md
+1. 10% = size on disk vs fp16-equivalent weights. Count ALL inference files (weights, tokenizer, config, loader code, memory); aim <=9.5%.
+2. "Can't train weights" = compression techniques OK, no retraining.
+3. Feedback: NO retraining AND NO RAG methods ("just context space being edited"). => our kNN-answer-lookup memory (v2/feedback) is AMBIGUOUS and does not generalize. v2/feedback2 = non-retrieval, generalizing feedback (prototype heads, steering, closed-form calibration).
+4. Commercial-class examples: agentic/tool use, PII redaction, AI-vs-human detectors. MMLU/MDC-6 may not count as commercial; v2/commercial builds frozen tasks for these three.
+5. Natively ternary base (BitNet) = gray area (v2/lowbit explores anyway; prefer compressing a conventional model).
+Competition (as of 06:00Z): one attempt (isHeSatoshi/tokenbender, Banking77, Qwen2.5-1.5B), no result; no submissions. Recheck issue list before submitting.
