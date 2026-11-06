@@ -1,0 +1,94 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-1oMnzKOD2q3XLQnR7fkqot
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/vq.py
+├── ✓ Uploaded ../base/calib.jsonl
+├── ✓ Uploaded ../base/dev.jsonl
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:10,  1.53s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:03<00:09,  1.51s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:04<00:07,  1.55s/it]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:06<00:06,  1.53s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:07<00:04,  1.53s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:09<00:02,  1.50s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:10<00:01,  1.48s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.19s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:11<00:00,  1.39s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+base_acc 0.8012078510317061
+decode verify: rotated-frame maxdiff 2.1606683731079102e-07 packed bytes 5734400
+layer 0 relerr_so_far 0.010188993824419701 121
+layer 1 relerr_so_far 0.009258354561024616 147
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.63it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:05,  1.27it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.53it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.53it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:04,  1.20it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.35it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:04,  1.24it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:03<00:03,  1.25it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:04<00:02,  1.10it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:05<00:01,  1.10it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:05,  1.74s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:06<00:01,  1.01s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.29it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.19it/s]
+
+base_acc 0.8012078510317061
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:07<00:02,  1.40s/it]
+layer 2 relerr_so_far 0.0050927902634814 173
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:07<00:01,  1.19s/it]Loading checkpoint shards: 100%|██████████| 8/8 [00:08<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:08<00:00,  1.01s/it]
+base_acc 0.8012078510317061
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+decode verify: rotated-frame maxdiff 2.1606683731079102e-07 packed bytes 5734400
+layer 3 relerr_so_far 0.0037726748187786826 199
+layer 0 relerr_so_far 0.012145023684852744 42
+layer 4 relerr_so_far 0.0027710984537874864 226
+layer 1 relerr_so_far 0.013945597452771866 63
+layer 2 relerr_so_far 0.00761098490666017 84
+layer 5 relerr_so_far 0.0025246536917881905 252
+layer 3 relerr_so_far 0.005621543221152536 105
+layer 6 relerr_so_far 0.0023615907637326333 279
+layer 4 relerr_so_far 0.004143312950279352 126
+layer 7 relerr_so_far 0.0023062644150794688 305
+layer 5 relerr_so_far 0.003751207896312742 147
+layer 8 relerr_so_far 0.0023046368299436204 332
+layer 6 relerr_so_far 0.0034828825054615134 168
+layer 7 relerr_so_far 0.00337082430976564 189
+layer 9 relerr_so_far 0.0023455742835914186 358
+layer 8 relerr_so_far 0.0033483371951700575 210
+layer 10 relerr_so_far 0.0023975633865708093 384
+layer 9 relerr_so_far 0.0033901425980998406 230
+layer 11 relerr_so_far 0.0024394978429925266 410
+layer 10 relerr_so_far 0.003443352380788117 251
+layer 12 relerr_so_far 0.0024971269487762964 437
+layer 11 relerr_so_far 0.0034833251030188727 273
+layer 12 relerr_so_far 0.003543416020233805 294
+layer 13 relerr_so_far 0.0025653732575068654 463
+decode verify: rotated-frame maxdiff 2.1606683731079102e-07 packed bytes 6553600
+layer 13 relerr_so_far 0.0036158672251132623 315
+layer 0 relerr_so_far 0.012956026439104276 320
+layer 14 relerr_so_far 0.002642645076384936 489
+layer 14 relerr_so_far 0.00369813025875496 336
+layer 1 relerr_so_far 0.02128793140435601 347
+layer 15 relerr_so_far 0.00272634462199588 516
+layer 15 relerr_so_far 0.0037882980821674853 357
+layer 2 relerr_so_far 0.011426904731316178 375
+layer 16 relerr_so_far 0.0038687181209997095 378
+layer 16 relerr_so_far 0.002800759442400961 542
+layer 17 relerr_so_far 0.00395462384201823 399
+layer 3 relerr_so_far 0.008396116319499975 402
+layer 17 relerr_so_far 0.0028805856954654506 568
+layer 18 relerr_so_far 0.004040091568349278 419
+layer 4layer 18 relerr_so_far 0.002960096621401882 594
+ relerr_so_far 0.006184870531147347 430
+layer 19 relerr_so_far 0.004129193559234698 440
+layer 19 relerr_so_far 0.003043077890016973 621
+layer 5 relerr_so_far 0.00557702731715879 458

@@ -6,3 +6,36 @@ https://modal.com/apps/jerry-zhu/main/ap-KoYXnImR3BcrNGfs0YkS06
 ├── ✓ Uploaded ../base/calib.jsonl
 ├── ✓ Uploaded ../base/dev.jsonl
 └── ✓ Created Function run.
+base_acc 0.445
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+decode verify: rotated-frame maxdiff 1.7881393432617188e-07 packed bytes 150528
+layer 0 relerr_so_far 0.04165453286556788 7
+layer 1 relerr_so_far 0.039379767080275435 8
+layer 2 relerr_so_far 0.041180840843753855 9
+layer 3 relerr_so_far 0.03905604792774535 10
+layer 4 relerr_so_far 0.03862429741363873 11
+layer 5 relerr_so_far 0.032046331629031505 12
+layer 6 relerr_so_far 0.03260058693164552 13
+layer 7 relerr_so_far 0.032472177528129406 13
+layer 8 relerr_so_far 0.03190429133563703 14
+layer 9 relerr_so_far 0.03195131098093294 15
+layer 10 relerr_so_far 0.031990967799492266 16
+layer 11 relerr_so_far 0.032158279682898805 17
+layer 12 relerr_so_far 0.0322715735859747 18
+layer 13 relerr_so_far 0.03240411438499286 19
+layer 14 relerr_so_far 0.03247428083722931 20
+layer 15 relerr_so_far 0.03238334907317373 21
+layer 16 relerr_so_far 0.03235172125894701 22
+layer 17 relerr_so_far 0.03170459266115242 23
+layer 18 relerr_so_far 0.031604466895399065 23
+layer 19 relerr_so_far 0.030966000344115164 24
+layer 20 relerr_so_far 0.03023251430347695 25
+layer 21 relerr_so_far 0.02966169191985942 26
+layer 22 relerr_so_far 0.02931517712693147 27
+layer 23 relerr_so_far 0.02709635051444374 28
+RESULT_JSON {"name": "smoke05", "cfg": {"name": "smoke05", "model": "Qwen/Qwen2.5-0.5B-Instruct", "logk": 12, "ncal": 32, "nev": 200}, "n": 200, "base_acc": 0.445, "acc": 0.23, "agree": 0.235, "flips_lost": 67, "flips_gain": 24, "dropped": [], "body_bits_per_w": 1.5, "body_ent_bits_per_w": 1.4950214930069752, "rel_proxy_err": 0.02709635051444374, "body_bytes": 67160032.0, "fixed_bytes_est": 19500352.0, "total_bytes_est": 86660384.0, "ratio_bf16": 0.08770712148389315, "ratio_bf16_entropy": 0.0874817515607525, "budget": 2954006733, "secs": 28.82442808151245, "per": null}
+{"name": "smoke05", "cfg": {"name": "smoke05", "model": "Qwen/Qwen2.5-0.5B-Instruct", "logk": 12, "ncal": 32, "nev": 200}, "n": 200, "base_acc": 0.445, "acc": 0.23, "agree": 0.235, "flips_lost": 67, "flips_gain": 24, "dropped": [], "body_bits_per_w": 1.5, "body_ent_bits_per_w": 1.4950214930069752, "rel_proxy_err": 0.02709635051444374, "body_bytes": 67160032.0, "fixed_bytes_est": 19500352.0, "total
+[modal-client] 2026-11-06T02:35:20-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-KoYXnImR3BcrNGfs0YkS06

@@ -42,3 +42,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/commercial build_data.py ap-SPmnKvzT9zzcRJjlIrrKSF (02:45, done, locked); base_eval.py 3 Qwen2.5-Instruct bases ap-9kKyWhppjlUwKM3R8CjGn5 (02:49) --detach
 - relaunch w/ GPU fallback list: ap-kBzNrHTOH6QarbefrjofPT
 - v2/alt probe relaunch ap-mPCfr6Mzw2aaNluQlRxUZw (earlier ap-85gE... queued 20min w/o GPU, left running)
+- v2/feedback2 feat.py (1.5B feature extraction for no-RAG feedback study) modal run --detach ap-SJ6DvDkqMKmI47PMMZ3bPL 02:43; vol tenpct-fb2:/f2
+- cfg_C.json (14B sensitivity-allocated per-module L at body bpw targets 1.5..2.4, g128) -> v2/engine/log_C.txt; tables in v2/engine/tables

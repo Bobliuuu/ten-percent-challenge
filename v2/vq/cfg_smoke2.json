@@ -1,0 +1,3 @@
+[{"name":"s05_k16","model":"Qwen/Qwen2.5-0.5B-Instruct","logk":16,"ncal":128,"nev":400},
+ {"name":"s05_k14","model":"Qwen/Qwen2.5-0.5B-Instruct","logk":14,"ncal":128,"nev":400},
+ {"name":"s05_k12","model":"Qwen/Qwen2.5-0.5B-Instruct","logk":12,"ncal":128,"nev":400}]

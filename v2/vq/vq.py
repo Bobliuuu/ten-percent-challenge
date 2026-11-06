@@ -93,12 +93,19 @@ def run(cfg):
     def ldlq(Wn,H,C,chunk=128,damp=0.01):
         R,Cc=Wn.shape; Cn=0.5*(C**2).sum(1)
         H=(H+H.T)/2; dg=torch.diag(H); dead=dg==0; H[dead,dead]=1
-        cdt=torch.float32 if RES_GPU else torch.float64; H=H.to(cdt); md=torch.mean(torch.diag(H)); eye=torch.eye(Cc,device=dev,dtype=cdt)
-        for dm in [damp,damp*10,damp*100,1.0]:
-            try:
-                Hd=H+dm*md*eye; U=torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(Hd)),upper=True).float(); break
-            except Exception as ex: print("chol retry",dm,flush=True)
-        del H,Hd
+        U=None
+        for dtp,devc in [(torch.float32,dev),(torch.float64,"cpu")]:
+            Hc=H.to(devc,dtp); md=float(torch.mean(torch.diag(Hc))); prev=0.0
+            for dm in [damp,damp*10,damp*100,1.0]:
+                Hc.diagonal().add_((dm-prev)*md); prev=dm
+                try:
+                    L_=torch.linalg.cholesky(Hc); Hi=torch.cholesky_inverse(L_); del L_
+                    U=torch.linalg.cholesky(Hi,upper=True).float().to(dev); del Hi; break
+                except Exception as ex: print("chol retry",dtp,dm,str(ex)[:60],flush=True); torch.cuda.empty_cache()
+            del Hc
+            if U is not None: break
+        del H
+        torch.cuda.empty_cache()
         W=Wn.clone(); W[:,dead]=0; idx=torch.empty(R,Cc//D,dtype=torch.int64,device=dev)
         for c0 in range(0,Cc,chunk):
             c1=min(c0+chunk,Cc); Wc=W[:,c0:c1].clone(); Err=torch.zeros_like(Wc)
@@ -184,8 +191,9 @@ def run(cfg):
         with torch.no_grad():
             for x in cur: l(x,**kw)
         for h_ in hds: h_.remove()
+        Hs={k:v.cpu() for k,v in Hs.items()}; torch.cuda.empty_cache()
         for gname,names,hookn in groups:
-            Hraw=Hs[gname]/nsm[gname]
+            Hraw=Hs[gname].to(dev)/nsm[gname]
             n_in=Hraw.shape[0]; rin=Rot(n_in,zlib.crc32(f'{orig_idx[li]}.{gname}.in'.encode()))
             Hr=rin.fwd(Hraw); Hr=rin.fwd(Hr.T.contiguous()).T.contiguous()   # R H R^T
             for n in names:
@@ -219,7 +227,11 @@ def run(cfg):
         (None if RES_GPU else l.cpu()); torch.cuda.empty_cache()
         print("layer",li,"relerr_so_far",st["err_num"]/st["err_den"],round(time.time()-t0),flush=True)
     # ---------- eval
-    model.cuda(); lg=predict(ev); pred=lg.argmax(1); acc=float((pred==y).mean()); agree=float((pred==base_pred).mean())
+    model.cuda(); lg=None
+    for ebs in [16,8,4,2,1]:
+        try: lg=predict(ev,bs=ebs); break
+        except torch.OutOfMemoryError: torch.cuda.empty_cache(); print("eval OOM, bs",ebs,flush=True); import time as _t; _t.sleep(30)
+    pred=lg.argmax(1); acc=float((pred==y).mean()); agree=float((pred==base_pred).mean())
     # ---------- bytes
     nbody=st["nq"]; other=sum(p.numel() for ly in layers for p_n,p in ly.named_parameters())-nbody
     other_b=other*2+model.model.norm.weight.numel()*2
