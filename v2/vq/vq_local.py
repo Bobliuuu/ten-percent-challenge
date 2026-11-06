@@ -1,7 +1,7 @@
 import os, sys, json
 RES=os.environ.get("VQ_RES","/home/ubuntu/vq/res"); DATA=os.environ.get("VQ_DATA","/home/ubuntu/vq/data")
 os.makedirs(RES,exist_ok=True)
-def run(cfg):
+def _impl(cfg):
     import os, zlib, time, math, re, torch, numpy as np, torch.nn as nn
     pass
     from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -216,32 +216,61 @@ def run(cfg):
             ("down_proj",["mlp.down_proj"],"mlp.down_proj")]
     st=dict(idx_bits=0.0,ent_bits=0.0,nq=0,meta_bytes=0,err_num=0.0,err_den=0.0,per={})
     verified=False
+    tgt=cfg.get("tgt",False); damp_c=cfg.get("damp",0.01)
+    if tgt: cur_fp=[x.clone() for x in cur]
     for li,l in enumerate(layers):
-        l.cuda(); mods={}; Hs={}; nsm={}
+        l.cuda(); mods={}; Hs={}; nsm={}; Hf={}; store={}
         for gname,names,hookn in groups:
             m=l.get_submodule(hookn); Hs[gname]=torch.zeros(m.in_features,m.in_features,device=dev); nsm[gname]=0
         def mk(gname):
             def hook(m,i,o):
                 x=i[0].reshape(-1,i[0].shape[-1]).float(); nsm[gname]+=x.shape[0]; Hs[gname]+=x.T@x
             return hook
-        hds=[l.get_submodule(hn).register_forward_hook(mk(gn)) for gn,_,hn in groups]
-        with torch.no_grad():
-            for x in cur: l(x,**kw)
-        for h_ in hds: h_.remove()
+        def mkq(gname):
+            def hook(m,i,o):
+                x=i[0].reshape(-1,i[0].shape[-1]).float(); nsm[gname]+=x.shape[0]; Hs[gname]+=x.T@x; store[gname]=x
+            return hook
+        def mkf(gname):
+            def hook(m,i,o):
+                x=i[0].reshape(-1,i[0].shape[-1]).float(); Hf[gname]+=x.T@store[gname]
+            return hook
+        if tgt:
+            for gname,names,hookn in groups: Hf[gname]=torch.zeros_like(Hs[gname])
+            with torch.no_grad():
+                for j,x in enumerate(cur):
+                    hds=[l.get_submodule(hn).register_forward_hook(mkq(gn)) for gn,_,hn in groups]
+                    l(x,**kw)
+                    for h_ in hds: h_.remove()
+                    hds=[l.get_submodule(hn).register_forward_hook(mkf(gn)) for gn,_,hn in groups]
+                    o=l(cur_fp[j],**kw); cur_fp[j]=o[0] if isinstance(o,tuple) else o
+                    for h_ in hds: h_.remove()
+            store.clear(); Hf={k:v.cpu() for k,v in Hf.items()}
+        else:
+            hds=[l.get_submodule(hn).register_forward_hook(mk(gn)) for gn,_,hn in groups]
+            with torch.no_grad():
+                for x in cur: l(x,**kw)
+            for h_ in hds: h_.remove()
         Hs={k:v.cpu() for k,v in Hs.items()}; torch.cuda.empty_cache()
         for gname,names,hookn in groups:
             Hraw=Hs[gname].to(dev)/nsm[gname]
             n_in=Hraw.shape[0]; rin=Rot(n_in,zlib.crc32(f'{orig_idx[li]}.{gname}.in'.encode()))
             Hr=rin.fwd(Hraw); Hr=rin.fwd(Hr.T.contiguous()).T.contiguous()   # R H R^T
+            if tgt:
+                Hq=Hs[gname].to(dev).double()/nsm[gname]; Hfq=Hf[gname].to(dev).double()/nsm[gname]
+                Hq.diagonal().add_(damp_c*float(torch.mean(torch.diag(Hq))))
+                Lc=torch.linalg.cholesky(Hq); del Hq
             for n in names:
                 m=l.get_submodule(n); W=m.weight.data.float(); out_dim=W.shape[0]
+                if tgt:
+                    Wt=torch.cholesky_solve((W.double()@Hfq).T.contiguous(),Lc).T.contiguous().float()
+                    print("tgt shift",li,n,float((Wt-W).norm()/W.norm()),flush=True); W=Wt; del Wt
                 rout=Rot(out_dim,zlib.crc32(f'{orig_idx[li]}.{n}.out'.encode()))
                 Wr=rin.fwd(W); Wr=rout.fwd(Wr.T.contiguous()).T.contiguous()
                 sigma=float(Wr.std())*smult
                 logk=lk(li,n)
                 if logk not in cbs: cbs[logk]=get_cb(logk)
                 C=cbs[logk]
-                idx=ldlq(Wr/sigma,Hr,C)
+                idx=ldlq(Wr/sigma,Hr,C,damp=damp_c)
                 Q=(C[idx].reshape(out_dim,-1))*sigma
                 Eq=(Wr-Q); num=float(((Eq@Hr)*Eq).sum()); den=float(((Wr@Hr)*Wr).sum())
                 What=decode(idx,C,sigma,rin,rout)
@@ -287,13 +316,9 @@ def run(cfg):
     json.dump(res,open(f"{RES}/{name}.json","w"),default=str); pass
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
 
-@app.function(image=img, gpu=["A100-80GB","H100","L40S"], memory=49152, timeout=14400, max_containers=12, volumes={"/hf":vol,RES+"":rvol})
-def run_big(cfg):
-    return run.get_raw_f()(cfg)
-
 
 if __name__=="__main__":
     for c in json.load(open(sys.argv[1])):
         if len(sys.argv)>2 and c["name"] not in sys.argv[2].split(","): continue
         if os.path.exists(f"{RES}/{c['name']}.json"): continue
-        run(c)
+        _impl(c)
