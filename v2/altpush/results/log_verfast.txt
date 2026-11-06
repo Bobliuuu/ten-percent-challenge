@@ -1,0 +1,5 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+load secs 185.83257412910461
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+RESULT_JSON {"acc_art_bias": 0.8820308611249378, "acc_art_raw": 0.8730711796913887, "acc_run_raw": 0.8730711796913887, "agree_raw_vs_run": 1.0, "max_abs_logit_diff": 0.0}

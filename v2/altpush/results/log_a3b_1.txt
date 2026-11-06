@@ -1,0 +1,41 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 48.49it/s]
+/home/ubuntu/v/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 32
+layer 1 46
+layer 2 59
+layer 3 73
+layer 4 86
+layer 5 100
+layer 6 114
+layer 7 136
+layer 8 156
+layer 9 164
+layer 10 173
+layer 11 181
+layer 12 190
+layer 13 198
+layer 14 207
+layer 15 215
+layer 16 224
+layer 17 233
+layer 18 241
+layer 19 250
+layer 20 267
+layer 21 277
+layer 22 295
+layer 23 314
+layer 24 322
+layer 25 331
+layer 26 339
+layer 27 348
+layer 28 356
+layer 29 364
+layer 30 373
+layer 31 381
+layer 32 390
+layer 33 398
+layer 34 407
+layer 35 415
+RESULT_JSON {"per_task": {"ag_news": 0.835, "dbpedia": 0.8875, "yelp": 0.96, "amazon": 0.965, "emotion": 0.49333333333333335, "offensive": 0.3486238532110092}, "cfg": {"model": "Qwen/Qwen2.5-3B-Instruct", "g": 128, "drop": 0, "vocab": 12000, "ebits": 4, "ncal": 128, "callen": 512, "L": 4}, "bi": null, "n_levels_cfg": 0, "n": 2009, "base_acc": 0.834245893479343, "acc": 0.818815331010453, "agree": 0.9173718267794922, "b_wrong": 80, "c_fixed": 49, "params": 3085938688, "nkeep": 12143, "dropped": [], "bytes": 725787732.9778906, "ratio_bf16": 0.11759594184424227, "body_bpw": 2.0501776944746237, "body_bpw_ent_only": 1.9155996959946504, "parts_MB": {"body": 711.0354769778907, "emb": 13.211584, "head": 0.057344, "misc": 1.483328}, "oov": 0.04339763887932815, "secs": 425.88721799850464}
