@@ -1,0 +1,44 @@
+import sys; mode = sys.argv[1]; sys.argv = [sys.argv[0]] + sys.argv[2:]
+from exp import *
+def cat(*parts): 
+    rows = sum([p[0] for p in parts], []); return rows, np.concatenate([p[1] for p in parts]), np.concatenate([p[2] for p in parts]), np.concatenate([p[3] for p in parts])
+def sub(p, m): return [r for r, k in zip(p[0], m) if k], p[1][m], p[2][m], p[3][m]
+PA, PB = sub(S["pool"], pid == 0), sub(S["pool"], pid == 1)
+ANN_T = cat(S["calib"], PA); ANN_F = cat(S["calib"], S["pool"])
+t0 = time.time()
+if mode == "lam":
+    for lam in (0, 1, 1.5, 2, 3, 4):
+        H = newH(h_all, lam0=lam)
+        r = []
+        for sp in ("pool", "dev"):
+            C = Ctx(H, *S[sp]); p = C.pred(P.Mem()); r += [acc(p, C.y), acc(p, C.y, C.y == 4), acc(p, C.y, C.y != 4)]
+        print("lam0", lam, np.round(r, 4), flush=True)
+if mode == "s1":
+    split = sys.argv[1]; out = {}
+    for delta in (0.0, 3.0, -3.0, 6.0):
+        for eta_n, lam_n in (((1.0, 0.0), (0.0, 0.5), (0.0, 1.0), (1.0, 1.0), (0.0, 2.0)) if split == 'tune' else ((1.0, 0.0),)):
+            H = newH(h_all, eta_n=eta_n, lam_n=lam_n)
+            annC = Ctx(H, *(ANN_T if split == "tune" else ANN_F), delta=delta); evC = Ctx(H, *(PB if split == "tune" else S["dev"]), delta=delta)
+            o = s1(H, annC, evC, delta, ns=8); out[f"d{delta}_e{eta_n}_l{lam_n}"] = o
+            print(delta, eta_n, lam_n, "k0", {a: round(b, 3) for a, b in o["k0"].items()}, *[(k, round(o[f"k{k}"]["unseen"], 3), round(o[f"k{k}"]["dev"], 4), round(o[f"k{k}"]["irr"], 3)) for k in KS], flush=True)
+    json.dump(out, open(f"res_s1_{split}.json", "w"), indent=1)
+if mode == "s2":
+    split = sys.argv[1]; out = {}
+    tc = tool_items(*[S["calib"][0], S["calib"][3]]); tp = tool_items(S["pool"][0], S["pool"][3]); td = tool_items(S["dev"][0], S["dev"][3])
+    tools = [t for t in set(tc) | set(tp) if len(tc.get(t, [])) + len(tp.get(t, [])) >= 6 and len(td.get(t, [])) >= 3]
+    print("tools", len(tools))
+    grid = [dict(lam_t=a, w=w, n0t=n) for a in (0.5, 1.0, 2.0) for w in (1.0,) for n in (0.5, 2.0)] if split == "tune" else [json.loads(sys.argv[2])]
+    for prm in grid:
+        res = s2(lambda H: Ctx(H, *(ANN_T if split == "tune" else ANN_F)), lambda H: Ctx(H, *(PB if split == "tune" else S["dev"])), tools, KS, 4 if split == "tune" else NS, prm)
+        sm = s2_summ(res); out[json.dumps(prm)] = dict(summary=sm, detail=res if split != "tune" else None)
+        print(prm, {k: (v["n_tools"], round(v["new_before"], 3), round(v["new_after"], 3), round(v["dev_before"], 4), round(v["dev_after"], 4)) for k, v in sm.items()}, flush=True)
+    json.dump(out, open(f"res_s2_{split}.json", "w"), indent=1)
+if mode == "s3":
+    split = sys.argv[1]; out = {}
+    grid = [dict(eta=e, ba=b) for e in (0.3, 0.6, 1.0) for b in (0.5, 1.0)] if split == "tune" else [json.loads(sys.argv[2])]
+    for prm in grid:
+        H = newH(h_all, **prm); annC = Ctx(H, *(ANN_T if split == "tune" else ANN_F)); evC = Ctx(H, *(PB if split == "tune" else S["dev"]))
+        res = s3(H, annC, evC, 3, KS, 8); sm = s3_summ(res); out[json.dumps(prm)] = dict(summary=sm, detail=res if split != "tune" else None)
+        print(prm, {k: (v["n_pairs"], v["n_err_eval"], round(v["fixed_unseen_errs"], 3), round(v["grp_before"], 3), round(v["grp_after"], 3), round(v["dev_before"], 4), round(v["dev_after"], 4)) for k, v in sm.items()}, flush=True)
+    json.dump(out, open(f"res_s3_{split}.json", "w"), indent=1, default=str)
+print("secs", time.time() - t0)
