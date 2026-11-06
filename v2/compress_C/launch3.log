@@ -7,3 +7,32 @@ https://modal.com/apps/jerry-zhu/main/ap-0FIdWV3yD9BaeFykMcV9jx
 ├── ✓ Uploaded ../commercial/C/calib.jsonl
 ├── ✓ Uploaded ../commercial/C/dev.jsonl
 └── ✓ Created Function run.
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▌         | 1/17 [00:01<00:20,  1.26s/it]
+[1ALoading checkpoint shards:  12%|█▏        | 2/17 [00:02<00:17,  1.20s/it]
+[1ALoading checkpoint shards:  18%|█▊        | 3/17 [00:03<00:16,  1.19s/it]
+[1ALoading checkpoint shards:  24%|██▎       | 4/17 [00:04<00:15,  1.19s/it]
+[1ALoading checkpoint shards:  29%|██▉       | 5/17 [00:05<00:13,  1.10s/it]
+[1ALoading checkpoint shards:  35%|███▌      | 6/17 [00:06<00:11,  1.07s/it]
+[1ALoading checkpoint shards:  41%|████      | 7/17 [00:07<00:10,  1.08s/it]
+[1ALoading checkpoint shards:  47%|████▋     | 8/17 [00:08<00:09,  1.08s/it]
+[1ALoading checkpoint shards:  53%|█████▎    | 9/17 [00:09<00:08,  1.06s/it]
+[1ALoading checkpoint shards:  59%|█████▉    | 10/17 [00:11<00:07,  1.08s/it]
+[1ALoading checkpoint shards:  65%|██████▍   | 11/17 [00:12<00:06,  1.13s/it]
+[1ALoading checkpoint shards:  71%|███████   | 12/17 [00:13<00:05,  1.14s/it]
+[1ALoading checkpoint shards:  76%|███████▋  | 13/17 [00:14<00:04,  1.12s/it]
+[1ALoading checkpoint shards:  82%|████████▏ | 14/17 [00:15<00:03,  1.06s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 15/17 [00:16<00:02,  1.07s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 16/17 [00:17<00:01,  1.03s/it]
+[1ALoading checkpoint shards: 100%|██████████| 17/17 [00:18<00:00,  1.00it/s]
+[1ALoading checkpoint shards: 100%|██████████| 17/17 [00:18<00:00,  1.08s/it]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:631: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:636: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.8` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.
+  warnings.warn(
