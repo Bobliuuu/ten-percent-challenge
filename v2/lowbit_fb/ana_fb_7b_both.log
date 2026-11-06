@@ -1,0 +1,45 @@
+k0 ag_news {'lam0': 0.0, 'pool_base': 0.8938, 'pool_head': 0.8962, 'pool_best_lam': 0.1, 'dev_base': 0.875, 'dev_head_at_lam0': 0.875, 'dev_head_at_best': 0.8775}
+k0 dbpedia {'lam0': 10, 'pool_base': 0.9675, 'pool_head': 0.9738, 'pool_best_lam': 10, 'dev_base': 0.9775, 'dev_head_at_lam0': 0.9825, 'dev_head_at_best': 0.9825}
+k0 yelp {'lam0': 0.0, 'pool_base': 0.9625, 'pool_head': 0.9625, 'pool_best_lam': 0.03, 'dev_base': 0.9625, 'dev_head_at_lam0': 0.9625, 'dev_head_at_best': 0.9625}
+k0 amazon {'lam0': 0.0, 'pool_base': 0.9675, 'pool_head': 0.9663, 'pool_best_lam': 0.03, 'dev_base': 0.9625, 'dev_head_at_lam0': 0.9625, 'dev_head_at_best': 0.965}
+k0 emotion {'lam0': 1, 'pool_base': 0.6012, 'pool_head': 0.625, 'pool_best_lam': 1, 'dev_base': 0.5567, 'dev_head_at_lam0': 0.56, 'dev_head_at_best': 0.56}
+k0 offensive {'lam0': 1, 'pool_base': 0.7932, 'pool_head': 0.8029, 'pool_best_lam': 1, 'dev_base': 0.8532, 'dev_head_at_lam0': 0.7982, 'dev_head_at_best': 0.7982}
+DEV total base 0.8815331010452961 head 0.8800398208063713
+/Users/jhome/ten-percent/v2/lowbit_fb/ana_fb.py:25: RuntimeWarning: Mean of empty slice
+  def agg(rs): return {q: float(np.nanmean([r[q] for r in rs])) for q in rs[0]}
+B ag_news {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.875, 'ship_k0_acc': 0.875}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.875, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.078, 'acc': 0.879, 'corr_ok': 0.994, 'rec': 0.1}, 'head_fb': {'fix': 0.136, 'acc': 0.886, 'corr_ok': 0.993, 'rec': 0.2}, 'combo': {'fix': 0.132, 'acc': 0.886, 'corr_ok': 0.993, 'rec': 0.2}}
+  k 5 {'bias': {'fix': 0.112, 'acc': 0.886, 'corr_ok': 0.997, 'rec': 0.06}, 'head_fb': {'fix': 0.17, 'acc': 0.889, 'corr_ok': 0.992, 'rec': 0.16}, 'combo': {'fix': 0.172, 'acc': 0.889, 'corr_ok': 0.992, 'rec': 0.22}}
+  k 10 {'bias': {'fix': 0.142, 'acc': 0.889, 'corr_ok': 0.995, 'rec': 0.11}, 'head_fb': {'fix': 0.17, 'acc': 0.887, 'corr_ok': 0.99, 'rec': 0.25}, 'combo': {'fix': 0.18, 'acc': 0.886, 'corr_ok': 0.987, 'rec': 0.28}}
+  k 25 {'bias': {'fix': 0.15, 'acc': 0.891, 'corr_ok': 0.996, 'rec': 0.104}, 'head_fb': {'fix': 0.246, 'acc': 0.878, 'corr_ok': 0.968, 'rec': 0.348}, 'combo': {'fix': 0.278, 'acc': 0.876, 'corr_ok': 0.961, 'rec': 0.376}}
+B dbpedia {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.9775, 'ship_k0_acc': 0.9775}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.978, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.044, 'acc': 0.978, 'corr_ok': 0.999, 'rec': 0.2}, 'head_fb': {'fix': 0.367, 'acc': 0.978, 'corr_ok': 0.992, 'rec': 1.0}, 'combo': {'fix': 0.378, 'acc': 0.979, 'corr_ok': 0.992, 'rec': 1.0}}
+  k 5 {'bias': {'fix': 0.178, 'acc': 0.981, 'corr_ok': 0.999, 'rec': 0.18}, 'head_fb': {'fix': 0.489, 'acc': 0.979, 'corr_ok': 0.99, 'rec': 0.92}, 'combo': {'fix': 0.489, 'acc': 0.977, 'corr_ok': 0.988, 'rec': 0.94}}
+  k 10 {'bias': {'fix': 0.322, 'acc': 0.985, 'corr_ok': 1.0, 'rec': 0.22}, 'head_fb': {'fix': 0.522, 'acc': 0.972, 'corr_ok': 0.983, 'rec': 0.83}, 'combo': {'fix': 0.578, 'acc': 0.97, 'corr_ok': 0.979, 'rec': 0.83}}
+  k 25 {'bias': {'fix': 0.444, 'acc': 0.988, 'corr_ok': 1.0, 'rec': 0.24}, 'head_fb': {'fix': 0.556, 'acc': 0.971, 'corr_ok': 0.981, 'rec': 0.732}, 'combo': {'fix': 0.556, 'acc': 0.963, 'corr_ok': 0.972, 'rec': 0.732}}
+B yelp {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.9625, 'ship_k0_acc': 0.9625}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.087, 'acc': 0.963, 'corr_ok': 0.997, 'rec': 0.1}, 'head_fb': {'fix': 0.067, 'acc': 0.964, 'corr_ok': 0.999, 'rec': 0.1}, 'combo': {'fix': 0.067, 'acc': 0.963, 'corr_ok': 0.998, 'rec': 0.1}}
+  k 5 {'bias': {'fix': 0.107, 'acc': 0.964, 'corr_ok': 0.997, 'rec': 0.1}, 'head_fb': {'fix': 0.113, 'acc': 0.966, 'corr_ok': 0.999, 'rec': 0.12}, 'combo': {'fix': 0.12, 'acc': 0.966, 'corr_ok': 0.999, 'rec': 0.14}}
+  k 10 {'bias': {'fix': 0.1, 'acc': 0.963, 'corr_ok': 0.997, 'rec': 0.1}, 'head_fb': {'fix': 0.127, 'acc': 0.964, 'corr_ok': 0.997, 'rec': 0.18}, 'combo': {'fix': 0.147, 'acc': 0.964, 'corr_ok': 0.996, 'rec': 0.19}}
+  k 25 {'bias': {'fix': 0.047, 'acc': 0.964, 'corr_ok': 0.999, 'rec': 0.036}, 'head_fb': {'fix': 0.28, 'acc': 0.958, 'corr_ok': 0.984, 'rec': 0.372}, 'combo': {'fix': 0.307, 'acc': 0.959, 'corr_ok': 0.984, 'rec': 0.388}}
+B amazon {'lam0': 0.0, 'w': 30, 'lam_fb': 3, 'eta': 2, 'ba': 1} {'base_acc': 0.9625, 'ship_k0_acc': 0.9625}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.963, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.12, 'acc': 0.958, 'corr_ok': 0.991, 'rec': 0.0}, 'head_fb': {'fix': 0.227, 'acc': 0.971, 'corr_ok': 0.999, 'rec': 0.0}, 'combo': {'fix': 0.187, 'acc': 0.968, 'corr_ok': 0.998, 'rec': 0.0}}
+  k 5 {'bias': {'fix': 0.107, 'acc': 0.96, 'corr_ok': 0.993, 'rec': 0.14}, 'head_fb': {'fix': 0.24, 'acc': 0.97, 'corr_ok': 0.999, 'rec': 0.12}, 'combo': {'fix': 0.253, 'acc': 0.97, 'corr_ok': 0.998, 'rec': 0.14}}
+  k 10 {'bias': {'fix': 0.04, 'acc': 0.962, 'corr_ok': 0.998, 'rec': 0.08}, 'head_fb': {'fix': 0.253, 'acc': 0.971, 'corr_ok': 0.999, 'rec': 0.08}, 'combo': {'fix': 0.253, 'acc': 0.97, 'corr_ok': 0.998, 'rec': 0.09}}
+  k 25 {'bias': {'fix': 0.04, 'acc': 0.964, 'corr_ok': 1.0, 'rec': 0.0}, 'head_fb': {'fix': 0.22, 'acc': 0.962, 'corr_ok': 0.991, 'rec': 0.356}, 'combo': {'fix': 0.233, 'acc': 0.963, 'corr_ok': 0.991, 'rec': 0.352}}
+B emotion {'lam0': 0.0, 'w': 3, 'lam_fb': 1, 'eta': 0.5, 'ba': 1} {'base_acc': 0.5566666666666666, 'ship_k0_acc': 0.5566666666666666}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.557, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.005, 'acc': 0.558, 'corr_ok': 0.998, 'rec': 0.0}, 'head_fb': {'fix': 0.045, 'acc': 0.56, 'corr_ok': 0.97, 'rec': 0.1}, 'combo': {'fix': 0.046, 'acc': 0.563, 'corr_ok': 0.975, 'rec': 0.1}}
+  k 5 {'bias': {'fix': 0.006, 'acc': 0.559, 'corr_ok': 0.999, 'rec': 0.04}, 'head_fb': {'fix': 0.047, 'acc': 0.561, 'corr_ok': 0.97, 'rec': 0.14}, 'combo': {'fix': 0.049, 'acc': 0.562, 'corr_ok': 0.97, 'rec': 0.14}}
+  k 10 {'bias': {'fix': 0.008, 'acc': 0.56, 'corr_ok': 1.0, 'rec': 0.03}, 'head_fb': {'fix': 0.047, 'acc': 0.562, 'corr_ok': 0.972, 'rec': 0.13}, 'combo': {'fix': 0.051, 'acc': 0.564, 'corr_ok': 0.972, 'rec': 0.12}}
+  k 25 {'bias': {'fix': 0.007, 'acc': 0.56, 'corr_ok': 1.0, 'rec': 0.028}, 'head_fb': {'fix': 0.047, 'acc': 0.561, 'corr_ok': 0.97, 'rec': 0.104}, 'combo': {'fix': 0.051, 'acc': 0.562, 'corr_ok': 0.969, 'rec': 0.104}}
+B offensive {'lam0': 0.0, 'w': 30, 'lam_fb': 1, 'eta': 0.5, 'ba': 1} {'base_acc': 0.8532110091743119, 'ship_k0_acc': 0.8532110091743119}
+  k 0 {'bias': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}, 'head_fb': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}, 'combo': {'fix': 0.0, 'acc': 0.853, 'corr_ok': 1.0, 'rec': nan}}
+  k 1 {'bias': {'fix': 0.075, 'acc': 0.85, 'corr_ok': 0.983, 'rec': 0.3}, 'head_fb': {'fix': 0.138, 'acc': 0.798, 'corr_ok': 0.912, 'rec': 0.2}, 'combo': {'fix': 0.106, 'acc': 0.794, 'corr_ok': 0.913, 'rec': 0.2}}
+  k 5 {'bias': {'fix': 0.019, 'acc': 0.837, 'corr_ok': 0.977, 'rec': 0.18}, 'head_fb': {'fix': 0.125, 'acc': 0.793, 'corr_ok': 0.908, 'rec': 0.38}, 'combo': {'fix': 0.163, 'acc': 0.791, 'corr_ok': 0.899, 'rec': 0.4}}
+  k 10 {'bias': {'fix': 0.019, 'acc': 0.835, 'corr_ok': 0.975, 'rec': 0.14}, 'head_fb': {'fix': 0.125, 'acc': 0.799, 'corr_ok': 0.915, 'rec': 0.4}, 'combo': {'fix': 0.156, 'acc': 0.786, 'corr_ok': 0.895, 'rec': 0.45}}
+  k 25 {'bias': {'fix': 0.019, 'acc': 0.82, 'corr_ok': 0.958, 'rec': 0.168}, 'head_fb': {'fix': 0.15, 'acc': 0.771, 'corr_ok': 0.877, 'rec': 0.488}, 'combo': {'fix': 0.169, 'acc': 0.752, 'corr_ok': 0.853, 'rec': 0.492}}

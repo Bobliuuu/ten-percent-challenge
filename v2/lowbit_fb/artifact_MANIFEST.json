@@ -1,0 +1,90 @@
+{
+ "artifact": {
+  "config.xz": [
+   480,
+   "26aea132c5bcd2b848807e3373a89caed61d15fe06ba467f3a059176efca9a53"
+  ],
+  "emb.bin": [
+   53870080,
+   "698850ed7d06dab9f32b924a2ad2010bfd6721f382e52c4da54e9797e9f288ad"
+  ],
+  "emb_min.bin": [
+   3366880,
+   "99420862d15a47b57d1c644e52c9f0652448fc656a4b91d1600e792c7977f6d2"
+  ],
+  "emb_scale.bin": [
+   3366880,
+   "91b48709ddb8fd5b1364d0c24972ea9ecc4ea3b9ea4fe27cae658a1321f1303a"
+  ],
+  "head.npz": [
+   547986,
+   "49026319c9a768f8fdc5d6158409ed6245f563013c45fcdb58cc6ddfd1dd36a8"
+  ],
+  "head_letters.bin": [
+   71680,
+   "10806ce1c5dc7b642ca85ed8af9e39f52957ccff8a4f1e5f62a731380ecb9ea3"
+  ],
+  "keep_ids.bin": [
+   168344,
+   "c57736e6d214a5eab9e1c083bc2f1be9c1990111b4444ef6967d583c41d1545f"
+  ],
+  "meta.xz": [
+   5020,
+   "9a33380b6a7312ada14981138fdc2784dbf5df4a3f68576e40d40d5ff94d46c7"
+  ],
+  "predict.py": [
+   11551,
+   "e37c1720747886b514909de76139e66d1b0748ce4330697da9729c75b034d70b"
+  ],
+  "small.bin": [
+   881060,
+   "d1f3435551d300610a1b2530c65b7951bdc789df3a0c22cb4646c2e894e9aeb4"
+  ],
+  "ternary.bin": [
+   392849272,
+   "f0ffd1262e413856a49f1a77375ba55902e0f986d6366b9da8166c6da989ccfd"
+  ],
+  "tokenizer.xz": [
+   1592184,
+   "9bcb5d82dd52b3a6a06081a51db491216251db031b9c84a0af1c4d4d2c181436"
+  ]
+ },
+ "artifact_7b": {
+  "body.bin": [
+   1434967224,
+   "c248b86e3dfe94cb180005bc75c4e3f49653d20d540ccec3b227739ef0dee0ae"
+  ],
+  "config.json": [
+   1805,
+   "7828f592b6286e3c101f79b3099f2c7ad20631a36066956317221e7fb58c49ab"
+  ],
+  "emb.bin": [
+   45928288,
+   "a6a9b9b28b4877f2b23bbada23ae902e161b3802c3897bea45ced27d1a464a65"
+  ],
+  "head.npz": [
+   746644,
+   "73167a28b63313445e38a2d5d93b3a7e3abcf391787fc6db3c21582ec31ac0b8"
+  ],
+  "index.json.xz": [
+   40564,
+   "9e004f3492e754bb0a97ba05a6b6afee7f055324da5460162e3c236c88fa6caf"
+  ],
+  "misc.bin.xz": [
+   491640,
+   "d5394370ab38a2c3de769fdec3ecde15e20f62ea899ca6fff6bab59f8b24e816"
+  ],
+  "predict.py": [
+   11435,
+   "40446691ada837843bebf1246b43748901c2796b71ac1551af32b4dfac3f08c5"
+  ],
+  "signs.bin": [
+   103936,
+   "133e1d84dc874619a945bb2e51aef17487b656c4f5fab5c879615259a3885c1c"
+  ],
+  "tok.tar.xz": [
+   1424184,
+   "5ae540ef3ed365f43c081a9d890a11de2fa7c634dee6991abe6e731dfe674f99"
+  ]
+ }
+}

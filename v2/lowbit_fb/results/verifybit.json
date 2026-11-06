@@ -1,0 +1,30 @@
+{
+ "dev_acc_head": 0.867595818815331,
+ "dev_acc_nohead": 0.8531607765057242,
+ "ingest_dbpedia": {
+  "1": {
+   "bytes": 625,
+   "task_acc": 0.925,
+   "total": 0.8606271777003485,
+   "others_unchanged": true
+  },
+  "5": {
+   "bytes": 1785,
+   "task_acc": 0.9375,
+   "total": 0.8631159780985564,
+   "others_unchanged": true
+  },
+  "10": {
+   "bytes": 3498,
+   "task_acc": 0.9,
+   "total": 0.8556495769039323,
+   "others_unchanged": true
+  },
+  "25": {
+   "bytes": 4110,
+   "task_acc": 0.9175,
+   "total": 0.8591338974614235,
+   "others_unchanged": true
+  }
+ }
+}
