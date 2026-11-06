@@ -1,0 +1,9 @@
+{
+ "rule": "sha256(subject|question|choices)[:8] mod 7: 0=locked,1=dev",
+ "n_test": 14042,
+ "n_locked": 2027,
+ "n_dev": 1987,
+ "locked_sha256": "56c7949386e5e04054f1db4685aaebc96b3db7543664fe07c84f7c83baee1c51",
+ "dev_sha256": "3dfcb78effa389b578f0b8ad8f3b5d931907e991cc29778d45035dfd3ae0939f",
+ "utc": "2026-11-06T05:19:34.495323"
+}

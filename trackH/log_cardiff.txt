@@ -1,0 +1,14 @@
+W1105 23:37:56.785000 75129 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 42388.01it/s]
+labels {0: 'negative', 1: 'neutral', 2: 'positive'} 2 0
+BASE dev acc (amazon_polarity, never-trained-on?) 0.835
+base fp32 bytes 1112183820 emb share 0.6905388571468338
+{"name": "trim only fp32", "topk": 30000, "kept": 15276, "bytes_pct": 35.16643331307038, "ent_bytes_pct": 35.16643331307038, "agree": 0.9905, "acc": 0.8385}
+{"name": "trim5k fp32", "topk": 5000, "kept": 5003, "bytes_pct": 32.32837202747614, "ent_bytes_pct": 32.32837202747614, "agree": 0.9545, "acc": 0.8425}
+{"name": "trim30000 emb4g64 w4g64", "topk": 30000, "kept": 15276, "bytes_pct": 5.106028370297515, "ent_bytes_pct": 4.798456828205259, "agree": 0.9475, "acc": 0.8245}
+{"name": "trim12000 emb4g64 w4g64", "topk": 12000, "kept": 12003, "bytes_pct": 4.978749723568071, "ent_bytes_pct": 4.676652871839432, "agree": 0.944, "acc": 0.828}
+{"name": "trim5000 emb4g64 w4g64", "topk": 5000, "kept": 5003, "bytes_pct": 4.706477653936339, "ent_bytes_pct": 4.416111046306781, "agree": 0.9345, "acc": 0.8175}
+{"name": "trim5k emb4g64 w8g128", "topk": 5000, "kept": 5003, "bytes_pct": 8.311158757820769, "ent_bytes_pct": 7.904342846833536, "agree": 0.9585, "acc": 0.8405}
+{"name": "trim5k emb4g64 w6g64", "topk": 5000, "kept": 5003, "bytes_pct": 6.628974242674701, "ent_bytes_pct": 6.353095740910307, "agree": 0.952, "acc": 0.84}
+{"name": "trim12k emb4g64 w6g64", "topk": 12000, "kept": 12003, "bytes_pct": 6.901246312306432, "ent_bytes_pct": 6.613637566442955, "agree": 0.98, "acc": 0.84}
+{"name": "trim5k emb3g64 w4g64", "topk": 5000, "kept": 5003, "bytes_pct": 4.663293425631346, "ent_bytes_pct": 4.3703895377679824, "agree": 0.934, "acc": 0.819}

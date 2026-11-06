@@ -1,0 +1,30 @@
+W1105 23:09:38.052000 94933 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25598.32it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 35847.23it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip enc3 g128 emb3: devacc=0.9820 agree=0.9920 | heldout(dev[1000:]) acc=0.9820 agree=0.9910 quantbytes~38.6MB 96s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8522.42it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip enc3 g128 emb2: devacc=0.9740 agree=0.9820 | heldout(dev[1000:]) acc=0.9740 agree=0.9790 quantbytes~37.5MB 65s

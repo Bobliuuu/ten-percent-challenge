@@ -1,0 +1,7 @@
+W1105 23:42:25.318000 82851 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 34907.67it/s]
+{"name": "gptq4g128", "bytes_fixed": 70176556.0, "bytes_ent": 65276769.94591719, "ratio_fixed": 0.16023557694639315, "ratio_ent": 0.14904779444407357, "acc2": 0.9188103079795837, "base_acc2": 0.9296624064445496, "agree2": 0.9843247532844543, "agree_hard": 0.8600000143051147, "agree_olddev": 0.9994999766349792, "sec": 228.2878749370575}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18477.92it/s]
+{"name": "gptq3g64", "bytes_fixed": 55037566.0, "bytes_ent": 51133277.56984468, "ratio_fixed": 0.12566840900164994, "ratio_ent": 0.1167536667454032, "acc2": 0.9135851860046387, "base_acc2": 0.9296624064445496, "agree2": 0.9734726548194885, "agree_hard": 0.765333354473114, "agree_olddev": 0.9955000281333923, "sec": 188.8786838054657}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 22073.55it/s]
+{"name": "gptq2g32", "bytes_fixed": 41234896.0, "bytes_ent": 38674254.05044478, "ratio_fixed": 0.09415248806003701, "ratio_ent": 0.0883057215111041, "acc2": 0.8862540125846863, "base_acc2": 0.9296624064445496, "agree2": 0.9381029009819031, "agree_hard": 0.6206666827201843, "agree_olddev": 0.9764999747276306, "sec": 261.9410209655762}

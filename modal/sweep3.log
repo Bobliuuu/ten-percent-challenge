@@ -1,0 +1,151 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-wHcavU4zbf7zrdfrfysTrI
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/modal/sweep3.py
+├── ✓ Uploaded dev2.json
+├── ✓ Uploaded splits.json
+└── ✓ Created Function run.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 67349/67349 [00:00<00:00, 2629037.39 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 355643.05 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1821/1821 [00:00<00:00, 499106.55 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14156.62it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13077.31it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13495.79it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13874.25it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15643.13it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14670.25it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13716.24it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16449.86it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16061.86it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17383.65it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12558.73it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14831.29it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14088.02it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13562.44it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14198.58it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10956.45it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11865.16it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 67349/67349 [00:00<00:00, 1635018.70 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 281644.32 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1821/1821 [00:00<00:00, 491589.60 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13910.88it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13038.48it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14151.39it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12451.70it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15343.90it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10961.01it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15308.79it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10704.10it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14200.26it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11738.94it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13769.79it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11271.09it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15798.20it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11765.47it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10760.94it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14623.93it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10138.97it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14308.23it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11503.63it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14284.23it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12357.89it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14804.73it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10821.72it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16479.44it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10547.68it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 22633.57it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11393.25it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13966.42it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11279.23it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12437.93it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12072.27it/s]
+0.23349749585733148 0.9933333333333333 0.9266666666666666 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 128, 'ebits': 4, 'ln': '12', 'vp': 0}
+0.24123091550603962 0.9956666666666667 0.9276666666666666 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 64, 'ebits': 4, 'ln': '12', 'vp': 0}
+0.2602604743873563 0.998 0.928 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 128, 'ebits': 8, 'ln': '12', 'vp': 0}
+0.2679938940360644 0.9983333333333333 0.9283333333333333 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 64, 'ebits': 8, 'ln': '12', 'vp': 0}
+0.31378643144740587 0.998 0.928 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 128, 'ebits': 16, 'ln': '12', 'vp': 0}
+0.321519851096114 0.9983333333333333 0.9283333333333333 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 8, 'g': 64, 'ebits': 16, 'ln': '12', 'vp': 0}
+0.4274409675559424 0.9936666666666667 0.9263333333333333 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 128, 'ebits': 4, 'ln': '12', 'vp': 0}
+0.4351743872046505 0.996 0.928 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 64, 'ebits': 4, 'ln': '12', 'vp': 0}
+0.4542039460859672 1.0 0.93 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 128, 'ebits': 8, 'ln': '12', 'vp': 0}
+0.4619373657346753 0.9996666666666667 0.9296666666666666 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 64, 'ebits': 8, 'ln': '12', 'vp': 0}
+0.5077299031460167 1.0 0.93 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 128, 'ebits': 16, 'ln': '12', 'vp': 0}
+0.5154633227947248 1.0 0.93 0.93 {'keep': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'ffn': 1.0, 'bits': 16, 'g': 64, 'ebits': 16, 'ln': '12', 'vp': 0}
+48 configs; 12 with agree>=.99; best ratio overall: 0.09463095071490865
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-wHcavU4zbf7zrdfrfysTrI

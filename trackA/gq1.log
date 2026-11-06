@@ -1,0 +1,58 @@
+W1105 23:04:09.075000 72403 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 23994.05it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15721.89it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQ enc3 g128 emb4: devacc=0.9825 agree=0.9915 | heldout(dev[1000:]) acc=0.9830 agree=0.9900 quantbytes~39.7MB 146s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10814.08it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQ enc3 g64 emb4: devacc=0.9845 agree=0.9925 | heldout(dev[1000:]) acc=0.9850 agree=0.9900 quantbytes~42.4MB 120s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16262.95it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQ enc2 g64 emb4: devacc=0.9415 agree=0.9465 | heldout(dev[1000:]) acc=0.9420 agree=0.9430 quantbytes~31.7MB 79s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 38018.27it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQ enc2 g32 emb4: devacc=0.9605 agree=0.9685 | heldout(dev[1000:]) acc=0.9620 agree=0.9690 quantbytes~37.1MB 104s

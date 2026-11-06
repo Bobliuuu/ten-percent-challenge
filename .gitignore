@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.pkl
+*.npz
+*.bin
+*.qpk
+*.pt
+*.pth
+*.safetensors
+*.npy

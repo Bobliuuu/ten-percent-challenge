@@ -1,0 +1,48 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-BM7u32kGaTBai29Z5xRCOS
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackD/msweep.py
+├── ✓ Uploaded vocab.json
+├── ✓ Uploaded dev2_hard.json
+├── ✓ Uploaded dev2.json
+├── ✓ Uploaded engine.py
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18677.69it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15131.29it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 23172.31it/s]
+
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 23038.07it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 22121.62it/s]
+mix30_g128_e3 MB 40.3/44.6 acc 0.9136 agree2 0.9767 hard 0.7827
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17004.28it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17889.38it/s]
+mix30_g128_e4 MB 41.8/46.0 acc 0.9140 agree2 0.9755 hard 0.8107
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18184.97it/s]
+mix40_g128_e3 MB 41.5/45.7 acc 0.9156 agree2 0.9779 hard 0.8067
+mix40_g128_e4 MB 43.0/47.2 acc 0.9204 agree2 0.9819 hard 0.8267
+mix50_g128_e3 MB 42.3/46.5 acc 0.9168 agree2 0.9807 hard 0.8060
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18896.23it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17173.31it/s]

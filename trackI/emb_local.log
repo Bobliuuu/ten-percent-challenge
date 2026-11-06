@@ -1,0 +1,20 @@
+W1106 00:55:51.089000 85483 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15778.39it/s]
+seen 11575
+{'name': 'fp32', 'emb_MB': 13.18931925, 'agree': 0.9951768517494202, 'agree_hard': 0.9573333263397217} 41
+{'name': 'all4', 'emb_MB': 13.18931925, 'agree': 0.9951768517494202, 'agree_hard': 0.9573333263397217} 40
+{'name': 'seen4+unseen_rtn2 (trackA)', 'emb_MB': 9.55149525, 'agree': 0.9895498156547546, 'agree_hard': 0.9073333144187927} 26
+{'name': 'seen4+unseen_rtn3', 'emb_MB': 11.37040725, 'agree': 0.9943729639053345, 'agree_hard': 0.9399999976158142} 34
+{'name': 'seen4+unseen_rtn1ish_sign', 'emb_MB': 6.86102125, 'agree': 0.9803054928779602, 'agree_hard': 0.8546666502952576} 43
+{'name': 'seen4+unseen_pq96', 'emb_MB': 7.21634325, 'agree': 0.9863343834877014, 'agree_hard': 0.8920000195503235} 56
+{'name': 'seen4+unseen_pq48', 'emb_MB': 6.30688725, 'agree': 0.9782958030700684, 'agree_hard': 0.8433333039283752} 49
+{'name': 'seen4+unseen_pq24', 'emb_MB': 5.85215925, 'agree': 0.9670417904853821, 'agree_hard': 0.7940000295639038} 40
+{'name': 'seen4+unseen_lowrank64', 'emb_MB': 5.78614725, 'agree': 0.9670417904853821, 'agree_hard': 0.800000011920929} 42
+{'name': 'seen4+unseen_lowrank32', 'emb_MB': 5.43384325, 'agree': 0.9622186422348022, 'agree_hard': 0.7766666412353516} 46
+{'name': 'seen4+unseen_mean(unk-like)', 'emb_MB': 5.00575125, 'agree': 0.9594051241874695, 'agree_hard': 0.7753333449363708} 39
+{'name': 'seen3+unseen_pq48', 'emb_MB': 5.19568725, 'agree': 0.9766880869865417, 'agree_hard': 0.8113333582878113} 56
+{'name': 'freq>=3:4b, rest pq48', 'emb_MB': 6.05037525, 'agree': 0.9746784567832947, 'agree_hard': 0.8366666436195374} 47
+{'name': 'freq>=3:4b, rest rtn2', 'emb_MB': 9.42323925, 'agree': 0.9887459874153137, 'agree_hard': 0.9066666960716248} 46
+{'name': 'freq>=10:4b, rest pq48', 'emb_MB': 4.54471125, 'agree': 0.965032160282135, 'agree_hard': 0.7786666750907898} 54
+{'name': 'seen3+unseen_rtn2', 'emb_MB': 8.44029525, 'agree': 0.9855305552482605, 'agree_hard': 0.871999979019165} 31
+{'name': 'seen2+unseen_pq48', 'emb_MB': 4.08448725, 'agree': 0.9674437046051025, 'agree_hard': 0.7326666712760925} 52

@@ -1,0 +1,19 @@
+{
+  "base_model": "textattack/bert-base-uncased-SST-2",
+  "base_safetensors_sha256": "1aa258d627ecfcfb8a3b97a3719bae64bf0b99bba4884f09736e9f6277cbf18e",
+  "content_hash_def": "sha256 over rows in order of f'{idx}\\t{label}\\t{sentence}\\n' (utf-8)",
+  "content_sha256": "07ff4ca90d007429d24b6243984092dbb8b4e9c3bad8a31f0af3c0446d524c8b",
+  "dataset_fingerprint": "9d165e2feeb24fc2",
+  "harness_sha256": {
+    "_worker.py": "b40a0cf430bbf552ff343f907ba78b77cea9c5842faa6c9d99e9641dae32d7c2",
+    "common.py": "664adc613119c0e1183c1c8030f4da0ada448bdab719b9ed6b436edf5a507286",
+    "final_exam.py": "410a6e77a4bc976f75f174c40c7ac554b5ca6eb25477b2bca604a262c98139c6",
+    "lock.py": "f27e67fa45d874815096fa07631cd84e4b61dc3aba0eba1b0622b9de1c9da86c",
+    "size_check.py": "2fc67a0a5d8b860a6fee8f5b4143c7e8708cccd3b358e964ebab614be3f9f4c1"
+  },
+  "locked_utc": "2026-11-06T05:12:13.217039+00:00",
+  "n_rows": 2000,
+  "n_sentences_also_in_train_by_hash": 1999,
+  "split": "dev",
+  "splits_json_sha256": "3aed26a9496aa44fc58b223d79aa0bb2e9cbf9d7630270da53bd73b183c4c73b"
+}

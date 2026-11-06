@@ -1,0 +1,26 @@
+W1106 00:01:52.223000 11234 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25118.59it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 35531.47it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+fake-quant: devacc=0.9820 agree=0.9920 | heldout(dev[1000:]) acc=0.9800 agree=0.9890 43s
+EXPORT /Users/jhome/ten-percent/trackA/model.bin: 42728150 bytes = 42.73 MB ; fp32 base 437.9 MB ; ratio 9.76%
+load report: missing [] unexpected []
+max |logit diff| fake vs reloaded: 0.0034287571907043457
+reloaded: devacc=0.9820 agree=0.9920 | heldout(dev[1000:]) acc=0.9800 agree=0.9890
+SELF-CONTAINED reload (pruned-vocab tokenizer): devacc=0.9820 agree=0.9920 heldout(dev[1000:]) acc=0.9800 agree=0.9890
+base dev acc 0.9880
+params kept 109139714 vs 109483778 = 99.69% ; bits/param effective 3.13
+REPORT dev2: n=3000 base_acc=0.9300 quant_acc=0.9070 agree=0.9663
+REPORT dev2_hard: n=1500 base_acc=0.4847 quant_acc=0.4920 agree=0.6860
+REPORT old_dev: n=2000 base_acc=0.9880 quant_acc=0.9820 agree=0.9920

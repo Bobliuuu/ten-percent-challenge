@@ -1,0 +1,8 @@
+W1105 23:31:55.358000 62646 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 27128.82it/s]
+{"name": "rtn4g128", "bytes_fixed": 70009132.0, "bytes_ent": 65069039.72742396, "ratio_fixed": 0.15985329427588602, "ratio_ent": 0.1485734797540015, "acc2": 0.9172025918960571, "base_acc2": 0.9296624064445496, "agree2": 0.9811093211174011, "agree_hard": 0.8140000104904175, "agree_olddev": 0.996999979019165, "sec": 83.32885503768921}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11515.26it/s]
+{"name": "rtn3g64", "bytes_fixed": 60821932.0, "bytes_ent": 56783980.263759345, "ratio_fixed": 0.13887597112936537, "ratio_ent": 0.1296560326909756, "acc2": 0.9003215432167053, "base_acc2": 0.9296624064445496, "agree2": 0.9586012959480286, "agree_hard": 0.7020000219345093, "agree_olddev": 0.9915000200271606, "sec": 73.71569204330444}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 3023.42it/s]
+/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

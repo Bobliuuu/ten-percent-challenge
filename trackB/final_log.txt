@@ -1,0 +1,13 @@
+base: dev 0.9880 syn_all 0.6188 feedback-split errors 24/2000
+use_err True
+empty    dev 0.9880 errH 0.000 b0 0.710 b1 0.599 b2 0.555 b3 0.619 bytes 22456 lexentries 0
+batch0   dev 0.9838 errH 0.083 b0 0.988 b1 0.605 b2 0.557 b3 0.593 bytes 27131 lexentries 1558
+batch1   dev 0.9838 errH 0.083 b0 0.947 b1 0.990 b2 0.576 b3 0.625 bytes 27387 lexentries 1643
+batch2   dev 0.9820 errH 0.083 b0 0.933 b1 0.943 b2 0.974 b3 0.578 bytes 27601 lexentries 1714
+batch3   dev 0.9823 errH 0.083 b0 0.960 b1 0.976 b2 0.949 b3 0.978 bytes 27775 lexentries 1772
+use_err False
+empty    dev 0.9880 errH 0.000 b0 0.710 b1 0.599 b2 0.555 b3 0.619 bytes 22456 lexentries 0
+batch0   dev 0.9864 errH 0.000 b0 0.992 b1 0.605 b2 0.552 b3 0.602 bytes 26763 lexentries 1435
+batch1   dev 0.9857 errH 0.000 b0 0.949 b1 0.990 b2 0.571 b3 0.624 bytes 27030 lexentries 1524
+batch2   dev 0.9847 errH 0.017 b0 0.932 b1 0.936 b2 0.973 b3 0.581 bytes 27301 lexentries 1615
+batch3   dev 0.9844 errH 0.017 b0 0.956 b1 0.972 b2 0.949 b3 0.978 bytes 27457 lexentries 1667

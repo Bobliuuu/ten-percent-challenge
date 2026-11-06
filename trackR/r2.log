@@ -1,0 +1,53 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-ujbylk3D3pWystQK83C0f9
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackR/run.py
+├── ✓ Uploaded split.py
+└── ✓ Created Function run.
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+{"cfg": {"model": "Qwen/Qwen2.5-0.5B-Instruct", "bits": 16, "vocab": 32768, "ebits": 16, "name": "vocab32k_only"}, "n": 1987, "base_acc": 0.46552591847005537, "acc": 0.46099647710115754, "agree": 0.9567186713638651, "b_wrong": 34, "c_fixed": 25, "params": 494032768, "tied": true, "nkeep": 32921, "vocab": 151936, "dropped": [], "bytes": 775297824.0, "bytes_entropy": 775297824.0, "ratio_bf16": 0.7846623485509366, "ratio_fp32": 0.3923311742754683, "ratio_bf16_ent": 0.7846623485509366, "ratio_fp32_ent": 0.3923311742754683, "body_bits_per_w": 16, "body_bits_per_w_ent": 16, "body_frac_params": 0.7242972190864878, "oov": 0.009447145355502189, "secs": 27.745486736297607}
+
+[1AGenerating train split:   0%|          | 0/120000 [00:00<?, ? examples/s]
+[1AGenerating train split:  29%|██▉       | 35000/120000 [00:00<00:00, 340270.78 examples/s]
+[1AGenerating train split:  72%|███████▎  | 87000/120000 [00:00<00:00, 442281.56 examples/s]Generating train split: 100%|██████████| 120000/120000 [00:00<00:00, 454159.20 examples/s]
+
+[1AGenerating test split:   0%|          | 0/7600 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 7600/7600 [00:00<00:00, 333480.25 examples/s]
+{"cfg": {"model": "Qwen/Qwen2.5-0.5B-Instruct", "task": "agnews", "bits": 16, "vocab": 32768, "ebits": 16, "name": "vocab32k_only"}, "n": 1055, "base_acc": 0.8113744075829384, "acc": 0.8113744075829384, "agree": 0.9971563981042654, "b_wrong": 1, "c_fixed": 1, "params": 494032768, "tied": true, "nkeep": 32957, "vocab": 151936, "dropped": [], "bytes": 775362336.0, "bytes_entropy": 775362336.0, "ratio_bf16": 0.7847276397665994, "ratio_fp32": 0.3923638198832997, "ratio_bf16_ent": 0.7847276397665994, "ratio_fp32_ent": 0.3923638198832997, "body_bits_per_w": 16, "body_bits_per_w_ent": 16, "body_frac_params": 0.7242972190864878, "oov": 0.0010794299691099297, "secs": 16.173876523971558}
+layer 0 11.759887218475342
+layer 1 17.148375034332275
+layer 2 22.547730445861816
+layer 3 27.97520875930786
+layer 4 33.562493324279785
+layer 5 39.024619340896606
+layer 6 44.41366958618164
+layer 7 49.84310960769653
+layer 8 55.28261399269104
+layer 9 60.67336821556091
+layer 10 66.124018907547
+layer 11 71.63457226753235
+layer 12 77.17068004608154
+layer 13 82.6423647403717
+layer 14 88.22148513793945
+layer 15 93.75054144859314
+layer 16 99.25389051437378
+layer 17 104.81328392028809
+layer 18 110.44320058822632
+layer 19 115.92518663406372
+layer 20 121.43707633018494
+layer 21 126.93359375
+layer 22 132.5968940258026
+layer 23 138.21875429153442
+{"cfg": {"model": "Qwen/Qwen2.5-0.5B-Instruct", "task": "agnews", "bits": 8, "g": 128, "name": "w8"}, "n": 1055, "base_acc": 0.8113744075829384, "acc": 0.8132701421800947, "agree": 0.990521327014218, "b_wrong": 2, "c_fixed": 4, "params": 494032768, "tied": true, "nkeep": 151936, "vocab": 151936, "dropped": [], "bytes": 639125536.0, "bytes_entropy": 622346238.1582031, "ratio_bf16": 0.6468452878008286, "ratio_fp32": 0.3234226439004143, "ratio_bf16_ent": 0.6298633192669146, "ratio_fp32_ent": 0.3149316596334573, "body_bits_per_w": 8.1875, "body_bits_per_w_ent": 7.812361880754813, "body_frac_params": 0.7242972190864878, "oov": 0, "secs": 140.92425870895386}
+layer 0 11.98463487625122
+layer 1 17.473026752471924
+layer 2 23.026179313659668
+layer 3 28.660520553588867
+layer 4 34.345608949661255
+layer 5 39.951568365097046
+layer 6 45.5222909450531
+layer 7 51.38689041137695
+layer 8 57.257768392562866
+layer 9 62.943222999572754
+layer 10 68.97475552558899
+layer 11 74.94368410110474

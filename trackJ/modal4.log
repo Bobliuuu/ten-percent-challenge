@@ -1,0 +1,93 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-TEUzajL5SQpVaBroLS6aUm
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/modal_run.py
+├── ✓ Uploaded tj.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/dat
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18796.80it/s]
+
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18585.05it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 21361.01it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 17830.74it/s]
+('A +rot256+ln', 3.1323, 0.9751, 0.7467)
+('A +rot256+awq', 3.1445, 0.9775, 0.754)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10400.26it/s]
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 149, in run
+    if cfg.get("rot"): Rm=had_rot(C,cfg["rot"],sum(map(ord,name))%1000).to(WD)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 67, in had_rot
+    for i in range(0,C,blk): Rm[i:i+blk,i:i+blk]=Hb
+                             ~~^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10716.35it/s]
+('A +rot256+awq+ln', 3.1445, 0.9739, 0.7333)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16805.64it/s]
+('A +rot128', 3.1323, 0.9719, 0.752)
+The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 17284.93it/s]
+('A +rot256+scale', 3.1323, 0.9703, 0.7313)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11658.42it/s]
+('w3g64 +rot256+ln', 3.3054, 0.9811, 0.7727)
+('w3g64 +rot256+awq', 3.3177, 0.9711, 0.7953)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17974.06it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 19278.20it/s]
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 149, in run
+    if cfg.get("rot"): Rm=had_rot(C,cfg["rot"],sum(map(ord,name))%1000).to(WD)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 67, in had_rot
+    for i in range(0,C,blk): Rm[i:i+blk,i:i+blk]=Hb
+                             ~~^^^^^^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18926.77it/s]
+('w3g64 +rot256+awq+ln', 3.3177, 0.9787, 0.7833)
+('w3g64 +rot128', 3.3054, 0.9775, 0.7753)
+The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]
+('w3g64 +rot256+scale', 3.3054, 0.9739, 0.7787)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-TEUzajL5SQpVaBroLS6aUm

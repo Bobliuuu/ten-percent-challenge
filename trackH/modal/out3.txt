@@ -1,0 +1,7 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-4iHnq2wfrFB5cJiMUqNofN
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackH/modal/xlmr_gptq.py
+├── ✓ Created Function calib.
+└── ✓ Created Function job.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.

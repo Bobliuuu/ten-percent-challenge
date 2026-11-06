@@ -1,0 +1,28 @@
+{
+ "source_bin": "/Users/jhome/ten-percent/trackA/model.bin",
+ "model_bin_sha256": "7a14495fffa6d413b8d6bd406d6a5012b97dcb2add1ac8876a270be423df815f",
+ "predict_py_sha256": "3dad83deb99b7697cf5025b15ac6ccbb629b4755ae9c442b5211fdd5fccf582b",
+ "model_bin_parts_bytes": {
+  "container_header": 19641,
+  "vocab_zlib": 110497,
+  "vocab_keep_mask": 3816,
+  "encoder_linear_packed": 31850496,
+  "encoder_linear_scales_zeros_fp16": 2211840,
+  "embeddings_packed": 6971424,
+  "embeddings_scales_zeros_fp16": 732528,
+  "pooler_packed": 442368,
+  "pooler_scales_zeros_fp16": 36864,
+  "small_tensors_fp16": 348676
+ },
+ "sum_parts": 42728150,
+ "files": {
+  "model.qpk": 42728150,
+  "predict.py": 9290
+ },
+ "base_fp32_bytes": 437958644,
+ "budget_bytes": 43795864,
+ "artifact_total_bytes": 42737440,
+ "ratio_pct": 9.758327774893742,
+ "headroom_for_memory_bytes": 1058424,
+ "info_lzma_whole_bin_bytes": 38512512
+}

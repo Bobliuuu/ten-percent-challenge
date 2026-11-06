@@ -1,0 +1,9 @@
+[modal-client] 2026-11-06T00:36:04-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (7fb96185). Retrying...
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-cny26hVCRfaw0rRDp1zSfs
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackQ/q.py
+├── ✓ Uploaded /Users/jhome/.cache/huggingface/token
+└── ✓ Created Function run.

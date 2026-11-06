@@ -1,0 +1,175 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-7N3J9vjJMP93qRQnQigLh2
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/modal_run.py
+├── ✓ Uploaded tj.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/dat
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 19294.53it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11931.49it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15869.87it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11711.38it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9848.43it/s]
+('w3g64 gptq', 3.3054, 0.9699, 0.7373)
+('w3g64 rtn', 3.2969, 0.9482, 0.6507)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15750.97it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11755.63it/s]
+('w3g64 +bias', 3.3054, 0.9727, 0.77)
+('w3g64 +bias+scale', 3.3054, 0.9767, 0.7627)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10744.48it/s]
+('w3g64 +bias+scale+ln', 3.3054, 0.9735, 0.77)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9732.01it/s]
+('w3g64 +ln only', 3.3054, 0.9735, 0.7633)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16928.82it/s]
+('w3g64 +rot256', 3.3054, 0.9775, 0.7767)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10558.65it/s]
+('w3g64 +rot64', 3.3054, 0.9767, 0.77)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11513.06it/s]
+('w3g64 +awq', 3.3177, 0.9751, 0.7733)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9842.57it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9730.78it/s]
+('w3g64 +cle', 3.3054, 0.9747, 0.7487)
+('w3g64 +noclip', 3.3054, 0.9763, 0.7607)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15592.50it/s]
+('w3g64 +rot+bias+scale+ln', 3.3054, 0.9775, 0.78)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10753.39it/s]
+('w3g64 +awq+bias+scale+ln', 3.3177, 0.9747, 0.7773)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8157.91it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10115.61it/s]
+('w3g64 +rot+awq+bias+scale+ln', 3.3177, 0.9775, 0.7947)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13185.30it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8680.28it/s]
+('w3g64 +cle+rot+bias+scale+ln', 3.3054, 0.9767, 0.754)
+('w2g64 gptq', 2.2898, 0.9305, 0.6173)
+('w2g64 rtn', 2.2812, 0.8742, 0.5633)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 21720.95it/s]
+('w2g64 +bias', 2.2898, 0.9281, 0.6213)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9693.97it/s]
+('w2g64 +bias+scale', 2.2898, 0.916, 0.6167)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9943.92it/s]
+('w2g64 +bias+scale+ln', 2.2898, 0.9196, 0.5893)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9064.23it/s]
+('w2g64 +ln only', 2.2898, 0.9486, 0.6507)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 19627.39it/s]
+('w2g64 +rot256', 2.2898, 0.9433, 0.6293)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9559.86it/s]
+('w2g64 +rot64', 2.2898, 0.9305, 0.6267)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12931.28it/s]
+('w2g64 +awq', 2.3021, 0.9313, 0.6167)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10019.79it/s]
+('w2g64 +cle', 2.2898, 0.9301, 0.6107)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16547.36it/s]
+('w2g64 +noclip', 2.2898, 0.9216, 0.5967)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10431.78it/s]
+('w2g64 +rot+bias+scale+ln', 2.2898, 0.9385, 0.6113)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10030.64it/s]
+('w2g64 +awq+bias+scale+ln', 2.3021, 0.9337, 0.5953)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10648.80it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11395.41it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10212.17it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8170.09it/s]
+('w2g64 +rot+awq+bias+scale+ln', 2.3021, 0.9289, 0.6247)
+('w2g64 +cle+rot+bias+scale+ln', 2.2898, 0.9264, 0.626)
+('A gptq', 3.1323, 0.967, 0.728)
+('A rtn', 3.1237, 0.9349, 0.6407)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17816.04it/s]
+('A +bias', 3.1323, 0.951, 0.658)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12628.90it/s]
+('A +bias+scale', 3.1323, 0.9606, 0.728)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10268.39it/s]
+('A +bias+scale+ln', 3.1323, 0.9566, 0.7207)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14383.17it/s]
+('A +ln only', 3.1323, 0.9682, 0.7353)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 20271.60it/s]
+('A +rot256', 3.1323, 0.9759, 0.7453)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9230.06it/s]
+('A +rot64', 3.1323, 0.9767, 0.7347)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11281.65it/s]
+('A +awq', 3.1445, 0.9711, 0.726)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10523.85it/s]
+('A +cle', 3.1323, 0.961, 0.726)
+('A +noclip', 3.1323, 0.9666, 0.7187)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 20039.34it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11336.72it/s]
+('A +rot+bias+scale+ln', 3.1323, 0.9686, 0.7227)
+('A +awq+bias+scale+ln', 3.1445, 0.9642, 0.728)
+('A +rot+awq+bias+scale+ln', 3.1445, 0.9658, 0.7327)
+('A +cle+rot+bias+scale+ln', 3.1323, 0.9678, 0.728)
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-7N3J9vjJMP93qRQnQigLh2

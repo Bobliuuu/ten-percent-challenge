@@ -1,0 +1,8 @@
+W1105 23:21:58.803000 48403 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25319.25it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 29628.70it/s]
+FFN keep 0.9 fp32 (no quant): devacc=0.9850 agree=0.9960 | heldout(dev[1000:]) acc=0.9880 agree=0.9970
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 36458.01it/s]
+FFN keep 0.8 fp32 (no quant): devacc=0.9800 agree=0.9880 | heldout(dev[1000:]) acc=0.9870 agree=0.9940
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 28080.31it/s]
+FFN keep 0.7 fp32 (no quant): devacc=0.9710 agree=0.9800 | heldout(dev[1000:]) acc=0.9790 agree=0.9860

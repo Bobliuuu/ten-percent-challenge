@@ -1,0 +1,47 @@
+types seen 11553
+W1106 00:05:18.935000 17145 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 32934.41it/s]
+/Users/jhome/ten-percent/trackK/embq.py:54: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:214.)
+  N=q.shape[0]; return (torch.from_numpy(q).float().reshape(N,-1,g)*torch.from_numpy(s).float()[:,:,None]+torch.from_numpy(lo).float()[:,:,None]).reshape(N,-1)
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26336.42it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10286.93it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 32303.44it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 27674.72it/s]
+{"dev2": 0.999666690826416, "hard": 0.9953333139419556, "sst": 1.0, "name": "rtn8_all", "fb": "nn", "bytes": 24968458, "word_bytes": 24182026, "ent": 24003295.107779033, "t": 70.98607015609741}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26315.87it/s]
+{"dev2": 0.9946666955947876, "hard": 0.9466666579246521, "sst": 1.0, "name": "rtn4_all", "fb": "nn", "bytes": 13248010, "word_bytes": 12461578, "ent": 12195973.453850158, "t": 29.504362106323242}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 30639.84it/s]
+{"dev2": 0.9906666874885559, "hard": 0.8933333158493042, "sst": 0.9990000128746033, "name": "rtn3_all", "fb": "nn", "bytes": 10317897, "word_bytes": 9531465, "ent": 9073365.396771751, "t": 30.406370162963867}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26264.22it/s]
+{"dev2": 0.9760000109672546, "hard": 0.7606666684150696, "sst": 0.9940000176429749, "name": "rtn2_all", "fb": "nn", "bytes": 7387785, "word_bytes": 6601353, "ent": 5866768.633778583, "t": 40.873860120773315}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 7465.16it/s]
+{"dev2": 0.9953333139419556, "hard": 0.9480000138282776, "sst": 1.0, "name": "rtn4_g64", "fb": "nn", "bytes": 13980537, "word_bytes": 13194105, "ent": 13281647.395003937, "t": 61.77036809921265}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9265.97it/s]
+{"dev2": 0.9906666874885559, "hard": 0.9113333225250244, "sst": 0.9994999766349792, "name": "rtn3_g64", "fb": "nn", "bytes": 11050425, "word_bytes": 10263993, "ent": 10179780.841945916, "t": 79.66994976997375}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25992.94it/s]
+{"dev2": 0.9793333411216736, "hard": 0.7806666493415833, "sst": 0.9965000152587891, "name": "rtn2_g64", "fb": "nn", "bytes": 8120312, "word_bytes": 7333880, "ent": 6952696.410485113, "t": 46.85363698005676}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 27518.45it/s]
+{"dev2": 0.9796666502952576, "hard": 0.8119999766349792, "sst": 0.9975000023841858, "name": "rtn2_g32", "fb": "nn", "bytes": 9585368, "word_bytes": 8798936, "ent": 8817264.395224016, "t": 25.558279991149902}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25872.49it/s]
+{"dev2": 0.875, "hard": 0.5820000171661377, "sst": 0.9014999866485596, "name": "pq_ds16_k256", "fb": "nn", "bytes": 2653324, "word_bytes": 1866892, "ent": 2647074.128092738, "t": 22.63042187690735}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26056.41it/s]
+{"dev2": 0.9633333086967468, "hard": 0.7013333439826965, "sst": 0.9884999990463257, "name": "pq_ds8_k256", "fb": "nn", "bytes": 4118379, "word_bytes": 3331947, "ent": 4104204.7134555876, "t": 34.79366874694824}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 38481.61it/s]
+{"dev2": 0.984000027179718, "hard": 0.8333333134651184, "sst": 0.996999979019165, "name": "pq_ds4_k256", "fb": "nn", "bytes": 7048491, "word_bytes": 6262059, "ent": 7020034.060188057, "t": 47.89581894874573}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 34312.38it/s]
+{"dev2": 0.9316666722297668, "hard": 0.628000020980835, "sst": 0.9660000205039978, "name": "pq_ds8_k64", "fb": "nn", "bytes": 3090937, "word_bytes": 2304505, "ent": 3088264.3476853454, "t": 19.615068197250366}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 34095.90it/s]
+{"dev2": 0.9319999814033508, "hard": 0.6226666569709778, "sst": 0.9610000252723694, "name": "pq_ds12_k256", "fb": "nn", "bytes": 3141676, "word_bytes": 2355244, "ent": 3133577.042549327, "t": 24.174810886383057}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 33831.82it/s]
+{"dev2": 0.9399999976158142, "hard": 0.6946666836738586, "sst": 0.9695000052452087, "name": "top4k_4", "fb": "nn", "bytes": 2466832, "word_bytes": 1680400, "ent": 2333834.3731663655, "t": 15.828350067138672}
+Traceback (most recent call last):
+  File "/Users/jhome/ten-percent/trackK/sweep.py", line 23, in <module>
+    t0=time.time(); p,l=build_embedding(dict(tiers=t,fallback=fb,pos=512,pos_bits=None))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/ten-percent/trackK/embq.py", line 130, in build_embedding
+    lookup=decode(packed)
+           ^^^^^^^^^^^^^^
+  File "/Users/jhome/ten-percent/trackK/embq.py", line 155, in decode
+    elif hdr['fallback']=='unk': tab[nonk]=tab[100]
+                                 ~~~^^^^^^
+RuntimeError: unsupported operation: some elements of the input tensor and the written-to tensor refer to a single memory location. Please clone() the tensor before performing the operation.

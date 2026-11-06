@@ -1,0 +1,9 @@
+{
+  "artifact_tree_sha256": "d833001ff74100e486baf0d8ba5f2414c3eb8adb556552dc0d10aa631f47f8ac",
+  "memory_sha256": "75a828bec0e3f096f57f63e90e74dbd77b2fb6c3e8d87d2198b06ff15110881d",
+  "returncode": 1,
+  "sandboxed": true,
+  "stage": 1,
+  "started_utc": "2026-11-06T05:07:14.033305+00:00",
+  "status": "candidate_crashed"
+}

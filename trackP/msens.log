@@ -1,0 +1,74 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-1GAJFLXPT1dkrxcfFh9PXg
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/msens.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/core.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2_hard.json
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2.json
+├── ✓ Uploaded /Users/jhome/ten-percent/splits.json
+├── ✓ Uploaded /Users/jhome/ten-percent/trackA/lib.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2.py
+└── ✓ Created Function run.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 67349/67349 [00:00<00:00, 1558393.40 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 285982.73 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1821/1821 [00:00<00:00, 381815.02 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12148.47it/s]
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 67349/67349 [00:00<00:00, 1832943.02 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 263257.26 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 1821/1821 [00:00<00:00, 409534.99 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14963.44it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11434.20it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]
+[1AGenerating train split: 100%|██████████| 67349/67349 [00:00<00:00, 1483336.64 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]
+[1AGenerating validation split: 100%|██████████| 872/872 [00:00<00:00, 260389.65 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 1821/1821 [00:00<00:00, 371706.62 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11291.32it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16175.27it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10908.82it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11253.94it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11398.49it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10583.17it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11387.25it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10692.70it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10385.65it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11878.53it/s]
+733
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-1GAJFLXPT1dkrxcfFh9PXg

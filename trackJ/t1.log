@@ -1,0 +1,5 @@
+W1106 00:14:31.937000 30722 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 24348.87it/s]
+{"name": "rtn3", "bits_per_w": 3.2969, "agree2": 0.9582, "agree_hard": 0.702, "mean_abs_logit_err": 0.5263, "acc2": 0.8991, "sec": 23, "cfg": {"bits": 3, "g": 64, "method": "rtn"}}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 54947.21it/s]
+{"name": "rtn3+bias", "bits_per_w": 3.2969, "agree2": 0.9646, "agree_hard": 0.712, "mean_abs_logit_err": 0.3208, "acc2": 0.9072, "sec": 133, "cfg": {"bits": 3, "g": 64, "method": "rtn", "bias": 1}}

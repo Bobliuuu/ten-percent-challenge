@@ -1,0 +1,59 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-C9TuMYcqsIqOBhxSLlHG9L
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/mbuild.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/rans.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/fmt.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/build.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/core.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackP/tokfreq.npy
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2_hard.json
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackG/dev2.json
+├── ✓ Uploaded /Users/jhome/ten-percent/trackA/lib.py
+├── ✓ Uploaded /Users/jhome/ten-percent/splits.json
+└── ✓ Created Function run.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]
+[1AGenerating train split: 100%|██████████| 67349/67349 [00:00<00:00, 1942192.44 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 398586.87 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 1821/1821 [00:00<00:00, 500086.92 examples/s]
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 67349/67349 [00:00<00:00, 2076937.41 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 336997.43 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 1821/1821 [00:00<00:00, 665431.92 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 20491.35it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18425.42it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18150.51it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15053.21it/s]
+{"size": 42342718, "beta": -0.125, "ev_agree": 0.5864148139953613, "ev_kl": 1.0565261840820312, "h_agree": 0.5199999809265137, "h_kl": 0.8083241581916809, "cal_agree": 0.578125, "cal_kl": 1.0496597290039062, "reload_maxdiff": 7.672102451324463, "sstdev_agree": 0.5410000085830688, "sstdev_bias": -3.063976287841797, "secs": 68.30583953857422, "name": "k426"}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 19099.57it/s]
+{"size": 42731150, "beta": -0.25, "ev_agree": 0.5602893829345703, "ev_kl": 1.173503041267395, "h_agree": 0.5133333206176758, "h_kl": 0.9451808333396912, "cal_agree": 0.546875, "cal_kl": 1.1992894411087036, "reload_maxdiff": 7.7830352783203125, "sstdev_agree": 0.5220000147819519, "sstdev_bias": -3.2552576065063477, "secs": 69.0373682975769, "name": "k430"}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15465.21it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16481.37it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15255.05it/s]
+{"size": 43028658, "beta": 0.125, "ev_agree": 0.5795819759368896, "ev_kl": 1.0583808422088623, "h_agree": 0.5199999809265137, "h_kl": 0.8019658923149109, "cal_agree": 0.5703125, "cal_kl": 1.0494695901870728, "reload_maxdiff": 7.791285514831543, "sstdev_agree": 0.5210000276565552, "sstdev_bias": -2.9400722980499268, "secs": 57.554529905319214, "name": "k433"}
+{"size": 37999710, "beta": 0.875, "ev_agree": 0.5952572226524353, "ev_kl": 0.9703466296195984, "h_agree": 0.5166666507720947, "h_kl": 0.7170109152793884, "cal_agree": 0.603515625, "cal_kl": 0.9863022565841675, "reload_maxdiff": 7.924606800079346, "sstdev_agree": 0.5759999752044678, "sstdev_bias": -2.6702346801757812, "secs": 56.94298958778381, "name": "trackA"}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-C9TuMYcqsIqOBhxSLlHG9L

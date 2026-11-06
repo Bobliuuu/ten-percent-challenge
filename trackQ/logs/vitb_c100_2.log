@@ -1,0 +1,36 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-eUwAOnnI7yFkirhDJGU4oA
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackQ/q.py
+├── ✓ Uploaded /Users/jhome/.cache/huggingface/token
+└── ✓ Created Function run.
+
+[1AGenerating train split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating train split:  31%|███       | 15600/50000 [00:00<00:00, 155257.60 examples/s]
+[1AGenerating train split:  70%|██████▉   | 34900/50000 [00:00<00:00, 176721.15 examples/s]Generating train split: 100%|██████████| 50000/50000 [00:00<00:00, 184138.22 examples/s]
+
+[1AGenerating test split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000 [00:00<00:00, 189748.87 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.9259037375450134, "agree": 1.0}, "sec": 8.68487000465393}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.11626721928100278, "ratio_fix": 0.13042335353263973, "dev": {"acc": 0.9219093322753906, "agree": 0.9830237627029419}, "sec": 21.290637731552124}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.08947249767660863, "ratio_fix": 0.09930110961959886, "dev": {"acc": 0.9141202569007874, "agree": 0.9642500281333923}, "sec": 21.012064933776855}
+{"cfg": {"method": "gptq", "alpha": 1.0, "g": 128}, "ratio_ent": 0.0715512286581966, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9105252623558044, "agree": 0.9540643095970154}, "sec": 20.6015567779541}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128}, "ratio_ent": 0.07830064731850066, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9163171648979187, "agree": 0.9614539742469788}, "sec": 20.629300117492676}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08654224207898638, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9173157811164856, "agree": 0.967245876789093}, "sec": 20.61909794807434}
+{"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.096981580909042, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9199120998382568, "agree": 0.9752346873283386}, "sec": 20.548637866973877}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.08564124858173493, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9183143377304077, "agree": 0.9688436388969421}, "sec": 21.53375816345215}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.0777730382673862, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9161174297332764, "agree": 0.9642500281333923}, "sec": 21.46973419189453}
+{"cfg": {"method": "rtn", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08641960225730597, "ratio_fix": 0.25491232918480317, "dev": {"acc": 0.9099261164665222, "agree": 0.9544637799263}, "sec": 20.240182399749756}
+edadaltocg/vit_base_patch16_224_in21k_ft_cifar100 85875556 {'dev': 0.9259037375450134, 'exam': 0.9270979166030884}
+{'base': 1} ent1.000 fix1.000 {'dev': {'acc': 0.9259037375450134, 'agree': 1.0}}
+{'method': 'gptq', 'bits': 4, 'g': 128} ent0.116 fix0.130 {'dev': {'acc': 0.9219093322753906, 'agree': 0.9830237627029419}}
+{'method': 'gptq', 'bits': 3, 'g': 128} ent0.089 fix0.099 {'dev': {'acc': 0.9141202569007874, 'agree': 0.9642500281333923}}
+{'method': 'gptq', 'alpha': 1.0, 'g': 128} ent0.072 fix0.255 {'dev': {'acc': 0.9105252623558044, 'agree': 0.9540643095970154}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128} ent0.078 fix0.255 {'dev': {'acc': 0.9163171648979187, 'agree': 0.9614539742469788}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128} ent0.087 fix0.255 {'dev': {'acc': 0.9173157811164856, 'agree': 0.967245876789093}}
+{'method': 'gptq', 'alpha': 0.55, 'g': 128} ent0.097 fix0.255 {'dev': {'acc': 0.9199120998382568, 'agree': 0.9752346873283386}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128, 'sp': 0.3} ent0.086 fix0.255 {'dev': {'acc': 0.9183143377304077, 'agree': 0.9688436388969421}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128, 'sp': 0.3} ent0.078 fix0.255 {'dev': {'acc': 0.9161174297332764, 'agree': 0.9642500281333923}}
+{'method': 'rtn', 'alpha': 0.7, 'g': 128} ent0.086 fix0.255 {'dev': {'acc': 0.9099261164665222, 'agree': 0.9544637799263}}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-eUwAOnnI7yFkirhDJGU4oA

@@ -1,0 +1,13 @@
+{
+ "sandboxed": true,
+ "preds_equal_inprocess": true,
+ "n": 300,
+ "forbidden_modules_loaded": [],
+ "network_reachable": false,
+ "forbidden_paths_opened": [],
+ "files_opened_in_artifact": [
+  "predict.cpython-312.pyc",
+  "model.qpk",
+  "predict.py"
+ ]
+}

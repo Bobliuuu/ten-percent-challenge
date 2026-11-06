@@ -1,0 +1,19 @@
+[modal-client] 2026-11-06T00:35:28-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (c72136fb). Retrying...
+╭─ Error ──────────────────────────────────────────────────────────────────────╮
+│ App create rate limit exceeded. Please wait and retry.                       │
+╰─────────────────────────────────────────────────────────────────�[1ADownloading data:   2%|▏         | 6/310 [02:15<1:54:19, 22.56s/files]
+[1ADownloading data:   2%|▏         | 7/310 [02:29<1:47:32, 21.30s/files]
+[1ADownloading data:   3%|▎         | 8/310 [02:52<1:48:37, 21.58s/files]
+[1ADownloading data:   3%|▎         | 9/310 [03:09<1:45:24, 21.01s/files]
+[1ADownloading data:   3%|▎         | 10/310 [03:34<1:47:01, 21.40s/files]
+[1ADownloading data:   4%|▎         | 11/310 [03:46<1:42:45, 20.62s/files]
+[1ADownloading data:   4%|▍         | 12/310 [04:34<1:53:34, 22.87s/files]
+[1ADownloading data:   4%|▍         | 13/310 [04:38<1:46:13, 21.46s/files]
+[1ADownloading data:   5%|▍         | 14/310 [05:17<1:51:45, 22.65s/files]
+[1ADownloading data:   5%|▍         | 15/310 [05:37<1:50:28, 22.47s/files]
+[1ADownloading data:   5%|▌         | 16/310 [06:05<1:52:03, 22.87s/files]
+[1ADownloading data:   5%|▌         | 17/310 [07:25<2:07:58, 26.21s/files]
+[1ADownloading data:   6%|▌         | 18/310 [08:15<2:13:50, 27.50s/files]
+[1ADownloading data:   6%|▌         | 19/310 [08:25<2:08:58, 26.59s/files]

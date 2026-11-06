@@ -1,0 +1,12 @@
+{"name": "A +rot256+ln", "bits_per_w": 3.1323, "agree2": 0.9751, "agree_hard": 0.7467, "mean_abs_logit_err": 0.2076, "acc2": 0.9152, "sec": 64, "cfg": {"recipe": "A", "bits": 3, "g": 128, "clip": 1, "rot": 256, "ln": 1}}
+{"name": "A +rot256+awq", "bits_per_w": 3.1445, "agree2": 0.9775, "agree_hard": 0.754, "mean_abs_logit_err": 0.2147, "acc2": 0.9176, "sec": 51, "cfg": {"recipe": "A", "bits": 3, "g": 128, "clip": 1, "rot": 256, "awq": 1}}
+{"name": "A +rot256+awq+ln", "bits_per_w": 3.1445, "agree2": 0.9739, "agree_hard": 0.7333, "mean_abs_logit_err": 0.2117, "acc2": 0.9148, "sec": 74, "cfg": {"recipe": "A", "bits": 3, "g": 128, "clip": 1, "rot": 256, "awq": 1, "ln": 1}}
+{"name": "A +rot128", "bits_per_w": 3.1323, "agree2": 0.9719, "agree_hard": 0.752, "mean_abs_logit_err": 0.2175, "acc2": 0.9136, "sec": 44, "cfg": {"recipe": "A", "bits": 3, "g": 128, "clip": 1, "rot": 128}}
+"The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]"
+{"name": "A +rot256+scale", "bits_per_w": 3.1323, "agree2": 0.9703, "agree_hard": 0.7313, "mean_abs_logit_err": 0.2355, "acc2": 0.9112, "sec": 70, "cfg": {"recipe": "A", "bits": 3, "g": 128, "clip": 1, "rot": 256, "scale": 1}}
+{"name": "w3g64 +rot256+ln", "bits_per_w": 3.3054, "agree2": 0.9811, "agree_hard": 0.7727, "mean_abs_logit_err": 0.1718, "acc2": 0.9204, "sec": 69, "cfg": {"bits": 3, "g": 64, "clip": 1, "rot": 256, "ln": 1}}
+{"name": "w3g64 +rot256+awq", "bits_per_w": 3.3177, "agree2": 0.9711, "agree_hard": 0.7953, "mean_abs_logit_err": 0.174, "acc2": 0.9144, "sec": 47, "cfg": {"bits": 3, "g": 64, "clip": 1, "rot": 256, "awq": 1}}
+{"name": "w3g64 +rot256+awq+ln", "bits_per_w": 3.3177, "agree2": 0.9787, "agree_hard": 0.7833, "mean_abs_logit_err": 0.1699, "acc2": 0.9164, "sec": 58, "cfg": {"bits": 3, "g": 64, "clip": 1, "rot": 256, "awq": 1, "ln": 1}}
+{"name": "w3g64 +rot128", "bits_per_w": 3.3054, "agree2": 0.9775, "agree_hard": 0.7753, "mean_abs_logit_err": 0.1722, "acc2": 0.9144, "sec": 45, "cfg": {"bits": 3, "g": 64, "clip": 1, "rot": 128}}
+"The expanded size of the tensor (256) must match the existing size (512) at non-singleton dimension 1.  Target sizes: [256, 256].  Tensor sizes: [512, 512]"
+{"name": "w3g64 +rot256+scale", "bits_per_w": 3.3054, "agree2": 0.9739, "agree_hard": 0.7787, "mean_abs_logit_err": 0.1732, "acc2": 0.9156, "sec": 94, "cfg": {"bits": 3, "g": 64, "clip": 1, "rot": 256, "scale": 1}}

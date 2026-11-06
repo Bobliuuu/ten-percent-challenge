@@ -1,0 +1,58 @@
+W1105 23:23:50.093000 50988 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 27284.22it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 35713.59it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip F q2k2v4a3i4 o4(l<6)/3 go256 emb3: devacc=0.9850 agree=0.9930 | heldout(dev[1000:]) acc=0.9870 agree=0.9960 quantbytes~42.6MB 44s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 40582.22it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip G q2k2v4a3i4 o4(l<8)/3 go256 (o2 l>=10) emb3: devacc=0.9840 agree=0.9930 | heldout(dev[1000:]) acc=0.9850 agree=0.9960 quantbytes~42.6MB 47s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 31873.54it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip H q2k2v3a3i4 o4(l<8)/3 go256 emb3: devacc=0.9845 agree=0.9935 | heldout(dev[1000:]) acc=0.9870 agree=0.9940 quantbytes~42.3MB 49s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 51380.74it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip I q2k2v4a3 i4(l<10)/3 o4(l<8)/3 go256 emb3: devacc=0.9850 agree=0.9930 | heldout(dev[1000:]) acc=0.9860 agree=0.9950 quantbytes~42.6MB 46s

@@ -1,0 +1,40 @@
+types seen 11553
+W1106 00:40:56.108000 65392 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 56748.46it/s]
+/Users/jhome/ten-percent/trackK/embq.py:54: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:214.)
+  N=q.shape[0]; return (torch.from_numpy(q).float().reshape(N,-1,g)*torch.from_numpy(s).float()[:,:,None]+torch.from_numpy(lo).float()[:,:,None]).reshape(N,-1)
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 30017.98it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 39974.16it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16777.88it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 17932.00it/s]
+{"dev2": 0.9399999976158142, "hard": 0.6946666836738586, "sst": 0.9695000052452087, "name": "top4k_4", "fb": "nn", "bytes": 2466832, "word_bytes": 1680400, "ent": 2333834.3731663655, "t": 53.51200580596924}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 30371.61it/s]
+{"dev2": 0.9006666541099548, "hard": 0.6393333077430725, "sst": 0.9474999904632568, "name": "top4k_4", "fb": "unk", "bytes": 2427037, "word_bytes": 1640605, "ent": 2294039.3731663655, "t": 26.76137614250183}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 35281.65it/s]
+{"dev2": 0.9616666436195374, "hard": 0.7606666684150696, "sst": 0.9900000095367432, "name": "top8k_4", "fb": "nn", "bytes": 4095648, "word_bytes": 3309216, "ent": 3824432.169506643, "t": 24.237998962402344}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 29942.29it/s]
+{"dev2": 0.9363333582878113, "hard": 0.7046666741371155, "sst": 0.9850000143051147, "name": "top8k_4", "fb": "unk", "bytes": 4059037, "word_bytes": 3272605, "ent": 3787821.169506643, "t": 24.50668501853943}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 31371.83it/s]
+{"dev2": 0.9696666598320007, "hard": 0.8026666641235352, "sst": 0.9994999766349792, "name": "top11k_4", "fb": "nn", "bytes": 5317214, "word_bytes": 4530782, "ent": 4941389.356152443, "t": 24.900075912475586}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 23583.28it/s]
+{"dev2": 0.9580000042915344, "hard": 0.7559999823570251, "sst": 0.9984999895095825, "name": "top11k_4", "fb": "unk", "bytes": 5283038, "word_bytes": 4496606, "ent": 4907213.356152443, "t": 24.128071069717407}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25666.90it/s]
+{"dev2": 0.984666645526886, "hard": 0.8986666798591614, "sst": 1.0, "name": "top8k_4+rest2", "fb": "nn", "bytes": 8927650, "word_bytes": 8141218, "ent": 7526048.631382115, "t": 24.78080415725708}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 28217.53it/s]
+{"dev2": 0.984333336353302, "hard": 0.8606666922569275, "sst": 0.9990000128746033, "name": "top8k_3+rest2", "fb": "nn", "bytes": 8159650, "word_bytes": 7373218, "ent": 6707713.1114455685, "t": 24.770063638687134}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 22702.44it/s]
+{"dev2": 0.9836666584014893, "hard": 0.8920000195503235, "sst": 1.0, "name": "top6k_4+rest2", "fb": "nn", "bytes": 8543650, "word_bytes": 7757218, "ent": 7111586.863769092, "t": 24.65005898475647}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 34829.79it/s]
+{"dev2": 0.9833333492279053, "hard": 0.8773333430290222, "sst": 1.0, "name": "top4k_4+rest2", "fb": "nn", "bytes": 8159650, "word_bytes": 7373218, "ent": 6696832.806862608, "t": 24.913842916488647}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 21666.24it/s]
+{"dev2": 0.9860000014305115, "hard": 0.9039999842643738, "sst": 0.9994999766349792, "name": "top4k_4+8k3+rest2", "fb": "nn", "bytes": 8927700, "word_bytes": 8141268, "ent": 7538014.415526595, "t": 25.172943115234375}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 38915.03it/s]
+{"dev2": 0.9570000171661377, "hard": 0.7480000257492065, "sst": 0.9865000247955322, "name": "top4k_4+rest_pq16", "fb": "nn", "bytes": 4097189, "word_bytes": 3310757, "ent": 3958933.7250136575, "t": 30.59523892402649}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 34798.16it/s]
+{"dev2": 0.9536666870117188, "hard": 0.7333333492279053, "sst": 0.987500011920929, "name": "top4k_3+rest_pq16", "fb": "nn", "bytes": 3713189, "word_bytes": 2926757, "ent": 3549697.5983397905, "t": 30.476333141326904}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 48072.94it/s]
+{"dev2": 0.9743333458900452, "hard": 0.7979999780654907, "sst": 0.9940000176429749, "name": "top2k_4+rest_pq8", "fb": "nn", "bytes": 4746243, "word_bytes": 3959811, "ent": 4668299.746112648, "t": 39.7680389881134}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 36779.30it/s]
+{"dev2": 0.9693333506584167, "hard": 0.7646666765213013, "sst": 0.9940000176429749, "name": "top2k_4+8k_pq8+rest_pq16", "fb": "nn", "bytes": 4154472, "word_bytes": 3368040, "ent": 4082414.0266700676, "t": 34.72076606750488}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 21022.77it/s]
+{"dev2": 0.9710000157356262, "hard": 0.7773333191871643, "sst": 0.9955000281333923, "name": "top1k_4+rest_pq8", "fb": "nn", "bytes": 4434243, "word_bytes": 3647811, "ent": 4389864.519459389, "t": 60.0885808467865}

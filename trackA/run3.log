@@ -1,0 +1,58 @@
+W1105 23:18:46.466000 40688 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 49652.81it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 33064.87it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip A q2k2v4a3i4o3 g128 emb3: devacc=0.9825 agree=0.9925 | heldout(dev[1000:]) acc=0.9850 agree=0.9940 quantbytes~41.2MB 45s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 48847.27it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip C q2k2v3a3i4o3 g128 emb3: devacc=0.9800 agree=0.9900 | heldout(dev[1000:]) acc=0.9790 agree=0.9880 quantbytes~40.4MB 52s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26636.81it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip D q3k3v3a3i4o3 g128 emb3: devacc=0.9845 agree=0.9935 | heldout(dev[1000:]) acc=0.9860 agree=0.9930 quantbytes~42.1MB 48s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 33031.19it/s]
+ layer 0 done
+ layer 1 done
+ layer 2 done
+ layer 3 done
+ layer 4 done
+ layer 5 done
+ layer 6 done
+ layer 7 done
+ layer 8 done
+ layer 9 done
+ layer 10 done
+ layer 11 done
+GPTQclip E q2k2v4a3i4o4 g128 emb3: devacc=0.9865 agree=0.9945 | heldout(dev[1000:]) acc=0.9870 agree=0.9940 quantbytes~44.8MB 53s

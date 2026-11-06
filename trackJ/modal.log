@@ -1,0 +1,1166 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-QBLc1hOgvdDnc2ipO2gWRG
+Building image im-FxdYQqZhxPprosgBYdHegq
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install numpy scipy torch transformers
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting numpy
+  Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting scipy
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting torch
+  Downloading torch-2.15.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (36 kB)
+Collecting transformers
+  Downloading transformers-5.22.1-py3-none-any.whl.metadata (31 kB)
+Collecting filelock (from torch)
+  Downloading filelock-4.2.9-py3-none-any.whl.metadata (2.3 kB)
+Collecting typing-extensions>=4.13.0 (from torch)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools>=77.0.3 (from torch)
+  Downloading setuptools-84.2.1-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch)
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==13.2.2 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading cuda_toolkit-13.2.2-py2.py3-none-any.whl.metadata (20 kB)
+Collecting cuda-bindings<14,>=13.0.3 (from torch)
+  Downloading cuda_bindings-13.5.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.5 kB)
+Collecting nvidia-cudnn-cu13==9.26.0.51 (from torch)
+  Downloading nvidia_cudnn_cu13-9.26.0.51-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparselt-cu13==0.8.1 (from torch)
+  Downloading nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting nvidia-nccl-cu13==2.30.7 (from torch)
+  Downloading nvidia_nccl_cu13-2.30.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvshmem-cu13==3.7.2 (from torch)
+  Downloading nvidia_nvshmem_cu13-3.7.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.2 kB)
+Collecting triton~=3.9.0 (from torch)
+  Downloading triton-3.9.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (978 bytes)
+Collecting nvidia-cublas==13.4.1.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cublas-13.4.1.3-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-nvrtc==13.2.86.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cuda_nvrtc-13.2.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-runtime==13.2.86.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cuda_runtime-13.2.86-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufft==12.2.0.57.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cufft-12.2.0.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink<14,>=13.2.86 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufile==1.17.1.22.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cufile-1.17.1.22-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-cupti==13.2.86.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cuda_cupti-13.2.86-py3-none-manylinux_2_25_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusolver==12.2.0.11.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cusolver-12.2.0.11-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparse==12.7.10.12.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_cusparse-12.7.10.12-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvtx==13.2.86.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.2.2; platform_system == "Linux"->torch)
+  Downloading nvidia_nvtx-13.2.86-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cuda-cccl (from nvidia-nvshmem-cu13==3.7.2->torch)
+  Downloading nvidia_cuda_cccl-13.3.5.0.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting cuda-pathfinder>=1.4.2 (from cuda-bindings<14,>=13.0.3->torch)
+  Downloading cuda_pathfinder-1.8.6-py3-none-any.whl.metadata (1.9 kB)
+Collecting huggingface-hub<3.0,>=1.31.0 (from transformers)
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: packaging>=20.0 in ./usr/local/lib/python3.12/site-packages (from transformers) (26.3)
+Collecting pyyaml>=5.1 (from transformers)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting regex>=2025.10.22 (from transformers)
+  Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers)
+  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting typer (from transformers)
+  Downloading typer-0.27.3-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors>=0.8.0 (from transformers)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.60 (from transformers)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.16.0 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
+Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 745.1 MB/s  0:00:00
+Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 822.5 MB/s  0:00:00
+Downloading torch-2.15.0-cp312-cp312-manylinux_2_28_x86_64.whl (539.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 539.2/539.2 MB 788.1 MB/s  0:00:00
+Downloading cuda_toolkit-13.2.2-py2.py3-none-any.whl (2.6 kB)
+Downloading nvidia_cudnn_cu13-9.26.0.51-py3-none-manylinux_2_27_x86_64.whl (519.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 519.2/519.2 MB 818.3 MB/s  0:00:00
+Downloading nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl (170.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 170.1/170.1 MB 804.6 MB/s  0:00:00
+Downloading nvidia_nccl_cu13-2.30.7-py3-none-manylinux_2_18_x86_64.whl (216.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.0/216.0 MB 793.1 MB/s  0:00:00
+Downloading nvidia_nvshmem_cu13-3.7.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (135.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.4/135.4 MB 822.5 MB/s  0:00:00
+Downloading cuda_bindings-13.5.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (8.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.4/8.4 MB 907.3 MB/s  0:00:00
+Downloading nvidia_cublas-13.4.1.3-py3-none-manylinux_2_27_x86_64.whl (404.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 404.9/404.9 MB 659.8 MB/s  0:00:00
+Downloading nvidia_cuda_cupti-13.2.86-py3-none-manylinux_2_25_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 866.2 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc-13.2.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (47.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.0/47.0 MB 794.1 MB/s  0:00:00
+Downloading nvidia_cuda_runtime-13.2.86-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 1.1 GB/s  0:00:00
+Downloading nvidia_cufft-12.2.0.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (218.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 218.3/218.3 MB 546.7 MB/s  0:00:00
+Downloading nvidia_cufile-1.17.1.22-py3-none-manylinux_2_27_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 1.5 GB/s  0:00:00
+Downloading nvidia_cusolver-12.2.0.11-py3-none-manylinux_2_27_x86_64.whl (227.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.9/227.9 MB 390.9 MB/s  0:00:00
+Downloading nvidia_cusparse-12.7.10.12-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (151.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.0/151.0 MB 465.9 MB/s  0:00:00
+Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (46.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.6/46.6 MB 181.0 MB/s  0:00:00
+Downloading nvidia_nvtx-13.2.86-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (153 kB)
+Downloading triton-3.9.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (285.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 285.7/285.7 MB 290.7 MB/s  0:00:01
+Downloading transformers-5.22.1-py3-none-any.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 880.1 MB/s  0:00:00
+Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 2.5 GB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 861.5 MB/s  0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 737.0 MB/s  0:00:00
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+Downloading cuda_pathfinder-1.8.6-py3-none-any.whl (62 kB)
+Downloading filelock-4.2.9-py3-none-any.whl (164 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 973.4 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 910.5 MB/s  0:00:00
+Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.8/807.8 kB 1.7 GB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 876.3/876.3 kB 1.1 GB/s  0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 530.0 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 2.2 GB/s  0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading nvidia_cuda_cccl-13.3.5.0.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 856.2 MB/s  0:00:00
+Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 1.3 GB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, typing-extensions, truststore, triton, tqdm, sympy, shellingham, setuptools, safetensors, regex, pyyaml, pygments, nvidia-nvtx, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cuda-cccl, numpy, networkx, mdurl, MarkupSafe, idna, hf-xet, h11, fsspec, filelock, cuda-pathfinder, click, annotated-doc, scipy, nvidia-nvshmem-cu13, nvidia-cusparse, nvidia-cufft, nvidia-cublas, markdown-it-py, jinja2, httpcore2, cuda-bindings, anyio, rich, nvidia-cusolver, nvidia-cudnn-cu13, httpx2, typer, huggingface-hub, torch, tokenizers, transformers
+
+Successfully installed MarkupSafe-3.0.4 annotated-doc-0.0.5 anyio-4.16.0 click-8.5.0 cuda-bindings-13.5.0 cuda-pathfinder-1.8.6 cuda-toolkit-13.2.2 filelock-4.2.9 fsspec-2026.9.0 h11-0.16.0 hf-xet-1.8.0 httpcore2-2.16.0 httpx2-2.16.0 huggingface-hub-2.4.0 idna-3.20 jinja2-3.1.6 markdown-it-py-4.2.0 mdurl-0.1.2 mpmath-1.3.0 networkx-3.7 numpy-2.5.4 nvidia-cublas-13.4.1.3 nvidia-cuda-cccl-13.3.5.0.6 nvidia-cuda-cupti-13.2.86 nvidia-cuda-nvrtc-13.2.86 nvidia-cuda-runtime-13.2.86 nvidia-cudnn-cu13-9.26.0.51 nvidia-cufft-12.2.0.57 nvidia-cufile-1.17.1.22 nvidia-cusolver-12.2.0.11 nvidia-cusparse-12.7.10.12 nvidia-cusparselt-cu13-0.8.1 nvidia-nccl-cu13-2.30.7 nvidia-nvjitlink-13.5.37 nvidia-nvshmem-cu13-3.7.2 nvidia-nvtx-13.2.86 pygments-2.21.0 pyyaml-6.0.3 regex-2026.9.29 rich-15.0.0 safetensors-0.8.0 scipy-1.18.1 setuptools-84.2.1 shellingham-1.5.4 sympy-1.14.0 tokenizers-0.23.3 torch-2.15.0 tqdm-4.70.1 transformers-5.22.1 triton-3.9.0 truststore-0.10.5 typer-0.27.3 typing-extensions-4.16.0
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Image saved, took 5.25s
+
+Built image im-FxdYQqZhxPprosgBYdHegq in 88.06s
+
+
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/modal_run.py
+├── ✓ Uploaded tj.py
+├── ✓ Uploaded /Users/jhome/ten-percent/trackJ/dat
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15519.02it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13300.76it/s]
+('w3g64 rtn', 3.2969, 0.9482, 0.6507)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14153.29it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12851.45it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11147.54it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12915.83it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12839.32it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 16006.67it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13090.10it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16169.38it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16848.97it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13004.09it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15390.68it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12659.44it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13341.38it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12905.16it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12681.14it/s]
+('w2g64 rtn', 2.2812, 0.8742, 0.5633)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12492.48it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11680.71it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15917.21it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13657.36it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13869.92it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12795.28it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13595.25it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14354.76it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15140.80it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13524.59it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13262.26it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14903.13it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13387.99it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15766.00it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13812.42it/s]
+('A rtn', 3.1237, 0.9349, 0.6407)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12598.14it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12106.08it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13690.18it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13035.25it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13051.40it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13408.86it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14422.79it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13642.99it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11667.45it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13198.93it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13331.46it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14039.69it/s]
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13171.09it/s]
+Traceback (most recent call last):
+indices should be either on cpu or on the same device as the indexed tensor (cpu)
+Stopping app - local entrypoint completed.
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/modal_run.py", line 9, in go
+    import tj; r=tj.run(cfg); r["cfg"]={k:v for k,v in cfg.items() if k!="name"}; return r
+                 ^^^^^^^^^^^
+  File "/root/tj.py", line 161, in run
+    elif method=="gptq": d,codes,ng=gptq(Wp,Hp,bq,g,cfg.get("clip",False),actorder=cfg.get("actorder",True))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tj.py", line 61, in gptq
+    return Q[:,inv],codes[:,inv],ng
+                    ~~~~~^^^^^^^
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cpu)
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-QBLc1hOgvdDnc2ipO2gWRG

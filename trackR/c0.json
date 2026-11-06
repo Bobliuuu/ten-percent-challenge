@@ -1,0 +1,2 @@
+[{"model":"Qwen/Qwen2.5-0.5B-Instruct","bits":16,"g":128,"name":"smoke"},
+ {"model":"Qwen/Qwen2.5-0.5B-Instruct","bits":4,"g":128,"method":"gptq","vocab":16384,"ebits":4,"name":"smoke2","ncal":32}]

@@ -1,0 +1,35 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rAW9oEH8XgDb1w2Aqtt1wS
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackD/msweep.py
+├── ✓ Uploaded vocab.json
+├── ✓ Uploaded dev2_hard.json
+├── ✓ Uploaded dev2.json
+├── ✓ Uploaded engine.py
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11815.44it/s]
+gptq3 MB 38.7/41.9 acc 0.9132 agree2 0.9739 hard 0.7507
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11832.35it/s]
+gptq3_awq MB 38.8/41.9 acc 0.9156 agree2 0.9763 hard 0.7533
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11205.77it/s]
+gptq3_out64 MB 47.3/50.3 acc 0.9088 agree2 0.9727 hard 0.7673
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12768.15it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13512.45it/s]
+gptq3_r32 MB 49.3/52.5 acc 0.9144 agree2 0.9775 hard 0.7693
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11370.97it/s]
+vq_d4k10 MB 36.2/36.6 acc 0.9088 agree2 0.9654 hard 0.7127
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14905.50it/s]
+gptq2_mix MB 41.2/43.8 acc 0.9128 agree2 0.9735 hard 0.7220
+gptq3_erank MB 36.3/39.1 acc 0.6282 agree2 0.6350 hard 0.5447
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rAW9oEH8XgDb1w2Aqtt1wS

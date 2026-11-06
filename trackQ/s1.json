@@ -1,0 +1,2 @@
+{"model":"nateraw/vit-base-patch16-224-cifar10","kind":"hf","data":{"name":"uoft-cs/cifar10","img":"img","label":"label","test":"test","train":"train"},
+"cfgs":[{"base":1},{"method":"rtn","bits":4,"g":128},{"method":"gptq","bits":4,"g":128},{"method":"gptq","bits":3,"g":128},{"method":"gptq","bits":3,"g":64},{"method":"gptq","bits":2,"g":64}]}

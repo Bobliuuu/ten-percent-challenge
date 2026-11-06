@@ -1,0 +1,89 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rqDiMdN3RJiJpet0K7QBES
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackQ/q.py
+├── ✓ Uploaded /Users/jhome/.cache/huggingface/token
+└── ✓ Created Function run.
+
+[1AGenerating validation split: 0 examples [00:00, ? examples/s]
+[1AGenerating validation split: 400 examples [00:00, 3336.94 examples/s]
+[1AGenerating validation split: 1200 examples [00:00, 5050.28 examples/s]
+[1AGenerating validation split: 2000 examples [00:00, 5640.38 examples/s]
+[1AGenerating validation split: 2800 examples [00:00, 5981.82 examples/s]
+[1AGenerating validation split: 3672 examples [00:00, 6115.67 examples/s]
+[1AGenerating validation split: 4372 examples [00:00, 6104.03 examples/s]
+[1AGenerating validation split: 5172 examples [00:00, 6223.70 examples/s]
+[1AGenerating validation split: 5972 examples [00:00, 6345.96 examples/s]
+[1AGenerating validation split: 6972 examples [00:01, 5995.57 examples/s]
+[1AGenerating validation split: 7744 examples [00:01, 6111.72 examples/s]
+[1AGenerating validation split: 8544 examples [00:01, 6531.97 examples/s]
+[1AGenerating validation split: 9344 examples [00:01, 6452.26 examples/s]
+[1AGenerating validation split: 10144 examples [00:01, 6359.11 examples/s]
+[1AGenerating validation split: 10916 examples [00:01, 6300.42 examples/s]
+[1AGenerating validation split: 11716 examples [00:01, 6461.46 examples/s]
+[1AGenerating validation split: 12516 examples [00:02, 6615.75 examples/s]
+[1AGenerating validation split: 13416 examples [00:02, 6211.00 examples/s]
+[1AGenerating validation split: 14388 examples [00:02, 5890.69 examples/s]
+[1AGenerating validation split: 15488 examples [00:02, 6885.73 examples/s]
+[1AGenerating validation split: 16488 examples [00:02, 7294.08 examples/s]
+[1AGenerating validation split: 17288 examples [00:02, 7405.83 examples/s]
+[1AGenerating validation split: 18060 examples [00:02, 6846.79 examples/s]
+[1AGenerating validation split: 19060 examples [00:02, 7256.97 examples/s]
+[1AGenerating validation split: 19860 examples [00:03, 7063.25 examples/s]
+[1AGenerating validation split: 20660 examples [00:03, 6896.40 examples/s]
+[1AGenerating validation split: 21360 examples [00:03, 6744.10 examples/s]
+[1AGenerating validation split: 22232 examples [00:03, 7108.52 examples/s]
+[1AGenerating validation split: 23232 examples [00:03, 7471.70 examples/s]
+[1AGenerating validation split: 24132 examples [00:03, 7760.33 examples/s]
+[1AGenerating validation split: 25103 examples [00:03, 7699.74 examples/s]
+[1AGenerating validation split: 26003 examples [00:03, 7748.84 examples/s]
+[1AGenerating validation split: 26903 examples [00:03, 7890.66 examples/s]
+[1AGenerating validation split: 27703 examples [00:04, 7589.63 examples/s]
+[1AGenerating validation split: 28574 examples [00:04, 7617.07 examples/s]
+[1AGenerating validation split: 29474 examples [00:04, 7567.60 examples/s]
+[1AGenerating validation split: 30374 examples [00:04, 7847.45 examples/s]
+[1AGenerating validation split: 31374 examples [00:04, 8350.60 examples/s]
+[1AGenerating validation split: 32345 examples [00:04, 8353.49 examples/s]
+[1AGenerating validation split: 33345 examples [00:04, 8432.36 examples/s]
+[1AGenerating validation split: 34345 examples [00:04, 8277.48 examples/s]
+[1AGenerating validation split: 35245 examples [00:05, 8318.19 examples/s]
+[1AGenerating validation split: 36316 examples [00:05, 7629.62 examples/s]
+[1AGenerating validation split: 37316 examples [00:05, 7992.69 examples/s]
+[1AGenerating validation split: 38316 examples [00:05, 7974.21 examples/s]
+[1AGenerating validation split: 39216 examples [00:05, 8026.32 examples/s]
+[1AGenerating validation split: 40387 examples [00:05, 7845.14 examples/s]
+[1AGenerating validation split: 41387 examples [00:05, 8349.34 examples/s]
+[1AGenerating validation split: 42287 examples [00:05, 8319.10 examples/s]
+[1AGenerating validation split: 43258 examples [00:06, 8318.17 examples/s]
+[1AGenerating validation split: 44258 examples [00:06, 8469.51 examples/s]
+[1AGenerating validation split: 45158 examples [00:06, 8218.79 examples/s]
+[1AGenerating validation split: 46258 examples [00:06, 7419.27 examples/s]
+[1AGenerating validation split: 47029 examples [00:06, 7397.38 examples/s]
+[1AGenerating validation split: 48129 examples [00:06, 7854.14 examples/s]
+[1AGenerating validation split: 48929 examples [00:06, 7700.10 examples/s]
+[1AGenerating validation split: 49929 examples [00:06, 7976.52 examples/s]
+[1AGenerating validation split: 50000 examples [00:06, 7268.61 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.8528060913085938, "agree": 1.0}, "sec": 8.457345962524414}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.118236357041657, "ratio_fix": 0.13337808291817443, "dev": {"acc": 0.8500099778175354, "agree": 0.9648492336273193}, "sec": 18.500869750976562}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.09190158167355199, "ratio_fix": 0.10250465832181017, "dev": {"acc": 0.8296384811401367, "agree": 0.9223087430000305}, "sec": 17.937947273254395}
+{"cfg": {"method": "gptq", "alpha": 1.0, "g": 128}, "ratio_ent": 0.07479381106219574, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.832834005355835, "agree": 0.9235070943832397}, "sec": 17.78240704536438}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128}, "ratio_ent": 0.08148292167609614, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.8362292647361755, "agree": 0.9374875426292419}, "sec": 17.82054591178894}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08965060248968812, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.840623140335083, "agree": 0.9486718773841858}, "sec": 17.713107109069824}
+{"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.09998432879744215, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.8492110967636108, "agree": 0.9632514715194702}, "sec": 17.696370363235474}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.08838733752798718, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.8388256430625916, "agree": 0.944078266620636}, "sec": 18.624849796295166}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.08062079793822294, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.8352306485176086, "agree": 0.9296984076499939}, "sec": 18.567288875579834}
+{"cfg": {"method": "rtn", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08947926721093412, "ratio_fix": 0.2568717813036315, "dev": {"acc": 0.8186538815498352, "agree": 0.8935490250587463}, "sec": 17.486841917037964}
+timm/vit_base_patch16_224.augreg2_in21k_ft_in1k 86567656 {'dev': 0.8528060913085938, 'exam': 0.8569998145103455}
+{'base': 1} ent1.000 fix1.000 {'dev': {'acc': 0.8528060913085938, 'agree': 1.0}}
+{'method': 'gptq', 'bits': 4, 'g': 128} ent0.118 fix0.133 {'dev': {'acc': 0.8500099778175354, 'agree': 0.9648492336273193}}
+{'method': 'gptq', 'bits': 3, 'g': 128} ent0.092 fix0.103 {'dev': {'acc': 0.8296384811401367, 'agree': 0.9223087430000305}}
+{'method': 'gptq', 'alpha': 1.0, 'g': 128} ent0.075 fix0.257 {'dev': {'acc': 0.832834005355835, 'agree': 0.9235070943832397}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128} ent0.081 fix0.257 {'dev': {'acc': 0.8362292647361755, 'agree': 0.9374875426292419}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128} ent0.090 fix0.257 {'dev': {'acc': 0.840623140335083, 'agree': 0.9486718773841858}}
+{'method': 'gptq', 'alpha': 0.55, 'g': 128} ent0.100 fix0.257 {'dev': {'acc': 0.8492110967636108, 'agree': 0.9632514715194702}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128, 'sp': 0.3} ent0.088 fix0.257 {'dev': {'acc': 0.8388256430625916, 'agree': 0.944078266620636}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128, 'sp': 0.3} ent0.081 fix0.257 {'dev': {'acc': 0.8352306485176086, 'agree': 0.9296984076499939}}
+{'method': 'rtn', 'alpha': 0.7, 'g': 128} ent0.089 fix0.257 {'dev': {'acc': 0.8186538815498352, 'agree': 0.8935490250587463}}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rqDiMdN3RJiJpet0K7QBES

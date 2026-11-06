@@ -1,0 +1,14 @@
+types seen 11553
+W1106 00:58:39.389000 89652 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 22468.29it/s]
+/Users/jhome/ten-percent/trackK/embq.py:70: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:214.)
+  N=q.shape[0]; lv=torch.from_numpy(lv).float()
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 26528.69it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 24014.56it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16475.25it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25699.77it/s]
+{"dev2": 0.9850000143051147, "hard": 0.8706666827201843, "sst": 0.9994999766349792, "name": "top2k_lm4+rest_lm2", "pos": 128, "pb": null, "fb": "nn", "bytes": 6819625, "word_bytes": 6819625, "ent": 6518320.152098171, "t": 91.37436485290527}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25510.79it/s]
+{"dev2": 0.9796666502952576, "hard": 0.8460000157356262, "sst": 0.9994999766349792, "name": "R4", "pos": 128, "pb": null, "fb": "nn", "bytes": 5425580, "word_bytes": 5425580, "ent": 5288133.53707156, "t": 47.965452909469604}
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 35841.13it/s]
+{"dev2": 0.9800000190734863, "hard": 0.8273333311080933, "sst": 0.9984999895095825, "name": "R5", "pos": 128, "pb": null, "fb": "nn", "bytes": 5233587, "word_bytes": 5233587, "ent": 5103406.768194273, "t": 51.9800226688385}

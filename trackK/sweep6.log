@@ -1,0 +1,10 @@
+types seen 11553
+W1106 01:03:57.378000 97885 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 24310.95it/s]
+/Users/jhome/ten-percent/trackK/embq.py:70: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:214.)
+  N=q.shape[0]; lv=torch.from_numpy(lv).float()
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15201.96it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 25440.74it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16125.15it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 23465.13it/s]
+{"dev2": 0.984666645526886, "hard": 0.8693333268165588, "sst": 0.9994999766349792, "name": "top2k_lm4+rest_lm2", "pos": 128, "pb": 8, "fb": "nn", "bytes": 6728998, "word_bytes": 6728998, "ent": 6427693.152098171, "t": 99.65326118469238}

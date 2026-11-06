@@ -1,0 +1,82 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rjBzhbxrQ7Y2tOXOrrZO2q
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/trackD/msweep.py
+├── ✓ Uploaded vocab.json
+├── ✓ Uploaded dev2_hard.json
+├── ✓ Uploaded dev2.json
+├── ✓ Uploaded engine.py
+└── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14496.69it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12879.72it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11956.02it/s]
+att4_ffn3_g64_e3 MB 41.0/44.1 acc 0.9180 agree2 0.9819 hard 0.7713
+f2_4_rest3_g64_e3 MB 41.0/44.1 acc 0.9164 agree2 0.9771 hard 0.7580
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12441.23it/s]
+att4_ffn3_g64_e4 MB 42.5/45.5 acc 0.9196 agree2 0.9843 hard 0.7933
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13296.77it/s]
+f2_4_rest3_g64_e4 MB 42.5/45.5 acc 0.9168 agree2 0.9767 hard 0.7780
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13096.61it/s]
+att4_ffn3_g128_e3 MB 38.2/42.5 acc 0.9152 agree2 0.9775 hard 0.7727
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16160.70it/s]
+f2_4_rest3_g128_e3 MB 38.2/42.5 acc 0.9168 agree2 0.9759 hard 0.7440
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11792.96it/s]
+att4_ffn3_g128_e4 MB 39.7/43.9 acc 0.9148 agree2 0.9779 hard 0.7887
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12133.96it/s]
+f2_4_rest3_g128_e4 MB 39.7/43.9 acc 0.9160 agree2 0.9783 hard 0.7593
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9537.90it/s]
+mix30_4_70_3 MB 44.7/47.6 acc 0.9204 agree2 0.9843 hard 0.8167
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15397.14it/s]
+mix20_4_60_3_20_2 MB 42.3/45.2 acc 0.9140 agree2 0.9779 hard 0.7933
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11490.93it/s]
+mix40_4_30_3_30_2 MB 44.3/47.0 acc 0.9160 agree2 0.9807 hard 0.7947
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13186.95it/s]
+att4_f1_2_f2_3 MB 39.2/41.9 acc 0.8991 agree2 0.9542 hard 0.6760
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11888.92it/s]
+att4_f1_3_f2_2 MB 39.3/41.9 acc 0.9076 agree2 0.9674 hard 0.7073
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13090.71it/s]
+att3_f1_2_f2_4 MB 39.2/41.9 acc 0.9043 agree2 0.9578 hard 0.6920
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12531.85it/s]
+vq_d4k12 MB 43.3/43.7 acc 0.9132 agree2 0.9755 hard 0.7927
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 17736.21it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 15152.78it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15603.46it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 13359.77it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11441.96it/s]
+vq_d4k13_awq MB 48.4/48.9 acc 0.9200 agree2 0.9863 hard 0.8353
+vq_d2k6 MB 40.6/41.4 acc 0.9108 agree2 0.9707 hard 0.7547
+att4_ffn3_out32 MB 47.2/48.8 acc 0.9184 agree2 0.9815 hard 0.8200
+att4_ffn3_e8 MB 48.2/51.3 acc 0.9184 agree2 0.9831 hard 0.7947
+gptq3_e8 MB 44.5/47.7 acc 0.9160 agree2 0.9767 hard 0.7673
+gptq4_g128_e4 MB 47.0/51.1 acc 0.9236 agree2 0.9867 hard 0.8680
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-rjBzhbxrQ7Y2tOXOrrZO2q
