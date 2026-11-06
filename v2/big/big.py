@@ -276,9 +276,9 @@ def impl(cfg):
         oov=oov[0]/max(1,oov[1]),secs=time.time()-t0)
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
 
-@app.function(image=img, gpu="A100-80GB", memory=163840, timeout=43200, max_containers=8, volumes={"/hf":vol})
+@app.function(image=img, gpu=["A100-80GB","H100","L40S","A100-40GB"], memory=163840, timeout=43200, max_containers=8, volumes={"/hf":vol})
 def run32(cfg): return impl(cfg)
-@app.function(image=img, gpu="A100-80GB", memory=286720, timeout=64800, max_containers=8, volumes={"/hf":vol})
+@app.function(image=img, gpu=["A100-80GB","H100","L40S","A100-40GB"], memory=286720, timeout=64800, max_containers=8, volumes={"/hf":vol})
 def run72(cfg): return impl(cfg)
 
 @app.local_entrypoint()
