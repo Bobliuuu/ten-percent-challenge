@@ -36,7 +36,7 @@ def run(cfg):
     ev=DEV
     nev=cfg.get("nev",0)
     if nev: ev=ev[:nev]
-    other=POOL+DEV
+    other=POOL
     letter_ids=[tok.encode(" "+l)[0] for l in LET]
     rng=np.random.RandomState(0)
     cal_txt=[fmt(r,True) for r in calsrc]
@@ -168,7 +168,7 @@ def run(cfg):
         K_=EC.get("K",7); DZ=EC.get("dz",0.1); SB=EC.get("sbits",8)
     def qparams_ec(x,c):
         rms=x.pow(2).mean(1,keepdim=True).sqrt(); s=(c*rms).clamp(min=1e-6)
-        if SB==8: s=torch.exp2(torch.round(torch.log2(s)*16)/16)
+        if SB==8: s=torch.exp2(torch.round(torch.log2(s)*16).clamp(-200,55)/16)
         else: s=s.half().float().clamp(min=1e-8)
         return s
     def qidx_ec(x,s):
@@ -190,17 +190,22 @@ def run(cfg):
         H=H+damp*torch.mean(torch.diag(H))*torch.eye(C,device=H.device)
         Hinv=torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)),upper=True)
         Q=torch.zeros_like(W); hist=torch.zeros(2*K_+1 if EC else Lv,device=W.device); s=None; cc=Lv/100.0
+        PK=bool(cfg.get('pack')) and EC
+        if PK: QI=torch.zeros(R,C,dtype=torch.uint8,device=W.device); SC=[]
         for i1 in range(0,C,blocksize):
             i2=min(i1+blocksize,C); W1=W[:,i1:i2].clone(); Q1=torch.zeros_like(W1); Err1=torch.zeros_like(W1); Hi=Hinv[i1:i2,i1:i2]
             for i in range(i2-i1):
                 if (i1+i)%g==0:
                     s=(qparams_ec(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],cc) if EC else qparams(torch.cat([W1[:,i:],W[:,i2:]],1)[:,:g],Lv))
+                    if PK: SC.append((torch.round(torch.log2(s)*16).flatten()+200).to(torch.uint8))
                 w=W1[:,i]; d=Hi[i,i]
                 q,qi=(qidx_ec(w.unsqueeze(1),s) if EC else qidx(w.unsqueeze(1),s,Lv)); q=q.flatten()
                 hist+=torch.bincount(qi.long().flatten(),minlength=hist.numel()).float()
                 Q1[:,i]=q; err=(w-q)/d
+                if PK: QI[:,i1+i]=qi.flatten().to(torch.uint8)
                 W1[:,i:]-=err.unsqueeze(1)@Hi[i,i:].unsqueeze(0); Err1[:,i]=err
             Q[:,i1:i2]=Q1; W[:,i2:]-=Err1@Hinv[i1:i2,i2:]
+        if PK: gptq.last=(QI.cpu(),torch.stack(SC,1).cpu())
         return Q,hist
     def ent(hist):
         p=hist/hist.sum(); p=p[p>0]; return float(-(p*p.log2()).sum())
@@ -258,6 +263,9 @@ def run(cfg):
                         if Lv<=0: stats["fix_bits"]+=W.numel()*16; lb+=W.numel()*16; continue
                         Q,hist=gptq(Wr,Hr,Lv)
                         What=unrot_cols(Q,sg) if rot else Q
+                        if cfg.get("pack") and EC:
+                            os.makedirs(cfg["pack"],exist_ok=True)
+                            torch.save(dict(idx=gptq.last[0],sc=gptq.last[1],sg=(sg>0).cpu(),shape=tuple(W.shape),g=g,K=K_),f"{cfg['pack']}/{oli}.{n}.pt")
                         m.weight.data=What.to(torch.bfloat16)
                         nn_=W.numel(); stats["nq"]+=nn_; e_=ent(hist)
                         stats["ent_bits"]+=nn_*e_; stats["scale_bits"]+=nn_/g*((SB if EC else 16)); lb+=nn_*(e_+(SB if EC else 16)/g)
@@ -274,13 +282,20 @@ def run(cfg):
         print("TABLE_JSON "+json.dumps(out),flush=True); return out
     # embedding quant
     emb=model.get_input_embeddings(); hdim=emb.weight.shape[1]; ebits=cfg.get("ebits",16)
+    ECODE=[];ESC=[]
     if ebits<16:
         w=emb.weight.data.float(); wq=torch.zeros_like(w); Lv=2**ebits
         for c in range(0,w.shape[1],64):
             blk=w[:,c:c+64]; s=qparams(blk,Lv); wq[:,c:c+64]=qidx(blk,s,Lv)[0]
+            if cfg.get("pack"): ECODE.append(qidx(blk,s,Lv)[1].to(torch.uint8).cpu()); ESC.append(s.half().cpu())
         emb.weight.data=wq.to(torch.bfloat16)
     lg=predict(ev,remap); pred=lg.argmax(1); acc=score(lg); agree=float((pred==base_pred).mean())
     qB=fitbias(predict(cbrows,remap)); lgb=apply_bias(lg,ev,qB); acc_b=score(lgb); agree_b=float((lgb.argmax(1)==apply_bias(base_lg,ev,base_B).argmax(1)).mean())
+    if cfg.get("pack"):
+        km_=km if keepN else torch.ones(V,dtype=torch.bool)
+        sd={k:v.detach().cpu() for k,v in model.state_dict().items() if not any(a in k for a in ["q_proj.weight","k_proj.weight","v_proj.weight","o_proj.weight","gate_proj.weight","up_proj.weight","down_proj.weight","embed_tokens","lm_head"])}
+        torch.save(dict(misc=sd,keep=torch.nonzero(km_).flatten().cpu(),ecode=torch.cat(ECODE,1) if ECODE else None,escale=torch.cat(ESC,1) if ESC else None,
+            Wl=Wl.cpu(),bias={k:v.tolist() for k,v in qB.items()},dropped=dropl,orig_idx=orig_idx,ev_logits=lg,ev_logits_b=lgb,model=M,letter_ids=letter_ids,cfg=cfg),f"{cfg['pack']}/misc.pt")
     ptb={}
     for r_,p_,y_ in zip(ev,lgb.argmax(1),y): ptb.setdefault(r_["task"],[]).append(int(p_==y_))
     # ---- exact byte accounting (bits)

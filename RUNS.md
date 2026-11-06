@@ -74,3 +74,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - sweep1 trimmed (GPU cap, 3 containers): sweep2.json relaunched (see modal app list tenpct-C newest)
 - v2/lowbit build sweep ebits 5/6/8 bitnet2b: ap-EulMhMKtTwhhOxte5j0VDy
 - v2/alt probe p1 (spawned on deployed tenpct-alt-probe3, ids in v2/alt/ids.txt, collect.py): 7B L3 g128 ratio 0.0919 acc .8547 vs base .8726; p2 mixed-bit queue ids_p2.txt
+- v2/alt p3 (14B/32B on tenpct-alt-probe80, A100-80GB; ids_p3.txt)
+- e_0: 7B vocab33k(dev-incl, optimistic) c1.15 dz.15 ncal128: ratio .1007 acc .8671 vs .8721 agree .9577. NOTE vocab was built incl DEV text; fixed (nodev) in push.py; honest vocab study out_v2: 3B 33k agree .9886, 24k .9881, 16k .9821. Added pack capture + pack_artifact.py + artifact_src/predict.py + verify_artifact.py
