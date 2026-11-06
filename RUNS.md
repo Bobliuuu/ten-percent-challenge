@@ -84,3 +84,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - lowbit dev_harness_test v32k_e4 & v42k_e4 (above)
 - sweep4 (module-type mixed L patterns 14B/7B) launched
 - v2/lowbit_fb feat extraction (frozen features of decoded BitNet-2B artifact; MDC-6 calib/dev/pool + hold prompts): deployed app ap-J6HRpwu4XyNcBx8c7vSIWC (tenpct-lowbit-fb-feat), spawned run(calib|dev|pool|hold) 04:2x EST 2026-11-06; out Volume lowbit-data:/fb/*.npz
+- v2/alt: results in v2/alt/results_probe.json (7B best: attn L4 + rest L3: ratio .0944 acc .8651 vs base .8726 agree .94). 14B/32B queued on tenpct-alt-probe80 (A100-80GB scarce), ids_p3.txt
