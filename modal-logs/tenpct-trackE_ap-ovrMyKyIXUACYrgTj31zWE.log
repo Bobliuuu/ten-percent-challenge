@@ -1,0 +1,100 @@
+[modal-client] 2026-11-06T05:45:01+0000 Received a cancellation signal while processing input ('in-01M6QMAKQWKXBNX7Z94TMKS2Y9:1793941917437-0',)
+[modal-client] 2026-11-06T05:45:01+0000 Successfully canceled input ('in-01M6QMAKQWKXBNX7Z94TMKS2Y9:1793941917437-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14541.45it/s]
+[modal-client] 2026-11-06T05:45:02+0000 Received a cancellation signal while processing input ('in-01M6QMAKQZDE2JGB29V3QQ9C3A:1793941917439-0',)
+[modal-client] 2026-11-06T05:45:02+0000 Successfully canceled input ('in-01M6QMAKQZDE2JGB29V3QQ9C3A:1793941917439-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10640.07it/s]
+[modal-client] 2026-11-06T05:45:04+0000 Received a cancellation signal while processing input ('in-01M6QMAKR11NF35Y8D94TJN06W:1793941917442-0',)
+[modal-client] 2026-11-06T05:45:04+0000 Successfully canceled input ('in-01M6QMAKR11NF35Y8D94TJN06W:1793941917442-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14985.78it/s]
+[modal-client] 2026-11-06T05:45:05+0000 Received a cancellation signal while processing input ('in-01M6QMAKR4KABPYWQBXG5D4TV5:1793941917445-0',)
+[modal-client] 2026-11-06T05:45:05+0000 Successfully canceled input ('in-01M6QMAKR4KABPYWQBXG5D4TV5:1793941917445-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11294.80it/s]
+[modal-client] 2026-11-06T05:45:08+0000 Received a cancellation signal while processing input ('in-01M6QMAKR75WRDXXCFZ2GQM25E:1793941917448-0',)
+[modal-client] 2026-11-06T05:45:08+0000 Successfully canceled input ('in-01M6QMAKR75WRDXXCFZ2GQM25E:1793941917448-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12534.46it/s]
+[modal-client] 2026-11-06T05:45:08+0000 Received a cancellation signal while processing input ('in-01M6QMAKRBHWA2YCHJN639RQCB:1793941917452-0',)
+[modal-client] 2026-11-06T05:45:08+0000 Successfully canceled input ('in-01M6QMAKRBHWA2YCHJN639RQCB:1793941917452-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 10936.84it/s]
+[modal-client] 2026-11-06T05:45:11+0000 Received a cancellation signal while processing input ('in-01M6QMAKREGKGS8JAPPG9T7W3H:1793941917455-0',)
+[modal-client] 2026-11-06T05:45:11+0000 Successfully canceled input ('in-01M6QMAKREGKGS8JAPPG9T7W3H:1793941917455-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14340.60it/s]
+[modal-client] 2026-11-06T05:45:11+0000 Received a cancellation signal while processing input ('in-01M6QMAKRGEZMNQNGSTXAFZKQZ:1793941917457-0',)
+[modal-client] 2026-11-06T05:45:11+0000 Successfully canceled input ('in-01M6QMAKRGEZMNQNGSTXAFZKQZ:1793941917457-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11874.35it/s]
+[modal-client] 2026-11-06T05:45:14+0000 Received a cancellation signal while processing input ('in-01M6QMAKRM2F73RTE75HG17WV8:1793941917461-0',)
+[modal-client] 2026-11-06T05:45:14+0000 Successfully canceled input ('in-01M6QMAKRM2F73RTE75HG17WV8:1793941917461-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 15568.02it/s]
+[modal-client] 2026-11-06T05:45:14+0000 Received a cancellation signal while processing input ('in-01M6QMAKRQM49PVX45RQF9FEAV:1793941917464-0',)
+[modal-client] 2026-11-06T05:45:14+0000 Successfully canceled input ('in-01M6QMAKRQM49PVX45RQF9FEAV:1793941917464-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 9512.72it/s]
+[modal-client] 2026-11-06T05:45:17+0000 Received a cancellation signal while processing input ('in-01M6QMAKRT9SJFEGCH783KBMGA:1793941917467-0',)
+[modal-client] 2026-11-06T05:45:17+0000 Successfully canceled input ('in-01M6QMAKRT9SJFEGCH783KBMGA:1793941917467-0',)
+[modal-client] 2026-11-06T05:45:18+0000 Received a cancellation signal while processing input ('in-01M6QMAKRXPM9R3G550Y4DAGMW:1793941917470-0',)
+[modal-client] 2026-11-06T05:45:18+0000 Successfully canceled input ('in-01M6QMAKRXPM9R3G550Y4DAGMW:1793941917470-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 16811.01it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10381.17it/s]
+[modal-client] 2026-11-06T05:45:20+0000 Received a cancellation signal while processing input ('in-01M6QMAKS0XW7HTM2NMXCGXE8K:1793941917473-0',)
+[modal-client] 2026-11-06T05:45:20+0000 Successfully canceled input ('in-01M6QMAKS0XW7HTM2NMXCGXE8K:1793941917473-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 14498.94it/s]
+[modal-client] 2026-11-06T05:45:21+0000 Received a cancellation signal while processing input ('in-01M6QMAKS33T59DVK6HT0T1YSF:1793941917476-0',)
+[modal-client] 2026-11-06T05:45:21+0000 Successfully canceled input ('in-01M6QMAKS33T59DVK6HT0T1YSF:1793941917476-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9564.30it/s]
+[modal-client] 2026-11-06T05:45:23+0000 Received a cancellation signal while processing input ('in-01M6QMAKS62ZRTVYPCQ8HDJXM8:1793941917479-0',)
+[modal-client] 2026-11-06T05:45:23+0000 Successfully canceled input ('in-01M6QMAKS62ZRTVYPCQ8HDJXM8:1793941917479-0',)
+[modal-client] 2026-11-06T05:45:24+0000 Received a cancellation signal while processing input ('in-01M6QMAKS8GE86AA2ZXDNBQPSX:1793941917483-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s][modal-client] 2026-11-06T05:45:24+0000 Successfully canceled input ('in-01M6QMAKS8GE86AA2ZXDNBQPSX:1793941917483-0',)
+Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13214.03it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10090.91it/s]
+[modal-client] 2026-11-06T05:45:26+0000 Received a cancellation signal while processing input ('in-01M6QMAKVXNWSM8ZNMNE42WH1D:1793941917568-0',)
+[modal-client] 2026-11-06T05:45:26+0000 Successfully canceled input ('in-01M6QMAKVXNWSM8ZNMNE42WH1D:1793941917568-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 12895.68it/s]
+[modal-client] 2026-11-06T05:45:27+0000 Received a cancellation signal while processing input ('in-01M6QMAKW2WY6N7TK5STR27TXF:1793941917571-0',)
+[modal-client] 2026-11-06T05:45:27+0000 Successfully canceled input ('in-01M6QMAKW2WY6N7TK5STR27TXF:1793941917571-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 8089.11it/s]
+[modal-client] 2026-11-06T05:45:29+0000 Received a cancellation signal while processing input ('in-01M6QMAKW5YAM4X0VVHRGS7PD1:1793941917575-0',)
+[modal-client] 2026-11-06T05:45:29+0000 Successfully canceled input ('in-01M6QMAKW5YAM4X0VVHRGS7PD1:1793941917575-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14150.44it/s]
+[modal-client] 2026-11-06T05:45:30+0000 Received a cancellation signal while processing input ('in-01M6QMAKW8XTAQ14M7JS7PG1GV:1793941917578-0',)
+[modal-client] 2026-11-06T05:45:30+0000 Successfully canceled input ('in-01M6QMAKW8XTAQ14M7JS7PG1GV:1793941917578-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12834.23it/s]
+[modal-client] 2026-11-06T05:45:32+0000 Received a cancellation signal while processing input ('in-01M6QMAKWC0TCJFVN3R0EZ81Y0:1793941917581-0',)
+[modal-client] 2026-11-06T05:45:32+0000 Successfully canceled input ('in-01M6QMAKWC0TCJFVN3R0EZ81Y0:1793941917581-0',)
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11834.68it/s]
+[modal-client] 2026-11-06T05:45:33+0000 Received a cancellation signal while processing input ('in-01M6QMAKWFP4XJKYM96NT9KB3M:1793941917585-0',)
+[modal-client] 2026-11-06T05:45:33+0000 Successfully canceled input ('in-01M6QMAKWFP4XJKYM96NT9KB3M:1793941917585-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10122.41it/s]
+[modal-client] 2026-11-06T05:45:35+0000 Received a cancellation signal while processing input ('in-01M6QMAKWJS4SY19CVDDETZWGJ:1793941917588-0',)
+[modal-client] 2026-11-06T05:45:35+0000 Successfully canceled input ('in-01M6QMAKWJS4SY19CVDDETZWGJ:1793941917588-0',)
+[modal-client] 2026-11-06T05:45:36+0000 Received a cancellation signal while processing input ('in-01M6QMAKWPZRNANZFH3QZ83C5Q:1793941917592-0',)
+[modal-client] 2026-11-06T05:45:36+0000 Successfully canceled input ('in-01M6QMAKWPZRNANZFH3QZ83C5Q:1793941917592-0',)
+Runner terminated.

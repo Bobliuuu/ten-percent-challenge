@@ -1,0 +1,3 @@
+[modal-client] 2026-11-06T05:44:54+0000 Received a cancellation signal while processing input ('in-01M6QNEPYWFPAG513989425MEK:1793943100382-0',)
+[modal-client] 2026-11-06T05:44:54+0000 Successfully canceled input ('in-01M6QNEPYWFPAG513989425MEK:1793943100382-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

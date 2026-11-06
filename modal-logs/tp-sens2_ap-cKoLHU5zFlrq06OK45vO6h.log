@@ -1,0 +1,5 @@
+Function 'run' (fu-bdQ3ukwrjBV5uo5SWUTqtl) is waiting to be scheduled on [GPU_L4, GPU_A10G, GPU_T4, GPU_L40S] worker. We are actively working on acquiring more capacity for your workload.
+Function 'run' (fu-bdQ3ukwrjBV5uo5SWUTqtl) is waiting to be scheduled on [GPU_L4, GPU_A10G, GPU_T4, GPU_L40S] worker. We are actively working on acquiring more capacity for your workload.
+Function 'run' (fu-bdQ3ukwrjBV5uo5SWUTqtl) is waiting to be scheduled on [GPU_L4, GPU_A10G, GPU_T4, GPU_L40S] worker. We are actively working on acquiring more capacity for your workload.
+Function 'run' (fu-bdQ3ukwrjBV5uo5SWUTqtl) is waiting to be scheduled on [GPU_L4, GPU_A10G, GPU_T4, GPU_L40S] worker. We are actively working on acquiring more capacity for your workload.
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

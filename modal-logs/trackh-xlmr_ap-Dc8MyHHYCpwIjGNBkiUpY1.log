@@ -1,0 +1,99 @@
+
+[1AGenerating train split:   8%|▊         | 291000/3599994 [00:00<00:05, 573463.73 examples/s]
+[1AGenerating train split:  10%|▉         | 349000/3599994 [00:00<00:05, 572219.75 examples/s]
+[1AGenerating train split:  11%|█▏        | 411000/3599994 [00:00<00:05, 584291.21 examples/s]
+[1AGenerating train split:  13%|█▎        | 474000/3599994 [00:00<00:05, 597144.93 examples/s]
+[1AGenerating train split:  15%|█▌        | 541000/3599994 [00:00<00:04, 616031.96 examples/s]
+[1AGenerating train split:  17%|█▋        | 623000/3599994 [00:01<00:05, 586928.33 examples/s]
+[1AGenerating train split:  19%|█▉        | 686000/3599994 [00:01<00:04, 595993.36 examples/s]
+[1AGenerating train split:  21%|██        | 747000/3599994 [00:01<00:04, 597184.84 examples/s]
+[1AGenerating train split:  22%|██▏       | 808000/3599994 [00:01<00:04, 594358.96 examples/s]
+[1AGenerating train split:  25%|██▍       | 893000/3599994 [00:01<00:04, 564934.15 examples/s]
+[1AGenerating train split:  27%|██▋       | 974999/3599994 [00:01<00:04, 556393.43 examples/s]
+[1AGenerating train split:  29%|██▉       | 1059999/3599994 [00:01<00:04, 551577.57 examples/s]
+[1AGenerating train split:  31%|███       | 1115999/3599994 [00:01<00:04, 545306.96 examples/s]
+[1AGenerating train split:  33%|███▎      | 1194999/3599994 [00:02<00:04, 528153.06 examples/s]
+[1AGenerating train split:  35%|███▍      | 1254999/3599994 [00:02<00:04, 534183.49 examples/s]
+[1AGenerating train split:  36%|███▋      | 1309999/3599994 [00:02<00:04, 535910.70 examples/s]
+[1AGenerating train split:  38%|███▊      | 1369999/3599994 [00:02<00:04, 545563.21 examples/s]
+[1AGenerating train split:  41%|████      | 1459999/3599994 [00:02<00:03, 555521.13 examples/s]
+[1AGenerating train split:  43%|████▎     | 1535999/3599994 [00:02<00:03, 530243.72 examples/s]
+[1AGenerating train split:  45%|████▍     | 1604999/3599994 [00:02<00:03, 566136.29 examples/s]
+[1AGenerating train split:  47%|████▋     | 1694999/3599994 [00:03<00:03, 573325.57 examples/s]
+[1AGenerating train split:  49%|████▊     | 1753999/3599994 [00:03<00:03, 576611.62 examples/s]
+[1AGenerating train split:  50%|█████     | 1816998/3599994 [00:03<00:03, 574912.06 examples/s]
+[1AGenerating train split:  53%|█████▎    | 1901998/3599994 [00:03<00:03, 565162.34 examples/s]
+[1AGenerating train split:  55%|█████▍    | 1963998/3599994 [00:03<00:02, 571514.25 examples/s]
+[1AGenerating train split:  56%|█████▋    | 2028998/3599994 [00:03<00:02, 588766.26 examples/s]
+[1AGenerating train split:  59%|█████▉    | 2114998/3599994 [00:03<00:02, 580375.26 examples/s]
+[1AGenerating train split:  61%|██████▏   | 2207998/3599994 [00:03<00:02, 585150.09 examples/s]
+[1AGenerating train split:  63%|██████▎   | 2282998/3599994 [00:04<00:02, 556291.81 examples/s]
+[1AGenerating train split:  65%|██████▌   | 2351998/3599994 [00:04<00:02, 585312.33 examples/s]
+[1AGenerating train split:  67%|██████▋   | 2418998/3599994 [00:04<00:01, 603888.69 examples/s]
+[1AGenerating train split:  69%|██████▉   | 2486998/3599994 [00:04<00:01, 622167.84 examples/s]
+[1AGenerating train split:  72%|███████▏  | 2579998/3599994 [00:04<00:01, 610930.65 examples/s]
+[1AGenerating train split:  73%|███████▎  | 2644998/3599994 [00:04<00:01, 615210.04 examples/s]
+[1AGenerating train split:  76%|███████▌  | 2730996/3599994 [00:04<00:01, 592607.58 examples/s]
+[1AGenerating train split:  78%|███████▊  | 2820996/3599994 [00:04<00:01, 588747.96 examples/s]
+[1AGenerating train split:  80%|████████  | 2881996/3599994 [00:05<00:01, 591416.81 examples/s]
+[1AGenerating train split:  82%|████████▏ | 2943996/3599994 [00:05<00:01, 593747.95 examples/s]
+[1AGenerating train split:  84%|████████▎ | 3011996/3599994 [00:05<00:00, 615667.39 examples/s]
+[1AGenerating train split:  86%|████████▌ | 3082996/3599994 [00:05<00:00, 629135.08 examples/s]
+[1AGenerating train split:  88%|████████▊ | 3183996/3599994 [00:05<00:00, 640955.05 examples/s]
+[1AGenerating train split:  90%|█████████ | 3248996/3599994 [00:05<00:00, 641176.24 examples/s]
+[1AGenerating train split:  93%|█████████▎| 3347996/3599994 [00:05<00:00, 645688.20 examples/s]
+[1AGenerating train split:  96%|█████████▌| 3438996/3599994 [00:05<00:00, 628278.26 examples/s]
+[1AGenerating train split:  97%|█████████▋| 3502996/3599994 [00:05<00:00, 616005.25 examples/s]
+[1AGenerating train split:  99%|█████████▉| 3571996/3599994 [00:06<00:00, 630554.95 examples/s]Generating train split: 100%|██████████| 3599994/3599994 [00:06<00:00, 586246.55 examples/s]
+
+[1AGenerating test split:   0%|          | 0/400000 [00:00<?, ? examples/s]
+[1AGenerating test split:  15%|█▌        | 61000/400000 [00:00<00:00, 607539.60 examples/s]
+[1AGenerating test split:  38%|███▊      | 150000/400000 [00:00<00:00, 587594.19 examples/s]
+[1AGenerating test split:  52%|█████▎    | 210000/400000 [00:00<00:00, 579798.12 examples/s]
+[1AGenerating test split:  68%|██████▊   | 272000/400000 [00:00<00:00, 581297.04 examples/s]
+[1AGenerating test split:  84%|████████▍ | 335000/400000 [00:00<00:00, 596863.44 examples/s]
+[1AGenerating test split:  99%|█████████▉| 396000/400000 [00:00<00:00, 597996.42 examples/s]Generating test split: 100%|██████████| 400000/400000 [00:00<00:00, 594999.19 examples/s]
+
+[1AGenerating train split:   0%|          | 0/25000 [00:00<?, ? examples/s]
+[1AGenerating train split:  56%|█████▌    | 14000/25000 [00:00<00:00, 135529.97 examples/s]Generating train split: 100%|██████████| 25000/25000 [00:00<00:00, 172838.11 examples/s]
+
+[1AGenerating test split:   0%|          | 0/25000 [00:00<?, ? examples/s]
+[1AGenerating test split:  92%|█████████▏| 23000/25000 [00:00<00:00, 223028.55 examples/s]Generating test split: 100%|██████████| 25000/25000 [00:00<00:00, 218630.06 examples/s]
+
+[1AGenerating unsupervised split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating unsupervised split:  40%|████      | 20000/50000 [00:00<00:00, 175653.01 examples/s]
+[1AGenerating unsupervised split:  88%|████████▊ | 44000/50000 [00:00<00:00, 206132.06 examples/s]Generating unsupervised split: 100%|██████████| 50000/50000 [00:00<00:00, 202831.31 examples/s]
+
+[1AGenerating train split:   0%|          | 0/560000 [00:00<?, ? examples/s]
+[1AGenerating train split:   5%|▌         | 30000/560000 [00:00<00:01, 291708.00 examples/s]
+[1AGenerating train split:  12%|█▎        | 70000/560000 [00:00<00:01, 352743.35 examples/s]
+[1AGenerating train split:  21%|██        | 115000/560000 [00:00<00:01, 320386.29 examples/s]
+[1AGenerating train split:  30%|██▉       | 166000/560000 [00:00<00:01, 319843.97 examples/s]
+[1AGenerating train split:  36%|███▌      | 200000/560000 [00:00<00:01, 322866.74 examples/s]
+[1AGenerating train split:  44%|████▍     | 249000/560000 [00:00<00:00, 317293.35 examples/s]
+[1AGenerating train split:  51%|█████     | 286000/560000 [00:00<00:00, 327983.11 examples/s]
+[1AGenerating train split:  59%|█████▉    | 329000/560000 [00:01<00:00, 311002.17 examples/s]
+[1AGenerating train split:  65%|██████▌   | 365000/560000 [00:01<00:00, 317896.62 examples/s]
+[1AGenerating train split:  72%|███████▏  | 401000/560000 [00:01<00:00, 322118.25 examples/s]
+[1AGenerating train split:  78%|███████▊  | 439000/560000 [00:01<00:00, 334760.46 examples/s]
+[1AGenerating train split:  87%|████████▋ | 489000/560000 [00:01<00:00, 332814.30 examples/s]
+[1AGenerating train split:  96%|█████████▌| 535000/560000 [00:01<00:00, 319675.92 examples/s]
+[1AGenerating train split: 100%|██████████| 560000/560000 [00:01<00:00, 324870.02 examples/s]
+
+[1AGenerating test split:   0%|          | 0/38000 [00:00<?, ? examples/s]
+[1AGenerating test split:  92%|█████████▏| 35000/38000 [00:00<00:00, 342684.69 examples/s]Generating test split: 100%|██████████| 38000/38000 [00:00<00:00, 342915.93 examples/s]
+
+[1AGenerating train split:   0%|          | 0/45615 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 45615/45615 [00:00<00:00, 1182942.33 examples/s]
+
+[1AGenerating test split:   0%|          | 0/12284 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 12284/12284 [00:00<00:00, 554324.83 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/2000 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 2000/2000 [00:00<00:00, 170175.03 examples/s]
+
+[1AGenerating train split:   0%|          | 0/45000 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 45000/45000 [00:00<00:00, 1656387.33 examples/s]
+
+[1AGenerating test split:   0%|          | 0/50000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 50000/50000 [00:00<00:00, 1946475.34 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 5000/5000 [00:00<00:00, 932772.32 examples/s]
+skip multilingual_amazon RuntimeError('Dataset scripts are no longer supported, but found amazon_reviews_multi.py')
+calib sources {'amazon_polarity_train': 120000, 'imdb_train': 25000, 'yelp_train': 40000, 'tweet_eval_sent_train': 45615, 'tweet_eval_emoji_train': 45000} total 275615
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

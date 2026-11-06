@@ -1,0 +1,49 @@
+layer 12 80.93901371955872
+layer 13 86.86115384101868
+layer 14 92.60201120376587
+layer 15 98.37600517272949
+layer 16 104.07454466819763
+layer 17 109.82079696655273
+layer 18 115.59057378768921
+layer 19 121.28587436676025
+layer 20 127.07107901573181
+layer 21 132.82287216186523
+layer 22 138.41807913780212
+layer 23 144.1506564617157
+{"cfg": {"model": "Qwen/Qwen2.5-0.5B-Instruct", "task": "agnews", "bits": 4, "g": 128, "name": "gptq_w4g128"}, "n": 1055, "base_acc": 0.8113744075829384, "acc": 0.8123222748815165, "agree": 0.9592417061611375, "b_wrong": 17, "c_fixed": 18, "params": 494032768, "tied": true, "nkeep": 151936, "vocab": 151936, "dropped": [], "bytes": 458814496.0, "bytes_entropy": 444244872.3569336, "ratio_bf16": 0.4643563400231784, "ratio_fp32": 0.2321781700115892, "ratio_bf16_ent": 0.4496107354936966, "ratio_fp32_ent": 0.2248053677468483, "body_bits_per_w": 4.15625, "body_bits_per_w_ent": 3.830514008953021, "body_frac_params": 0.7242972190864878, "oov": 0, "secs": 146.8937201499939}
+layer 0 12.261296510696411
+layer 1 18.0722975730896
+layer 2 23.919528007507324
+layer 3 29.727385997772217
+layer 4 35.49308967590332
+layer 5 41.247013330459595
+layer 6 46.82286500930786
+layer 7 52.57517862319946
+layer 8 58.32356381416321
+layer 9 64.15768194198608
+layer 10 69.96376919746399
+layer 11 75.9239296913147
+layer 12 81.82041764259338
+layer 13 87.63169527053833
+layer 14 93.44861268997192
+[modal-client] 2026-11-06T06:18:17+0000 Received a cancellation signal while processing input ('in-01M6QQ73MBWBW450DAQMXV5TX5:1793944948363-0',)
+[modal-client] 2026-11-06T06:18:17+0000 Successfully canceled input ('in-01M6QQ73MBWBW450DAQMXV5TX5:1793944948363-0',)
+[modal-client] 2026-11-06T06:18:20+0000 Received a cancellation signal while processing input ('in-01M6QQ73MDPKBC2YFH3J9KA9SQ:1793944948366-0',)
+[modal-client] 2026-11-06T06:18:20+0000 Successfully canceled input ('in-01M6QQ73MDPKBC2YFH3J9KA9SQ:1793944948366-0',)
+[modal-client] 2026-11-06T06:18:23+0000 Received a cancellation signal while processing input ('in-01M6QQ73MFB4QXQAY97TSWSRF7:1793944948368-0',)
+[modal-client] 2026-11-06T06:18:23+0000 Successfully canceled input ('in-01M6QQ73MFB4QXQAY97TSWSRF7:1793944948368-0',)
+[modal-client] 2026-11-06T06:18:26+0000 Received a cancellation signal while processing input ('in-01M6QQ73MJQKC8DF34KQK76XD1:1793944948370-0',)
+[modal-client] 2026-11-06T06:18:26+0000 Successfully canceled input ('in-01M6QQ73MJQKC8DF34KQK76XD1:1793944948370-0',)
+[modal-client] 2026-11-06T06:18:29+0000 Received a cancellation signal while processing input ('in-01M6QQ73MNMF8JME57TDEM1WRY:1793944948373-0',)
+[modal-client] 2026-11-06T06:18:29+0000 Successfully canceled input ('in-01M6QQ73MNMF8JME57TDEM1WRY:1793944948373-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.
+[modal-client] 2026-11-06T06:18:32+0000 Received a cancellation signal while processing input ('in-01M6QQ73MQ6JJ43EEZ9RZPAQ1F:1793944948375-0',)
+Exception ignored in: <function WeakSet.__init__.<locals>._remove at 0x2ad0f85ee480>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/_weakrefset.py", line 40, in _remove
+    self = selfref()
+           ^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 258, in _cancel_input_signal_handler
+    raise InputCancellation("Input was cancelled by user")
+modal.exception.InputCancellation: Input was cancelled by user
+Runner terminated.

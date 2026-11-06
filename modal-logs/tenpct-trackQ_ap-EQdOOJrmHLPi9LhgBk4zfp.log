@@ -1,0 +1,70 @@
+
+[1AGenerating validation split: 0 examples [00:00, ? examples/s]
+[1AGenerating validation split: 400 examples [00:00, 2765.65 examples/s]
+[1AGenerating validation split: 1200 examples [00:00, 4504.29 examples/s]
+[1AGenerating validation split: 2000 examples [00:00, 5171.78 examples/s]
+[1AGenerating validation split: 2800 examples [00:00, 5532.38 examples/s]
+[1AGenerating validation split: 3672 examples [00:00, 5782.59 examples/s]
+[1AGenerating validation split: 4372 examples [00:00, 5881.93 examples/s]
+[1AGenerating validation split: 5172 examples [00:00, 5906.79 examples/s]
+[1AGenerating validation split: 5972 examples [00:01, 5818.50 examples/s]
+[1AGenerating validation split: 6572 examples [00:01, 5648.53 examples/s]
+[1AGenerating validation split: 7344 examples [00:01, 5811.06 examples/s]
+[1AGenerating validation split: 8144 examples [00:01, 6192.30 examples/s]
+[1AGenerating validation split: 8944 examples [00:01, 6526.54 examples/s]
+[1AGenerating validation split: 9744 examples [00:01, 6608.63 examples/s]
+[1AGenerating validation split: 10544 examples [00:01, 6620.49 examples/s]
+[1AGenerating validation split: 11316 examples [00:01, 6500.06 examples/s]
+[1AGenerating validation split: 12116 examples [00:02, 6653.72 examples/s]
+[1AGenerating validation split: 12916 examples [00:02, 6245.09 examples/s]
+[1AGenerating validation split: 13716 examples [00:02, 6145.39 examples/s]
+[1AGenerating validation split: 14388 examples [00:02, 5892.18 examples/s]
+[1AGenerating validation split: 15288 examples [00:02, 6282.63 examples/s]
+[1AGenerating validation split: 16188 examples [00:02, 6774.63 examples/s]
+[1AGenerating validation split: 16888 examples [00:02, 6741.22 examples/s]
+[1AGenerating validation split: 17688 examples [00:02, 6667.37 examples/s]
+[1AGenerating validation split: 18660 examples [00:03, 6404.02 examples/s]
+[1AGenerating validation split: 19360 examples [00:03, 6218.88 examples/s]
+[1AGenerating validation split: 20260 examples [00:03, 6852.35 examples/s]
+[1AGenerating validation split: 20960 examples [00:03, 6656.06 examples/s]
+[1AGenerating validation split: 21932 examples [00:03, 6983.11 examples/s]
+[1AGenerating validation split: 23232 examples [00:03, 7254.23 examples/s]
+[1AGenerating validation split: 24232 examples [00:03, 7599.71 examples/s]
+[1AGenerating validation split: 25103 examples [00:03, 7792.45 examples/s]
+[1AGenerating validation split: 25903 examples [00:04, 7686.62 examples/s]
+[1AGenerating validation split: 27003 examples [00:04, 7266.51 examples/s]
+[1AGenerating validation split: 28103 examples [00:04, 7859.70 examples/s]
+[1AGenerating validation split: 29374 examples [00:04, 7927.96 examples/s]
+[1AGenerating validation split: 30474 examples [00:04, 8406.43 examples/s]
+[1AGenerating validation split: 31574 examples [00:04, 8839.68 examples/s]
+[1AGenerating validation split: 32745 examples [00:04, 8884.90 examples/s]
+[1AGenerating validation split: 33745 examples [00:04, 8871.70 examples/s]
+[1AGenerating validation split: 34845 examples [00:05, 9132.74 examples/s]
+[1AGenerating validation split: 35816 examples [00:05, 8345.66 examples/s]
+[1AGenerating validation split: 36716 examples [00:05, 7944.19 examples/s]
+[1AGenerating validation split: 37616 examples [00:05, 8149.88 examples/s]
+[1AGenerating validation split: 38616 examples [00:05, 8412.96 examples/s]
+[1AGenerating validation split: 39487 examples [00:05, 8106.02 examples/s]
+[1AGenerating validation split: 40387 examples [00:05, 7929.54 examples/s]
+[1AGenerating validation split: 41387 examples [00:05, 8100.08 examples/s]
+[1AGenerating validation split: 42387 examples [00:05, 8236.75 examples/s]
+[1AGenerating validation split: 43458 examples [00:06, 7766.43 examples/s]
+[1AGenerating validation split: 44358 examples [00:06, 8006.62 examples/s]
+[1AGenerating validation split: 45358 examples [00:06, 8397.43 examples/s]
+[1AGenerating validation split: 46258 examples [00:06, 8158.52 examples/s]
+[1AGenerating validation split: 47629 examples [00:06, 8374.13 examples/s]
+[1AGenerating validation split: 48629 examples [00:06, 8464.98 examples/s]
+[1AGenerating validation split: 49729 examples [00:06, 8671.44 examples/s]
+[1AGenerating validation split: 50000 examples [00:06, 7265.96 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.8597962856292725, "agree": 1.0}, "sec": 26.35539937019348}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.11586462694942623, "ratio_fix": 0.13079668952535184, "dev": {"acc": 0.8575993776321411, "agree": 0.9756340980529785}, "sec": 51.158565044403076}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.08913947453762111, "ratio_fix": 0.09970588443274987, "dev": {"acc": 0.848212480545044, "agree": 0.9478729963302612}, "sec": 51.236692905426025}
+{"cfg": {"method": "gptq", "alpha": 1.0, "g": 128}, "ratio_ent": 0.07183658543397607, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.842620313167572, "agree": 0.9430797100067139}, "sec": 49.94372367858887}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128}, "ratio_ent": 0.07858471035216057, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8510085940361023, "agree": 0.9552626609802246}, "sec": 49.48058724403381}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08682356425326083, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8548032641410828, "agree": 0.9604553580284119}, "sec": 50.908592224121094}
+{"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.097245334136229, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8581985235214233, "agree": 0.9724385738372803}, "sec": 50.88337516784668}
+{"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.08553171647791981, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8546035289764404, "agree": 0.9592570662498474}, "sec": 52.60278844833374}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.07766760640841668, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8518074750900269, "agree": 0.951867401599884}, "sec": 52.1150963306427}
+[modal-client] 2026-11-06T06:17:45+0000 Received a cancellation signal while processing input ('in-01M6QQ46PNXFQ7PX90QR6TSWMA:1793944853206-0',)
+[modal-client] 2026-11-06T06:17:45+0000 Successfully canceled input ('in-01M6QQ46PNXFQ7PX90QR6TSWMA:1793944853206-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

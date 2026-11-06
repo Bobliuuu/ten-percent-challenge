@@ -1,0 +1,2 @@
+Function 'run' (fu-7q058jDwXIWPBDNj3ugv5Q) is waiting to be scheduled on a GPU_L4 worker. Your workspace's concurrency limits are reached (at 10 gpus). Free up capacity or raise the limit to allow this function to be scheduled
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

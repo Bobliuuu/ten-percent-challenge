@@ -1,0 +1,22 @@
+
+[1ALoading weights:   0%|          | 0/392 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 392/392 [00:00<00:00, 9330.46it/s]
+
+[1AGenerating train split:   0%|          | 0/50000 [00:00<?, ? examples/s]
+[1AGenerating train split:  25%|██▌       | 12700/50000 [00:00<00:00, 125887.21 examples/s]
+[1AGenerating train split:  62%|██████▏   | 31200/50000 [00:00<00:00, 159973.89 examples/s]
+[1AGenerating train split: 100%|██████████| 50000/50000 [00:00<00:00, 175627.93 examples/s]
+
+[1AGenerating test split:   0%|          | 0/10000 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 10000/10000 [00:00<00:00, 198672.96 examples/s]
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.9322947859764099, "agree": 1.0}, "sec": 26.70080256462097}
+{"cfg": {"method": "rtn", "bits": 4, "g": 128}, "ratio_ent": 0.115842695143413, "ratio_fix": 0.12967412718031143, "dev": {"acc": 0.9269023537635803, "agree": 0.9788296222686768}, "sec": 57.51134490966797}
+{"cfg": {"method": "gptq", "bits": 4, "g": 128}, "ratio_ent": 0.11593980682741512, "ratio_fix": 0.12967412718031143, "dev": {"acc": 0.9320950508117676, "agree": 0.9880167841911316}, "sec": 58.40965294837952}
+{"cfg": {"method": "gptq", "bits": 4, "g": 64}, "ratio_ent": 0.12146771355636922, "ratio_fix": 0.13357229426262396, "dev": {"acc": 0.9326942563056946, "agree": 0.9858198761940002}, "sec": 60.35638213157654}
+{"cfg": {"method": "gptq", "bits": 3, "g": 128}, "ratio_ent": 0.08870081816252166, "ratio_fix": 0.09848879052181135, "dev": {"acc": 0.9229079484939575, "agree": 0.9664469957351685}, "sec": 60.019243478775024}
+{"cfg": {"method": "gptq", "bits": 3, "g": 64}, "ratio_ent": 0.09303119650248141, "ratio_fix": 0.10238695760412386, "dev": {"acc": 0.9157180190086365, "agree": 0.9534651637077332}, "sec": 60.33167791366577}
+{"cfg": {"method": "gptq", "bits": 3, "g": 32}, "ratio_ent": 0.10188432205031243, "ratio_fix": 0.11018329176874889, "dev": {"acc": 0.9231076240539551, "agree": 0.9710405468940735}, "sec": 63.015504121780396}
+{"cfg": {"method": "gptq", "bits": 2, "g": 32}, "ratio_ent": 0.06952932757693889, "ratio_fix": 0.07899795511024879, "dev": {"acc": 0.7725184559822083, "agree": 0.7938885688781738}, "sec": 63.09555172920227}
+{"cfg": {"method": "rtn", "bits": 4, "g": 64, "sp": 0.5, "score": "mag"}, "ratio_ent": 0.09450456406675639, "ratio_fix": 0.13357229426262396, "dev": {"acc": 0.8781705498695374, "agree": 0.9049330949783325}, "sec": 61.16889023780823}
+[modal-client] 2026-11-06T05:43:17+0000 Received a cancellation signal while processing input ('in-01M6QNGT8DB0J4WVY8WSH7DB31:1793943169294-0',)
+[modal-client] 2026-11-06T05:43:17+0000 Successfully canceled input ('in-01M6QNGT8DB0J4WVY8WSH7DB31:1793943169294-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

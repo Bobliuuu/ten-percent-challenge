@@ -1,0 +1,418 @@
+[
+  {
+    "app_id": "ap-mg5gwIuTxm6kCyzKn5RbAX",
+    "description": "northstar-selfimprove",
+    "state": "deployed",
+    "tasks": "1",
+    "created_at": "2026-11-05 23:33:59-05:00",
+    "stopped_at": null
+  },
+  {
+    "app_id": "ap-4iHnq2wfrFB5cJiMUqNofN",
+    "description": "trackh-gptq",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:15:14-05:00",
+    "stopped_at": "2026-11-06 01:18:32-05:00"
+  },
+  {
+    "app_id": "ap-3ta1c8KIF1TsXwZmgJHwGj",
+    "description": "tp-sens",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:14:54-05:00",
+    "stopped_at": "2026-11-06 01:18:39-05:00"
+  },
+  {
+    "app_id": "ap-XFA8VzHnBmNi0o0N1K30yv",
+    "description": "trackS-bases",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:13:33-05:00",
+    "stopped_at": "2026-11-06 01:18:34-05:00"
+  },
+  {
+    "app_id": "ap-3QGzyZOy9vBLbnwEK5d3xb",
+    "description": "tenpct-trackR",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:12:23-05:00",
+    "stopped_at": "2026-11-06 01:18:39-05:00"
+  },
+  {
+    "app_id": "ap-BM7u32kGaTBai29Z5xRCOS",
+    "description": "tenpct-trackD",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:11:46-05:00",
+    "stopped_at": "2026-11-06 01:18:35-05:00"
+  },
+  {
+    "app_id": "ap-cKoLHU5zFlrq06OK45vO6h",
+    "description": "tp-sens2",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:08:46-05:00",
+    "stopped_at": "2026-11-06 01:18:33-05:00"
+  },
+  {
+    "app_id": "ap-ujbylk3D3pWystQK83C0f9",
+    "description": "tenpct-trackR",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:02:26-05:00",
+    "stopped_at": "2026-11-06 01:18:38-05:00"
+  },
+  {
+    "app_id": "ap-3amvT2vr0r0OViPo2ZzAV3",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:01:35-05:00",
+    "stopped_at": "2026-11-06 01:18:41-05:00"
+  },
+  {
+    "app_id": "ap-qjwvJrqumj1fQkACC1vnCS",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:01:23-05:00",
+    "stopped_at": "2026-11-06 01:18:30-05:00"
+  },
+  {
+    "app_id": "ap-to8U3BQHxZkXbQFKfTtMFF",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:01:10-05:00",
+    "stopped_at": "2026-11-06 01:18:29-05:00"
+  },
+  {
+    "app_id": "ap-EQdOOJrmHLPi9LhgBk4zfp",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:00:52-05:00",
+    "stopped_at": "2026-11-06 01:18:29-05:00"
+  },
+  {
+    "app_id": "ap-rqDiMdN3RJiJpet0K7QBES",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:00:35-05:00",
+    "stopped_at": "2026-11-06 01:14:06-05:00"
+  },
+  {
+    "app_id": "ap-NlKjADrd0sA1J2LcRzgyZX",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:00:23-05:00",
+    "stopped_at": "2026-11-06 01:08:56-05:00"
+  },
+  {
+    "app_id": "ap-T7q03YxxmnxSciScwA5YfM",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 01:00:11-05:00",
+    "stopped_at": "2026-11-06 01:08:45-05:00"
+  },
+  {
+    "app_id": "ap-ZNaGcr2fm3KFt9LRe5k0r9",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:59:59-05:00",
+    "stopped_at": "2026-11-06 01:18:39-05:00"
+  },
+  {
+    "app_id": "ap-eUwAOnnI7yFkirhDJGU4oA",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:59:47-05:00",
+    "stopped_at": "2026-11-06 01:13:11-05:00"
+  },
+  {
+    "app_id": "ap-J9mOumS0ts9kH9SPX2MnfG",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:59:35-05:00",
+    "stopped_at": "2026-11-06 01:18:41-05:00"
+  },
+  {
+    "app_id": "ap-TEUzajL5SQpVaBroLS6aUm",
+    "description": "trackJ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:58:46-05:00",
+    "stopped_at": "2026-11-06 01:11:36-05:00"
+  },
+  {
+    "app_id": "ap-j4m3oLiAx9haIv6iMW1geT",
+    "description": "tenpct-trackD",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:56:52-05:00",
+    "stopped_at": "2026-11-06 01:14:41-05:00"
+  },
+  {
+    "app_id": "ap-C9TuMYcqsIqOBhxSLlHG9L",
+    "description": "tp-build",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:56:43-05:00",
+    "stopped_at": "2026-11-06 01:11:27-05:00"
+  },
+  {
+    "app_id": "ap-xtogBaWuLzygK6gSsOwu1O",
+    "description": "tp-build",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:54:24-05:00",
+    "stopped_at": "2026-11-06 00:56:43-05:00"
+  },
+  {
+    "app_id": "ap-TGUKJAOOOXbijCPQqk9cQl",
+    "description": "trackh-gptq",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:54:22-05:00",
+    "stopped_at": "2026-11-06 01:17:58-05:00"
+  },
+  {
+    "app_id": "ap-VF2vlnF0OY4WdDd0mNxz8n",
+    "description": "tp-build",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:52:38-05:00",
+    "stopped_at": "2026-11-06 00:57:08-05:00"
+  },
+  {
+    "app_id": "ap-oo7vD2RU37PLS7VOPBi3Rl",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:52:08-05:00",
+    "stopped_at": "2026-11-06 00:59:10-05:00"
+  },
+  {
+    "app_id": "ap-BiFvHKR3AUH6UzWAxryeU2",
+    "description": "tenpct-trackE",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:51:53-05:00",
+    "stopped_at": "2026-11-06 01:03:56-05:00"
+  },
+  {
+    "app_id": "ap-7N3J9vjJMP93qRQnQigLh2",
+    "description": "trackJ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:45:25-05:00",
+    "stopped_at": "2026-11-06 00:58:17-05:00"
+  },
+  {
+    "app_id": "ap-A8Eqhy0lrk1Ujg9qbLnvWY",
+    "description": "tenpct-trackD",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:44:41-05:00",
+    "stopped_at": "2026-11-06 01:14:33-05:00"
+  },
+  {
+    "app_id": "ap-GrqX0p0HMDbNjMjGPKLH9Q",
+    "description": "tenpct-trackE",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:42:50-05:00",
+    "stopped_at": "2026-11-06 00:54:52-05:00"
+  },
+  {
+    "app_id": "ap-30Hz65zAStNHAz8Vn21CMT",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:42:07-05:00",
+    "stopped_at": "2026-11-06 00:54:55-05:00"
+  },
+  {
+    "app_id": "ap-Dc8MyHHYCpwIjGNBkiUpY1",
+    "description": "trackh-xlmr",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:36:57-05:00",
+    "stopped_at": "2026-11-06 01:18:38-05:00"
+  },
+  {
+    "app_id": "ap-2Jgc1NIVH15n621cQz3oMl",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:36:40-05:00",
+    "stopped_at": "2026-11-06 00:44:58-05:00"
+  },
+  {
+    "app_id": "ap-IP5haDZwEsxF3WgQG2zQfv",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:36:22-05:00",
+    "stopped_at": "2026-11-06 00:44:53-05:00"
+  },
+  {
+    "app_id": "ap-cny26hVCRfaw0rRDp1zSfs",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:36:07-05:00",
+    "stopped_at": "2026-11-06 00:44:54-05:00"
+  },
+  {
+    "app_id": "ap-iuPYjKcgUQgFGsL48sskBV",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:35:52-05:00",
+    "stopped_at": "2026-11-06 00:44:54-05:00"
+  },
+  {
+    "app_id": "ap-lwnxegcK57roGRk0bDWblp",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:35:40-05:00",
+    "stopped_at": "2026-11-06 00:44:57-05:00"
+  },
+  {
+    "app_id": "ap-XSQ4bB9BsaLn0FW7IU3v9i",
+    "description": "tenpct-trackI-emb",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:35:26-05:00",
+    "stopped_at": "2026-11-06 01:18:36-05:00"
+  },
+  {
+    "app_id": "ap-Ih6MT1U21FX190azvpwiIk",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:35:04-05:00",
+    "stopped_at": "2026-11-06 00:44:51-05:00"
+  },
+  {
+    "app_id": "ap-wedDQWFTHVv5MtLtOar9sX",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:34:52-05:00",
+    "stopped_at": "2026-11-06 00:44:54-05:00"
+  },
+  {
+    "app_id": "ap-OECdk7iJd47JhKk8WdOhTP",
+    "description": "tp-build",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:34:16-05:00",
+    "stopped_at": "2026-11-06 00:55:21-05:00"
+  },
+  {
+    "app_id": "ap-HXWcmsCQrcGlrBH6gmNOWr",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:32:48-05:00",
+    "stopped_at": "2026-11-06 00:44:51-05:00"
+  },
+  {
+    "app_id": "ap-5AzI3YSlgGyNsUYxm2izSl",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:32:15-05:00",
+    "stopped_at": "2026-11-06 00:44:50-05:00"
+  },
+  {
+    "app_id": "ap-rAkQPHnqxPKWK05TqDQ2v0",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:32:03-05:00",
+    "stopped_at": "2026-11-06 00:44:51-05:00"
+  },
+  {
+    "app_id": "ap-DMSxMgFT7pCC2ZqgWGeYeS",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:31:39-05:00",
+    "stopped_at": "2026-11-06 00:44:58-05:00"
+  },
+  {
+    "app_id": "ap-C8pbjNJJJoF5APE17cqK6b",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:29:46-05:00",
+    "stopped_at": "2026-11-06 00:44:51-05:00"
+  },
+  {
+    "app_id": "ap-z0HSXEuOfSNh8rDU3NYRPd",
+    "description": "tenpct-trackQ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:29:22-05:00",
+    "stopped_at": "2026-11-06 00:44:55-05:00"
+  },
+  {
+    "app_id": "ap-e8x46o8JNkagsBRMEzwbln",
+    "description": "trackJ",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:28:38-05:00",
+    "stopped_at": "2026-11-06 00:48:12-05:00"
+  },
+  {
+    "app_id": "ap-NpqrvZah32sXFAKX0gFJd3",
+    "description": "tenpct-trackR",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:27:49-05:00",
+    "stopped_at": "2026-11-06 01:10:03-05:00"
+  },
+  {
+    "app_id": "ap-ZNZ0RIt5HOzwpHjei46cIi",
+    "description": "northstar-selfimprove-eval",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:26:35-05:00",
+    "stopped_at": "2026-11-06 01:18:34-05:00"
+  },
+  {
+    "app_id": "ap-rjBzhbxrQ7Y2tOXOrrZO2q",
+    "description": "tenpct-trackD",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:20:38-05:00",
+    "stopped_at": "2026-11-06 00:53:26-05:00"
+  },
+  {
+    "app_id": "ap-ovrMyKyIXUACYrgTj31zWE",
+    "description": "tenpct-trackE",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-11-06 00:11:55-05:00",
+    "stopped_at": "2026-11-06 00:45:40-05:00"
+  },
+  {
+    "app_id": "ap-K5666gLIxWZrjfZ3SLInXa",
+    "description": "qwenos-doom-chunks",
+    "state": "deployed",
+    "tasks": "0",
+    "created_at": "2026-11-03 21:05:59-05:00",
+    "stopped_at": null
+  }
+]

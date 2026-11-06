@@ -1,0 +1,48 @@
+
+[1AGenerating validation split: 0 examples [00:00, ? examples/s]
+[1AGenerating validation split: 100 examples [00:00, 731.27 examples/s]
+[1AGenerating validation split: 500 examples [00:00, 1865.50 examples/s]
+[1AGenerating validation split: 1000 examples [00:00, 2498.32 examples/s]
+[1AGenerating validation split: 1400 examples [00:00, 2572.21 examples/s]
+[1AGenerating validation split: 1800 examples [00:00, 2637.30 examples/s]
+[1AGenerating validation split: 2400 examples [00:00, 3293.44 examples/s]
+[1AGenerating validation split: 3500 examples [00:00, 5231.13 examples/s]
+[1AGenerating validation split: 4472 examples [00:01, 6087.40 examples/s]
+[1AGenerating validation split: 5572 examples [00:01, 7054.24 examples/s]
+[1AGenerating validation split: 6772 examples [00:01, 8083.22 examples/s]
+[1AGenerating validation split: 8044 examples [00:01, 9162.20 examples/s]
+[1AGenerating validation split: 9344 examples [00:01, 10103.19 examples/s]
+[1AGenerating validation split: 10544 examples [00:01, 10367.06 examples/s]
+[1AGenerating validation split: 11816 examples [00:01, 10879.33 examples/s]
+[1AGenerating validation split: 13216 examples [00:01, 11371.82 examples/s]
+[1AGenerating validation split: 14388 examples [00:01, 10842.33 examples/s]
+[1AGenerating validation split: 15788 examples [00:02, 11201.82 examples/s]
+[1AGenerating validation split: 16988 examples [00:02, 11111.82 examples/s]
+[1AGenerating validation split: 18760 examples [00:02, 11113.97 examples/s]
+[1AGenerating validation split: 20060 examples [00:02, 11434.06 examples/s]
+[1AGenerating validation split: 21260 examples [00:02, 11392.79 examples/s]
+[1AGenerating validation split: 22632 examples [00:02, 11575.25 examples/s]
+[1AGenerating validation split: 24032 examples [00:02, 11881.11 examples/s]
+[1AGenerating validation split: 25903 examples [00:02, 11890.83 examples/s]
+[1AGenerating validation split: 27303 examples [00:03, 12101.49 examples/s]
+[1AGenerating validation split: 28974 examples [00:03, 11260.16 examples/s]
+[1AGenerating validation split: 30274 examples [00:03, 11437.30 examples/s]
+[1AGenerating validation split: 31774 examples [00:03, 12016.85 examples/s]
+[1AGenerating validation split: 33145 examples [00:03, 12101.47 examples/s]
+[1AGenerating validation split: 34445 examples [00:03, 11848.84 examples/s]
+[1AGenerating validation split: 35816 examples [00:03, 11734.99 examples/s]
+[1AGenerating validation split: 37216 examples [00:03, 12109.19 examples/s]
+[1AGenerating validation split: 39016 examples [00:04, 11978.17 examples/s]
+[1AGenerating validation split: 40587 examples [00:04, 11146.46 examples/s]
+[1AGenerating validation split: 41887 examples [00:04, 11419.34 examples/s]
+[1AGenerating validation split: 43058 examples [00:04, 11198.28 examples/s]
+[1AGenerating validation split: 44458 examples [00:04, 11804.71 examples/s]
+[1AGenerating validation split: 45858 examples [00:04, 11948.87 examples/s]
+[1AGenerating validation split: 47229 examples [00:04, 11900.61 examples/s]
+[1AGenerating validation split: 48629 examples [00:04, 12064.88 examples/s]
+[1AGenerating validation split: 50000 examples [00:04, 12251.65 examples/s]
+[1AGenerating validation split: 50000 examples [00:05, 9998.80 examples/s] 
+{"cfg": {"base": 1}, "ratio_ent": 1.0, "ratio_fix": 1.0, "dev": {"acc": 0.76932293176651, "agree": 1.0}, "sec": 7.434234619140625}
+[modal-client] 2026-11-06T06:17:33+0000 Received a cancellation signal while processing input ('in-01M6QQ5GTPHKHMMN0NJX6H3F0B:1793944896343-0',)
+[modal-client] 2026-11-06T06:17:33+0000 Successfully canceled input ('in-01M6QQ5GTPHKHMMN0NJX6H3F0B:1793944896343-0',)
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.

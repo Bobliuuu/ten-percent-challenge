@@ -1,0 +1,43 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1AGenerating train split:   0%|          | 0/67349 [00:00<?, ? examples/s]
+[1AGenerating train split: 100%|██████████| 67349/67349 [00:00<00:00, 2009448.06 examples/s]
+
+[1AGenerating validation split:   0%|          | 0/872 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 872/872 [00:00<00:00, 366954.26 examples/s]
+
+[1AGenerating test split:   0%|          | 0/1821 [00:00<?, ? examples/s]
+[1AGenerating test split: 100%|██████████| 1821/1821 [00:00<00:00, 586802.98 examples/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11782.74it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10394.10it/s]
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/mbuild.py", line 14, in run
+    t=time.time(); out="/tmp/m.bin"; r=Bd.build(job["cfg"],out); r["secs"]=time.time()-t; r["name"]=job["name"]
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/tp/trackP/build.py", line 65, in build
+    cfgd,W,vocab=fmt.read(out); m2=model_from(cfgd,W)
+                                   ^^^^^^^^^^^^^^^^^^
+  File "/root/tp/trackP/build.py", line 48, in model_from
+    c=BertConfig.from_dict(cfgd); m=AutoModelForSequenceClassification.from_config(c).eval(); m.load_state_dict(W,strict=False); return m
+                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2647, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for BertForSequenceClassification:
+	size mismatch for bert.embeddings.position_embeddings.weight: copying a param with shape torch.Size([64, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).
+Stopping app - uncaught exception raised locally: RuntimeError('Error(s) in loading state_dict for BertForSequenceClassification:\n\tsize mismatch for bert.embeddings.position_embeddings.weight: copying a param with shape torch.Size([64, 768]) from checkpoint, the shape in current model is torch.Size([512, 768]).').
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 11405.27it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 9469.98it/s]
+Runner terminated.

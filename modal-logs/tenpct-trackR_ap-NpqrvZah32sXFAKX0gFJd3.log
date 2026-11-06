@@ -1,0 +1,45 @@
+ 20 398.8608796596527
+layer 19 332.4669268131256
+layer 25 361.79132175445557
+layer 25 363.2198803424835
+layer 16 387.29352140426636
+layer 27 380.4139585494995
+layer 20 345.51545214653015
+layer 26 374.61373925209045
+layer 21 416.6865963935852
+layer 26 376.2284688949585
+layer 21 358.69744181632996
+layer 27 387.0350568294525
+layer 17 404.5218436717987
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 3, "g": 128, "vocab": 0, "name": "gptq_w3g128"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.6834423754403623, "agree": 0.848012078510317, "b_wrong": 151, "c_fixed": 85, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 4749213984.0, "bytes_entropy": 4563846243.640625, "ratio_bf16": 0.3118075848827615, "ratio_fp32": 0.15590379244138075, "ratio_bf16_ent": 0.29963734626404365, "ratio_fp32_ent": 0.14981867313202182, "body_bits_per_w": 3.1484375, "body_bits_per_w_ent": 2.9211767536448683, "body_frac_params": 0.8568299674383604, "secs": 397.65714383125305}
+layer 27 389.2384397983551
+layer 22 434.29501080513
+layer 22 372.04894971847534
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 3, "g": 64, "vocab": 0, "name": "gptq_w3g64"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.6919979869149472, "agree": 0.8646200301962758, "b_wrong": 129, "c_fixed": 80, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 4870288672.0, "bytes_entropy": 4717973486.03125, "ratio_bf16": 0.31975669102598847, "ratio_fp32": 0.15987834551299424, "ratio_bf16_ent": 0.30975650353435563, "ratio_fp32_ent": 0.15487825176717782, "body_bits_per_w": 3.296875, "body_bits_per_w_ent": 3.1101366669040162, "body_frac_params": 0.8568299674383604, "secs": 404.2724642753601}
+layer 18 422.18533515930176
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 2, "g": 64, "vocab": 0, "name": "gptq_w2g64"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.5364871665827882, "agree": 0.6482133870156014, "b_wrong": 460, "c_fixed": 102, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 4041882912.0, "bytes_entropy": 3991634951.015625, "ratio_bf16": 0.2653680700460144, "ratio_fp32": 0.1326840350230072, "ratio_bf16_ent": 0.2620690619548639, "ratio_fp32_ent": 0.13103453097743195, "body_bits_per_w": 2.28125, "body_bits_per_w_ent": 2.219646027841772, "body_frac_params": 0.8568299674383604, "secs": 406.47840905189514}
+layer 23 451.8295171260834
+layer 23 385.080739736557
+layer 19 440.03421664237976
+layer 24 398.22078037261963
+layer 24 469.50589871406555
+layer 25 411.2460951805115
+layer 20 457.5809633731842
+layer 25 487.73612546920776
+layer 26 424.4795663356781
+layer 21 474.4474160671234
+layer 27 437.6521198749542
+layer 26 505.7803852558136
+layer 22 491.85022950172424
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 2, "g": 32, "vocab": 0, "name": "gptq_w2g32"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.5968797181680926, "agree": 0.7000503271263211, "b_wrong": 358, "c_fixed": 120, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 4271287584.0, "bytes_entropy": 4230903186.2421875, "ratio_bf16": 0.28042953431739187, "ratio_fp32": 0.14021476715869594, "ratio_bf16_ent": 0.27777811419308684, "ratio_fp32_ent": 0.13888905709654342, "body_bits_per_w": 2.5625, "body_bits_per_w_ent": 2.5129887508595083, "body_frac_params": 0.8568299674383604, "secs": 454.94472193717957}
+layer 27 523.4860773086548
+layer 23 508.7710177898407
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 4, "g": 128, "vocab": 0, "name": "gptq_w4g128"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.7171615500754907, "agree": 0.934071464519376, "b_wrong": 48, "c_fixed": 49, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 5571247392.0, "bytes_entropy": 5314121946.6640625, "ratio_bf16": 0.3657778318551973, "ratio_fp32": 0.18288891592759865, "ratio_bf16_ent": 0.3488963722300453, "ratio_fp32_ent": 0.17444818611502266, "body_bits_per_w": 4.15625, "body_bits_per_w_ent": 3.8410143473419214, "body_frac_params": 0.8568299674383604, "secs": 542.2549924850464}
+layer 24 525.721563577652
+layer 25 543.1149461269379
+layer 26 560.3348550796509
+layer 27 577.3733026981354
+{"cfg": {"model": "Qwen/Qwen2.5-7B-Instruct", "bits": 4, "g": 64, "vocab": 0, "name": "gptq_w4g64"}, "n": 1987, "base_acc": 0.7166582788122798, "acc": 0.7166582788122798, "agree": 0.9386009058882738, "b_wrong": 47, "c_fixed": 47, "params": 7615616512, "tied": false, "nkeep": 152064, "vocab": 152064, "dropped": [], "bytes": 5698694432.0, "bytes_entropy": 5513495686.0234375, "ratio_bf16": 0.3741453120059625, "ratio_fp32": 0.18707265600298126, "ratio_bf16_ent": 0.3619861686401731, "ratio_fp32_ent": 0.18099308432008654, "body_bits_per_w": 4.3125, "body_bits_per_w_ent": 4.085446440663998, "body_frac_params": 0.8568299674383604, "secs": 596.0487525463104}
+Stopping app - local entrypoint completed.
+Runner terminated.
+Runner terminated.
