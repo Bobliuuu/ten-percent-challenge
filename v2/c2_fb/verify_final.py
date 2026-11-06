@@ -15,7 +15,7 @@ vol = modal.Volume.from_name("tenpct-c2fb", create_if_missing=True); cres = moda
 @app.function(image=img, gpu=["H100", "A100-80GB", "L40S", "A10G"], cpu=8, memory=65536, timeout=14400, volumes={"/d": vol, "/a": cres})
 def run():
     import numpy as np, shutil, time, importlib.util, hashlib, torch
-    t0 = time.time(); art = "/tmp/art"; shutil.copytree("/a/art_c120_dz15", art); shutil.rmtree(art + "/__pycache__", ignore_errors=True)
+    t0 = time.time(); import tempfile; art = tempfile.mkdtemp() + "/art"; shutil.copytree("/a/art_c120_dz15", art); shutil.rmtree(art + "/__pycache__", ignore_errors=True)
     def tree():
         h = hashlib.sha256()
         for r, _, fs in sorted(os.walk(art)):
@@ -41,8 +41,8 @@ def run():
     # real path: load(art, memory) with the combined memory
     del f0; torch.cuda.empty_cache(); fm = P.load(art, "/root/fb/memory_combined_k6.json"); out["real_load_combined_dev_acc"] = float((np.array(fm(dev)) == y).mean())
     # GPU ingest vs stored-feature memory
-    ann = json.load(open("/root/fb/ann_newtool_k5.json")); nb = P.ingest(art, ann, None, "/tmp/mem_gpu.json", B=fm.build)
-    a, b = P.Mem("/tmp/mem_gpu.json"), P.Mem("/root/fb/memory_newtool_k5.json")
+    ann = json.load(open("/root/fb/ann_newtool_k5.json")); nb = P.ingest(art, ann, None, "/tmp/mem_gpu_%d.json" % os.getpid(), B=fm.build)
+    a, b = P.Mem("/tmp/mem_gpu_%d.json" % os.getpid()), P.Mem("/root/fb/memory_newtool_k5.json")
     out["gpu_ingest_bytes"] = nb; out["gpu_ingest_maxdiff_mu"] = float(max(np.abs(P._dec(a.proto[t]["mu"]) - P._dec(b.proto[t]["mu"])).max() for t in b.proto)); out["gpu_ingest_tp_equal"] = a.tp == b.tp
     out["tree_unchanged"] = tree() == th; out["pycache_present"] = os.path.exists(art + "/__pycache__"); out["secs"] = time.time() - t0
     os.makedirs("/d/final", exist_ok=True); json.dump(out, open("/d/final/result.json", "w"), indent=1); vol.commit(); print("RESULT_JSON " + json.dumps(out)); return out
