@@ -74,7 +74,7 @@ def pack_hf(t):
     for i in range(4): p|=(u[i*pr:(i+1)*pr]<<(2*i))
     return p
 
-@app.function(image=img, gpu="A100-80GB", cpu=8, memory=98304, timeout=14400, volumes={"/hf":hf,"/d":vol})
+@app.function(image=img, cpu=8, memory=65536, timeout=14400, volumes={"/hf":hf,"/d":vol})
 def run(cfg):
     import torch, numpy as np, time, io, lzma, struct, shutil
     os.environ["HF_HOME"]="/hf"
@@ -178,8 +178,20 @@ def run(cfg):
     for k,v in files.items(): open(f"{A}/{k}","wb").write(v)
     out.update(file_bytes=sizes,total_bytes=total,ratio=total/base_fp16,ternary_bits_per_w=len(tern)*8/n_lin,modes={m:sum(1 for x in meta if x["mode"]==m) for m in "grc"})
     print("SIZES",json.dumps(out),flush=True); vol.commit()
+    out2=verify.remote(cfg,out); return out2
+
+@app.function(image=img, gpu="A100-40GB", cpu=8, memory=65536, timeout=14400, volumes={"/hf":hf,"/d":vol})
+def verify(cfg,out):
+    import torch, numpy as np, time, io, lzma, struct, shutil
+    os.environ["HF_HOME"]="/hf"; vol.reload()
+    from huggingface_hub import snapshot_download
+    from safetensors import safe_open
+    from safetensors.torch import save_file
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    M=cfg["model"]; tag=cfg.get("tag",M.split("/")[-1]); t0=time.time(); A=f"/d/art/{tag}"
+    src=snapshot_download(M,allow_patterns=["*.json","*.safetensors","*.txt","*.model"])
+    sizes=out["file_bytes"]
     # ================= DECODE FROM ARTIFACT ONLY + VERIFY =================
-    del f
     files={k:open(f"{A}/{k}","rb").read() for k in sizes}
     D=f"/tmp/dec_{tag}"; shutil.rmtree(D,ignore_errors=True); os.makedirs(D)
     mj=json.loads(lzma.decompress(files["meta.xz"]))
@@ -207,7 +219,7 @@ def run(cfg):
     mnd=torch.from_numpy(np.frombuffer(files["emb_min.bin"],dtype=np.float16).reshape(nk_,H_//G_,1).copy()).float()
     emb_deq=(qv*scd+mnd).reshape(nk_,H_).to(torch.bfloat16)
     keep_dec=np.frombuffer(files["keep_ids.bin"],dtype=np.uint32 if mj["keep_dtype"]=="u32" else np.uint16).tolist()
-    assert keep_dec==keep
+    keep=keep_dec; letter_ids=mj['letter_ids']
     letters=torch.from_numpy(np.frombuffer(files["head_letters.bin"],dtype=np.int16).reshape(len(letter_ids),H_).copy()).view(torch.bfloat16)
     # tokenizer from artifact
     raw=lzma.decompress(files["tokenizer.xz"]); p=0
@@ -220,6 +232,19 @@ def run(cfg):
     if mj["head_key"]: sd[mj["head_key"]]=torch.zeros(nk_,H_,dtype=torch.bfloat16)  # unused placeholder (scoring uses head_letters.bin)
     save_file(sd,f"{D}/model.safetensors",metadata={"format":"pt"})
     tok2=AutoTokenizer.from_pretrained(D)
+    Vfull=mj["Vfull"]; vocab_inv=tok2.convert_ids_to_tokens(list(range(Vfull))); keepmask=np.zeros(Vfull,bool); keepmask[keep]=True
+    old2new={o:n for n,o in enumerate(keep)}; keepstr={vocab_inv[i]:i for i in keep}; maxl=max(len(k) for k in keepstr); oov=[0,0]
+    def remap(ids):
+        o=[]
+        for i in ids:
+            oov[1]+=1
+            if keepmask[i]: o.append(old2new[i]); continue
+            oov[0]+=1; t_=vocab_inv[i]; p=0
+            while p<len(t_):
+                for q in range(min(len(t_),p+maxl),p,-1):
+                    if t_[p:q] in keepstr: o.append(old2new[keepstr[t_[p:q]]]); p=q; break
+                else: o.append(old2new[tok2.unk_token_id] if tok2.unk_token_id in old2new else old2new[keep[0]]); p+=1
+        return o
     model=AutoModelForCausalLM.from_pretrained(D,torch_dtype=torch.bfloat16).cuda().eval()
     def evalset(name,fn,fl,K,tag2):
         rows=[json.loads(x) for x in open(fl)]
@@ -236,6 +261,7 @@ def run(cfg):
         np.save(f"/d/art/{tag}/logits_{tag2}_{name}.npy",lg)
     for tag2 in ("art","trim16"):
         if tag2=="trim16":
+            Wemb=orig.get_tensor(mj['emb_key']); Wk=Wemb[torch.tensor(keep)]; hk=mj['head_key']; headrows=(orig.get_tensor(hk) if hk else Wemb)[torch.tensor(letter_ids)]
             model.model.embed_tokens.weight.data=Wk.to(torch.bfloat16).cuda(); letters=headrows.to(torch.bfloat16)
         evalset("mmlu",fmt_mmlu,"/root/mmlu_dev.jsonl",4,tag2); evalset("mdc",fmt_mdc,"/root/mdc_dev.jsonl",14,tag2)
         print("EVAL",tag2,{k:v for k,v in out.items() if k.startswith(tag2)},flush=True)

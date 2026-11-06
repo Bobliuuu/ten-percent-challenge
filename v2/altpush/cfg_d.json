@@ -1,0 +1,82 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "vocab": 12000,
+  "ebits": 4,
+  "ncal": 512,
+  "callen": 512,
+  "L": 120,
+  "ec": {
+   "K": 7,
+   "dz": 0.15,
+   "sbits": 8
+  }
+ },
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 256,
+  "drop": 0,
+  "vocab": 12000,
+  "ebits": 4,
+  "ncal": 128,
+  "callen": 512,
+  "L": 120,
+  "ec": {
+   "K": 7,
+   "dz": 0.15,
+   "sbits": 8
+  }
+ },
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "vocab": 12000,
+  "ebits": 4,
+  "ncal": 128,
+  "callen": 512,
+  "mode": "table",
+  "rot": true,
+  "ec": {
+   "K": 7,
+   "dz": 0.15,
+   "sbits": 8
+  },
+  "table_levels": [
+   80,
+   100,
+   120,
+   150,
+   190
+  ],
+  "lay_lo": 0,
+  "lay_hi": 18
+ },
+ {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "g": 128,
+  "drop": 0,
+  "vocab": 12000,
+  "ebits": 4,
+  "ncal": 128,
+  "callen": 512,
+  "mode": "table",
+  "rot": true,
+  "ec": {
+   "K": 7,
+   "dz": 0.15,
+   "sbits": 8
+  },
+  "table_levels": [
+   80,
+   100,
+   120,
+   150,
+   190
+  ],
+  "lay_lo": 18,
+  "lay_hi": 36
+ }
+]

@@ -60,6 +60,7 @@ def run(cfg):
                     for q in range(min(len(t_),p+maxl),p,-1):
                         if t_[p:q] in kstr: out.append(kstr[t_[p:q]]); p=q; break
                     else: out.append(i); p+=1
+            return out
     class Mask(LogitsProcessor):
         def __call__(self,ids,scores):
             m=km.to(scores.device); scores[:,:len(m)]=scores[:,:len(m)].masked_fill(~m,-1e9); return scores

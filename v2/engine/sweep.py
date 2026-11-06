@@ -12,7 +12,7 @@ img = (modal.Image.debian_slim().pip_install("torch","transformers==4.46.3","dat
        .add_local_file("../base/pool.jsonl","/root/base/pool.jsonl"))
 vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
-@app.function(image=img, gpu="A100-80GB", timeout=14400, max_containers=40, volumes={"/hf":vol})
+@app.function(image=img, gpu=["A100-80GB","H100","L40S"], timeout=14400, max_containers=40, volumes={"/hf":vol})
 def run(cfg):
     import os, sys, time, math, torch, numpy as np, torch.nn as nn
     os.environ["HF_HOME"]="/hf"; sys.path.insert(0,"/root")
@@ -259,6 +259,8 @@ def run(cfg):
         body_bpw=(body_bits/max(1,lin_total)),body_bpw_ent_only=stats["ent_bits"]/max(1,stats["nq"]),
         parts_MB=dict(body=body_bits/8e6,emb=emb_bits/8e6,head=head_bits/8e6,misc=misc_bits/8e6),
         oov=oov[0]/max(1,oov[1]),secs=time.time()-t0)
+    os.makedirs("/hf/v2results",exist_ok=True)
+    json.dump(res,open(f"/hf/v2results/{cfg.get('name','x')}_{int(time.time())}.json","w"),default=str); vol.commit()
     print("RESULT_JSON "+json.dumps(res,default=str),flush=True); return res
 
 @app.local_entrypoint()
