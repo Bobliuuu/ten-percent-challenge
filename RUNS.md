@@ -32,3 +32,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 02:09 modal run --detach v2/moe/moe_sweep.py -> ap-Nd5vsC3yUJbqKwqz0sBpza (H100:2/A100-80GB:2; results /vol/results.json in volume moe-10pct-vol). Earlier apps ap-1h8zo.., ap-r9nr.. stopped (spawn never scheduled).
 - v2/alt base_eval.py (4 models MDC-6 dev) modal run --detach ap-maRPOeFFWWZpFZ3jKp8KQo 02:24
 - v2/prune smoke: ap-Ti6TO54xMEQVtjDHUHiBUe (02:10, modal run --detach prune.py --cfgs smoke.json), results volume tenpct-prune
+- v2/alt probe.py cfg_p1.json (8 cfgs 7B/3B/1.5B) --detach ap-85gE4bWbBMMQHJsRo2gsTP 02:29
+- RESTART: Modal multi-GPU never scheduled; AWS p4d no capacity us-east-1. big.py now streams layers CPU->1xA100-80GB. app ap-SjLIvn2lK3iXZYsXaxkizC (cfg_1.json, same configs)
