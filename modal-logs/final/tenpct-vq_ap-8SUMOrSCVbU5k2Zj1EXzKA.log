@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/vq.py", line 297, in run_big
+    return run.get_raw_f()(cfg)
+           ^^^^^^^^^^^^^
+AttributeError: 'Function' object has no attribute 'get_raw_f'
+Function 'run' (fu-XQlEdEcekdcjQf7oRzfk3p) is waiting to be scheduled on [GPU_L40S, GPU_A100, GPU_A100_80GB, GPU_H100] worker. Your workspace's concurrency limits are reached (H100 unavailable on starter plan, at 10 gpus). Free up capacity or raise the limit to allow this function to be scheduled
+Function 'run' (fu-XQlEdEcekdcjQf7oRzfk3p) is waiting to be scheduled on [GPU_L40S, GPU_A100, GPU_A100_80GB, GPU_H100] worker. Your workspace's concurrency limits are reached (H100 unavailable on starter plan, at 10 gpus). Free up capacity or raise the limit to allow this function to be scheduled

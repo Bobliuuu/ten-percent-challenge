@@ -1,0 +1,45 @@
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.72it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:04,  1.41it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:03,  1.42it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.41it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:02,  1.40it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:04<00:01,  1.36it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:05<00:00,  1.37it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:05<00:00,  1.80it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:05<00:00,  1.54it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 90
+layer 1 110
+layer 2 130
+layer 3 150
+layer 4 170
+layer 5 190
+layer 6 209
+layer 7 229
+layer 8 249
+layer 9 269
+layer 10 290
+layer 11 310
+layer 12 330
+layer 13 350
+layer 14 370
+layer 15 390
+layer 16 410
+layer 17 429
+layer 18 449
+layer 19 469
+layer 20 489
+layer 21 509
+layer 22 529
+layer 23 549
+layer 24 569
+layer 25 589
+layer 26 610
+layer 27 630
+layer 28 650
+layer 29 671
+layer 30 692
+layer 31 712
+layer 32 733

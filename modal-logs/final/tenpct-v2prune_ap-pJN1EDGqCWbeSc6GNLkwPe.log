@@ -1,0 +1,62 @@
+22.687654495239258
+layer 15 22.68798518180847
+layer 23 22.68831706047058
+layer 31 22.688628435134888
+layer 39 22.6889431476593
+layer 47 22.68927502632141
+base_acc 0.8002013085052844 26.983882427215576
+layer 7 26.984943628311157
+layer 15 26.985363960266113
+layer 23 26.985797882080078
+layer 31 26.986202478408813
+layer 39 26.986615896224976
+layer 47 26.987006187438965
+RESULT_JSON {"name": "p1_tie20_22", "cfg": {"name": "p1_tie20_22", "tie": [[20, 22]]}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7539003522898843, "agree": 0.863613487669854, "b_wrong": 153, "c_fixed": 60, "bytes_ent": 25966880138.666668, "bytes_nom": 25966880138.666668, "ratio_ent": 0.8790393011072648, "ratio_nom": 0.8790393011072648, "body_frac_kept": 1.0, "bpw_body": 15.666666666666666, "dropped": null, "patch_bytes": 0, "secs": 37.63340091705322}
+RESULT_JSON {"name": "p1_tie30_31", "cfg": {"name": "p1_tie30_31", "tie": [[30, 31]]}, "n": 1987, "base_acc": 0.8002013085052844, "acc": 0.7921489682939105, "agree": 0.9305485656768998, "b_wrong": 61, "c_fixed": 45, "bytes_ent": 25966880138.666668, "bytes_nom": 25966880138.666668, "ratio_ent": 0.8790393011072648, "ratio_nom": 0.8790393011072648, "body_frac_kept": 1.0, "bpw_body": 15.666666666666666, "dropped": null, "patch_bytes": 0, "secs": 42.0736665725708}
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:00,  9.95it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00, 13.76it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00, 14.78it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:00<00:00, 14.30it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 14.47it/s]
+DONE {"name": "p1_tie30_31", "cfg": {"name": "p1_tie30_31", "tie": [[30, 31]]}, "n": 1987, "base_acc": 0.8002013085052844, "acc": 0.7921489682939105, "agree": 0.9305485656768998, "b_wrong": 61, "c_fixed": 45, "bytes_ent": 25966880138.666668, "bytes_nom": 25966880138.666668, "ratio_ent": 0.879039301107264
+DONE {"name": "p1_tie20_22", "cfg": {"name": "p1_tie20_22", "tie": [[20, 22]]}, "n": 1987, "base_acc": 0.8007045797684952, "acc": 0.7539003522898843, "agree": 0.863613487669854, "b_wrong": 153, "c_fixed": 60, "bytes_ent": 25966880138.666668, "bytes_nom": 25966880138.666668, "ratio_ent": 0.879039301107264
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  6.20it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:00,  7.48it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00,  8.18it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  5.99it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00,  5.09it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:01<00:00,  4.29it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  4.43it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  5.20it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  5.32it/s]
+RESULT_JSON {"name": "p1_delta", "cfg": {"name": "p1_delta", "mode": "delta"}, "delta": {"self_attn.q_proj": {"rel_delta_mean": 1.4316644262760243, "rel_delta_min": 1.0343644618988037, "cos_mean": -0.0001899062069454924, "cos_max": 0.001955655636265874, "rtn3_relerr_W": 0.04894801788032055, "rtn3_relerr_delta": 0.0486772321164608}, "self_attn.o_proj": {"rel_delta_mean": 1.4208520650863647, "rel_delta_min": 1.3040995597839355, "cos_mean": -1.6696999216250372e-06, "cos_max": 0.0005730501725338399, "rtn3_relerr_W": 0.04677146440371871, "rtn3_relerr_delta": 0.046277161687612534}, "mlp.gate_proj": {"rel_delta_mean": 1.4287141485417143, "rel_delta_min": 1.0463298559188843, "cos_mean": 0.007045647827908397, "cos_max": 0.06342236697673798, "rtn3_relerr_W": 0.048093972727656364, "rtn3_relerr_delta": 0.04749498749151826}, "mlp.up_proj": {"rel_delta_mean": 1.4396946912116193, "rel_delta_min": 1.0309323072433472, "cos_mean": 2.812221414702203e-05, "cos_max": 0.0003035179106518626, "rtn3_relerr_W": 0.04760676855221391, "rtn3_relerr_delta": 0.047085318714380264}, "mlp.down_proj": {"rel_delta_mean": 1.4285573096985513, "rel_delta_min": 1.0480130910873413, "cos_mean": -1.0465309602063535e-05, "cos_max": 0.0002245292707812041, "rtn3_relerr_W": 0.04942231718450785, "rtn3_relerr_delta": 0.04819541610777378}}}
+DONE {"delta": {"self_attn.q_proj": {"rel_delta_mean": 1.4316644262760243, "rel_delta_min": 1.0343644618988037, "cos_mean": -0.0001899062069454924, "cos_max": 0.001955655636265874, "rtn3_relerr_W": 0.04894801788032055, "rtn3_relerr_delta": 0.0486772321164608}, "self_attn.o_proj": {"rel_delta_mean": 1.420
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:00, 12.19it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00, 13.77it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:00<00:00, 14.35it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 14.15it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 13.95it/s]
+base_acc 0.8002013085052844 26.75770401954651
+base_acc 0.8007045797684952 23.370888471603394
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  2.52it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.05it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.96it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:02,  1.97it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.06it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.14it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.16it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.87it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.34it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+base_acc 0.8007045797684952 44.20933270454407
+layer 7 79.4769127368927
+layer 7 115.54058194160461
+layer 7 95.18421030044556
+layer 15 134.9512801170349
+layer 15 144.2284073829651
