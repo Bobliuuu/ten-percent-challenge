@@ -43,3 +43,60 @@ layer 2 92
 layer 3 107
 layer 3 113
 layer 4 121
+layer 5 135
+layer 4 134
+layer 6 148
+layer 5 155
+layer 7 162
+layer 8 176
+layer 6 175
+layer 9 190
+layer 7 196
+layer 10 204
+layer 11 218
+layer 8 217
+layer 12 232
+layer 9 238
+layer 13 246
+layer 14 260
+layer 10 258
+layer 15 274
+layer 11 279
+layer 16 287
+layerlayer 17 301
+ 12 300
+layer 18 315
+layer 13 321
+layer 19 329
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:02,  3.18it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:02,  2.41it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.28it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.19it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.14it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:02<00:00,  2.14it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  2.15it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.51it/s]
+layer 20 343
+layer 14 342
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 21 357
+layer 15 363
+layer 0 39
+layer 22 371
+layer 1 52
+layer 23 385
+layer 16 383
+layer 2 66
+layer 24 398
+layer 17 404
+layer 3 80
+layer 25 411
+layer 4 94
+layer 26 424
+layer 18 425
+layer 27 437
+layer 5 107
