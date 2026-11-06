@@ -1,0 +1,34 @@
+{
+ "rule": [
+  "Rule (same as trackR): h=int(sha256(subject|question|choice0|..|choice3)[:8],16);",
+  " test items: h%7==0 -> LOCKED exam, h%7==1 -> DEV, else -> POOL (buildable, e.g. feedback/calib extras)."
+ ],
+ "hash_def": "sha256 over rows in file order of f'{id}\\t{answer}\\t{question}\\t{choices joined by |}\\n'",
+ "utc": "2026-11-06T06:57:21.683482+00:00",
+ "dataset": "cais/mmlu all",
+ "splits": {
+  "locked": {
+   "n": 2027,
+   "content_sha256": "0e7aa496b9ef65e502b5b122de43ea957428e63f9dea394b01e7bfed606e6f2e",
+   "file_sha256": "9165abc031ef4d317ae82369b1808dc07f4a8042d2d9c505dfafadfa853d8bb9"
+  },
+  "dev": {
+   "n": 1987,
+   "content_sha256": "56fb9948f12c06126db148c2eb449e5bc4e4807d73e3e068cddc6b8268d52a0b",
+   "file_sha256": "5b8314e1094c90d1406d7064397768f7715af5a13d9f37949e30259d36238632"
+  },
+  "pool": {
+   "n": 10028,
+   "content_sha256": "07103e97c648e81ff1f8b018c034ed63d23e0fbe6b4abbada665696551febaa3",
+   "file_sha256": "9683f987db8f3c8594ab7c06085a3a57e7bf8c7a1e6a4418d569ee3c74c72b6f"
+  },
+  "calib": {
+   "n": 3816,
+   "content_sha256": "13e19388e2fbae7fa589575ba1786d02598e19a59c6ef31ebade48fd33a0a404",
+   "file_sha256": "f7b47a52c52d169443be1aa6c7144ccd9ef7883d0b4a83d7a532c06edb19cff7"
+  }
+ },
+ "overlap_locked_dev": 4,
+ "overlap_locked_calib": 6,
+ "overlap_locked_pool": 34
+}

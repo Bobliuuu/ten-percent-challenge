@@ -11,3 +11,5 @@ trackS: sweep_bases.py --detach (trackS/run2.log)
 - CAVEAT: Modal says detached local entrypoint keeps only the last triggered function alive after the client dies; .map() fan-outs (D,E,R,S) may lose results if the Mac dies. Recover from `modal app logs` RESULT_JSON lines.
 - Deadline: 7am 2026-11-07. Fallback if Modal limits hit: AWS.
 - 02:25 stopped off-goal trackS-bases, trackE (BERT/small). Q,D finished. Kept trackR (Qwen 14B). Logs in modal-logs/final.
+
+- v2/base: frozen Qwen2.5-14B MMLU splits + LOCK.json + v2/TASK.md (no remote run; base_acc 0.8007 reused from trackR r3_d.log)
