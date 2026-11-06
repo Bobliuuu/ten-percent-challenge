@@ -65,3 +65,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - v2/lowbit build_artifact.py: bitnet2b ap-l8gkEU3Yzje0hEn7Skk78l (03:20), falcon-e 3B+1B ap-j6uIBTKSolIvazueZFm1TG (03:35); artifacts in Volume lowbit-data:/art/<tag>
 - v2/alt: Modal GPU queue stuck ~40min (backlog, 0 runners) for probe fn; deployed app tenpct-alt-probe3 (spawn_probe.py cfg_p1.json), results via 'modal app logs tenpct-alt-probe3'
 - big32.py (32B only, mem 96GB, broader GPU list) ap-AFSM7dGkglhpKVb9v1tT7M; 72B app ap-kBzN... still queued
+- compress_B cfg1 stopped early (base zero-shot at chance on B dev); results v2/compress_B/res1
