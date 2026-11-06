@@ -1,0 +1,15 @@
+[
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "Find domain information for the domain 'example.com'.",
+"names": [
+"domain_information: Fetches domain information such as IP address, expiration date, and more using the WHOIS lookup API. (params: search)",
+"v1_whois: Fetches the WHOIS information for a given domain using the API Ninjas Whois API. (params: domain)",
+"whois: Queries a WhoIS lookup service to retrieve data about a specified domain. (params: domain)",
+"v1_iplookup: Performs an IP address lookup using the API Ninjas IP Lookup API. (params: address)",
+"None of these tools can do this"
+],
+"answer": 0,
+"id": "C2-pool-769"
+}
+]

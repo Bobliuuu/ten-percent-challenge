@@ -145,8 +145,9 @@ def _scores(H, M, lg, U, g, names, use_mem=True):
     """lg [5] raw logits, U [5,r], g [5] global score -> option scores [5] (base log-softmax + gated head + memory terms)"""
     p = H.pr if H else {}
     s = _lsm(lg[:5].astype(np.float64))
-    if H: s = s + p["lam0"] * g
+    # stage-1 contract: with NO memory the head is never consulted -> plain artifact argmax (head.npz only wakes up with a memory file)
     if not (H and use_mem) or M.empty(): return s
+    s = s + p["lam0"] * g
     if NONE in M.proto: s[4] += p["lam_n"] * H.tscore(U[4], _dec(M.proto[NONE]["mu"]), H.m[3])
     if NONE in M.tp: a, b = M.tp[NONE]; s[4] += p["eta_n"] * np.log((a + p["ba"]) / (b + p["ba"]))
     for o in range(4):
@@ -157,6 +158,7 @@ def _scores(H, M, lg, U, g, names, use_mem=True):
     return s
 
 def decide(H, M, rows, LG, FO):
+    if H is None or M.empty(): return [int(np.argmax(LG[i, :len(r["names"])])) for i, r in enumerate(rows)]   # plain artifact, bit-identical decisions
     U = H.proj(FO) if H else None; G = H.gscore(U) if H else None
     return [int(_scores(H, M, LG[i], U[i] if H else None, G[i] if H else None, r["names"]).argmax()) for i, r in enumerate(rows)]
 

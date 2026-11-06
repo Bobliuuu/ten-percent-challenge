@@ -1,0 +1,67 @@
+[
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "Find the location of the IP 12.34.56.78 and tell me its coordinates.",
+"names": [
+"ip_lookup: Fetches the geographical information for a given IP address using the IP-to-Location API. (params: ip)",
+"get_ip_location: Retrieves the latitude and longitude coordinates of a given IP address using the ip-api.com API. (params: ip)",
+"get_ip_zipcode: Retrieves the ZIP code of a given IP address using the ip-api.com API. (params: ip)",
+"ip: Fetches data for the provided IP address using the IP Geo Location and IP Reputation API. (params: ip)",
+"None of these tools can do this"
+],
+"answer": 1,
+"id": "C2-pool-244"
+},
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "Where is the IP address 8.8.8.8 located geographically?",
+"names": [
+"get_ip_location: Retrieves the latitude and longitude coordinates of a given IP address using the ip-api.com API. (params: ip)",
+"ip: Fetches data for the provided IP address using the IP Geo Location and IP Reputation API. (params: ip)",
+"get_ip_zipcode: Retrieves the ZIP code of a given IP address using the ip-api.com API. (params: ip)",
+"ip_lookup: Fetches the geographical information for a given IP address using the IP-to-Location API. (params: ip)",
+"None of these tools can do this"
+],
+"answer": 0,
+"id": "C2-pool-1027"
+},
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "Can you find the location of the IP address 8.8.8.8?",
+"names": [
+"get_ip_zipcode: Retrieves the ZIP code of a given IP address using the ip-api.com API. (params: ip)",
+"ip_lookup: Fetches the geographical information for a given IP address using the IP-to-Location API. (params: ip)",
+"ip: Fetches data for the provided IP address using the IP Geo Location and IP Reputation API. (params: ip)",
+"get_ip_location: Retrieves the latitude and longitude coordinates of a given IP address using the ip-api.com API. (params: ip)",
+"None of these tools can do this"
+],
+"answer": 3,
+"id": "C2-pool-1373"
+},
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "What is the latitude and longitude of the IP address '8.8.8.8'?",
+"names": [
+"ip: Fetches data for the provided IP address using the IP Geo Location and IP Reputation API. (params: ip)",
+"get_ip_location: Retrieves the latitude and longitude coordinates of a given IP address using the ip-api.com API. (params: ip)",
+"get_ip_zipcode: Retrieves the ZIP code of a given IP address using the ip-api.com API. (params: ip)",
+"ip_lookup: Fetches the geographical information for a given IP address using the IP-to-Location API. (params: ip)",
+"None of these tools can do this"
+],
+"answer": 1,
+"id": "C2-pool-1931"
+},
+{
+"inst": "You are an assistant with access to tools. Pick the tool that should be called to satisfy the user request, or say none fits.",
+"text": "I need the latitude and longitude coordinates of the IP address 192.168.1.1. Can you help me with that?",
+"names": [
+"ip: Fetches data for the provided IP address using the IP Geo Location and IP Reputation API. (params: ip)",
+"get_ip_location: Retrieves the latitude and longitude coordinates of a given IP address using the ip-api.com API. (params: ip)",
+"ip_lookup: Fetches the geographical information for a given IP address using the IP-to-Location API. (params: ip)",
+"get_ip_zipcode: Retrieves the ZIP code of a given IP address using the ip-api.com API. (params: ip)",
+"None of these tools can do this"
+],
+"answer": 1,
+"id": "C2-pool-3879"
+}
+]
