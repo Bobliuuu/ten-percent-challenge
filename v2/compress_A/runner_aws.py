@@ -4,7 +4,7 @@ cfgs=json.load(open(sys.argv[1])); out=sys.argv[2]; os.makedirs(out,exist_ok=Tru
 ng=int(os.environ.get("NGPU","4"))
 if len(sys.argv)>3 and sys.argv[3]=="worker":
     sys.path.insert(0,"."); import sweep_A as S
-    f=S.run.get_raw_f(); c=json.loads(sys.argv[4]); r=f(c); json.dump(r,open(f"{out}/{c['name']}.json","w")); sys.exit(0)
+    f=S.run_impl; c=json.loads(sys.argv[4]); r=f(c); json.dump(r,open(f"{out}/{c['name']}.json","w")); sys.exit(0)
 pending=[c for c in cfgs if not os.path.exists(f"{out}/{c['name']}.json")]; running={}
 while pending or running:
     for g,(p,c) in list(running.items()):
