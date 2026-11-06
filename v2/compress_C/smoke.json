@@ -1,0 +1,2 @@
+[{"name":"smoke_3b_base","model":"Qwen/Qwen2.5-3B-Instruct","nev":24},
+ {"name":"smoke_3b_L4","model":"Qwen/Qwen2.5-3B-Instruct","nev":24,"L":4,"g":128,"vocab":32768,"ebits":4,"stagger":5}]

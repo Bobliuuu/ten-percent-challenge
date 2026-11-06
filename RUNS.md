@@ -53,3 +53,6 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - AWS g6e.2xlarge (L40S) i-076f90d86ce833547 us-east-2, ip 3.14.244.84, key swarm-gpu, name altpush-l40s; runs via v2/altpush/run_local.py (modal stub). TERMINATE at end. (Modal probe ap-85gE4... had 0 tasks scheduled for 15+ min, so used AWS.)
 - a3b: Qwen2.5-3B uniform L=2/3/4 g128 -> results/out_a3b_*.jsonl. L3: ratio .0966 acc .7685 (base .834) agree .845; L4: ratio .1176 acc .8188 agree .917
 - v2/compress_B sweep_B.py cfg1.json (47 cfgs 1.5B/3B/7B drop x L, task B dev) --detach ap-UsSTn86RRIJ8e3GahrSVbH 02:53; results vol hf-cache:/compressB/*.json
+
+## v2/compress_C (task C tool use) Fri  6 Nov 2026 03:03:13 EST
+- smoke cs.py ap-ATMlSLGcerWPVo3x5HKZmM; sweep1.json (24 cfgs: 3B/7B/14B base+uniform L, 14B alloc) ap-2rnXuDRmAVFJPg3VT2bxRn; results vol tenpct-C-res, logs v2/compress_C/
