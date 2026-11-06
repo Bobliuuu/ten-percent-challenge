@@ -74,3 +74,17 @@ https://modal.com/apps/jerry-zhu/main/ap-YDuPsGhR0vJADMgVcSyX64
 {"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.097245334136229, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8581985235214233, "agree": 0.9724385738372803}, "sec": 50.029215574264526}
 {"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.08553171647791981, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8546035289764404, "agree": 0.9592570662498474}, "sec": 53.11713457107544}
 {"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.07766760640841668, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8518074750900269, "agree": 0.951867401599884}, "sec": 52.35458731651306}
+{"cfg": {"method": "rtn", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08670553744946455, "ratio_fix": 0.25515990989575965, "dev": {"acc": 0.8526063561439514, "agree": 0.9458757638931274}, "sec": 49.23933982849121}
+timm/vit_large_patch16_224.augreg_in21k_ft_in1k 304326632 {'dev': 0.8597962856292725, 'exam': 0.8576006293296814}
+{'base': 1} ent1.000 fix1.000 {'dev': {'acc': 0.8597962856292725, 'agree': 1.0}}
+{'method': 'gptq', 'bits': 4, 'g': 128} ent0.116 fix0.131 {'dev': {'acc': 0.8575993776321411, 'agree': 0.9756340980529785}}
+{'method': 'gptq', 'bits': 3, 'g': 128} ent0.089 fix0.100 {'dev': {'acc': 0.848212480545044, 'agree': 0.9478729963302612}}
+{'method': 'gptq', 'alpha': 1.0, 'g': 128} ent0.072 fix0.255 {'dev': {'acc': 0.842620313167572, 'agree': 0.9430797100067139}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128} ent0.079 fix0.255 {'dev': {'acc': 0.8510085940361023, 'agree': 0.9552626609802246}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128} ent0.087 fix0.255 {'dev': {'acc': 0.8548032641410828, 'agree': 0.9604553580284119}}
+{'method': 'gptq', 'alpha': 0.55, 'g': 128} ent0.097 fix0.255 {'dev': {'acc': 0.8581985235214233, 'agree': 0.9724385738372803}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128, 'sp': 0.3} ent0.086 fix0.255 {'dev': {'acc': 0.8546035289764404, 'agree': 0.9592570662498474}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128, 'sp': 0.3} ent0.078 fix0.255 {'dev': {'acc': 0.8518074750900269, 'agree': 0.951867401599884}}
+{'method': 'rtn', 'alpha': 0.7, 'g': 128} ent0.087 fix0.255 {'dev': {'acc': 0.8526063561439514, 'agree': 0.9458757638931274}}
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-YDuPsGhR0vJADMgVcSyX64

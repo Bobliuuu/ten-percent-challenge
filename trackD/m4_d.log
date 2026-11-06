@@ -31,3 +31,35 @@ vqs_d4k12_g64 MB 41.1/41.6 acc 0.8911 agree2 0.9397 hard 0.6427
 RESULT_JSON {"cfg": {"name": "vqs_d4k12_g64", "g": 64, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 41115389.125, "bytes_fixed": 41582188.0, "bytes_ent": 41341194.53697374, "acc2": 0.8910771608352661, "base_acc2": 0.9296624064445496, "agree2": 0.9397106170654297, "agree_hard": 0.6426666378974915, "bitsmap_hist": {"12": 73}}
 
 [1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13810.16it/s]
+vqs_d4k13_g64 MB 43.9/44.3 acc 0.8959 agree2 0.9445 hard 0.6533
+RESULT_JSON {"cfg": {"name": "vqs_d4k13_g64", "g": 64, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 13, "vq": [4], "vqshare": 1}, "bytes_huff": 43888281.75, "bytes_fixed": 44336236.0, "bytes_ent": 44124408.35982203, "acc2": 0.895900309085846, "base_acc2": 0.9296624064445496, "agree2": 0.9445337653160095, "agree_hard": 0.653333306312561, "bitsmap_hist": {"13": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14681.23it/s]
+vqs_d4k14_g128 MB 45.4/45.8 acc 0.8979 agree2 0.9473 hard 0.6387
+RESULT_JSON {"cfg": {"name": "vqs_d4k14_g128", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 14, "vq": [4], "vqshare": 1}, "bytes_huff": 45362621.0, "bytes_fixed": 45837676.0, "bytes_ent": 45602832.87059889, "acc2": 0.897909939289093, "base_acc2": 0.9296624064445496, "agree2": 0.9473472833633423, "agree_hard": 0.6386666893959045, "bitsmap_hist": {"14": 73}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14540.95it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 14755.23it/s]
+vqs_mix30_14_12 MB 42.9/43.4 acc 0.8911 agree2 0.9405 hard 0.6333
+RESULT_JSON {"cfg": {"name": "vqs_mix30_14_12", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1, "mix": [[0.3, 14], [0.7, 12]]}, "bytes_huff": 42918572.0, "bytes_fixed": 43381612.0, "bytes_ent": 43153252.82424071, "acc2": 0.8910771608352661, "base_acc2": 0.9296624064445496, "agree2": 0.9405144453048706, "agree_hard": 0.6333333253860474, "bitsmap_hist": {"12": 51, "14": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11845.32it/s]
+vqs_mix30_13_11 MB 40.0/40.5 acc 0.8722 agree2 0.9152 hard 0.6067
+RESULT_JSON {"cfg": {"name": "vqs_mix30_13_11", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1, "mix": [[0.3, 13], [0.7, 11]]}, "bytes_huff": 40000747.75, "bytes_fixed": 40484716.0, "bytes_ent": 40229889.536288634, "acc2": 0.8721864819526672, "base_acc2": 0.9296624064445496, "agree2": 0.9151929020881653, "agree_hard": 0.6066666841506958, "bitsmap_hist": {"11": 51, "13": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 13518.51it/s]
+vqs_mix30_13_12 MB 41.3/41.8 acc 0.8879 agree2 0.9285 hard 0.6207
+RESULT_JSON {"cfg": {"name": "vqs_mix30_13_12", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1, "mix": [[0.3, 13], [0.7, 12]]}, "bytes_huff": 41342222.5, "bytes_fixed": 41813356.0, "bytes_ent": 41574461.555147134, "acc2": 0.8878617286682129, "base_acc2": 0.9296624064445496, "agree2": 0.9284566044807434, "agree_hard": 0.6206666827201843, "bitsmap_hist": {"12": 51, "13": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 11798.74it/s]
+vqs_d2k6_shared MB 39.2/40.2 acc 0.8256 agree2 0.8573 hard 0.5680
+RESULT_JSON {"cfg": {"name": "vqs_d2k6_shared", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 6, "vq": [2], "vqshare": 1}, "bytes_huff": 39235028.75, "bytes_fixed": 40158316.0, "bytes_ent": 39338015.55027824, "acc2": 0.8255627155303955, "base_acc2": 0.9296624064445496, "agree2": 0.8573151230812073, "agree_hard": 0.5680000185966492, "bitsmap_hist": {"6": 73}}
+vqs_d2k7 MB 44.7/45.5 acc 0.8240 agree2 0.8573 hard 0.5693
+RESULT_JSON {"cfg": {"name": "vqs_d2k7", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 7, "vq": [2], "vqshare": 1}, "bytes_huff": 44735620.875, "bytes_fixed": 45453676.0, "bytes_ent": 44851429.90858505, "acc2": 0.8239549994468689, "base_acc2": 0.9296624064445496, "agree2": 0.8573151230812073, "agree_hard": 0.5693333148956299, "bitsmap_hist": {"7": 73}}
+vqs_d4k12_e3 MB 38.2/38.8 acc 0.8855 agree2 0.9397 hard 0.6400
+RESULT_JSON {"cfg": {"name": "vqs_d4k12_e3", "g": 128, "ebits": 3, "eg": 64, "awq": [0, 0.5], "method": "vq", "bits": 12, "vq": [4], "vqshare": 1}, "bytes_huff": 38239888.125, "bytes_fixed": 38790298.0, "bytes_ent": 38526716.27052811, "acc2": 0.8854501843452454, "base_acc2": 0.9296624064445496, "agree2": 0.9397106170654297, "agree_hard": 0.6399999856948853, "bitsmap_hist": {"12": 73}}
+[modal-client] 2026-11-06T01:44:29-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-tHKRXhYQSKHvxeeF4pk8Ty

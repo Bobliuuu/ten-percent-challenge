@@ -23,3 +23,18 @@ https://modal.com/apps/jerry-zhu/main/ap-n5L0c5YwfffROgiD6ofZik
 {"cfg": {"method": "gptq", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08570393400749193, "ratio_fix": 0.2544154738143118, "dev": {"acc": 0.9326942563056946, "agree": 0.9816257357597351}, "sec": 68.5647668838501}
 {"cfg": {"method": "gptq", "alpha": 0.55, "g": 128}, "ratio_ent": 0.09616228307620653, "ratio_fix": 0.2544154738143118, "dev": {"acc": 0.9302976131439209, "agree": 0.9842221140861511}, "sec": 68.59685611724854}
 {"cfg": {"method": "gptq", "alpha": 0.7, "g": 128, "sp": 0.3}, "ratio_ent": 0.08470111110069697, "ratio_fix": 0.2544154738143118, "dev": {"acc": 0.9306970238685608, "agree": 0.9790293574333191}, "sec": 71.76851224899292}
+{"cfg": {"method": "gptq", "alpha": 0.85, "g": 128, "sp": 0.3}, "ratio_ent": 0.0768146853007858, "ratio_fix": 0.2544154738143118, "dev": {"acc": 0.9271020293235779, "agree": 0.9760335683822632}, "sec": 71.7336118221283}
+{"cfg": {"method": "rtn", "alpha": 0.7, "g": 128}, "ratio_ent": 0.08557821057156516, "ratio_fix": 0.2544154738143118, "dev": {"acc": 0.9279009103775024, "agree": 0.9662472605705261}, "sec": 67.8374252319336}
+jialicheng/cifar100_vit-large 303404132 {'dev': 0.9322947859764099, 'exam': 0.9321049451828003}
+{'base': 1} ent1.000 fix1.000 {'dev': {'acc': 0.9322947859764099, 'agree': 1.0}}
+{'method': 'gptq', 'bits': 4, 'g': 128} ent0.116 fix0.130 {'dev': {'acc': 0.9316956400871277, 'agree': 0.9868184328079224}}
+{'method': 'gptq', 'bits': 3, 'g': 128} ent0.089 fix0.098 {'dev': {'acc': 0.9231076240539551, 'agree': 0.9676452875137329}}
+{'method': 'gptq', 'alpha': 1.0, 'g': 128} ent0.071 fix0.254 {'dev': {'acc': 0.9263031482696533, 'agree': 0.9726383090019226}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128} ent0.077 fix0.254 {'dev': {'acc': 0.9277012348175049, 'agree': 0.9766327142715454}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128} ent0.086 fix0.254 {'dev': {'acc': 0.9326942563056946, 'agree': 0.9816257357597351}}
+{'method': 'gptq', 'alpha': 0.55, 'g': 128} ent0.096 fix0.254 {'dev': {'acc': 0.9302976131439209, 'agree': 0.9842221140861511}}
+{'method': 'gptq', 'alpha': 0.7, 'g': 128, 'sp': 0.3} ent0.085 fix0.254 {'dev': {'acc': 0.9306970238685608, 'agree': 0.9790293574333191}}
+{'method': 'gptq', 'alpha': 0.85, 'g': 128, 'sp': 0.3} ent0.077 fix0.254 {'dev': {'acc': 0.9271020293235779, 'agree': 0.9760335683822632}}
+{'method': 'rtn', 'alpha': 0.7, 'g': 128} ent0.086 fix0.254 {'dev': {'acc': 0.9279009103775024, 'agree': 0.9662472605705261}}
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-n5L0c5YwfffROgiD6ofZik

@@ -5,3 +5,138 @@ https://modal.com/apps/jerry-zhu/main/ap-w42ucNl5zjHNkUixgnzW94
 ├── ✓ Uploaded /Users/jhome/ten-percent/trackR/run.py
 ├── ✓ Uploaded split.py
 └── ✓ Created Function run.
+
+[1ADownloading shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ADownloading shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ADownloading shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ADownloading shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ADownloading shards:  12%|█▎        | 1/8 [00:11<01:19, 11.41s/it]
+[1ADownloading shards:  12%|█▎        | 1/8 [00:11<01:20, 11.52s/it]
+[1ADownloading shards:  12%|█▎        | 1/8 [00:16<01:52, 16.05s/it]
+[1ADownloading shards:  25%|██▌       | 2/8 [00:22<01:06, 11.11s/it]
+[1ADownloading shards:  25%|██▌       | 2/8 [00:22<01:07, 11.27s/it]
+[1ADownloading shards:  38%|███▊      | 3/8 [00:33<00:55, 11.05s/it]
+[1ADownloading shards:  25%|██▌       | 2/8 [00:34<01:44, 17.47s/it]
+[1ADownloading shards:  38%|███▊      | 3/8 [00:33<00:55, 11.13s/it]
+[1ADownloading shards:  12%|█▎        | 1/8 [00:31<03:38, 31.19s/it]
+[1ADownloading shards:  50%|█████     | 4/8 [00:44<00:44, 11.23s/it]
+[1ADownloading shards:  50%|█████     | 4/8 [00:44<00:44, 11.17s/it]
+[1ADownloading shards:  38%|███▊      | 3/8 [00:52<01:27, 17.53s/it]
+[1ADownloading shards:  62%|██████▎   | 5/8 [00:56<00:33, 11.29s/it]
+[1ADownloading shards:  62%|██████▎   | 5/8 [00:56<00:34, 11.44s/it]
+[1ADownloading shards:  25%|██▌       | 2/8 [00:54<02:38, 26.48s/it]
+[1ADownloading shards:  75%|███████▌  | 6/8 [01:08<00:22, 11.45s/it]
+[1ADownloading shards:  50%|█████     | 4/8 [01:09<01:10, 17.51s/it]
+[1ADownloading shards:  75%|███████▌  | 6/8 [01:09<00:23, 11.74s/it]
+[1ADownloading shards:  88%|████████▊ | 7/8 [01:19<00:11, 11.47s/it]
+[1ADownloading shards:  88%|████████▊ | 7/8 [01:20<00:11, 11.56s/it]
+[1ADownloading shards:  38%|███▊      | 3/8 [01:19<02:09, 25.84s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [01:25<00:00,  9.54s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [01:25<00:00, 10.68s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [01:25<00:00,  9.64s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [01:25<00:00, 10.65s/it]
+
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:00,  8.28it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:00,  7.96it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00, 10.52it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00,  8.63it/s]
+[1ADownloading shards:  62%|██████▎   | 5/8 [01:26<00:52, 17.46s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00, 10.25it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  8.22it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00,  8.36it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:00<00:00, 10.75it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:00<00:00,  8.57it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 10.81it/s]
+
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 10.25it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00,  9.27it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+
+[1ADownloading shards:  75%|███████▌  | 6/8 [01:44<00:34, 17.42s/it]
+[1ADownloading shards:  50%|█████     | 4/8 [01:43<01:39, 24.94s/it][modal-client] 2026-11-06T06:43:12+0000 Modal Client → Modal Worker Heartbeat attempt failed (attempt_dur=61.93, time_since_heartbeat_success=61.93, error=ConnectionError('Deadline exceeded'))
+
+[1ADownloading shards:  88%|████████▊ | 7/8 [02:01<00:17, 17.37s/it]
+[1ADownloading shards:  62%|██████▎   | 5/8 [02:04<01:11, 23.74s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [02:08<00:00, 14.15s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [02:08<00:00, 16.10s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  4.94it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:00,  6.51it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:00,  7.20it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  7.51it/s]
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:00<00:00,  7.66it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:00<00:00,  7.75it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:00<00:00,  7.83it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  8.02it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  7.52it/s]
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 0 149.5665020942688
+layer 0 150.0544559955597
+
+layer 1 161.65550756454468
+layer 1 162.24799466133118
+[1ADownloading shards:  75%|███████▌  | 6/8 [02:27<00:46, 23.47s/it]layer 2 174.20518159866333
+layer 2 174.43077611923218
+
+[1ADownloading shards:  88%|████████▊ | 7/8 [02:49<00:22, 22.98s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [02:59<00:00, 18.76s/it]
+[1ADownloading shards: 100%|██████████| 8/8 [02:59<00:00, 22.41s/it]
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:01,  4.07it/s]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:01,  4.34it/s]
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:00<00:01,  4.42it/s]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:00<00:00,  4.43it/s]
+layerlayer  3 186.71042203903198
+3 186.57254886627197
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:01<00:00,  4.45it/s]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:01<00:00,  4.48it/s]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:01<00:00,  4.46it/s]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  4.53it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:01<00:00,  4.46it/s]
+layer 4 198.76753568649292
+layer 4 199.24400806427002
+layer 0 201.59420132637024
+/usr/local/lib/python3.12/site-packages/triton/knobs.py:504: UserWarning: TRITON_DEFAULT_FP_FUSION is unset: defaulting to FP fusion ENABLED for backward compatibility in Triton 3.9. The default will change to DISABLED in Triton 3.10; set TRITON_DEFAULT_FP_FUSION=1 to keep fusion enabled or =0 to adopt the new default early and silence this warning.
+  warn_once(FP_FUSION_DEFAULT_WARNING)
+layer 5 210.93949699401855
+layer 5 211.80893325805664
+layer 1 218.82634449005127
+layer 6 223.10454773902893
+layer 6 224.27012991905212
+layer 7 235.25311660766602
+layer 7 236.76840472221375
+layer 2 236.14903020858765
+layer 8 247.46609497070312
+layer 8 249.33497142791748
+layer 3 253.65336394309998
+layer 9 259.7186119556427
+layer 9 261.93234276771545
+layer 4 270.7693831920624
+layer 10 271.91058683395386
+layer 10 274.49686574935913
+layer 0 271.8007252216339
+
+[1ALoading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]
+layer 11 284.0721356868744
+[1ALoading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.20s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:07,  1.24s/it]
+layer 11 286.9982011318207
+[1ALoading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:06,  1.27s/it]
+[1ALoading checkpoint shards:  50%|█████     | 4/8 [00:05<00:05,  1.30s/it]
+layer 5 289.64519357681274
+[1ALoading checkpoint shards:  62%|██████▎   | 5/8 [00:06<00:04,  1.33s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 6/8 [00:07<00:02,  1.33s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 7/8 [00:09<00:01,  1.31s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:09<00:00,  1.11s/it]
+[1ALoading checkpoint shards: 100%|██████████| 8/8 [00:09<00:00,  1.22s/it]
+layer 12 297.1986012458801
+layer 12 299.0410988330841
+layer 1 296.9992139339447

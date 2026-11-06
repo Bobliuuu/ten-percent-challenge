@@ -8,3 +8,19 @@ https://modal.com/apps/jerry-zhu/main/ap-gxw0BxzzXaTMSVwoH1jU9s
 ├── ✓ Uploaded dev2.json
 ├── ✓ Uploaded engine.py
 └── ✓ Created Function go.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 18169.68it/s]
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 17390.47it/s]
+mix30_g128_e3 MB 40.3/44.5 acc 0.9168 agree2 0.9807 hard 0.7827
+RESULT_JSON {"cfg": {"name": "mix30_g128_e3", "g": 128, "ebits": 3, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.3, 4], [0.7, 3]]}, "bytes_huff": 40298769.75, "bytes_fixed": 44541274.0, "bytes_ent": 40294196.25016181, "acc2": 0.9168006181716919, "base_acc2": 0.9296624064445496, "agree2": 0.9807074069976807, "agree_hard": 0.7826666831970215, "bitsmap_hist": {"3": 51, "4": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 19061.57it/s]
+mix30_g128_e4 MB 41.8/46.0 acc 0.9128 agree2 0.9791 hard 0.8047
+RESULT_JSON {"cfg": {"name": "mix30_g128_e4", "g": 128, "ebits": 4, "eg": 64, "awq": [0, 0.25, 0.5, 0.75], "method": "gptq", "bits": 3, "mix": [[0.3, 4], [0.7, 3]]}, "bytes_huff": 41797234.25, "bytes_fixed": 45977644.0, "bytes_ent": 41730566.25016181, "acc2": 0.9127813577651978, "base_acc2": 0.9296624064445496, "agree2": 0.979099690914154, "agree_hard": 0.8046666383743286, "bitsmap_hist": {"3": 51, "4": 22}}
+
+[1ALoading weights:   0%|          | 0/201 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 201/201 [00:00<00:00, 18740.39it/s]
