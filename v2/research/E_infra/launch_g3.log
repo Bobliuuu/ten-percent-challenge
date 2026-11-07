@@ -1,0 +1,20 @@
+{"time": "2026-11-07T00:07:34+00:00", "event": "security_group_created", "group": "sg-07de4657e28dd38da"}
+{"time": "2026-11-07T00:07:35+00:00", "event": "launch_request", "zone": "eu-north-1a", "region": "eu-north-1", "market": "on-demand", "instance_type": "g7e.4xlarge", "deadline": "2026-11-07T08:07:35+00:00", "hours": 8.0, "max_usd": 31.99, "user_data": "/Users/jhome/ten-percent/v2/aws/g7e-bootstrap.sh", "user_data_sha256": "48cafb70356fa45d"}
+{"time": "2026-11-07T00:07:37+00:00", "event": "launched", "instance_id": "REDACTED-HOST", "region": "eu-north-1", "zone": "eu-north-1a", "market": "on-demand", "launched": "2026-11-07T00:07:36+00:00", "deadline": "2026-11-07T08:07:35+00:00", "instance_type": "g7e.4xlarge", "usd_per_hour": 3.99816}
+Traceback (most recent call last):
+  File "/Users/jhome/inference-experiment/scripts/aws_g7e.py", line 478, in <module>
+    main()
+  File "/Users/jhome/inference-experiment/scripts/aws_g7e.py", line 474, in main
+    args.fn(args)
+  File "/Users/jhome/inference-experiment/scripts/aws_g7e.py", line 308, in cmd_launch
+    arm_local_guard(deadline)
+  File "/Users/jhome/inference-experiment/scripts/aws_g7e.py", line 250, in arm_local_guard
+    subprocess.run(["systemctl", "--user", "stop", f"{GUARD_UNIT}.timer"], capture_output=True)
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'systemctl'

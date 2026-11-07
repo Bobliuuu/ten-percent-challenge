@@ -1,0 +1,6 @@
+{"time": "2026-11-07T00:07:36+00:00", "event": "security_group_created", "group": "sg-0685abb6820553693"}
+{"time": "2026-11-07T00:07:38+00:00", "event": "launch_request", "zone": "ap-south-1a", "region": "ap-south-1", "market": "on-demand", "instance_type": "g7e.4xlarge", "deadline": "2026-11-07T08:07:38+00:00", "hours": 8.0, "max_usd": 31.99, "user_data": "/Users/jhome/ten-percent/v2/aws/g7e-bootstrap.sh", "user_data_sha256": "ed97c6fcf7f0c119"}
+{"time": "2026-11-07T00:07:39+00:00", "event": "no_capacity", "zone": "ap-south-1a"}
+{"time": "2026-11-07T00:07:39+00:00", "event": "launch_request", "zone": "ap-south-1b", "region": "ap-south-1", "market": "on-demand", "instance_type": "g7e.4xlarge", "deadline": "2026-11-07T08:07:38+00:00", "hours": 8.0, "max_usd": 31.99, "user_data": "/Users/jhome/ten-percent/v2/aws/g7e-bootstrap.sh", "user_data_sha256": "ed97c6fcf7f0c119"}
+{"time": "2026-11-07T00:07:41+00:00", "event": "no_capacity", "zone": "ap-south-1b"}
+no on-demand capacity for g7e.4xlarge in ap-south-1 ['ap-south-1a', 'ap-south-1b']; nothing was created
