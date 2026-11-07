@@ -87,3 +87,95 @@ loaded 38 61.064794624
 [1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:04,  2.03s/it]
 [1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:30<00:02,  2.00s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.58s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
 loaded 35 61.064794624
+NOISE_FLOOR {'A': {'em_full': 0.645, 'em64': 0.715, 'em8': 0.965, 'prefix': 0.8098782584189371}, 'B': {'em_full': 0.675, 'em64': 0.725, 'em8': 0.9, 'prefix': 0.8094382937621323}}
+orig saved 1479
+Traceback (most recent call last):
+ERR RuntimeError('Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!')
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/moe_job.py", line 276, in run
+    st = get_stats(cs); sc = {"freq": st["cnt"], "reap": st["reap"] / st["cnt"].clamp_min(1), "gw": st["gw"]}[rank]
+         ^^^^^^^^^^^^^
+  File "/root/moe_job.py", line 194, in get_stats
+    for i in range(0, len(x), 8): model(input_ids=x[i:i + 8].cuda())
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py", line 650, in forward
+    outputs: MoeModelOutputWithPast = self.model(
+                                      ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py", line 487, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py", line 359, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/moe_job.py", line 57, in fwd
+    st["cnt"][li, e] += c; st["gw"][li, e] += g.float().sum(); st["reap"][li, e] += (g.float() * h.float().norm(dim=-1)).sum()
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!
+
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:01<00:24,  1.66s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:03<00:23,  1.70s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:04<00:21,  1.63s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:06<00:19,  1.59s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:08<00:17,  1.57s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:09<00:15,  1.57s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:11<00:14,  1.56s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:12<00:12,  1.55s/it]
+Stopping app - user stopped from CLI.
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:14<00:10,  1.55s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:15<00:09,  1.55s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:17<00:07,  1.54s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:17<00:08,  1.64s/it]
+Runner terminated.
+Runner terminated.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-j3FWPd9Sz8Qy4P7FF4fxXP

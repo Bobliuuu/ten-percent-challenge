@@ -32,7 +32,8 @@ def run(cfgs, tag="x"):
     layers = model.model.layers
     print("loaded", round(time.time() - t0), torch.cuda.memory_allocated() / 1e9, flush=True)
     rd = lambda n: [json.loads(x) for x in open(f"{D}/{n}.jsonl")]
-    EV = {"A": rd("evalA"), "B": rd("evalB")}; CAL = {"A": rd("calibA"), "B": rd("calibB")}
+    EV = {"A": rd("evalA"), "B": rd("evalB")}
+    EL = rd("evalL") if any(c.get("evalL") for c in cfgs) else []; CAL = {"A": rd("calibA"), "B": rd("calibB")}
     def prompt(r): return tok.apply_chat_template(r["msgs"], add_generation_prompt=True, tokenize=False)
     def fulltext(r): return prompt(r) + (r["gold"] or "") + "<|im_end|>"
     # ---------------- patched MoE forward (stats / hessian collection / pruning)
@@ -167,6 +168,25 @@ def run(cfgs, tag="x"):
             cur = tf_logits(items); a, k, n = tf_compare(refs["tf"][s], cur, items)
             out[f"top1_{s}"] = a; out[f"kl_{s}"] = k; out[f"tf_n_{s}"] = n
         return out
+    def gen_L(rows):
+        outs = [None] * len(rows)
+        for kind, mx in (("cls", 12), ("json", 200)):
+            idx = [i for i, r in enumerate(rows) if (r["cat"] == "json") == (kind == "json")]
+            g_ = gen([rows[i] for i in idx], bs=(40 if kind == "cls" else 16), maxnew=mx)
+            for i, t in zip(idx, g_): outs[i] = t
+        return outs
+    def eval_L(rows, base_out, cand_out):
+        res = {}
+        for c in ("agnews", "sst2", "json"):
+            idx = [i for i, r in enumerate(rows) if subcat(r) == c]
+            bok = [item_ok(rows[i], base_out[i]) for i in idx]; cok = [item_ok(rows[i], cand_out[i]) for i in idx]
+            nb = sum(bok); kept = sum(1 for x, y in zip(bok, cok) if x and y)
+            same = sum(1 for i in idx if base_out[i] == cand_out[i])
+            import math as _m
+            p = kept / nb if nb else float("nan"); z = 1.96
+            lo = (p + z*z/(2*nb) - z*_m.sqrt(p*(1-p)/nb + z*z/(4*nb*nb))) / (1 + z*z/nb) if nb else None
+            res[c] = dict(n=len(idx), base_correct=nb, kept=kept, retention=p if nb else None, retention_wilson_lo=lo, base_acc=nb/len(idx), cand_acc=sum(cok)/len(idx), identical_output=same/len(idx))
+        return res
     # ---------------- reference (base) outputs + stats
     refp = f"{D}/base_ref.pt"
     if not os.path.exists(refp) and cfgs[0].get("group") != "smoke":
@@ -185,14 +205,16 @@ def run(cfgs, tag="x"):
             g2 = gen(EV[s], bs=13); em, pm = gen_cmp(refs["gen"][s], g2); nf[s] = dict(em_full=float(np.mean(em)), em64=float(np.mean([int(a[:64]==b[:64]) for a,b in zip(refs['gen'][s],g2)])), em8=float(np.mean([int(a[:8]==b[:8]) for a,b in zip(refs['gen'][s],g2)])), prefix=float(np.mean(pm)))
         refs["noise_floor"] = nf; torch.save(refs, refp); json.dump({s_: [tok.decode(t) for t in refs['gen'][s_]] for s_ in ('A','B')}, open(f'{D}/base_outputs.json','w')); vol.commit(); print("NOISE_FLOOR", nf, flush=True)
         json.dump(dict(noise_floor=nf), open(f"{D}/base_noise.json", "w"))
+    baseL = gen_L(EL) if EL else None
+    if EL: print("baseL done", round(time.time() - t0), flush=True)
     def get_stats(setname):
         p = f"{D}/stats_{setname}.pt"
         vol.reload()
         if os.path.exists(p): return torch.load(p)
-        S["stats"] = dict(cnt=torch.zeros(NL, NE), gw=torch.zeros(NL, NE), reap=torch.zeros(NL, NE)); x = stream(setname, 128, 512)
+        S["stats"] = dict(cnt=torch.zeros(NL, NE, device="cuda"), gw=torch.zeros(NL, NE, device="cuda"), reap=torch.zeros(NL, NE, device="cuda")); x = stream(setname, 128, 512)
         with torch.no_grad():
             for i in range(0, len(x), 8): model(input_ids=x[i:i + 8].cuda())
-        st = S["stats"]; S["stats"] = None; torch.save(st, p); vol.commit(); return st
+        st = {a_: b_.cpu() for a_, b_ in S["stats"].items()}; S["stats"] = None; torch.save(st, p); vol.commit(); return st
     # ---------------- quantization primitives
     from pack_bytes import entropy_bits
     HB = 128
@@ -208,7 +230,7 @@ def run(cfgs, tag="x"):
     def rot_H(Hm, sg):   # Q^T H Q  with Q = diag(sg) blockdiag(Hb)  -> consistent with W@Q
         a = rot_cols(Hm, sg)                       # H Q (rows untouched; Q acts on columns)
         return rot_cols(a.transpose(-1, -2).contiguous(), sg).transpose(-1, -2).contiguous()
-    LM = 31
+    LM = 2047
     def ent_of(q):   # q int tensor -> entropy bits total
         h = torch.bincount((q.long() + LM).flatten(), minlength=2 * LM + 1).float(); return h
     def quant_rtn(W, c, g):   # W[...,R,C] ; groups of g along C ; returns dq, hist
@@ -232,16 +254,23 @@ def run(cfgs, tag="x"):
         W = W.masked_fill(dead.unsqueeze(1), 0)
         mean = torch.diagonal(H, dim1=-2, dim2=-1).mean(-1, keepdim=True)
         H[:, idx, idx] += damp * mean
-        L = torch.linalg.cholesky(H); Hinv = torch.linalg.cholesky(torch.cholesky_inverse(L), upper=True); del L
-        Q = torch.zeros_like(W); hist = torch.zeros(2 * LM + 1, device=W.device); QI = torch.zeros(W.shape, dtype=torch.int8, device=W.device)
+        H = H.double(); L, info = torch.linalg.cholesky_ex(H); bad = info != 0
+        H[bad] = torch.eye(C, device=H.device, dtype=H.dtype) * H[bad].diagonal(dim1=-2, dim2=-1).mean(-1)[:, None, None].clamp_min(1e-6)
+        if bad.any(): L = torch.linalg.cholesky(H)
+        Hinv = torch.linalg.cholesky(torch.cholesky_inverse(L), upper=True).float(); del L, H
+        gptq_batch.nbad = int(bad.sum())
+        nf = ~torch.isfinite(Hinv).all(-1).all(-1)
+        if nf.any(): Hinv[nf] = torch.eye(C, device=W.device)
+        W = torch.nan_to_num(W)
+        Q = torch.zeros_like(W); hist = torch.zeros(2 * LM + 1, device=W.device); QI = torch.zeros(W.shape, dtype=torch.int16, device=W.device)
         for i1 in range(0, C, g):
             i2 = i1 + g; W1 = W[:, :, i1:i2].clone(); Q1 = torch.zeros_like(W1); Err = torch.zeros_like(W1); Hi = Hinv[:, i1:i2, i1:i2]
             s = (c * W1.pow(2).mean(-1, keepdim=True).sqrt()).clamp_min(1e-8).half().float()
             for i in range(g):
                 w = W1[:, :, i]; d = Hi[:, i, i].unsqueeze(1)
-                qi = torch.clamp(torch.round(w / s[:, :, 0]), -LM, LM); q = qi * s[:, :, 0]
+                qi = torch.clamp(torch.nan_to_num(torch.round(w / s[:, :, 0])), -LM, LM); q = qi * s[:, :, 0]
                 hist += torch.bincount((qi.long() + LM).flatten(), minlength=2 * LM + 1).float()
-                Q1[:, :, i] = q; QI[:, :, i1 + i] = qi.to(torch.int8); err = (w - q) / d
+                Q1[:, :, i] = q; QI[:, :, i1 + i] = qi.to(torch.int16); err = (w - q) / d
                 W1[:, :, i:] -= err.unsqueeze(-1) * Hi[:, i, i:].unsqueeze(1); Err[:, :, i] = err
             Q[:, :, i1:i2] = Q1
             if i2 < C: W[:, :, i2:] -= Err @ Hinv[:, i1:i2, i2:]
@@ -393,6 +422,7 @@ def run(cfgs, tag="x"):
         Rr["bytes"] = total_bytes; Rr["ratio"] = total_bytes / 61_066_575_656; Rr["parts_MB"] = {a: b / 8e6 for a, b in bits.items()}; Rr["cfg_files"] = cfg_files
         Rr["quant_secs"] = time.time() - tc; print(name, "quantized; bytes", total_bytes, "ratio", Rr["ratio"], flush=True)
         if cfg.get("skip_eval"): results.append(Rr); print("RESULT_JSON " + json.dumps(Rr), flush=True); continue
+        if EL: Rr["itemL"] = eval_L(EL, baseL, gen_L(EL)); print(name, "itemL", json.dumps(Rr["itemL"]), flush=True)
         ev = evaluate(refs, name); Rr.update({a: b for a, b in ev.items() if not a.startswith("_")})
         Rr["secs"] = time.time() - tc; Rr["noise_floor"] = refs.get("noise_floor")
         os.makedirs("/hf/moe_res", exist_ok=True); json.dump(Rr, open(f"/hf/moe_res/{name}.json", "w")); vol.commit()

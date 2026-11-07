@@ -1,0 +1,74 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:14<01:38, 14.04s/it]Fetching 8 files:  25%|██▌       | 2/8 [00:17<00:51,  8.58s/it]Fetching 8 files:  38%|███▊      | 3/8 [00:24<00:41,  8.33s/it]Fetching 8 files:  50%|█████     | 4/8 [00:25<00:25,  6.30s/it]Fetching 8 files:  62%|██████▎   | 5/8 [00:25<00:15,  5.11s/it]Fetching 8 files:  75%|███████▌  | 6/8 [00:25<00:08,  4.29s/it]Fetching 8 files:  88%|████████▊ | 7/8 [00:26<00:03,  3.76s/it]Fetching 8 files: 100%|██████████| 8/8 [00:26<00:00,  3.30s/it]Fetching 8 files: 100%|██████████| 8/8 [00:26<00:00,  3.30s/it]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 248.95it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   622s] T1pairS:first sizes {'ann': 400, 'dev': 40, 'teach': 60, 'neigh_pool': 408, 'neigh_dev': 80, 'neigh': 100} ann_wrong 310 400 base teach 0.23333333333333334 dev 0.35 neigh base-right 312 / 408
+[   714s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.575, 'gain': 0.22499999999999998, 'neigh_dev': 1.0}
+[   808s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.625, 'gain': 0.275, 'neigh_dev': 1.0}
+[   901s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.725, 'gain': 0.375, 'neigh_dev': 1.0}
+[   992s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.725, 'gain': 0.375, 'neigh_dev': 1.0}
+[  1083s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.725, 'gain': 0.375, 'neigh_dev': 1.0}
+[  1174s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.75, 'gain': 0.4, 'neigh_dev': 1.0}
+[  1265s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.725, 'gain': 0.375, 'neigh_dev': 1.0}
+[  1358s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.625, 'gain': 0.275, 'neigh_dev': 0.9375}
+[  1449s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.225, 'gain': -0.12499999999999997, 'neigh_dev': 0.5125}
+[  1495s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.05, 'gain': -0.3, 'neigh_dev': 0.0}
+[  1557s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.05, 'gain': -0.3, 'neigh_dev': 0.0}
+[  1634s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.05, 'gain': -0.3, 'neigh_dev': 0.0}
+[  1744s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 39, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  1852s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  1962s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 39, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  2127s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 39, 'dev': 0.7, 'gain': 0.35, 'neigh_dev': 1.0}
+[  2260s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.7, 'gain': 0.35, 'neigh_dev': 1.0}
+[  2395s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.7, 'gain': 0.35, 'neigh_dev': 1.0}
+[  2528s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 39, 'dev': 0.7, 'gain': 0.35, 'neigh_dev': 1.0}
+[  2528s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[  2728s] lmhead_lda 0 real 0.8166666666666667 neigh 0.99 shuf 0.0
+[  2923s] lmhead_lda 1 real 0.7833333333333333 neigh 0.98 shuf 0.0
+[  3121s] lmhead_lda 2 real 0.8166666666666667 neigh 0.99 shuf 0.0
+[  3381s] blend 0 real 0.8166666666666667 neigh 1.0 shuf 0.21666666666666667
+[  3647s] blend 1 real 0.7833333333333333 neigh 1.0 shuf 0.05
+[  3922s] blend 2 real 0.8 neigh 1.0 shuf 0.16666666666666666
+[  4178s] memit_down 0 real 0.8166666666666667 neigh 1.0 shuf 0.2
+[  4432s] memit_down 1 real 0.8 neigh 1.0 shuf 0.05
+[  4709s] memit_down 2 real 0.8166666666666667 neigh 1.0 shuf 0.03333333333333333
+[  4904s] codec fp16row 0 0.8166666666666667 0.98 16 120320.0
+[  5004s] codec fp16row 1 0.7833333333333333 0.98 14 105280.0
+[  5104s] codec fp16row 2 0.8166666666666667 0.99 17 127840.0
+[  5202s] codec req4_newscale 0 0.8166666666666667 0.98 16 0
+[  5299s] codec req4_newscale 1 0.7833333333333333 0.98 14 0
+[  5399s] codec req4_newscale 2 0.8166666666666667 0.99 17 0
+[  5500s] codec snap_orig 0 0.8166666666666667 0.98 16 0
+[  5600s] codec snap_orig 1 0.7833333333333333 0.98 14 0
+[  5705s] codec snap_orig 2 0.8166666666666667 0.99 17 0
+[  5705s] DONE Qwen3-14B_T1pairS_first
+[  6291s] T1new:first sizes {'ann': 400, 'dev': 40, 'teach': 60, 'neigh_pool': 408, 'neigh_dev': 80, 'neigh': 100} ann_wrong 400 400 base teach 0.0 dev 0.0 neigh base-right 312 / 408
+[  6387s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6485s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6581s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6677s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6777s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6874s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  6971s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[  7070s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.975}
+[  7165s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9625}
+[  7263s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.775}
+[  7343s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0375}
+[  7447s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0125}
+[  7551s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  7655s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  7759s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 108, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  7938s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 108, 'dev': 0.65, 'gain': 0.65, 'neigh_dev': 0.8375}
+[  8083s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.65, 'gain': 0.65, 'neigh_dev': 0.9}
+[  8174s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.65, 'gain': 0.65, 'neigh_dev': 0.9}
+[  8265s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 108, 'dev': 0.65, 'gain': 0.65, 'neigh_dev': 0.9}
+[  8265s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[  8371s] lmhead_lda 0 real 0.0 neigh 1.0 shuf 0.0
+[  8478s] lmhead_lda 1 real 0.0 neigh 1.0 shuf 0.0
+[  8586s] lmhead_lda 2 real 0.0 neigh 1.0 shuf 0.0
+[  8802s] blend 0 real 0.6 neigh 0.95 shuf 0.0
+[  9218s] blend 1 real 0.38333333333333336 neigh 0.75 shuf 0.0
+[  9649s] blend 2 real 0.5666666666666667 neigh 0.75 shuf 0.0
+[ 10264s] memit_down 0 real 0.6 neigh 0.88 shuf 0.0
+[ 10757s] memit_down 1 real 0.35 neigh 0.79 shuf 0.0

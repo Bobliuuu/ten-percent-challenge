@@ -1,0 +1,1 @@
+[{"model": "Qwen/Qwen3-8B", "name": "selfcheck_bf16", "L": 16, "qlist": [-1], "g": 256}]

@@ -1,0 +1,125 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-4ToQOTtQ8SknPr7Q56gagc
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb4.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:01<00:04,  1.19s/it]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.22s/it]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:03<00:02,  1.20s/it]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:04<00:01,  1.13s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.03it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   331s] T1new:last sizes {'ann': 400, 'dev': 40, 'teach': 60, 'neigh_pool': 408, 'neigh_dev': 80, 'neigh': 100} ann_wrong 400 400 base teach 0.0 dev 0.0 neigh base-right 309 / 408
+[   380s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 1.0}
+[   429s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 1.0}
+[   478s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.9875}
+[   528s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.95}
+[   577s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.775}
+[   627s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.2125}
+[   668s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.025, 'gain': 0.025, 'neigh_dev': 0.0125}
+[   719s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0125}
+[   775s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0125}
+[   832s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0125}
+[   890s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0125}
+[   948s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  1008s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  1067s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  1126s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0}
+[  1243s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 121, 'dev': 0.35, 'gain': 0.35, 'neigh_dev': 0.025}
+[  1345s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.525, 'gain': 0.525, 'neigh_dev': 0.075}
+[  1454s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.2, 'gain': 0.2, 'neigh_dev': 0.0625}
+[  1565s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 121, 'dev': 0.0, 'gain': 0.0, 'neigh_dev': 0.0875}
+[  1566s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[  1684s] lmhead_lda 0 real 0.0 neigh 0.99 shuf 0.0
+[  1806s] lmhead_lda 1 real 0.0 neigh 0.99 shuf 0.0
+[  1929s] lmhead_lda 2 real 0.0 neigh 0.99 shuf 0.0
+[  2150s] blend 0 real 0.4166666666666667 neigh 0.18 shuf 0.0
+[  2390s] blend 1 real 0.3 neigh 0.59 shuf 0.0
+[  2625s] blend 2 real 0.2833333333333333 neigh 0.44 shuf 0.0
+[  2834s] memit_down 0 real 0.3 neigh 0.13 shuf 0.0
+[  3068s] memit_down 1 real 0.21666666666666667 neigh 0.33 shuf 0.0
+[  3293s] memit_down 2 real 0.26666666666666666 neigh 0.23 shuf 0.0
+[  3403s] codec fp16row 0 0.0 1.0 7 42112.0
+[  3464s] codec fp16row 1 0.0 1.0 8 48128.0
+[  3526s] codec fp16row 2 0.0 1.0 13 78208.0
+[  3586s] codec req4_newscale 0 0.0 1.0 7 0
+[  3646s] codec req4_newscale 1 0.0 1.0 8 0
+[  3707s] codec req4_newscale 2 0.0 1.0 13 0
+[  3769s] codec snap_orig 0 0.0 1.0 7 0
+[  3831s] codec snap_orig 1 0.0 1.0 8 0
+[  3892s] codec snap_orig 2 0.0 1.0 13 0
+[  3895s] DONE Qwen3-8B_T1new_last
+[  4187s] T1pairS:last sizes {'ann': 400, 'dev': 40, 'teach': 60, 'neigh_pool': 408, 'neigh_dev': 80, 'neigh': 100} ann_wrong 334 400 base teach 0.1 dev 0.225 neigh base-right 309 / 408
+[  4234s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.775, 'gain': 0.55, 'neigh_dev': 1.0}
+[  4282s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.8, 'gain': 0.5750000000000001, 'neigh_dev': 1.0}
+[  4331s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 1.0}
+[  4378s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 1.0}
+[  4426s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 0.9875}
+[  4474s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 0.9875}
+[  4522s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 0.9625}
+[  4569s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.825, 'gain': 0.6, 'neigh_dev': 0.95}
+[  4619s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.775, 'gain': 0.55, 'neigh_dev': 0.8625}
+[  4675s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.6, 'gain': 0.375, 'neigh_dev': 0.5875}
+[  4732s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.0, 'gain': -0.225, 'neigh_dev': 0.0}
+[  4790s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.0, 'gain': -0.225, 'neigh_dev': 0.0}
+[  4847s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 30, 'dev': 0.0, 'gain': -0.225, 'neigh_dev': 0.0}
+[  4905s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.0, 'gain': -0.225, 'neigh_dev': 0.0}
+[  4962s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 30, 'dev': 0.0, 'gain': -0.225, 'neigh_dev': 0.0}
+[  5025s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 30, 'dev': 0.85, 'gain': 0.625, 'neigh_dev': 1.0}
+[  5090s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.85, 'gain': 0.625, 'neigh_dev': 1.0}
+[  5154s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.85, 'gain': 0.625, 'neigh_dev': 1.0}
+[  5218s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 30, 'dev': 0.85, 'gain': 0.625, 'neigh_dev': 1.0}
+[  5219s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[  5317s] lmhead_lda 0 real 0.7333333333333333 neigh 1.0 shuf 0.0
+[  5419s] lmhead_lda 1 real 0.7333333333333333 neigh 0.98 shuf 0.0
+[  5520s] lmhead_lda 2 real 0.75 neigh 1.0 shuf 0.0
+[  5645s] blend 0 real 0.7833333333333333 neigh 1.0 shuf 0.05
+[  5786s] blend 1 real 0.16666666666666666 neigh 0.99 shuf 0.05
+[  5919s] blend 2 real 0.26666666666666666 neigh 1.0 shuf 0.05
+[  6041s] memit_down 0 real 0.7666666666666667 neigh 1.0 shuf 0.05
+[  6181s] memit_down 1 real 0.6833333333333333 neigh 0.97 shuf 0.05
+[  6307s] memit_down 2 real 0.5666666666666667 neigh 0.87 shuf 0.05
+[  6401s] codec fp16row 0 0.7333333333333333 1.0 8 48128.0
+[  6453s] codec fp16row 1 0.7333333333333333 0.98 24 144384.0
+[  6505s] codec fp16row 2 0.75 1.0 10 60160.0
+[  6556s] codec req4_newscale 0 0.75 1.0 8 0
+[  6607s] codec req4_newscale 1 0.75 0.98 24 0
+[  6657s] codec req4_newscale 2 0.75 1.0 10 0
+[  6706s] codec snap_orig 0 0.7333333333333333 1.0 8 0
+[  6757s] codec snap_orig 1 0.7166666666666667 0.98 24 0
+[  6806s] codec snap_orig 2 0.7333333333333333 1.0 10 0
+[  6809s] DONE Qwen3-8B_T1pairS_last
+[  7111s] T1pairP:first sizes {'ann': 400, 'dev': 40, 'teach': 60, 'neigh_pool': 408, 'neigh_dev': 80, 'neigh': 100} ann_wrong 293 400 base teach 0.18333333333333332 dev 0.35 neigh base-right 307 / 408
+[  7154s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.7, 'gain': 0.35, 'neigh_dev': 1.0}
+[  7198s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.725, 'gain': 0.375, 'neigh_dev': 1.0}
+[  7241s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.85, 'gain': 0.5, 'neigh_dev': 0.9875}
+[  7285s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.85, 'gain': 0.5, 'neigh_dev': 0.9875}
+[  7330s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.85, 'gain': 0.5, 'neigh_dev': 0.975}
+[  7375s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.825, 'gain': 0.475, 'neigh_dev': 0.95}
+[  7418s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.5, 'gain': 0.15000000000000002, 'neigh_dev': 0.65}
+[  7452s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.1, 'gain': -0.24999999999999997, 'neigh_dev': 0.075}
+[  7476s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.05, 'gain': -0.3, 'neigh_dev': 0.0375}
+[  7499s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.05, 'gain': -0.3, 'neigh_dev': 0.0375}
+[  7562s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  7625s] {'cfg': {'m': 'lmhead_lda', 'alpha': 1.2, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  7688s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.01}, 'nsites': 37, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  7750s] {'cfg': {'m': 'lmhead_lda', 'alpha': 2.0, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  7813s] {'cfg': {'m': 'lmhead_mean', 'alpha': 0.2}, 'nsites': 37, 'dev': 0.0, 'gain': -0.35, 'neigh_dev': 0.0}
+[  7861s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 37, 'dev': 0.075, 'gain': -0.27499999999999997, 'neigh_dev': 0.1}
+[  7925s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.625, 'gain': 0.275, 'neigh_dev': 1.0}
+[  7990s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.625, 'gain': 0.275, 'neigh_dev': 1.0}
+[  8054s] {'cfg': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 1.0, 'ridge': 0.1}, 'nsites': 37, 'dev': 0.6, 'gain': 0.25, 'neigh_dev': 0.9625}
+[  8057s] chosen {'lmhead_lda': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.01}, 'blend': {'m': 'blend', 'ls': 'd3_80', 'lam': 1000.0, 'alpha': 0.2, 'ridge': 0.1}, 'memit_down': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}}
+[  8165s] lmhead_lda 0 real 0.7666666666666667 neigh 0.99 shuf 0.15
+[  8272s] lmhead_lda 1 real 0.7666666666666667 neigh 1.0 shuf 0.15
+[  8381s] lmhead_lda 2 real 0.7833333333333333 neigh 0.98 shuf 0.15
+[  8514s] blend 0 real 0.38333333333333336 neigh 0.98 shuf 0.08333333333333333
+[  8645s] blend 1 real 0.4166666666666667 neigh 1.0 shuf 0.15
+[  8781s] blend 2 real 0.31666666666666665 neigh 0.99 shuf 0.11666666666666667
+[  8880s] memit_down 0 real 0.03333333333333333 neigh 0.12 shuf 0.0

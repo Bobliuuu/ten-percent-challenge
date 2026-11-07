@@ -1,0 +1,110 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-My31J8rtHV5hiY9BEY0KUt
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/compress/moe/moe_job.py
+├── ✓ Uploaded pack_bytes.py
+├── ✓ Created Function run.
+└── ✓ Created Function download.
+
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:02<00:36,  2.44s/it]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:01<00:28,  1.89s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:04<00:33,  2.38s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:03<00:26,  1.89s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:06<00:29,  2.30s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:05<00:24,  1.87s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:09<00:26,  2.20s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:07<00:23,  1.92s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:10<00:23,  2.11s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:09<00:20,  1.89s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:12<00:20,  2.07s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:11<00:18,  1.89s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:14<00:18,  2.03s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:13<00:17,  1.89s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:16<00:16,  2.01s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:15<00:15,  1.89s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:18<00:13,  1.99s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:17<00:13,  1.90s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:20<00:11,  1.96s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:18<00:11,  1.91s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:22<00:09,  1.94s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:20<00:09,  1.90s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:24<00:07,  1.94s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:22<00:07,  1.91s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:26<00:05,  1.94s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:24<00:05,  1.92s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:26<00:03,  1.90s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:03,  1.96s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:30<00:01,  1.95s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:28<00:01,  1.92s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.48s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.50s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.81s/it]
+Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
+loaded 36 61.064794624
+loaded 34 61.064794624
+orig saved 69
+orig saved 69
+fillA_k64 layer 0 22 corr {'exp': 0.007, 'attn': 0.0} gb 71.2
+fillA_k128 layer 0 36 corr {'exp': 0.035, 'attn': 0.0} gb 74.9
+fillA_k64 layer 6 58 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k64 layer 12 101 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 6 101 corr {'exp': 0.035, 'attn': 0.0} gb 74.9
+fillA_k64 layer 18 138 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 12 161 corr {'exp': 0.034, 'attn': 0.0} gb 74.9
+fillA_k64 layer 24 175 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k64 layer 30 217 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 18 221 corr {'exp': 0.034, 'attn': 0.0} gb 74.9
+fillA_k64 layer 36 254 corr {'exp': 0.005, 'attn': 0.0} gb 71.2
+fillA_k128 layer 24 284 corr {'exp': 0.036, 'attn': 0.0} gb 74.9
+fillA_k64 layer 42 289 corr {'exp': 0.008, 'attn': 0.0} gb 71.2
+fillA_k64 quantized; bytes 5597411712.803358 ratio 0.09166080875951971
+fillA_k128 layer 30 344 corr {'exp': 0.033, 'attn': 0.0} gb 74.9
+fillA_k128 layer 36 405 corr {'exp': 0.038, 'attn': 0.0} gb 74.9
+fillA_k128 layer 42 465 corr {'exp': 0.043, 'attn': 0.0} gb 74.9
+fillA_k128 quantized; bytes 5548938390.943047 ratio 0.09086703047181334
+RESULT_JSON {"name": "fillA_k64", "cfg": {"attn_bits": 5, "emb_bits": 6, "calib": "A", "rank": "freq", "nseq": 192, "g": 128, "k": 64, "exp_bits": 2.42, "rans_check": true, "name": "fillA_k64", "group": "g1"}, "rans_check": [{"layer": 10, "proj": "gate_proj", "n": 50331648, "entropy_bits": 121750316.09538884, "rans_bits": 121750560, "ratio": 1.0000020033180939, "bpw_rans": 2.418966293334961, "bpw_ent": 2.4189614473857253}, {"layer": 10, "proj": "up_proj", "n": 50331648, "entropy_bits": 121747158.70245664, "rans_bits": 121747392, "ratio": 1.0000019162463079, "bpw_rans": 2.418903350830078, "bpw_ent": 2.418898715624345}, {"layer": 30, "proj": "gate_proj", "n": 50331648, "entropy_bits": 121719409.2167894, "rans_bits": 121719648, "ratio": 1.000001961751311, "bpw_rans": 2.4183521270751953, "bpw_ent": 2.4183473828790465}, {"layer": 30, "proj": "up_proj", "n": 50331648, "entropy_bits": 121742843.12657148, "rans_bits": 121743104, "ratio": 1.0000021428235273, "bpw_rans": 2.418818155924479, "bpw_ent": 2.418812972835133}], "bytes": 5597411712.803358, "ratio": 0.09166080875951971, "parts_MB": {"exp": 4407.203508614999, "attn": 569.0813039559376, "emb": 331.7202742324219, "scales": 260.096, "fixed": 13.201408}, "cfg_files": 15959218, "quant_secs": 319.0925917625427, "em8_A": 0.0025, "em8_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.01, "sst2": 0.0}, "em16_A": 0.0, "em16_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.0, "sst2": 0.0}, "em64_A": 0.0, "em64_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.0, "sst2": 0.0}, "emfull_A": 0.0, "prefix_A": 0.0014508378932968535, "retention_A": {"agnews": {"n": 47, "base_correct": 33, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 0.7021276595744681}, "sst2": {"n": 6, "base_correct": 6, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 1.0}, "json": {"n": 90, "base_correct": 22, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 0.24444444444444444}}, "stage0_em16_A": 0.0, "em8_B": 0.008333333333333333, "em8_B_bycat": {"code": 0.0, "math": 0.025, "multi": 0.0}, "em16_B": 0.0, "em16_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "em64_B": 0.0, "em64_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "emfull_B": 0.0, "prefix_B": 0.0009469696969696969, "retention_B": {}, "stage0_em16_B": 0.0, "top1_A": 0.3704860027057966, "kl_A": 5.392966550822461, "tf_n_A": 9609, "top1_B": 0.22259397756347177, "kl_B": 6.949497738684099, "tf_n_B": 5081, "secs": 716.0880212783813, "noise_floor": {"A": {"em_full": 0.645, "em64": 0.715, "em8": 0.965, "prefix": 0.8098782584189371}, "B": {"em_full": 0.675, "em64": 0.725, "em8": 0.9, "prefix": 0.8094382937621323}}}
+prune_k64 quantized; bytes 32076963490.0 ratio 0.5252785692568686
+RESULT_JSON {"name": "fillA_k128", "cfg": {"attn_bits": 5, "emb_bits": 6, "calib": "A", "rank": "freq", "nseq": 192, "g": 128, "k": 128, "exp_bits": 1.13, "rans_check": false, "name": "fillA_k128", "group": "g2"}, "bytes": 5548938390.943047, "ratio": 0.09086703047181334, "parts_MB": {"exp": 4119.655219109999, "attn": 569.0809436006251, "emb": 331.7202742324219, "scales": 486.588416, "fixed": 25.78432}, "cfg_files": 15959218, "quant_secs": 515.56480717659, "em8_A": 0.0, "em8_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.0, "sst2": 0.0}, "em16_A": 0.0, "em16_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.0, "sst2": 0.0}, "em64_A": 0.0, "em64_A_bycat": {"agnews": 0.0, "chat": 0.0, "cnn_sum": 0.0, "json": 0.0, "pii": 0.0, "sst2": 0.0}, "emfull_A": 0.0, "prefix_A": 0.001043047428388949, "retention_A": {"agnews": {"n": 47, "base_correct": 33, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 0.7021276595744681}, "sst2": {"n": 6, "base_correct": 6, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 1.0}, "json": {"n": 90, "base_correct": 22, "kept": 0, "retention": 0.0, "cand_acc": 0.0, "base_acc": 0.24444444444444444}}, "stage0_em16_A": 0.0, "em8_B": 0.0, "em8_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "em16_B": 0.0, "em16_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "em64_B": 0.0, "em64_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "emfull_B": 0.0, "prefix_B": 0.0005555555555555556, "retention_B": {}, "stage0_em16_B": 0.0, "top1_A": 0.23290665001561037, "kl_A": 6.638334590496214, "tf_n_A": 9609, "top1_B": 0.14170438889982287, "kl_B": 7.258507407056467, "tf_n_B": 5081, "secs": 1016.8836839199066, "noise_floor": {"A": {"em_full": 0.645, "em64": 0.715, "em8": 0.965, "prefix": 0.8098782584189371}, "B": {"em_full": 0.675, "em64": 0.725, "em8": 0.9, "prefix": 0.8094382937621323}}}
+stride4_k64_o0 layer 0 28 corr {'exp': 0.007, 'attn': 0.0} gb 74.9
+stride4_k64_o0 layer 12 48 corr {'exp': 0.004, 'attn': 0.0} gb 74.9
+stride4_k64_o0 layer 24 69 corr {'exp': 0.004, 'attn': 0.0} gb 74.9
+stride4_k64_o0 layer 36 90 corr {'exp': 0.005, 'attn': 0.0} gb 74.9
+stride4_k64_o0 quantized; bytes 1675022876.072734 ratio 0.02742945478895798
+
+[1ALoading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:   6%|▋         | 1/16 [00:02<00:44,  2.94s/it]
+[1ALoading checkpoint shards:  12%|█▎        | 2/16 [00:04<00:33,  2.38s/it]
+[1ALoading checkpoint shards:  19%|█▉        | 3/16 [00:06<00:28,  2.17s/it]
+[1ALoading checkpoint shards:  25%|██▌       | 4/16 [00:08<00:25,  2.09s/it]
+[1ALoading checkpoint shards:  31%|███▏      | 5/16 [00:10<00:22,  2.04s/it]
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:12<00:20,  2.01s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:14<00:17,  1.98s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:16<00:15,  1.94s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:18<00:13,  1.93s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:20<00:11,  1.92s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:22<00:09,  1.91s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:24<00:07,  1.91s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:25<00:05,  1.90s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:27<00:03,  1.89s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:29<00:01,  1.87s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.45s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.88s/it]
+loaded 37 61.064794624
+orig saved 69
+fillA_k96 layer 0 20 corr {'exp': 0.017, 'attn': 0.0} gb 72.3
+RESULT_JSON {"name": "stride4_k64_o0", "cfg": {"attn_bits": 5, "emb_bits": 6, "calib": "A", "rank": "freq", "nseq": 192, "g": 128, "name": "stride4_k64_o0", "group": "g2", "k": 64, "exp_bits": 2.42, "stride": 4, "offset": 0, "quick": true}, "bytes": 1675022876.072734, "ratio": 0.02742945478895798, "parts_MB": {"exp": 1102.0093003349998, "attn": 142.2708035053125, "emb": 331.7202742324219, "scales": 79.609856, "fixed": 3.303424}, "cfg_files": 15959218, "quant_secs": 104.58128356933594, "em8_A": 0.0, "em8_A_bycat": {"chat": 0.0}, "em16_A": 0.0, "em16_A_bycat": {"chat": 0.0}, "em64_A": 0.0, "em64_A_bycat": {"chat": 0.0}, "emfull_A": 0.0, "prefix_A": 0.005148016900927423, "retention_A": {}, "stage0_em16_A": 0.0, "top1_A": 0.40430846081798316, "kl_A": 5.259580097482336, "tf_n_A": 9609, "secs": 216.11223721504211, "noise_floor": {"A": {"em_full": 0.645, "em64": 0.715, "em8": 0.965, "prefix": 0.8098782584189371}, "B": {"em_full": 0.675, "em64": 0.725, "em8": 0.9, "prefix": 0.8094382937621323}}}
+RESULT_JSON {"name": "prune_k64", "cfg": {"attn_bits": 16, "emb_bits": 16, "calib": "A", "rank": "freq", "nseq": 192, "g": 128, "k": 64, "exp_bits": null, "name": "prune_k64", "group": "g1"}, "bytes": 32076963490.0, "ratio": 0.5252785692568686, "parts_MB": {"exp": 28991.029248, "attn": 1811.963904, "emb": 1244.659712, "scales": 0.0, "fixed": 13.201408}, "cfg_files": 15959218, "quant_secs": 9.185136556625366, "em8_A": 0.195, "em8_A_bycat": {"agnews": 0.2978723404255319, "chat": 0.12727272727272726, "cnn_sum": 0.06382978723404255, "json": 0.4777777777777778, "pii": 0.0, "sst2": 0.6666666666666666}, "em16_A": 0.145, "em16_A_bycat": {"agnews": 0.2978723404255319, "chat": 0.02727272727272727, "cnn_sum": 0.02127659574468085, "json": 0.4, "pii": 0.0, "sst2": 0.6666666666666666}, "em64_A": 0.1075, "em64_A_bycat": {"agnews": 0.2978723404255319, "chat": 0.00909090909090909, "cnn_sum": 0.0, "json": 0.26666666666666666, "pii": 0.0, "sst2": 0.6666666666666666}, "emfull_A": 0.105, "prefix_A": 0.13944401001887133, "retention_A": {"agnews": {"n": 47, "base_correct": 33, "kept": 10, "retention": 0.30303030303030304, "cand_acc": 0.23404255319148937, "base_acc": 0.7021276595744681}, "sst2": {"n": 6, "base_correct": 6, "kept": 6, "retention": 1.0, "cand_acc": 1.0, "base_acc": 1.0}, "json": {"n": 90, "base_correct": 22, "kept": 14, "retention": 0.6363636363636364, "cand_acc": 0.15555555555555556, "base_acc": 0.24444444444444444}}, "stage0_em16_A": 0.046875, "em8_B": 0.125, "em8_B_bycat": {"code": 0.15, "math": 0.175, "multi": 0.05}, "em16_B": 0.041666666666666664, "em16_B_bycat": {"code": 0.075, "math": 0.05, "multi": 0.0}, "em64_B": 0.0, "em64_B_bycat": {"code": 0.0, "math": 0.0, "multi": 0.0}, "emfull_B": 0.0, "prefix_B": 0.03378120524303998, "retention_B": {}, "stage0_em16_B": 0.078125, "top1_A": 0.7104797585596836, "kl_A": 1.1612588352784368, "tf_n_A": 9609, "top1_B": 0.8333005313914583, "kl_B": 0.4775293395641727, "tf_n_B": 5081, "secs": 537.6908831596375, "noise_floor": {"A": {"em_full": 0.645, "em64": 0.715, "em8": 0.965, "prefix": 0.8098782584189371}, "B": {"em_full": 0.675, "em64": 0.725, "em8": 0.9, "prefix": 0.8094382937621323}}}
+fillA_k96 layer 6 63 corr {'exp': 0.015, 'attn': 0.0} gb 72.3
+quant_k128_e4 layer 0 18 corr {'exp': -0.008, 'attn': 0.0} gb 76.6
+Stopping app - user stopped from CLI.
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+ERR RemoteError('')
+Runner terminated.
+Runner terminated.
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-My31J8rtHV5hiY9BEY0KUt

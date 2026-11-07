@@ -36,3 +36,22 @@ The following generation flags are not valid and may be ignored: ['temperature',
 [   580s] lmhead_lda 1 real 0.35 neigh 1.0 shuf 0.0
 [   633s] lmhead_lda 2 real 0.36 neigh 1.0 shuf 0.0
 [   724s] blend 0 real 0.99 neigh 0.91 shuf 0.0
+[   815s] blend 1 real 0.96 neigh 0.99 shuf 0.0
+[   906s] blend 2 real 0.98 neigh 0.97 shuf 0.0
+[   995s] memit_down 0 real 1.0 neigh 0.73 shuf 0.0
+[  1083s] memit_down 1 real 0.96 neigh 0.99 shuf 0.0
+[  1171s] memit_down 2 real 1.0 neigh 1.0 shuf 0.0
+[  1218s] codec fp16row 0 0.45 0.99 2 7520.0
+[  1244s] codec fp16row 1 0.44 0.98 2 7520.0
+[  1270s] codec fp16row 2 0.45 0.98 2 7520.0
+[  1295s] codec req4_newscale 0 0.45 0.99 2 0
+[  1321s] codec req4_newscale 1 0.46 1.0 2 0
+[  1347s] codec req4_newscale 2 0.48 0.98 2 0
+[  1373s] codec snap_orig 0 0.41 1.0 2 0
+[  1398s] codec snap_orig 1 0.4 0.99 2 0
+[  1424s] codec snap_orig 2 0.4 1.0 2 0
+[  1426s] DONE Qwen3-4B-Instruct-2507_B_first_r2
+ok
+[modal-client] 2026-11-06T16:35:12-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-YWG12QssBveXTVpZldJPWd

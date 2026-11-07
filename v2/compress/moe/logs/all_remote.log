@@ -1,0 +1,46 @@
+
+[1ALoading checkpoint shards:  38%|███▊      | 6/16 [00:11<00:18,  1.89s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:14<00:18,  2.03s/it]
+[1ALoading checkpoint shards:  44%|████▍     | 7/16 [00:13<00:17,  1.89s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:16<00:16,  2.01s/it]
+[1ALoading checkpoint shards:  50%|█████     | 8/16 [00:15<00:15,  1.89s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:18<00:13,  1.99s/it]
+[1ALoading checkpoint shards:  56%|█████▋    | 9/16 [00:17<00:13,  1.90s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:20<00:11,  1.96s/it]
+[1ALoading checkpoint shards:  62%|██████▎   | 10/16 [00:18<00:11,  1.91s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:22<00:09,  1.94s/it]
+[1ALoading checkpoint shards:  69%|██████▉   | 11/16 [00:20<00:09,  1.90s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:24<00:07,  1.94s/it]
+[1ALoading checkpoint shards:  75%|███████▌  | 12/16 [00:22<00:07,  1.91s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:26<00:05,  1.94s/it]
+[1ALoading checkpoint shards:  81%|████████▏ | 13/16 [00:24<00:05,  1.92s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:26<00:03,  1.90s/it]
+[1ALoading checkpoint shards:  88%|████████▊ | 14/16 [00:28<00:03,  1.96s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:30<00:01,  1.95s/it]
+[1ALoading checkpoint shards:  94%|█████████▍| 15/16 [00:28<00:01,  1.92s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.50s/it]Loading checkpoint shards: 100%|██████████| 16/16 [00:30<00:00,  1.93s/it]
+
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.48s/it]
+[1ALoading checkpoint shards: 100%|██████████| 16/16 [00:29<00:00,  1.81s/it]
+loaded 36 61.064794624
+loaded 34 61.064794624
+orig saved 69
+orig saved 69
+fillA_k64 layer 0 22 corr {'exp': 0.007, 'attn': 0.0} gb 71.2
+fillA_k128 layer 0 36 corr {'exp': 0.035, 'attn': 0.0} gb 74.9
+fillA_k64 layer 6 58 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k64 layer 12 101 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 6 101 corr {'exp': 0.035, 'attn': 0.0} gb 74.9
+fillA_k64 layer 18 138 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 12 161 corr {'exp': 0.034, 'attn': 0.0} gb 74.9
+fillA_k64 layer 24 175 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k64 layer 30 217 corr {'exp': 0.004, 'attn': 0.0} gb 71.2
+fillA_k128 layer 18 221 corr {'exp': 0.034, 'attn': 0.0} gb 74.9
+fillA_k64 layer 36 254 corr {'exp': 0.005, 'attn': 0.0} gb 71.2
+fillA_k128 layer 24 284 corr {'exp': 0.036, 'attn': 0.0} gb 74.9
+fillA_k64 layer 42 289 corr {'exp': 0.008, 'attn': 0.0} gb 71.2
+fillA_k64 quantized; bytes 5597411712.803358 ratio 0.09166080875951971
+fillA_k128 layer 30 344 corr {'exp': 0.033, 'attn': 0.0} gb 74.9
+fillA_k128 layer 36 405 corr {'exp': 0.038, 'attn': 0.0} gb 74.9
+fillA_k128 layer 42 465 corr {'exp': 0.043, 'attn': 0.0} gb 74.9
+fillA_k128 quantized; bytes 5548938390.943047 ratio 0.09086703047181334
