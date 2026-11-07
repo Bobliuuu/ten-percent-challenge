@@ -1,0 +1,1138 @@
+{
+ "arms": {
+  "empty": {
+   "added_files": [],
+   "answer_leak_checks": {
+    "leak_outputs": {
+     "n_checked": 60,
+     "ok": true
+    },
+    "leak_prompts": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    },
+    "leak_view": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    }
+   },
+   "byte_identical": true,
+   "bytes_added": 0,
+   "changed_files": [],
+   "evidence": {
+    "hidden": {
+     "/home/ubuntu/work/tp/out8b/data": 0
+    },
+    "mode": "netns",
+    "network": "blocked (OSError)",
+    "network_attempts_logged": []
+   },
+   "n_annotations": 0,
+   "name": "empty",
+   "no_new_parts_after": {
+    "config_arch_diff": [],
+    "constrained_decoding_hits": 0,
+    "constrained_lines": [],
+    "dtype_mismatch": [],
+    "extra_files": [],
+    "extra_tensors": [],
+    "grep_train_hits": 0,
+    "grep_train_lines": [],
+    "missing_tensors": [],
+    "n_tensors": 399,
+    "network_hits": 0,
+    "network_lines": [],
+    "ok": true,
+    "shape_mismatch": [],
+    "tensor_source": "declared_manifest"
+   },
+   "rc": 0,
+   "removed_files": [],
+   "size_after": {
+    "base_fp16_bytes": 16381470720,
+    "budget_bytes": 1638147072.0,
+    "byte_ratio": 0.08826879031286393,
+    "candidate_bytes": 1445972604,
+    "files": [
+     {
+      "bytes": 22854,
+      "file": "answer.py"
+     },
+     {
+      "bytes": 728,
+      "file": "config.json"
+     },
+     {
+      "bytes": 25303,
+      "file": "feedback.py"
+     },
+     {
+      "bytes": 239,
+      "file": "generation_config.json"
+     },
+     {
+      "bytes": 1434466956,
+      "file": "model.tpq"
+     },
+     {
+      "bytes": 24138,
+      "file": "tensor_manifest.json"
+     },
+     {
+      "bytes": 11422654,
+      "file": "tokenizer.json"
+     },
+     {
+      "bytes": 9732,
+      "file": "tokenizer_config.json"
+     }
+    ],
+    "n_files": 8,
+    "ok": true,
+    "symlinks": []
+   },
+   "status": "completed",
+   "stderr_tail": "",
+   "stdout_tail": "FEEDBACK_NOOP no annotations\n",
+   "teach_acc": 0.0,
+   "tree_sha256_after": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759",
+   "tree_sha256_before": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759"
+  },
+  "mixed": {
+   "added_files": [],
+   "answer_leak_checks": {
+    "leak_outputs": {
+     "n_checked": 60,
+     "ok": true
+    },
+    "leak_prompts": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    },
+    "leak_view": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    }
+   },
+   "byte_identical": false,
+   "bytes_added": -16,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "evidence": {
+    "hidden": {
+     "/home/ubuntu/work/tp/out8b/data": 0
+    },
+    "mode": "netns",
+    "network": "blocked (OSError)",
+    "network_attempts_logged": []
+   },
+   "n_annotations": 12,
+   "name": "mixed",
+   "no_new_parts_after": {
+    "config_arch_diff": [],
+    "constrained_decoding_hits": 0,
+    "constrained_lines": [],
+    "dtype_mismatch": [],
+    "extra_files": [],
+    "extra_tensors": [],
+    "grep_train_hits": 0,
+    "grep_train_lines": [],
+    "missing_tensors": [],
+    "n_tensors": 399,
+    "network_hits": 0,
+    "network_lines": [],
+    "ok": true,
+    "shape_mismatch": [],
+    "tensor_source": "declared_manifest"
+   },
+   "rc": 0,
+   "removed_files": [],
+   "size_after": {
+    "base_fp16_bytes": 16381470720,
+    "budget_bytes": 1638147072.0,
+    "byte_ratio": 0.08826878933615065,
+    "candidate_bytes": 1445972588,
+    "files": [
+     {
+      "bytes": 22854,
+      "file": "answer.py"
+     },
+     {
+      "bytes": 728,
+      "file": "config.json"
+     },
+     {
+      "bytes": 25303,
+      "file": "feedback.py"
+     },
+     {
+      "bytes": 239,
+      "file": "generation_config.json"
+     },
+     {
+      "bytes": 1434466940,
+      "file": "model.tpq"
+     },
+     {
+      "bytes": 24138,
+      "file": "tensor_manifest.json"
+     },
+     {
+      "bytes": 11422654,
+      "file": "tokenizer.json"
+     },
+     {
+      "bytes": 9732,
+      "file": "tokenizer_config.json"
+     }
+    ],
+    "n_files": 8,
+    "ok": true,
+    "symlinks": []
+   },
+   "status": "completed",
+   "stderr_tail": "LOAD_DONE 34.3s (decode+dequant 32.9s) workers=8\n",
+   "stdout_tail": "FEEDBACK_DONE {\"rows_edited\": 51, \"sites\": 75, \"tensor\": \"lm_head.weight\", \"chunks\": 20, \"rows\": 51, \"size_before\": 1434466956, \"size_after\": 1434466940}\n",
+   "teach_acc": 0.0,
+   "tree_sha256_after": "6e7103a4f3fe111c82b9a3b495918b9abc16cb48b900fb3ab51a7907cb029eb9",
+   "tree_sha256_before": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759"
+  },
+  "real": {
+   "added_files": [],
+   "answer_leak_checks": {
+    "leak_outputs": {
+     "n_checked": 60,
+     "ok": true
+    },
+    "leak_prompts": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    },
+    "leak_view": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    }
+   },
+   "byte_identical": false,
+   "bytes_added": -13,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "evidence": {
+    "hidden": {
+     "/home/ubuntu/work/tp/out8b/data": 0
+    },
+    "mode": "netns",
+    "network": "blocked (OSError)",
+    "network_attempts_logged": []
+   },
+   "n_annotations": 12,
+   "name": "real",
+   "no_new_parts_after": {
+    "config_arch_diff": [],
+    "constrained_decoding_hits": 0,
+    "constrained_lines": [],
+    "dtype_mismatch": [],
+    "extra_files": [],
+    "extra_tensors": [],
+    "grep_train_hits": 0,
+    "grep_train_lines": [],
+    "missing_tensors": [],
+    "n_tensors": 399,
+    "network_hits": 0,
+    "network_lines": [],
+    "ok": true,
+    "shape_mismatch": [],
+    "tensor_source": "declared_manifest"
+   },
+   "rc": 0,
+   "removed_files": [],
+   "size_after": {
+    "base_fp16_bytes": 16381470720,
+    "budget_bytes": 1638147072.0,
+    "byte_ratio": 0.08826878951928438,
+    "candidate_bytes": 1445972591,
+    "files": [
+     {
+      "bytes": 22854,
+      "file": "answer.py"
+     },
+     {
+      "bytes": 728,
+      "file": "config.json"
+     },
+     {
+      "bytes": 25303,
+      "file": "feedback.py"
+     },
+     {
+      "bytes": 239,
+      "file": "generation_config.json"
+     },
+     {
+      "bytes": 1434466943,
+      "file": "model.tpq"
+     },
+     {
+      "bytes": 24138,
+      "file": "tensor_manifest.json"
+     },
+     {
+      "bytes": 11422654,
+      "file": "tokenizer.json"
+     },
+     {
+      "bytes": 9732,
+      "file": "tokenizer_config.json"
+     }
+    ],
+    "n_files": 8,
+    "ok": true,
+    "symlinks": []
+   },
+   "status": "completed",
+   "stderr_tail": "LOAD_DONE 34.5s (decode+dequant 33.2s) workers=8\n",
+   "stdout_tail": "FEEDBACK_DONE {\"rows_edited\": 39, \"sites\": 64, \"tensor\": \"lm_head.weight\", \"chunks\": 15, \"rows\": 39, \"size_before\": 1434466956, \"size_after\": 1434466943}\n",
+   "teach_acc": 0.0,
+   "tree_sha256_after": "0a4d02b2edcd9b4b7a44a76396b350cdd63ed48cf978165473b9b31e2e457f03",
+   "tree_sha256_before": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759"
+  },
+  "shuffled": {
+   "added_files": [],
+   "answer_leak_checks": {
+    "leak_outputs": {
+     "n_checked": 60,
+     "ok": true
+    },
+    "leak_prompts": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    },
+    "leak_view": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    }
+   },
+   "byte_identical": false,
+   "bytes_added": -4,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "evidence": {
+    "hidden": {
+     "/home/ubuntu/work/tp/out8b/data": 0
+    },
+    "mode": "netns",
+    "network": "blocked (OSError)",
+    "network_attempts_logged": []
+   },
+   "n_annotations": 12,
+   "name": "shuffled",
+   "no_new_parts_after": {
+    "config_arch_diff": [],
+    "constrained_decoding_hits": 0,
+    "constrained_lines": [],
+    "dtype_mismatch": [],
+    "extra_files": [],
+    "extra_tensors": [],
+    "grep_train_hits": 0,
+    "grep_train_lines": [],
+    "missing_tensors": [],
+    "n_tensors": 399,
+    "network_hits": 0,
+    "network_lines": [],
+    "ok": true,
+    "shape_mismatch": [],
+    "tensor_source": "declared_manifest"
+   },
+   "rc": 0,
+   "removed_files": [],
+   "size_after": {
+    "base_fp16_bytes": 16381470720,
+    "budget_bytes": 1638147072.0,
+    "byte_ratio": 0.0882687900686856,
+    "candidate_bytes": 1445972600,
+    "files": [
+     {
+      "bytes": 22854,
+      "file": "answer.py"
+     },
+     {
+      "bytes": 728,
+      "file": "config.json"
+     },
+     {
+      "bytes": 25303,
+      "file": "feedback.py"
+     },
+     {
+      "bytes": 239,
+      "file": "generation_config.json"
+     },
+     {
+      "bytes": 1434466952,
+      "file": "model.tpq"
+     },
+     {
+      "bytes": 24138,
+      "file": "tensor_manifest.json"
+     },
+     {
+      "bytes": 11422654,
+      "file": "tokenizer.json"
+     },
+     {
+      "bytes": 9732,
+      "file": "tokenizer_config.json"
+     }
+    ],
+    "n_files": 8,
+    "ok": true,
+    "symlinks": []
+   },
+   "status": "completed",
+   "stderr_tail": "LOAD_DONE 34.8s (decode+dequant 33.5s) workers=8\n",
+   "stdout_tail": "FEEDBACK_DONE {\"rows_edited\": 98, \"sites\": 180, \"tensor\": \"lm_head.weight\", \"chunks\": 27, \"rows\": 98, \"size_before\": 1434466956, \"size_after\": 1434466952}\n",
+   "teach_acc": 0.0,
+   "tree_sha256_after": "aad5230ce04fdbc4cc2ce1939983a550905375116221f5d389c52e1848237221",
+   "tree_sha256_before": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759"
+  },
+  "wrong_tool": {
+   "added_files": [],
+   "answer_leak_checks": {
+    "leak_outputs": {
+     "n_checked": 60,
+     "ok": true
+    },
+    "leak_prompts": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    },
+    "leak_view": {
+     "n_checked": 60,
+     "ok": true,
+     "problems": []
+    }
+   },
+   "byte_identical": false,
+   "bytes_added": -15,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "evidence": {
+    "hidden": {
+     "/home/ubuntu/work/tp/out8b/data": 0
+    },
+    "mode": "netns",
+    "network": "blocked (OSError)",
+    "network_attempts_logged": []
+   },
+   "n_annotations": 12,
+   "name": "wrong_tool",
+   "no_new_parts_after": {
+    "config_arch_diff": [],
+    "constrained_decoding_hits": 0,
+    "constrained_lines": [],
+    "dtype_mismatch": [],
+    "extra_files": [],
+    "extra_tensors": [],
+    "grep_train_hits": 0,
+    "grep_train_lines": [],
+    "missing_tensors": [],
+    "n_tensors": 399,
+    "network_hits": 0,
+    "network_lines": [],
+    "ok": true,
+    "shape_mismatch": [],
+    "tensor_source": "declared_manifest"
+   },
+   "rc": 0,
+   "removed_files": [],
+   "size_after": {
+    "base_fp16_bytes": 16381470720,
+    "budget_bytes": 1638147072.0,
+    "byte_ratio": 0.08826878939719522,
+    "candidate_bytes": 1445972589,
+    "files": [
+     {
+      "bytes": 22854,
+      "file": "answer.py"
+     },
+     {
+      "bytes": 728,
+      "file": "config.json"
+     },
+     {
+      "bytes": 25303,
+      "file": "feedback.py"
+     },
+     {
+      "bytes": 239,
+      "file": "generation_config.json"
+     },
+     {
+      "bytes": 1434466941,
+      "file": "model.tpq"
+     },
+     {
+      "bytes": 24138,
+      "file": "tensor_manifest.json"
+     },
+     {
+      "bytes": 11422654,
+      "file": "tokenizer.json"
+     },
+     {
+      "bytes": 9732,
+      "file": "tokenizer_config.json"
+     }
+    ],
+    "n_files": 8,
+    "ok": true,
+    "symlinks": []
+   },
+   "status": "completed",
+   "stderr_tail": "LOAD_DONE 34.7s (decode+dequant 33.4s) workers=8\n",
+   "stdout_tail": "FEEDBACK_DONE {\"rows_edited\": 55, \"sites\": 81, \"tensor\": \"lm_head.weight\", \"chunks\": 19, \"rows\": 55, \"size_before\": 1434466956, \"size_after\": 1434466941}\n",
+   "teach_acc": 0.0,
+   "tree_sha256_after": "977185c4f605eefac3aa4acfe1fd1141c40ae24d94e3b2581605895c27bcd900",
+   "tree_sha256_before": "803195d6178e6465d1ebce303cb1d4813256d37049e65445f12c2cc99be0b759"
+  }
+ },
+ "arms_completed": true,
+ "empty_byte_identical": true,
+ "exam_after_agree_with_before": null,
+ "feedback_block": {
+  "bytes_added": -13,
+  "exam_after_correct": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   1,
+   0,
+   1,
+   0,
+   1,
+   1,
+   1,
+   0,
+   0,
+   1,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "n_annotations": 12,
+  "neighbor": {
+   "after_correct": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "before_correct": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "n": 30
+  },
+  "teach": {
+   "base_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "cluster": [
+    "match",
+    "list",
+    "racecards",
+    "hashtagmedias",
+    "baseball_league_rankings",
+    "youtube_search",
+    "following_by_pk",
+    "racecards",
+    "fights",
+    "prematchform",
+    "v1_feed_recommended",
+    "game_odds_by_category_schedule",
+    "wnba_standings",
+    "user_medias",
+    "shopify",
+    "list_of_archive_events",
+    "game_odds_by_site_schedule",
+    "playlist_info",
+    "teamplayers",
+    "list",
+    "get_reel_by_media_id",
+    "video_recommendation",
+    "series_get_points_table",
+    "list",
+    "fights",
+    "hashtag_info",
+    "tour_rankings",
+    "music_posts",
+    "staffs_list_by_club",
+    "teamnearmatches"
+   ],
+   "empty_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "mixed_label_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "n": 30,
+   "random_wrong_tool_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "real_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "shuffled_correct": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "lock_sha256": "5173d799bc4d7fc54f0b07ee34032dc59f8aa5f09c853ff48463373fd23ff9a5",
+ "neighbors_base_correct_frac": 1.0,
+ "shuffle_seed": 0,
+ "sizes": {
+  "after": 1445972591,
+  "before": 1445972604
+ },
+ "status": "completed",
+ "teach_before_cand_acc": 0.0,
+ "texts": {
+  "base": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2024-02-29\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"hashtagmedias\", \"arguments\": {\"hash_tag\": \"travel\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_league_rankings\", \"arguments\": {\"league_id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"country\": \"ca\", \"order_by\": \"this_week\", \"query\": \"space exploration\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"following_by_pk\", \"arguments\": {\"pk\": \"13579111315\", \"nextmaxid\": \"\", \"corsenabled\": \"false\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2023-10-06\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fights\", \"arguments\": {\"category\": \"lightweight\", \"type\": \"upcoming\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"pull_type\": 0, \"region\": \"AU\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category_schedule\", \"arguments\": {\"category\": \"1\", \"sport\": \"Soccer\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_standings\", \"arguments\": {\"year\": \"2018\", \"group\": \"\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_medias\", \"arguments\": {\"next_max_id\": \"NEXT_MAX_ID_HERE\", \"user_id\": \"13460080\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mystore123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"sport_id\": 1, \"league_ids\": 1, \"page_num\": 1}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_schedule\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamplayers\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"offset\": \"1600\", \"sort\": \"useragent\", \"timezone\": \"America/Denver\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"series_get_points_table\", \"arguments\": {\"seriesid\": 3718}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America/New_York\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fights\", \"arguments\": {\"type\": \"previous\", \"outcome\": \"knockout\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"hashtag_info\", \"arguments\": {\"hashtag\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": 2021, \"tour_id\": 2}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": 50, \"music_id\": \"specific_music_id\", \"offset\": 10}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_club\", \"arguments\": {\"domain\": \"de\", \"is_id\": 631}}\n</tool_call>",
+   "I cannot directly find upcoming matches for the New York Yankees baseball team with the provided tools. You may need to use a different service or API that provides baseball schedules or team information. Let me know if you'd like help with anything else!"
+  ],
+  "empty": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2020-03-12\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_user_highlights_tray_by_user_id\", \"arguments\": {\"user_id\": \"25025320\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_layette\", \"arguments\": {\"locale\": \"en\", \"id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"query\": \"space\", \"country\": \"US\", \"order_by\": \"last_month\", \"lang\": \"en\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"forward_by_pk\", \"arguments\": {\"p\": \"13579111315\", \"nextmaxid\": \"1\", \"pcodes\": \"false\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2021-06-05\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fickets\", \"arguments\": {\"category\": \"category\", \"type\": \"upcoming\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"region\": \"AU\", \"pull_type\": 0}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category\", \"arguments\": {\"category\": \"1\", \"sport\": \"soc\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_stations\", \"arguments\": {\"year\": \"2018\", \"group\": \"specific\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_medias\", \"arguments\": {\"user_id\": \"13460080\", \"next_max_id\": \"50\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mstorage123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"page_num\": 1, \"locale_id\": \"KHL\", \"sport_id\": 1}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_code\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"location\": \"Los Angeles\", \"unit\": \"metric\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"useragent\", \"offset\": \"1600\", \"timezone\": \"Mountain\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_points\", \"arguments\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America\", \"useragent\": \"1234567890\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"flicts\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"cock\", \"output\": \"cock\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_tiktok_info\", \"arguments\": {\"hashtag\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": \"2021\", \"tour_id\": \"2\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": \"10\", \"offset\": \"10\", \"music_id\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_cclub\", \"arguments\": {\"domain\": \"de\", \"is_id\": \"631\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamnearmatches\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>"
+  ],
+  "mixed": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2020-03-12\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_user_highlights_tray_by_user_id\", \"arguments\": {\"user_id\": \"25025320\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_layette\", \"arguments\": {\"league_id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"query\": \"space\", \"country\": \"US\", \"order_by\": \"last_month\", \"lang\": \"en\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_follow\", \"arguments\": {\"p\": \"13579111315\", \"nextmaxid\": \"1\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2021-06-05\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fickets\", \"arguments\": {\"category\": \"category\", \"type\": \"upcoming\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"region\": \"AU\", \"pull_type\": 0}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category\", \"arguments\": {\"category\": \"1\", \"sport\": \"soc\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_stations\", \"arguments\": {\"year\": \"2018\", \"group\": \"specific\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_medias\", \"arguments\": {\"user_id\": \"13460080\", \"next_max_id\": \"50\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mstorage123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"league_ids\": \"1\", \"page_num\": 1, \"sport_id\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_code\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"location\": \"Los Angeles\", \"unit\": \"metric\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"useragent\": \"user\", \"sort\": \"useragent\", \"offset\": \"1600\", \"timezone\": \"Mountain\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_points\", \"arguments\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America\", \"useragent\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"flicts\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"cock\", \"output\": \"cock\", \"page\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_tiktok_info\", \"arguments\": {\"hashtag\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": \"2021\", \"tour_id\": \"2\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": \"10\", \"offset\": \"10\", \"music_id\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_cclub\", \"arguments\": {\"domain\": \"de\", \"is_id\": \"631\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamnearmatches\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>"
+  ],
+  "real": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2020-03-12\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_user_highlights_tray_by_user_id\", \"arguments\": {\"user_id\": \"25025320\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_layette\", \"arguments\": {\"league_id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"query\": \"space\", \"country\": \"US\", \"order_by\": \"last_month\", \"lang\": \"en\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"forward_by_pk\", \"arguments\": {\"p\": \"13579111315\", \"nextmaxid\": \"1\", \"pcodes\": \"false\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2021-06-05\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fickets\", \"arguments\": {\"category\": \"category\", \"type\": \"upcoming\", \"parameters\": {\"category\": \"category\", \"type\": \"upcoming\", \"parameters\": {\"category\": \"category\", \"type\": \"string\", \"description\": \"The category of the flights.\", \"type\": \"string\"}, \"required\": [\"category\", \"type\": \"string\"}, \"type\": \"object\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"region\": \"AU\", \"pull_type\": 0}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category\", \"arguments\": {\"category\": \"1\", \"sport\": \"soc\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_stations\", \"arguments\": {\"year\": \"2018\", \"group\": \"specific\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_medias\", \"arguments\": {\"user_id\": \"13460080\", \"next_max_id\": \"50\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mstorage123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"league_ids\": \"1\", \"page_num\": 1, \"sport_id\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_code\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"location\": \"Los Angeles\", \"unit\": \"metric\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"useragent\": \"user\", \"sort\": \"useragent\", \"offset\": \"1600\", \"timezone\": \"Mountain\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_points\", \"arguments\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America\", \"useragent\": \"1234567890\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"flicts\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"cock\", \"output\": \"cock\", \"page\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_tiktok_info\", \"arguments\": {\"hashtag\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": \"2021\", \"tour_id\": \"2\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": \"10\", \"offset\": \"10\", \"music_id\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_cclub\", \"arguments\": {\"domain\": \"de\", \"is_id\": \"631\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamnearmatches\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>"
+  ],
+  "shuffled": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2020-03-12\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_user_migrate_by_user_id\", \"arguments\": {\"user_id\": \"25025320\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_layette\", \"arguments\": {\"league_id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"query\": \"space\", \"country\": \"US\", \"order_by\": \"last_month\", \"lang\": \"en\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_list\", \"arguments\": {\"p\": \"13579111315\", \"nextmaxid\": \"1\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111315\", \"p\": \"13579111",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2021-06-05\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fickets\", \"arguments\": {\"category\": \"category\", \"type\": \"upcoming\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"region\": \"AU\", \"pull_type\": 0}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category\", \"arguments\": {\"category\": \"1\", \"sport\": \"soc\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_stations\", \"arguments\": {\"year\": \"2018\", \"group\": \"specific\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_madias\", \"arguments\": {\"user_id\": \"13460080\", \"next_max_id\": \"50\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mstorage123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"league_ids\": \"1\", \"page_num\": 1, \"sport_id\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_code\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"location\": \"Los Angeles\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"useragent\": \"user\", \"sort\": \"useragent\", \"offset\": \"1600\", \"timezone\": \"Mountain\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_points\", \"arguments\": {\"id\": \"3718\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America\", \"useragent\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"flicts\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"cock\", \"output\": \"cock\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_search_user\", \"arguments\": {\"is_id\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": \"2021\", \"tour_id\": \"2\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": \"10\", \"offset\": \"10\", \"music_id\": \"123456\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_cclub\", \"arguments\": {\"domain\": \"de\", \"is_id\": \"631\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamnearmatches\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>"
+  ],
+  "wrong_tool": [
+   "<tool_call>\n{\"name\": \"match\", \"arguments\": {\"is_id\": \"4451971\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"field\": \"last_login\", \"offset\": \"1800\", \"timezone\": \"GMT\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2020-03-12\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_user_highlights_tray_by_user_id\", \"arguments\": {\"user_id\": \"25025320\", \"next_cursor\": \"abc123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"baseball_layette\", \"arguments\": {\"league_id\": \"41276\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"youtube_search\", \"arguments\": {\"query\": \"space\", \"country\": \"US\", \"order_by\": \"last_month\", \"lang\": \"en\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"forward_by_pk\", \"arguments\": {\"p\": \"13579111315\", \"nextmaxid\": \"1\", \"pcodes\": \"false\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"racecards\", \"arguments\": {\"date\": \"2021-06-05\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fights\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"category\", \"event\": \"1\", \"type\": \"upcoming\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"prematchform\", \"arguments\": {\"is_id\": 10114139}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"v1_feed_recommended\", \"arguments\": {\"region\": \"AU\", \"pull_type\": 0}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_category\", \"arguments\": {\"category\": \"1\", \"sport\": \"soc\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"wnba_stations\", \"arguments\": {\"year\": \"2018\", \"group\": \"specific\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"user_medias\", \"arguments\": {\"user_id\": \"13460080\", \"next_max_id\": \"50\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"shopify\", \"arguments\": {\"username\": \"mstorage123\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list_of_archive_events\", \"arguments\": {\"league_ids\": \"1\", \"page_num\": 1, \"sport_id\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"game_odds_by_site_code\", \"arguments\": {\"site\": \"draftkings\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"playlist_info\", \"arguments\": {\"playlist_url\": \"https://soundcloud.com/vghc3eihbsdq/sets/almost-lover\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"weather\", \"arguments\": {\"location\": \"Los Angeles\", \"unit\": \"metric\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"useragent\": \"user\", \"sort\": \"useragent\", \"offset\": \"1600\", \"timezone\": \"Mountain\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_reel_by_media_id\", \"arguments\": {\"media_id\": \"3089561820519690447\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"video_recommendation\", \"arguments\": {\"video_id\": \"Y_AJvHdgu9A\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_points\", \"arguments\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters\": {\"parameters",
+   "<tool_call>\n{\"name\": \"list\", \"arguments\": {\"sort\": \"signend\", \"offset\": \"0\", \"timezone\": \"America\", \"useragent\": \"0\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"fights\", \"arguments\": {\"type\": \"upcoming\", \"category\": \"cock\", \"output\": \"cock\", \"page\": \"1\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"get_tiktok_info\", \"arguments\": {\"hashtag\": \"travel\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"tour_rankings\", \"arguments\": {\"season\": \"2021\", \"tour_id\": \"2\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"music_posts\", \"arguments\": {\"count\": \"10\", \"music_id\": \"123\", \"offset\": \"10\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"staffs_list_by_cclub\", \"arguments\": {\"domain\": \"de\", \"is_id\": \"631\"}}\n</tool_call>",
+   "<tool_call>\n{\"name\": \"teamnearmatches\", \"arguments\": {\"is_id\": 3633}}\n</tool_call>"
+  ]
+ }
+}

@@ -1,0 +1,88 @@
+{
+ "REAL_RESULT": false,
+ "checks_ok_stage1": true,
+ "empty_byte_identical": true,
+ "exam_receipt_sha256": "88428fa7f0b0eaee63b0e13de38d145cb6d24caafe3fbf32cff9750db17518f8",
+ "failed_gates": [
+  "retention>=98%",
+  "retention_excl_S1_nocall>=98%",
+  "retention>=floor-0.5pt",
+  "every_source_retention>=95%",
+  "every_kind_retention>=95%",
+  "every_source_kind_cell_retention>=95%",
+  "exam>=2000",
+  "every_source_kind_cell>=330",
+  "ood_block>=500",
+  "base_above_chance_below_ceiling_every_cell",
+  "controls_clearly_worse(>=10pt,lo>0)",
+  "teach_clear_gain(lo>0,mean>=.15)",
+  "neighbors_kept>=98%",
+  "exam_after_feedback_retention>=98%"
+ ],
+ "feedback_arms": {
+  "empty": {
+   "byte_identical": true,
+   "bytes_added": 0,
+   "changed_files": [],
+   "rc": 0
+  },
+  "mixed": {
+   "byte_identical": false,
+   "bytes_added": -16,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "rc": 0
+  },
+  "real": {
+   "byte_identical": false,
+   "bytes_added": -13,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "rc": 0
+  },
+  "shuffled": {
+   "byte_identical": false,
+   "bytes_added": -4,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "rc": 0
+  },
+  "wrong_tool": {
+   "byte_identical": false,
+   "bytes_added": -15,
+   "changed_files": [
+    "model.tpq"
+   ],
+   "rc": 0
+  }
+ },
+ "feedback_lock_sha256": "5173d799bc4d7fc54f0b07ee34032dc59f8aa5f09c853ff48463373fd23ff9a5",
+ "harness_sha256": {
+  "base_gen.py": "a455631d7872e8778ddb80683f65a1d7f8481d3f388f4d05af69d0f0c0712bc3",
+  "checks.py": "dea0046074d16f0f2983164f0f7a79aa976f7541ba62fb7ce1443c0716fffa9c",
+  "common3.py": "4118c3a79fca7bb4ca019cce9e130751b962850c3c068c529500a023555a0482",
+  "exam_gen.py": "f6932145f2fbdabcb63598a3ac453aa2fb9fcf9ef31dfdfba5021a571fd01b8e",
+  "feedback_protocol.py": "940bab76d345914ffe3c078e680ca225091207c6ac0a1f9faa1252693ef977c7",
+  "final_proof.py": "a9f1dcd4190a5645041578220ae204b2ff23c9bae025c4b6a74424f9a0f24b16",
+  "gen_common.py": "3d303ee760b1aad21316ae473946e145f8a9699fdc7c7d53586ec36e4a70febd",
+  "netguard/sitecustomize.py": "a332ded606efe7244161fefc310bc8e5b54d273d49d1f3c233f26b51f4153ddd",
+  "runner.py": "a25c05ea8530540625150a6e009a74ccbfeb7d44dd7a7622b4245f085f91852a",
+  "sandbox.py": "bebea188f8ab1bf72338696d7528766634f58823692c2b8f5eb406ff63231e07"
+ },
+ "isolation_ok": true,
+ "maximin": 0.0,
+ "tag": "dev8b_netns",
+ "teach_acc": {
+  "base": 0.0,
+  "empty": 0.0,
+  "mixed": 0.0,
+  "real": 0.0,
+  "shuffled": 0.0,
+  "wrong_tool": 0.0
+ },
+ "utc": "2026-11-07T14:09:42.380574+00:00",
+ "verdict": "FAIL"
+}
