@@ -58,3 +58,7 @@ Pipeline: volume tenpct-artifact:/art72_Vx (model.tpq sha256 verified in-contain
 | V3 | TOOLSEL | 841/1063 | 94.30% (827/877) [92.6] | S1/none 80.5 | 93.96 | fail |
 | V3 | INJ | 1335/1566 | 93.76% (1293/1379) [92.4] | S1/injection 92.0, S3/inj 91.5 | 93.47 | fail |
 Conclusion: real-bits quality == D's evaluation within +-0.4 pt (head/emb snapping perturbation is harmless); the 72B artifacts are a valid 9.5468% artifact but do NOT pass the exam-retention rules (98% overall / 95% per cell). Plumbing/size OK, quality is the blocker, not the packing. Modal app stopped.
+
+## 2026-11-07 14:3x  Qwen3-8B netns proof + vLLM parity on AWS swarm-gpu (A10G 24GB, no Vast)
+* netns final_proof (results/q3_8b_netns, real model.tpq from Modal volume, 1,434,466,956 B): rc 0, isolation_ok True (mode netns, network "blocked (OSError)"), stage-1 checks all ok, empty feedback byte-identical, other arms change only model.tpq (-4..-16 B). Scorecard FAIL as expected (2-bit attn/down destroys quality: acc base 0.79 cand 0.11); plumbing proof only.
+* export_bf16: 129 s, 16,381,516,776 B of shards. vLLM 0.11.0 (transformers 4.56.2) on exported shards, 100 dev prompts greedy 256 tok (results/q3_8b_vllm): artifact answer.py (A) vs HF on export (B) text-identical 92/100; A vs vLLM (C) 83/100; accuracy A=B=C=0.12. vLLM 231 tok/s vs answer.py HF 40.6 tok/s (bs 8 on A10G). Diffs are mid-sequence near-tie flips (e.g. repeated tool_call), consistent with ulp-level bf16 noise in a 2-bit model; export itself not byte-compared to loader tensors here.
