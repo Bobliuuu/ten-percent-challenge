@@ -1,0 +1,130 @@
+{
+ "full": true,
+ "body_bytes_without_emb_head_raw": 77069967368,
+ "raw_bytes": 8290304,
+ "blob": 78125928831,
+ "files": {
+  "model.tpq": 78125928831,
+  "config.json": 859,
+  "generation_config.json": 183,
+  "tokenizer.json": 9085657,
+  "tokenizer_config.json": 50870,
+  "tensor_manifest.json": 71717,
+  "answer.py": 22905,
+  "feedback.py": 25354
+ },
+ "total": 78135186376,
+ "base_fp16_bytes_from_headers": 820162494464,
+ "ratio": 0.09526793398064808,
+ "ratio_vs_810e9": 0.09646319305679012,
+ "ratio_vs_811p7e9": 0.09626116345447826,
+ "secs": 3461.6370828151703,
+ "bitexact_sample": [
+  [
+   0,
+   "self_attn.q_proj",
+   true
+  ],
+  [
+   0,
+   "self_attn.k_proj",
+   true
+  ],
+  [
+   0,
+   "self_attn.v_proj",
+   true
+  ],
+  [
+   0,
+   "self_attn.o_proj",
+   true
+  ],
+  [
+   0,
+   "mlp.gate_proj",
+   true
+  ],
+  [
+   0,
+   "mlp.up_proj",
+   true
+  ],
+  [
+   0,
+   "mlp.down_proj",
+   true
+  ],
+  [
+   62,
+   "self_attn.q_proj",
+   true
+  ],
+  [
+   62,
+   "self_attn.k_proj",
+   true
+  ],
+  [
+   62,
+   "self_attn.v_proj",
+   true
+  ],
+  [
+   62,
+   "self_attn.o_proj",
+   true
+  ],
+  [
+   62,
+   "mlp.gate_proj",
+   true
+  ],
+  [
+   62,
+   "mlp.up_proj",
+   true
+  ],
+  [
+   62,
+   "mlp.down_proj",
+   true
+  ],
+  [
+   125,
+   "self_attn.q_proj",
+   true
+  ],
+  [
+   125,
+   "self_attn.k_proj",
+   true
+  ],
+  [
+   125,
+   "self_attn.v_proj",
+   true
+  ],
+  [
+   125,
+   "self_attn.o_proj",
+   true
+  ],
+  [
+   125,
+   "mlp.gate_proj",
+   true
+  ],
+  [
+   125,
+   "mlp.up_proj",
+   true
+  ],
+  [
+   125,
+   "mlp.down_proj",
+   true
+  ]
+ ],
+ "bitexact_all_equal": true
+}
