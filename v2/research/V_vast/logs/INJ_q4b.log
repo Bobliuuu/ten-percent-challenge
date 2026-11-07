@@ -1,0 +1,9 @@
+08:17:40Z 2026-11-07T08:17Z vast id 59542099 label tenpct-INJ_q4b GPU RTX 3090 24GB $0.166/h (+5% guard) started
+08:25:50Z load timeout, destroying 59542099
+08:25:56Z destroyed (verified gone) 59542099
+08:25:56Z offer 59474207 refused: {"error": true, "status_code": 400, "msg": "error 404/3603: no_such_ask  Instance type by id 5947420
+08:25:57Z 2026-11-07T08:25Z vast id 59542886 label tenpct-INJ_q4b GPU RTX 3090 24GB $0.177/h (+5% guard) started
+08:31:09Z ssh up ssh2.vast.ai 32492
+08:34:19Z started job
+08:36:34Z finished ['DONE']
+08:36:40Z destroyed (verified gone) 59542886

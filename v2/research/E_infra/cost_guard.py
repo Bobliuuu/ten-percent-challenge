@@ -10,16 +10,24 @@ PRICE = {"g7e.2xlarge": 3.36312, "g7e.4xlarge": 3.99816, "g7e.8xlarge": 5.26824,
          "g6e.12xlarge": 10.49, "g6e.24xlarge": 15.07, "g6e.48xlarge": 30.13, "p5.4xlarge": 6.9, "p5.48xlarge": 98.32, "p4d.24xlarge": 21.96, "g5.2xlarge": 1.21}
 STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cost_guard_state.json")
 def aws(*a):
-    r = subprocess.run(["aws", "--profile", PROFILE, "--output", "json", "--no-cli-pager", *a], capture_output=True, text=True, timeout=60)
-    return json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip() else None
+    try:
+        r = subprocess.run(["aws", "--profile", PROFILE, "--output", "json", "--no-cli-pager", *a], capture_output=True, text=True, timeout=60)
+        return json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip() else None
+    except Exception as e:   # timeouts / bad json must never kill the guard
+        print("aws call failed:", type(e).__name__, flush=True); return None
+LAST = {}
 def running():
     out = []
     for reg in REGIONS:
         d = aws("ec2", "describe-instances", "--region", reg, "--filters", "Name=tag:Experiment,Values=tenpct-g*", "Name=instance-state-name,Values=pending,running,stopping,stopped")
-        for rs in (d or {}).get("Reservations", []):
+        if d is None:
+            out += LAST.get(reg, []); continue            # failed call: reuse last known list for this region (never undercount silently)
+        cur = []
+        for rs in d.get("Reservations", []):
             for i in rs["Instances"]:
-                out.append(dict(id=i["InstanceId"], region=reg, type=i["InstanceType"], launch=i["LaunchTime"], state=i["State"]["Name"],
+                cur.append(dict(id=i["InstanceId"], region=reg, type=i["InstanceType"], launch=i["LaunchTime"], state=i["State"]["Name"],
                                 name=next((t["Value"] for t in i.get("Tags", []) if t["Key"] == "Experiment"), "?")))
+        LAST[reg] = cur; out += cur
     return out
 def rate(i): return PRICE.get(i["type"], 12.0) * (1.0 if i["region"] in ("us-east-1", "us-east-2") else 1.15)
 def terminate_all(inst):
@@ -37,7 +45,7 @@ def main():
             if i["state"] not in ("running", "pending"): continue
             lt = dt.datetime.fromisoformat(i["launch"].replace("Z", "+00:00")).timestamp()
             if i["id"] not in st["accrued"]: st["accrued"][i["id"]] = (now - lt) / 3600 * rate(i)   # first sight: cost since launch
-            else: st["accrued"][i["id"]] += min(dtm, 300) / 3600 * rate(i)
+            else: st["accrued"][i["id"]] += min(dtm, 3600) / 3600 * rate(i)
         st["last"] = now; total = sum(st["accrued"].values()); burn = sum(rate(i) for i in inst if i["state"] in ("running", "pending"))
         print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
         if total >= TERMINATE_AT or st["tripped"]:

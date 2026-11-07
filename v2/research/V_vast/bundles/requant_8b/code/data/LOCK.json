@@ -1,0 +1,626 @@
+{
+ "utc": "2026-11-07T02:39:45.160602+00:00",
+ "version": "tox-v1-2026-11-06",
+ "rule": "Build TOX (content moderation) splits. Deterministic. Refuses to overwrite data/LOCK.json.\nTASK: input = one user comment/message; real output = the model GENERATES one moderation verdict word from a fixed taxonomy\n  {safe, toxic, hate, sexual, violence}. (self-harm is NOT in the taxonomy: no public source gives >=330 clean single-label self-harm\n  prompts that survive dedup; Aegis has 265. Stated honestly in REPORT.md.)\nItem schema (jsonl): id, source(S1|S2|S3), kind (= class), gold (= class), text, group, hard (bool: lexicon-bearing item), lex [lexicon groups hit].\nSources (three genuinely different platforms / periods / licences):\n  S1 = Jigsaw/Google civil_comments (CC0-1.0). News-site reader comments, 2015-2017.   build/dev/calib/pool + LOCKED slice\n  S3 = HateXplain (Hate-speech-CNERG, CC-BY-4.0). Gab + Twitter posts, 2019-2020.      OOD DEV PROXY ONLY (dev/pool). never locked\n  S2 = NVIDIA Aegis-AI-Content-Safety-Dataset-2.0 (CC-BY-4.0). USER PROMPTS to an LLM (derived from Anthropic HH red-team), 2024. LOCKED OOD block\n       (+ a small group-disjoint 's2_probe' slice of the same corpus used ONLY for the rule-8 base-health check of S2 cells; never for tuning)\nLabel mapping (single-label ground truth; anything ambiguous is DROPPED from all splits, not guessed):\n  civil_comments (fractions of raters; thresholds raised from .5 to .6/.7 after a DEV-only look showed .5 labels are too noisy to be measurable: S1/sexual base acc 0.08):\n     safe = toxicity==0 ; toxic = toxicity>=.7 and (insult>=.5 or obscene>=.5) and identity_attack,sexual_explicit,threat all <.2 ;\n     hate = identity_attack>=.6 and toxicity>=.6 and sexual,threat <.2 ; sexual = sexual_explicit>=.6 and toxicity>=.6 and identity,threat <.2 ; violence = threat>=.6 and toxicity>=.6 and identity,sexual <.2.\n  HateXplain: UNANIMOUS 3/3 annotators ; normal->safe, offensive->toxic, hatespeech->hate ; any disagreement dropped.\n  Aegis prompts: categories mapped Hate/Identity Hate->hate, Harassment+Profanity->toxic, Sexual->sexual, Violence->violence ; item must have exactly ONE\n     mapped taxonomy class and prompt_label=unsafe (categories outside the taxonomy, e.g. Criminal Planning, PII, are ignored when attached to a mapped one);\n     safe = prompt_label safe with no category ('Needs Caution' dropped). Single-label items whose only category is outside taxonomy are dropped.\nHard negatives: safe items are split 50/50 'hard' (contain >=1 lexicon hit: profanity/slur lexicon, violence, sexual, identity terms, insults -> news about violence,\n  quotes, reclaimed/in-context terms) and 'plain'. Lexicon lists are stratification tools only. A lexicon baseline is reported in diagnostics.\nSplitting S1 BY GROUP: group = connected component of (near-duplicate pairs Jaccard>=0.6) U (TF-IDF/SVD/KMeans topic cluster, k=2000 (S1) / 250 (S2) / 200 (S3)). No thread/author id\n  exists in the HF civil_comments release, topic clusters are the best available proxy for 'same news article discussion'. Whole groups -> locked/dev/calib/pool.\nDedup: exact normalised text, near-dup Jaccard>=0.6 (whole-token sets; ONE representative kept per near-dup component in every source), cross-source (priority S2 > S1 > S3: the lower-priority copy is dropped).\nTouched scan: locked-candidate texts are grepped across ~/ten-percent (json/jsonl/py/md/txt/log); hits dropped from locked.\nLocked rows are never printed. Only counts are logged.",
+ "splits": {
+  "locked": {
+   "n": 4520,
+   "cells": {
+    "S1/hate/hard": 366,
+    "S1/hate/plain": 84,
+    "S1/safe/hard": 230,
+    "S1/safe/plain": 230,
+    "S1/sexual/hard": 219,
+    "S1/sexual/plain": 231,
+    "S1/toxic/hard": 238,
+    "S1/toxic/plain": 212,
+    "S1/violence/hard": 254,
+    "S1/violence/plain": 196,
+    "S2/hate/hard": 230,
+    "S2/hate/plain": 220,
+    "S2/safe/hard": 230,
+    "S2/safe/plain": 230,
+    "S2/sexual/hard": 227,
+    "S2/sexual/plain": 223,
+    "S2/toxic/hard": 133,
+    "S2/toxic/plain": 317,
+    "S2/violence/hard": 137,
+    "S2/violence/plain": 313
+   },
+   "groups": 511,
+   "file_sha256": "73c68712d568d285e07e1b92102cf1f49e8a978d2a5b05810b5dc19ab36fae50",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 338,
+     "viol": 70,
+     "insult": 34,
+     "prof": 3,
+     "sex": 9
+    },
+    "S1/safe": {
+     "ident": 111,
+     "viol": 110,
+     "sex": 14,
+     "insult": 15
+    },
+    "S1/sexual": {
+     "prof": 55,
+     "viol": 40,
+     "ident": 63,
+     "sex": 128,
+     "insult": 16
+    },
+    "S1/toxic": {
+     "insult": 201,
+     "viol": 30,
+     "ident": 24,
+     "prof": 6,
+     "sex": 2
+    },
+    "S1/violence": {
+     "viol": 238,
+     "ident": 15,
+     "insult": 13,
+     "prof": 5,
+     "sex": 3
+    },
+    "S2/hate": {
+     "ident": 198,
+     "prof": 5,
+     "insult": 20,
+     "viol": 20,
+     "sex": 6
+    },
+    "S2/safe": {
+     "viol": 48,
+     "ident": 149,
+     "insult": 27,
+     "sex": 14,
+     "prof": 2
+    },
+    "S2/sexual": {
+     "sex": 170,
+     "ident": 45,
+     "prof": 30,
+     "viol": 8,
+     "insult": 1
+    },
+    "S2/toxic": {
+     "prof": 91,
+     "insult": 34,
+     "viol": 18,
+     "ident": 13,
+     "sex": 4
+    },
+    "S2/violence": {
+     "viol": 125,
+     "insult": 3,
+     "sex": 2,
+     "ident": 9,
+     "prof": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 192,
+    "S1/safe": 236,
+    "S1/sexual": 122,
+    "S1/toxic": 151,
+    "S1/violence": 90,
+    "S2/hate": 69,
+    "S2/safe": 60,
+    "S2/sexual": 61,
+    "S2/toxic": 62,
+    "S2/violence": 73
+   }
+  },
+  "s1_dev": {
+   "n": 1000,
+   "cells": {
+    "S1/hate/hard": 167,
+    "S1/hate/plain": 33,
+    "S1/safe/hard": 100,
+    "S1/safe/plain": 100,
+    "S1/sexual/hard": 101,
+    "S1/sexual/plain": 99,
+    "S1/toxic/hard": 98,
+    "S1/toxic/plain": 102,
+    "S1/violence/hard": 100,
+    "S1/violence/plain": 100
+   },
+   "groups": 150,
+   "file_sha256": "35edaca0a46632c9facb8dc0b59c3d4f1ef2afa7e4da77e95894882fef44c4fe",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 162,
+     "viol": 30,
+     "insult": 9,
+     "sex": 2,
+     "prof": 1
+    },
+    "S1/safe": {
+     "viol": 55,
+     "ident": 40,
+     "insult": 7,
+     "sex": 6,
+     "prof": 1
+    },
+    "S1/sexual": {
+     "insult": 7,
+     "sex": 59,
+     "prof": 25,
+     "ident": 29,
+     "viol": 22
+    },
+    "S1/toxic": {
+     "ident": 13,
+     "insult": 81,
+     "viol": 11,
+     "prof": 4
+    },
+    "S1/violence": {
+     "viol": 96,
+     "prof": 3,
+     "insult": 6
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 110,
+    "S1/safe": 271,
+    "S1/sexual": 139,
+    "S1/toxic": 169,
+    "S1/violence": 74
+   }
+  },
+  "s1_calib": {
+   "n": 750,
+   "cells": {
+    "S1/hate/hard": 131,
+    "S1/hate/plain": 19,
+    "S1/safe/hard": 75,
+    "S1/safe/plain": 75,
+    "S1/sexual/hard": 80,
+    "S1/sexual/plain": 70,
+    "S1/toxic/hard": 69,
+    "S1/toxic/plain": 81,
+    "S1/violence/hard": 77,
+    "S1/violence/plain": 73
+   },
+   "groups": 118,
+   "file_sha256": "b4588d8ab04ecadf292e9aa2f3bb4a11de0a7f97115f5933c8e00dce131b7969",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 126,
+     "insult": 7,
+     "viol": 25,
+     "sex": 3
+    },
+    "S1/safe": {
+     "viol": 35,
+     "ident": 47,
+     "sex": 5,
+     "insult": 2
+    },
+    "S1/sexual": {
+     "prof": 27,
+     "sex": 45,
+     "ident": 22,
+     "viol": 16,
+     "insult": 2
+    },
+    "S1/toxic": {
+     "insult": 52,
+     "viol": 11,
+     "ident": 15,
+     "prof": 2,
+     "sex": 2
+    },
+    "S1/violence": {
+     "viol": 73,
+     "prof": 3,
+     "insult": 3,
+     "sex": 1,
+     "ident": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 143,
+    "S1/safe": 314,
+    "S1/sexual": 150,
+    "S1/toxic": 191,
+    "S1/violence": 72
+   }
+  },
+  "s1_pool": {
+   "n": 20188,
+   "cells": {
+    "S1/hate/hard": 2891,
+    "S1/hate/plain": 380,
+    "S1/safe/hard": 5000,
+    "S1/safe/plain": 5000,
+    "S1/sexual/hard": 446,
+    "S1/sexual/plain": 375,
+    "S1/toxic/hard": 3036,
+    "S1/toxic/plain": 1964,
+    "S1/violence/hard": 766,
+    "S1/violence/plain": 330
+   },
+   "groups": 1309,
+   "file_sha256": "ebfbe3920ea89121fc37006644fed16d86a1414085f9a5155b70ec5dac120ab0",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 2774,
+     "viol": 619,
+     "insult": 264,
+     "sex": 43,
+     "prof": 36
+    },
+    "S1/safe": {
+     "viol": 2353,
+     "ident": 2559,
+     "sex": 268,
+     "insult": 252,
+     "prof": 17
+    },
+    "S1/sexual": {
+     "sex": 260,
+     "viol": 68,
+     "prof": 103,
+     "insult": 34,
+     "ident": 109
+    },
+    "S1/toxic": {
+     "insult": 2689,
+     "viol": 341,
+     "ident": 289,
+     "prof": 122,
+     "sex": 32
+    },
+    "S1/violence": {
+     "viol": 748,
+     "insult": 32,
+     "prof": 6,
+     "ident": 19,
+     "sex": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 182,
+    "S1/safe": 292,
+    "S1/sexual": 124,
+    "S1/toxic": 160,
+    "S1/violence": 80
+   }
+  },
+  "s3_dev": {
+   "n": 600,
+   "cells": {
+    "S3/hate/hard": 166,
+    "S3/hate/plain": 34,
+    "S3/safe/hard": 100,
+    "S3/safe/plain": 100,
+    "S3/toxic/hard": 148,
+    "S3/toxic/plain": 52
+   },
+   "groups": 11,
+   "file_sha256": "5f8c3babc8cd479ca359bb99db3547c60ac92267a56c70cad64a99dd23976d76",
+   "lexicon_hits_per_cell": {
+    "S3/hate": {
+     "prof": 112,
+     "sex": 3,
+     "ident": 74,
+     "insult": 13,
+     "viol": 39
+    },
+    "S3/safe": {
+     "viol": 36,
+     "ident": 72,
+     "prof": 8,
+     "sex": 5,
+     "insult": 1
+    },
+    "S3/toxic": {
+     "ident": 81,
+     "viol": 23,
+     "insult": 15,
+     "prof": 66,
+     "sex": 4
+    }
+   },
+   "median_chars_per_cell": {
+    "S3/hate": 122,
+    "S3/safe": 91,
+    "S3/toxic": 79
+   }
+  },
+  "s3_pool": {
+   "n": 8539,
+   "cells": {
+    "S3/hate/hard": 2260,
+    "S3/hate/plain": 395,
+    "S3/safe/hard": 3404,
+    "S3/safe/plain": 1015,
+    "S3/toxic/hard": 1209,
+    "S3/toxic/plain": 256
+   },
+   "groups": 189,
+   "file_sha256": "c195fcaf492c1e04daacde606dbc0b273291d48893d3dc5277f3fedcfd040cb1",
+   "lexicon_hits_per_cell": {
+    "S3/hate": {
+     "viol": 408,
+     "prof": 1823,
+     "ident": 887,
+     "insult": 217,
+     "sex": 40
+    },
+    "S3/safe": {
+     "prof": 907,
+     "ident": 2405,
+     "viol": 618,
+     "insult": 138,
+     "sex": 96
+    },
+    "S3/toxic": {
+     "ident": 489,
+     "prof": 790,
+     "sex": 26,
+     "viol": 110,
+     "insult": 129
+    }
+   },
+   "median_chars_per_cell": {
+    "S3/hate": 116,
+    "S3/safe": 108,
+    "S3/toxic": 90
+   }
+  },
+  "s2_probe": {
+   "n": 437,
+   "cells": {
+    "S2/hate/hard": 40,
+    "S2/hate/plain": 60,
+    "S2/safe/hard": 50,
+    "S2/safe/plain": 50,
+    "S2/sexual/hard": 15,
+    "S2/sexual/plain": 22,
+    "S2/toxic/hard": 33,
+    "S2/toxic/plain": 67,
+    "S2/violence/hard": 62,
+    "S2/violence/plain": 38
+   },
+   "groups": 41,
+   "file_sha256": "224cc3ae11c02a65123794a3bb452341ecabc5b00b2b3326a2c6727f9b988a57",
+   "lexicon_hits_per_cell": {
+    "S2/hate": {
+     "ident": 36,
+     "insult": 2,
+     "sex": 1,
+     "viol": 2
+    },
+    "S2/safe": {
+     "viol": 19,
+     "ident": 27,
+     "sex": 3,
+     "insult": 3
+    },
+    "S2/sexual": {
+     "ident": 4,
+     "sex": 10,
+     "prof": 2,
+     "viol": 1
+    },
+    "S2/toxic": {
+     "prof": 18,
+     "insult": 9,
+     "ident": 6,
+     "viol": 8
+    },
+    "S2/violence": {
+     "viol": 61,
+     "ident": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S2/hate": 77,
+    "S2/safe": 89,
+    "S2/sexual": 66,
+    "S2/toxic": 78,
+    "S2/violence": 79
+   }
+  }
+ },
+ "params": {
+  "TGT": {
+   "S1": {
+    "locked": {
+     "safe_hard": 230,
+     "safe_plain": 230,
+     "toxic": 450,
+     "hate": 450,
+     "sexual": 450,
+     "violence": 450
+    },
+    "dev": {
+     "safe_hard": 100,
+     "safe_plain": 100,
+     "toxic": 200,
+     "hate": 200,
+     "sexual": 200,
+     "violence": 200
+    },
+    "calib": {
+     "safe_hard": 75,
+     "safe_plain": 75,
+     "toxic": 150,
+     "hate": 150,
+     "sexual": 150,
+     "violence": 150
+    }
+   },
+   "S2": {
+    "locked": {
+     "safe_hard": 230,
+     "safe_plain": 230,
+     "toxic": 450,
+     "hate": 450,
+     "sexual": 450,
+     "violence": 450
+    },
+    "probe": {
+     "safe_hard": 50,
+     "safe_plain": 50,
+     "toxic": 100,
+     "hate": 100,
+     "sexual": 100,
+     "violence": 100
+    }
+   },
+   "S3": {
+    "dev": {
+     "safe_hard": 100,
+     "safe_plain": 100,
+     "toxic": 200,
+     "hate": 200
+    }
+   }
+  },
+  "OVERSAMPLE": 1.1,
+  "POOL_CAP": 5000,
+  "JACCARD": 0.6,
+  "GROUP_CAP_FRAC": 0.2,
+  "kmeans_k": {
+   "S1": 2000,
+   "S2": 250,
+   "S3": 200
+  }
+ },
+ "raw_inputs": {
+  "civil/data/test-00000-of-00001.parquet": {
+   "sha256": "410f803ff161e7c4ba005db7de5b444cac413f4861bf056b0fd69d670d75aa08",
+   "bytes": 20800265
+  },
+  "civil/data/train-00000-of-00002.parquet": {
+   "sha256": "c20f01c3aecbdd942886cacb0ee67e995df33bc712a622fde75927ed3d6ccefe",
+   "bytes": 193527147
+  },
+  "civil/data/train-00001-of-00002.parquet": {
+   "sha256": "a76af69d7b24758bc38b196bc422d4767935c1dd7d3c1465554649c546d99ccb",
+   "bytes": 186778090
+  },
+  "civil/data/validation-00000-of-00001.parquet": {
+   "sha256": "2e0eb65474e7e1290df8689fc93eea783160c898c09ae15382c0a9662367bd03",
+   "bytes": 20955569
+  },
+  "aegis/refusals_train.json": {
+   "sha256": "ff948d3696c9da94cf2523f5d4ae7f16cad7b3c0fd3cb46a331dad0ed717fbe2",
+   "bytes": 2758729
+  },
+  "aegis/refusals_validation.json": {
+   "sha256": "aba81546da0108bc931ae7fb7662b687b42b0bb3e734cde34fbddfbe33cadfcf",
+   "bytes": 109404
+  },
+  "aegis/test.json": {
+   "sha256": "b0a6d602260524866053cb34105194f074f2c2906e3691b68d43b9e6e9318f35",
+   "bytes": 1731373
+  },
+  "aegis/train.json": {
+   "sha256": "154fba82c71d9fa73abd2ca5588a198e693ddc816c83444df180a22f613e02f6",
+   "bytes": 22705956
+  },
+  "aegis/validation.json": {
+   "sha256": "a97200e226ad4f6ba6a639982f817f675909bc74513859df3e8fc9a92951dfcd",
+   "bytes": 1137821
+  },
+  "hatexplain/plain_text/test/0000.parquet": {
+   "sha256": "de4071c91efcf3a5682fd79d796a2fa758723a37ecacd9c0d14172b793f41958",
+   "bytes": 212096
+  },
+  "hatexplain/plain_text/train/0000.parquet": {
+   "sha256": "820abc7acd0019d2034056202b22a243a566b1645b71995ca5a8741cd8c148c1",
+   "bytes": 1682105
+  },
+  "hatexplain/plain_text/validation/0000.parquet": {
+   "sha256": "6ad2463d67207b98b3c9b23ee2199dfe5faeee350ae10a0ac00c8441b62cf2c8",
+   "bytes": 212018
+  },
+  "_hf_repos": {
+   "civil": "google/civil_comments@f2970eb3a55777454c94069077cc8d9b5866312d (cc0-1.0)",
+   "aegis": "nvidia/Aegis-AI-Content-Safety-Dataset-2.0@d86bb8bedff51d25ac834ab7838f1cc61acb7a2c (cc-by-4.0)",
+   "hatexplain": "Hate-speech-CNERG/hatexplain@refs/convert/parquet=b0e5676acc1d0dcb31d6ce8e93e7e94109044ed6 (cc-by-4.0)"
+  }
+ },
+ "build_data_py_sha256": "d430b59ddd89c492f95a46106da340d1970470ade4ff6d5d15939863eb8185cb",
+ "audit": {
+  "dropped": {
+   "exact_dup": 1261,
+   "neardup_within_source": 1773,
+   "neardup_cross_source": 56
+  },
+  "near_dup_pairs": 3524,
+  "touched_scan_files_scanned": 15811,
+  "touched_scan_files_with_hits": 30,
+  "touched_hit_files": [
+   "v2/research/C_tasks/calib.jsonl",
+   "v2/research/C_tasks/items.jsonl",
+   "v2/research/D_scale/t1v2/probe_items.jsonl",
+   "v2/research/L1_large/pipe/t1v2/probe_items.jsonl",
+   "v2/tournament/INJ/compress_inputs/dense_data_inj.json",
+   "v2/tournament/INJ/compress_inputs/probe_items.jsonl",
+   "v2/tournament/INJ/data/audit_S2.jsonl",
+   "v2/tournament/INJ/data/dev_S3.jsonl",
+   "v2/tournament/INJ/data/locked_S1.jsonl",
+   "v2/tournament/INJ/data/locked_S2.jsonl",
+   "v2/tournament/INJ/data/pool_S1.jsonl",
+   "v2/tournament/INJ/raw/hendzh__PromptShield/train.json",
+   "v2/tournament/INJ/raw/hendzh__PromptShield/validation.json",
+   "v2/tournament/T1/data/locked.jsonl",
+   "v2/tournament/T1/data/s1_dev.jsonl",
+   "v2/tournament/T1/data/s3_dev.jsonl",
+   "v2/tournament/T1/data/s3_pool.jsonl",
+   "v2/tournament/T1/data_archive_pre_relock_20261106/locked.jsonl",
+   "v2/tournament/T1/data_archive_pre_relock_20261106/s1_pool.jsonl",
+   "v2/tournament/T1/data_archive_pre_relock_20261106/s3_dev.jsonl",
+   "v2/tournament/T1/data_archive_pre_relock_20261106/s3_pool.jsonl",
+   "v2/tournament/T1/data_archive_relock1_touched_20261106_DO_NOT_USE/locked.jsonl",
+   "v2/tournament/T1/raw/BFCL_v3_parallel_multiple.json",
+   "v2/tournament/T1/raw/data.json",
+   "v2/tournament/T1/raw/x/xlam_function_calling_60k.json",
+   "v2/tournament/T2/data/s1_build.jsonl",
+   "v2/tournament/T2/data/s1_calib.jsonl",
+   "v2/tournament/T2/data/s1_pool.jsonl",
+   "v2/tournament/T3/data/pool_S1.jsonl",
+   "v2/tournament/T3/data/pool_S3.jsonl"
+  ],
+  "locked_candidates_dropped_touched": 599,
+  "cells_short_of_target": {
+   "S2/probe/sexual": [
+    37,
+    37,
+    100
+   ]
+  },
+  "n_candidates": 106342,
+  "n_alive": 103252,
+  "groups_unique_per_file_checked": true,
+  "text_unique_across_files_checked": true
+ },
+ "locked_totals": {
+  "n": 4520,
+  "source_x_kind": {
+   "S1/hate": 450,
+   "S1/safe": 460,
+   "S1/sexual": 450,
+   "S1/toxic": 450,
+   "S1/violence": 450,
+   "S2/hate": 450,
+   "S2/safe": 460,
+   "S2/sexual": 450,
+   "S2/toxic": 450,
+   "S2/violence": 450
+  },
+  "min_cell": 450,
+  "S1": 2260,
+  "S2": 2260,
+  "safe_hard_share_S1": 0.5,
+  "safe_hard_share_S2": 0.5
+ }
+}

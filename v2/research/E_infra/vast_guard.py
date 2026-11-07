@@ -7,11 +7,14 @@ persist state, and at DESTROY_AT dollars DESTROY ALL instances and keep verifyin
 Run: nohup python3 vast_guard.py > vast_guard.log 2>&1 &     State: vast_guard_state.json
 Also: any single instance older than MAX_HOURS is destroyed."""
 import json, subprocess, time, datetime as dt, os
-CAP = 300.0; DESTROY_AT = 285.0; MAX_HOURS = 6.0; MINE = "tenpct-"
+CAP = 50.0; DESTROY_AT = 47.0; MAX_HOURS = 6.0; MINE = "tenpct-"
 STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vast_guard_state.json")
 def vast(*a):
-    r = subprocess.run(["vastai", *a], capture_output=True, text=True, timeout=60)
-    return r.returncode, r.stdout, r.stderr
+    try:
+        r = subprocess.run(["vastai", *a], capture_output=True, text=True, timeout=60)
+        return r.returncode, r.stdout, r.stderr
+    except Exception as e:   # never let a timeout kill the guard
+        return 1, "", type(e).__name__
 def instances():
     rc, out, err = vast("show", "instances", "--raw")
     if rc != 0: return None

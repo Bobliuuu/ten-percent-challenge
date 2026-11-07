@@ -1,0 +1,28 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 335.32it/s]
+[     5s] model Qwen3-14B tied False D 5120 V 151936
+[     5s] label tokens {'Injection': ['Injection', '<|im_end|>'], 'Benign': ['Ben', 'ign', '<|im_end|>'], 'Jailbreak': ['J', 'ail', 'break', '<|im_end|>']}
+[   102s] cached hidden 3712 in 96 s
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   123s] generic stats done; plain gap 14.75
+[   129s] base labels on ann pool Counter({'Injection': 153, 'Benign': 5})
+[   129s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.816, 'neigh_alpha': 0.815}
+[   136s] gen-vs-TF agreement (set, agree, gen acc, TF acc) [('neigh_eval', 1.0, 0.85, 0.85), ('jb_teach', 1.0, 0.0, 0.0)]
+[   136s] base-correct neighbours eval 1012 / 1240 alpha 710
+[   136s] chosen alphas {}
+[   150s] VALIDITY [{'m': 'cal', 'set': 'jb_teach', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.7625, 'acc_gen': 0.7625}, {'m': 'cal', 'set': 'neigh_eval', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.725, 'acc_gen': 0.725}]
+[   152s] cal2m0 n 3 real teach 0.285 neigh 0.9862 ood 0.431
+[   155s] cal2m0 n 5 real teach 0.353 neigh 0.987 ood 0.484
+[   158s] cal2m0 n 8 real teach 0.535 neigh 0.977 ood 0.656
+[   162s] cal2m0 n 12 real teach 0.565 neigh 0.9714 ood 0.707
+[   167s] cal2m0 n 25 real teach 0.642 neigh 0.9707 ood 0.761
+[   169s] cal2m0.5 n 3 real teach 0.285 neigh 0.9862 ood 0.431
+[   172s] cal2m0.5 n 5 real teach 0.373 neigh 0.9857 ood 0.499
+[   175s] cal2m0.5 n 8 real teach 0.535 neigh 0.977 ood 0.656
+[   179s] cal2m0.5 n 12 real teach 0.565 neigh 0.9714 ood 0.707
+[   184s] cal2m0.5 n 25 real teach 0.642 neigh 0.9707 ood 0.761
+[   186s] cal2m2 n 3 real teach 0.317 neigh 0.9844 ood 0.449
+[   189s] cal2m2 n 5 real teach 0.387 neigh 0.9847 ood 0.514
+[   192s] cal2m2 n 8 real teach 0.535 neigh 0.977 ood 0.657
+[   196s] cal2m2 n 12 real teach 0.566 neigh 0.9714 ood 0.707
+[   201s] cal2m2 n 25 real teach 0.642 neigh 0.9707 ood 0.762
+[   201s] DONE

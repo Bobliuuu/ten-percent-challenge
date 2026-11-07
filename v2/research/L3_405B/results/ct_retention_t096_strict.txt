@@ -1,0 +1,7 @@
+base acc per task: {'AIDET': 0.433, 'FIN': 0.768, 'INJ': 0.468, 'NLI': 0.618, 'ROUTE': 0.793, 'SENT': 0.828, 'SPAM': 0.477, 'TOOLSEL': 0.862, 'TOX': 0.31}
+
+== results/ct_L405_t096.json criterion: strict(incl EOT)
+FIN      base-correct 461  ret 0.961 (lo 0.939; 443/461) worst cell 0.892 [kind:Neutral] PASS=False | kind:Bearish 0.98(185); kind:Bullish 0.97(183); kind:Neutral 0.89(93); role:S1 0.94(224); role:S3 0.98(237)
+INJ      base-correct 281  ret 0.996 (lo 0.980; 280/281) worst cell 0.993 [role:S3] PASS=True | kind:Attack 1.00(280); kind:Benign 1.00(1); role:S1 1.00(138); role:S3 0.99(143)
+SENT     base-correct 497  ret 0.974 (lo 0.956; 484/497) worst cell 0.946 [kind:Positive] PASS=False | kind:Negative 1.00(276); kind:Positive 0.95(221); role:S1 0.97(267); role:S3 0.98(230)
+TOOLSEL  base-correct 517  ret 0.975 (lo 0.957; 504/517) worst cell 0.963 [role:S3] PASS=False | kind:none 0.98(222); kind:tool 0.97(295); role:S1 0.98(298); role:S3 0.96(219)

@@ -1,0 +1,64 @@
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 450.61it/s]
+[     8s] model Qwen3-32B tied False D 5120 V 151936
+[     8s] label tokens {'Injection': ['Injection', '<|im_end|>'], 'Benign': ['Ben', 'ign', '<|im_end|>'], 'Jailbreak': ['J', 'ail', 'break', '<|im_end|>']}
+[   229s] cached hidden 3712 in 220 s
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   275s] generic stats done; plain gap 10.25
+[   291s] base labels on ann pool Counter({'Injection': 150, 'Benign': 8})
+[   291s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.841, 'neigh_alpha': 0.82}
+[   305s] gen-vs-TF agreement (set, agree, gen acc, TF acc) [('neigh_eval', 1.0, 0.875, 0.875), ('jb_teach', 1.0, 0.0, 0.0)]
+[   305s] base-correct neighbours eval 1043 / 1240 alpha 714
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.1, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.2, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.3, 'dev_gain': 0.027777777777777776, 'neigh_dev': 1.0}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.45, 'dev_gain': 0.8055555555555557, 'neigh_dev': 0.8417366946778713}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.55, 'dev_gain': 0.8518518518518517, 'neigh_dev': 0.7217553688141924}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.7, 'dev_gain': 0.75, 'neigh_dev': 0.6633986928104575}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 0.85, 'dev_gain': 0.3148148148148148, 'neigh_dev': 0.646125116713352}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 1.0, 'dev_gain': 0.3194444444444445, 'neigh_dev': 0.626984126984127}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 1.5, 'dev_gain': 0.2777777777777778, 'neigh_dev': 0.6083099906629319}
+[   305s] alpha sweep {'m': 'lda', 'alpha': 2.0, 'dev_gain': 0.037037037037037035, 'neigh_dev': 0.5859010270774977}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.1, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.2, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.3, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.45, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.55, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.7, 'dev_gain': 0.0, 'neigh_dev': 0.9985994397759104}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 0.85, 'dev_gain': 0.013888888888888888, 'neigh_dev': 0.9845938375350141}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 1.0, 'dev_gain': 0.08796296296296297, 'neigh_dev': 0.957983193277311}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 1.5, 'dev_gain': 0.25925925925925924, 'neigh_dev': 0.8314659197012139}
+[   306s] alpha sweep {'m': 'ldapos', 'alpha': 2.0, 'dev_gain': 0.27314814814814814, 'neigh_dev': 0.7675070028011205}
+[   306s] chosen alphas {'lda': 0.3, 'ldapos': 0.85}
+[   369s] VALIDITY [{'m': 'lda', 'set': 'jb_teach', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.0375, 'acc_gen': 0.0375}, {'m': 'lda', 'set': 'neigh_eval', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.9, 'acc_gen': 0.9}, {'m': 'cal', 'set': 'jb_teach', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.7125, 'acc_gen': 0.7125}, {'m': 'cal', 'set': 'neigh_eval', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 0.9875, 'acc_cached': 0.7875, 'acc_gen': 0.775}]
+[   371s] lda n 3 real teach 0.011 neigh 1.0 ood 0.008
+[   374s] lda n 5 real teach 0.017 neigh 1.0 ood 0.008
+[   377s] lda n 8 real teach 0.023 neigh 1.0 ood 0.011
+[   380s] lda n 12 real teach 0.022 neigh 1.0 ood 0.011
+[   385s] lda n 25 real teach 0.027 neigh 1.0 ood 0.015
+[   387s] ldapos n 3 real teach 0.006 neigh 0.9976 ood 0.003
+[   390s] ldapos n 5 real teach 0.008 neigh 0.997 ood 0.002
+[   393s] ldapos n 8 real teach 0.015 neigh 0.9887 ood 0.006
+[   396s] ldapos n 12 real teach 0.014 neigh 0.9901 ood 0.005
+[   401s] ldapos n 25 real teach 0.021 neigh 0.9809 ood 0.011
+[   403s] plain n 3 real teach 0.0 neigh 1.0 ood 0.0
+[   406s] plain n 5 real teach 0.0 neigh 1.0 ood 0.0
+[   409s] plain n 8 real teach 0.0 neigh 1.0 ood 0.0
+[   412s] plain n 12 real teach 0.001 neigh 1.0 ood 0.0
+[   417s] plain n 25 real teach 0.001 neigh 1.0 ood 0.0
+[   420s] cal n 3 real teach 0.639 neigh 0.8338 ood 0.585
+[   423s] cal n 5 real teach 0.721 neigh 0.7763 ood 0.691
+[   426s] cal n 8 real teach 0.696 neigh 0.6846 ood 0.731
+[   430s] cal n 12 real teach 0.768 neigh 0.7263 ood 0.768
+[   435s] cal n 25 real teach 0.759 neigh 0.665 ood 0.783
+[   438s] cal2 n 3 real teach 0.264 neigh 0.9946 ood 0.204
+[   441s] cal2 n 5 real teach 0.415 neigh 0.9862 ood 0.334
+[   444s] cal2 n 8 real teach 0.485 neigh 0.9658 ood 0.428
+[   448s] cal2 n 12 real teach 0.542 neigh 0.9788 ood 0.458
+[   453s] cal2 n 25 real teach 0.503 neigh 0.9708 ood 0.439
+[   455s] SENS plain_f2 real teach 0.051 neigh 0.9558
+[   456s] SENS plain_f4 real teach 0.099 neigh 0.0
+[   457s] SENS plain_f8 real teach 0.099 neigh 0.0
+[   458s] SENS plain_f16 real teach 0.099 neigh 0.0
+[   460s] SENS lda_a0.24 real teach 0.002 neigh 1.0
+[   461s] SENS lda_a0.36 real teach 0.105 neigh 0.9942
+[   461s] DONE

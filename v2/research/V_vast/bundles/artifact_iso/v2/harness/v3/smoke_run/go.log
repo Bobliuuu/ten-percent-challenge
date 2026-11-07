@@ -1,0 +1,35 @@
++ cd /home/ubuntu/work/tp/v2/harness/v3
++ /home/ubuntu/work/venv/bin/python final_proof.py --exam /home/ubuntu/work/tp/smoke/data/exam.jsonl --artifact /home/ubuntu/work/tp/smoke/art --base-id Qwen/Qwen3-0.6B --base-arch /home/ubuntu/work/tp/smoke/art.base_arch.json --annotations /home/ubuntu/work/tp/smoke/data/ann.jsonl --teach /home/ubuntu/work/tp/smoke/data/teach.jsonl --neighbor /home/ubuntu/work/tp/smoke/data/nb.jsonl --tag smoke --out-dir /home/ubuntu/work/tp/smoke/run --source-map S3=S2 --budget-fraction 1.05 --python /home/ubuntu/work/venv/bin/python
+RECEIPT_JSON:{"status": "completed", "accuracy": {"base": 0.7583333333333333, "cand": 0.7583333333333333, "agree": 1.0, "base_parse_fail": 3, "cand_parse_fail": 3}, "all_checks_ok": true, "isolation_ok": true, "REAL_RESULT": false}
+VERDICT: FAIL | failed: ['size<=10%', 'exam>=2000', 'every_kind>=300', 'ood_block>=500', 'teach_clear_gain(lo>0,mean>=.15)', 'controls_clearly_worse(lo>0)', 'size_after_feedback<=10%']
+GATES
+  XX size<=10%
+  ok retention>=98%
+  ok every_kind_retention>=95%
+  XX exam>=2000
+  XX every_kind>=300
+  XX ood_block>=500
+  ok base_above_chance_below_ceiling
+  ok real_output
+  ok no_new_parts
+  ok feedback_n<=25
+  ok teach_set>=25
+  XX teach_clear_gain(lo>0,mean>=.15)
+  XX controls_clearly_worse(lo>0)
+  ok neighbors_kept>=98%
+  ok exam_after_feedback_retention>=98%
+  XX size_after_feedback<=10%
+SCORES (0.5 = rule threshold, 1 = target)
+   0.00  size_margin
+   0.00  retention_worst_kind
+   0.00  ood_robustness
+   0.00  teach_gain
+   0.00  control_separation
+   0.00  neighbor_retention
+   0.16  retention_overall
+   0.16  exam_after_feedback
+   1.00  harmful_flips
+   1.00  agreement
+   1.00  feedback_bytes_added
+MAXIMIN 0.00 (weakest: size_margin)  MEAN 0.30
+{"base": 0.0, "real": 0.0, "shuffled": 0.0, "empty": 0.0} empty_byte_identical True

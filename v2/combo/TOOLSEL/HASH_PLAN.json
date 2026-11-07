@@ -1,0 +1,28 @@
+{
+ "purpose": "Deterministic plan for the locked TOOLSEL exam. Written 2026-11-07 without reading locked.jsonl (only LOCK.json counts/sha were used).",
+ "locked_file": "tournament/T1/data/locked.jsonl",
+ "locked_file_sha256_from_LOCK": "a09073bc176245f714c2205ecefc86e52e4734da43208a08dc80295d966e2e17",
+ "lock_counts": {
+  "S1/multi": 450,
+  "S1/nocall": 400,
+  "S1/single": 450,
+  "S2/multi": 372,
+  "S2/nocall": 400,
+  "S2/single": 500
+ },
+ "builder": "combo/TOOLSEL/build_toolsel.py",
+ "builder_sha256_at_plan_time": "62380d373a7bbaa77710df7276202f89efec6ed5d679cdf97ed4348573e1153c",
+ "function": "TOOLSEL(locked row) = nocall -> `none`; single with len(gold)==1 and gold name in menu -> gold name; multi -> dropped; rows with duplicate tool names, a tool called none, or rendered menu > 5000 chars -> dropped. Output order sha256('toolsel-order|'+id). No sampling, no back-fill.",
+ "expected_upper_bound_cells": {
+  "locked_S1/tool": 450,
+  "locked_S1/none": 400,
+  "locked_S2/tool": 500,
+  "locked_S2/none": 400
+ },
+ "expected_total_upper_bound": 1750,
+ "acceptance": ">= 330 per cell (source x kind) and S2 total >= 500; the builder exits non-zero otherwise",
+ "run_once": "LOCKED_BUILD_OK=1 python build_toolsel.py locked <OUT.jsonl> after the artifact is frozen; commit MANIFEST_locked.json (sha256 of OUT and of sorted id|answer list) BEFORE scoring any model",
+ "scorer": "toolsel_scorer.py strict_exact: decoded output (special tokens removed) .strip() == answer, nothing else; empty/EOS-only, extra words, quotes, backticks, trailing punctuation, 2 names, case differences are all wrong",
+ "s1_stratum_note": "locked S1 rows carry stratum unseen|seen; the TOOLSEL rows keep the id so a stratum breakdown can be joined from locked.jsonl at report time (counts only)",
+ "feedback_on_locked": "Feedback teach/annotation/neighbour sets are NOT drawn from the locked exam. They use non-locked s1_pool/s1_dev/s3_dev (PREREG_*.json holds the teach ids + sha256 written before any edit). Locked TOOLSEL is used only for the post-feedback retention check (>=98% of stage-1 correct)."
+}

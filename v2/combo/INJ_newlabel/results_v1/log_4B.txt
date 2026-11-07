@@ -1,0 +1,19 @@
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 44.55it/s]
+[     6s] model Qwen3-4B tied True D 2560 V 151936
+[     6s] label tokens {'Injection': ['Injection', '<|im_end|>'], 'Benign': ['Ben', 'ign', '<|im_end|>'], 'Jailbreak': ['J', 'ail', 'break', '<|im_end|>']}
+[    94s] cached hidden 3712 in 86 s
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   112s] generic stats done; plain gap 16.25
+[   118s] base labels on ann pool Counter({'Injection': 152, 'Benign': 6})
+[   118s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.849, 'neigh_alpha': 0.85}
+[   122s] gen-vs-TF agreement (set, agree, gen acc, TF acc) [('neigh_eval', 0.9916666666666667, 0.8666666666666667, 0.875), ('jb_teach', 1.0, 0.0, 0.0)]
+[   122s] base-correct neighbours eval 1623 / 1911 alpha 170
+[   147s] alpha sweep {'alpha': 0.1, 'dev_gain': 0.0, 'neigh_dev': 0.996078431372549}
+[   172s] alpha sweep {'alpha': 0.2, 'dev_gain': 0.0, 'neigh_dev': 0.9980392156862745}
+[   197s] alpha sweep {'alpha': 0.3, 'dev_gain': 0.0, 'neigh_dev': 0.9980392156862745}
+[   217s] alpha sweep {'alpha': 0.45, 'dev_gain': 0.0, 'neigh_dev': 0.996078431372549}
+[   233s] alpha sweep {'alpha': 0.7, 'dev_gain': 0.7083333333333334, 'neigh_dev': 0.9882352941176471}
+[   250s] alpha sweep {'alpha': 1.0, 'dev_gain': 0.611111111111111, 'neigh_dev': 0.8784313725490196}
+[   267s] alpha sweep {'alpha': 1.5, 'dev_gain': 0.02314814814814815, 'neigh_dev': 0.7980392156862745}
+[   267s] chosen lda alpha 0.7
+[   295s] VALIDITY [{'m': 'lda', 'set': 'jb_teach', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 0.9625, 'acc_cached': 0.575, 'acc_gen': 0.5875}, {'m': 'lda', 'set': 'neigh_eval', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.7875, 'acc_gen': 0.7875}, {'m': 'cal', 'set': 'jb_teach', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 0.975, 'acc_cached': 0.775, 'acc_gen': 0.8}, {'m': 'cal', 'set': 'neigh_eval', 'cached_vs_fwd': 1.0, 'cached_vs_gen': 1.0, 'acc_cached': 0.55, 'acc_gen': 0.55}]

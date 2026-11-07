@@ -113,3 +113,19 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 
 ## Vast (04:50Z 2026-11-07): no tenpct-* instances rented; create blocked by account instance cap (see v2/research/V_vast/INSTANCES.md)
 - 2026-11-07 ~05:25Z D_scale: Modal app tenpct-dscale (deployed, fn run) call fc-01M6T6ZGZ3ASW8HK1HAX2A5MA5 = m72_gam1_lcm_nc (Qwen2.5-72B gamma1 + C_tasks label calib + nocall-heavy T1 calib, H200); launcher v2/research/D_scale/modal_launch.py mvars3.json; results -> Volume tenpct-dscale:/72B/m72_gam1_lcm_nc.json
+- 2026-11-07 07:05Z vast smoke rental id 59535711 label tenpct-smoke (V100, $0.124/h) created+destroyed to confirm the account cap cleared (account had 0 instances)
+- 2026-11-07T07:05Z vast id 59536016 label tenpct-smoke GPU RTX 2080 Ti 22GB $0.079/h (+5% guard) started
+- 2026-11-07T07:19Z vast id 59537416 label tenpct-smoke GPU Tesla P40 24GB $0.107/h (+5% guard) started
+- 2026-11-07T07:20Z vast id 59537416 tenpct-smoke destroyed after 0.01 h (~$0.00)
+- 2026-11-07T07:20Z vast id 59537533 label tenpct-smoke GPU RTX 3080 20GB $0.135/h (+5% guard) started
+- 2026-11-07T07:25Z vast id 59537930 label tenpct-smoke GPU Q RTX 6000 22GB $0.135/h (+5% guard) started
+- 2026-11-07T07:26Z vast id 59537943 label tenpct-smoke GPU Tesla V100 32GB $0.201/h (+5% guard) started
+- 2026-11-07T07:27Z vast id 59537930 tenpct-smoke destroyed after 0.02 h (~$0.00)
+- 2026-11-07T08:17Z vast id 59542098 label tenpct-artifact_iso GPU RTX 3090 24GB $0.177/h (+5% guard) started
+- 2026-11-07T08:17Z vast id 59542099 label tenpct-INJ_q4b GPU RTX 3090 24GB $0.166/h (+5% guard) started
+- 2026-11-07T08:25Z vast id 59542882 label tenpct-artifact_iso GPU RTX 3090 24GB $0.179/h (+5% guard) started
+- 2026-11-07T08:25Z vast id 59542886 label tenpct-INJ_q4b GPU RTX 3090 24GB $0.177/h (+5% guard) started
+- 2026-11-07T08:34Z vast id 59543597 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
+- 2026-11-07T08:36Z vast id 59542886 tenpct-INJ_q4b destroyed after 0.10 h (~$0.02)
+- 2026-11-07T08:42Z vast id 59544206 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
+- 2026-11-07T08:52Z vast id 59544206 tenpct-artifact_iso destroyed after 0.12 h (~$0.02)

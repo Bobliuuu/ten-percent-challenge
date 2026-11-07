@@ -1,0 +1,60 @@
+{
+ "bitexact": {
+  "tensors_compared": 254,
+  "elements": 8190427136,
+  "all_equal": true,
+  "mismatches": [],
+  "decode_dequant_seconds": 32.50984287261963,
+  "wall_seconds": 35.296645402908325
+ },
+ "size": {
+  "total_bytes": 1445972604,
+  "base_fp16_bytes": 16381470720,
+  "ratio": 0.08826879031286393,
+  "size_ok": true,
+  "files": {
+   "answer.py": 22854,
+   "config.json": 728,
+   "feedback.py": 25303,
+   "generation_config.json": 239,
+   "model.tpq": 1434466956,
+   "tensor_manifest.json": 24138,
+   "tokenizer.json": 11422654,
+   "tokenizer_config.json": 9732
+  },
+  "estimate_total_bytes": 1462799472.228632,
+  "estimate_ratio": 0.08929597941671455,
+  "real_minus_estimate_pct_of_base": -0.10271891038506202,
+  "quant_payload": {
+   "real_bytes": 1433709880,
+   "est_bytes": 1450677376.228632,
+   "real_codes": 1393040064,
+   "real_scale_exp": 3814008,
+   "real_scale_mant": 36855808,
+   "est_code_bytes": 1400000640.2286322,
+   "est_scale_bytes": 50676736.0
+  },
+  "blob_overhead_bytes": 140628
+ },
+ "no_new_parts": {
+  "ok": true,
+  "tensor_source": "declared_manifest",
+  "extra_files": [],
+  "extra_tensors": [],
+  "missing_tensors": [],
+  "shape_mismatch": [],
+  "dtype_mismatch": [],
+  "config_arch_diff": [],
+  "grep_train_hits": 0,
+  "grep_train_lines": [],
+  "network_hits": 0,
+  "network_lines": [],
+  "constrained_decoding_hits": 0,
+  "constrained_lines": [],
+  "n_tensors": 399
+ },
+ "manifest_vs_container": {
+  "equal": true,
+  "n": 399
+ }
+}

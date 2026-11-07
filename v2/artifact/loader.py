@@ -321,9 +321,8 @@ def load_model(art, dev="cuda", workers=None, log=print):
     if conf.tie_word_embeddings: m.tie_weights(); seen |= {"lm_head.weight"}
     miss = set(params) - seen
     if miss: raise RuntimeError("parameters not covered by artifact: " + str(sorted(miss)[:5]))
-    RC = type(m.model.rotary_emb)
-    try: m.model.rotary_emb = RC(config=conf, device=dev)
-    except TypeError: m.model.rotary_emb = RC(config=conf).to(dev)
+    RC = type(m.model.rotary_emb)                      # built on CPU then moved: identical to HF's own init path (a CUDA-side inv_freq differs in the last ulp)
+    m.model.rotary_emb = RC(config=conf).to(dev)
     m.eval(); m.config.use_cache = True
     for p in m.parameters(): p.requires_grad_(False)
     try: m.generation_config = GenerationConfig.from_pretrained(art)

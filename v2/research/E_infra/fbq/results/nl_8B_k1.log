@@ -1,0 +1,26 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 245.69it/s]
+[     3s] new-label items 157
+[     5s] items 5507 mean tokens 223.18612674777555
+[    11s] base GPTQ layer 0
+[    46s] base GPTQ layer 6
+[    81s] base GPTQ layer 12
+[   116s] base GPTQ layer 18
+[   152s] base GPTQ layer 24
+[   187s] base GPTQ layer 30
+[   221s] base quantised. tail+lm artifact bytes 349468672
+[   289s] cut cache (all items) built
+[   291s] final hidden (5507, 4096)
+[   291s] runner vs HF forward: min cosine of final hidden 0.9997987747192383
+[   291s] quantised-base acc {'dev1': 0.455, 'dev3': 0.5533333333333333, 'pool1': 0.6753333333333333, 'pool3': 0.5126666666666667}
+[   291s] SPEC_SHA (fixed BEFORE any feedback) 868db2bf6ff2d3537e54ff0b9d85cb10c1141985f610c80af87ebebb08f27887 {'ann': 31, 'teach1': 59, 'teach3': 67, 'nb': 400, 'nb3': 150}
+[   291s] cut batches needed 560 of 689
+[   293s] tail path vs base mismatch {'teach1': 0.0, 'teach3': 0.0, 'nb': 0.0, 'nb3': 0.0, 'devret': 0.0}
+[   340s] draw 0 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.797, 'empty': 0.0, 'mixed': 0.136, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.797, 'empty': 0.0, 'mixed': 0.136, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   392s] draw 1 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.814, 'empty': 0.0, 'mixed': 0.373, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.814, 'empty': 0.0, 'mixed': 0.373, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   446s] draw 2 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.763, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.814, 'empty': 0.0, 'mixed': 0.542, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.814, 'empty': 0.0, 'mixed': 0.525, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   499s] draw 3 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.797, 'empty': 0.0, 'mixed': 0.339, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.797, 'empty': 0.0, 'mixed': 0.356, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   553s] draw 4 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.797, 'empty': 0.0, 'mixed': 0.458, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.797, 'empty': 0.0, 'mixed': 0.458, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   606s] draw 5 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.729, 'randwrong': 0.0}, 'B0q': {'real': 0.763, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.797, 'empty': 0.0, 'mixed': 0.339, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.814, 'empty': 0.0, 'mixed': 0.339, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   659s] draw 6 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.814, 'empty': 0.0, 'mixed': 0.424, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.814, 'empty': 0.0, 'mixed': 0.424, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   707s] draw 7 {'B0fp': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'B0q': {'real': 0.746, 'empty': 0.0, 'mixed': 0.746, 'randwrong': 0.0}, 'V2': {'real': 0.814, 'empty': 0.0, 'mixed': 0.441, 'randwrong': 0.0}, 'V2h': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}, 'V2b': {'real': 0.814, 'empty': 0.0, 'mixed': 0.441, 'randwrong': 0.0}, 'V3': {'real': 0.0, 'empty': 0.0, 'mixed': 0.0, 'randwrong': 0.0}}
+[   717s] DONE nl_8B_k1.json

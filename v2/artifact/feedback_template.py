@@ -33,7 +33,7 @@ def gold_text(g): return "\n".join("<tool_call>\n" + json.dumps(dict(name=x["nam
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--artifact", default=os.path.dirname(os.path.abspath(__file__))); ap.add_argument("--annotations", required=True)
-    ap.add_argument("--method", default="lda"); ap.add_argument("--alpha", type=float, default=0.2); ap.add_argument("--ridge", type=float, default=0.1)
+    ap.add_argument("--method", default="lda"); ap.add_argument("--alpha", type=float, default=0.5); ap.add_argument("--ridge", type=float, default=0.1)
     ap.add_argument("--stats-items"); ap.add_argument("--device"); ap.add_argument("--workers", type=int)
     a = ap.parse_args(); anns = [json.loads(l) for l in open(a.annotations) if l.strip()]
     if not anns: print("FEEDBACK_NOOP no annotations"); return
