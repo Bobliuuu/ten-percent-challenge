@@ -24,3 +24,6 @@ modal run --detach exam_remote.py --lock LOCK_HARNESS.json --tag final --stage 2
 Stage-2 (rule 5): same artifact hash, only the memory file changes, counted in size; the exam is re-run once (base predictions reused). TENPCT_GPU env selects the GPU (default A100-80GB; 14B bf16 needs >=40GB).
 
 Known limits (disclosed): the sandbox is Modal's gVisor sandbox, not a formal proof of isolation; the runner and the candidate image are pinned only by package name (pin versions before the real run); labels are visible to the orchestrator (not the candidate) in the exam volume, so the operator must not read it before the end.
+
+## General-capability / anti-overfit check (validity/general_remote.py)
+Base vs artifact on held-out general MC (MMLU, ARC-C, HellaSwag, TruthfulQA-mc1, options shuffled) + WikiText-2 perplexity and token KL; positive controls RTN4/RTN3. Feed as `R["general"]={benchmarks,ppl,kl}` to scorecard.score (gates `general_*`; `require_general=True` makes absence a failure). Result q3_8b: artifact at chance, ppl 11.1 -> 643 (KL 4.6); RTN4 control passes (acc ratio >=.93, ppl x1.08, KL .15).

@@ -1,0 +1,68 @@
+{
+ "gates": {
+  "general_benchmarks>=3_present": true,
+  "general_every_bench_acc_ratio>=90%": false,
+  "general_every_bench_not_below_chance+5pt": false,
+  "general_ppl_ratio<=1.25": false,
+  "general_kl<=0.5": false
+ },
+ "scores": {
+  "general_acc_worst_ratio": 0.0,
+  "general_ppl": 0.0
+ },
+ "details": {
+  "general_benchmarks": {
+   "mmlu": {
+    "n": 1000,
+    "chance": 0.25,
+    "base": 0.718,
+    "cand": 0.245,
+    "retention_of_base_correct": 0.24651810584958217,
+    "acc_ratio": 0.3412256267409471,
+    "diff": -0.473,
+    "diff_lo": -0.512,
+    "diff_hi": -0.434
+   },
+   "arc_challenge": {
+    "n": 1000,
+    "chance": 0.25015,
+    "base": 0.914,
+    "cand": 0.224,
+    "retention_of_base_correct": 0.22975929978118162,
+    "acc_ratio": 0.24507658643326038,
+    "diff": -0.69,
+    "diff_lo": -0.72,
+    "diff_hi": -0.659
+   },
+   "hellaswag": {
+    "n": 1000,
+    "chance": 0.25,
+    "base": 0.749,
+    "cand": 0.247,
+    "retention_of_base_correct": 0.2803738317757009,
+    "acc_ratio": 0.32977303070761016,
+    "diff": -0.502,
+    "diff_lo": -0.537,
+    "diff_hi": -0.468
+   },
+   "truthfulqa_mc1": {
+    "n": 817,
+    "chance": 0.22605616877342705,
+    "base": 0.6499388004895961,
+    "cand": 0.2350061199510404,
+    "retention_of_base_correct": 0.2297551789077213,
+    "acc_ratio": 0.3615819209039548,
+    "diff": -0.4149326805385557,
+    "diff_lo": -0.4589963280293758,
+    "diff_hi": -0.37209302325581395
+   }
+  },
+  "general_ppl": {
+   "base": 11.088473067579,
+   "cand": 642.6963981318661,
+   "tokens": 39999,
+   "text": "wikitext-2-raw test"
+  },
+  "general_kl_nats_per_token": 4.602006650965834
+ }
+}

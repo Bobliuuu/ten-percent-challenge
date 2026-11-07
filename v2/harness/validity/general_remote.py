@@ -11,8 +11,8 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.5.1"
 hfv = modal.Volume.from_name("tenpct-v2-hf"); outv = modal.Volume.from_name("tenpct-artifact")
 INST = "The following is a multiple choice question. Answer with the letter of the correct option."
 
-@app.function(image=img, gpu="A100-80GB", cpu=16, memory=98304, timeout=14400, volumes={"/vol": hfv, "/out": outv})
-def run(tag="q3_8b", model="Qwen/Qwen3-8B", n_per=1000, ppl_tokens=40000, seed=0):
+@app.function(image=img, gpu="A100-80GB", cpu=16, memory=98304, timeout=14400, volumes={"/vol": hfv, "/out": outv, "/av": modal.Volume.from_name("tenpct-c2fb")})
+def run(tag="q3_8b", model="Qwen/Qwen3-8B", art_vol="tenpct-artifact", art_path="", n_per=1000, ppl_tokens=40000, seed=0):
     import glob, sys, time, random, numpy as np
     os.environ.update(HF_HOME="/vol/hf"); t0 = time.time()
     import torch; from datasets import load_dataset; from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -27,7 +27,13 @@ def run(tag="q3_8b", model="Qwen/Qwen3-8B", n_per=1000, ppl_tokens=40000, seed=0
     tryload("mmlu", lambda: [mk(r["question"], r["choices"], r["answer"]) for r in load_dataset("cais/mmlu", "all", split="test")])
     tryload("arc_challenge", lambda: [mk(r["question"], r["choices"]["text"], r["choices"]["label"].index(r["answerKey"])) for r in load_dataset("allenai/ai2_arc", "ARC-Challenge", split="test") if r["answerKey"] in r["choices"]["label"]])
     tryload("hellaswag", lambda: [mk(r["ctx"], r["endings"], r["label"]) for r in load_dataset("Rowan/hellaswag", split="validation")])
-    tryload("truthfulqa_mc1", lambda: [mk(r["question"], r["mc1_targets"]["choices"], r["mc1_targets"]["labels"].index(1)) for r in load_dataset("truthful_qa", "multiple_choice", split="validation") if len(r["mc1_targets"]["choices"]) <= 20])
+    def tqa():                                              # gold is always option 0 in the raw data -> shuffle options or a position-biased model "wins"
+        out = []
+        for r in load_dataset("truthful_qa", "multiple_choice", split="validation"):
+            ch = r["mc1_targets"]["choices"]
+            if len(ch) <= 20: p = list(range(len(ch))); rng.shuffle(p); out.append(mk(r["question"], [ch[i] for i in p], p.index(r["mc1_targets"]["labels"].index(1))))
+        return out
+    tryload("truthfulqa_mc1", tqa)
     try: wt = "\n\n".join(load_dataset("wikitext", "wikitext-2-raw-v1", split="test")["text"])
     except Exception as e: err["wikitext"] = repr(e)[:300]; wt = None
     snap = [d for d in glob.glob(f"/vol/hf/hub/models--{model.replace('/', '--')}/snapshots/*") + glob.glob(f"/vol/models--{model.replace('/', '--')}/snapshots/*") if glob.glob(d + "/*.safetensors")][0]
@@ -59,17 +65,27 @@ def run(tag="q3_8b", model="Qwen/Qwen3-8B", n_per=1000, ppl_tokens=40000, seed=0
     base = AutoModelForCausalLM.from_pretrained(snap, torch_dtype=torch.bfloat16).cuda().eval()
     for k, rows in sets.items(): P[("base", k)] = mc_preds(base, rows); print("base", k, flush=True)
     bn, N, _, ref = ppl_and_dist(base); print("base ppl", float(np.exp(bn / N)), flush=True); del base; torch.cuda.empty_cache()
-    cand, _ = LD.load_model(f"/out/{tag}/art"); 
+    cand, _ = LD.load_model(art_path or f"/out/{tag}/art"); 
     for k, rows in sets.items(): P[("cand", k)] = mc_preds(cand, rows); print("cand", k, flush=True)
     cn, N2, kl, _ = ppl_and_dist(cand, ref); assert N2 == N
     for k, rows in sets.items():
         y = np.array([r["a"] for r in rows]); b = P[("base", k)] == y; c = P[("cand", k)] == y
         R["benchmarks"][k] = dict(chance=float(np.mean([1 / len(r["ch"]) for r in rows])), base_correct=b.tolist(), cand_correct=c.tolist(), agree=float((P[("base", k)] == P[("cand", k)]).mean()))
+    del cand; torch.cuda.empty_cache(); R["control"] = {}
+    for bits in (4, 3):                                    # positive control: plain RTN g128 fake-quant of the base (mild loss) -> the check must NOT fail this at 4 bit
+        m = AutoModelForCausalLM.from_pretrained(snap, torch_dtype=torch.bfloat16).cuda().eval(); qmax = 2 ** (bits - 1) - 1
+        with torch.no_grad():
+            for n_, mod in m.model.layers.named_modules():
+                if isinstance(mod, torch.nn.Linear):
+                    w = mod.weight.data.float().view(mod.weight.shape[0], -1, 128); sc = (w.abs().amax(-1, keepdim=True) / qmax).clamp(min=1e-8)
+                    mod.weight.data = (torch.round(w / sc).clamp(-qmax - 1, qmax) * sc).view_as(mod.weight).to(torch.bfloat16)
+        cc = {k: (mc_preds(m, rows) == np.array([r["a"] for r in rows])).mean() for k, rows in sets.items()}; cn_, _, ckl, _ = ppl_and_dist(m, ref)
+        R["control"][f"rtn{bits}_g128"] = dict(acc={k: round(float(v), 4) for k, v in cc.items()}, ppl=float(np.exp(cn_ / N)), kl=ckl / N); del m; torch.cuda.empty_cache(); print("control", bits, R["control"], flush=True)
     R["ppl"] = dict(base=float(np.exp(bn / N)), cand=float(np.exp(cn / N)), tokens=N, text="wikitext-2-raw test"); R["kl"] = kl / N; R["secs"] = time.time() - t0
     os.makedirs(f"/out/{tag}/general", exist_ok=True); json.dump(R, open(f"/out/{tag}/general/general_result.json", "w")); outv.commit()
     summ = {k: dict(n=len(v["base_correct"]), base=round(float(np.mean(v["base_correct"])), 4), cand=round(float(np.mean(v["cand_correct"])), 4), chance=round(v["chance"], 3), agree=round(v["agree"], 4)) for k, v in R["benchmarks"].items()}
-    print("RESULT_JSON " + json.dumps(dict(summary=summ, ppl=R["ppl"], kl=R["kl"], errors=err, secs=R["secs"]))); return R["ppl"]
+    print("RESULT_JSON " + json.dumps(dict(summary=summ, ppl=R["ppl"], kl=R["kl"], errors=err, control=R["control"], secs=R["secs"]))); return R["ppl"]
 
 @app.local_entrypoint()
-def main(tag: str = "q3_8b", model: str = "Qwen/Qwen3-8B"):
-    print(run.spawn(tag=tag, model=model).object_id)
+def main(tag: str = "q3_8b", model: str = "Qwen/Qwen3-8B", art_path: str = ""):
+    print(run.spawn(tag=tag, model=model, art_path=art_path).object_id)
