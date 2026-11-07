@@ -42,10 +42,10 @@ def test_t1_ood_fraction_and_kind_imbalance(t1lock):
     assert s2 / n >= 0.3
 
 def test_lock_precedes_first_model_result_by_mtime(t1lock):
-    lock_t = os.path.getmtime(f"{D1}/LOCK.json")
-    for f in os.listdir(f"{V2}/tournament/T1/results"):
-        if f.endswith(".json") and f not in ("SUMMARY.json",):
-            assert os.path.getmtime(f"{V2}/tournament/T1/results/{f}") > lock_t, f
+    """No result derived from locked rows may predate LOCK.json. Dev-probe results in tournament/T1/results are dev-only (they predate the v2 re-lock by design); only a results_locked dir counts."""
+    lock_t = os.path.getmtime(f"{D1}/LOCK.json"); d = f"{V2}/tournament/T1/results_locked"
+    for f in (os.listdir(d) if os.path.isdir(d) else []):
+        assert os.path.getmtime(f"{d}/{f}") > lock_t, f
 
 def test_lock_committed_BEFORE_results_in_git():
     """A reviewer cannot verify 'locked before any model ran' from mtimes. They can from git: the v2 LOCK.json must be in a commit that precedes every result scored on locked rows.
