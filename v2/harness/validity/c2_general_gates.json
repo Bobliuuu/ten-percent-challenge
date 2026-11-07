@@ -1,0 +1,59 @@
+{
+ "gates": {
+  "general_benchmarks>=3_present": true,
+  "general_every_bench_acc_ratio>=90%": false,
+  "general_every_bench_not_below_chance+5pt": true
+ },
+ "scores": {
+  "general_acc_worst_ratio": 0.0
+ },
+ "details": {
+  "general_benchmarks": {
+   "mmlu": {
+    "n": 1000,
+    "chance": 0.25,
+    "base": 0.693,
+    "cand": 0.467,
+    "retention_of_base_correct": 0.5670995670995671,
+    "acc_ratio": 0.673881673881674,
+    "diff": -0.226,
+    "diff_lo": -0.26,
+    "diff_hi": -0.193
+   },
+   "arc_challenge": {
+    "n": 1000,
+    "chance": 0.25015,
+    "base": 0.895,
+    "cand": 0.62,
+    "retention_of_base_correct": 0.6737430167597765,
+    "acc_ratio": 0.6927374301675977,
+    "diff": -0.275,
+    "diff_lo": -0.305,
+    "diff_hi": -0.244
+   },
+   "hellaswag": {
+    "n": 1000,
+    "chance": 0.25,
+    "base": 0.797,
+    "cand": 0.497,
+    "retention_of_base_correct": 0.5821831869510665,
+    "acc_ratio": 0.6235884567126725,
+    "diff": -0.3,
+    "diff_lo": -0.332,
+    "diff_hi": -0.268
+   },
+   "truthfulqa_mc1": {
+    "n": 544,
+    "chance": 0.2659007352941177,
+    "base": 0.6268382352941176,
+    "cand": 0.4577205882352941,
+    "retention_of_base_correct": 0.6099706744868035,
+    "acc_ratio": 0.7302052785923754,
+    "diff": -0.16911764705882354,
+    "diff_lo": -0.21507352941176472,
+    "diff_hi": -0.12316176470588236
+   }
+  },
+  "general_ppl": "N/A (artifact has no language-model head)"
+ }
+}

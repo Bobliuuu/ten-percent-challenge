@@ -253,10 +253,12 @@ def score(R):
         X["general_benchmarks"] = gb; G["general_benchmarks>=3_present"] = len(gb) >= 3
         G["general_every_bench_acc_ratio>=90%"] = all(v["acc_ratio"] >= 0.90 for v in gb.values())
         G["general_every_bench_not_below_chance+5pt"] = all(v["cand"] > (v["chance"] or 0) + 0.05 for v in gb.values())
-        pp = gen["ppl"]; X["general_ppl"] = pp; G["general_ppl_ratio<=1.25"] = pp["cand"] / pp["base"] <= 1.25
+        pp = gen.get("ppl")            # None for classifier-head artifacts with no LM head (pruned vocab): ppl/KL gates then skipped and reported as N/A
+        if pp: X["general_ppl"] = pp; G["general_ppl_ratio<=1.25"] = pp["cand"] / pp["base"] <= 1.25
+        else: X["general_ppl"] = "N/A (artifact has no language-model head)"
         if "kl" in gen: X["general_kl_nats_per_token"] = gen["kl"]; G["general_kl<=0.5"] = gen["kl"] <= 0.5
         S["general_acc_worst_ratio"] = lin(min(v["acc_ratio"] for v in gb.values()), 0.80, 0.95, 1.0)
-        S["general_ppl"] = lin(1.5 - pp["cand"] / pp["base"], 0.0, 0.25, 0.45)
+        if pp: S["general_ppl"] = lin(1.5 - pp["cand"] / pp["base"], 0.0, 0.25, 0.45)
     elif R.get("require_general"): G["general_check_present"] = False
     else: X["general_check"] = "NOT SUPPLIED (set R['general']; pass require_general=True to make it a gate)"
     # ---- power note
