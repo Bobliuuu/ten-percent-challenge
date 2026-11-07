@@ -1,0 +1,262 @@
+{
+ "utc": "2026-11-07T00:36:02.333659+00:00",
+ "version": "v2-relock-2026-11-06",
+ "rule": "...",
+ "splits": {
+  "locked": {
+   "n": 2572,
+   "counts": {
+    "S1/multi": 450,
+    "S1/nocall": 400,
+    "S1/single": 450,
+    "S2/multi": 372,
+    "S2/nocall": 400,
+    "S2/single": 500
+   },
+   "file_sha256": "547f068468e7e922f9ae2dd66297998331f87245a30e53378d62887259cba786"
+  },
+  "s1_dev": {
+   "n": 5120,
+   "counts": {
+    "S1/multi": 2623,
+    "S1/nocall": 830,
+    "S1/single": 1667
+   },
+   "file_sha256": "45bf27524403cc3fa3051473066dff23163e8ae4fb9e7da9666aca1ab03a2704"
+  },
+  "s1_calib": {
+   "n": 5573,
+   "counts": {
+    "S1/multi": 2662,
+    "S1/nocall": 922,
+    "S1/single": 1989
+   },
+   "file_sha256": "07d4456ab2849fba9064e3053bcf2b4125c1168b60bfc0a7ce7dbdb678e18746"
+  },
+  "s1_pool": {
+   "n": 17766,
+   "counts": {
+    "S1/multi": 6120,
+    "S1/nocall": 2694,
+    "S1/single": 8952
+   },
+   "file_sha256": "939405d8d2b73522297687d1ca6e2b0336325b40c2a3bd030ade17d10d3dcd2b"
+  },
+  "s3_dev": {
+   "n": 1481,
+   "counts": {
+    "S3/multi": 567,
+    "S3/nocall": 163,
+    "S3/single": 751
+   },
+   "file_sha256": "068be497c0e48edf33f120959507f7fa51ad351c171aaeaad240a1bfaccabe72"
+  },
+  "s3_pool": {
+   "n": 5271,
+   "counts": {
+    "S3/multi": 2015,
+    "S3/nocall": 841,
+    "S3/single": 2415
+   },
+   "file_sha256": "d2da25ccef600a734cc6c76b5a3433f14fdfb27ad9e3eb5fefd5292754073d5a"
+  }
+ },
+ "params": {
+  "CELL": {
+   "single": 450,
+   "multi": 450,
+   "nocall": 400
+  },
+  "CAP_S2": {
+   "single": 500,
+   "multi": 1000,
+   "nocall": 400
+  },
+  "LOCKED_ELIGIBLE_TARGET": 5200,
+  "FRAC": {
+   "dev": 0.22,
+   "calib": 0.22,
+   "pool": 0.56
+  },
+  "JACCARD_NEAR_DUP": 0.6,
+  "PER_TOOL_CAP": 3,
+  "FAM_CAP": 0.25,
+  "louvain": {
+   "resolution": 1.0,
+   "seed": 1,
+   "n_families": 38
+  },
+  "nocall_rate_mod": 6
+ },
+ "raw_inputs": "...",
+ "legacy_exclusion_files": {
+  "/Users/jhome/ten-percent/v2/tournament/T1/probe_items.jsonl": "1828677b5e63a23cbe740f759a623790470f5fe2105626940b5345ae3230c8dd",
+  "/Users/jhome/ten-percent/v2/tournament/T1/../../compress/dense/t1/calib_t1.jsonl": "139e93121a8b43ca761dfaf8cc6ea6ac6e13264fc27780667653039020458aa1"
+ },
+ "build_data_py_sha256": "98e203bfa74d1f1205e8132d02c7f82797d2767f5544210b32f37d2c7f4de6e2",
+ "families": {
+  "assignment_counts": {
+   "locked": 12,
+   "pool": 10,
+   "dev": 7,
+   "calib": 9
+  },
+  "locked_families": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   7,
+   9,
+   10,
+   14,
+   16,
+   19,
+   22
+  ],
+  "closed_rows": 54372,
+  "straddler_rows_dropped_everywhere": 4462,
+  "locked_family_rows_dropped_for_legacy_name": 17784,
+  "rows_per_split_before_audit": {
+   "locked_all": 6428,
+   "dev": 5152,
+   "calib": 5858,
+   "pool": 19150
+  }
+ },
+ "audit": {
+  "dropped": {
+   "query_exact:locked_vs_legacy": 39,
+   "query_near:locked_vs_dev": 19,
+   "query_near:locked_vs_pool": 25,
+   "query_near:locked_vs_legacy": 35,
+   "query_near:locked_vs_calib": 44,
+   "query_near:locked_vs_s3pool": 13,
+   "query_near:locked_vs_s3dev": 2,
+   "query_near:s2_vs_locked": 5,
+   "query_near:s3pool_vs_dev": 17,
+   "query_near:dev_vs_s3dev": 10,
+   "query_near:calib_vs_dev": 25,
+   "query_near:pool_vs_dev": 4,
+   "query_near:pool_vs_calib": 85,
+   "query_near:s2_vs_calib": 15,
+   "query_near:s3pool_vs_calib": 9,
+   "query_near:calib_vs_s3dev": 3,
+   "query_near:s2_vs_pool": 82,
+   "query_near:pool_vs_s3pool": 50,
+   "query_near:pool_vs_s3dev": 15,
+   "query_near:s3pool_vs_s3dev": 176,
+   "query_near:s2_vs_s3dev": 10,
+   "query_exact:s3pool_vs_s3dev": 9,
+   "query_near:s2_vs_s3pool": 1,
+   "query_near:s2_vs_legacy": 1,
+   "keyoverlap_tn:locked": 286,
+   "keyoverlap_ga:locked": 11,
+   "keyoverlap_tn:dev": 22,
+   "keyoverlap_tn:calib": 257,
+   "keyoverlap_tn:pool": 1216,
+   "keyoverlap_ga:pool": 14,
+   "keyoverlap_ta:s3pool": 3062,
+   "keyoverlap_ts:s3pool": 213,
+   "keyoverlap_ga:s3pool": 100,
+   "keyoverlap_tn:s3pool": 30,
+   "keyoverlap_tn:s2": 334,
+   "keyoverlap_ta:s2": 10,
+   "internal_dup:locked": 25,
+   "internal_dup:s2": 185
+  },
+  "nocall_conversion": {
+   "dev": {
+    "converted": 839,
+    "kept_call": 16
+   },
+   "calib": {
+    "converted": 952,
+    "kept_call": 25
+   },
+   "pool": {
+    "converted": 2935,
+    "kept_call": 281
+   },
+   "locked": {
+    "converted": 1579,
+    "kept_call": 63
+   }
+  },
+  "diagnostics": {
+   "s1_dev": {
+    "zero_overlap_rule_m3": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.0003951007506914263
+    },
+    "zero_overlap_rule_m4": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.014223627024891347
+    },
+    "zero_overlap_rule_m5": {
+     "recall": 0.04051172707889126,
+     "false_nocall_rate": 0.026866851047016988
+    },
+    "tfidf_maxcos_auc_call_vs_nocall": 0.7783670123728033
+   },
+   "s1_calib": {
+    "zero_overlap_rule_m3": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.007220216606498195
+    },
+    "zero_overlap_rule_m4": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.034095467308463696
+    },
+    "zero_overlap_rule_m5": {
+     "recall": 0.0650887573964497,
+     "false_nocall_rate": 0.05334937825912555
+    },
+    "tfidf_maxcos_auc_call_vs_nocall": 0.7096691248315797
+   },
+   "S1_locked_construction": {
+    "zero_overlap_rule_m3": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.008888888888888889
+    },
+    "zero_overlap_rule_m4": {
+     "recall": 0.0,
+     "false_nocall_rate": 0.03888888888888889
+    },
+    "zero_overlap_rule_m5": {
+     "recall": 0.075,
+     "false_nocall_rate": 0.07555555555555556
+    },
+    "tfidf_maxcos_auc_call_vs_nocall": 0.7256777777777778
+   },
+   "S2_locked_nocall_zero_overlap_m4": {
+    "recall": 0.2
+   },
+   "audit_join_recall_vs_bruteforce_3000": {
+    "join": 447,
+    "brute": 447,
+    "equal": true
+   }
+  }
+ },
+ "locked_totals": {
+  "n": 2572,
+  "per_kind": {
+   "multi": 822,
+   "single": 950,
+   "nocall": 800
+  },
+  "S1": 1300,
+  "S2": 1272,
+  "strata": {
+   "S1/unseen": 1300,
+   "S2/unseen": 1272
+  },
+  "locked_S1_families": 12,
+  "name_overlap_with_nonlocked": {
+   "S1_items_with_any_tool_name_in_nonlocked": 0,
+   "S2_items_with_any_tool_name_in_nonlocked": 0
+  }
+ }
+}

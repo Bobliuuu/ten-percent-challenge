@@ -6,3 +6,6 @@
 __pycache__/
 .pytest_cache/
 *.pyc
+
+# archived pre-relock data (includes old locked rows): never publish
+**/data_archive*/

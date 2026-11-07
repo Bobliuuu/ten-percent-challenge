@@ -1,0 +1,211 @@
+[
+ {
+  "file": "tournament/T1/results/Llama-3.1-8B-Instruct.json",
+  "n": 600,
+  "flips": 0,
+  "lost": 0,
+  "gained": 0,
+  "unrescorable_clipped": 0,
+  "empty_outputs": 0,
+  "acc_v1": 0.3333333333333333,
+  "acc_v2": 0.3333333333333333,
+  "by_cell": {},
+  "flip_ids": []
+ },
+ {
+  "file": "tournament/T1/results/Qwen3-14B.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 0,
+  "empty_outputs": 0,
+  "acc_v1": 0.77,
+  "acc_v2": 0.7683333333333333,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ },
+ {
+  "file": "tournament/T1/results/Qwen3-30B-A3B-Instruct-2507.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 0,
+  "empty_outputs": 0,
+  "acc_v1": 0.7316666666666667,
+  "acc_v2": 0.73,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ },
+ {
+  "file": "tournament/T1/results/Qwen3-8B.json",
+  "n": 600,
+  "flips": 0,
+  "lost": 0,
+  "gained": 0,
+  "unrescorable_clipped": 0,
+  "empty_outputs": 0,
+  "acc_v1": 0.7633333333333333,
+  "acc_v2": 0.7633333333333333,
+  "by_cell": {},
+  "flip_ids": []
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-14B_bf16.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 28,
+  "empty_outputs": 0,
+  "acc_v1": 0.775,
+  "acc_v2": 0.7733333333333333,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-14B_t096.json",
+  "n": 600,
+  "flips": 0,
+  "lost": 0,
+  "gained": 0,
+  "unrescorable_clipped": 21,
+  "empty_outputs": 0,
+  "acc_v1": 0.44166666666666665,
+  "acc_v2": 0.44166666666666665,
+  "by_cell": {},
+  "flip_ids": []
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-14B_t15.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 29,
+  "empty_outputs": 0,
+  "acc_v1": 0.7533333333333333,
+  "acc_v2": 0.7516666666666667,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-8B_bf16.json",
+  "n": 600,
+  "flips": 0,
+  "lost": 0,
+  "gained": 0,
+  "unrescorable_clipped": 35,
+  "empty_outputs": 0,
+  "acc_v1": 0.7616666666666667,
+  "acc_v2": 0.7616666666666667,
+  "by_cell": {},
+  "flip_ids": []
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-8B_t096.json",
+  "n": 600,
+  "flips": 0,
+  "lost": 0,
+  "gained": 0,
+  "unrescorable_clipped": 18,
+  "empty_outputs": 0,
+  "acc_v1": 0.175,
+  "acc_v2": 0.175,
+  "by_cell": {},
+  "flip_ids": []
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-8B_t096_cal.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 12,
+  "empty_outputs": 0,
+  "acc_v1": 0.28833333333333333,
+  "acc_v2": 0.2866666666666667,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ },
+ {
+  "file": "compress/dense/results/t1/t1_Qwen3-8B_t15.json",
+  "n": 600,
+  "flips": 1,
+  "lost": 1,
+  "gained": 0,
+  "unrescorable_clipped": 28,
+  "empty_outputs": 0,
+  "acc_v1": 0.68,
+  "acc_v2": 0.6783333333333333,
+  "by_cell": {
+   "S1/multi:lost": 1
+  },
+  "flip_ids": [
+   {
+    "id": "s1_32174",
+    "source": "S1",
+    "kind": "multi",
+    "v1": true,
+    "v2": false,
+    "empty": false
+   }
+  ]
+ }
+]
