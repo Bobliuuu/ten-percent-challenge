@@ -129,3 +129,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 2026-11-07T08:36Z vast id 59542886 tenpct-INJ_q4b destroyed after 0.10 h (~$0.02)
 - 2026-11-07T08:42Z vast id 59544206 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
 - 2026-11-07T08:52Z vast id 59544206 tenpct-artifact_iso destroyed after 0.12 h (~$0.02)
+- 2026-11-07 v2/harness/validity/general_remote.py: Modal app tenpct-general ap-FV8ChwJroAUj8HROcrJBlX call fc-01M6V228PZK0MSXZT6NNCSXEX8 (--detach), Qwen3-8B artifact vs base, result Volume tenpct-artifact:/q3_8b/general/general_result.json

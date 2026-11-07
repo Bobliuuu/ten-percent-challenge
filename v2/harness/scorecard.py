@@ -242,6 +242,23 @@ def score(R):
         G["exam_after_feedback_retention>=98%"] = er["ret"] >= 0.98
         G["size_after_feedback<=10%"] = (R["size"]["cand_bytes"] + fb.get("bytes_added", 0)) / R["size"]["base_fp16_bytes"] <= 0.10
     else: G["feedback_present"] = False
+    # ---- general capability / anti-overfit (held-out general MC benchmarks + neutral-text perplexity; see validity/general_remote.py)
+    gen = R.get("general")
+    if gen:
+        gb = {}
+        for name, v in gen["benchmarks"].items():
+            gbb, gcc = np.array(v["base_correct"], bool), np.array(v["cand_correct"], bool); gr = retention(gbb, gcc); dm_, dlo_, dhi_ = paired_boot(gcc.astype(float) - gbb.astype(float))
+            gb[name] = dict(n=len(gbb), chance=v.get("chance"), base=float(gbb.mean()), cand=float(gcc.mean()), retention_of_base_correct=gr["ret"], acc_ratio=float(gcc.mean() / max(gbb.mean(), 1e-9)),
+                            diff=dm_, diff_lo=dlo_, diff_hi=dhi_)
+        X["general_benchmarks"] = gb; G["general_benchmarks>=3_present"] = len(gb) >= 3
+        G["general_every_bench_acc_ratio>=90%"] = all(v["acc_ratio"] >= 0.90 for v in gb.values())
+        G["general_every_bench_not_below_chance+5pt"] = all(v["cand"] > (v["chance"] or 0) + 0.05 for v in gb.values())
+        pp = gen["ppl"]; X["general_ppl"] = pp; G["general_ppl_ratio<=1.25"] = pp["cand"] / pp["base"] <= 1.25
+        if "kl" in gen: X["general_kl_nats_per_token"] = gen["kl"]; G["general_kl<=0.5"] = gen["kl"] <= 0.5
+        S["general_acc_worst_ratio"] = lin(min(v["acc_ratio"] for v in gb.values()), 0.80, 0.95, 1.0)
+        S["general_ppl"] = lin(1.5 - pp["cand"] / pp["base"], 0.0, 0.25, 0.45)
+    elif R.get("require_general"): G["general_check_present"] = False
+    else: X["general_check"] = "NOT SUPPLIED (set R['general']; pass require_general=True to make it a gate)"
     # ---- power note
     P["overall"] = _power("overall (98%)", ov["n_base_correct"], 0.98); P["overall_excl_S1_nocall"] = _power("overall excl S1/nocall (98%)", r_ex["n_base_correct"], 0.98)
     for n_, v in per_src.items(): P[f"source:{n_}"] = _power(f"source {n_} (95%)", v["n_base_correct"], 0.95)
