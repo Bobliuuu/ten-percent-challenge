@@ -23,3 +23,4 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - id 59543597 destroyed (load timeout 480s, ~$0.03)
 - 2026-11-07T08:42Z vast id 59544206 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
 - id 59544206 tenpct-artifact_iso destroyed after 0.12 h (~$0.02)
+- 2026-11-07 13:07Z AWS swarm-gpu i-0e8f20c40de73df85 (g5.2xlarge A10G, us-east-1, profile lab) started for artifact netns proof + vLLM parity; NO Vast used. Results: v2/artifact/results/q3_8b_netns, q3_8b_vllm. Stopped after (see STATUS).

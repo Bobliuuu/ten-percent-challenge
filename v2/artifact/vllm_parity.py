@@ -10,14 +10,14 @@ def main():
         k = (r["source"], r["kind"])
         if per.get(k, 0) < math.ceil(N / 6): items.append(r); per[k] = per.get(k, 0) + 1
     items = items[:N]; view = [{k: r[k] for k in ("id", "query", "tools")} for r in items]; json.dump(view, open(OUT + ".view.json", "w"))
-    t = time.time(); p = subprocess.run([sys.executable, ART + "/answer.py", "--artifact", ART, "--in", OUT + ".view.json", "--out", OUT + ".A.json", "--max-new-tokens", str(MX), "--bs", "32", "--timings", OUT + ".A.tm.json"], capture_output=True, text=True); assert p.returncode == 0, p.stderr[-1500:]
+    t = time.time(); p = subprocess.run([sys.executable, ART + "/answer.py", "--artifact", ART, "--in", OUT + ".view.json", "--out", OUT + ".A.json", "--max-new-tokens", str(MX), "--bs", "8", "--timings", OUT + ".A.tm.json"], capture_output=True, text=True); assert p.returncode == 0, p.stderr[-1500:]
     A = [x["text"] for x in json.load(open(OUT + ".A.json"))]; tA = json.load(open(OUT + ".A.tm.json"))
     import torch; from transformers import AutoTokenizer, AutoModelForCausalLM
     tok = AutoTokenizer.from_pretrained(ART); tok.padding_side = "left"
-    m = AutoModelForCausalLM.from_pretrained(EX, dtype=torch.bfloat16).cuda().eval(); B, _ = LD.generate_with(m, tok, view, MX, 32, dev="cuda"); del m; torch.cuda.empty_cache()
+    m = AutoModelForCausalLM.from_pretrained(EX, dtype=torch.bfloat16).cuda().eval(); B, _ = LD.generate_with(m, tok, view, MX, 8, dev="cuda"); del m; torch.cuda.empty_cache()
     prompts = [LD.render(tok, v) for v in view]
     from vllm import LLM, SamplingParams
-    llm = LLM(EX, dtype="bfloat16", max_model_len=8192, gpu_memory_utilization=0.45, enforce_eager=False); t = time.time()
+    llm = LLM(EX, dtype="bfloat16", max_model_len=4096, gpu_memory_utilization=0.85, enforce_eager=False); t = time.time()
     o = llm.generate(prompts, SamplingParams(temperature=0, max_tokens=MX, skip_special_tokens=False)); vt = time.time() - t
     C = [x.outputs[0].text.replace("<|endoftext|>", "").replace("<|im_end|>", "").strip() for x in o]; nt = sum(len(x.outputs[0].token_ids) for x in o)
     acc = lambda tx: sum(bool(S.score_item(a, r)["correct"]) for a, r in zip(tx, items)) / len(items)
