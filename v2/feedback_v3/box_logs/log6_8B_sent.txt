@@ -1,0 +1,21 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 212.05it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[     9s] failure classes (n, distinct gold tools) {}
+Generating train split:   0%|          | 0/9543 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 9543/9543 [00:00<00:00, 1278017.91 examples/s]
+Generating validation split:   0%|          | 0/2388 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 2388/2388 [00:00<00:00, 1127039.27 examples/s]
+[   220s] nl nl:sent new total 6178 ann(base-wrong) 2113 dev 1308 teach 2408 old pool 3365 {'teach_ids_sha': 'd830628e734519def9440d2a142f2fed43816f1148b51ec6155cd139781355aa'}
+[   255s] nl_sent ann_pool 2113 teach 100 dev 50 neigh verified 400 of 1100 (same-tool 0 ) base teach 0.18
+[   263s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 43, 'dev_gain': 0.1, 'neigh_dev': 1.0}
+[   271s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 43, 'dev_gain': 0.16, 'neigh_dev': 0.9875}
+[   279s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 43, 'dev_gain': 0.28, 'neigh_dev': 0.9875}
+[   286s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 43, 'dev_gain': 0.36, 'neigh_dev': 0.9875}
+[   293s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 43, 'dev_gain': 0.44000000000000006, 'neigh_dev': 0.975}
+[   322s] nl_sent lmhead_lda 0 real 0.58 neigh 0.985 mixed 0.6 rand 0.0
+[   351s] nl_sent lmhead_lda 1 real 0.59 neigh 0.973 mixed 0.54 rand 0.0
+[   379s] nl_sent lmhead_lda 2 real 0.58 neigh 0.985 mixed 0.51 rand 0.0
+[   408s] nl_sent lmhead_lda 3 real 0.48 neigh 0.988 mixed 0.47 rand 0.0
+[   437s] nl_sent lmhead_lda 4 real 0.52 neigh 0.988 mixed 0.35 rand 0.0
+[   437s] codec_real failed OutOfMemoryError('CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 94.97 GiB of which 1.29 GiB is free. Process 271749 has 33.78 GiB memory in use. Process 276530 has 42.36 GiB memory in use. Including non-PyTorch memory, this process has 17.53 GiB memory in use. Of the 
+[   437s] DONE Qwen3-8B_nl_sent_b3

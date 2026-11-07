@@ -1,0 +1,222 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-sQQW1ig67lkp1gBERxX3m9
+✓ Created objects.
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/probe_big.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/probe_items.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/scorer.py
+├── ✓ Created Function probe_GLM_4_5_Air_FP8.
+├── ✓ Created Function probe_Qwen3_235B_FP8.
+├── ✓ Created Function probe_GLM_4_5_Air.
+├── ✓ Created Function probe_gpt_oss_120b.
+├── ✓ Created Function probe_Qwen3_Next_80B.
+├── ✓ Created Function probe_Llama_4_Maverick_FP8.
+├── ✓ Created Function probe_Mixtral_8x22B.
+├── ✓ Created Function probe_Qwen3_Coder_480B_FP8.
+├── ✓ Created Function probe_Llama_4_Scout.
+└── ✓ Created Function probe_GLM_4_5_FP8.
+INFO 11-07 03:16:53 [__init__.py:216] Automatically detected platform cuda.
+INFO 11-07 03:16:58 [utils.py:233] non-default args: {'seed': 0, 'max_model_len': 20000, 'tensor_parallel_size': 2, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.85, 'max_num_seqs': 128, 'disable_log_stats': True, 'model': 'Qwen/Qwen3-Next-80B-A3B-Instruct'}
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO 11-07 03:17:14 [model.py:547] Resolved architecture: Qwen3NextForCausalLM
+INFO 11-07 03:17:14 [model.py:1510] Using max model len 20000
+INFO 11-07 03:17:15 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=16384.
+INFO 11-07 03:17:15 [config.py:297] Hybrid or mamba-based model detected: disabling prefix caching since it is not yet supported.
+INFO 11-07 03:17:15 [config.py:308] Hybrid or mamba-based model detected: setting cudagraph mode to FULL_AND_PIECEWISE in order to optimize performance.
+INFO 11-07 03:17:16 [config.py:376] Setting attention block size to 544 tokens to ensure that attention page size is >= mamba page size.
+INFO 11-07 03:17:16 [config.py:397] Padding mamba page size by 1.49% to ensure that mamba page size and attention page size are exactly equal.
+WARNING 11-07 03:17:17 [__init__.py:3036] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: CUDA is initialized
+INFO 11-07 03:17:23 [__init__.py:216] Automatically detected platform cuda.
+[1;36m(EngineCore_DP0 pid=27)[0;0m INFO 11-07 03:17:25 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=27)[0;0m INFO 11-07 03:17:25 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='Qwen/Qwen3-Next-80B-A3B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen3-Next-80B-A3B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=20000, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-Next-80B-A3B-Instruct, enable_prefix_caching=False, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":256,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=27)[0;0m INFO 11-07 03:17:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1], buffer_handle=(2, 16777216, 10, 'psm_8c32a0cd'), local_subscribe_addr='ipc:///tmp/07bacc8d-7220-457b-9f37-2f415c03bf40', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 11-07 03:17:31 [__init__.py:216] Automatically detected platform cuda.
+INFO 11-07 03:17:31 [__init__.py:216] Automatically detected platform cuda.
+INFO 11-07 03:17:37 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_c3fb74c6'), local_subscribe_addr='ipc:///tmp/00cc376c-4519-481c-8d00-6bbae528fa26', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 11-07 03:17:37 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_bf6c8d5f'), local_subscribe_addr='ipc:///tmp/a3033bac-389b-4ffb-8b48-4a99077c237d', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+INFO 11-07 03:17:38 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 11-07 03:17:38 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 11-07 03:17:38 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 11-07 03:17:38 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 11-07 03:17:39 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 11-07 03:17:39 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 11-07 03:17:39 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_dfe1685c'), local_subscribe_addr='ipc:///tmp/321b991e-1386-45a6-be56-8701968b8336', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+INFO 11-07 03:17:39 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 11-07 03:17:39 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 11-07 03:17:39 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 11-07 03:17:39 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 11-07 03:17:39 [parallel_state.py:1208] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+INFO 11-07 03:17:39 [parallel_state.py:1208] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 11-07 03:17:40 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+WARNING 11-07 03:17:40 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:17:40 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-Next-80B-A3B-Instruct...
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:17:40 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-Next-80B-A3B-Instruct...
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:17:40 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:17:40 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(Worker_TP0 pid=37)[0;0m `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(Worker_TP1 pid=38)[0;0m `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:17:41 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:17:41 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:17:41 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:17:41 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/41 [00:00<?, ?it/s]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:   2% Completed | 1/41 [00:03<02:07,  3.18s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:   5% Completed | 2/41 [00:05<01:41,  2.59s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:   7% Completed | 3/41 [00:06<01:18,  2.06s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  10% Completed | 4/41 [00:08<01:07,  1.81s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  12% Completed | 5/41 [00:09<00:59,  1.65s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  15% Completed | 6/41 [00:10<00:53,  1.52s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  17% Completed | 7/41 [00:12<00:49,  1.45s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  20% Completed | 8/41 [00:13<00:47,  1.44s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  22% Completed | 9/41 [00:15<00:46,  1.45s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  24% Completed | 10/41 [00:16<00:43,  1.42s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  27% Completed | 11/41 [00:17<00:41,  1.37s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  29% Completed | 12/41 [00:19<00:40,  1.39s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  32% Completed | 13/41 [00:20<00:39,  1.41s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  34% Completed | 14/41 [00:21<00:37,  1.40s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  37% Completed | 15/41 [00:23<00:36,  1.40s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  39% Completed | 16/41 [00:24<00:34,  1.40s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  41% Completed | 17/41 [00:26<00:33,  1.39s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  44% Completed | 18/41 [00:27<00:30,  1.34s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  46% Completed | 19/41 [00:28<00:29,  1.34s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  49% Completed | 20/41 [00:29<00:27,  1.33s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  51% Completed | 21/41 [00:31<00:26,  1.35s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  54% Completed | 22/41 [00:32<00:26,  1.38s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  56% Completed | 23/41 [00:34<00:24,  1.38s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  59% Completed | 24/41 [00:35<00:23,  1.37s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  61% Completed | 25/41 [00:36<00:21,  1.35s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  63% Completed | 26/41 [00:38<00:19,  1.32s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  66% Completed | 27/41 [00:39<00:19,  1.36s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  68% Completed | 28/41 [00:40<00:17,  1.36s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  71% Completed | 29/41 [00:42<00:16,  1.35s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  73% Completed | 30/41 [00:43<00:14,  1.36s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  76% Completed | 31/41 [00:44<00:13,  1.34s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  78% Completed | 32/41 [00:46<00:12,  1.38s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  80% Completed | 33/41 [00:47<00:10,  1.36s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  83% Completed | 34/41 [00:49<00:09,  1.37s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  85% Completed | 35/41 [00:50<00:08,  1.38s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  88% Completed | 36/41 [00:51<00:06,  1.38s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  90% Completed | 37/41 [00:53<00:05,  1.40s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  93% Completed | 38/41 [00:54<00:04,  1.39s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  95% Completed | 39/41 [00:56<00:02,  1.40s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards:  98% Completed | 40/41 [00:57<00:01,  1.30s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards: 100% Completed | 41/41 [00:59<00:00,  1.73s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m Loading safetensors checkpoint shards: 100% Completed | 41/41 [00:59<00:00,  1.46s/it]
+[1;36m(Worker_TP0 pid=37)[0;0m 
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:18:42 [default_loader.py:267] Loading weights took 59.95 seconds
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:18:42 [default_loader.py:267] Loading weights took 59.95 seconds
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:18:43 [gpu_model_runner.py:2653] Model loading took 74.2811 GiB and 62.004331 seconds
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:18:43 [gpu_model_runner.py:2653] Model loading took 74.2811 GiB and 62.022800 seconds
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:18:57 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/2202a2d8da/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:18:57 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/2202a2d8da/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:18:57 [backends.py:559] Dynamo bytecode transform time: 13.23 s
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:18:57 [backends.py:559] Dynamo bytecode transform time: 13.24 s
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:18:58 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:18:58 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:19:39 [backends.py:218] Compiling a graph for dynamic shape takes 42.12 s
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:19:40 [backends.py:218] Compiling a graph for dynamic shape takes 42.39 s
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:19:41 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=512,N=256,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:19:41 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=512,N=256,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:19:42 [monitor.py:34] torch.compile takes 55.63 s in total
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:19:42 [monitor.py:34] torch.compile takes 55.36 s in total
+[1;36m(EngineCore_DP0 pid=27)[0;0m INFO 11-07 03:19:43 [shm_broadcast.py:466] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation).
+[1;36m(Worker_TP0 pid=37)[0;0m INFO 11-07 03:19:44 [gpu_worker.py:298] Available KV cache memory: -8.80 GiB
+[1;36m(Worker_TP1 pid=38)[0;0m INFO 11-07 03:19:44 [gpu_worker.py:298] Available KV cache memory: -8.80 GiB
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708] EngineCore failed to start.
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708] Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     self._initialize_kv_caches(vllm_config)
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 199, in _initialize_kv_caches
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     kv_cache_configs = get_kv_cache_configs(vllm_config, kv_cache_specs,
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1243, in get_kv_cache_configs
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     check_enough_kv_cache_memory(vllm_config, kv_cache_spec_one_worker,
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 699, in check_enough_kv_cache_memory
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708]     raise ValueError("No available memory for the cache blocks. "
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:44 [core.py:708] ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine.
+[1;36m(EngineCore_DP0 pid=27)[0;0m ERROR 11-07 03:19:47 [multiproc_executor.py:154] Worker proc VllmWorker-1 died unexpectedly, shutting down executor.
+[1;36m(EngineCore_DP0 pid=27)[0;0m Process EngineCore_DP0:
+[1;36m(EngineCore_DP0 pid=27)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+[1;36m(EngineCore_DP0 pid=27)[0;0m     self.run()
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+[1;36m(EngineCore_DP0 pid=27)[0;0m     self._target(*self._args, **self._kwargs)
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 712, in run_engine_core
+[1;36m(EngineCore_DP0 pid=27)[0;0m     raise e
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=27)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=27)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=27)[0;0m     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
+[1;36m(EngineCore_DP0 pid=27)[0;0m     self._initialize_kv_caches(vllm_config)
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 199, in _initialize_kv_caches
+[1;36m(EngineCore_DP0 pid=27)[0;0m     kv_cache_configs = get_kv_cache_configs(vllm_config, kv_cache_specs,
+[1;36m(EngineCore_DP0 pid=27)[0;0m                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1243, in get_kv_cache_configs
+[1;36m(EngineCore_DP0 pid=27)[0;0m     check_enough_kv_cache_memory(vllm_config, kv_cache_spec_one_worker,
+[1;36m(EngineCore_DP0 pid=27)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 699, in check_enough_kv_cache_memory
+[1;36m(EngineCore_DP0 pid=27)[0;0m     raise ValueError("No available memory for the cache blocks. "
+[1;36m(EngineCore_DP0 pid=27)[0;0m ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine.
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FAILED Qwen3-Next-80B RuntimeError("Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}")
+  File "/root/probe_big.py", line 55, in f
+    def f(): return _run(name)
+                    ^^^^^^^^^^
+  File "/root/probe_big.py", line 40, in _run
+    llm = LLM(repo, tensor_parallel_size=tp, max_model_len=20000, gpu_memory_utilization=0.85, max_num_seqs=128, enable_prefix_caching=True, seed=0, **extra)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(vllm_config=vllm_config,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 114, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 80, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 602, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 448, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 732, in launch_core_engines
+    wait_for_engine_startup(
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 785, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}
+[modal-client] 2026-11-06T22:19:58-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-sQQW1ig67lkp1gBERxX3m9

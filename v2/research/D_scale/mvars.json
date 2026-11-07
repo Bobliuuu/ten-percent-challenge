@@ -1,0 +1,4 @@
+[{"name":"mA_ctcal","cfg":{"calib_ct":true}},
+ {"name":"mB_ctmix","cfg":{"calib_ct":true,"calib_ct_mix":true}},
+ {"name":"mC_emb8","cfg":{"emb_L":8,"head_L":8}},
+ {"name":"mD_stack","cfg":{"calib_ct":true,"calib_ct_mix":true,"gamma":1.0,"ncal":256}}]

@@ -1,0 +1,38 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-lwynr1AoeCAxi7JO7KRpUp
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb5.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.83it/s]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.41it/s]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.35it/s]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.44it/s]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.80it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    23s] failure classes (n, distinct gold tools) {'argnum': (56, 43), 'argkeys': (248, 160), 'abstain': (49, 39), 'argstr': (153, 113), 'argcase': (16, 9), 'argtype': (9, 6), 'parsefail': (62, 61), 'sibling': (14, 14), 'multi': (21, 21), 'argother': (2, 2)}
+[   217s] newtool ann_pool 366 teach 100 dev 50 neigh verified 400 of 700 (same-tool 0 ) base teach 0.0
+[   265s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.2}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.0}
+[   315s] {'cfg': {'m': 'lmhead_cal2'}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.5875}
+[   526s] newtool lmhead_plain 0 real 0.0 neigh 0.0 mixed 0.0 rand 0.0
+[   743s] newtool lmhead_plain 1 real 0.0 neigh 0.003 mixed 0.0 rand 0.0
+[   953s] newtool lmhead_plain 2 real 0.0 neigh 0.0 mixed 0.0 rand 0.0
+[  1165s] newtool lmhead_plain 3 real 0.0 neigh 0.0 mixed 0.0 rand 0.0
+[  1383s] newtool lmhead_plain 4 real 0.0 neigh 0.005 mixed 0.0 rand 0.0
+[  1599s] newtool lmhead_cal2 0 real 0.0 neigh 0.61 mixed 0.01 rand 0.0
+[  1812s] newtool lmhead_cal2 1 real 0.04 neigh 0.853 mixed 0.0 rand 0.0
+[  2027s] newtool lmhead_cal2 2 real 0.1 neigh 0.61 mixed 0.04 rand 0.0
+[  2241s] newtool lmhead_cal2 3 real 0.02 neigh 0.642 mixed 0.09 rand 0.0
+[  2460s] newtool lmhead_cal2 4 real 0.24 neigh 0.583 mixed 0.06 rand 0.0
+[  2462s] codec_real failed TypeError("Generator(): argument 'device' must be torch.device, not list")
+ok
+[  2464s] DONE Qwen3-8B_newtool_cal2n
+[modal-client] 2026-11-06T22:13:41-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-lwynr1AoeCAxi7JO7KRpUp

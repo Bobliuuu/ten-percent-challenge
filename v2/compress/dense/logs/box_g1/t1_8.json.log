@@ -1,0 +1,54 @@
+JOB 0 bf16
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 219.05it/s]
+T1_DONE Qwen3-8B bf16 457
+JOB 1 t096
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 239.28it/s]
+alloc body_bits/param 1.4433756388318928 target 1.4463398241528407
+passB 0 87
+passB 8 245
+passB 16 380
+passB 24 516
+passB 32 652
+T1_DONE Qwen3-8B t096 105
+JOB 2 t15
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 75.44it/s]
+alloc body_bits/param 2.3730733247943556 target 2.3739486780603403
+passB 0 17
+passB 8 160
+passB 16 582
+passB 24 946
+passB 32 1149
+T1_DONE Qwen3-8B t15 408
+JOB 3 t30
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 97.40it/s]
+sensA 0 4
+sensA 8 27
+sensA 16 49
+sensA 24 73
+sensA 32 95
+alloc body_bits/param 3.746969057248122 target 4.975998499651174
+passB 0 129
+passB 8 519
+passB 16 721
+passB 24 923
+passB 32 1280
+T1_DONE Qwen3-8B t30 450
+JOB 4 t11
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 69.59it/s]
+alloc body_bits/param 1.70899965779505 target 1.7104898609508479
+passB 0 27
+passB 8 472
+passB 16 675
+passB 24 879
+passB 32 1081
+T1_DONE Qwen3-8B t11 173
+JOB 5 t125
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 57.23it/s]
+alloc body_bits/param 1.9017644151181416 target 1.9022521837781843
+passB 0 27
+passB 8 423
+passB 16 974
+passB 24 1177
+passB 32 1380
+T1_DONE Qwen3-8B t125 353

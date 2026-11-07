@@ -1,0 +1,4 @@
+JOB 0 base
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 343.48it/s]
+BASE_DONE Qwen3-14B floor 0.85 secs 118

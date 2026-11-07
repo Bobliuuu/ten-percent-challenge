@@ -1,0 +1,1 @@
+[{"model_dir": "/opt/dlami/nvme/hf/hub/models--unsloth--Llama-3.3-70B-Instruct/snapshots/99cd0d2c829e92a67c844f9144c2509632e5c87f", "tag": "Llama-3.3-70B", "t1dir": "/opt/dlami/nvme/work/L1/t1v2", "g": 256, "emb_L": 4, "head_L": 4, "mode": "sens", "name": "s", "target_ratio": 0.096}]

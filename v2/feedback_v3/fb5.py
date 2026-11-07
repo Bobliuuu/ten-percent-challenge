@@ -15,7 +15,7 @@ vol=modal.Volume.from_name("tenpct-v2-hf")
 GPU=os.environ.get("FB4_GPU","A100-80GB")
 
 @app.function(image=img,gpu=GPU,timeout=36000,volumes={"/vol":vol})
-def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
+def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10,only=""):
     import torch,numpy as np,random,hashlib,re,time,sys
     VC=(lambda: None) if os.environ.get('NOVOL') else vol.commit
     sys.path.insert(0,"/app"); from scorer import score_item
@@ -153,7 +153,7 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
         for i,s in enumerate(S): by.setdefault(s["tgt"],[]).append(i)
         save(lm.lm_head); edited=[]
         for t,ix in by.items():
-            d=Hs[ix].mean(0)-G["mu"]
+            d=Hs[ix].mean(0) if mode=="plain" else Hs[ix].mean(0)-G["mu"]
             if mode=="lda": d=torch.linalg.solve(G["sig"]+ridge*G["sig"].diagonal().mean()*torch.eye(D_h,device=dev),d)
             d=d/d.norm(); w=lm.lm_head.weight.data
             w[t]=(w[t].float()+alpha*w[t].float().norm()*d).to(w.dtype); edited.append(t)
@@ -168,7 +168,7 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
     # ================= fb5 tail =================
     from scorer import parse_calls
     VCm=VC
-    def lmhead_cal(S,ridge=0.1,margin=1.0,amax=2.0,frac=0.9):
+    def lmhead_cal(S,ridge=0.1,margin=1.0,amax=2.0,frac=0.9,pos=False):
         """lm_head LDA edit with SELF-CALIBRATED per-token alpha: smallest alpha in a grid that makes the annotated sites' top-1 flip with margin
         (forward-free: only the edited row's logit changes, so flip test is exact from stored final-normed hiddens). No dev tuning of alpha."""
         hs=[]
@@ -178,7 +178,8 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
         for i,s in enumerate(S): by.setdefault(s["tgt"],[]).append(i)
         save(lm.lm_head); W=lm.lm_head.weight.data; base_logits=Hs@W.float().T; edited=[]; alphas={}
         for t,ix in by.items():
-            d=Hs[ix].mean(0)-G["mu"]; d=torch.linalg.solve(G["sig"]+ridge*G["sig"].diagonal().mean()*torch.eye(D_h,device=dev),d); d=d/d.norm()
+            mu_,sg_=(G["mu_pos"],G["sig_pos"]) if pos else (G["mu"],G["sig"])
+            d=Hs[ix].mean(0)-mu_; d=torch.linalg.solve(sg_+ridge*sg_.diagonal().mean()*torch.eye(D_h,device=dev),d); d=d/d.norm()
             wt=W[t].float(); other=base_logits[ix].clone(); other[:,t]=-1e9; mx=other.max(1).values; chosen=amax
             for a in [0.05,0.1,0.15,0.2,0.3,0.45,0.7,1.0,1.5,2.0]:
                 newl=Hs[ix]@(wt+a*wt.norm()*d)
@@ -271,7 +272,9 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
         m=cfg["m"]; ed=[]
         if m=="memit_down": memit(S,LS[cfg["ls"]],"down",cfg["lam"])
         elif m=="lmhead_lda": ed=lmhead(S,cfg["alpha"],"lda",cfg.get("ridge",0.1))
+        elif m=="lmhead_plain": ed=lmhead(S,cfg["alpha"],"plain")
         elif m=="lmhead_cal": ed=lmhead_cal(S,cfg.get("ridge",0.1),cfg.get("margin",1.0))
+        elif m=="lmhead_cal2": ed=lmhead_cal(S,cfg.get("ridge",0.1),cfg.get("margin",1.0),pos=True)
         return len(S),ed
     LS={"d3_80":[int(NL*.8)+i for i in range(3)]}
     def run_scn(scn_name,ann_pool,dev_pool,teach_pool,neigh_cands,ND,tagx):
@@ -286,14 +289,16 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
         R=dict(model=model,scen=scn_name,ntools_ann=len({a['tool'] for a in ann_pool}),sizes=dict(ann_pool=len(ann_pool),teach=len(teach),dev=len(dev),neigh=len(neigh)),base_teach=bt.tolist(),draws=[],sweep=[],codec=[],diag=[])
         def draw(seed):
             r=random.Random(seed); L=list(ann_pool); r.shuffle(L); return L[:25]
-        cfgs=[dict(m="lmhead_lda",alpha=a,ridge=0.1) for a in [0.1,0.2,0.3,0.45,0.7]]+[dict(m="lmhead_cal"),dict(m="memit_down",ls="d3_80",lam=1000.0)]
+        cfgs=[dict(m="lmhead_lda",alpha=a,ridge=0.1) for a in [0.1,0.2,0.3,0.45,0.7]]+[dict(m="lmhead_plain",alpha=0.03),dict(m="lmhead_plain",alpha=0.01),dict(m="lmhead_cal"),dict(m="lmhead_cal2"),dict(m="memit_down",ls="d3_80",lam=1000.0)]
+        if only: cfgs=[c for c in cfgs if c["m"] in only.split(",")]
         for cfg in cfgs:
             restore(); n,_=apply(cfg,draw(0)); d_=ev(dev); nd_=ev(ndev); restore()
             rec=dict(cfg=cfg,nsites=n,dev_gain=float(d_.mean()-bd.mean()) if len(d_) else None,neigh_dev=float(nd_.mean()) if len(nd_) else None); R["sweep"].append(rec); log(rec)
             json.dump(R,open(f"/vol/fb3/{tagx}.json","w")); VC()
         lda=[r for r in R["sweep"] if r["cfg"]["m"]=="lmhead_lda"]; okl=[r for r in lda if r["neigh_dev"]>=0.98] or lda
-        bestlda=max(okl,key=lambda r:r["dev_gain"])["cfg"]; R["chosen_lda"]=bestlda
-        methods={"lmhead_lda":bestlda,"lmhead_cal":dict(m="lmhead_cal"),"memit_down":dict(m="memit_down",ls="d3_80",lam=1000.0)}
+        bestlda=max(okl,key=lambda r:r["dev_gain"])["cfg"] if okl else dict(m="lmhead_lda",alpha=0.2,ridge=0.1); R["chosen_lda"]=bestlda
+        methods={"lmhead_lda":bestlda,"lmhead_plain":dict(m="lmhead_plain",alpha=0.03),"lmhead_plain_xs":dict(m="lmhead_plain",alpha=0.01),"lmhead_cal":dict(m="lmhead_cal"),"lmhead_cal2":dict(m="lmhead_cal2"),"memit_down":dict(m="memit_down",ls="d3_80",lam=1000.0)}
+        if only: methods={k:v for k,v in methods.items() if k in only.split(",")}
         for name,cfg in methods.items():
             for d in range(ND):
                 anns=draw(d); rec=dict(method=name,cfg=cfg,draw=d,ann_tools=len({a["tool"] for a in anns}))
@@ -312,7 +317,7 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
             R["codec_real"]=dict(Lv=Lv,fp16_bytes=fp16,artifact_bytes_before=b0,bpw=b0*8/W0.numel(),base_teach=qt.tolist(),base_neigh=qn.tolist(),runs=[])
             for d in range(3):
                 for var in ["reencode_refit","reencode_orig_scale"]:
-                    lm.lm_head.weight.data.copy_(Aq); S=sites(draw(d)); ed=lmhead(S,methods["lmhead_lda"]["alpha"],"lda",0.1); w=lm.lm_head.weight.data
+                    lm.lm_head.weight.data.copy_(Aq); S=sites(draw(d)); ed=lmhead(S,bestlda["alpha"],"lda",0.1); w=lm.lm_head.weight.data
                     rows=torch.tensor(sorted(set(ed)),device=dev); Wr=w[rows].float(); ng=D_h//128
                     _,hb,sb=enc_rows(Aq[rows].float(),sg,Lv,None)   # old rows' histogram (re-encoded from artifact values)
                     sold=s0.reshape(-1,ng,1)[rows].reshape(-1,1) if var=="reencode_orig_scale" else None
@@ -323,8 +328,15 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
             saved.clear(); lm.lm_head.weight.data.copy_(W0)
         except Exception as e: log("codec_real failed",repr(e)[:300]); restore()
         R["done"]=True; json.dump(R,open(f"/vol/fb3/{tagx}.json","w")); VC(); log("DONE",tagx)
+    @torch.no_grad()
+    def pos_stats():
+        ps=t1_cov[:100]; outs=gen(ps,40); xs=[]
+        for p,o in zip(ps,outs):
+            n=len(tok(p,add_special_tokens=False).input_ids); ids=torch.tensor([tok(p,add_special_tokens=False).input_ids+o],device=dev)
+            fh={}; h=lm.model.norm.register_forward_hook(lambda m,i_,o_: fh.__setitem__("h",o_)); lm.model(ids); h.remove(); xs.append(fh["h"][0,n-1:-1].float())
+        X=torch.cat(xs); return X.mean(0),torch.cov(X.T)
     for spec in scen.split(","):
-        EXTRA[0]=True; G["mu"],G["sig"]=gstats(True)
+        EXTRA[0]=True; G["mu"],G["sig"]=gstats(True); G["mu_pos"],G["sig_pos"]=pos_stats()
         if spec.startswith("nat"):
             cls=spec.split(":")[1] if ":" in spec else None
             order=sorted(cnt,key=lambda c:-cnt[c][1]) if cls is None else [cls]
@@ -336,6 +348,17 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
                     pools[split_of(x["gold"][0]["name"])].append(mk(x,x["gold"],wrong=wrong))
                 fid=set(FAIL[c]); neigh=[mk(byid[i],byid[i]["gold"]) for i,v in BASE.items() if v["correct"] and i not in fid]
                 run_scn(f"nat_{c}",pools["ann"],pools["dev"],pools["teach"],neigh,ndraw,f"{mname}_nat_{c}{ptag}")
+        elif spec.startswith("pair"):
+            pools={"ann":[],"dev":[],"teach":[]}; plain=[]
+            for x in singles:
+                hh=h8(x["id"])%10
+                if hh==9: continue
+                g=x["gold"][0]; gt=[t for t in x["tools"] if t["name"]==g["name"]]
+                if not gt: continue
+                twin=dict(gt[0],name=g["name"]+"_v2"); tools=list(x["tools"]); tools.insert(tools.index(gt[0])+(h8(x["id"]+"p")%2),twin)
+                pools[("ann","dev","teach")[0 if hh<4 else (1 if hh<6 else 2)]].append(mk(x,[dict(name=twin["name"],arguments=g["arguments"])],tools=tools,wrong=[g]))
+            neigh=[mk(byid[i],byid[i]["gold"]) for i,v in BASE.items() if v["correct"] and h8(i)%10 in (9,0,1,2,3)]
+            run_scn("pairS",pools["ann"],pools["dev"],pools["teach"],neigh,ndraw,f"{mname}_pairS{ptag}")
         elif spec.startswith("new"):
             AN="escalate_to_specialist"; pools={"ann":[],"dev":[],"teach":[]}
             for x in nocall:
@@ -345,5 +368,5 @@ def run(model="Qwen/Qwen3-8B",scen="nat",ptag="",ndraw=10):
     return "ok"
 
 @app.local_entrypoint()
-def main(model:str="Qwen/Qwen3-8B",scen:str="nat",ptag:str="",ndraw:int=10):
-    print(run.remote(model,scen,ptag,ndraw))
+def main(model:str="Qwen/Qwen3-8B",scen:str="nat",ptag:str="",ndraw:int=10,only:str=""):
+    print(run.remote(model,scen,ptag,ndraw,only))

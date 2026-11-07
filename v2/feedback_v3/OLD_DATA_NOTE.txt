@@ -1,0 +1,1 @@
+results_olddata/: runs made on the PRE-RELOCK T1 dev files (s1_dev md5 92f21dbb..., 8425 rows). T1 data was re-sliced/re-locked at 2026-11-07 00:36Z; 177 of those old dev queries are now inside the new locked set, so these results are superseded and must not be cited as dev-only. Re-runs on the new dev files (md5 bb0286be...) are in results/.

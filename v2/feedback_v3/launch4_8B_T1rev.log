@@ -123,3 +123,9 @@ The following generation flags are not valid and may be ignored: ['temperature',
 [  8645s] blend 1 real 0.4166666666666667 neigh 1.0 shuf 0.15
 [  8781s] blend 2 real 0.31666666666666665 neigh 0.99 shuf 0.11666666666666667
 [  8880s] memit_down 0 real 0.03333333333333333 neigh 0.12 shuf 0.0
+[  9000s] memit_down 1 real 0.4 neigh 0.97 shuf 0.11666666666666667
+[  9127s] memit_down 2 real 0.13333333333333333 neigh 0.63 shuf 0.08333333333333333
+[  9129s] DONE Qwen3-8B_T1pairP_first
+ok
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-4ToQOTtQ8SknPr7Q56gagc

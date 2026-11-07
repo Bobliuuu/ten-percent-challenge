@@ -1,0 +1,23 @@
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:09,  1.55it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:01<00:09,  1.53it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:08,  1.53it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:02<00:07,  1.52it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:03<00:07,  1.52it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:03<00:06,  1.52it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:04<00:05,  1.52it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:05<00:05,  1.52it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:05<00:04,  1.52it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:06<00:03,  1.53it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:07<00:03,  1.53it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:07<00:02,  1.53it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:08<00:01,  1.52it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:09<00:01,  1.51it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:09<00:00,  1.52it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:09<00:00,  1.98it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:09<00:00,  1.60it/s]
+pool 1000 ok0 643 mistakes 357 teach 178 test-mistakes 179 neighbors 643
+base (no edit): held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 1.0000
+edit a=0.02 b=0.0: held-out mistakes fixed 0.123 | teach fixed 0.129 | neighbors kept 0.9860
+  SHUFFLED ctrl a=0.02 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 1.0000
+edit a=0.02 b=0.5: held-out mistakes fixed 0.134 | teach fixed 0.140 | neighbors kept 0.9860
+  SHUFFLED ctrl a=0.02 b=0.5: held-out mistakes fixed 0.117 | teach fixed 0.107 | neighbors kept 0.9938
+edit a=0.05 b=0.0: held-out mistakes fixed 0.151 | teach fixed 0.208 | neighbors kept 0.9673
+  SHUFFLED ctrl a=0.05 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 1.0000
+edit a=0.05 b=0.5: held-out mistakes fixed 0.168 | teach fixed 0.258 | neighbors kept 0.9751
+  SHUFFLED ctrl a=0.05 b=0.5: held-out mistakes fixed 0.123 | teach fixed 0.107 | neighbors kept 0.7807
+edit a=0.1 b=0.0: held-out mistakes fixed 0.095 | teach fixed 0.180 | neighbors kept 0.6812
+  SHUFFLED ctrl a=0.1 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 1.0000
+edit a=0.1 b=0.5: held-out mistakes fixed 0.201 | teach fixed 0.365 | neighbors kept 0.9253
+  SHUFFLED ctrl a=0.1 b=0.5: held-out mistakes fixed 0.061 | teach fixed 0.090 | neighbors kept 0.4230
+edit a=0.2 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0000
+  SHUFFLED ctrl a=0.2 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 1.0000
+edit a=0.2 b=0.5: held-out mistakes fixed 0.034 | teach fixed 0.028 | neighbors kept 0.1695
+  SHUFFLED ctrl a=0.2 b=0.5: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0249
+edit a=0.4 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0000
+  SHUFFLED ctrl a=0.4 b=0.0: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0000
+edit a=0.4 b=0.5: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0000
+  SHUFFLED ctrl a=0.4 b=0.5: held-out mistakes fixed 0.000 | teach fixed 0.000 | neighbors kept 0.0000

@@ -152,7 +152,7 @@ def run(model="Qwen/Qwen3-8B",scen="T1pairS:first",ptag=""):
         for i,s in enumerate(S): by.setdefault(s["tgt"],[]).append(i)
         save(lm.lm_head); edited=[]
         for t,ix in by.items():
-            d=Hs[ix].mean(0)-G["mu"]
+            d=Hs[ix].mean(0) if mode=="plain" else Hs[ix].mean(0)-G["mu"]
             if mode=="lda": d=torch.linalg.solve(G["sig"]+ridge*G["sig"].diagonal().mean()*torch.eye(D_h,device=dev),d)
             d=d/d.norm(); w=lm.lm_head.weight.data
             w[t]=(w[t].float()+alpha*w[t].float().norm()*d).to(w.dtype); edited.append(t)
@@ -281,12 +281,13 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
             for rg in [1e-2,1e-1]: cfgs.append(dict(m="lmhead_lda",alpha=a,ridge=rg))
         cfgs+=[dict(m="lmhead_mean",alpha=0.2),dict(m="memit_down",ls="d3_80",lam=1000.0)]
         for a in [0.2,0.45,1.0]: cfgs.append(dict(m="blend",ls="d3_80",lam=1000.0,alpha=a,ridge=1e-1))
+        if os.environ.get("FB4_ONLY")=="plain": cfgs=[dict(m="lmhead_plain",alpha=a) for a in (0.1,0.2,0.4)]
         def apply(cfg,anns):
             S=sites(anns)
             if not S: return 0,[]
             m=cfg["m"]; ed=[]
             if m=="memit_down": memit(S,LS[cfg["ls"]],"down",cfg["lam"])
-            elif m=="lmhead_lda" or m=="lmhead_mean": ed=lmhead(S,cfg["alpha"],"lda" if m=="lmhead_lda" else "mean",cfg.get("ridge",1e-2))
+            elif m in ("lmhead_lda","lmhead_mean","lmhead_plain"): ed=lmhead(S,cfg["alpha"],{"lmhead_lda":"lda","lmhead_mean":"mean","lmhead_plain":"plain"}[m],cfg.get("ridge",1e-2))
             elif m=="blend":
                 memit(S,LS[cfg["ls"]],"down",cfg["lam"],margin=1.0); S2=sites(anns); ed=lmhead(S2,cfg["alpha"],"lda",cfg["ridge"]) if S2 else []
             return len(S),ed
@@ -304,6 +305,7 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
             ok=[r for r in c if r["neigh_dev"]>=0.98]
             return max(ok or c,key=lambda r:r["gain"]-(0 if ok else 10*(0.98-r["neigh_dev"])))["cfg"]
         chosen={"lmhead_lda":best_of(lambda m:m=="lmhead_lda"),"blend":best_of(lambda m:m=="blend"),"memit_down":best_of(lambda m:m=="memit_down")}
+        if os.environ.get("FB4_ONLY")=="plain": chosen={"lmhead_plain":dict(m="lmhead_plain",alpha=0.2)}
         R["chosen"]=chosen; log("chosen",chosen)
         for name,cfg in chosen.items():
             if cfg is None: continue
@@ -315,7 +317,7 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
                 R["final"].append(rec); log(name,seed,"real",np.mean(rec["real"]["teach"]),"neigh",np.mean(rec["real"]["neigh"]),"shuf",np.mean(rec["shuffled"]["teach"]))
                 json.dump(R,open(f"/vol/fb3/{tag}.json","w")); VC()
         # ---- codec test: lm_head quantised 4-bit g128 (stage-1 artifact), edit lmhead_lda, variants for the edited rows
-        cfg=chosen["lmhead_lda"]
+        cfg=chosen.get("lmhead_lda")
         if cfg and (scn in("B","A","T1pairS","T1new") ):
             restore(); W0=lm.lm_head.weight.data.clone(); sc0,mn0=q4rows(W0); lm.lm_head.weight.data.copy_(q4apply(W0,sc0,mn0).to(W0.dtype))
             Wq=lm.lm_head.weight.data.clone()

@@ -1,0 +1,102 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-iTnQvndNBos1UyXTxXSPhU
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb5.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:01<00:06,  1.72s/it]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:03<00:05,  1.69s/it]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:05<00:03,  1.73s/it]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:06<00:01,  1.58s/it]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:06<00:00,  1.08s/it]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:06<00:00,  1.34s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   540s] base singles eval done 1737 / 2367
+[   540s] failure classes (n, distinct gold tools) {'argnum': (56, 43), 'argkeys': (248, 160), 'abstain': (49, 39), 'argstr': (153, 113), 'argcase': (16, 9), 'argtype': (9, 6), 'parsefail': (62, 61), 'sibling': (14, 14), 'multi': (21, 21), 'argother': (2, 2)}
+[   696s] nat_argstr ann_pool 62 teach 58 dev 33 neigh verified 400 of 700 (same-tool 125 ) base teach 0.0
+[   727s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 77, 'dev_gain': 0.18181818181818182, 'neigh_dev': 0.9875}
+[   758s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 77, 'dev_gain': 0.18181818181818182, 'neigh_dev': 0.975}
+[   791s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 77, 'dev_gain': 0.2727272727272727, 'neigh_dev': 0.9625}
+[   827s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 77, 'dev_gain': 0.2727272727272727, 'neigh_dev': 0.8}
+[   871s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 77, 'dev_gain': 0.21212121212121213, 'neigh_dev': 0.125}
+[   903s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 77, 'dev_gain': 0.18181818181818182, 'neigh_dev': 0.9375}
+[   985s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 77, 'dev_gain': 0.21212121212121213, 'neigh_dev': 0.925}
+[  1127s] nat_argstr lmhead_lda 0 real 0.0 neigh 0.993 mixed 0.0 rand 0.0
+[  1267s] nat_argstr lmhead_lda 1 real 0.017 neigh 0.99 mixed 0.017 rand 0.017
+[  1409s] nat_argstr lmhead_lda 2 real 0.017 neigh 0.995 mixed 0.0 rand 0.0
+[  1548s] nat_argstr lmhead_lda 3 real 0.0 neigh 0.993 mixed 0.0 rand 0.0
+[  1692s] nat_argstr lmhead_lda 4 real 0.034 neigh 0.99 mixed 0.0 rand 0.0
+[  1835s] nat_argstr lmhead_lda 5 real 0.0 neigh 0.99 mixed 0.0 rand 0.0
+[  1975s] nat_argstr lmhead_lda 6 real 0.017 neigh 0.993 mixed 0.017 rand 0.0
+[  2112s] nat_argstr lmhead_lda 7 real 0.017 neigh 0.995 mixed 0.0 rand 0.0
+[  2253s] nat_argstr lmhead_lda 8 real 0.017 neigh 0.993 mixed 0.0 rand 0.017
+[  2397s] nat_argstr lmhead_lda 9 real 0.0 neigh 0.993 mixed 0.017 rand 0.017
+[  2538s] nat_argstr lmhead_cal 0 real 0.0 neigh 0.983 mixed 0.0 rand 0.0
+[  2677s] nat_argstr lmhead_cal 1 real 0.034 neigh 0.983 mixed 0.017 rand 0.017
+[  2818s] nat_argstr lmhead_cal 2 real 0.0 neigh 0.993 mixed 0.034 rand 0.0
+[  2956s] nat_argstr lmhead_cal 3 real 0.017 neigh 0.983 mixed 0.0 rand 0.017
+[  3108s] nat_argstr lmhead_cal 4 real 0.017 neigh 0.97 mixed 0.017 rand 0.0
+[  3254s] nat_argstr lmhead_cal 5 real 0.0 neigh 0.958 mixed 0.0 rand 0.0
+[  3392s] nat_argstr lmhead_cal 6 real 0.0 neigh 0.985 mixed 0.0 rand 0.017
+[  3528s] nat_argstr lmhead_cal 7 real 0.017 neigh 0.988 mixed 0.0 rand 0.034
+[  3669s] nat_argstr lmhead_cal 8 real 0.017 neigh 0.98 mixed 0.0 rand 0.017
+[  3813s] nat_argstr lmhead_cal 9 real 0.034 neigh 0.973 mixed 0.034 rand 0.034
+[  4069s] nat_argstr memit_down 0 real 0.034 neigh 0.983 mixed 0.034 rand 0.034
+[  4317s] nat_argstr memit_down 1 real 0.034 neigh 0.985 mixed 0.034 rand 0.034
+[  4581s] nat_argstr memit_down 2 real 0.034 neigh 0.978 mixed 0.017 rand 0.052
+[  4810s] nat_argstr memit_down 3 real 0.052 neigh 0.97 mixed 0.017 rand 0.052
+[  5085s] nat_argstr memit_down 4 real 0.034 neigh 0.993 mixed 0.034 rand 0.0
+[  5352s] nat_argstr memit_down 5 real 0.017 neigh 0.988 mixed 0.034 rand 0.017
+[  5594s] nat_argstr memit_down 6 real 0.034 neigh 0.96 mixed 0.034 rand 0.034
+[  5809s] nat_argstr memit_down 7 real 0.034 neigh 0.97 mixed 0.017 rand 0.052
+Stopping app - user stopped from CLI.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/jhome/ten-percent/v2/feedback_v3/fb5.py:349 in main                   │
+│                                                                              │
+│   348 │   │   │   │   │   pools[split_of(x["gold"][0]["name"])].append(mk(x, │
+│ ❱ 349 │   │   │   │   fid=set(FAIL[c]); neigh=[mk(byid[i],byid[i]["gold"]) f │
+│   350 │   │   │   │   run_scn(f"nat_{c}",pools["ann"],pools["dev"],pools["te │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_obj │
+│ ect.py:49 in wrapped                                                         │
+│                                                                              │
+│    48 │   │   await self.hydrate()                                           │
+│ ❱  49 │   │   return await method(self, *args, **kwargs)                     │
+│    50                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2081 in remote                                                     │
+│                                                                              │
+│   2080 │   │                                                                 │
+│ ❱ 2081 │   │   return await self._call_function(args, kwargs)                │
+│   2082                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2018 in _call_function                                             │
+│                                                                              │
+│   2017 │   │                                                                 │
+│ ❱ 2018 │   │   return await invocation.run_function()                        │
+│   2019                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:498 in run_function                                                │
+│                                                                              │
+│    497 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  498 │   │   │   │   return await _process_result(                         │
+│    499 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_uti │
+│ ls/function_utils.py:574 in _process_result                                  │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

@@ -1,0 +1,7 @@
+- 2026-11-07T02:36:20Z L3 download done (190 shards, 810GB) Volume tenpct-l3-405b:/bf16; deploy l3-405b; quant t096 spawned
+- 2026-11-07T02:38:47Z quant running (sens 27s/layer); eval_base spawned (bf16 layer-streamed teacher-forced, all 9 tasks)
+- 2026-11-07T03:08:53Z base v1: EOT-inclusive exact criterion gives odd base acc (INJ Benign 1/300, TOX Safe 8/300; m_min~-1.4 => later token (EOT?) is not argmax). Re-running base saving per-token margins/competitor ids to define label-token criterion.
+- 2026-11-07T03:34:55Z SENS_DONE (3132s, 25s/layer); alloc body bpw 1.53 (target ok); passB 60 s/layer (~2.1h total, done ~05:40Z). base v2 rerun had old code (no m_all), re-spawned base v3 at ~03:40Z. Spend so far est: quant 1.1h + 2 base evals 0.8h + ... ~$10
+- 04:15Z base bf16 DONE (3346/5414 strict; label-token criterion base acc: INJ .965 SENT .952 TOX .785 FIN .873 ROUTE .793 TOOLSEL .862 SPAM .927 NLI .71 AIDET .69). Llama prefers "." over <|eot_id|> after bare label so retention criterion = all LABEL tokens argmax (EOT excluded), see analyze.py. results/ct_L405_bf16.json
+- 04:20Z lever run quant t096_c256 spawned in parallel (reuses sens table from t096; calibration = only the 6 target tasks of C_tasks calib, no tool-call slice; ~100 seqs of 512).
+- passB t096 running ~60 s/layer, expected done ~05:40Z

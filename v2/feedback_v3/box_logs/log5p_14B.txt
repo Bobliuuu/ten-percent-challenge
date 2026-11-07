@@ -1,0 +1,12 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 105.35it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    11s] failure classes (n, distinct gold tools) {'argnum': (56, 41), 'argkeys': (224, 154), 'abstain': (33, 30), 'argstr': (147, 108), 'argcase': (21, 10), 'argtype': (6, 6), 'parsefail': (58, 57), 'sibling': (13, 13), 'multi': (22, 22), 'argother': (2, 2)}
+[   430s] pairS ann_pool 966 teach 100 dev 50 neigh verified 400 of 700 (same-tool 1 ) base teach 0.29
+[   508s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.03}, 'nsites': 21, 'dev_gain': 0.06, 'neigh_dev': 0.9875}
+[   586s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.01}, 'nsites': 21, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   905s] pairS lmhead_plain 0 real 0.43 neigh 0.985 mixed 0.34 rand 0.22
+[  1231s] pairS lmhead_plain 1 real 0.5 neigh 0.995 mixed 0.31 rand 0.31
+[  1553s] pairS lmhead_plain 2 real 0.45 neigh 0.995 mixed 0.34 rand 0.24
+[  1868s] pairS lmhead_plain 3 real 0.5 neigh 1.0 mixed 0.3 rand 0.25

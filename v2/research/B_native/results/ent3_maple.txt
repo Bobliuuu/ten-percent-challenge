@@ -1,0 +1,4 @@
+total params 20214030336 fp16 bytes 40428060672
+ternary params 19579011072 trit bpw 1.5675 trit MB 3836.1586386710887 scales(fp16, raw) MB 37.994496
+raw non-ternary MB 1270.038528 {'lm_head.weight': 622.3, 'model.word_embeddings.weight': 622.3, 'gate': 25.2, 'small': 0.2}
+TOTAL MB 5144.2  = 12.72% of fp16

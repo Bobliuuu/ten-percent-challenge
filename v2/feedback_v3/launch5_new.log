@@ -1,0 +1,48 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-0gJ98RUYQiLYhbxAhSy0wx
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb5.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.14it/s]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.06s/it]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:03<00:02,  1.10s/it]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:04<00:01,  1.03s/it]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.20it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   556s] base singles eval done 1737 / 2367
+[   556s] failure classes (n, distinct gold tools) {'argnum': (56, 43), 'argkeys': (248, 160), 'abstain': (49, 39), 'argstr': (153, 113), 'argcase': (16, 9), 'argtype': (9, 6), 'parsefail': (62, 61), 'sibling': (14, 14), 'multi': (21, 21), 'argother': (2, 2)}
+[   733s] newtool ann_pool 366 teach 100 dev 50 neigh verified 400 of 700 (same-tool 0 ) base teach 0.0
+[   772s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.9875}
+[   813s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.9875}
+[   854s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.9875}
+[   896s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 115, 'dev_gain': 0.04, 'neigh_dev': 0.9875}
+[   945s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 115, 'dev_gain': 0.0, 'neigh_dev': 0.075}
+[   987s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 115, 'dev_gain': 0.78, 'neigh_dev': 0.4}
+[  1088s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 115, 'dev_gain': 0.34, 'neigh_dev': 0.8}
+[  1271s] newtool lmhead_lda 0 real 0.02 neigh 0.955 mixed 0.0 rand 0.0
+[  1455s] newtool lmhead_lda 1 real 0.01 neigh 0.975 mixed 0.01 rand 0.0
+[  1636s] newtool lmhead_lda 2 real 0.04 neigh 0.965 mixed 0.01 rand 0.0
+[  1816s] newtool lmhead_lda 3 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1999s] newtool lmhead_lda 4 real 0.01 neigh 0.96 mixed 0.01 rand 0.0
+[  2184s] newtool lmhead_cal 0 real 0.8 neigh 0.448 mixed 0.03 rand 0.0
+[  2348s] newtool lmhead_cal 1 real 0.96 neigh 0.455 mixed 0.24 rand 0.0
+[  2526s] newtool lmhead_cal 2 real 0.79 neigh 0.52 mixed 0.0 rand 0.0
+[  2691s] newtool lmhead_cal 3 real 0.75 neigh 0.875 mixed 0.21 rand 0.0
+[  2860s] newtool lmhead_cal 4 real 0.98 neigh 0.383 mixed 0.18 rand 0.0
+[  3176s] newtool memit_down 0 real 0.39 neigh 0.853 mixed 0.0 rand 0.0
+[  3504s] newtool memit_down 1 real 0.58 neigh 0.95 mixed 0.01 rand 0.0
+[  3826s] newtool memit_down 2 real 0.49 neigh 0.91 mixed 0.04 rand 0.0
+[  4138s] newtool memit_down 3 real 0.3 neigh 0.155 mixed 0.05 rand 0.0
+[  4454s] newtool memit_down 4 real 0.5 neigh 0.052 mixed 0.2 rand 0.0
+[  4455s] codec_real failed TypeError("Generator(): argument 'device' must be torch.device, not list")
+[  4457s] DONE Qwen3-8B_newtool_modal
+ok
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-0gJ98RUYQiLYhbxAhSy0wx

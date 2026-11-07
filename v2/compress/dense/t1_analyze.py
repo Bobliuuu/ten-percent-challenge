@@ -18,6 +18,14 @@ for model in ["Qwen3-14B","Qwen3-8B"]:
     rows.sort(key=lambda r:r["ratio"])
     for r in rows:
         md+=f"| {r['cfg']} | {int(r['bytes']):,} | {r['ratio']:.4f} | {r['ret']:.3f} ({r['ret_lo']:.3f}) | {r['src']['S1']:.3f} | {r['src']['S3']:.3f} | {r['kinds']['nocall']:.3f} | {r['kinds']['single']:.3f} | {r['kinds']['multi']:.3f} | {r['worst']:.3f} | {r['acc']:.3f} |\n"
+    fam={"generic recipe (generic calib, RTN-proxy alloc)":[r for r in rows if r["cfg"] in("t096","t11","t125","t15","t30")],
+         "task-calib + KL-sensitivity alloc (R3)":[r for r in rows if r["cfg"].startswith("cal_kl_r") or r["cfg"]=="t096_cal_kl"]}
+    for fn,fr in fam.items():
+        if len(fr)>=3:
+            x=np.log([r["ratio"] for r in fr])
+            for key,get,tgt in [("overall",lambda r:r["ret"],0.98),("worst_kind",lambda r:r["worst"],0.95)]:
+                v=np.array([get(r) for r in fr]); y=np.log(np.clip(1-v,1e-3,1)/np.clip(v,1e-3,1)); A=np.polyfit(x,y,1); xt=(np.log((1-tgt)/tgt)-A[1])/A[0]
+                md+=f"\nFamily [{fn}] {key}: logit(fail)~log(ratio) slope {A[0]:.2f}; ret>={tgt} at ratio ~{np.exp(xt):.3f} ({len(fr)} pts)\n"
     # extrapolation: log-odds of failure (1-ret) vs log ratio, linear fit
     if len(rows)>=3:
         x=np.log([r["ratio"] for r in rows]); 
