@@ -193,11 +193,11 @@ def run(cfg):
             calls = parse(o); gold = [(c["name"], c["arguments"]) for c in json.loads(r["gold_calls"])]
             if r["irrelevant"]: name_ok = len(calls) == 0; exact = name_ok; allname = name_ok
             else:
-                name_ok = len(calls) > 0 and calls[0][0] == gold[0][0]; allname = sorted(c[0] or "" for c in calls) == sorted(c[0] for c in gold)
-                exact = sorted(map(canon, calls)) == sorted(map(canon, gold))
+                name_ok = len(calls) > 0 and calls[0][0] == gold[0][0]; allname = sorted(str(c[0]) for c in calls) == sorted(str(c[0]) for c in gold)
+                exact = sorted(map(str, map(canon, calls))) == sorted(map(str, map(canon, gold)))
             res.append((int(name_ok), int(allname), int(exact), int(len(calls) > 0 and not r["irrelevant"] and calls[0][0] in [n.split(":")[0].strip() for n in r["names"][:-1]])))
         return np.array(res)
-    outs = generate(ev); S = score(ev, outs); irr = np.array([r["irrelevant"] for r in ev])
+    outs = generate(ev); os.makedirs("/r/r", exist_ok=True); json.dump(outs, open(f"/r/r/{cfg['name']}_raw.json", "w")); vol.commit(); S = score(ev, outs); irr = np.array([r["irrelevant"] for r in ev])
     R = dict(cfg=cfg, n=len(ev), name_acc=float(S[:, 0].mean()), allname_acc=float(S[:, 1].mean()), exact_call_acc=float(S[:, 2].mean()), name_acc_relevant=float(S[~irr, 0].mean()), name_acc_irrelevant=float(S[irr, 0].mean()),
              exact_relevant=float(S[~irr, 2].mean()), acct=acct, oov=oov[0] / max(1, oov[1]), name_ok=S[:, 0].tolist(), sample=[(ev[i]["id"], outs[i]) for i in range(0, len(ev), 100)])
     print("GEN_RESULT", json.dumps({k: v for k, v in R.items() if k not in ("name_ok", "sample")}), flush=True)
