@@ -1,0 +1,18 @@
+{
+ "devgen2": {
+  "n": 100,
+  "identical_new_real_vs_hf_standard": 100,
+  "identical_old_sim_vs_hf_standard": 100,
+  "identical_old_real_vs_hf_standard": 92,
+  "new_real_timings": {
+   "gen_seconds": 73.85427904129028,
+   "new_tokens": 6301,
+   "load_total": 30.979499578475952,
+   "decode_dequant": 27.682234048843384,
+   "workers": 16,
+   "load_seconds": 30.979580640792847,
+   "n_items": 100,
+   "tok_per_s": 85.31665438744925
+  }
+ }
+}

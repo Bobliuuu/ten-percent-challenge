@@ -1,0 +1,68 @@
+{
+ "verdict": "FAIL",
+ "failed_gates": [
+  "retention>=98%",
+  "every_kind_retention>=95%",
+  "ood_block>=500",
+  "real_output",
+  "no_new_parts",
+  "feedback_present"
+ ],
+ "gates": {
+  "size<=10%": true,
+  "retention>=98%": false,
+  "every_kind_retention>=95%": false,
+  "exam>=2000": true,
+  "every_kind>=300": true,
+  "ood_block>=500": false,
+  "base_above_chance_below_ceiling": 1.0,
+  "real_output": false,
+  "no_new_parts": false,
+  "feedback_present": false
+ },
+ "scores": {
+  "size_margin": 1.0,
+  "retention_overall": 0.0,
+  "retention_worst_kind": 0.0,
+  "harmful_flips": 0.0,
+  "agreement": 0.0
+ },
+ "maximin": 0.0,
+ "weakest": "retention_overall",
+ "mean_score": 0.2,
+ "details": {
+  "size_ratio": 0.09404443479677145,
+  "retention_overall": {
+   "n_base_correct": 1535,
+   "kept": 1435,
+   "ret": 0.9348534201954397,
+   "ret_lo": 0.9213897602986771
+  },
+  "retention_per_kind": {
+   "none": {
+    "n_base_correct": 302,
+    "kept": 255,
+    "ret": 0.8443708609271523,
+    "ret_lo": 0.7991882066180084,
+    "n_locked": 393
+   },
+   "tool": {
+    "n_base_correct": 1233,
+    "kept": 1180,
+    "ret": 0.9570154095701541,
+    "ret_lo": 0.9442036008698793,
+    "n_locked": 1607
+   }
+  },
+  "acc_delta_vs_base": {
+   "mean": 0.0345,
+   "lo": 0.018,
+   "hi": 0.0505
+  },
+  "harmful_flip_rate": 0.05,
+  "helpful_flip_rate": 0.0845,
+  "behavioural_agreement": 0.844,
+  "difficulty_log10_base_fp16_bytes": 10.182735062485321,
+  "generative": false
+ }
+}

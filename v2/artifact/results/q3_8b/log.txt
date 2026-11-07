@@ -1,0 +1,164 @@
+05:55:05 snapshot /vol/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218 GPU NVIDIA A100-SXM4-80GB
+05:57:46 snapshot /vol/hf/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218 GPU NVIDIA A100-SXM4-80GB
+05:59:54 probe 0 {'attn': 3, 'o': 3, 'mlp': 3, 'down': 3, 'emb': 4, 'head': 4} blob_ratio~ 0.1028 127s
+05:59:57 RESULT_JSON {"probe0": {"levels": {"attn": 3, "o": 3, "mlp": 3, "down": 3, "emb": 4, "head": 4}, "ratio_est": 0.10280797919712059}}
+06:01:59 probe 1 {'attn': 3, 'o': 3, 'mlp': 3, 'down': 3, 'emb': 3, 'head': 3} blob_ratio~ 0.0993 122s
+06:02:02 RESULT_JSON {"probe1": {"levels": {"attn": 3, "o": 3, "mlp": 3, "down": 3, "emb": 3, "head": 3}, "ratio_est": 0.09932306621367877}}
+06:03:59 probe 2 {'attn': 2, 'o': 3, 'mlp': 3, 'down': 2, 'emb': 3, 'head': 3} blob_ratio~ 0.0882 116s
+06:04:01 RESULT_JSON {"probe2": {"levels": {"attn": 2, "o": 3, "mlp": 3, "down": 2, "emb": 3, "head": 3}, "ratio_est": 0.08815242780594489}}
+06:04:19 layer 0/36 18s  est_MB=33.3 real_MB=32.9
+06:05:14 layer 4/36 73s  est_MB=166.6 real_MB=165.1
+06:06:09 layer 8/36 128s  est_MB=299.6 real_MB=296.6
+06:07:04 layer 12/36 183s  est_MB=432.5 real_MB=428.1
+06:07:59 layer 16/36 238s  est_MB=565.4 real_MB=559.6
+06:08:53 layer 20/36 292s  est_MB=698.4 real_MB=691.1
+06:09:48 layer 24/36 347s  est_MB=831.3 real_MB=822.5
+06:10:43 layer 28/36 402s  est_MB=964.2 real_MB=954.0
+06:11:39 layer 32/36 458s  est_MB=1097.1 real_MB=1085.4
+06:12:20 layer 35/36 499s  est_MB=1196.8 real_MB=1184.0
+06:12:39 QUANT_DONE blob=1434.5MB est_quant=1450.7MB raw=0.6MB base=16.381GB 518s
+06:12:42 RESULT_JSON {"quant": {"levels": {"attn": 2, "o": 3, "mlp": 3, "down": 2, "emb": 3, "head": 3}, "gptq": true, "seconds": 519.03724193573, "blob": 1434466956, "base_bytes": 16381470720, "est_quant_bytes": 1450677376.228632, "raw_bytes": 616448}}
+06:13:36 {
+ "bitexact": {
+  "tensors_compared": 254,
+  "elements": 8190427136,
+  "all_equal": true,
+  "mismatches": [],
+  "decode_dequant_seconds": 32.50984287261963,
+  "wall_seconds": 35.296645402908325
+ },
+ "size": {
+  "total_bytes": 1445972604,
+  "base_fp16_bytes": 16381470720,
+  "ratio": 0.08826879031286393,
+  "size_ok": true,
+  "files": {
+   "answer.py": 22854,
+   "config.json": 728,
+   "feedback.py": 25303,
+   "generation_config.json": 239,
+   "model.tpq": 1434466956,
+   "tensor_manifest.json": 24138,
+   "tokenizer.json": 11422654,
+   "tokenizer_config.json": 9732
+  },
+  "estimate_total_bytes": 1462799472.228632,
+  "estimate_ratio": 0.08929597941671455,
+  "real_minus_estimate_pct_of_base": -0.10271891038506202,
+  "quant_payload": {
+   "real_bytes": 1433709880,
+   "est_bytes": 1450677376.228632,
+   "real_codes": 1393040064,
+   "real_scale_exp": 3814008,
+   "real_scale_mant": 36855808,
+   "est_code_bytes": 1400000640.2286322,
+   "est_scale_bytes": 50676736.0
+  },
+  "blob_overhead_bytes": 140628
+ },
+ "no_new_parts": {
+  "ok": true,
+  "tensor_source": "declared_manifest",
+  "extra_files": [],
+  "extra_tensors": [],
+  "missing_tensors": [],
+  "shape_mismatch": [],
+  "dtype_mismatch": [],
+  "config_arch_diff": [],
+  "grep_train_hits": 0,
+  "grep_train_lines": [],
+  "network_hits": 0,
+  "network_lines": [],
+  "constrained_decoding_hits": 0,
+  "constrained_lines": [],
+  "n_tensors": 399
+ },
+ "manifest_vs_container": {
+  "equal": true,
+  "n": 399
+ }
+}
+ 
+06:13:38 RESULT_JSON {"verify": {"bitexact": {"tensors_compared": 254, "elements": 8190427136, "all_equal": true, "mismatches": [], "decode_dequant_seconds": 32.50984287261963, "wall_seconds": 35.296645402908325}, "size": {"total_bytes": 1445972604, "base_fp16_bytes": 16381470720, "ratio": 0.08826879031286393, "size_ok": true, "files": {"answer.py": 22854, "config.json": 728, "feedback.py": 25303, "generation_config.json": 239, "model.tpq": 1434466956, "tensor_manifest.json": 24138, "tokenizer.json": 11422654, "tokenizer_config.json": 9732}, "estimate_total_bytes": 1462799472.228632, "estimate_ratio": 0.08929597941671455, "real_minus_estimate_pct_of_base": -0.10271891038506202, "quant_payload": {"real_bytes": 1433709880, "est_bytes": 1450677376.228632, "real_codes": 1393040064, "real_scale_exp": 3814008, "real_scale_mant": 36855808, "est_code_bytes": 1400000640.2286322, "est_scale_bytes": 50676736.0}, "blob_overhead_bytes": 140628}, "no_new_parts": {"ok": true, "tensor_source": "declared_manifest", "extra_files": [], "extra_tensors": [], "missing_tensors": [], "shape_mismatch": [], "dtype_mismatch": [], "config_arch_diff": [], "grep_train_hits": 0, "grep_train_lines": [], "network_hits": 0, "network_lines": [], "constrained_decoding_hits": 0, "constrained_lines": [], "n_tensors": 399}, "manifest_vs_container": {"equal": true, "n": 399}}}
+06:15:29 LOAD_DONE 33.9s (decode+dequant 31.3s) workers=16
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+gen 32/100 16s
+gen 64/100 33s
+gen 96/100 59s
+gen 100/100 72s
+TIMINGS {"gen_seconds": 71.79243326187134, "new_tokens": 6302, "load_total": 33.90738558769226, "decode_dequant": 31.305882215499878, "workers": 16, "load_seconds": 33.90743923187256, "n_items": 100, "tok_per_s": 87.78083864371492}
+
+06:20:57 RESULT_JSON {"devgen": {"n": 100, "identical": 92, "identical_all": false, "real_wall_s": 110.32680487632751, "sim_wall_s": 70.67808866500854, "real_timings": {"gen_seconds": 71.79243326187134, "new_tokens": 6302, "load_total": 33.90738558769226, "decode_dequant": 31.305882215499878, "workers": 16, "load_seconds": 33.90743923187256, "n_items": 100, "tok_per_s": 87.78083864371492}, "acc_real": 0.12, "acc_sim": 0.12}}
+06:23:48 pool 500: base right 384 wrong 116
+ `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 51.71it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+
+06:41:10 FINAL_PROOF rc 0
+06:41:10 RECEIPT_JSON:{"status": "completed", "accuracy": {"base": 0.7916666666666666, "cand": 0.10833333333333334, "agree": 0.08333333333333333, "base_parse_fail": 1, "cand_parse_fail": 17}, "all_checks_ok": true, "isolation_ok": false, "REAL_RESULT": false}
+VERDICT: FAIL | failed: ['noise_floor_runs>=3', 'noise_floor_runs_vary_engine_or_batch', 'retention>=98%', 'retention_excl_S1_nocall>=98%', 'retention>=floor-0.5pt', 'every_source_retention>=95%', 'every_kind_retention>=95%', 'every_source_kind_cell_retention>=95%', 'exam>=2000', 'every_source_kind_cell>=330', 'ood_block>=500', 'base_above_chance_below_ceiling_every_cell', 'no_new_parts', 'controls_complete(empty,shuffled|mixed,random_wrong_tool)', 'controls_clearly_worse(>=10pt,lo>0)', 'teach_clusters_given', 'teach_clear_gain(lo>0,mean>=.15)', 'neighbors_kept>=98%', 'exam_after_feedback_retention>=98%']
+GATES
+  XX noise_floor_runs>=3
+  XX noise_floor_runs_vary_engine_or_batch
+  ok size<=10%
+  XX retention>=98%
+  XX retention_excl_S1_nocall>=98%
+  XX retention>=floor-0.5pt
+  XX every_source_retention>=95%
+  XX every_kind_retention>=95%
+  XX every_source_kind_cell_retention>=95%
+  XX exam>=2000
+  XX every_source_kind_cell>=330
+  XX ood_block>=500
+  ok ood_block_has_every_S1_kind
+  XX base_above_chance_below_ceiling_every_cell
+  ok real_output
+  XX no_new_parts
+  XX controls_complete(empty,shuffled|mixed,random_wrong_tool)
+  XX controls_clearly_worse(>=10pt,lo>0)
+  ok feedback_n<=25
+  ok teach_set>=25
+  XX teach_clusters_given
+  XX teach_clear_gain(lo>0,mean>=.15)
+  XX neighbors_kept>=98%
+  XX exam_after_feedback_retention>=98%
+  ok size_after_feedback<=10%
+SCORES (0.5 = rule threshold, 1 = target)
+   0.00  retention_overall
+   0.00  retention_worst_kind
+   0.00  retention_worst_cell
+   0.00  ood_robustness
+   0.00  harmful_flips
+   0.00  agreement
+   0.00  teach_gain
+   0.00  control_separation
+   0.00  neighbor_retention
+   0.00  exam_after_feedback
+   1.00  size_margin
+   1.00  feedback_bytes_added
+MAXIMIN 0.00 (weakest: retention_overall)  MEAN 0.17
+POWER NOTE (observed retention needed to certify with Wilson lo at actual n):
+  neighbors                                  n=   21 need cannot certify at this n; observed 0.9048 -> NOT certified
+  overall (98%)                              n=   95 need cannot certify at this n; observed 0.1368 -> NOT certified
+  overall excl S1/nocall (98%)               n=   75 need cannot certify at this n; observed 0.1733 -> NOT certified
+  source S1 (95%)                            n=   55 need cannot certify at this n; observed 0.1818 -> NOT certified
+  source S2 (95%)                            n=   40 need cannot certify at this n; observed 0.075 -> NOT certified
+  kind multi (95%)                           n=   28 need cannot certify at this n; observed 0.1071 -> NOT certified
+  kind nocall (95%)                          n=   34 need cannot certify at this n; observed 0.0294 -> NOT certified
+  kind single (95%)                          n=   33 need cannot certify at this n; observed 0.2727 -> NOT certified
+  cell S1/multi (95%)                        n=   16 need cannot certify at this n; observed 0.125 -> NOT certified
+  cell S1/nocall (95%)                       n=   20 need cannot certify at this n; observed 0.0 -> NOT certified
+  cell S1/single (95%)                       n=   19 need cannot certify at this n; observed 0.4211 -> NOT certified
+  cell S2/multi (95%)                        n=   12 need cannot certify at this n; observed 0.0833 -> NOT certified
+  cell S2/nocall (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified
+  cell S2/single (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified
+{"base": 0.0, "real": 0.0, "shuffled": 0.0, "empty": 0.0} empty_byte_identical True
+
+06:41:10 
+06:41:13 RESULT_JSON {"proof": {"rc": 0, "seconds": 1042.0900077819824, "stdout_tail": "am_after_feedback_retention>=98%']\nGATES\n  XX noise_floor_runs>=3\n  XX noise_floor_runs_vary_engine_or_batch\n  ok size<=10%\n  XX retention>=98%\n  XX retention_excl_S1_nocall>=98%\n  XX retention>=floor-0.5pt\n  XX every_source_retention>=95%\n  XX every_kind_retention>=95%\n  XX every_source_kind_cell_retention>=95%\n  XX exam>=2000\n  XX every_source_kind_cell>=330\n  XX ood_block>=500\n  ok ood_block_has_every_S1_kind\n  XX base_above_chance_below_ceiling_every_cell\n  ok real_output\n  XX no_new_parts\n  XX controls_complete(empty,shuffled|mixed,random_wrong_tool)\n  XX controls_clearly_worse(>=10pt,lo>0)\n  ok feedback_n<=25\n  ok teach_set>=25\n  XX teach_clusters_given\n  XX teach_clear_gain(lo>0,mean>=.15)\n  XX neighbors_kept>=98%\n  XX exam_after_feedback_retention>=98%\n  ok size_after_feedback<=10%\nSCORES (0.5 = rule threshold, 1 = target)\n   0.00  retention_overall\n   0.00  retention_worst_kind\n   0.00  retention_worst_cell\n   0.00  ood_robustness\n   0.00  harmful_flips\n   0.00  agreement\n   0.00  teach_gain\n   0.00  control_separation\n   0.00  neighbor_retention\n   0.00  exam_after_feedback\n   1.00  size_margin\n   1.00  feedback_bytes_added\nMAXIMIN 0.00 (weakest: retention_overall)  MEAN 0.17\nPOWER NOTE (observed retention needed to certify with Wilson lo at actual n):\n  neighbors                                  n=   21 need cannot certify at this n; observed 0.9048 -> NOT certified\n  overall (98%)                              n=   95 need cannot certify at this n; observed 0.1368 -> NOT certified\n  overall excl S1/nocall (98%)               n=   75 need cannot certify at this n; observed 0.1733 -> NOT certified\n  source S1 (95%)                            n=   55 need cannot certify at this n; observed 0.1818 -> NOT certified\n  source S2 (95%)                            n=   40 need cannot certify at this n; observed 0.075 -> NOT certified\n  kind multi (95%)                           n=   28 need cannot certify at this n; observed 0.1071 -> NOT certified\n  kind nocall (95%)                          n=   34 need cannot certify at this n; observed 0.0294 -> NOT certified\n  kind single (95%)                          n=   33 need cannot certify at this n; observed 0.2727 -> NOT certified\n  cell S1/multi (95%)                        n=   16 need cannot certify at this n; observed 0.125 -> NOT certified\n  cell S1/nocall (95%)                       n=   20 need cannot certify at this n; observed 0.0 -> NOT certified\n  cell S1/single (95%)                       n=   19 need cannot certify at this n; observed 0.4211 -> NOT certified\n  cell S2/multi (95%)                        n=   12 need cannot certify at this n; observed 0.0833 -> NOT certified\n  cell S2/nocall (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified\n  cell S2/single (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified\n{\"base\": 0.0, \"real\": 0.0, \"shuffled\": 0.0, \"empty\": 0.0} empty_byte_identical True\n", "stderr_tail": "", "summary": {"REAL_RESULT": false, "checks_ok_stage1": true, "empty_byte_identical": true, "exam_receipt_sha256": "5868738c3bac4e0d8d75f2628289422b3ed60ad06d7ada85c68a2b18d93a588e", "failed_gates": ["noise_floor_runs>=3", "noise_floor_runs_vary_engine_or_batch", "retention>=98%", "retention_excl_S1_nocall>=98%", "retention>=floor-0.5pt", "every_source_retention>=95%", "every_kind_retention>=95%", "every_source_kind_cell_retention>=95%", "exam>=2000", "every_source_kind_cell>=330", "ood_block>=500", "base_above_chance_below_ceiling_every_cell", "no_new_parts", "controls_complete(empty,shuffled|mixed,random_wrong_tool)", "controls_clearly_worse(>=10pt,lo>0)", "teach_clusters_given", "teach_clear_gain(lo>0,mean>=.15)", "neighbors_kept>=98%", "exam_after_feedback_retention>=98%"], "feedback_arms": {"empty": {"byte_identical": true, "bytes_
+06:41:13 ALL_DONE 2607s
+06:42:10 snapshot /vol/hf/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218 GPU NVIDIA A100-SXM4-80GB
+06:50:46 RESULT_JSON {"devgen2": {"n": 100, "identical_new_real_vs_hf_standard": 100, "identical_old_sim_vs_hf_standard": 100, "identical_old_real_vs_hf_standard": 92, "new_real_timings": {"gen_seconds": 73.85427904129028, "new_tokens": 6301, "load_total": 30.979499578475952, "decode_dequant": 27.682234048843384, "workers": 16, "load_seconds": 30.979580640792847, "n_items": 100, "tok_per_s": 85.31665438744925}}}
+06:50:48 ALL_DONE 518s

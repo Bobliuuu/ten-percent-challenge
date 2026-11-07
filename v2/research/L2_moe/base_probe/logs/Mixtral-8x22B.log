@@ -179,3 +179,188 @@ INFO 11-07 05:30:30 [parallel_state.py:1208] rank 2 in world size 4 is assigned 
 [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
 [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
 [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:10 [weight_utils.py:413] Time spent downloading weights for mistralai/Mixtral-8x22B-Instruct-v0.1: 1359.606748 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/59 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   2% Completed | 1/59 [00:01<01:03,  1.10s/it]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   3% Completed | 2/59 [00:02<01:13,  1.28s/it]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   5% Completed | 3/59 [00:03<01:10,  1.26s/it]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   7% Completed | 4/59 [00:04<01:06,  1.21s/it]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:   8% Completed | 5/59 [00:05<00:59,  1.10s/it]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  10% Completed | 6/59 [00:06<00:42,  1.23it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  12% Completed | 7/59 [00:06<00:32,  1.59it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  14% Completed | 8/59 [00:06<00:26,  1.94it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  15% Completed | 9/59 [00:06<00:21,  2.30it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  17% Completed | 10/59 [00:07<00:19,  2.53it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  19% Completed | 11/59 [00:07<00:17,  2.79it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  20% Completed | 12/59 [00:07<00:15,  3.11it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  22% Completed | 13/59 [00:07<00:13,  3.36it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  24% Completed | 14/59 [00:08<00:12,  3.53it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  25% Completed | 15/59 [00:08<00:12,  3.58it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  27% Completed | 16/59 [00:08<00:11,  3.67it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  29% Completed | 17/59 [00:08<00:11,  3.82it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  31% Completed | 18/59 [00:09<00:10,  3.83it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  32% Completed | 19/59 [00:09<00:10,  3.86it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  34% Completed | 20/59 [00:09<00:10,  3.89it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  36% Completed | 21/59 [00:09<00:09,  3.87it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  37% Completed | 22/59 [00:10<00:09,  3.89it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  39% Completed | 23/59 [00:10<00:09,  3.98it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  41% Completed | 24/59 [00:10<00:08,  4.04it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  42% Completed | 25/59 [00:10<00:08,  4.07it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  44% Completed | 26/59 [00:11<00:08,  4.10it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  46% Completed | 27/59 [00:11<00:07,  4.09it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  47% Completed | 28/59 [00:11<00:07,  4.14it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  49% Completed | 29/59 [00:11<00:07,  4.04it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  51% Completed | 30/59 [00:12<00:07,  4.02it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  53% Completed | 31/59 [00:12<00:06,  4.02it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  54% Completed | 32/59 [00:12<00:06,  4.12it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  56% Completed | 33/59 [00:12<00:06,  4.05it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  58% Completed | 34/59 [00:13<00:06,  4.00it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  59% Completed | 35/59 [00:13<00:06,  3.99it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  61% Completed | 36/59 [00:13<00:05,  3.91it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  63% Completed | 37/59 [00:13<00:05,  3.91it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  64% Completed | 38/59 [00:14<00:05,  3.90it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  66% Completed | 39/59 [00:14<00:05,  3.94it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  68% Completed | 40/59 [00:14<00:04,  4.03it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  69% Completed | 41/59 [00:14<00:04,  4.09it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  71% Completed | 42/59 [00:15<00:04,  4.07it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  73% Completed | 43/59 [00:15<00:03,  4.16it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  75% Completed | 44/59 [00:15<00:03,  4.19it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  76% Completed | 45/59 [00:15<00:03,  4.13it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  78% Completed | 46/59 [00:16<00:03,  4.08it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  80% Completed | 47/59 [00:16<00:02,  4.12it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  81% Completed | 48/59 [00:16<00:02,  4.18it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  83% Completed | 49/59 [00:16<00:02,  4.18it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  85% Completed | 50/59 [00:17<00:02,  4.19it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  86% Completed | 51/59 [00:17<00:01,  4.22it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  88% Completed | 52/59 [00:17<00:01,  4.08it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  90% Completed | 53/59 [00:17<00:01,  4.01it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  92% Completed | 54/59 [00:18<00:01,  3.95it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  93% Completed | 55/59 [00:18<00:01,  3.83it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:29 [default_loader.py:267] Loading weights took 18.64 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  95% Completed | 56/59 [00:18<00:00,  3.88it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  97% Completed | 57/59 [00:18<00:00,  3.89it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:30 [gpu_model_runner.py:2653] Model loading took 65.5066 GiB and 1378.798497 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:53:30 [default_loader.py:267] Loading weights took 18.56 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards:  98% Completed | 58/59 [00:19<00:00,  3.78it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:53:30 [default_loader.py:267] Loading weights took 18.93 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards: 100% Completed | 59/59 [00:19<00:00,  4.44it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m Loading safetensors checkpoint shards: 100% Completed | 59/59 [00:19<00:00,  3.07it/s]
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m 
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:53:30 [default_loader.py:267] Loading weights took 19.26 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:53:30 [gpu_model_runner.py:2653] Model loading took 65.5066 GiB and 1379.462594 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:53:30 [gpu_model_runner.py:2653] Model loading took 65.5066 GiB and 1379.618014 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:53:31 [gpu_model_runner.py:2653] Model loading took 65.5066 GiB and 1379.397578 seconds
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:53:37 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/290d8f8868/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP2 pid=67)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:53:37 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/290d8f8868/rank_2_0/backbone for vLLM's torch.compile
+INFO 11-07 05:53:37 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/290d8f8868/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:37 [backends.py:548] Using cache directory: /root/.cache/vllm/torch_compile_cache/290d8f8868/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:37 [backends.py:559] Dynamo bytecode transform time: 6.20 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:53:37 [backends.py:559] Dynamo bytecode transform time: 6.26 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:53:37 [backends.py:559] Dynamo bytecode transform time: 6.25 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:53:37 [backends.py:559] Dynamo bytecode transform time: 6.20 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:53:39 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:53:39 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:53:39 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:53:39 [backends.py:197] Cache the graph for dynamic shape for later use
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:54:08 [backends.py:218] Compiling a graph for dynamic shape takes 30.22 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:54:08 [backends.py:218] Compiling a graph for dynamic shape takes 30.33 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:54:08 [backends.py:218] Compiling a graph for dynamic shape takes 30.44 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:54:08 [backends.py:218] Compiling a graph for dynamic shape takes 30.50 s
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:54:09 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=4096,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+INFO 11-07 05:54:09 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=4096,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:54:09 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=4096,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:54:09 [fused_moe.py:788] Using configuration from /usr/local/lib/python3.12/site-packages/vllm/model_executor/layers/fused_moe/configs/E=8,N=4096,device_name=NVIDIA_H100_80GB_HBM3.json for MoE layer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:54:11 [monitor.py:34] torch.compile takes 36.59 s in total
+INFO 11-07 05:54:11 [monitor.py:34] torch.compile takes 36.69 s in total
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:54:11 [monitor.py:34] torch.compile takes 36.42 s in total
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:54:11 [monitor.py:34] torch.compile takes 36.69 s in total
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:54:13 [gpu_worker.py:298] Available KV cache memory: -0.26 GiB
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:54:13 [gpu_worker.py:298] Available KV cache memory: -0.26 GiB
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:54:14 [gpu_worker.py:298] Available KV cache memory: -0.26 GiB
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:54:14 [gpu_worker.py:298] Available KV cache memory: -0.26 GiB
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708] EngineCore failed to start.
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708] Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     self._initialize_kv_caches(vllm_config)
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 199, in _initialize_kv_caches
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     kv_cache_configs = get_kv_cache_configs(vllm_config, kv_cache_specs,
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1243, in get_kv_cache_configs
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     check_enough_kv_cache_memory(vllm_config, kv_cache_spec_one_worker,
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 699, in check_enough_kv_cache_memory
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708]     raise ValueError("No available memory for the cache blocks. "
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [core.py:708] ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine.
+[1;36m(EngineCore_DP0 pid=58)[0;0m ERROR 11-07 05:54:14 [multiproc_executor.py:154] Worker proc VllmWorker-2 died unexpectedly, shutting down executor.
+[1;36m(EngineCore_DP0 pid=58)[0;0m Process EngineCore_DP0:
+FAILED Mixtral-8x22B RuntimeError("Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}")
+[1;36m(EngineCore_DP0 pid=58)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+[1;36m(EngineCore_DP0 pid=58)[0;0m     self.run()
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+[1;36m(EngineCore_DP0 pid=58)[0;0m     self._target(*self._args, **self._kwargs)
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 712, in run_engine_core
+[1;36m(EngineCore_DP0 pid=58)[0;0m     raise e
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 699, in run_engine_core
+[1;36m(EngineCore_DP0 pid=58)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=58)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 498, in __init__
+[1;36m(EngineCore_DP0 pid=58)[0;0m     super().__init__(vllm_config, executor_class, log_stats,
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 92, in __init__
+[1;36m(EngineCore_DP0 pid=58)[0;0m     self._initialize_kv_caches(vllm_config)
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 199, in _initialize_kv_caches
+[1;36m(EngineCore_DP0 pid=58)[0;0m     kv_cache_configs = get_kv_cache_configs(vllm_config, kv_cache_specs,
+[1;36m(EngineCore_DP0 pid=58)[0;0m                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 1243, in get_kv_cache_configs
+[1;36m(EngineCore_DP0 pid=58)[0;0m     check_enough_kv_cache_memory(vllm_config, kv_cache_spec_one_worker,
+[1;36m(EngineCore_DP0 pid=58)[0;0m   File "/usr/local/lib/python3.12/site-packages/vllm/v1/core/kv_cache_utils.py", line 699, in check_enough_kv_cache_memory
+[1;36m(EngineCore_DP0 pid=58)[0;0m     raise ValueError("No available memory for the cache blocks. "
+[1;36m(EngineCore_DP0 pid=58)[0;0m ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine.
+/usr/local/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 987, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/probe_big.py", line 55, in f
+    def f(): return _run(name)
+                    ^^^^^^^^^^
+  File "/root/probe_big.py", line 40, in _run
+    llm = LLM(repo, tensor_parallel_size=tp, max_model_len=20000, gpu_memory_utilization=0.85, max_num_seqs=128, enable_prefix_caching=True, seed=0, **extra)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 297, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(vllm_config=vllm_config,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 114, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 80, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 602, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 448, in __init__
+    with launch_core_engines(vllm_config, executor_class,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 732, in launch_core_engines
+    wait_for_engine_startup(
+  File "/usr/local/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 785, in wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore_DP0': 1}
+[modal-client] 2026-11-07T00:54:26-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-m0FtYiJCDE4kRbgMPJR65q

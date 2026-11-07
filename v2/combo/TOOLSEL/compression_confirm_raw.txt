@@ -1,0 +1,23 @@
+base acc per task: {'AIDET': 0.58, 'FIN': 0.88, 'INJ': 0.943, 'NLI': 0.78, 'ROUTE': 0.803, 'SENT': 0.932, 'SPAM': 0.903, 'TOOLSEL': 0.873, 'TOX': 0.882}
+== results/ct_Qwen2.5-72B_t096.json
+TOOLSEL  ret 0.931 (lo 0.906; 488/524) worst cell 0.894 PASS=False | kind:none 0.93(231); kind:tool 0.94(293); role:S1 0.96(298); role:S3 0.89(226)
+base acc per task: {'AIDET': 0.58, 'FIN': 0.88, 'INJ': 0.943, 'NLI': 0.78, 'ROUTE': 0.803, 'SENT': 0.932, 'SPAM': 0.903, 'TOOLSEL': 0.873, 'TOX': 0.882}
+== results/ct_Qwen2.5-72B_C72_gam1.json
+TOOLSEL  ret 0.971 (lo 0.953; 509/524) worst cell 0.951 PASS=False | kind:none 0.98(231); kind:tool 0.96(293); role:S1 0.99(298); role:S3 0.95(226)
+base acc per task: {'AIDET': 0.515, 'FIN': 0.88, 'INJ': 0.927, 'NLI': 0.763, 'ROUTE': 0.772, 'SENT': 0.953, 'SPAM': 0.875, 'TOOLSEL': 0.85, 'TOX': 0.828}
+== results/ct_Qwen3-32B_t096.json
+TOOLSEL  ret 0.916 (lo 0.888; 467/510) worst cell 0.836 PASS=False | kind:none 0.97(215); kind:tool 0.88(295); role:S1 0.97(297); role:S3 0.84(213)
+== results/ct_Qwen3-32B_L2_gam1.json
+TOOLSEL  ret 0.961 (lo 0.940; 490/510) worst cell 0.920 PASS=False | kind:none 0.95(215); kind:tool 0.97(295); role:S1 0.99(297); role:S3 0.92(213)
+== results/ct_Qwen3-32B_L4_gam2.json
+TOOLSEL  ret 0.975 (lo 0.957; 497/510) worst cell 0.948 PASS=False | kind:none 0.96(215); kind:tool 0.98(295); role:S1 0.99(297); role:S3 0.95(213)
+== results/ct_Qwen3-32B_R3_kl.json
+TOOLSEL  ret 0.955 (lo 0.933; 487/510) worst cell 0.930 PASS=False | kind:none 0.94(215); kind:tool 0.96(295); role:S1 0.97(297); role:S3 0.93(213)
+== results/ct_Qwen3-32B_LCM_mix.json
+TOOLSEL  ret 0.922 (lo 0.895; 470/510) worst cell 0.845 PASS=False | kind:none 0.97(215); kind:tool 0.89(295); role:S1 0.98(297); role:S3 0.85(213)
+== results/ct_Qwen3-32B_t12.json
+TOOLSEL  ret 0.978 (lo 0.962; 499/510) worst cell 0.958 PASS=False | kind:none 0.98(215); kind:tool 0.98(295); role:S1 0.99(297); role:S3 0.96(213)
+== results/ct_Qwen3-32B_C32_gam1_r12.json
+TOOLSEL  ret 0.978 (lo 0.962; 499/510) worst cell 0.958 PASS=False | kind:none 0.96(215); kind:tool 0.99(295); role:S1 0.99(297); role:S3 0.96(213)
+== results/ct_Qwen3-32B_t15.json
+TOOLSEL  ret 0.990 (lo 0.977; 505/510) worst cell 0.981 PASS=False | kind:none 0.98(215); kind:tool 1.00(295); role:S1 1.00(297); role:S3 0.98(213)

@@ -1,0 +1,65 @@
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 449.33it/s]
+[     9s] model Qwen3-32B tied False D 5120 V 151936
+[     9s] label tokens {'Injection': ['Injection', '<|im_end|>'], 'Benign': ['Ben', 'ign', '<|im_end|>'], 'Jailbreak': ['J', 'ail', 'break', '<|im_end|>']}
+Traceback (most recent call last):
+  File "/opt/dlami/nvme/work/inl/run_inl2.py", line 64, in <module>
+    cache("jb_ann",lambda r:ALLL); cache("jb_dev",lambda r:[NEW]); cache("jb_teach",lambda r:[NEW]); cache("jb_ood",lambda r:[NEW]); cache("other_pool",lambda r:[NEW])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/inl/run_inl2.py", line 61, in cache
+    sq=[mkseq(S[i]["pid"],l) for i,l in need]; hs=hidden_seqs([(a,b) for a,b,_ in sq])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/inl/run_inl2.py", line 51, in hidden_seqs
+    h=lm.model(input_ids=ids.to(dev),attention_mask=am.to(dev)).last_hidden_state
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 1064, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 410, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 260, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 200, in forward
+    query_states = self.q_norm(self.q_proj(hidden_states).view(hidden_shape)).transpose(1, 2)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 62, in forward
+    variance = hidden_states.pow(2).mean(-1, keepdim=True)
+               ^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.83 GiB. GPU 0 has a total capacity of 94.97 GiB of which 534.19 MiB is free. Process 9103 has 28.02 GiB memory in use. Including non-PyTorch memory, this process has 66.42 GiB memory in use. Of the allocated memory 64.94 GiB is allocated by PyTorch, and 833.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

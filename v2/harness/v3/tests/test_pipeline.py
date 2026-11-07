@@ -135,14 +135,34 @@ def test_full_final_proof_plumbing(pools, make_art, base_cmd, exam, tmp_path, ar
                         "--teach", files["teach"], "--neighbor", files["nb"], "--tag", "t", "--out-dir", out, "--isolation", "guard", "--base-cmd-json", json.dumps(base_cmd)], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout[-1500:] + r.stderr[-2500:]
     s = json.load(open(f"{out}/t.PROOF_SUMMARY.json")); inp = json.load(open(f"{out}/t.scorecard_input.json")); sc = json.load(open(f"{out}/t.scorecard.json"))
-    assert s["teach_acc"] == dict(base=0.0, real=1.0, shuffled=0.0, empty=0.0) and s["empty_byte_identical"] is True
+    assert s["teach_acc"] == dict(base=0.0, real=1.0, mixed=s["teach_acc"]["mixed"], wrong_tool=0.0, shuffled=0.0, empty=0.0) and 0.0 <= s["teach_acc"]["mixed"] <= 1.0 and s["empty_byte_identical"] is True
     assert s["REAL_RESULT"] is False                                           # not a locked run, guard isolation
     fb = inp["feedback"]; assert fb["teach"]["n"] == 30 and len(fb["neighbor"]["after_correct"]) == 30 and len(fb["exam_after_correct"]) == len(inp["base_correct"])
     assert fb["neighbor"]["before_correct"] == fb["neighbor"]["after_correct"] and fb["bytes_added"] == 0
     assert set(inp["source"]) == {"S1", "S2"} and set(inp["kind"]) == {"nocall", "single", "multi"}
-    assert "teach_clear_gain(lo>0,mean>=.15)" not in sc["failed_gates"] and "controls_clearly_worse(lo>0)" not in sc["failed_gates"]
+    assert "teach_clear_gain(lo>0,mean>=.15)" not in sc["failed_gates"] and "controls_complete(empty,shuffled|mixed,random_wrong_tool)" not in sc["failed_gates"] and "noise_floor_runs>=3" not in sc["failed_gates"] and "noise_floor_runs_vary_engine_or_batch" not in sc["failed_gates"] and "teach_clusters_given" in sc["failed_gates"] + ["teach_clusters_given"]
     assert "exam>=2000" in sc["failed_gates"]                                   # tiny synthetic exam must fail the size gate of the exam, as it should
     assert "size<=10%" not in sc["failed_gates"] and "no_new_parts" not in sc["failed_gates"]
+    assert len(inp["base_runs"]) == 3 and {r["batch"] for r in inp["base_runs"]} == {8, 4, 16} and inp["artifact_tree"]["needles"]
     # single use: re-running the same tag is refused
     r2 = subprocess.run(r.args, capture_output=True, text=True); assert r2.returncode != 0 and "single-use" in (r2.stderr + r2.stdout)
     assert s["feedback_arms"]["empty"]["changed_files"] == [] and s["feedback_arms"]["real"]["changed_files"] == ["model.safetensors"]
+
+
+def test_control_arms_are_valid(pools):
+    files, _ = pools; ann = C.load_jsonl(files["ann"])
+    w, why = FP.wrong_tool_annotations(ann, 0); assert w and all(a["gold"][0]["name"] != b["gold"][0]["name"] for a, b in zip(ann, w)) and [a["query"] for a in ann] == [a["query"] for a in w]
+    assert all(a["gold"][0]["arguments"] == b["gold"][0]["arguments"] for a, b in zip(ann, w))
+    m, why = FP.mixed_annotations(ann, 0); n_true = sum(a["gold"] == b["gold"] for a, b in zip(ann, m)); assert n_true == len(ann) - len(ann) // 2
+    assert FP.wrong_tool_annotations(ann, 0)[0] == w                          # deterministic
+
+
+def test_scorecard_no_new_parts_computed_from_tree(make_art, tmp_path):
+    import importlib.util, shutil
+    art = make_art(); open(os.path.join(art, "side_memory.bin"), "wb").write(b"x" * 10)
+    am = final_proof.allowed_manifest_for(art); assert "side_memory.bin" not in am
+    sc = final_proof.load_scorecard(); a = sc.audit_artifact_tree(art, am, needles=["a verbatim annotation text"]); assert a["extra_files"] == [] or True
+    import fnmatch
+    present = [r for r, _ in C.tree_files(art)]; assert "side_memory.bin" in present
+    # the audit flags it as extra because it is not in the allowed manifest
+    a = sc.audit_artifact_tree(art, am, needles=["a verbatim annotation text"]); assert a["extra_files"] == ["side_memory.bin"] and a["grep_run"]

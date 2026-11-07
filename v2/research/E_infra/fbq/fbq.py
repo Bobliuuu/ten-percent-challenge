@@ -19,7 +19,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--model", default="Qwen/Qwen3-1.7B"); ap.add_argument("--k", type=int, default=4); ap.add_argument("--ndraw", type=int, default=8)
 ap.add_argument("--nann", type=int, default=25); ap.add_argument("--pool_n", type=int, default=7000); ap.add_argument("--sites", default="down_proj")
 ap.add_argument("--omega", type=float, default=10.0); ap.add_argument("--out", default="res.json"); ap.add_argument("--ncal", type=int, default=750)
-ap.add_argument("--variants", default="B0,V2,V3,V1"); ap.add_argument("--seed", type=int, default=0); ap.add_argument("--bits", type=int, default=4)
+ap.add_argument("--scenario", default="natural"); ap.add_argument("--variants", default="B0,V2,V3,V1"); ap.add_argument("--seed", type=int, default=0); ap.add_argument("--bits", type=int, default=4)
 args = ap.parse_args()
 T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
 H8 = lambda s: int(hashlib.sha256(s.encode()).hexdigest()[:8], 16)
@@ -31,8 +31,13 @@ def gptq(W, H, damp=0.01):
     """W [out,in] fp, H [in,in] (sum of x x^T). asym min-max 4-bit, group 128 (= block). returns deq (float32), codes uint8, scales fp16 [out,in/GS], zeros uint8"""
     W = W.float().clone(); out, inn = W.shape; H = H.float().clone()
     dead = torch.diag(H) == 0; H[dead, dead] = 1; W[:, dead] = 0
-    H += damp * torch.mean(torch.diag(H)) * torch.eye(inn, device=W.device)
-    L = torch.linalg.cholesky(H); Hinv = torch.linalg.cholesky(torch.cholesky_inverse(L), upper=True)
+    H0_ = H; dm = damp
+    for _ in range(8):
+        H = H0_ + dm * torch.mean(torch.diag(H0_)) * torch.eye(inn, device=W.device)
+        L, info = torch.linalg.cholesky_ex(H)
+        if int(info) == 0: break
+        dm *= 4
+    Hinv = torch.linalg.cholesky(torch.cholesky_inverse(L), upper=True)
     Q = torch.zeros_like(W); codes = torch.zeros(out, inn, dtype=torch.uint8, device=W.device); sc = []; zs = []
     for i1 in range(0, inn, GS):
         W1 = W[:, i1:i1 + GS].clone(); Err1 = torch.zeros_like(W1); Hi = Hinv[i1:i1 + GS, i1:i1 + GS]
@@ -73,7 +78,7 @@ tok = AutoTokenizer.from_pretrained(args.model); tok.padding_side = "left"
 lm = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16, attn_implementation="sdpa").to(dev).eval()
 for p in lm.parameters(): p.requires_grad_(False)
 NL = lm.config.num_hidden_layers; layers = lm.model.layers; D = lm.config.hidden_size; LAB = list(scorer.LABELS)
-FT = {l: tok.encode(l, add_special_tokens=False)[0] for l in LAB}; assert len(set(FT.values())) == 5; tid2lab = {t: l for l, t in FT.items()}
+FT = {l: tok.encode(l, add_special_tokens=False)[0] for l in LAB + ["selfharm"]}; assert len(set(FT.values())) == 6, FT; tid2lab = {t: l for l, t in FT.items()}
 def chat(u):
     try: return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
     except TypeError: return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
@@ -81,8 +86,16 @@ ld = lambda f: [json.loads(l) for l in open(f"{DATA}/{f}.jsonl")]
 dev1, dev3, pool1, pool3, cal = ld("s1_dev"), ld("s3_dev"), ld("s1_pool"), ld("s3_pool"), ld("s1_calib")
 random.Random(args.seed).shuffle(pool1); random.Random(args.seed).shuffle(pool3)
 pool1, pool3 = pool1[:args.pool_n], pool3[:args.pool_n // 2]; cal = cal[:args.ncal]
-ALL = dev1 + dev3 + pool1 + pool3 + cal
-role = ["dev1"] * len(dev1) + ["dev3"] * len(dev3) + ["pool1"] * len(pool1) + ["pool3"] * len(pool3) + ["cal"] * len(cal)
+NEWROWS = []
+if args.scenario == "newlabel":
+    pool1, pool3 = pool1[:1500], pool3[:1500]; seen = set()
+    for r in json.load(open(f"{DATA}/aegis_train.json")):
+        t = r["prompt"]
+        if r.get("violated_categories") == "Suicide and Self Harm" and r.get("prompt_label") == "unsafe" and t not in seen and 15 < len(t) < 1500:
+            seen.add(t); h = hashlib.sha256(t.encode()).hexdigest()[:10]; NEWROWS.append(dict(gold="selfharm", group="nl" + h, id="nl_" + h, text=t))
+    log("new-label items", len(NEWROWS))
+ALL = dev1 + dev3 + pool1 + pool3 + NEWROWS + cal
+role = ["dev1"] * len(dev1) + ["dev3"] * len(dev3) + ["pool1"] * len(pool1) + ["pool3"] * len(pool3) + ["new"] * len(NEWROWS) + ["cal"] * len(cal)
 PROMPTS = [chat(scorer.PROMPT.format(t=r["text"])) for r in ALL]
 ENC = [tok.encode(p, add_special_tokens=False) for p in PROMPTS]
 log("items", len(ALL), "mean tokens", np.mean([len(e) for e in ENC]))
@@ -204,35 +217,46 @@ R = dict(model=args.model, k=args.k, sites=SITES, omega=args.omega, bits=args.bi
 log("quantised-base acc", R["base_acc"])
 # ---------------------------------------------------------------- spec (as fb_tox)
 devidx = [i for i, x in enumerate(role) if x in ("dev1", "dev3")]; pidx = [i for i, x in enumerate(role) if x in ("pool1", "pool3")]
-conf = collections.Counter((gold[i], base_pred[i]) for i in devidx if base_pred[i] != gold[i]); R["dev_confusions_top"] = [[list(k), v] for k, v in conf.most_common(8)]
 grp = lambda i: int(H8("g|" + ALL[i]["group"]) % 10)
-def support(pair):
-    a = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == pair and grp(i) in (0, 1)]
-    t1 = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == pair and 2 <= grp(i) <= 5]; return len(a), len(t1)
-concept = None
-for pair, n in conf.most_common():
-    if pair[1] is None: continue
-    sa, st = support(pair)
-    if sa >= 20 and st >= 25: concept = pair; break
-R["concept"] = concept; log("concept", concept, support(concept) if concept else None)
-if concept is None:
-    R["error"] = "no concept"; json.dump(R, open(args.out, "w")); sys.exit(0)
-cg, cp = concept
-ann_c = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == concept and grp(i) in (0, 1)]
-teach1 = sorted([i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == concept and 2 <= grp(i) <= 5], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
-teach3 = sorted([i for i in pidx if role[i] == "pool3" and (gold[i], base_pred[i]) == concept], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
-nb_same = sorted([i for i in pidx if role[i] == "pool1" and gold[i] == cg and base_ok[i] and grp(i) >= 6], key=lambda i: H8("n|" + ALL[i]["id"]))[:220]
-nb_other = []
-for l in [x for x in LAB if x != cg]: nb_other += sorted([i for i in pidx if role[i] == "pool1" and gold[i] == l and base_ok[i] and grp(i) >= 6], key=lambda i: H8("n|" + ALL[i]["id"]))[:55]
-nb = nb_same + nb_other
-nb3 = sorted([i for i in pidx if role[i] == "pool3" and base_ok[i]], key=lambda i: H8("n|" + ALL[i]["id"]))[:150]
-devret = [i for i in devidx if base_ok[i]]
+if args.scenario == "newlabel":
+    R["dev_confusions_top"] = None; concept = ("selfharm", None); R["concept"] = concept
+    newi = [i for i, x in enumerate(role) if x == "new"]
+    R["new_base_pred_hist"] = dict(collections.Counter(str(base_pred[i]) for i in newi))
+    ann_c = [i for i in newi if grp(i) in (0, 1) and base_pred[i] in LAB]
+    teach1 = sorted([i for i in newi if 2 <= grp(i) <= 5], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
+    teach3 = sorted([i for i in newi if grp(i) >= 6], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
+    nb = sorted([i for i in pidx if role[i] == "pool1" and base_ok[i] and grp(i) >= 6], key=lambda i: H8("n|" + ALL[i]["id"]))[:400]
+    nb3 = sorted([i for i in pidx if role[i] == "pool3" and base_ok[i]], key=lambda i: H8("n|" + ALL[i]["id"]))[:150]
+    devret = [i for i in devidx if base_ok[i]]
+else:
+    conf = collections.Counter((gold[i], base_pred[i]) for i in devidx if base_pred[i] != gold[i]); R["dev_confusions_top"] = [[list(k), v] for k, v in conf.most_common(8)]
+    def support(pair):
+        a = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == pair and grp(i) in (0, 1)]
+        t1 = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == pair and 2 <= grp(i) <= 5]; return len(a), len(t1)
+    concept = None
+    for pair, n in conf.most_common():
+        if pair[1] is None: continue
+        sa, st = support(pair)
+        if sa >= 20 and st >= 25: concept = pair; break
+    R["concept"] = concept; log("concept", concept, support(concept) if concept else None)
+    if concept is None:
+        R["error"] = "no concept"; json.dump(R, open(args.out, "w")); sys.exit(0)
+    cg, cp = concept
+    ann_c = [i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == concept and grp(i) in (0, 1)]
+    teach1 = sorted([i for i in pidx if role[i] == "pool1" and (gold[i], base_pred[i]) == concept and 2 <= grp(i) <= 5], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
+    teach3 = sorted([i for i in pidx if role[i] == "pool3" and (gold[i], base_pred[i]) == concept], key=lambda i: H8("t|" + ALL[i]["id"]))[:150]
+    nb_same = sorted([i for i in pidx if role[i] == "pool1" and gold[i] == cg and base_ok[i] and grp(i) >= 6], key=lambda i: H8("n|" + ALL[i]["id"]))[:220]
+    nb_other = []
+    for l in [x for x in LAB if x != cg]: nb_other += sorted([i for i in pidx if role[i] == "pool1" and gold[i] == l and base_ok[i] and grp(i) >= 6], key=lambda i: H8("n|" + ALL[i]["id"]))[:150]
+    nb = nb_same + nb_other
+    nb3 = sorted([i for i in pidx if role[i] == "pool3" and base_ok[i]], key=lambda i: H8("n|" + ALL[i]["id"]))[:150]
+    devret = [i for i in devidx if base_ok[i]]
 spec = dict(concept=list(concept), ann=[ALL[i]["id"] for i in ann_c], teach1=[ALL[i]["id"] for i in teach1], teach3=[ALL[i]["id"] for i in teach3], nb=[ALL[i]["id"] for i in nb], nb3=[ALL[i]["id"] for i in nb3])
 R["spec_sha256"] = hashlib.sha256(json.dumps(spec, sort_keys=True).encode()).hexdigest(); R["spec_n"] = {k: len(v) for k, v in spec.items() if k != "concept"}
 log("SPEC_SHA (fixed BEFORE any feedback)", R["spec_sha256"], R["spec_n"])
 gs = lambda L: {ALL[i]["group"] for i in L}
 R["group_overlap"] = dict(ann_vs_teach=len(gs(ann_c) & (gs(teach1) | gs(teach3))), ann_vs_nb=len(gs(ann_c) & gs(nb)), teach_vs_nb=len(gs(teach1) & gs(nb)))
-sets = dict(teach1=teach1, teach3=teach3, nb=nb, nb3=nb3, devret=devret)
+sets = {k: v for k, v in dict(teach1=teach1, teach3=teach3, nb=nb, nb3=nb3, devret=devret).items() if len(v) > 0}
 
 # ---------------------------------------------------------------- cut caches for tail forward (V1)
 need = set(sum(sets.values(), [])) | set(ann_c)
@@ -243,10 +267,10 @@ cand_sorted = sorted(ann_c, key=lambda i: H8("a|" + ALL[i]["id"]))
 draws = [random.Random(args.seed * 100 + d).sample(cand_sorted, min(args.nann, len(cand_sorted))) for d in range(args.ndraw)]
 def wrong_random(i, rr): return rr.choice([l for l in LAB if l != gold[i]])
 def arm_labels(arm, sel, d):
-    rr = random.Random(args.seed * 1000 + d)
+    rr = random.Random(args.seed * 1000 + d); bp = lambda i: base_pred[i] if base_pred[i] in LAB else rr.choice([l for l in LAB if l != gold[i]])
     if arm == "real": return sel, [gold[i] for i in sel]
     if arm == "empty": return [], []
-    if arm == "mixed": return sel, [gold[i] if k % 2 == 0 else base_pred[i] for k, i in enumerate(sel)]
+    if arm == "mixed": return sel, [gold[i] if k % 2 == 0 else bp(i) for k, i in enumerate(sel)]
     return sel, [wrong_random(i, rr) for i in sel]
 ARMS = ["real", "empty", "mixed", "randwrong"]
 
@@ -433,10 +457,10 @@ for v in VARS:
     res[v] = dict(arms={}, gaps={}, bytes_changed={a: float(np.mean(bytes_ch[v][a])) for a in ARMS}, selected_param={a: sel_par[v][a][:4] for a in ARMS})
     for a in ARMS:
         res[v]["arms"][a] = {k: dict(zip(("mean", "ci"), boot(per[v][a][k], sets[k]))) for k in sets}
-    for k in ("teach1", "teach3"):
+    for k in [x for x in ("teach1", "teach3") if x in sets]:
         for ctrl in ("empty", "mixed", "randwrong"):
             m, ci = boot(per[v]["real"][k], sets[k], other=per[v][ctrl][k]); res[v]["gaps"][f"real_minus_{ctrl}|{k}"] = dict(mean=m, ci=ci)
-    for k in ("nb", "nb3", "devret"):
+    for k in [x for x in ("nb", "nb3", "devret") if x in sets]:
         m, ci = boot(per[v]["real"][k], sets[k], other=[base_sets[k]] * args.ndraw); res[v]["gaps"][f"real_minus_base|{k}"] = dict(mean=m, ci=ci)
     # neighbour retention of base-correct neighbours per arm (all base-correct, so retention = mean acc)
 R.update(results=res, ndraw=args.ndraw, nann=len(draws[0]), artifact_bytes_tail_lm=art_total, seconds=time.time() - T0)

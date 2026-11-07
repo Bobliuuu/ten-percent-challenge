@@ -1,0 +1,4 @@
+# needs from E_infra requant-feedback track (written 2026-11-07 ~07:10Z)
+Code: ~/ten-percent/v2/research/E_infra/fbq/fbq.py (copy on box ~/fbq/fbq3.py/fbq4.py; fbq4 = fbq3 with bs 8), summ.py. Data (dev/pool only, no locked): ~/ten-percent/v2/tournament/TOX/data/{s1_dev,s3_dev,s1_pool,s3_pool,s1_calib}.jsonl + scorer.py + raw/aegis/train.json -> put in fbq/data/ (aegis as aegis_train.json). Env: torch 2.8, transformers 4.57, HF public models.
+Finished: Qwen3-1.7B natural+newlabel, Qwen3-4B-Instruct-2507 natural + newlabel (results/ in repo dir).
+Unfinished (expected done on box by ~08:30Z): Qwen/Qwen3-8B natural (python fbq3.py --model Qwen/Qwen3-8B --ndraw 8 --pool_n 5000 --out r_8B_k4.json), Qwen3-8B newlabel (python fbq4.py --model Qwen/Qwen3-8B --scenario newlabel --ndraw 8 --k 1 --variants B0,V2,V3 --out nl_8B_k1.json). Not resumable per draw; ~1h and ~30min alone, >=70 GB VRAM for natural (use <=40GB for newlabel), 1 GPU.

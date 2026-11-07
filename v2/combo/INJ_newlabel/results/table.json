@@ -1,0 +1,4322 @@
+[
+ {
+  "model": "Qwen3-14B",
+  "m": "cal",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.6293548387096775,
+  "teach_base": 0.0,
+  "nsites": 3.15,
+  "gain": [
+   0.6293548387096775,
+   0.5144182937181664,
+   0.7378559441794736
+  ],
+  "r-wrong": [
+   0.6293548387096775,
+   0.5172039215686275,
+   0.7381030931998062
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.24451612903225806,
+   0.11840764331210192,
+   0.3645174642170476
+  ],
+  "teach_mixed_wrong": 0.38483870967741934,
+  "r-mixed_own": [
+   0.22548387096774195,
+   0.11341792052469135,
+   0.35001623376623375
+  ],
+  "teach_mixed_own": 0.4038709677419355,
+  "r-shuffle": [
+   0.36258064516129035,
+   0.12173251114827202,
+   0.5756945519435844
+  ],
+  "teach_shuffle": 0.2667741935483871,
+  "neigh": 0.9128458498023715,
+  "neigh_wlo": 0.8938690113388972,
+  "neigh_min_draw": 0.66600790513834,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 0.9998039215686274,
+   "S1dev/Injection": 0.9301075268817204,
+   "S3dev/Injection": 0.61875,
+   "S3dev/Benign": 0.9993852459016394,
+   "jhBenign/Benign": 0.9866666666666667
+  },
+  "ood_gain": [
+   0.615,
+   0.5129830770336304,
+   0.7155826460910492
+  ],
+  "ood_r-wrong": [
+   0.615,
+   0.5029756756756757,
+   0.7163524871355059
+  ],
+  "ood_r-shuffle": [
+   0.37333333333333335,
+   0.14838833060767773,
+   0.5804904920692142
+  ],
+  "neigh_wrong": 0.8063735177865613,
+  "neigh_shuffle": 0.9105731225296445,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.792258064516129,
+  "teach_base": 0.0,
+  "nsites": 5.45,
+  "gain": [
+   0.792258064516129,
+   0.7203987588194802,
+   0.8559207885168914
+  ],
+  "r-wrong": [
+   0.792258064516129,
+   0.7143682472989196,
+   0.8574461309523809
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.30838709677419357,
+   0.17281204763784708,
+   0.4449249392390211
+  ],
+  "teach_mixed_wrong": 0.4838709677419355,
+  "r-mixed_own": [
+   0.16419354838709677,
+   0.07012826811346548,
+   0.27534144736842103
+  ],
+  "teach_mixed_own": 0.6280645161290322,
+  "r-shuffle": [
+   0.5683870967741935,
+   0.40407630958291957,
+   0.7235390685473466
+  ],
+  "teach_shuffle": 0.2238709677419355,
+  "neigh": 0.8358201581027668,
+  "neigh_wlo": 0.8117345191783655,
+  "neigh_min_draw": 0.6798418972332015,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 0.9996078431372549,
+   "S1dev/Injection": 0.8064516129032258,
+   "S3dev/Injection": 0.33541666666666664,
+   "S3dev/Benign": 0.9989754098360656,
+   "jhBenign/Benign": 0.9837037037037037
+  },
+  "ood_gain": [
+   0.7673333333333333,
+   0.6956926610707804,
+   0.8394953722133758
+  ],
+  "ood_r-wrong": [
+   0.7673333333333333,
+   0.6884734069886947,
+   0.839104020979021
+  ],
+  "ood_r-shuffle": [
+   0.5606666666666666,
+   0.400975,
+   0.698031926794344
+  ],
+  "neigh_wrong": 0.7877470355731225,
+  "neigh_shuffle": 0.9106225296442689,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.8396774193548387,
+  "teach_base": 0.0,
+  "nsites": 8.7,
+  "gain": [
+   0.8396774193548387,
+   0.7741071428571428,
+   0.8955570453174808
+  ],
+  "r-wrong": [
+   0.8396774193548387,
+   0.7744803921568628,
+   0.8980728391232423
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.21451612903225806,
+   0.1225750244977952,
+   0.3266503457392718
+  ],
+  "teach_mixed_wrong": 0.6251612903225806,
+  "r-mixed_own": [
+   0.09290322580645162,
+   0.03864372649910944,
+   0.1596901515151515
+  ],
+  "teach_mixed_own": 0.7467741935483871,
+  "r-shuffle": [
+   0.47935483870967743,
+   0.2971614521136852,
+   0.6569289065319379
+  ],
+  "teach_shuffle": 0.3603225806451613,
+  "neigh": 0.7411561264822134,
+  "neigh_wlo": 0.713293720370097,
+  "neigh_min_draw": 0.6571146245059288,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 0.4747311827956989,
+   "S3dev/Injection": 0.16979166666666667,
+   "S3dev/Benign": 0.9981557377049181,
+   "jhBenign/Benign": 0.9674074074074074
+  },
+  "ood_gain": [
+   0.8173333333333334,
+   0.7482344310963822,
+   0.8815295083598726
+  ],
+  "ood_r-wrong": [
+   0.8173333333333334,
+   0.7503298611111112,
+   0.8753507965686275
+  ],
+  "ood_r-shuffle": [
+   0.482,
+   0.3059124970145689,
+   0.6507106164383561
+  ],
+  "neigh_wrong": 0.7337450592885375,
+  "neigh_shuffle": 0.8359189723320158,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.8374193548387097,
+  "teach_base": 0.0,
+  "nsites": 13.35,
+  "gain": [
+   0.8374193548387097,
+   0.7671807076753269,
+   0.8968890224358974
+  ],
+  "r-wrong": [
+   0.8374193548387097,
+   0.7746718016081522,
+   0.8931117995689655
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.1,
+   0.014067697694776773,
+   0.19244819602748908
+  ],
+  "teach_mixed_wrong": 0.7374193548387097,
+  "r-mixed_own": [
+   0.024193548387096774,
+   -0.02227349501444413,
+   0.08007761437908495
+  ],
+  "teach_mixed_own": 0.8132258064516129,
+  "r-shuffle": [
+   0.45387096774193547,
+   0.2769157980177717,
+   0.6246667737522799
+  ],
+  "teach_shuffle": 0.3835483870967742,
+  "neigh": 0.7599802371541502,
+  "neigh_wlo": 0.7327142622606655,
+  "neigh_min_draw": 0.6650197628458498,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 0.556989247311828,
+   "S3dev/Injection": 0.19739583333333333,
+   "S3dev/Benign": 0.9977459016393443,
+   "jhBenign/Benign": 0.9566666666666667
+  },
+  "ood_gain": [
+   0.8236666666666667,
+   0.7516708710752336,
+   0.8837153906148447
+  ],
+  "ood_r-wrong": [
+   0.8236666666666667,
+   0.7610953093812375,
+   0.881509500662837
+  ],
+  "ood_r-shuffle": [
+   0.4066666666666667,
+   0.23778512241838776,
+   0.5756724757372154
+  ],
+  "neigh_wrong": 0.7387351778656126,
+  "neigh_shuffle": 0.7799901185770752,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.8296774193548387,
+  "teach_base": 0.0,
+  "nsites": 27.0,
+  "gain": [
+   0.8296774193548387,
+   0.7676215277777778,
+   0.8870984088927637
+  ],
+  "r-wrong": [
+   0.8296774193548387,
+   0.7613924050632911,
+   0.8853953930056871
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.10354838709677419,
+   0.05922770700636943,
+   0.161075487012987
+  ],
+  "teach_mixed_wrong": 0.7261290322580645,
+  "r-mixed_own": [
+   0.013548387096774193,
+   -0.008334627329192547,
+   0.03536905299608551
+  ],
+  "teach_mixed_own": 0.8161290322580645,
+  "r-shuffle": [
+   0.08516129032258064,
+   -0.05166813725490196,
+   0.24073097495983384
+  ],
+  "teach_shuffle": 0.7445161290322581,
+  "neigh": 0.7818675889328063,
+  "neigh_wlo": 0.755383031671506,
+  "neigh_min_draw": 0.6571146245059288,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 0.6432795698924731,
+   "S3dev/Injection": 0.2125,
+   "S3dev/Benign": 0.9985655737704918,
+   "jhBenign/Benign": 0.9788888888888889
+  },
+  "ood_gain": [
+   0.812,
+   0.7421697462768891,
+   0.872369555353902
+  ],
+  "ood_r-wrong": [
+   0.812,
+   0.7411549482806821,
+   0.8751656755417399
+  ],
+  "ood_r-shuffle": [
+   0.05333333333333334,
+   -0.08050587216018483,
+   0.20659085311240483
+  ],
+  "neigh_wrong": 0.7228260869565217,
+  "neigh_shuffle": 0.5069169960474308,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal2",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.2845161290322581,
+  "teach_base": 0.0,
+  "nsites": 3.15,
+  "gain": [
+   0.2845161290322581,
+   0.19382599363723524,
+   0.38247315184815184
+  ],
+  "r-wrong": [
+   0.2845161290322581,
+   0.19501748213663297,
+   0.3789044550582616
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.1638709677419355,
+   0.07514261744966443,
+   0.25915432724814064
+  ],
+  "teach_mixed_wrong": 0.12064516129032259,
+  "r-mixed_own": [
+   0.1596774193548387,
+   0.06979397891231964,
+   0.25271061736629286
+  ],
+  "teach_mixed_own": 0.12483870967741935,
+  "r-shuffle": [
+   0.2738709677419355,
+   0.1791625,
+   0.36931966878931427
+  ],
+  "teach_shuffle": 0.01064516129032258,
+  "neigh": 0.9861660079051383,
+  "neigh_wlo": 0.9769131436242667,
+  "neigh_min_draw": 0.9644268774703557,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.94921875,
+   "S3dev/Benign": 0.9961065573770492,
+   "jhBenign/Benign": 0.9755555555555555
+  },
+  "ood_gain": [
+   0.43066666666666664,
+   0.33783160820394864,
+   0.522420064113102
+  ],
+  "ood_r-wrong": [
+   0.43066666666666664,
+   0.3370042888074617,
+   0.5272031767384107
+  ],
+  "ood_r-shuffle": [
+   0.415,
+   0.3166319444444444,
+   0.5192017747910743
+  ],
+  "neigh_wrong": 0.9411561264822135,
+  "neigh_shuffle": 0.99901185770751,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal2",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.3732258064516129,
+  "teach_base": 0.0,
+  "nsites": 5.45,
+  "gain": [
+   0.3732258064516129,
+   0.27879762488758075,
+   0.4761599280732345
+  ],
+  "r-wrong": [
+   0.3732258064516129,
+   0.2748267162944582,
+   0.47534114852081183
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.12774193548387097,
+   0.03118915425971878,
+   0.23909639498432603
+  ],
+  "teach_mixed_wrong": 0.24548387096774194,
+  "r-mixed_own": [
+   0.10516129032258065,
+   0.005193359722469312,
+   0.2117698136194588
+  ],
+  "teach_mixed_own": 0.26806451612903226,
+  "r-shuffle": [
+   0.3732258064516129,
+   0.27340268456375844,
+   0.47848249325484427
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9856719367588933,
+  "neigh_wlo": 0.9762999389458261,
+  "neigh_min_draw": 0.9476284584980237,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9416666666666667,
+   "S3dev/Benign": 0.9963114754098361,
+   "jhBenign/Benign": 0.9822222222222222
+  },
+  "ood_gain": [
+   0.49933333333333335,
+   0.40030000729501025,
+   0.5954376531862745
+  ],
+  "ood_r-wrong": [
+   0.49933333333333335,
+   0.40065,
+   0.5937060434502439
+  ],
+  "ood_r-shuffle": [
+   0.49866666666666665,
+   0.3924734589041096,
+   0.6056326413652572
+  ],
+  "neigh_wrong": 0.9138833992094861,
+  "neigh_shuffle": 0.9995553359683795,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal2",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.5348387096774193,
+  "teach_base": 0.0,
+  "nsites": 8.7,
+  "gain": [
+   0.5348387096774193,
+   0.4522355769230769,
+   0.6296352686644278
+  ],
+  "r-wrong": [
+   0.5348387096774193,
+   0.44681409925045235,
+   0.6158251976073489
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.3445161290322581,
+   0.2677772478624621,
+   0.42710192062818336
+  ],
+  "teach_mixed_wrong": 0.19032258064516128,
+  "r-mixed_own": [
+   0.22774193548387098,
+   0.15607565899232564,
+   0.3045633971291866
+  ],
+  "teach_mixed_own": 0.30709677419354836,
+  "r-shuffle": [
+   0.5348387096774193,
+   0.44646316225165567,
+   0.6232177871148459
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9769762845849802,
+  "neigh_wlo": 0.9657747644283355,
+  "neigh_min_draw": 0.9565217391304348,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.91015625,
+   "S3dev/Benign": 0.9959016393442623,
+   "jhBenign/Benign": 0.9625925925925926
+  },
+  "ood_gain": [
+   0.6573333333333333,
+   0.5773941469489415,
+   0.7275069297004011
+  ],
+  "ood_r-wrong": [
+   0.6573333333333333,
+   0.5745096416049863,
+   0.7369970179852763
+  ],
+  "ood_r-shuffle": [
+   0.6573333333333333,
+   0.5719730829644438,
+   0.7375527597402597
+  ],
+  "neigh_wrong": 0.8975790513833992,
+  "neigh_shuffle": 0.9997529644268776,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal2",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.5661290322580645,
+  "teach_base": 0.0,
+  "nsites": 13.35,
+  "gain": [
+   0.5661290322580645,
+   0.4696666666666667,
+   0.6496875
+  ],
+  "r-wrong": [
+   0.5661290322580645,
+   0.47990999319419236,
+   0.6536129266521423
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.337741935483871,
+   0.23774412620744928,
+   0.4351449694456569
+  ],
+  "teach_mixed_wrong": 0.22838709677419355,
+  "r-mixed_own": [
+   0.08741935483870968,
+   0.04146528785679729,
+   0.13703153988868272
+  ],
+  "teach_mixed_own": 0.47870967741935483,
+  "r-shuffle": [
+   0.5661290322580645,
+   0.4758248299319728,
+   0.6503225806451612
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.971393280632411,
+  "neigh_wlo": 0.9592055712652361,
+  "neigh_min_draw": 0.9436758893280632,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.8963541666666667,
+   "S3dev/Benign": 0.9944672131147541,
+   "jhBenign/Benign": 0.942962962962963
+  },
+  "ood_gain": [
+   0.7073333333333334,
+   0.6251658163265306,
+   0.7796227301499388
+  ],
+  "ood_r-wrong": [
+   0.7073333333333334,
+   0.6272091836734695,
+   0.7854092585403727
+  ],
+  "ood_r-shuffle": [
+   0.7073333333333334,
+   0.6284703502471785,
+   0.7836809916274201
+  ],
+  "neigh_wrong": 0.9071640316205534,
+  "neigh_shuffle": 0.9999505928853754,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "cal2",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.6419354838709678,
+  "teach_base": 0.0,
+  "nsites": 27.0,
+  "gain": [
+   0.6419354838709678,
+   0.5550258526850509,
+   0.7186375711574953
+  ],
+  "r-wrong": [
+   0.6419354838709678,
+   0.5608771455602108,
+   0.7198881412468369
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.3319354838709677,
+   0.24694576129392082,
+   0.4202681469938969
+  ],
+  "teach_mixed_wrong": 0.31,
+  "r-mixed_own": [
+   0.06838709677419355,
+   0.03732970220707562,
+   0.10425221975582687
+  ],
+  "teach_mixed_own": 0.5735483870967742,
+  "r-shuffle": [
+   0.6419354838709678,
+   0.5574017940354148,
+   0.7201533529363718
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9706521739130435,
+  "neigh_wlo": 0.958341633730287,
+  "neigh_min_draw": 0.9535573122529645,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.8932291666666666,
+   "S3dev/Benign": 0.9950819672131147,
+   "jhBenign/Benign": 0.9407407407407408
+  },
+  "ood_gain": [
+   0.7623333333333333,
+   0.6820786535707893,
+   0.8268814786585366
+  ],
+  "ood_r-wrong": [
+   0.7623333333333333,
+   0.6835684737923947,
+   0.8282786429365963
+  ],
+  "ood_r-shuffle": [
+   0.7623333333333333,
+   0.6856435082594682,
+   0.8341169476219146
+  ],
+  "neigh_wrong": 0.8954051383399211,
+  "neigh_shuffle": 1.0,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.15225806451612903,
+  "teach_base": 0.0,
+  "nsites": 3.15,
+  "gain": [
+   0.15225806451612903,
+   0.07908419448860625,
+   0.23117377188029362
+  ],
+  "r-wrong": [
+   0.15225806451612903,
+   0.0807107843137255,
+   0.23844111039794605
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.1474193548387097,
+   0.07416239298982394,
+   0.23101680364239685
+  ],
+  "teach_mixed_wrong": 0.004838709677419355,
+  "r-mixed_own": [
+   0.04387096774193548,
+   -0.010516423129761457,
+   0.10399083885209712
+  ],
+  "teach_mixed_own": 0.10838709677419354,
+  "r-shuffle": [
+   0.15129032258064515,
+   0.07929056319141803,
+   0.2250191717791411
+  ],
+  "teach_shuffle": 0.000967741935483871,
+  "neigh": 0.9989624505928854,
+  "neigh_wlo": 0.9943405517269385,
+  "neigh_min_draw": 0.9930830039525692,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.99453125,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.17866666666666667,
+   0.10072018223347733,
+   0.2611128364389234
+  ],
+  "ood_r-wrong": [
+   0.17866666666666667,
+   0.10494616350765015,
+   0.2615795599489796
+  ],
+  "ood_r-shuffle": [
+   0.17733333333333334,
+   0.09525606318238769,
+   0.2582886624869383
+  ],
+  "neigh_wrong": 0.6496541501976284,
+  "neigh_shuffle": 1.0,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.23870967741935484,
+  "teach_base": 0.0,
+  "nsites": 5.45,
+  "gain": [
+   0.23870967741935484,
+   0.15753233162564037,
+   0.336321254971277
+  ],
+  "r-wrong": [
+   0.23870967741935484,
+   0.15381535947712419,
+   0.330010366962054
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.23838709677419354,
+   0.15320089377439902,
+   0.3400658928723132
+  ],
+  "teach_mixed_wrong": 0.0003225806451612903,
+  "r-mixed_own": [
+   0.07483870967741936,
+   0.019133969907407407,
+   0.13071044459592512
+  ],
+  "teach_mixed_own": 0.1638709677419355,
+  "r-shuffle": [
+   0.23870967741935484,
+   0.14596842105263158,
+   0.3332569114602362
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9975790513833992,
+  "neigh_wlo": 0.9921373217462609,
+  "neigh_min_draw": 0.9881422924901185,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9872395833333333,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.26033333333333336,
+   0.1708365182853717,
+   0.3580439814814815
+  ],
+  "ood_r-wrong": [
+   0.26033333333333336,
+   0.16706929307069293,
+   0.3540917713239142
+  ],
+  "ood_r-shuffle": [
+   0.26033333333333336,
+   0.1685378035320088,
+   0.34516292997542997
+  ],
+  "neigh_wrong": 0.6425889328063241,
+  "neigh_shuffle": 0.9999505928853754,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.43193548387096775,
+  "teach_base": 0.0,
+  "nsites": 8.7,
+  "gain": [
+   0.43193548387096775,
+   0.34489662447257385,
+   0.5209677419354839
+  ],
+  "r-wrong": [
+   0.43193548387096775,
+   0.34573529411764703,
+   0.5170673076923077
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.43193548387096775,
+   0.33796335616438355,
+   0.5150682947019867
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.20387096774193547,
+   0.14403351296368436,
+   0.26859830822572933
+  ],
+  "teach_mixed_own": 0.22806451612903225,
+  "r-shuffle": [
+   0.43129032258064515,
+   0.3535336905772496,
+   0.5253284216772152
+  ],
+  "teach_shuffle": 0.0006451612903225806,
+  "neigh": 0.9939229249011857,
+  "neigh_wlo": 0.9869236979529293,
+  "neigh_min_draw": 0.9861660079051383,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.96796875,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.42633333333333334,
+   0.3328804250559284,
+   0.5173821944899073
+  ],
+  "ood_r-wrong": [
+   0.42633333333333334,
+   0.3381855292792793,
+   0.509341935483871
+  ],
+  "ood_r-shuffle": [
+   0.4256666666666667,
+   0.33786962465821524,
+   0.5176658950617284
+  ],
+  "neigh_wrong": 0.6330533596837944,
+  "neigh_shuffle": 1.0,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.4406451612903226,
+  "teach_base": 0.0,
+  "nsites": 13.35,
+  "gain": [
+   0.4406451612903226,
+   0.3550510879457268,
+   0.5302285667893484
+  ],
+  "r-wrong": [
+   0.4406451612903226,
+   0.3557216223056481,
+   0.5396905354299363
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.4406451612903226,
+   0.3480393835616438,
+   0.532304852320675
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.18193548387096775,
+   0.12364758414206072,
+   0.24640507518796992
+  ],
+  "teach_mixed_own": 0.25870967741935486,
+  "r-shuffle": [
+   0.43612903225806454,
+   0.34621875,
+   0.5320663265306121
+  ],
+  "teach_shuffle": 0.004516129032258065,
+  "neigh": 0.9929347826086956,
+  "neigh_wlo": 0.9855930027645807,
+  "neigh_min_draw": 0.983201581027668,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9627604166666667,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.429,
+   0.3333192567567567,
+   0.521672983014862
+  ],
+  "ood_r-wrong": [
+   0.429,
+   0.3366845144097908,
+   0.5302827227382181
+  ],
+  "ood_r-shuffle": [
+   0.4256666666666667,
+   0.336547794980061,
+   0.51366642228739
+  ],
+  "neigh_wrong": 0.6323616600790515,
+  "neigh_shuffle": 0.999110671936759,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.5832258064516129,
+  "teach_base": 0.0,
+  "nsites": 27.0,
+  "gain": [
+   0.5832258064516129,
+   0.5100265848902594,
+   0.6649127610799797
+  ],
+  "r-wrong": [
+   0.5832258064516129,
+   0.49999177631578945,
+   0.6597691891441891
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.5832258064516129,
+   0.4974438081822636,
+   0.668950629344741
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.09322580645161291,
+   0.05660377358490566,
+   0.13613561657819517
+  ],
+  "teach_mixed_own": 0.49,
+  "r-shuffle": [
+   0.5803225806451613,
+   0.49861404799117404,
+   0.6598889540730808
+  ],
+  "teach_shuffle": 0.002903225806451613,
+  "neigh": 0.9882905138339921,
+  "neigh_wlo": 0.9795756925673109,
+  "neigh_min_draw": 0.9792490118577075,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.93828125,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.522,
+   0.42285226104830426,
+   0.6088545135035145
+  ],
+  "ood_r-wrong": [
+   0.522,
+   0.42516294992175274,
+   0.6003328949531481
+  ],
+  "ood_r-shuffle": [
+   0.5186666666666667,
+   0.4253347250770812,
+   0.6047305341055341
+  ],
+  "neigh_wrong": 0.6339920948616601,
+  "neigh_shuffle": 0.9994565217391305,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda_a0.56",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.013548387096774193,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.013548387096774193,
+   0.0,
+   0.033152138157894716
+  ],
+  "r-wrong": [
+   0.013548387096774193,
+   0.0,
+   0.03544653257746369
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.013548387096774193,
+   0.0,
+   0.03568197803915438
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.012,
+   0.0,
+   0.035862953138815205
+  ],
+  "ood_r-wrong": [
+   0.012,
+   0.0,
+   0.03563206766571664
+  ],
+  "ood_r-shuffle": [
+   0.012,
+   0.0,
+   0.03313444141453489
+  ],
+  "neigh_wrong": 0.6615612648221344,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "lda_a0.84",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.7348387096774194,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.7348387096774194,
+   0.6574979838709677,
+   0.8052303921568628
+  ],
+  "r-wrong": [
+   0.7348387096774194,
+   0.6564811688311688,
+   0.8056962025316455
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.7322580645161291,
+   0.6563241118824009,
+   0.8058102969450972
+  ],
+  "teach_shuffle": 0.0025806451612903226,
+  "neigh": 0.9375494071146245,
+  "neigh_wlo": 0.9209228239392675,
+  "neigh_min_draw": 0.9071146245059288,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 0.9962365591397849,
+   "S3dev/Injection": 0.6744791666666666,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.7013333333333334,
+   0.6199850746268657,
+   0.7778643566698202
+  ],
+  "ood_r-wrong": [
+   0.7013333333333334,
+   0.6186591836734694,
+   0.7779334854334854
+  ],
+  "ood_r-shuffle": [
+   0.7006666666666667,
+   0.6211553527980536,
+   0.7781361607142857
+  ],
+  "neigh_wrong": 0.6209486166007905,
+  "neigh_shuffle": 1.0,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "ldapos",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 3.15,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9941205533596837,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "ldapos",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 5.45,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9941205533596837,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "ldapos",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 8.7,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9944169960474311,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "ldapos",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 13.35,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.994812252964427,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "ldapos",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 27.0,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.994911067193676,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 3.15,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8106719367588932,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 5.45,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8199604743083002,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 8.7,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8073616600790514,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 13.35,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.92850790513834,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 27.0,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9962183080511764,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9178359683794467,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain_f16",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160204107717838e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.30474308300395264,
+  "neigh_shuffle": 0.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain_f2",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.023225806451612905,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.023225806451612905,
+   0.003870967741935484,
+   0.04870087149692411
+  ],
+  "r-wrong": [
+   0.023225806451612905,
+   0.0019230769230769232,
+   0.049689490445859866
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.0070967741935483875,
+   -0.0038973855092276142,
+   0.02830862533692722
+  ],
+  "teach_shuffle": 0.016129032258064516,
+  "neigh": 0.9978260869565218,
+  "neigh_wlo": 0.9925160032120425,
+  "neigh_min_draw": 0.9970355731225297,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.99375,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 0.9925925925925926
+  },
+  "ood_gain": [
+   0.021333333333333333,
+   0.0,
+   0.06259135410921125
+  ],
+  "ood_r-wrong": [
+   0.021333333333333333,
+   0.0,
+   0.061264802631578935
+  ],
+  "ood_r-shuffle": [
+   0.0013333333333333333,
+   -0.0014708260186639557,
+   0.0067575909242575906
+  ],
+  "neigh_wrong": 0.8439723320158103,
+  "neigh_shuffle": 0.9986166007905138,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain_f4",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.9554838709677419,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.9554838709677419,
+   0.9109452262394458,
+   0.989149193548387
+  ],
+  "r-wrong": [
+   0.9554838709677419,
+   0.9108246204382486,
+   0.9932006802721088
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.21419354838709678,
+   0.06880246278112132,
+   0.40755716606272646
+  ],
+  "teach_shuffle": 0.7412903225806452,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160204107717838e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.9646666666666667,
+   0.9307142857142857,
+   0.9889628194386259
+  ],
+  "ood_r-wrong": [
+   0.9646666666666667,
+   0.9319720804988663,
+   0.9894469044279703
+  ],
+  "ood_r-shuffle": [
+   0.234,
+   0.08051362151183326,
+   0.42917800141520557
+  ],
+  "neigh_wrong": 0.8347826086956521,
+  "neigh_shuffle": 0.0,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-14B",
+  "m": "plain_f8",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.014193548387096775,
+  "teach_base": 0.0,
+  "nsites": 13.1,
+  "gain": [
+   0.014193548387096775,
+   0.0,
+   0.036601307189542485
+  ],
+  "r-wrong": [
+   0.014193548387096775,
+   0.0,
+   0.03589869281045751
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.014193548387096775,
+   0.0,
+   0.03759742030201341
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160204107717838e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1012,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.019333333333333334,
+   0.0,
+   0.05166293970929731
+  ],
+  "ood_r-wrong": [
+   0.019333333333333334,
+   0.0,
+   0.04729907539118065
+  ],
+  "ood_r-shuffle": [
+   0.019333333333333334,
+   0.0,
+   0.048581632653061216
+  ],
+  "neigh_wrong": 0.7202569169960475,
+  "neigh_shuffle": 0.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.6580645161290323,
+  "teach_base": 0.0,
+  "nsites": 3.55,
+  "gain": [
+   0.6580645161290323,
+   0.5738392620415378,
+   0.7400891403451645
+  ],
+  "r-wrong": [
+   0.6580645161290323,
+   0.5727846743793058,
+   0.7400703124999999
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.32129032258064516,
+   0.2047410677827685,
+   0.44969771241830064
+  ],
+  "teach_mixed_wrong": 0.3367741935483871,
+  "r-mixed_own": [
+   0.21064516129032257,
+   0.10429620253164557,
+   0.32822712418300654
+  ],
+  "teach_mixed_own": 0.4474193548387097,
+  "r-shuffle": [
+   0.17903225806451614,
+   -0.005812564207930963,
+   0.3694200365331317
+  ],
+  "teach_shuffle": 0.4790322580645161,
+  "neigh": 0.8233488372093023,
+  "neigh_wlo": 0.7994106799699715,
+  "neigh_min_draw": 0.6465116279069767,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.9973880597014926,
+   "S1dev/Injection": 0.7264880952380952,
+   "S3dev/Injection": 0.29685863874345547,
+   "S3dev/Benign": 0.9983606557377049,
+   "jhBenign/Benign": 0.9580882352941177
+  },
+  "ood_gain": [
+   0.6296666666666667,
+   0.540324491657977,
+   0.7170235970298443
+  ],
+  "ood_r-wrong": [
+   0.6296666666666667,
+   0.537408480780964,
+   0.7142917471042471
+  ],
+  "ood_r-shuffle": [
+   0.166,
+   -0.0017109060402684545,
+   0.35169967030283295
+  ],
+  "neigh_wrong": 0.7396279069767443,
+  "neigh_shuffle": 0.7727441860465116,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.7367741935483871,
+  "teach_base": 0.0,
+  "nsites": 5.7,
+  "gain": [
+   0.7367741935483871,
+   0.6597215883668904,
+   0.8105674669533366
+  ],
+  "r-wrong": [
+   0.7367741935483871,
+   0.6570673811544991,
+   0.8150356506238859
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.1829032258064516,
+   0.11915313852813852,
+   0.25546299889135254
+  ],
+  "teach_mixed_wrong": 0.5538709677419354,
+  "r-mixed_own": [
+   0.0667741935483871,
+   0.03066956486409621,
+   0.11076011417225118
+  ],
+  "teach_mixed_own": 0.67,
+  "r-shuffle": [
+   0.21451612903225806,
+   0.04865435586603657,
+   0.39363548792954317
+  ],
+  "teach_shuffle": 0.522258064516129,
+  "neigh": 0.7473488372093023,
+  "neigh_wlo": 0.7205232854081276,
+  "neigh_min_draw": 0.6120930232558139,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.994776119402985,
+   "S1dev/Injection": 0.43898809523809523,
+   "S3dev/Injection": 0.1280104712041885,
+   "S3dev/Benign": 0.9985655737704918,
+   "jhBenign/Benign": 0.9556372549019608
+  },
+  "ood_gain": [
+   0.733,
+   0.651779651675485,
+   0.8125976038124216
+  ],
+  "ood_r-wrong": [
+   0.733,
+   0.6513084049409237,
+   0.8104821276696277
+  ],
+  "ood_r-shuffle": [
+   0.23866666666666667,
+   0.06975681627516778,
+   0.44258072636949514
+  ],
+  "neigh_wrong": 0.7199534883720929,
+  "neigh_shuffle": 0.6591627906976745,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.7906451612903226,
+  "teach_base": 0.0,
+  "nsites": 9.5,
+  "gain": [
+   0.7906451612903226,
+   0.7160219594594595,
+   0.8533398692810458
+  ],
+  "r-wrong": [
+   0.7906451612903226,
+   0.7216515086558876,
+   0.8535738095238095
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.23548387096774193,
+   0.1439660896003971,
+   0.35100705128205123
+  ],
+  "teach_mixed_wrong": 0.5551612903225807,
+  "r-mixed_own": [
+   0.09612903225806452,
+   0.05880994754589734,
+   0.13993074324324317
+  ],
+  "teach_mixed_own": 0.694516129032258,
+  "r-shuffle": [
+   0.1929032258064516,
+   0.01535300697460192,
+   0.3627406832298137
+  ],
+  "teach_shuffle": 0.597741935483871,
+  "neigh": 0.7107441860465117,
+  "neigh_wlo": 0.6829266447119723,
+  "neigh_min_draw": 0.6251162790697674,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.9929104477611941,
+   "S1dev/Injection": 0.30714285714285716,
+   "S3dev/Injection": 0.0612565445026178,
+   "S3dev/Benign": 0.9981557377049181,
+   "jhBenign/Benign": 0.9367647058823529
+  },
+  "ood_gain": [
+   0.7763333333333333,
+   0.7034212779379957,
+   0.8474722172731727
+  ],
+  "ood_r-wrong": [
+   0.7763333333333333,
+   0.7038381410256411,
+   0.8456375440140844
+  ],
+  "ood_r-shuffle": [
+   0.21233333333333335,
+   0.05560937833796197,
+   0.390427174997732
+  ],
+  "neigh_wrong": 0.7046046511627906,
+  "neigh_shuffle": 0.4995813953488371,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.8106451612903226,
+  "teach_base": 0.0,
+  "nsites": 14.65,
+  "gain": [
+   0.8106451612903226,
+   0.7455063291139241,
+   0.8685594212992276
+  ],
+  "r-wrong": [
+   0.8106451612903226,
+   0.7489911343729971,
+   0.870176817940552
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.09,
+   0.04086832368082368,
+   0.1479290450928382
+  ],
+  "teach_mixed_wrong": 0.7206451612903226,
+  "r-mixed_own": [
+   0.03774193548387097,
+   0.0002954545454545459,
+   0.07925823359646886
+  ],
+  "teach_mixed_own": 0.7729032258064517,
+  "r-shuffle": [
+   0.12548387096774194,
+   -0.01846772285320943,
+   0.28712046848856665
+  ],
+  "teach_shuffle": 0.6851612903225807,
+  "neigh": 0.727906976744186,
+  "neigh_wlo": 0.7005263499952856,
+  "neigh_min_draw": 0.6353488372093024,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.9955223880597015,
+   "S1dev/Injection": 0.3639880952380952,
+   "S3dev/Injection": 0.09136125654450261,
+   "S3dev/Benign": 0.9981557377049181,
+   "jhBenign/Benign": 0.9487745098039215
+  },
+  "ood_gain": [
+   0.7896666666666666,
+   0.7094896624472574,
+   0.8623417207792208
+  ],
+  "ood_r-wrong": [
+   0.7896666666666666,
+   0.7105560064935065,
+   0.8649476662433094
+  ],
+  "ood_r-shuffle": [
+   0.13,
+   -0.004810956790123457,
+   0.27735689655172413
+  ],
+  "neigh_wrong": 0.7364651162790697,
+  "neigh_shuffle": 0.39804651162790694,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.8248387096774193,
+  "teach_base": 0.0,
+  "nsites": 28.9,
+  "gain": [
+   0.8248387096774193,
+   0.7603749681690858,
+   0.8801774691358024
+  ],
+  "r-wrong": [
+   0.8248387096774193,
+   0.7581775932400933,
+   0.8853022875816993
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.13096774193548388,
+   0.07311474589835934,
+   0.1979838397314512
+  ],
+  "teach_mixed_wrong": 0.6938709677419355,
+  "r-mixed_own": [
+   0.03935483870967742,
+   0.011632801161103047,
+   0.07401347829801777
+  ],
+  "teach_mixed_own": 0.785483870967742,
+  "r-shuffle": [
+   -0.10129032258064516,
+   -0.16502822580645163,
+   -0.02802424040282322
+  ],
+  "teach_shuffle": 0.9261290322580645,
+  "neigh": 0.7249767441860465,
+  "neigh_wlo": 0.6975180878796243,
+  "neigh_min_draw": 0.6344186046511628,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.9973880597014926,
+   "S1dev/Injection": 0.3357142857142857,
+   "S3dev/Injection": 0.07146596858638743,
+   "S3dev/Benign": 0.9991803278688525,
+   "jhBenign/Benign": 0.9715686274509804
+  },
+  "ood_gain": [
+   0.8,
+   0.7274734409492274,
+   0.8658012557077626
+  ],
+  "ood_r-wrong": [
+   0.8,
+   0.7234642502834467,
+   0.8673811445341159
+  ],
+  "ood_r-shuffle": [
+   -0.098,
+   -0.15856258122157244,
+   -0.03547191023805262
+  ],
+  "neigh_wrong": 0.7345116279069768,
+  "neigh_shuffle": 0.13553488372093023,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal2",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.14709677419354839,
+  "teach_base": 0.0,
+  "nsites": 3.55,
+  "gain": [
+   0.14709677419354839,
+   0.08076158940397352,
+   0.21145588132878335
+  ],
+  "r-wrong": [
+   0.14709677419354839,
+   0.08576031454248366,
+   0.21688825415091237
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.059032258064516126,
+   0.004629020467836257,
+   0.11772782741788698
+  ],
+  "teach_mixed_wrong": 0.08806451612903225,
+  "r-mixed_own": [
+   0.05419354838709677,
+   0.0015165835181079087,
+   0.11245434415376886
+  ],
+  "teach_mixed_own": 0.09290322580645162,
+  "r-shuffle": [
+   0.14709677419354839,
+   0.08923495249139608,
+   0.21337590831613887
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9897209302325581,
+  "neigh_wlo": 0.9817107670848273,
+  "neigh_min_draw": 0.9432558139534883,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9575916230366492,
+   "S3dev/Benign": 0.9993852459016394,
+   "jhBenign/Benign": 0.9862745098039216
+  },
+  "ood_gain": [
+   0.11866666666666667,
+   0.0693788676761027,
+   0.17858370535714285
+  ],
+  "ood_r-wrong": [
+   0.11866666666666667,
+   0.0680223348080491,
+   0.17139517515141592
+  ],
+  "ood_r-shuffle": [
+   0.11866666666666667,
+   0.07101071316859556,
+   0.1765959151663939
+  ],
+  "neigh_wrong": 0.8773488372093023,
+  "neigh_shuffle": 0.9996279069767443,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal2",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.21741935483870967,
+  "teach_base": 0.0,
+  "nsites": 5.7,
+  "gain": [
+   0.21741935483870967,
+   0.13707116179805257,
+   0.30833959696095553
+  ],
+  "r-wrong": [
+   0.21741935483870967,
+   0.13808858082706768,
+   0.30335233918128657
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.045806451612903226,
+   -0.0163559008509064,
+   0.10954758548156103
+  ],
+  "teach_mixed_wrong": 0.17161290322580644,
+  "r-mixed_own": [
+   0.03096774193548387,
+   -0.0387516447368421,
+   0.08871949958643506
+  ],
+  "teach_mixed_own": 0.18645161290322582,
+  "r-shuffle": [
+   0.20451612903225808,
+   0.13288075185331402,
+   0.2948798076923077
+  ],
+  "teach_shuffle": 0.012903225806451613,
+  "neigh": 0.9865116279069768,
+  "neigh_wlo": 0.9776810955916712,
+  "neigh_min_draw": 0.9376744186046512,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9324607329842932,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 0.9921568627450981
+  },
+  "ood_gain": [
+   0.158,
+   0.09723681541582149,
+   0.2215932074458564
+  ],
+  "ood_r-wrong": [
+   0.158,
+   0.09896459359605911,
+   0.22491141188959654
+  ],
+  "ood_r-shuffle": [
+   0.151,
+   0.09526515825035561,
+   0.2233851565101565
+  ],
+  "neigh_wrong": 0.901953488372093,
+  "neigh_shuffle": 0.9995813953488373,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal2",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.3403225806451613,
+  "teach_base": 0.0,
+  "nsites": 9.5,
+  "gain": [
+   0.3403225806451613,
+   0.25909014643075046,
+   0.42244311034877063
+  ],
+  "r-wrong": [
+   0.3403225806451613,
+   0.26032667785234903,
+   0.4248913352272727
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.18451612903225806,
+   0.11820382882882884,
+   0.24810867007465107
+  ],
+  "teach_mixed_wrong": 0.1558064516129032,
+  "r-mixed_own": [
+   0.10709677419354839,
+   0.045872182942996026,
+   0.17102036013299682
+  ],
+  "teach_mixed_own": 0.2332258064516129,
+  "r-shuffle": [
+   0.3403225806451613,
+   0.2563138888888889,
+   0.4261413908671973
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9903720930232558,
+  "neigh_wlo": 0.982542977461461,
+  "neigh_min_draw": 0.9432558139534883,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.949738219895288,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 0.9963235294117647
+  },
+  "ood_gain": [
+   0.268,
+   0.19094196819375547,
+   0.3490214890780874
+  ],
+  "ood_r-wrong": [
+   0.268,
+   0.19086678832116788,
+   0.3528338541666666
+  ],
+  "ood_r-shuffle": [
+   0.268,
+   0.19439669065701168,
+   0.34458545918367345
+  ],
+  "neigh_wrong": 0.9028372093023256,
+  "neigh_shuffle": 0.9998604651162791,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal2",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.37451612903225806,
+  "teach_base": 0.0,
+  "nsites": 14.65,
+  "gain": [
+   0.37451612903225806,
+   0.28824610994742017,
+   0.46871261503067485
+  ],
+  "r-wrong": [
+   0.37451612903225806,
+   0.2820202432824982,
+   0.46227700443269304
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.2829032258064516,
+   0.19234783496732027,
+   0.3782373157596372
+  ],
+  "teach_mixed_wrong": 0.09161290322580645,
+  "r-mixed_own": [
+   0.10903225806451614,
+   0.031126799900695133,
+   0.18453424990283712
+  ],
+  "teach_mixed_own": 0.26548387096774195,
+  "r-shuffle": [
+   0.3732258064516129,
+   0.28568993506493506,
+   0.4649976757526605
+  ],
+  "teach_shuffle": 0.0012903225806451613,
+  "neigh": 0.9875813953488372,
+  "neigh_wlo": 0.9790124636719333,
+  "neigh_min_draw": 0.9553488372093023,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9337696335078534,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 0.9965686274509804
+  },
+  "ood_gain": [
+   0.314,
+   0.22814909530173744,
+   0.4003459481832826
+  ],
+  "ood_r-wrong": [
+   0.314,
+   0.22623805732484076,
+   0.3976812937062937
+  ],
+  "ood_r-shuffle": [
+   0.31233333333333335,
+   0.23012405736601133,
+   0.3965667285028372
+  ],
+  "neigh_wrong": 0.8932558139534883,
+  "neigh_shuffle": 0.9991627906976743,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "cal2",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.4770967741935484,
+  "teach_base": 0.0,
+  "nsites": 28.9,
+  "gain": [
+   0.4770967741935484,
+   0.3919406973643273,
+   0.5562119322412509
+  ],
+  "r-wrong": [
+   0.4770967741935484,
+   0.3908450980392157,
+   0.5574675324675324
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.3825806451612903,
+   0.2944592708247167,
+   0.46768787352608626
+  ],
+  "teach_mixed_wrong": 0.09451612903225806,
+  "r-mixed_own": [
+   0.13225806451612904,
+   0.07746943453897095,
+   0.18698906319045516
+  ],
+  "teach_mixed_own": 0.34483870967741936,
+  "r-shuffle": [
+   0.47677419354838707,
+   0.3911055611974567,
+   0.5626092429679361
+  ],
+  "teach_shuffle": 0.0003225806451612903,
+  "neigh": 0.9886976744186047,
+  "neigh_wlo": 0.9804138449213929,
+  "neigh_min_draw": 0.9665116279069768,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9379581151832461,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 0.9985294117647059
+  },
+  "ood_gain": [
+   0.4063333333333333,
+   0.3122409723465187,
+   0.49398435341254493
+  ],
+  "ood_r-wrong": [
+   0.4063333333333333,
+   0.3216642156862745,
+   0.4955707306240284
+  ],
+  "ood_r-shuffle": [
+   0.406,
+   0.3233656728463383,
+   0.4854037267080745
+  ],
+  "neigh_wrong": 0.892186046511628,
+  "neigh_shuffle": 0.9998139534883721,
+  "G2_gain": true,
+  "G2_ctl_all": true,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": true,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.08290322580645161,
+  "teach_base": 0.0,
+  "nsites": 3.55,
+  "gain": [
+   0.08290322580645161,
+   0.041323489932885905,
+   0.13354985204668748
+  ],
+  "r-wrong": [
+   0.08290322580645161,
+   0.040236580086580084,
+   0.13571886446886444
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.07580645161290323,
+   0.035754373993198495,
+   0.12450514322059919
+  ],
+  "teach_mixed_wrong": 0.0070967741935483875,
+  "r-mixed_own": [
+   0.02258064516129032,
+   -0.0018752948113207547,
+   0.047097698787754265
+  ],
+  "teach_mixed_own": 0.06032258064516129,
+  "r-shuffle": [
+   0.053870967741935484,
+   -0.01189314516129032,
+   0.11601406249999999
+  ],
+  "teach_shuffle": 0.02903225806451613,
+  "neigh": 0.999906976744186,
+  "neigh_wlo": 0.9962560626481993,
+  "neigh_min_draw": 0.998139534883721,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9994764397905759,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.043666666666666666,
+   0.018104026845637586,
+   0.07739860327692721
+  ],
+  "ood_r-wrong": [
+   0.043666666666666666,
+   0.01929425287356322,
+   0.07838709677419355
+  ],
+  "ood_r-shuffle": [
+   0.019,
+   -0.044412562233285914,
+   0.07065698256862352
+  ],
+  "neigh_wrong": 0.7084186046511628,
+  "neigh_shuffle": 0.9946976744186046,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.12419354838709677,
+  "teach_base": 0.0,
+  "nsites": 5.7,
+  "gain": [
+   0.12419354838709677,
+   0.07093554233040988,
+   0.18334134615384615
+  ],
+  "r-wrong": [
+   0.12419354838709677,
+   0.07315569952574526,
+   0.185578125
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.1235483870967742,
+   0.07304997367497368,
+   0.18312101910828024
+  ],
+  "teach_mixed_wrong": 0.0006451612903225806,
+  "r-mixed_own": [
+   0.053548387096774196,
+   0.02212012987012987,
+   0.08770292709298728
+  ],
+  "teach_mixed_own": 0.07064516129032258,
+  "r-shuffle": [
+   0.12419354838709677,
+   0.07369747591118558,
+   0.19257187630987307
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 0.9994418604651163,
+  "neigh_wlo": 0.9953942355329164,
+  "neigh_min_draw": 0.9944186046511628,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9968586387434555,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.07366666666666667,
+   0.036423654244306415,
+   0.11967325174825175
+  ],
+  "ood_r-wrong": [
+   0.07366666666666667,
+   0.03458699112483118,
+   0.12150090761963081
+  ],
+  "ood_r-shuffle": [
+   0.07366666666666667,
+   0.03626695576141412,
+   0.11798951048951045
+  ],
+  "neigh_wrong": 0.720186046511628,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.24774193548387097,
+  "teach_base": 0.0,
+  "nsites": 9.5,
+  "gain": [
+   0.24774193548387097,
+   0.17446192052980133,
+   0.3321934185606061
+  ],
+  "r-wrong": [
+   0.24774193548387097,
+   0.17062834224598933,
+   0.3283982782505442
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.24483870967741936,
+   0.17072189645308924,
+   0.32839842047930284
+  ],
+  "teach_mixed_wrong": 0.002903225806451613,
+  "r-mixed_own": [
+   0.08548387096774193,
+   0.04705222473604827,
+   0.1330240413877054
+  ],
+  "teach_mixed_own": 0.16225806451612904,
+  "r-shuffle": [
+   0.24741935483870967,
+   0.17380503913894324,
+   0.32859151785714286
+  ],
+  "teach_shuffle": 0.0003225806451612903,
+  "neigh": 0.9977209302325581,
+  "neigh_wlo": 0.9925962993310868,
+  "neigh_min_draw": 0.986046511627907,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9871727748691099,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.175,
+   0.1164379812018798,
+   0.24480039384174718
+  ],
+  "ood_r-wrong": [
+   0.175,
+   0.10902690347721823,
+   0.24013069732814957
+  ],
+  "ood_r-shuffle": [
+   0.17433333333333334,
+   0.11577087342188014,
+   0.2365175367395762
+  ],
+  "neigh_wrong": 0.7272093023255815,
+  "neigh_shuffle": 0.999953488372093,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.2709677419354839,
+  "teach_base": 0.0,
+  "nsites": 14.65,
+  "gain": [
+   0.2709677419354839,
+   0.1895252459091745,
+   0.3611943403624956
+  ],
+  "r-wrong": [
+   0.2709677419354839,
+   0.19353450590762622,
+   0.3610497043606799
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.2709677419354839,
+   0.19087463083944872,
+   0.35930600649350647
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.09290322580645162,
+   0.05863151803118908,
+   0.13199327458256027
+  ],
+  "teach_mixed_own": 0.17806451612903226,
+  "r-shuffle": [
+   0.2432258064516129,
+   0.14510977011494253,
+   0.3395131184882102
+  ],
+  "teach_shuffle": 0.027741935483870966,
+  "neigh": 0.9975348837209302,
+  "neigh_wlo": 0.9923143160714469,
+  "neigh_min_draw": 0.9906976744186047,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9861256544502618,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.19633333333333333,
+   0.12606506769374418,
+   0.27240466264504726
+  ],
+  "ood_r-wrong": [
+   0.19633333333333333,
+   0.1307241379310345,
+   0.27483189655172413
+  ],
+  "ood_r-shuffle": [
+   0.17533333333333334,
+   0.09299267344497608,
+   0.2582330602581294
+  ],
+  "neigh_wrong": 0.7102325581395348,
+  "neigh_shuffle": 0.9993023255813954,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.3564516129032258,
+  "teach_base": 0.0,
+  "nsites": 28.9,
+  "gain": [
+   0.3564516129032258,
+   0.27085472786613957,
+   0.44142576687116564
+  ],
+  "r-wrong": [
+   0.3564516129032258,
+   0.2746211612498881,
+   0.44254999242539006
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.3564516129032258,
+   0.27976394324853227,
+   0.4398215067675159
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.06193548387096774,
+   0.033892076206971204,
+   0.09327363351254477
+  ],
+  "teach_mixed_own": 0.29451612903225804,
+  "r-shuffle": [
+   0.25548387096774194,
+   0.12680812978412315,
+   0.37718931280678264
+  ],
+  "teach_shuffle": 0.10096774193548387,
+  "neigh": 0.9931627906976744,
+  "neigh_wlo": 0.9861852451365339,
+  "neigh_min_draw": 0.9823255813953489,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 0.9615183246073299,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.279,
+   0.20486027298850573,
+   0.36272096774193546
+  ],
+  "ood_r-wrong": [
+   0.279,
+   0.2045977474729871,
+   0.36063626229658907
+  ],
+  "ood_r-shuffle": [
+   0.18766666666666668,
+   0.06060964808691545,
+   0.308684899328859
+  ],
+  "neigh_wrong": 0.6969767441860466,
+  "neigh_shuffle": 0.9775348837209302,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": true,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": true
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda_a0.44",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.0006451612903225806,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.0006451612903225806,
+   0.0,
+   0.003821656050955414
+  ],
+  "r-wrong": [
+   0.0006451612903225806,
+   0.0,
+   0.003821656050955414
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.0006451612903225806,
+   0.0,
+   0.0037741819918796268
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0006666666666666666,
+   0.0,
+   0.004226101288582558
+  ],
+  "ood_r-wrong": [
+   0.0006666666666666666,
+   0.0,
+   0.003896103896103896
+  ],
+  "ood_r-shuffle": [
+   0.0006666666666666666,
+   0.0,
+   0.003896103896103896
+  ],
+  "neigh_wrong": 0.8347906976744186,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "lda_a0.66",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.6580645161290323,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.6580645161290323,
+   0.5761857142857142,
+   0.735273674445158
+  ],
+  "r-wrong": [
+   0.6580645161290323,
+   0.5724061693642974,
+   0.7344614448051947
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   0.6245161290322581,
+   0.5206661290322582,
+   0.720013698630137
+  ],
+  "teach_shuffle": 0.03354838709677419,
+  "neigh": 0.8997209302325582,
+  "neigh_wlo": 0.8803171002909236,
+  "neigh_min_draw": 0.8874418604651163,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 0.9904761904761905,
+   "S3dev/Injection": 0.44397905759162304,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.5413333333333333,
+   0.44826066790352503,
+   0.6383299235011564
+  ],
+  "ood_r-wrong": [
+   0.5413333333333333,
+   0.4429433838200617,
+   0.6328823807274444
+  ],
+  "ood_r-shuffle": [
+   0.5133333333333333,
+   0.40198521126760567,
+   0.6170913287107958
+  ],
+  "neigh_wrong": 0.6633488372093024,
+  "neigh_shuffle": 0.9967441860465117,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "ldapos",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 3.55,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9980930232558141,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "ldapos",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 5.7,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9976279069767442,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "ldapos",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 9.5,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9965116279069768,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "ldapos",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 14.65,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.996093023255814,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "ldapos",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 28.9,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.9968837209302326,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain",
+  "n": 3,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 3.55,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8536279069767442,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain",
+  "n": 5,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 5.7,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8828837209302327,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain",
+  "n": 8,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 9.5,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.8821860465116279,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain",
+  "n": 12,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 14.65,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.965906976744186,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain",
+  "n": 25,
+  "draws": 20,
+  "teach_real": 0.0,
+  "teach_base": 0.0,
+  "nsites": 28.9,
+  "gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_wrong": 0.0,
+  "r-mixed_wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_wrong": 0.0,
+  "r-mixed_own": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_mixed_own": 0.0,
+  "r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "teach_shuffle": 0.0,
+  "neigh": 1.0,
+  "neigh_wlo": 0.9964391436147809,
+  "neigh_min_draw": 1.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 1.0,
+   "S1dev/Injection": 1.0,
+   "S3dev/Injection": 1.0,
+   "S3dev/Benign": 1.0,
+   "jhBenign/Benign": 1.0
+  },
+  "ood_gain": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-wrong": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "ood_r-shuffle": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "neigh_wrong": 0.966232558139535,
+  "neigh_shuffle": 1.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": true,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain_f16",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.09806451612903226,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.09806451612903226,
+   0.0,
+   0.2964497041420118
+  ],
+  "r-wrong": [
+   0.09806451612903226,
+   0.0,
+   0.29627329192546586
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   -0.19419354838709676,
+   -0.5849349176021017,
+   0.19421525288729588
+  ],
+  "teach_shuffle": 0.292258064516129,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160682968513482e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.092,
+   0.0,
+   0.2844010713891241
+  ],
+  "ood_r-wrong": [
+   0.092,
+   0.0,
+   0.28236554621848736
+  ],
+  "ood_r-shuffle": [
+   -0.206,
+   -0.5915034521628857,
+   0.18136375838926172
+  ],
+  "neigh_wrong": 0.5260465116279069,
+  "neigh_shuffle": 0.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain_f2",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.7619354838709678,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.7619354838709678,
+   0.675641447368421,
+   0.8415652321534673
+  ],
+  "r-wrong": [
+   0.7619354838709678,
+   0.6746718016081522,
+   0.8400197368421052
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   -0.023225806451612905,
+   -0.10994686837207289,
+   0.06039570230607965
+  ],
+  "teach_shuffle": 0.7851612903225806,
+  "neigh": 0.6003720930232558,
+  "neigh_wlo": 0.5707834014334066,
+  "neigh_min_draw": 0.5795348837209302,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.9376865671641791,
+   "S1dev/Injection": 0.0005952380952380953,
+   "S3dev/Injection": 0.0005235602094240838,
+   "S3dev/Benign": 0.9860655737704918,
+   "jhBenign/Benign": 0.7514705882352941
+  },
+  "ood_gain": [
+   0.6753333333333333,
+   0.562784756097561,
+   0.783142463235294
+  ],
+  "ood_r-wrong": [
+   0.6753333333333333,
+   0.5694591927680163,
+   0.7924325990465231
+  ],
+  "ood_r-shuffle": [
+   -0.022,
+   -0.1685521308980213,
+   0.12338898198575617
+  ],
+  "neigh_wrong": 0.9572093023255814,
+  "neigh_shuffle": 0.576186046511628,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain_f4",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.47483870967741937,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.47483870967741937,
+   0.33354037267080744,
+   0.6318240093240093
+  ],
+  "r-wrong": [
+   0.47483870967741937,
+   0.32490295031055905,
+   0.6308541318366372
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   -0.06387096774193549,
+   -0.32585311422195173,
+   0.17612486479990383
+  ],
+  "teach_shuffle": 0.5387096774193548,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160682968513482e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.36733333333333335,
+   0.21174128887223678,
+   0.5395193877551019
+  ],
+  "ood_r-wrong": [
+   0.36733333333333335,
+   0.22030935158873677,
+   0.545210210886806
+  ],
+  "ood_r-shuffle": [
+   -0.11866666666666667,
+   -0.424375,
+   0.1619216589861751
+  ],
+  "neigh_wrong": 0.9424186046511627,
+  "neigh_shuffle": 0.0,
+  "G2_gain": true,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ },
+ {
+  "model": "Qwen3-8B",
+  "m": "plain_f8",
+  "n": 12,
+  "draws": 10,
+  "teach_real": 0.1,
+  "teach_base": 0.0,
+  "nsites": 14.6,
+  "gain": [
+   0.1,
+   0.0,
+   0.29869317717275773
+  ],
+  "r-wrong": [
+   0.1,
+   0.0,
+   0.2960796963946869
+  ],
+  "teach_wrong": 0.0,
+  "r-shuffle": [
+   -0.19483870967741934,
+   -0.5868229166666666,
+   0.1926396757604811
+  ],
+  "teach_shuffle": 0.2948387096774194,
+  "neigh": 0.0,
+  "neigh_wlo": -2.160682968513482e-19,
+  "neigh_min_draw": 0.0,
+  "neigh_N": 1075,
+  "neigh_by": {
+   "S1dev/Benign": 0.0,
+   "S1dev/Injection": 0.0,
+   "S3dev/Injection": 0.0,
+   "S3dev/Benign": 0.0,
+   "jhBenign/Benign": 0.0
+  },
+  "ood_gain": [
+   0.09333333333333334,
+   0.0,
+   0.2864045454545454
+  ],
+  "ood_r-wrong": [
+   0.09333333333333334,
+   0.0,
+   0.2856188845401174
+  ],
+  "ood_r-shuffle": [
+   -0.20466666666666666,
+   -0.5920026315789474,
+   0.18016998548489518
+  ],
+  "neigh_wrong": 0.8731162790697674,
+  "neigh_shuffle": 0.0,
+  "G2_gain": false,
+  "G2_ctl_all": false,
+  "G2_ctl_noOwn": false,
+  "G2_neigh": false,
+  "G2": false,
+  "G2_noOwn": false
+ }
+]

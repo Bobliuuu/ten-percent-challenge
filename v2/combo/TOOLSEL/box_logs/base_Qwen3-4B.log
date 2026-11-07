@@ -1,0 +1,3 @@
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 144.51it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Qwen/Qwen3-4B {'ALL': '3053/3397=0.899', 'kind:none': '746/992=0.752', 'kind:tool': '2307/2405=0.959', 's3_dev/none': '93/163=0.571', 's3_dev/tool': '720/746=0.965', 'xlam_dev/none': '653/829=0.788', 'xlam_dev/tool': '1587/1659=0.957'}

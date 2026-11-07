@@ -5,3 +5,12 @@
 - 04:15Z base bf16 DONE (3346/5414 strict; label-token criterion base acc: INJ .965 SENT .952 TOX .785 FIN .873 ROUTE .793 TOOLSEL .862 SPAM .927 NLI .71 AIDET .69). Llama prefers "." over <|eot_id|> after bare label so retention criterion = all LABEL tokens argmax (EOT excluded), see analyze.py. results/ct_L405_bf16.json
 - 04:20Z lever run quant t096_c256 spawned in parallel (reuses sens table from t096; calibration = only the 6 target tasks of C_tasks calib, no tool-call slice; ~100 seqs of 512).
 - passB t096 running ~60 s/layer, expected done ~05:40Z
+- 2026-11-07T05:41:52Z QUANT t096 DONE ratio 0.096007 bytes 78.74GB; eval_quant (INJ,SENT,TOOLSEL,FIN) spawned
+- 06:15Z FIRST RETENTION (label-token criterion, base-correct items, 405B t096 = 9.601% of 820.16GB checkpoint, 78.74GB): INJ 0.997 (Wilson lo 0.987, worst cell 0.993) PASS; SENT 0.977 (lo .961, worst .958); TOOLSEL 0.975 (lo .957, worst .963 S3); FIN 0.966 (lo .946, worst .932 Neutral). results/ct_L405_t096.json
+- 06:15Z lever runs spawned: t096_c6 (6-task calib, ncal256), t0985_c6 (ratio 0.0985 + same calib). sens reused.
+- 2026-11-07T06:10:32Z cancelled lever runs per coordinator (INJ already passes); priority: real INJ exam confirm with generation
+- 2026-11-07T06:11:38Z spawned real-INJ gen runs: quant_a, base_a, base_b(noise floor, budget 7000) -> Volume res/inj_L405_<tag>.json
+- 2026-11-07T06:27:54Z base prefers lowercase label tokens ('benign','injection'); relaunched inj runs with both casings fed (var 0=Capitalised,1=lower); old results in results/old_capitalonly
+- 2026-11-07T06:58:22Z emb_q.pt/head_q.pt written (/out/t096/q/), emb mismatch 2249 el, head 262/16.4M groups unmatched (5274 el); agent told
+- 2026-11-07T07:23:19Z FINAL: real INJ exam retention 90.2% (inj class 78%); noise floor 0 flips. REPORT.md written. No containers running; apps l3-405b / l3-405b-dl left deployed (idle, no cost).
+- 2026-11-07T07:23:54Z quant t096_inj spawned (INJ calib_S1 240+240 class-balanced, prompt v2, lowercase gold answers + eot, +80 generic C_tasks; ratio 0.096; sens reused)

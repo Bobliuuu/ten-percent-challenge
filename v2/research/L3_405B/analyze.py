@@ -10,10 +10,10 @@ strict = "--strict" in sys.argv; a = [x for x in sys.argv[1:] if not x.startswit
 B = load(a[0], strict); print("base acc per task:", {t: round(sum(r["ok"] for r in B.values() if r["task"] == t) / sum(1 for r in B.values() if r["task"] == t), 3) for t in sorted({r["task"] for r in B.values()})})
 for f in a[1:]:
     C = load(f, strict); print("\n==", f, "criterion:", "strict(incl EOT)" if strict else "label tokens")
-    for t in sorted({r["task"] for r in B.values()}):
+    for t in sorted({r["task"] for r in C.values()}):
         g = collections.defaultdict(lambda: [0, 0])
         for i, b in B.items():
-            if b["task"] == t and b["ok"]:
+            if b["task"] == t and b["ok"] and i in C:
                 for key in ("ALL", "role:" + b["role"], "src:" + b["src"], "kind:" + b["kind"]): g[key][1] += 1; g[key][0] += C[i]["ok"]
         cells = [v for k, v in g.items() if k != "ALL"]; allv = g["ALL"]
         if not allv[1]: continue

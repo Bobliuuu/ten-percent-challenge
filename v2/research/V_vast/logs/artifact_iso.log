@@ -1,0 +1,17 @@
+08:17:40Z 2026-11-07T08:17Z vast id 59542098 label tenpct-artifact_iso GPU RTX 3090 24GB $0.177/h (+5% guard) started
+08:25:49Z load timeout, destroying 59542098
+08:25:55Z destroyed (verified gone) 59542098
+08:25:56Z 2026-11-07T08:25Z vast id 59542882 label tenpct-artifact_iso GPU RTX 3090 24GB $0.179/h (+5% guard) started
+08:34:05Z load timeout, destroying 59542882
+08:34:11Z destroyed (verified gone) 59542882
+08:34:12Z offer 59491830 refused: {"error": true, "status_code": 400, "msg": "error 404/3603: no_such_ask  Instance type by id 5949183
+08:34:12Z offer 49519128 refused: {"error": true, "status_code": 400, "msg": "error 404/3603: no_such_ask  Instance type by id 4951912
+08:34:13Z 2026-11-07T08:34Z vast id 59543597 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
+08:42:23Z load timeout, destroying 59543597
+08:42:28Z destroyed (verified gone) 59543597
+08:42:29Z offer 59491830 refused: {"error": true, "status_code": 400, "msg": "error 404/3603: no_such_ask  Instance type by id 5949183
+08:42:30Z 2026-11-07T08:42Z vast id 59544206 label tenpct-artifact_iso GPU RTX 3090 24GB $0.201/h (+5% guard) started
+08:46:04Z ssh up <redacted-host> 31532
+08:50:36Z started job
+08:52:44Z finished ['DONE']
+08:52:50Z destroyed (verified gone) 59544206

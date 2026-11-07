@@ -6,5 +6,5 @@ for f in sys.argv[1:]:
         g = r["gaps"]; a = r["arms"]
         f2 = lambda x: "%+.2f(%+.2f)" % (x["mean"], x["ci"][0])
         print(f"{v:5s} teach1 gain={f2(g['real_minus_empty|teach1'])} -mixed={f2(g['real_minus_mixed|teach1'])} -randwrong={f2(g['real_minus_randwrong|teach1'])} | "
-              f"teach3 gain={f2(g['real_minus_empty|teach3'])} -mixed={f2(g['real_minus_mixed|teach3'])} -rw={f2(g['real_minus_randwrong|teach3'])} | "
+              f"teach3 gain={f2(g['real_minus_empty|teach3']) if 'real_minus_empty|teach3' in g else 'NA'} -mixed={f2(g['real_minus_mixed|teach3']) if 'real_minus_mixed|teach3' in g else 'NA'} | "
               f"nb ret real={a['real']['nb']['mean']:.3f} mixed={a['mixed']['nb']['mean']:.3f} rw={a['randwrong']['nb']['mean']:.3f} nb3={a['real']['nb3']['mean']:.3f} devret={a['real']['devret']['mean']:.3f} | bytes_changed real={r['bytes_changed']['real']:.0f}")

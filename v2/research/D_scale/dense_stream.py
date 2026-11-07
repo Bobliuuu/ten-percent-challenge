@@ -295,6 +295,7 @@ def run(cfg):
             try: pr = tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False, enable_thinking=False)
             except TypeError: pr = tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False)
             ans = "\n".join("<tool_call>\n" + json.dumps(dict(name=gg["name"], arguments=gg["arguments"])) + "\n</tool_call>" for gg in it["gold"]) or "None of the available tools applies to this request."
+            if cfg.get("calib_self") and "selfgen" in it: ans = it["selfgen"]
             t1c.append(pr + ans + "<|im_end|>\n")
         cal_txt = t1c[:len(t1c) // 2] + cal_txt[:len(t1c) // 2] if cfg.get("calib_mix", True) else t1c
     if cfg.get('calib_ct'):

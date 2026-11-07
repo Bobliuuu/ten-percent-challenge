@@ -1,0 +1,107 @@
+{
+ "verdict": "PASS_ALL_GATES",
+ "failed_gates": [],
+ "gates": {
+  "size<=10%": true,
+  "retention>=98%": true,
+  "every_kind_retention>=95%": true,
+  "exam>=2000": true,
+  "every_kind>=300": true,
+  "ood_block>=500": true,
+  "base_above_chance_below_ceiling": 1.0,
+  "real_output": true,
+  "no_new_parts": true,
+  "feedback_n<=25": true,
+  "teach_set>=25": true,
+  "teach_clear_gain(lo>0,mean>=.15)": true,
+  "controls_clearly_worse(lo>0)": true,
+  "neighbors_kept>=98%": true,
+  "exam_after_feedback_retention>=98%": true,
+  "size_after_feedback<=10%": true
+ },
+ "scores": {
+  "size_margin": 0.9500000000000004,
+  "retention_overall": 0.7805612968982775,
+  "retention_worst_kind": 0.922716733196431,
+  "ood_robustness": 0.7274787992651941,
+  "harmful_flips": 0.9722222222222221,
+  "agreement": 0.947916666666667,
+  "teach_gain": 1.0,
+  "control_separation": 1.0,
+  "neighbor_retention": 0.24302584625677837,
+  "exam_after_feedback": 0.7805612968982775,
+  "feedback_bytes_added": 1.0
+ },
+ "maximin": 0.24302584625677837,
+ "weakest": "neighbor_retention",
+ "mean_score": 0.8476802601276227,
+ "details": {
+  "size_ratio": 0.0955,
+  "retention_overall": {
+   "n_base_correct": 2023,
+   "kept": 2009,
+   "ret": 0.9930795847750865,
+   "ret_lo": 0.9884168389069483
+  },
+  "retention_per_kind": {
+   "multi": {
+    "n_base_correct": 703,
+    "kept": 696,
+    "ret": 0.9900426742532006,
+    "ret_lo": 0.9795901713237501,
+    "n_locked": 849
+   },
+   "nocall": {
+    "n_base_correct": 654,
+    "kept": 653,
+    "ret": 0.9984709480122325,
+    "ret_lo": 0.9913900100727014,
+    "n_locked": 763
+   },
+   "single": {
+    "n_base_correct": 666,
+    "kept": 660,
+    "ret": 0.990990990990991,
+    "ret_lo": 0.9804854374387146,
+    "n_locked": 788
+   }
+  },
+  "teach_gain": {
+   "mean": 0.8666666666666667,
+   "lo": 0.7333333333333333,
+   "hi": 0.9666666666666667,
+   "n": 30
+  },
+  "real_minus_shuffled": {
+   "mean": 0.7666666666666667,
+   "lo": 0.5333333333333333
+  },
+  "real_minus_empty": {
+   "mean": 0.8666666666666667,
+   "lo": 0.7333333333333333
+  },
+  "neighbor_retention": {
+   "n_base_correct": 120,
+   "kept": 119,
+   "ret": 0.9916666666666667,
+   "ret_lo": 0.9543025846256779
+  },
+  "exam_retention_after_feedback": {
+   "n_base_correct": 2023,
+   "kept": 2009,
+   "ret": 0.9930795847750865,
+   "ret_lo": 0.9884168389069483
+  },
+  "ood_gap": -0.005792845152736481,
+  "acc_delta_vs_base": {
+   "mean": -0.005,
+   "lo": -0.008333333333333333,
+   "hi": -0.0020833333333333333
+  },
+  "harmful_flip_rate": 0.005833333333333334,
+  "helpful_flip_rate": 0.0008333333333333334,
+  "behavioural_agreement": 0.9858333333333333,
+  "difficulty_log10_base_fp16_bytes": 10.0,
+  "generative": true
+ }
+}

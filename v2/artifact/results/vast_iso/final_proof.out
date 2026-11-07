@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/workspace/bundle/v2/harness/v3/exam_gen.py", line 102, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/workspace/bundle/v2/harness/v3/exam_gen.py", line 80, in main
+    r = evaluate(labeled, a.artifact, a.base_id, base_texts=bt, isolation=a.isolation, hide_dirs=label_dirs, python=a.python, canary=canary, max_new_tokens=a.max_new_tokens, base_cmd=json.loads(a.base_cmd_json) if a.base_cmd_json else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/v2/harness/v3/exam_gen.py", line 42, in evaluate
+    b = runner.run_base(base_id, view, td, python=python, base_cmd=base_cmd, max_new_tokens=max_new_tokens); base_texts = b["texts"]; out["base_seconds"] = b["seconds"]; out["base_out_sha256"] = b["out_sha256"]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/v2/harness/v3/runner.py", line 21, in run_base
+    if r.returncode != 0: raise RuntimeError("base run failed: " + r.stderr[-1500:])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: base run failed:  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 601, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 394, in _get_model_class
+    supported_models = model_mapping[type(config)]
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 807, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 821, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 733, in getattribute_from_module
+    if hasattr(module, attr):
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2305, in __getattr__
+    raise ModuleNotFoundError(
+ModuleNotFoundError: Could not import module 'Qwen3ForCausalLM'. Are this object's requirements defined correctly?
+
+stage 1 failed; see receipt in /workspace/bundle/results/run

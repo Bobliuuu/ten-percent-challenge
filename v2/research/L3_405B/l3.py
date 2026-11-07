@@ -12,7 +12,9 @@ img = (modal.Image.debian_slim(python_version="3.11")
        .pip_install("torch==2.8.0", "transformers==4.57.1", "safetensors", "numpy", "accelerate")
        .add_local_file(HERE + "/../C_tasks/items.jsonl", "/data/items.jsonl")
        .add_local_file(HERE + "/../C_tasks/calib.jsonl", "/data/calib.jsonl")
-       .add_local_file(HERE + "/../D_scale/t1v2/calib_t1.jsonl", "/data/calib_t1.jsonl"))
+       .add_local_file(HERE + "/../D_scale/t1v2/calib_t1.jsonl", "/data/calib_t1.jsonl")
+       .add_local_file(HERE + "/inj_probe_items.jsonl", "/data/inj_probe_items.jsonl")
+       .add_local_file(HERE + "/inj_calib.jsonl", "/data/inj_calib.jsonl"))
 
 MD = "/w/bf16"
 HB = 128
@@ -151,6 +153,7 @@ def quant(cfg):
     EOT = tok.convert_tokens_to_ids("<|eot_id|>")
     # ---- calibration (dev: C_tasks calib.jsonl [S1-role cal items] + s1_calib tool-call slice)
     cc = [json.loads(l) for l in open("/data/calib.jsonl")]
+    if cfg.get("calib_file"): cc = [json.loads(l) for l in open(cfg["calib_file"])]
     if cfg.get("calib_tasks"): cc = [c for c in cc if c["task"] in cfg["calib_tasks"]]
     if cfg.get("sens_from") and not os.path.exists(f"{OUT}/sens_g{g}.json"):
         import shutil; shutil.copy(f"/w/out/{cfg['sens_from']}/sens_g{g}.json", f"{OUT}/sens_g{g}.json"); log("sens copied from", cfg["sens_from"])
@@ -382,12 +385,136 @@ def evalrun(cfg):
     print("RESULT_JSON", json.dumps(dict(kind=kind, name=name, acc=sum(r["correct"] for r in rows) / len(rows), ratio=out["ratio"]))); return fn
 
 
+@app.function(image=img, gpu="H200", volumes={"/w": vol}, timeout=24 * 3600, memory=98304, cpu=8, retries=modal.Retries(max_retries=5, initial_delay=5.0, backoff_coefficient=1.0))
+def evalinj2(cfg):
+    """real-INJ-exam greedy decoding via speculative argmax chain (exactly equals greedy for resolved items).
+    Sequence fed = chat(query) + Label tokens (gold, capitalised) + '.'. Saves argmax ids at every position from the first label token on."""
+    np, torch, F, safe_open = common()
+    t0 = time.time(); vol.reload(); kind = cfg["kind"]; name = cfg.get("name", "t096"); g = cfg.get("g", 128); tag = cfg.get("tag", kind)
+    os.makedirs("/w/res", exist_ok=True)
+    st = ST(MD); conf, tok, layer, rope = setup_model(); Qz = make_quantiser(g); nl = conf.num_hidden_layers; QD = f"/w/out/{name}"
+    items = [json.loads(l) for l in open("/data/inj_probe_items.jsonl")]
+    if cfg.get("limit"): items = items[:cfg["limit"]]
+    DOT = tok.encode(".", add_special_tokens=False)[0]; enc = []; items = [dict(it, var=v) for it in items for v in (0, 1)]
+    for it in items:
+        p = tok.encode(chat(tok, it["query"]), add_special_tokens=False); w = it["gold_label"]; w = w.capitalize() if it["var"] == 0 else w
+        lab = tok.encode(w, add_special_tokens=False)
+        enc.append((p + lab + [DOT], len(lab) + 2, lab))
+    order = np.argsort([-len(e[0]) for e in enc]); BUD = cfg.get("tok_budget", 24000); chunks = []; cur_ = []; mx = 0
+    for i in order:
+        L = len(enc[i][0])
+        if cur_ and max(mx, L) * (len(cur_) + 1) > BUD: chunks.append(cur_); cur_ = []; mx = 0
+        cur_.append(int(i)); mx = max(mx, L)
+    if cur_: chunks.append(cur_)
+    log("items", len(items), "chunks", len(chunks), "tokens", sum(len(e[0]) for e in enc), "maxlen", max(len(e[0]) for e in enc))
+    embw = st.get("model.embed_tokens.weight") if kind == "base" else torch.load(QD + "/emb.pt").cuda()
+    H = []
+    for ch in chunks:
+        mxl = max(len(enc[i][0]) for i in ch); ids = torch.zeros(len(ch), mxl, dtype=torch.long)
+        for j, i in enumerate(ch): ids[j, :len(enc[i][0])] = torch.tensor(enc[i][0])
+        H.append(F.embedding(ids.cuda(), embw))
+    del embw
+    lnames = lambda i: [f"model.layers.{i}.{k}" for k, _ in layer.named_parameters() if kind == "base" or k not in [n + ".weight" for n in linn]]
+    pf = Prefetch(st, lnames); pf.want(0); posc = {}
+    def getpe(L):
+        if L not in posc:
+            pos = torch.arange(L, device="cuda")[None]; posc[L] = (pos, rope(H[0][:1, :1], pos))
+        return posc[L]
+    for oli in range(nl):
+        ts = time.time(); d = pf.get(oli)
+        if oli + 1 < nl: pf.want(oli + 1)
+        for k, p in layer.named_parameters():
+            if k in [n + ".weight" for n in linn] and kind == "quant": continue
+            p.data.copy_(d[f"model.layers.{oli}.{k}"])
+        if kind == "quant":
+            sv = torch.load(f"{QD}/q/L{oli}.pt")
+            for n in linn: layer.get_submodule(n).weight.data.copy_(dequant(sv[n], g, Qz))
+            del sv
+        with torch.no_grad():
+            for ci in range(len(H)):
+                L = H[ci].shape[1]; pos, pe = getpe(L)
+                o = layer(H[ci], attention_mask=None, position_ids=pos, position_embeddings=pe); H[ci] = o[0] if isinstance(o, tuple) else o
+        torch.cuda.empty_cache()
+        if oli % 10 == 0: log("evalinj", kind, tag, "layer", oli, "s", round(time.time() - ts), "total", round(time.time() - t0))
+    nm = st.get("model.norm.weight"); head = st.get("lm_head.weight") if kind == "base" else torch.load(QD + "/head.pt").cuda()
+    rows = [None] * len(items)
+    with torch.no_grad():
+        for ci, ch in enumerate(chunks):
+            for j, i in enumerate(ch):
+                full, npred, lab = enc[i]; Lf = len(full); x = H[ci][j, Lf - npred:Lf].float()
+                x = (x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + conf.rms_norm_eps)).to(torch.bfloat16) * nm
+                lg = (x @ head.T).float(); tv, ti = lg.topk(2, -1)
+                it = items[i]
+                rows[i] = dict(id=it["id"], var=it["var"], source=it["source"], kind=it["kind"], subset=it["subset"], gold=it["gold_label"], group=it["group"], lab=lab,
+                               pred=[int(v) for v in ti[:, 0]], gap=[round(float(v), 3) for v in (tv[:, 0] - tv[:, 1])])
+    out = dict(kind=kind, name=name, tag=tag, rows=rows, secs=time.time() - t0, cfg=cfg)
+    fn = f"/w/res/inj_L405_{tag}.json"; json.dump(out, open(fn, "w")); vol.commit()
+    log("INJ_DONE", tag, len(rows), "secs", round(time.time() - t0)); print("RESULT_JSON", json.dumps(dict(tag=tag, n=len(rows)))); return fn
+
+
+@app.function(image=img, gpu="H200", volumes={"/w": vol}, timeout=6 * 3600, memory=98304, cpu=8)
+def dump_eh1(cfg):
+    """write integer codes/scales/L/sg for embedding and lm_head to /w/out/<name>/q/{emb_q,head_q}.pt (same layout as L{i}.pt) and verify dequant == emb.pt/head.pt bit-exactly.
+    emb: deterministic RTN re-run. head: GPTQ codes recovered from head.pt (bf16 of unrot(Q)): re-rotate, 2-cluster fit of scale, fp16-ulp search, exact bf16 check per 128-group."""
+    np, torch, F, safe_open = common()
+    vol.reload(); name = cfg.get("name", "t096"); QD = f"/w/out/{name}"; g = 128; Qz = make_quantiser(g); L = 4; half = (L - 1) / 2
+    hid = 16384
+    def signs(oli, key, C): return (torch.randint(0, 2, (C,), generator=torch.Generator().manual_seed(1000 * oli + len(key)), dtype=torch.float32) * 2 - 1).cuda()
+    res = {}
+    # ---- embedding: re-run RTN
+    st = ST(MD); emb_w = st.get("model.embed_tokens.weight"); sg = signs(88888, "emb", hid); We = Qz.rot(emb_w.float(), sg)
+    ref = torch.load(QD + "/emb.pt").cuda(); codes = []; scs = []; bad = 0; nbad_el = 0
+    for r in range(0, We.shape[0], 8192):
+        x = We[r:r + 8192].reshape(-1, g); sc = Qz.qparams(x, L); q, qi = Qz.quant(x, sc, L)
+        rr = x.shape[0] // (hid // g)
+        e = dict(L=L, codes=pack4(qi.view(rr, hid).to(torch.uint8)).cpu(), scales=sc.half().view(rr, hid // g).cpu(), sg=sg.to(torch.int8).cpu())
+        codes.append(e["codes"]); scs.append(e["scales"])
+        dq = Qz.unrot(q.view(rr, hid), sg).to(torch.bfloat16); nbad_el += int((dq != ref[r:r + 8192]).sum())
+    emb_q = dict(L=L, codes=torch.cat(codes), scales=torch.cat(scs), sg=sg.to(torch.int8).cpu()); torch.save(emb_q, QD + "/q/emb_q.pt")
+    # check via the shared dequant function
+    mism = 0
+    for r in range(0, emb_q["codes"].shape[0], 8192):
+        e = dict(L=L, codes=emb_q["codes"][r:r + 8192], scales=emb_q["scales"][r:r + 8192], sg=emb_q["sg"]); mism += int((dequant(e, g, Qz) != ref[r:r + 8192]).sum())
+    res["emb"] = dict(mismatch_elements_during_quant=nbad_el, mismatch_elements_dequant=mism, shape=list(ref.shape)); log("EMB", res["emb"])
+    del We, emb_w, ref
+    # ---- head: recover codes
+    hd = torch.load(QD + "/head.pt"); sg = signs(99999, "head", hid); codes = []; scs = []; unmatched = 0; mism = 0; ngroups = 0
+    for r in range(0, hd.shape[0], 4096):
+        w = hd[r:r + 4096].cuda(); R = w.shape[0]; x = Qz.rot(w.float(), sg).view(R, hid // g, g); a = x.abs()
+        t = a.mean(-1, keepdim=True)
+        for _ in range(8):
+            hi = a > t; n2 = hi.sum(-1, keepdim=True).clamp(min=1); n1 = (~hi).sum(-1, keepdim=True).clamp(min=1)
+            m2 = (a * hi).sum(-1, keepdim=True) / n2; m1 = (a * (~hi)).sum(-1, keepdim=True) / n1; t = (m1 + m2) / 2
+        lvl = torch.where(a > t, torch.full_like(a, 1.5), torch.full_like(a, 0.5)); sc0 = ((a * lvl).sum(-1, keepdim=True) / (lvl * lvl).sum(-1, keepdim=True))
+        sh = sc0.half(); sb = sh.view(torch.int16); best_sc = sh.clone(); ok = torch.zeros(R, hid // g, 1, dtype=torch.bool, device="cuda"); best_qi = torch.zeros(R, hid // g, g, dtype=torch.uint8, device="cuda")
+        wb = w.view(R, hid // g, g)
+        for k in (0, 1, -1, 2, -2, 3, -3, 4, -4):
+            cs = (sb + k).view(torch.float16); csf = cs.float().clamp(min=1e-8); qi = torch.clamp(torch.round(x / csf + half), 0, L - 1); Q = (qi - half) * csf
+            dq = (Q.view(R, hid // g, g) @ Qz.Hb).reshape(R, hid)  # unrot
+            dq = (dq * sg).to(torch.bfloat16).view(R, hid // g, g); m = (dq == wb).all(-1, keepdim=True) & ~ok
+            best_sc = torch.where(m, cs, best_sc); best_qi = torch.where(m, qi.to(torch.uint8), best_qi); ok |= m
+            if bool(ok.all()): break
+        # groups still not matched: keep k=0 estimate
+        miss = ~ok; unmatched += int(miss.sum()); ngroups += miss.numel()
+        qi0 = torch.clamp(torch.round(x / sh.float().clamp(min=1e-8) + half), 0, L - 1).to(torch.uint8); best_qi = torch.where(miss, qi0, best_qi)
+        codes.append(pack4(best_qi.view(R, hid)).cpu()); scs.append(best_sc.view(R, hid // g).cpu())
+        if (r // 4096) % 5 == 0: log("head rows", r, "unmatched groups so far", unmatched, "of", ngroups)
+    head_q = dict(L=L, codes=torch.cat(codes), scales=torch.cat(scs), sg=sg.to(torch.int8).cpu()); torch.save(head_q, QD + "/q/head_q.pt")
+    for r in range(0, head_q["codes"].shape[0], 4096):
+        e = dict(L=L, codes=head_q["codes"][r:r + 4096], scales=head_q["scales"][r:r + 4096], sg=head_q["sg"]); mism += int((dequant(e, g, Qz) != hd[r:r + 4096].cuda()).sum())
+    res["head"] = dict(unmatched_groups=unmatched, groups=ngroups, mismatch_elements_dequant=mism, shape=list(hd.shape)); log("HEAD", res["head"])
+    vol.commit(); print("RESULT_JSON", json.dumps(res)); return res
+
+
 if __name__ == "__main__":
     mode = sys.argv[1]
     if mode == "launch":
         what = sys.argv[2]; nm = sys.argv[3] if len(sys.argv) > 3 else "t096"
         extra = json.loads(sys.argv[4]) if len(sys.argv) > 4 else {}
-        if what == "quant": c = modal.Function.from_name("l3-405b", "quant").spawn(dict(name=nm, target_ratio=0.096, g=128, emb_L=4, head_L=4, **extra))
+        if what == "quant": c = modal.Function.from_name("l3-405b", "quant").spawn({**dict(name=nm, target_ratio=0.096, g=128, emb_L=4, head_L=4), **extra})
         elif what == "eval_base": c = modal.Function.from_name("l3-405b", "evalrun").spawn(dict(kind="base", **extra))
+        elif what == "dump_eh": c = modal.Function.from_name("l3-405b", "dump_eh1").spawn(dict(name=nm))
+        elif what == "inj_base": c = modal.Function.from_name("l3-405b", "evalinj2").spawn(dict(kind="base", **extra))
+        elif what == "inj_quant": c = modal.Function.from_name("l3-405b", "evalinj2").spawn(dict(kind="quant", name=nm, **extra))
         else: c = modal.Function.from_name("l3-405b", "evalrun").spawn(dict(kind="quant", name=nm, **extra))
         print("spawned", what, nm, c.object_id)

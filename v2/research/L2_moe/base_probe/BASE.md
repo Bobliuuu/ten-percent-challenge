@@ -5,7 +5,6 @@
 | GLM-4.5-Air-FP8 (GLM-XML->json adapter) | fp8 H100:2 | 110.5 | 11.1 | 0.737 | 0.93/0.69/0.59 | 0.743 | 0.85/0.78/0.60 | 0.003 | YES | 21 | 2.8 |
 | Qwen3-235B-FP8 | fp8 H100:4 | 235.1 | 23.5 | 0.853 | 1.00/0.80/0.76 | 0.730 | 0.74/0.82/0.63 | 0.003 | YES | 21 | 5.6 |
 | gpt-oss-120b | mxfp4 H100:2 | 116.8 | 11.7 | 0.580 | 0.97/0.77/0.00 | 0.467 | 0.74/0.66/0.00 | 0.002 | no | 2 | 0.3 |
-
 Notes
 - Greedy, base chat template with native tools=[...], single user message, scorer.py + probe_items.jsonl copied verbatim from tournament/T1 (600 items: 300 S1-dev + 300 S3-dev). vllm 0.11.0, max_model_len 20000. Reference (SUMMARY.md): Qwen3-30B-A3B S1 .810 / S3 .650; Qwen3-14B .840/.697.
 - bf16 GB = HF safetensors total params x 2 (gpt-oss-120b is natively mxfp4: 116.8 GB is actual checkpoint size; 10% budget column is 0.1 x that). 
