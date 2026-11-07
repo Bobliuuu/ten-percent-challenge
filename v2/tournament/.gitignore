@@ -9,3 +9,7 @@ __pycache__/
 
 # archived pre-relock data (includes old locked rows): never publish
 **/data_archive*/
+
+# bulk raw routing data (hundreds of MB): stays local/Modal
+**/routing/data/
+*.bak

@@ -1,0 +1,79 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-nrRSZw1XZFfQnHqrLp1IoY
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/feedback/fb_inj.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/data/dev_S3.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/data/calib_S1.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/data/pool_S1.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/prompt.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/INJ/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.65it/s]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.43it/s]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.39it/s]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.48it/s]
+[1ALoading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.83it/s]
+[    13s] first-token ids {'injection': 36653, 'benign': 24566} ['Injection', 'Ben'] tied False
+[    13s] pool 8826
+[   243s] base acc on pool (calib+pool S1) {'pool': 0.8238159981871742, 's3': 0.8720626631853786}
+[   243s] wrong counts A_fn A_fp B_fn B_fp 724 11 806 14
+[   244s] LOCKED teach/neigh BEFORE any edit: 74 98 400 ab082b8509d0
+[   254s] stats generic tied False
+[   268s] base eval (sanity: teach~0, neigh~1) {'teach': 0.0, 'teach_ood': 0.0, 'neigh': 0.9975}
+[   283s] draw 0 real: teach 0.189 ood 0.031 neigh 0.535 sites 25
+[   296s] draw 0 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   311s] draw 0 mixed: teach 0.149 ood 0.031 neigh 0.892 sites 14
+[   325s] draw 0 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   339s] draw 0 shuffle: teach 0.162 ood 0.031 neigh 0.880 sites 16
+[   355s] draw 1 real: teach 0.189 ood 0.031 neigh 0.540 sites 25
+[   369s] draw 1 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   383s] draw 1 mixed: teach 0.149 ood 0.031 neigh 0.897 sites 13
+[   397s] draw 1 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   411s] draw 1 shuffle: teach 0.162 ood 0.031 neigh 0.885 sites 16
+[   428s] draw 2 real: teach 0.189 ood 0.031 neigh 0.545 sites 25
+[   442s] draw 2 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   456s] draw 2 mixed: teach 0.189 ood 0.031 neigh 0.752 sites 13
+[   470s] draw 2 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   484s] draw 2 shuffle: teach 0.189 ood 0.031 neigh 0.745 sites 16
+[   500s] draw 3 real: teach 0.189 ood 0.031 neigh 0.545 sites 25
+[   514s] draw 3 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   528s] draw 3 mixed: teach 0.149 ood 0.031 neigh 0.900 sites 14
+[   542s] draw 3 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   556s] draw 3 shuffle: teach 0.189 ood 0.031 neigh 0.748 sites 18
+[   573s] draw 4 real: teach 0.189 ood 0.031 neigh 0.540 sites 25
+[   587s] draw 4 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   601s] draw 4 mixed: teach 0.189 ood 0.031 neigh 0.542 sites 14
+[   615s] draw 4 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   629s] draw 4 shuffle: teach 0.149 ood 0.031 neigh 0.910 sites 15
+[   646s] draw 5 real: teach 0.189 ood 0.031 neigh 0.535 sites 25
+[   660s] draw 5 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   674s] draw 5 mixed: teach 0.189 ood 0.031 neigh 0.542 sites 14
+[   688s] draw 5 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   702s] draw 5 shuffle: teach 0.149 ood 0.031 neigh 0.897 sites 12
+[   719s] draw 6 real: teach 0.189 ood 0.031 neigh 0.545 sites 25
+[   733s] draw 6 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   747s] draw 6 mixed: teach 0.189 ood 0.031 neigh 0.540 sites 14
+[   761s] draw 6 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   775s] draw 6 shuffle: teach 0.189 ood 0.031 neigh 0.568 sites 15
+[   792s] draw 7 real: teach 0.189 ood 0.031 neigh 0.545 sites 25
+[   806s] draw 7 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   820s] draw 7 mixed: teach 0.189 ood 0.031 neigh 0.770 sites 13
+[   834s] draw 7 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   848s] draw 7 shuffle: teach 0.189 ood 0.031 neigh 0.542 sites 16
+[   865s] draw 8 real: teach 0.149 ood 0.031 neigh 0.885 sites 25
+[   879s] draw 8 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   893s] draw 8 mixed: teach 0.189 ood 0.031 neigh 0.735 sites 14
+[   907s] draw 8 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   921s] draw 8 shuffle: teach 0.149 ood 0.031 neigh 0.890 sites 10
+[   938s] draw 9 real: teach 0.189 ood 0.031 neigh 0.698 sites 25
+[   952s] draw 9 empty: teach 0.000 ood 0.000 neigh 0.998 sites 0
+[   966s] draw 9 mixed: teach 0.189 ood 0.031 neigh 0.677 sites 13
+[   980s] draw 9 allflip: teach 0.216 ood 0.408 neigh 0.978 sites 1
+[   994s] draw 9 shuffle: teach 0.189 ood 0.031 neigh 0.750 sites 13
+DONE Qwen/Qwen3-8B generic {"real": 0.18513513513513516, "empty": 0.0, "mixed": 0.17702702702702705, "allflip": 0.21621621621621623, "shuffle": 0.17162162162162165}
+[modal-client] 2026-11-06T22:42:45-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-nrRSZw1XZFfQnHqrLp1IoY

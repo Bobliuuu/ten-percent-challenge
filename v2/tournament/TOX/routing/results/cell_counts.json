@@ -1,0 +1,236 @@
+[
+ {
+  "source": "S1",
+  "queue": "info_entertainment",
+  "total": 8712,
+  "dev": 1684,
+  "train": 2616,
+  "reserve": 4412,
+  "reserve_groups": 3707
+ },
+ {
+  "source": "S1",
+  "queue": "orders_delivery",
+  "total": 355,
+  "dev": 89,
+  "train": 93,
+  "reserve": 173,
+  "reserve_groups": 158
+ },
+ {
+  "source": "S1",
+  "queue": "productivity_comms",
+  "total": 5070,
+  "dev": 1068,
+  "train": 1503,
+  "reserve": 2499,
+  "reserve_groups": 2178
+ },
+ {
+  "source": "S1",
+  "queue": "smart_home_devices",
+  "total": 1488,
+  "dev": 323,
+  "train": 458,
+  "reserve": 707,
+  "reserve_groups": 497
+ },
+ {
+  "source": "S1",
+  "queue": "travel_transport",
+  "total": 801,
+  "dev": 142,
+  "train": 252,
+  "reserve": 407,
+  "reserve_groups": 354
+ },
+ {
+  "source": "S2",
+  "queue": "account_security",
+  "total": 1648,
+  "dev": 317,
+  "train": 466,
+  "reserve": 865,
+  "reserve_groups": 651
+ },
+ {
+  "source": "S2",
+  "queue": "billing_finance",
+  "total": 4350,
+  "dev": 875,
+  "train": 1387,
+  "reserve": 2088,
+  "reserve_groups": 1598
+ },
+ {
+  "source": "S2",
+  "queue": "info_entertainment",
+  "total": 4347,
+  "dev": 858,
+  "train": 1294,
+  "reserve": 2195,
+  "reserve_groups": 1832
+ },
+ {
+  "source": "S2",
+  "queue": "orders_delivery",
+  "total": 300,
+  "dev": 47,
+  "train": 108,
+  "reserve": 145,
+  "reserve_groups": 117
+ },
+ {
+  "source": "S2",
+  "queue": "productivity_comms",
+  "total": 2698,
+  "dev": 525,
+  "train": 778,
+  "reserve": 1395,
+  "reserve_groups": 1076
+ },
+ {
+  "source": "S2",
+  "queue": "smart_home_devices",
+  "total": 1198,
+  "dev": 252,
+  "train": 412,
+  "reserve": 534,
+  "reserve_groups": 384
+ },
+ {
+  "source": "S2",
+  "queue": "travel_transport",
+  "total": 3000,
+  "dev": 640,
+  "train": 875,
+  "reserve": 1485,
+  "reserve_groups": 1281
+ },
+ {
+  "source": "S2",
+  "queue": "vehicle_services",
+  "total": 1500,
+  "dev": 268,
+  "train": 504,
+  "reserve": 728,
+  "reserve_groups": 555
+ },
+ {
+  "source": "S3",
+  "queue": "account_security",
+  "total": 5312,
+  "dev": 1919,
+  "train": 1253,
+  "reserve": 2140,
+  "reserve_groups": 1107
+ },
+ {
+  "source": "S3",
+  "queue": "billing_finance",
+  "total": 4694,
+  "dev": 436,
+  "train": 1292,
+  "reserve": 2966,
+  "reserve_groups": 739
+ },
+ {
+  "source": "S3",
+  "queue": "complaints_feedback",
+  "total": 1989,
+  "dev": 225,
+  "train": 557,
+  "reserve": 1207,
+  "reserve_groups": 345
+ },
+ {
+  "source": "S3",
+  "queue": "human_agent",
+  "total": 1944,
+  "dev": 349,
+  "train": 798,
+  "reserve": 797,
+  "reserve_groups": 308
+ },
+ {
+  "source": "S3",
+  "queue": "orders_delivery",
+  "total": 6592,
+  "dev": 1266,
+  "train": 2210,
+  "reserve": 3116,
+  "reserve_groups": 1178
+ },
+ {
+  "source": "S3",
+  "queue": "returns_refunds",
+  "total": 2559,
+  "dev": 246,
+  "train": 507,
+  "reserve": 1806,
+  "reserve_groups": 427
+ },
+ {
+  "source": "S3",
+  "queue": "subscriptions",
+  "total": 982,
+  "dev": 193,
+  "train": 285,
+  "reserve": 504,
+  "reserve_groups": 145
+ },
+ {
+  "source": "S4",
+  "queue": "active_directory",
+  "total": 125,
+  "dev": 25,
+  "train": 39,
+  "reserve": 61,
+  "reserve_groups": 57
+ },
+ {
+  "source": "S4",
+  "queue": "computer_services",
+  "total": 106,
+  "dev": 26,
+  "train": 26,
+  "reserve": 54,
+  "reserve_groups": 50
+ },
+ {
+  "source": "S4",
+  "queue": "fileservice",
+  "total": 315,
+  "dev": 124,
+  "train": 58,
+  "reserve": 133,
+  "reserve_groups": 98
+ },
+ {
+  "source": "S4",
+  "queue": "office365",
+  "total": 211,
+  "dev": 51,
+  "train": 58,
+  "reserve": 102,
+  "reserve_groups": 99
+ },
+ {
+  "source": "S4",
+  "queue": "software",
+  "total": 186,
+  "dev": 45,
+  "train": 53,
+  "reserve": 88,
+  "reserve_groups": 83
+ },
+ {
+  "source": "S4",
+  "queue": "support_general",
+  "total": 515,
+  "dev": 88,
+  "train": 167,
+  "reserve": 260,
+  "reserve_groups": 188
+ }
+]

@@ -89,6 +89,65 @@ def raw_pins():
     return pins
 PINS = raw_pins()
 
+# ---------------- items touched before the relock (rule 3: nothing used to build / tune / evaluate may be locked)
+V2ROOT = os.path.abspath(f"{HERE}/../..")
+TOUCH_SKIP_DIRS = {"__pycache__", ".git", ".venv", "raw"}
+def _skip_touch(rel):
+    return rel.startswith("tournament/T1/data/") or rel.startswith("tournament/T1/raw/") or (rel.startswith("tournament/T1/data_archive") and rel.endswith("/locked.jsonl")) \
+        or rel.startswith("tournament/T1/data_archive_pre_relock_20261106/LOCK") or rel.startswith("tournament/T1/rescore_reports/")
+def _J(o): return json.dumps(o, sort_keys=True, ensure_ascii=False, default=str)
+def _tl_sig(tools): return sha(_J(sorted(([t.get("name"), t.get("description"), t.get("parameters")] for t in tools if isinstance(t, dict)), key=_J)).encode())
+def _call_sigs(g): return {sha(_J([c.get("name"), c.get("arguments")]).encode()) for c in g if isinstance(c, dict)}
+def _gs_sig(g): return sha(_J(sorted(([c.get("name"), c.get("arguments")] for c in g if isinstance(c, dict)), key=_J)).encode())
+def collect_touched():
+    """structured pass over every .json/.jsonl under v2 (rows with tools + gold/answers: tool-list sig, individual gold-call sigs, queries) -> sets; returns (sets, file list)."""
+    T = dict(q=set(), tl=set(), gc=set(), gs=set()); files = []
+    def walk(o):
+        if isinstance(o, dict):
+            t = o.get("tools"); g = o.get("gold", o.get("answers"))
+            if isinstance(t, list) and t and isinstance(t[0], dict) and "name" in t[0]:
+                T["tl"].add(_tl_sig(t))
+                if isinstance(o.get("query"), str): T["q"].add(norm(o["query"]))
+                if isinstance(g, list) and not o.get("gold_alts"): T["gc"] |= _call_sigs(g); T["gs"].add(_gs_sig(g))
+            elif isinstance(o.get("query"), str): T["q"].add(norm(o["query"]))
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    for root, dirs, fs in os.walk(V2ROOT):
+        dirs[:] = [d for d in dirs if d not in TOUCH_SKIP_DIRS]
+        for f in fs:
+            p = os.path.join(root, f); rel = os.path.relpath(p, V2ROOT)
+            if _skip_touch(rel) or not f.endswith((".json", ".jsonl")) or os.path.getsize(p) > 150e6: continue
+            files.append(rel)
+            try:
+                if f.endswith(".jsonl"):
+                    for l in open(p):
+                        if l.strip():
+                            try: walk(json.loads(l))
+                            except Exception: pass
+                else: walk(json.load(open(p)))
+            except Exception: pass
+    return T, files
+def text_scan(queries):
+    """Aho-Corasick over the raw bytes of EVERY other file under v2 (py, md, logs, caches, ...) for each query (>=25 chars; raw and json-escaped forms): returns {query: [files]}"""
+    import ahocorasick
+    A = ahocorasick.Automaton(); n = 0
+    for q in queries:
+        if len(q.strip()) < 25: continue
+        for form in {q, json.dumps(q, ensure_ascii=False)[1:-1], json.dumps(q)[1:-1]}: A.add_word(form.encode().decode("latin-1"), q); n += 1
+    A.make_automaton(); hit = collections.defaultdict(set); nfiles = 0
+    for root, dirs, fs in os.walk(V2ROOT):
+        dirs[:] = [d for d in dirs if d not in TOUCH_SKIP_DIRS]
+        for f in fs:
+            p = os.path.join(root, f); rel = os.path.relpath(p, V2ROOT)
+            if _skip_touch(rel) or f.endswith((".pyc", ".safetensors", ".npz", ".pt", ".bin", ".png", ".pth")) or os.path.getsize(p) > 400e6: continue
+            try: b = open(p, "rb").read().decode("latin-1")
+            except Exception: continue
+            nfiles += 1
+            for _, q in A.iter(b): hit[q].add(rel)
+    return hit, nfiles
+TOUCHED, TOUCH_FILES = collect_touched()
+
 # ---------------- S1 xLAM
 def xlam_tool(t):
     props, req = {}, []
@@ -138,11 +197,19 @@ for f in rest:      # deficit-greedy over the remaining families; dev/calib only
     ok = [s for s in FRAC if s == "pool" or mass[f] <= 0.5 * FRAC[s] * total]
     best = max(ok, key=lambda s: FRAC[s] * total - got[s]); assign[f] = best; got[best] += mass[f]
 S1 = {k: [] for k in ["locked_all", "dev", "calib", "pool"]}
-dropped_legacy_in_locked = 0
+dropped_legacy_in_locked = 0; S1_locked_family_rows = 0; touched_drop = collections.Counter(); touched_literal = collections.Counter()
+RELAX_LEGACY_NAMES = os.environ.get('T1_RELAX_LEGACY_NAMES', '1') == '1'   # item-level rule 3; API-name exclusion vs the legacy probe/calib is infeasible once the old pool/dev/calib (6/7 of xLAM) count as touched
 for r in closed:
     sp = assign[r["_fam"]]
     if sp == "locked":
-        if {t["name"] for t in r["tools"]} & legacy_names: dropped_legacy_in_locked += 1; continue
+        S1_locked_family_rows += 1
+        tl_hit = _tl_sig(r["tools"]) in TOUCHED["tl"]; gc_hit = bool(_call_sigs(r["gold"]) & TOUCHED["gc"])
+        touched_literal["tool_list_only_rule"] += tl_hit; touched_literal["any_gold_call_only_rule"] += gc_hit
+        if norm(r["query"]) in TOUCHED["q"]: touched_drop["query_structured"] += 1; continue
+        if _gs_sig(r["gold"]) in TOUCHED["gs"]: touched_drop["same_full_gold_call_set"] += 1; continue
+        if {t["name"] for t in r["tools"]} & legacy_names:
+            dropped_legacy_in_locked += 1
+            if not RELAX_LEGACY_NAMES: continue
         S1["locked_all"].append(r)
     else: S1[sp].append(r)
 
@@ -332,13 +399,13 @@ for i, (r, s) in enumerate(cand):
     if i in dropped or s == "legacy": continue
     for k in sorted(KEYS[i]):
         others = key_split[k] - {s}
-        if s == "locked": bad = bool(others - {"s2"})
+        if s == "locked": bad = bool(others - ({"s2", "legacy"} if RELAX_LEGACY_NAMES else {"s2"}))
         elif s == "s2": bad = bool(others)
         else: bad = any(RANK[o] > RANK[s] and o != "legacy" and RANK[o] > 0 and not (k[0] == "tn" and s in S3G and o in S3G) for o in others)
         if bad: drop(i, f"keyoverlap_{k[0]}:{s}"); break
 # (3) S2 / locked: anything left that shares a tool name with the legacy probe/calib files is dropped
 for i, (r, s) in enumerate(cand):
-    if s in ("locked", "s2") and i not in dropped and any(t["name"] in legacy_names for t in r["tools"]): drop(i, f"legacy_name_overlap:{s}")
+    if s in ("locked", "s2") and i not in dropped and not RELAX_LEGACY_NAMES and any(t["name"] in legacy_names for t in r["tools"]): drop(i, f"legacy_name_overlap:{s}")
 # (4) exact duplicate (query) inside each locked/S2 pool
 seen = set()
 for i, (r, s) in enumerate(cand):
@@ -346,6 +413,15 @@ for i, (r, s) in enumerate(cand):
         q = (s, norm(r["query"]))
         if q in seen: drop(i, f"internal_dup:{s}")
         seen.add(q)
+# (5) touched-file filter for everything that can be locked (S1 locked candidates were already filtered structurally above; S2 here), plus a raw-text scan of EVERY file
+for i, (r, s) in enumerate(cand):
+    if s == "s2" and i not in dropped:
+        if norm(r["query"]) in TOUCHED["q"]: drop(i, "touched_query_structured:s2")
+        elif _tl_sig(r["tools"]) in TOUCHED["tl"]: drop(i, "touched_tool_list:s2")
+lk_idx = [i for i, (r, s) in enumerate(cand) if s in ("locked", "s2") and i not in dropped]
+TEXT_HITS, N_TEXT_FILES = text_scan([cand[i][0]["query"] for i in lk_idx])
+for i in lk_idx:
+    if cand[i][0]["query"] in TEXT_HITS: drop(i, f"touched_query_text_scan:{cand[i][1]}")
 clean = {s: [r for i, (r, ss) in enumerate(cand) if ss == s and i not in dropped] for s in ["locked", "dev", "calib", "pool", "s3dev", "s3pool", "s2"]}
 
 # ---------------- locked selection with per-tool / per-family caps
@@ -372,18 +448,20 @@ for k in ["single", "multi"]:
     S2_locked += sorted([r for r in clean["s2"] if r["kind"] == k], key=lambda r: r["_h"])[:CAP_S2[k]]
 LOCKED = S1_locked + S2_locked
 # strata (S1/S2 locked): 'seen' iff any tool name occurs in a non-locked split (dev/calib/pool/S3/legacy)
-nonlocked_names = {t["name"] for s in ["dev", "calib", "pool", "s3dev", "s3pool"] for r in clean[s] for t in r["tools"]} | legacy_names
+nonlocked_names = {t["name"] for s in ["dev", "calib", "pool", "s3dev", "s3pool"] for r in clean[s] for t in r["tools"]}
 nonlocked_names |= {t["name"] for r in S1rows if r["_fam"] is not None and assign.get(r["_fam"]) != "locked" for t in r["tools"]}
-for r in LOCKED: r["stratum"] = "seen" if any(t["name"] in nonlocked_names for t in r["tools"]) else "unseen"
+for r in LOCKED:
+    r["stratum"] = "seen" if any(t["name"] in nonlocked_names for t in r["tools"]) else "unseen"      # vs the NEW dev/calib/pool/S3 splits
+    r["legacy_api_overlap"] = any(t["name"] in legacy_names for t in r["tools"])                    # API (not item) also present in the legacy probe/calib tuning files
 LOCKED.sort(key=lambda r: r["id"])
 nonlocked_sets = {"s1_dev": clean["dev"], "s1_calib": clean["calib"], "s1_pool": clean["pool"], "s3_dev": clean["s3dev"], "s3_pool": clean["s3pool"]}
 for k, rows in nonlocked_sets.items():
     for r in rows: r.setdefault("_fam", None)
 files = dict(locked=LOCKED, **nonlocked_sets)
 def out_row(r):
-    o = {a: b for a, b in r.items() if not a.startswith("_") and a != "stratum"}
+    o = {a: b for a, b in r.items() if not a.startswith("_") and a not in ("stratum", "legacy_api_overlap")}
     if r.get("_fam") is not None: o["family"] = f"s1c{r['_fam']}" if isinstance(r["_fam"], int) else r["_fam"]
-    if "stratum" in r: o["stratum"] = r["stratum"]
+    if "stratum" in r: o["stratum"] = r["stratum"]; o["legacy_api_overlap"] = r["legacy_api_overlap"]
     return o
 
 # ---------------- diagnostics (aggregates only)
@@ -416,6 +494,9 @@ lock = dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), versio
             params=dict(CELL=CELL, CAP_S2=CAP_S2, LOCKED_ELIGIBLE_TARGET=LOCKED_ELIGIBLE_TARGET, FRAC=FRAC, JACCARD_NEAR_DUP=JT, PER_TOOL_CAP=PER_TOOL_CAP, FAM_CAP=FAM_CAP,
                         louvain=dict(resolution=1.0, seed=1, n_families=len(communities)), nocall_rate_mod=6),
             raw_inputs=PINS, legacy_exclusion_files=legacy_hash, build_data_py_sha256=sha(open(__file__, "rb").read()),
+            touched_provenance=dict(note="Rule 3: every locked item must be absent from every file used (or usable) for tuning/eval before the relock. An S1/S2 candidate is TOUCHED, and excluded, if (a) its normalised query, (b) its full tool list (name+description+parameters), or (c) its FULL gold call set (all calls, names and arguments) appears in any .json/.jsonl under v2/ (structured pass; tool-list-only and single-gold-call-only matches are API-template reuse, not the same item, and are reported but not applied: they would remove all xLAM rows), or its query (>=25 chars, raw or JSON-escaped) occurs as bytes in ANY other file under v2/ (Aho-Corasick text scan). Skipped: tournament/T1/raw (source), tournament/T1/data (the new splits; handled by the in-build audit), archived OLD locked.jsonl (never scored), rescore_reports. Treated as touched therefore include: old s1_dev/s1_calib/s1_pool (archive), legacy probe_items.jsonl and calib_t1.jsonl, S3 files, compress/dense data+results+t1, feedback_v3 caches, research/D_scale/t1v2, harness/locks+standin, commercial/*, tournament/T2,T3, alt/, base/, c2_fb/, compress_*/, and all other v2 json/jsonl.",
+        structured_json_files_scanned=len(TOUCH_FILES), text_files_scanned=N_TEXT_FILES, structured_files=sorted(TOUCH_FILES), query_text_hit_files=sorted({f for v in TEXT_HITS.values() for f in v}),
+        s1_locked_family_rows=S1_locked_family_rows, s1_rows_dropped_as_touched=dict(touched_drop), literal_reading_counts_not_applied_because_it_would_remove_every_xlam_row=dict(touched_literal), relax_legacy_names=RELAX_LEGACY_NAMES),
             families=dict(assignment_counts=dict(collections.Counter(assign.values())), locked_families=sorted(f for f, s in assign.items() if s == "locked"),
                           closed_rows=len(closed), straddler_rows_dropped_everywhere=n_strad, locked_family_rows_dropped_for_legacy_name=dropped_legacy_in_locked,
                           rows_per_split_before_audit={k: len(v) for k, v in S1.items()}),
@@ -430,7 +511,7 @@ for k, rows in files.items():
 lc = collections.Counter(r["kind"] for r in LOCKED); st = collections.Counter((r["source"], r["stratum"]) for r in LOCKED)
 lock["locked_totals"] = dict(n=len(LOCKED), per_kind=dict(lc), S1=sum(r["source"] == "S1" for r in LOCKED), S2=sum(r["source"] == "S2" for r in LOCKED),
                              strata={f"{a}/{b}": c for (a, b), c in sorted(st.items())}, locked_S1_families=len({r["family"] for r in map(out_row, LOCKED) if r["family"].startswith("s1c")}),
-                             name_overlap_with_nonlocked=dict(S1_items_with_any_tool_name_in_nonlocked=sum(any(t["name"] in nonlocked_names for t in r["tools"]) for r in LOCKED if r["source"] == "S1"),
+                             name_overlap_with_nonlocked=dict(S1_items_with_tool_name_also_in_legacy_probe_or_calib_files=sum(r["legacy_api_overlap"] for r in LOCKED if r["source"] == "S1"), S1_items_with_any_tool_name_in_nonlocked=sum(any(t["name"] in nonlocked_names for t in r["tools"]) for r in LOCKED if r["source"] == "S1"),
                                                               S2_items_with_any_tool_name_in_nonlocked=sum(any(t["name"] in nonlocked_names for t in r["tools"]) for r in LOCKED if r["source"] == "S2")))
 json.dump(lock, open(f"{D}/LOCK.json", "w"), indent=1); os.chmod(f"{D}/LOCK.json", 0o444)
 print(json.dumps({k: (v if k not in ("rule", "raw_inputs") else "...") for k, v in lock.items()}, indent=1, default=str))

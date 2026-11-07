@@ -1,0 +1,24 @@
+{
+ "QUEUES": {
+  "billing_finance": "bills, invoices, payments, fees, balances, transfers, credit cards and rewards, rates, taxes, payroll",
+  "account_security": "accounts, login/passwords, profile, cards blocked/lost/fraud, PINs, applications",
+  "orders_delivery": "placing/changing/cancelling/tracking orders (incl. food takeaway), delivery, shipping addresses",
+  "returns_refunds": "refund policy, requesting and tracking refunds/returns",
+  "complaints_feedback": "complaints and reviews/feedback about service or products",
+  "human_agent": "requests to talk to a human agent or contact customer service",
+  "subscriptions": "newsletter and subscription management",
+  "travel_transport": "flights, hotels, car rental, taxis/rides, transit, traffic, directions, travel rules",
+  "vehicle_services": "car maintenance, tires, oil, fuel, mileage",
+  "productivity_comms": "alarms, timers, calendar, reminders, to-do/shopping lists, email, calls, texts, meetings, time off",
+  "smart_home_devices": "smart home and IoT devices, lights, plugs, vacuum, coffee maker, speaker/volume, device settings",
+  "info_entertainment": "weather, news, general knowledge/Q&A, definitions, recipes/restaurants, recommendations, music/radio/podcasts/games, social, small talk"
+ },
+ "IT_Q": {
+  "active_directory": "Active Directory: accounts, group membership, admin rights, passwords",
+  "computer_services": "workstation/laptop/printer/peripheral hardware and OS problems",
+  "fileservice": "file shares, folders, storage access",
+  "office365": "Microsoft 365 / Outlook / mailboxes / Teams / SharePoint",
+  "software": "application installation, licences, software errors",
+  "support_general": "general support requests not fitting another queue"
+ }
+}
