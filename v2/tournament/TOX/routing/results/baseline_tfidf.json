@@ -1,0 +1,221 @@
+{
+ "in_source_S1": {
+  "acc": 0.8752556237218814,
+  "cells": {
+   "S1/info_entertainment": [
+    0.94,
+    100
+   ],
+   "S1/orders_delivery": [
+    0.7303370786516854,
+    89
+   ],
+   "S1/productivity_comms": [
+    0.93,
+    100
+   ],
+   "S1/smart_home_devices": [
+    0.9,
+    100
+   ],
+   "S1/travel_transport": [
+    0.86,
+    100
+   ]
+  }
+ },
+ "in_source_S2": {
+  "acc": 0.963855421686747,
+  "cells": {
+   "S2/account_security": [
+    0.91,
+    100
+   ],
+   "S2/billing_finance": [
+    1.0,
+    100
+   ],
+   "S2/info_entertainment": [
+    1.0,
+    100
+   ],
+   "S2/orders_delivery": [
+    0.8936170212765957,
+    47
+   ],
+   "S2/productivity_comms": [
+    0.98,
+    100
+   ],
+   "S2/smart_home_devices": [
+    0.97,
+    100
+   ],
+   "S2/travel_transport": [
+    0.93,
+    100
+   ],
+   "S2/vehicle_services": [
+    0.99,
+    100
+   ]
+  }
+ },
+ "in_source_S3": {
+  "acc": 1.0,
+  "cells": {
+   "S3/account_security": [
+    1.0,
+    100
+   ],
+   "S3/billing_finance": [
+    1.0,
+    100
+   ],
+   "S3/complaints_feedback": [
+    1.0,
+    100
+   ],
+   "S3/human_agent": [
+    1.0,
+    100
+   ],
+   "S3/orders_delivery": [
+    1.0,
+    100
+   ],
+   "S3/returns_refunds": [
+    1.0,
+    100
+   ],
+   "S3/subscriptions": [
+    1.0,
+    100
+   ]
+  }
+ },
+ "in_source_S4": {
+  "acc": 0.7402985074626866,
+  "cells": {
+   "S4/active_directory": [
+    0.28,
+    25
+   ],
+   "S4/computer_services": [
+    0.8076923076923077,
+    26
+   ],
+   "S4/fileservice": [
+    0.94,
+    100
+   ],
+   "S4/office365": [
+    0.5686274509803921,
+    51
+   ],
+   "S4/software": [
+    0.5555555555555556,
+    45
+   ],
+   "S4/support_general": [
+    0.8181818181818182,
+    88
+   ]
+  }
+ },
+ "cross_S2+S3 -> S1": {
+  "acc": 0.623721881390593,
+  "cells": {
+   "S1/info_entertainment": [
+    0.79,
+    100
+   ],
+   "S1/orders_delivery": [
+    0.449438202247191,
+    89
+   ],
+   "S1/productivity_comms": [
+    0.67,
+    100
+   ],
+   "S1/smart_home_devices": [
+    0.52,
+    100
+   ],
+   "S1/travel_transport": [
+    0.67,
+    100
+   ]
+  }
+ },
+ "cross_S1+S2 -> S3": {
+  "acc": 0.24428571428571427,
+  "cells": {
+   "S3/account_security": [
+    0.61,
+    100
+   ],
+   "S3/billing_finance": [
+    0.5,
+    100
+   ],
+   "S3/complaints_feedback": [
+    0.0,
+    100
+   ],
+   "S3/human_agent": [
+    0.0,
+    100
+   ],
+   "S3/orders_delivery": [
+    0.6,
+    100
+   ],
+   "S3/returns_refunds": [
+    0.0,
+    100
+   ],
+   "S3/subscriptions": [
+    0.0,
+    100
+   ]
+  }
+ },
+ "cross_S1+S3 -> S2": {
+  "acc": 0.38420348058902276,
+  "cells": {
+   "S2/account_security": [
+    0.23,
+    100
+   ],
+   "S2/billing_finance": [
+    0.08,
+    100
+   ],
+   "S2/info_entertainment": [
+    0.93,
+    100
+   ],
+   "S2/orders_delivery": [
+    0.574468085106383,
+    47
+   ],
+   "S2/productivity_comms": [
+    0.75,
+    100
+   ],
+   "S2/smart_home_devices": [
+    0.38,
+    100
+   ],
+   "S2/travel_transport": [
+    0.23,
+    100
+   ],
+   "S2/vehicle_services": [
+    0.0,
+    100
+   ]
+  }
+ }
+}

@@ -1,0 +1,827 @@
+{
+ "Qwen3-14B": {
+  "acc_source": {
+   "S1": [
+    0.869,
+    489
+   ],
+   "S2": [
+    0.797,
+    747
+   ],
+   "S3": [
+    0.929,
+    700
+   ],
+   "S4": [
+    0.681,
+    335
+   ]
+  },
+  "macro_source": {
+   "S1": 0.871,
+   "S2": 0.807,
+   "S3": 0.929,
+   "S4": 0.662
+  },
+  "cells": {
+   "S1/info_entertainment": [
+    0.79,
+    100,
+    10.46
+   ],
+   "S1/orders_delivery": [
+    0.933,
+    89,
+    13.77
+   ],
+   "S1/productivity_comms": [
+    0.83,
+    100,
+    11.19
+   ],
+   "S1/smart_home_devices": [
+    0.81,
+    100,
+    16.66
+   ],
+   "S1/travel_transport": [
+    0.99,
+    100,
+    17.26
+   ],
+   "S2/account_security": [
+    0.76,
+    100,
+    8.83
+   ],
+   "S2/billing_finance": [
+    0.91,
+    100,
+    12.0
+   ],
+   "S2/info_entertainment": [
+    0.83,
+    100,
+    10.0
+   ],
+   "S2/orders_delivery": [
+    0.957,
+    47,
+    13.06
+   ],
+   "S2/productivity_comms": [
+    0.86,
+    100,
+    13.72
+   ],
+   "S2/smart_home_devices": [
+    0.51,
+    100,
+    2.63
+   ],
+   "S2/travel_transport": [
+    0.63,
+    100,
+    5.68
+   ],
+   "S2/vehicle_services": [
+    1.0,
+    100,
+    21.24
+   ],
+   "S3/account_security": [
+    0.93,
+    100,
+    15.52
+   ],
+   "S3/billing_finance": [
+    0.98,
+    100,
+    19.29
+   ],
+   "S3/complaints_feedback": [
+    0.91,
+    100,
+    16.16
+   ],
+   "S3/human_agent": [
+    0.99,
+    100,
+    14.33
+   ],
+   "S3/orders_delivery": [
+    0.96,
+    100,
+    13.88
+   ],
+   "S3/returns_refunds": [
+    0.73,
+    100,
+    15.89
+   ],
+   "S3/subscriptions": [
+    1.0,
+    100,
+    20.86
+   ],
+   "S4/active_directory": [
+    0.52,
+    25,
+    0.78
+   ],
+   "S4/computer_services": [
+    0.923,
+    26,
+    16.72
+   ],
+   "S4/fileservice": [
+    0.96,
+    100,
+    25.67
+   ],
+   "S4/office365": [
+    0.647,
+    51,
+    3.37
+   ],
+   "S4/software": [
+    0.444,
+    45,
+    0.31
+   ],
+   "S4/support_general": [
+    0.477,
+    88,
+    -0.47
+   ]
+  },
+  "unparsed": 1,
+  "top_errors": [
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "account_security"
+    ],
+    19
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "office365"
+    ],
+    18
+   ],
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "info_entertainment"
+    ],
+    17
+   ],
+   [
+    [
+     "S2",
+     "travel_transport",
+     "info_entertainment"
+    ],
+    17
+   ],
+   [
+    [
+     "S3",
+     "returns_refunds",
+     "billing_finance"
+    ],
+    14
+   ],
+   [
+    [
+     "S3",
+     "returns_refunds",
+     "complaints_feedback"
+    ],
+    13
+   ],
+   [
+    [
+     "S4",
+     "software",
+     "support_general"
+    ],
+    13
+   ],
+   [
+    [
+     "S2",
+     "account_security",
+     "billing_finance"
+    ],
+    12
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "active_directory"
+    ],
+    11
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "computer_services"
+    ],
+    10
+   ],
+   [
+    [
+     "S2",
+     "travel_transport",
+     "productivity_comms"
+    ],
+    9
+   ],
+   [
+    [
+     "S3",
+     "complaints_feedback",
+     "returns_refunds"
+    ],
+    9
+   ]
+  ],
+  "conf_gate": {
+   "S1": [
+    0.914,
+    455
+   ],
+   "S2": [
+    0.854,
+    672
+   ],
+   "S3": [
+    0.951,
+    678
+   ],
+   "S4": [
+    0.587,
+    213
+   ]
+  }
+ },
+ "Qwen3-32B": {
+  "acc_source": {
+   "S1": [
+    0.859,
+    489
+   ],
+   "S2": [
+    0.801,
+    747
+   ],
+   "S3": [
+    0.961,
+    700
+   ],
+   "S4": [
+    0.704,
+    335
+   ]
+  },
+  "macro_source": {
+   "S1": 0.859,
+   "S2": 0.811,
+   "S3": 0.961,
+   "S4": 0.699
+  },
+  "cells": {
+   "S1/info_entertainment": [
+    0.81,
+    100,
+    11.47
+   ],
+   "S1/orders_delivery": [
+    0.876,
+    89,
+    13.28
+   ],
+   "S1/productivity_comms": [
+    0.83,
+    100,
+    13.34
+   ],
+   "S1/smart_home_devices": [
+    0.81,
+    100,
+    10.14
+   ],
+   "S1/travel_transport": [
+    0.97,
+    100,
+    13.05
+   ],
+   "S2/account_security": [
+    0.8,
+    100,
+    9.67
+   ],
+   "S2/billing_finance": [
+    0.89,
+    100,
+    12.06
+   ],
+   "S2/info_entertainment": [
+    0.86,
+    100,
+    14.18
+   ],
+   "S2/orders_delivery": [
+    0.957,
+    47,
+    16.74
+   ],
+   "S2/productivity_comms": [
+    0.89,
+    100,
+    17.61
+   ],
+   "S2/smart_home_devices": [
+    0.45,
+    100,
+    0.79
+   ],
+   "S2/travel_transport": [
+    0.67,
+    100,
+    4.62
+   ],
+   "S2/vehicle_services": [
+    0.97,
+    100,
+    16.89
+   ],
+   "S3/account_security": [
+    0.99,
+    100,
+    16.22
+   ],
+   "S3/billing_finance": [
+    0.97,
+    100,
+    15.64
+   ],
+   "S3/complaints_feedback": [
+    0.99,
+    100,
+    14.32
+   ],
+   "S3/human_agent": [
+    0.96,
+    100,
+    16.67
+   ],
+   "S3/orders_delivery": [
+    0.96,
+    100,
+    16.63
+   ],
+   "S3/returns_refunds": [
+    0.86,
+    100,
+    11.88
+   ],
+   "S3/subscriptions": [
+    1.0,
+    100,
+    16.11
+   ],
+   "S4/active_directory": [
+    0.68,
+    25,
+    4.82
+   ],
+   "S4/computer_services": [
+    0.923,
+    26,
+    11.89
+   ],
+   "S4/fileservice": [
+    0.96,
+    100,
+    26.17
+   ],
+   "S4/office365": [
+    0.686,
+    51,
+    4.47
+   ],
+   "S4/software": [
+    0.444,
+    45,
+    -2.61
+   ],
+   "S4/support_general": [
+    0.5,
+    88,
+    -2.02
+   ]
+  },
+  "unparsed": 4,
+  "top_errors": [
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "info_entertainment"
+    ],
+    25
+   ],
+   [
+    [
+     "S2",
+     "travel_transport",
+     "info_entertainment"
+    ],
+    17
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "office365"
+    ],
+    17
+   ],
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "account_security"
+    ],
+    14
+   ],
+   [
+    [
+     "S2",
+     "account_security",
+     "info_entertainment"
+    ],
+    12
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "active_directory"
+    ],
+    12
+   ],
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "productivity_comms"
+    ],
+    11
+   ],
+   [
+    [
+     "S4",
+     "software",
+     "support_general"
+    ],
+    11
+   ],
+   [
+    [
+     "S4",
+     "office365",
+     "software"
+    ],
+    9
+   ],
+   [
+    [
+     "S1",
+     "orders_delivery",
+     "info_entertainment"
+    ],
+    8
+   ],
+   [
+    [
+     "S1",
+     "smart_home_devices",
+     "info_entertainment"
+    ],
+    8
+   ],
+   [
+    [
+     "S2",
+     "billing_finance",
+     "account_security"
+    ],
+    8
+   ]
+  ],
+  "conf_gate": {
+   "S1": [
+    0.91,
+    435
+   ],
+   "S2": [
+    0.879,
+    646
+   ],
+   "S3": [
+    0.982,
+    659
+   ],
+   "S4": [
+    0.74,
+    296
+   ]
+  }
+ },
+ "Qwen3-8B": {
+  "acc_source": {
+   "S1": [
+    0.845,
+    489
+   ],
+   "S2": [
+    0.766,
+    747
+   ],
+   "S3": [
+    0.919,
+    700
+   ],
+   "S4": [
+    0.681,
+    335
+   ]
+  },
+  "macro_source": {
+   "S1": 0.845,
+   "S2": 0.771,
+   "S3": 0.919,
+   "S4": 0.639
+  },
+  "cells": {
+   "S1/info_entertainment": [
+    0.84,
+    100,
+    10.45
+   ],
+   "S1/orders_delivery": [
+    0.854,
+    89,
+    17.92
+   ],
+   "S1/productivity_comms": [
+    0.85,
+    100,
+    16.18
+   ],
+   "S1/smart_home_devices": [
+    0.78,
+    100,
+    15.51
+   ],
+   "S1/travel_transport": [
+    0.9,
+    100,
+    15.85
+   ],
+   "S2/account_security": [
+    0.81,
+    100,
+    15.71
+   ],
+   "S2/billing_finance": [
+    0.73,
+    100,
+    4.64
+   ],
+   "S2/info_entertainment": [
+    0.84,
+    100,
+    10.08
+   ],
+   "S2/orders_delivery": [
+    0.851,
+    47,
+    15.3
+   ],
+   "S2/productivity_comms": [
+    0.82,
+    100,
+    17.46
+   ],
+   "S2/smart_home_devices": [
+    0.59,
+    100,
+    2.98
+   ],
+   "S2/travel_transport": [
+    0.58,
+    100,
+    3.5
+   ],
+   "S2/vehicle_services": [
+    0.95,
+    100,
+    19.55
+   ],
+   "S3/account_security": [
+    0.89,
+    100,
+    13.11
+   ],
+   "S3/billing_finance": [
+    0.94,
+    100,
+    15.98
+   ],
+   "S3/complaints_feedback": [
+    0.88,
+    100,
+    15.71
+   ],
+   "S3/human_agent": [
+    0.89,
+    100,
+    19.61
+   ],
+   "S3/orders_delivery": [
+    0.95,
+    100,
+    19.89
+   ],
+   "S3/returns_refunds": [
+    0.88,
+    100,
+    17.6
+   ],
+   "S3/subscriptions": [
+    1.0,
+    100,
+    28.84
+   ],
+   "S4/active_directory": [
+    0.56,
+    25,
+    1.28
+   ],
+   "S4/computer_services": [
+    0.808,
+    26,
+    15.17
+   ],
+   "S4/fileservice": [
+    0.96,
+    100,
+    26.07
+   ],
+   "S4/office365": [
+    0.412,
+    51,
+    -1.38
+   ],
+   "S4/software": [
+    0.467,
+    45,
+    -0.46
+   ],
+   "S4/support_general": [
+    0.625,
+    88,
+    4.54
+   ]
+  },
+  "unparsed": 0,
+  "top_errors": [
+   [
+    [
+     "S2",
+     "travel_transport",
+     "info_entertainment"
+    ],
+    28
+   ],
+   [
+    [
+     "S4",
+     "office365",
+     "support_general"
+    ],
+    21
+   ],
+   [
+    [
+     "S2",
+     "billing_finance",
+     "account_security"
+    ],
+    20
+   ],
+   [
+    [
+     "S4",
+     "software",
+     "support_general"
+    ],
+    20
+   ],
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "productivity_comms"
+    ],
+    18
+   ],
+   [
+    [
+     "S4",
+     "support_general",
+     "office365"
+    ],
+    17
+   ],
+   [
+    [
+     "S1",
+     "smart_home_devices",
+     "productivity_comms"
+    ],
+    14
+   ],
+   [
+    [
+     "S2",
+     "account_security",
+     "human_agent"
+    ],
+    12
+   ],
+   [
+    [
+     "S3",
+     "complaints_feedback",
+     "returns_refunds"
+    ],
+    12
+   ],
+   [
+    [
+     "S1",
+     "orders_delivery",
+     "info_entertainment"
+    ],
+    11
+   ],
+   [
+    [
+     "S3",
+     "returns_refunds",
+     "complaints_feedback"
+    ],
+    11
+   ],
+   [
+    [
+     "S2",
+     "smart_home_devices",
+     "human_agent"
+    ],
+    10
+   ]
+  ],
+  "conf_gate": {
+   "S1": [
+    0.891,
+    448
+   ],
+   "S2": [
+    0.838,
+    629
+   ],
+   "S3": [
+    0.949,
+    646
+   ],
+   "S4": [
+    0.734,
+    289
+   ]
+  }
+ }
+}

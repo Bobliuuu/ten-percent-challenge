@@ -1,0 +1,329 @@
+civil labelled (counts only): {'safe': 1359807, 'toxic': 44366, 'hate': 5205, 'sexual': 1709, 'violence': 2016}
+S1 candidates Counter({'safe': 43996, 'toxic': 29994, 'hate': 5205, 'violence': 2015, 'sexual': 1709})
+S3 candidates Counter({'safe': 5059, 'hate': 2912, 'toxic': 1732})
+S2 candidates Counter({'safe': 8839, 'toxic': 1520, 'violence': 1424, 'hate': 1234, 'sexual': 703})
+near-dup pairs (J>=0.6): 3524
+dropped: {'exact_dup': 1261, 'neardup_within_source': 1773, 'neardup_cross_source': 56}
+S1 groups 2000 largest [268, 226, 225, 220, 217] n 81828
+S2 groups 250 largest [212, 176, 148, 137, 131] n 11856
+S3 groups 200 largest [176, 172, 146, 128, 127] n 9568
+remaining deficits S1 {'locked': {}, 'dev': {}, 'calib': {}}
+remaining deficits S2 {'locked': {}, 'probe': {'sexual': 63}}
+remaining deficits S3 {'dev': {}}
+touched-scan: files scanned 15811 files with hits 30
+touched-scan: locked candidates dropped: 599
+cells short of target: {'S2/probe/sexual': (37, 37, 100)}
+{
+ "utc": "2026-11-07T02:39:45.160602+00:00",
+ "version": "tox-v1-2026-11-06",
+ "splits": {
+  "locked": {
+   "n": 4520,
+   "cells": {
+    "S1/hate/hard": 366,
+    "S1/hate/plain": 84,
+    "S1/safe/hard": 230,
+    "S1/safe/plain": 230,
+    "S1/sexual/hard": 219,
+    "S1/sexual/plain": 231,
+    "S1/toxic/hard": 238,
+    "S1/toxic/plain": 212,
+    "S1/violence/hard": 254,
+    "S1/violence/plain": 196,
+    "S2/hate/hard": 230,
+    "S2/hate/plain": 220,
+    "S2/safe/hard": 230,
+    "S2/safe/plain": 230,
+    "S2/sexual/hard": 227,
+    "S2/sexual/plain": 223,
+    "S2/toxic/hard": 133,
+    "S2/toxic/plain": 317,
+    "S2/violence/hard": 137,
+    "S2/violence/plain": 313
+   },
+   "groups": 511,
+   "file_sha256": "73c68712d568d285e07e1b92102cf1f49e8a978d2a5b05810b5dc19ab36fae50",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 338,
+     "viol": 70,
+     "insult": 34,
+     "prof": 3,
+     "sex": 9
+    },
+    "S1/safe": {
+     "ident": 111,
+     "viol": 110,
+     "sex": 14,
+     "insult": 15
+    },
+    "S1/sexual": {
+     "prof": 55,
+     "viol": 40,
+     "ident": 63,
+     "sex": 128,
+     "insult": 16
+    },
+    "S1/toxic": {
+     "insult": 201,
+     "viol": 30,
+     "ident": 24,
+     "prof": 6,
+     "sex": 2
+    },
+    "S1/violence": {
+     "viol": 238,
+     "ident": 15,
+     "insult": 13,
+     "prof": 5,
+     "sex": 3
+    },
+    "S2/hate": {
+     "ident": 198,
+     "prof": 5,
+     "insult": 20,
+     "viol": 20,
+     "sex": 6
+    },
+    "S2/safe": {
+     "viol": 48,
+     "ident": 149,
+     "insult": 27,
+     "sex": 14,
+     "prof": 2
+    },
+    "S2/sexual": {
+     "sex": 170,
+     "ident": 45,
+     "prof": 30,
+     "viol": 8,
+     "insult": 1
+    },
+    "S2/toxic": {
+     "prof": 91,
+     "insult": 34,
+     "viol": 18,
+     "ident": 13,
+     "sex": 4
+    },
+    "S2/violence": {
+     "viol": 125,
+     "insult": 3,
+     "sex": 2,
+     "ident": 9,
+     "prof": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 192,
+    "S1/safe": 236,
+    "S1/sexual": 122,
+    "S1/toxic": 151,
+    "S1/violence": 90,
+    "S2/hate": 69,
+    "S2/safe": 60,
+    "S2/sexual": 61,
+    "S2/toxic": 62,
+    "S2/violence": 73
+   }
+  },
+  "s1_dev": {
+   "n": 1000,
+   "cells": {
+    "S1/hate/hard": 167,
+    "S1/hate/plain": 33,
+    "S1/safe/hard": 100,
+    "S1/safe/plain": 100,
+    "S1/sexual/hard": 101,
+    "S1/sexual/plain": 99,
+    "S1/toxic/hard": 98,
+    "S1/toxic/plain": 102,
+    "S1/violence/hard": 100,
+    "S1/violence/plain": 100
+   },
+   "groups": 150,
+   "file_sha256": "35edaca0a46632c9facb8dc0b59c3d4f1ef2afa7e4da77e95894882fef44c4fe",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 162,
+     "viol": 30,
+     "insult": 9,
+     "sex": 2,
+     "prof": 1
+    },
+    "S1/safe": {
+     "viol": 55,
+     "ident": 40,
+     "insult": 7,
+     "sex": 6,
+     "prof": 1
+    },
+    "S1/sexual": {
+     "insult": 7,
+     "sex": 59,
+     "prof": 25,
+     "ident": 29,
+     "viol": 22
+    },
+    "S1/toxic": {
+     "ident": 13,
+     "insult": 81,
+     "viol": 11,
+     "prof": 4
+    },
+    "S1/violence": {
+     "viol": 96,
+     "prof": 3,
+     "insult": 6
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 110,
+    "S1/safe": 271,
+    "S1/sexual": 139,
+    "S1/toxic": 169,
+    "S1/violence": 74
+   }
+  },
+  "s1_calib": {
+   "n": 750,
+   "cells": {
+    "S1/hate/hard": 131,
+    "S1/hate/plain": 19,
+    "S1/safe/hard": 75,
+    "S1/safe/plain": 75,
+    "S1/sexual/hard": 80,
+    "S1/sexual/plain": 70,
+    "S1/toxic/hard": 69,
+    "S1/toxic/plain": 81,
+    "S1/violence/hard": 77,
+    "S1/violence/plain": 73
+   },
+   "groups": 118,
+   "file_sha256": "b4588d8ab04ecadf292e9aa2f3bb4a11de0a7f97115f5933c8e00dce131b7969",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 126,
+     "insult": 7,
+     "viol": 25,
+     "sex": 3
+    },
+    "S1/safe": {
+     "viol": 35,
+     "ident": 47,
+     "sex": 5,
+     "insult": 2
+    },
+    "S1/sexual": {
+     "prof": 27,
+     "sex": 45,
+     "ident": 22,
+     "viol": 16,
+     "insult": 2
+    },
+    "S1/toxic": {
+     "insult": 52,
+     "viol": 11,
+     "ident": 15,
+     "prof": 2,
+     "sex": 2
+    },
+    "S1/violence": {
+     "viol": 73,
+     "prof": 3,
+     "insult": 3,
+     "sex": 1,
+     "ident": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 143,
+    "S1/safe": 314,
+    "S1/sexual": 150,
+    "S1/toxic": 191,
+    "S1/violence": 72
+   }
+  },
+  "s1_pool": {
+   "n": 20188,
+   "cells": {
+    "S1/hate/hard": 2891,
+    "S1/hate/plain": 380,
+    "S1/safe/hard": 5000,
+    "S1/safe/plain": 5000,
+    "S1/sexual/hard": 446,
+    "S1/sexual/plain": 375,
+    "S1/toxic/hard": 3036,
+    "S1/toxic/plain": 1964,
+    "S1/violence/hard": 766,
+    "S1/violence/plain": 330
+   },
+   "groups": 1309,
+   "file_sha256": "ebfbe3920ea89121fc37006644fed16d86a1414085f9a5155b70ec5dac120ab0",
+   "lexicon_hits_per_cell": {
+    "S1/hate": {
+     "ident": 2774,
+     "viol": 619,
+     "insult": 264,
+     "sex": 43,
+     "prof": 36
+    },
+    "S1/safe": {
+     "viol": 2353,
+     "ident": 2559,
+     "sex": 268,
+     "insult": 252,
+     "prof": 17
+    },
+    "S1/sexual": {
+     "sex": 260,
+     "viol": 68,
+     "prof": 103,
+     "insult": 34,
+     "ident": 109
+    },
+    "S1/toxic": {
+     "insult": 2689,
+     "viol": 341,
+     "ident": 289,
+     "prof": 122,
+     "sex": 32
+    },
+    "S1/violence": {
+     "viol": 748,
+     "insult": 32,
+     "prof": 6,
+     "ident": 19,
+     "sex": 1
+    }
+   },
+   "median_chars_per_cell": {
+    "S1/hate": 182,
+    "S1/safe": 292,
+    "S1/sexual": 124,
+    "S1/toxic": 160,
+    "S1/violence": 80
+   }
+  },
+  "s3_dev": {
+   "n": 600,
+   "cells": {
+    "S3/hate/hard": 166,
+    "S3/hate/plain": 34,
+    "S3/safe/hard": 100,
+    "S3/safe/plain": 100,
+    "S3/toxic/hard": 148,
+    "S3/toxic/plain": 52
+   },
+   "groups": 11,
+   "file_sha256": "5f8c3babc8cd479ca359bb99db3547c60ac92267a56c70cad64a99dd23976d76",
+   "lexicon_hits_per_cell": {
+    "S3/hate": {
+     "prof": 112,
+     "sex": 3,
+     "ident": 74,
+     "insult": 13,
+     "viol": 39
+    },
+    "S3/safe": {
+     "

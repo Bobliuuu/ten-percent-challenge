@@ -1,0 +1,140 @@
+{
+ "dropped": {
+  "too_long_S1_benign": 593,
+  "too_long_S1_injection": 554,
+  "too_long_S3_injection": 2,
+  "short_or_empty": 69,
+  "too_long_S2_injection": 634,
+  "too_long_S2_benign": 3489,
+  "exact_dups": 703,
+  "label_conflict_all_copies": 97,
+  "neardup_locked<-locked|S1<-S1": 211,
+  "neardup_locked<-locked|S2<-S2": 445,
+  "neardup_dev<-dev|S1<-S1": 1821,
+  "neardup_dev<-dev|S3<-S3": 57,
+  "neardup_calib<-calib|S1<-S1": 169,
+  "neardup_pool<-pool|S1<-S1": 1415,
+  "neardup_audit<-audit|S2<-S2": 414,
+  "neardup_audit<-dev|S2<-S3": 16
+ },
+ "meta": {
+  "locked_S1": {
+   "n": 1600,
+   "sha256": "47ba965d4960fa034d2701edb20b81231aedbbcf83a4163a4bf3c030d6eb0473",
+   "by_kind": {
+    "S1_injection": 800,
+    "S1_benign": 800
+   },
+   "n_groups": 1443,
+   "by_subset": {
+    "promptshield_train": 1531,
+    "promptshield_validation": 69
+   }
+  },
+  "locked_S2": {
+   "n": 720,
+   "sha256": "535c44c4d7e70814a0cfa33714ce2856a18dfe581dc2363f4dfbec3658190696",
+   "by_kind": {
+    "S2_benign": 360,
+    "S2_injection": 360
+   },
+   "n_groups": 710,
+   "by_subset": {
+    "jbhub_website": 406,
+    "jbhub_reddit": 150,
+    "jbhub_discord": 162,
+    "jbhub_open_source": 2
+   }
+  },
+  "dev_S1": {
+   "n": 800,
+   "sha256": "e233863b78dc651f6caabb4a6608c4cfe0ff0c133cd85502b5a0f9616f4e2e29",
+   "by_kind": {
+    "S1_benign": 400,
+    "S1_injection": 400
+   },
+   "n_groups": 658,
+   "by_subset": {
+    "promptshield_train": 762,
+    "promptshield_validation": 38
+   }
+  },
+  "dev_S3": {
+   "n": 766,
+   "sha256": "ac8545c001180cad2f5c0e812cd712a7266208ee44e2c0b990f5a2394071e100",
+   "by_kind": {
+    "S3_benign": 383,
+    "S3_injection": 383
+   },
+   "n_groups": 745,
+   "by_subset": {
+    "deepset": 571,
+    "gandalf": 195
+   }
+  },
+  "calib_S1": {
+   "n": 2751,
+   "sha256": "e9d8223e68ace8fc91b71fa41e7b6562010db32d281638038137fd8ae26801e1",
+   "by_kind": {
+    "S1_benign": 1788,
+    "S1_injection": 963
+   },
+   "n_groups": 2596,
+   "by_subset": {
+    "promptshield_train": 2627,
+    "promptshield_validation": 124
+   }
+  },
+  "pool_S1": {
+   "n": 6075,
+   "sha256": "599d64f2d28ae57261596587eb7360c0b133b5b4f7196958f2df6b12d4e34e63",
+   "by_kind": {
+    "S1_injection": 2349,
+    "S1_benign": 3726
+   },
+   "n_groups": 5327,
+   "by_subset": {
+    "promptshield_train": 5792,
+    "promptshield_validation": 283
+   }
+  },
+  "audit_S2": {
+   "n": 3765,
+   "sha256": "db1a4354249bd0c3cb6bba7ae35e6e11b85a2ed75023b81d25f7dd864bf4e638",
+   "by_kind": {
+    "S2_benign": 3518,
+    "S2_injection": 247
+   },
+   "n_groups": 3624,
+   "by_subset": {
+    "jbhub_website": 3178,
+    "jbhub_discord": 274,
+    "jbhub_reddit": 271,
+    "jbhub_open_source": 42
+   }
+  }
+ },
+ "s1_group_overlaps": {
+  "locked_S1&dev_S1": 0,
+  "locked_S1&calib_S1": 0,
+  "locked_S1&pool_S1": 0,
+  "dev_S1&calib_S1": 0,
+  "dev_S1&pool_S1": 0,
+  "calib_S1&pool_S1": 0
+ },
+ "n_total_locked": 2320,
+ "params": {
+  "MAXC": 2000,
+  "MINC": 8,
+  "J_GROUP": 0.5,
+  "J_DEDUP": 0.6,
+  "LOCKED_N": {
+   "S1": 800,
+   "S2": 400
+  },
+  "DEV_N": {
+   "S1": 400,
+   "S3": 400
+  }
+ }
+}
