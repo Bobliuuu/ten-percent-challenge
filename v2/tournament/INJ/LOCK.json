@@ -1,0 +1,92 @@
+{
+ "created": "2026-11-06",
+ "note": "LOCK for task INJ. locked rows never printed/used for decisions. Files chmod 444.",
+ "sources": {
+  "hendzh/PromptShield": {
+   "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+   "license": "apache-2.0"
+  },
+  "deepset/prompt-injections": {
+   "revision": "4f61ecb038e9c3fb77e21034b22511b523772cdd",
+   "license": "apache-2.0"
+  },
+  "Lakera/gandalf_ignore_instructions": {
+   "revision": "04737b65e90a6794ec227012e4a255a7def6344b",
+   "license": "mit"
+  },
+  "walledai/JailbreakHub": {
+   "revision": "1a33b351b53167e37a64bd9bf7e286e435ba4a31",
+   "license": "mit"
+  }
+ },
+ "raw_sha256": {
+  "Lakera__gandalf_ignore_instructions/data/test-00000-of-00001-bc92128b9288a6d1.parquet": "56b646d133335ebc535266bd55dbe1b5bee7caa4b95bf49d040684b9b5dd9972",
+  "Lakera__gandalf_ignore_instructions/data/train-00000-of-00001-ded53be747ff55cd.parquet": "5b6acf3e5a5998d21f8e1222bb45bbdec25a14408747b1cd63bebef4a75fa439",
+  "Lakera__gandalf_ignore_instructions/data/validation-00000-of-00001-94481a2a09ff2fff.parquet": "f51ab3e3407a368845b0f57932cc745c09280429416d7507bd178a16326a79f6",
+  "deepset__prompt-injections/data/test-00000-of-00001-701d16158af87368.parquet": "39ac797cabc157eeed58435a08593b2952bb6cb16fc394a2d383f447cc7b246e",
+  "deepset__prompt-injections/data/train-00000-of-00001-9564e8b05b4757ab.parquet": "2e10bc7ab30f542c97e4e83e2a5683000b5057d25ec10908784c631d44124c04",
+  "hendzh__PromptShield/train.json": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6",
+  "hendzh__PromptShield/validation.json": "1d93d90d57d3ef44ed0c546fbc04d66324436c5fcd32e7fcb940ceed270fbe77",
+  "walledai__JailbreakHub/data/train-00000-of-00001.parquet": "50aa8b9f3071c73934424b0bd61281ffce9480f0588a3c72e0d71e0a42509c94"
+ },
+ "files": {
+  "locked_S1": {
+   "n": 1600,
+   "sha256": "47ba965d4960fa034d2701edb20b81231aedbbcf83a4163a4bf3c030d6eb0473",
+   "by_kind": {
+    "S1_injection": 800,
+    "S1_benign": 800
+   }
+  },
+  "locked_S2": {
+   "n": 720,
+   "sha256": "535c44c4d7e70814a0cfa33714ce2856a18dfe581dc2363f4dfbec3658190696",
+   "by_kind": {
+    "S2_benign": 360,
+    "S2_injection": 360
+   }
+  },
+  "dev_S1": {
+   "n": 800,
+   "sha256": "e233863b78dc651f6caabb4a6608c4cfe0ff0c133cd85502b5a0f9616f4e2e29",
+   "by_kind": {
+    "S1_benign": 400,
+    "S1_injection": 400
+   }
+  },
+  "dev_S3": {
+   "n": 766,
+   "sha256": "ac8545c001180cad2f5c0e812cd712a7266208ee44e2c0b990f5a2394071e100",
+   "by_kind": {
+    "S3_benign": 383,
+    "S3_injection": 383
+   }
+  },
+  "calib_S1": {
+   "n": 2751,
+   "sha256": "e9d8223e68ace8fc91b71fa41e7b6562010db32d281638038137fd8ae26801e1",
+   "by_kind": {
+    "S1_benign": 1788,
+    "S1_injection": 963
+   }
+  },
+  "pool_S1": {
+   "n": 6075,
+   "sha256": "599d64f2d28ae57261596587eb7360c0b133b5b4f7196958f2df6b12d4e34e63",
+   "by_kind": {
+    "S1_injection": 2349,
+    "S1_benign": 3726
+   }
+  },
+  "audit_S2": {
+   "n": 3765,
+   "sha256": "db1a4354249bd0c3cb6bba7ae35e6e11b85a2ed75023b81d25f7dd864bf4e638",
+   "by_kind": {
+    "S2_benign": 3518,
+    "S2_injection": 247
+   }
+  }
+ },
+ "locked_total": 2320,
+ "build_script_sha256": "d376e044bd64459257bae3716f2c0d7e7de3813e00883e0d61453614a674372b"
+}
