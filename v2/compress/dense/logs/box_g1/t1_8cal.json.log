@@ -1,0 +1,37 @@
+JOB 0 t096_cal
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 238.93it/s]
+alloc body_bits/param 1.4433756388318928 target 1.4463398241528407
+passB 0 28
+passB 8 468
+passB 16 814
+passB 24 1016
+passB 32 1508
+T1_DONE Qwen3-8B t096_cal 173
+JOB 1 t096_calmix
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 84.29it/s]
+alloc body_bits/param 1.4433756388318928 target 1.4463398241528407
+passB 0 27
+passB 8 230
+passB 16 433
+passB 24 635
+passB 32 1420
+T1_DONE Qwen3-8B t096_calmix 199
+JOB 2 t096_cal_g1
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 233.02it/s]
+alloc body_bits/param 1.4460706809179296 target 1.4463398241528407
+passB 0 27
+passB 8 229
+passB 16 431
+passB 24 632
+passB 32 1081
+T1_DONE Qwen3-8B t096_cal_g1 260
+JOB 3 t096_cal_drop2
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 233.09it/s]
+alloc body_bits/param 1.5291841182265142 target 1.5314598477762815
+passB 0 27
+passB 8 578
+passB 16 782
+passB 24 986
+passB 32 1138
+T1_DONE Qwen3-8B t096_cal_drop2 170

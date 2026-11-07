@@ -1,0 +1,1 @@
+[{"model": "Qwen/Qwen3-8B", "target_ratio": 0.096, "emb_L": 4, "head_L": 4, "g": 256, "t1": true, "calib_t1": true, "CL": 1024, "ncal": 96, "name": "t096_cal_kl_ep", "ep": true, "alloc": "kl"}]

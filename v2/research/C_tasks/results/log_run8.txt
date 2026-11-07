@@ -1,0 +1,50 @@
+JOB 0 bf16
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  3.06it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  3.02it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.02it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.27it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.69it/s]
+CT_DONE Qwen3-8B bf16 0.7613594384927964
+JOB 1 t096
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  3.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  3.04it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.29it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.71it/s]
+sensA 0 8
+sensA 8 44
+sensA 16 80
+sensA 24 116
+sensA 32 152
+alloc body_bits/param 1.4458310406925023 target 1.4463398241528407
+passB 0 178
+passB 8 279
+passB 16 381
+passB 24 482
+passB 32 583
+CT_DONE Qwen3-8B t096 ratio 0.09635589548305695 bpw 1.4488159607237443 acc 0.5474695234577023
+JOB 2 t15
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  3.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.28it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.70it/s]
+alloc body_bits/param 2.372044758364775 target 2.3739486780603403
+passB 0 16
+passB 8 117
+passB 16 218
+passB 24 318
+passB 32 419
+CT_DONE Qwen3-8B t15 ratio 0.1503918333667307 bpw 2.3769429971396487 acc 0.7356852604359069
+JOB 3 t20
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  3.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.28it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.70it/s]
+sensA 0 8
+sensA 8 44
+sensA 16 79
+sensA 24 115
+sensA 32 151
+alloc body_bits/param 3.2444614135808716 target 3.24497851482597
+passB 0 178
+passB 8 282
+passB 16 386
+passB 24 490
+passB 32 594
+CT_DONE Qwen3-8B t20 ratio 0.20005556700497037 bpw 3.245985811177801 acc 0.7582194311045438
+JOB 4 t30
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:01,  3.07it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.03it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.28it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  3.70it/s]
+alloc body_bits/param 3.746969057248122 target 4.975998499651174
+passB 0 17
+passB 8 121
+passB 16 225
+passB 24 331
+passB 32 437
+CT_DONE Qwen3-8B t30 ratio 0.2348988915992562 bpw 3.7475932460872134 acc 0.7613594384927964

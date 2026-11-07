@@ -348,11 +348,11 @@ def _run(cfg):
         for key,mem in groups:
             H=Hs[key]; C=H.shape[0]; sg=signs(oli,key,C); Hr=rot(rot(H,sg).T.contiguous(),sg).T.contiguous()
             if EP:
-                Cr=rot(rot(Cs[key],sg).T.contiguous(),sg).T.contiguous(); lam=0.01*torch.mean(torch.diag(Hr))
+                Cr=rot(rot(Cs[key],sg).T.contiguous(),sg).T.contiguous(); lam=cfg.get('ep_lam',0.01)*torch.mean(torch.diag(Hr))
                 Hreg=Hr+lam*torch.eye(C,device=Hr.device)
             for n in mem:
                 Lv=levels[f"{oli}.{n}"]; Wo=mods[n].weight.data; W=rot(Wo.float(),sg)
-                if EP: W=torch.linalg.solve(Hreg,(W@Cr).T).T.contiguous()
+                if EP: W=(W+cfg.get('ep_alpha',1.0)*torch.linalg.solve(Hreg,(W@(Cr-Hr)).T).T).contiguous()
                 Q,h=gptq(W,Hr,Lv); mods[n].weight.data=unrot(Q,sg).to(torch.bfloat16)
                 nn_=W.numel(); b=nn_*(ent(h)*1.005+GB/g); qbits+=b; lb+=b; ln+=nn_; Lcount[Lv]+=nn_
         layer_bpw.append(lb/ln)

@@ -1,0 +1,181 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-m0FtYiJCDE4kRbgMPJR65q
+✓ Created objects.
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/probe_big.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/probe_items.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/research/L2_moe/base_probe/scorer.py
+├── ✓ Created Function probe_Qwen3_235B_FP8.
+├── ✓ Created Function probe_gpt_oss_120b.
+├── ✓ Created Function probe_GLM_4_5_Air_FP8.
+├── ✓ Created Function probe_GLM_4_5_Air.
+├── ✓ Created Function probe_Qwen3_Coder_480B_FP8.
+├── ✓ Created Function probe_GLM_4_5_FP8.
+├── ✓ Created Function probe_Qwen3_Next_80B.
+├── ✓ Created Function probe_Mixtral_8x22B.
+├── ✓ Created Function probe_Llama_4_Scout.
+└── ✓ Created Function probe_Llama_4_Maverick_FP8.
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+WARNING: Logs may not be continuous
+INFO 11-07 05:30:09 [__init__.py:216] Automatically detected platform cuda.
+INFO 11-07 05:30:14 [utils.py:233] non-default args: {'seed': 0, 'max_model_len': 20000, 'tensor_parallel_size': 4, 'enable_prefix_caching': True, 'gpu_memory_utilization': 0.85, 'max_num_seqs': 128, 'disable_log_stats': True, 'model': 'mistralai/Mixtral-8x22B-Instruct-v0.1'}
+INFO 11-07 05:30:24 [model.py:547] Resolved architecture: MixtralForCausalLM
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO 11-07 05:30:24 [model.py:1510] Using max model len 20000
+INFO 11-07 05:30:25 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=16384.
+/usr/local/lib/python3.12/site-packages/vllm/transformers_utils/tokenizer.py:286: FutureWarning: It is strongly recommended to run mistral models with `--tokenizer-mode "mistral"` to ensure correct encoding and decoding.
+  return get_tokenizer(
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:25 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:25 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='mistralai/Mixtral-8x22B-Instruct-v0.1', speculative_config=None, tokenizer='mistralai/Mixtral-8x22B-Instruct-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=20000, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=mistralai/Mixtral-8x22B-Instruct-v0.1, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":256,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_d0603ea8'), local_subscribe_addr='ipc:///tmp/efe4fb9e-3525-49a7-bbf4-b79625f83be4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_6b6523c8'), local_subscribe_addr='ipc:///tmp/7bd0f047-532c-4ea3-98b8-a3be88ef9cdc', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_adf1c370'), local_subscribe_addr='ipc:///tmp/c01e09c2-3287-4fbc-ba32-a7afbe74b69d', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_1b644cb9'), local_subscribe_addr='ipc:///tmp/0d304d94-0e5f-475c-b891-16d531d23677', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_88ed7b74'), local_subscribe_addr='ipc:///tmp/8a32a9cd-a386-43fa-b46d-fcf6cd2c7fea', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. [Gloo] Rank Expected number of connected peer ranks is : 3
+1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 11-07 05:30:27 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:27 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_e0817807'), local_subscribe_addr='ipc:///tmp/1c20d75b-7132-47ff-9af1-04a9b0791d52', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0[Gloo] Rank  is connected to 00 peer ranks.  is connected to Expected number of connected peer ranks is : 0 peer ranks. 0Expected number of connected peer ranks is : [Gloo] Rank 0
+0
+ is connected to [Gloo] Rank 0 peer ranks. 0Expected number of connected peer ranks is :  is connected to 00
+ peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank [Gloo] Rank 00 is connected to  is connected to 0 peer ranks. 0Expected number of connected peer ranks is :  peer ranks. 0
+Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [__init__.py:1384] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:29 [pynccl.py:103] vLLM is using nccl==2.27.3
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:30 [parallel_state.py:1208] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:30 [parallel_state.py:1208] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(EngineCore_DP0 pid=58)[0;0m INFO 11-07 05:30:30 [parallel_state.py:1208] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+INFO 11-07 05:30:30 [parallel_state.py:1208] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(EngineCore_DP0 pid=58)[0;0m WARNING 11-07 05:30:30 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m WARNING 11-07 05:30:30 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m WARNING 11-07 05:30:30 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2602] Starting to load model mistralai/Mixtral-8x22B-Instruct-v0.1...
+[1;36m(EngineCore_DP0 pid=58)[0;0m WARNING 11-07 05:30:30 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2602] Starting to load model mistralai/Mixtral-8x22B-Instruct-v0.1...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2602] Starting to load model mistralai/Mixtral-8x22B-Instruct-v0.1...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2602] Starting to load model mistralai/Mixtral-8x22B-Instruct-v0.1...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:30:30 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:30:30 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:30:30 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:30:30 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:30:31 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP1 pid=65)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP2 pid=67)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP0 pid=64)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_DP0 pid=58)[0;0m [1;36m(Worker_TP3 pid=69)[0;0m INFO 11-07 05:30:31 [weight_utils.py:392] Using model weights format ['*.safetensors']

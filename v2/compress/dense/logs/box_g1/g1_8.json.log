@@ -1,0 +1,32 @@
+JOB 0 cal_kl_r110
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 85.13it/s]
+alloc body_bits/param 1.7081050822030808 target 1.7104898609508479
+passB 0 21
+passB 8 162
+passB 16 302
+passB 24 438
+passB 32 576
+T1_DONE Qwen3-8B cal_kl_r110 376
+JOB 1 cal_kl_r125
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 101.28it/s]
+alloc body_bits/param 1.9915322955287447 target 1.9935077575201412
+passB 0 19
+passB 8 158
+passB 16 599
+passB 24 752
+passB 32 889
+T1_DONE Qwen3-8B cal_kl_r125 411
+JOB 2 cal_kl_r140
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 175.84it/s]
+alloc body_bits/param 2.181664298543895 target 2.185270080347478
+passB 0 19
+passB 8 157
+passB 16 295
+passB 24 432
+passB 32 674
+T1_DONE Qwen3-8B cal_kl_r140 424
+JOB 3 cal_kl_r180
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 117.93it/s]
+alloc body_bits/param 2.8230369230392194 target 2.939984471198927
+passB 0 19

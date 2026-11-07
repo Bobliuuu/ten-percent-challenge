@@ -1,0 +1,49 @@
+JOB 0 bf16
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 336.66it/s]
+T1_DONE Qwen3-14B bf16 465
+JOB 1 t096
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 331.24it/s]
+alloc body_bits/param 1.47722343052356 target 1.4788162359932941
+passB 0 24
+passB 8 204
+passB 16 382
+passB 24 561
+passB 32 928
+T1_DONE Qwen3-14B t096 265
+JOB 2 t15
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:00<00:00, 69.94it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 79.47it/s]
+alloc body_bits/param 2.383151442096347 target 2.38462354112724
+passB 0 35
+passB 8 303
+passB 16 860
+passB 24 1313
+passB 32 1581
+T1_DONE Qwen3-14B t15 452
+JOB 3 t30
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:00<00:00, 59.68it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 66.64it/s]
+alloc body_bits/param 3.74832168013709 target 4.917313614058353
+passB 0 60
+passB 8 763
+passB 16 1032
+passB 24 1302
+passB 32 1833
+T1_DONE Qwen3-14B t30 464
+JOB 4 t11
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 89.01it/s]
+alloc body_bits/param 1.7285003135097874 target 1.729201218632183
+passB 0 36
+passB 8 304
+passB 16 573
+passB 24 1209
+passB 32 1295
+T1_DONE Qwen3-14B t11 251
+JOB 5 t125
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 145.31it/s]
+alloc body_bits/param 1.9366418044261988 target 1.9375075007006528
+passB 0 12
+passB 8 97
+passB 16 183
+passB 24 267
+passB 32 352
+T1_DONE Qwen3-14B t125 382

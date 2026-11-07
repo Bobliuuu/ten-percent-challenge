@@ -1,0 +1,25 @@
+JOB 0 bf16
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 177.54it/s]
+CT_DONE Qwen3-14B bf16 0.8077207240487625
+JOB 1 t096
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 174.47it/s]
+alloc body_bits/param 1.4777743752811636 target 1.4788162359932941
+passB 0 22
+passB 8 170
+passB 16 318
+passB 24 465
+passB 32 613
+CT_DONE Qwen3-14B t096 ratio 0.09628548929086664 bpw 1.481124263667279 acc 0.6976357591429627
+JOB 2 t15
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 172.58it/s]
+alloc body_bits/param 2.3826609083236683 target 2.38462354112724
+passB 0 21
+passB 8 169
+passB 16 317
+passB 24 465
+passB 32 612
+CT_DONE Qwen3-14B t15 ratio 0.15032188901059854 bpw 2.387493677105933 acc 0.8090136682674548
+JOB 3 t20
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 175.80it/s]
+sensA 0 11

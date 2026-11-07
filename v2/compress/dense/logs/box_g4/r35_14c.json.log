@@ -1,0 +1,16 @@
+JOB 0 t096_cal_kl_e3h3
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 327.41it/s]
+alloc body_bits/param 1.5217851287467135 target 1.5224829351988636
+passB 0 41
+passB 8 350
+passB 16 1056
+passB 24 1263
+passB 32 1551
+T1_DONE Qwen3-14B t096_cal_kl_e3h3 390
+JOB 1 t096_cal_kl_g1
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 329.52it/s]
+alloc body_bits/param 1.4783927341923109 target 1.4788162359932941
+passB 0 42
+passB 8 340
+passB 16 1225

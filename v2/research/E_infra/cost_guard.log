@@ -1,0 +1,639 @@
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:27:01.029471 total=$62.92 burn=$66.59/h boxes=13 remaining_h=3.34
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:28:09.297292 total=$63.91 burn=$51.95/h boxes=11 remaining_h=4.26
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:29:19.312951 total=$64.89 burn=$51.95/h boxes=11 remaining_h=4.24
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:30:29.892767 total=$65.90 burn=$51.95/h boxes=11 remaining_h=4.22
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:31:39.308246 total=$66.92 burn=$51.95/h boxes=11 remaining_h=4.20
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:32:49.236715 total=$67.92 burn=$51.95/h boxes=11 remaining_h=4.18
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:33:58.433700 total=$68.93 burn=$51.95/h boxes=11 remaining_h=4.16
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:35:07.849542 total=$69.93 burn=$51.95/h boxes=11 remaining_h=4.14
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:36:16.914769 total=$70.93 burn=$51.95/h boxes=11 remaining_h=4.12
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:37:25.714941 total=$71.93 burn=$51.95/h boxes=11 remaining_h=4.10
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:38:34.618647 total=$72.92 burn=$51.95/h boxes=11 remaining_h=4.08
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:39:44.240089 total=$73.92 burn=$51.95/h boxes=11 remaining_h=4.06
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:40:53.927492 total=$74.92 burn=$51.95/h boxes=11 remaining_h=4.04
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:42:02.527229 total=$75.93 burn=$51.95/h boxes=11 remaining_h=4.02
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:43:13.014362 total=$76.92 burn=$51.95/h boxes=11 remaining_h=4.01
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:44:21.909076 total=$77.93 burn=$51.95/h boxes=11 remaining_h=3.99
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:45:30.599710 total=$78.93 burn=$51.95/h boxes=11 remaining_h=3.97
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:46:41.105540 total=$79.92 burn=$51.95/h boxes=11 remaining_h=3.95
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:47:54.909083 total=$80.94 burn=$51.95/h boxes=11 remaining_h=3.93
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:49:05.946376 total=$82.00 burn=$51.95/h boxes=11 remaining_h=3.91
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:50:15.177806 total=$83.03 burn=$51.95/h boxes=11 remaining_h=3.89
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:51:25.233576 total=$84.02 burn=$51.95/h boxes=11 remaining_h=3.87
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:52:34.220502 total=$85.04 burn=$51.95/h boxes=11 remaining_h=3.85
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:53:42.986414 total=$85.87 burn=$43.48/h boxes=9 remaining_h=4.58
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:54:51.573919 total=$86.70 burn=$43.48/h boxes=9 remaining_h=4.56
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:55:59.835726 total=$87.53 burn=$43.48/h boxes=9 remaining_h=4.54
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:57:08.482852 total=$88.35 burn=$43.48/h boxes=9 remaining_h=4.52
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:58:18.155115 total=$89.18 burn=$43.48/h boxes=9 remaining_h=4.50
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T01:59:27.516616 total=$90.02 burn=$43.48/h boxes=9 remaining_h=4.48
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:00:37.406827 total=$90.73 burn=$36.58/h boxes=7 remaining_h=5.31
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:01:46.439519 total=$91.44 burn=$36.58/h boxes=7 remaining_h=5.29
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:02:56.223159 total=$92.14 burn=$36.58/h boxes=7 remaining_h=5.27
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:04:06.573332 total=$92.85 burn=$36.58/h boxes=7 remaining_h=5.25
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:05:15.730362 total=$93.56 burn=$36.58/h boxes=7 remaining_h=5.23
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:06:25.131018 total=$94.27 burn=$36.58/h boxes=7 remaining_h=5.21
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:07:34.075972 total=$94.97 burn=$36.58/h boxes=7 remaining_h=5.19
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:08:43.238754 total=$95.67 burn=$36.58/h boxes=7 remaining_h=5.18
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:09:51.614841 total=$96.37 burn=$36.58/h boxes=7 remaining_h=5.16
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:11:00.536871 total=$97.07 burn=$36.58/h boxes=7 remaining_h=5.14
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:12:09.139820 total=$97.77 burn=$36.58/h boxes=7 remaining_h=5.12
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:13:17.976282 total=$98.47 burn=$36.58/h boxes=7 remaining_h=5.10
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:14:26.957747 total=$99.17 burn=$36.58/h boxes=7 remaining_h=5.08
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:15:36.738078 total=$99.87 burn=$36.58/h boxes=7 remaining_h=5.06
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:16:45.075913 total=$100.58 burn=$36.58/h boxes=7 remaining_h=5.04
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:17:54.892716 total=$101.27 burn=$36.58/h boxes=7 remaining_h=5.02
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:19:04.115990 total=$101.98 burn=$36.58/h boxes=7 remaining_h=5.00
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:20:13.172151 total=$102.68 burn=$36.58/h boxes=7 remaining_h=4.98
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:21:21.860246 total=$103.39 burn=$36.58/h boxes=7 remaining_h=4.96
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:22:30.481510 total=$104.08 burn=$36.58/h boxes=7 remaining_h=4.95
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:23:38.834376 total=$104.78 burn=$36.58/h boxes=7 remaining_h=4.93
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:24:47.344444 total=$105.48 burn=$36.58/h boxes=7 remaining_h=4.91
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:25:56.679440 total=$106.17 burn=$36.58/h boxes=7 remaining_h=4.89
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:27:05.995341 total=$106.88 burn=$36.58/h boxes=7 remaining_h=4.87
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:28:15.242586 total=$107.58 burn=$36.58/h boxes=7 remaining_h=4.85
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:29:24.306628 total=$108.28 burn=$36.58/h boxes=7 remaining_h=4.83
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:30:34.248195 total=$108.99 burn=$36.58/h boxes=7 remaining_h=4.81
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:31:44.931242 total=$109.70 burn=$36.58/h boxes=7 remaining_h=4.79
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:32:54.953723 total=$110.41 burn=$36.58/h boxes=7 remaining_h=4.77
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:34:03.777386 total=$111.13 burn=$36.58/h boxes=7 remaining_h=4.75
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:35:12.288157 total=$111.83 burn=$36.58/h boxes=7 remaining_h=4.73
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:36:23.706911 total=$112.52 burn=$36.58/h boxes=7 remaining_h=4.71
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:37:33.932492 total=$113.25 burn=$36.58/h boxes=7 remaining_h=4.70
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:38:48.279923 total=$113.96 burn=$36.58/h boxes=7 remaining_h=4.68
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:39:56.931981 total=$114.72 burn=$36.58/h boxes=7 remaining_h=4.65
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:41:06.666351 total=$115.41 burn=$36.58/h boxes=7 remaining_h=4.64
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:42:15.495781 total=$116.12 burn=$36.58/h boxes=7 remaining_h=4.62
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:43:24.420777 total=$116.82 burn=$36.58/h boxes=7 remaining_h=4.60
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:44:38.258950 total=$117.52 burn=$36.58/h boxes=7 remaining_h=4.58
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:45:47.805776 total=$118.27 burn=$36.58/h boxes=7 remaining_h=4.56
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:46:56.451720 total=$118.98 burn=$36.58/h boxes=7 remaining_h=4.54
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:48:05.443837 total=$119.68 burn=$36.58/h boxes=7 remaining_h=4.52
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:49:13.904899 total=$120.38 burn=$36.58/h boxes=7 remaining_h=4.50
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:50:22.580361 total=$121.07 burn=$36.58/h boxes=7 remaining_h=4.48
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:51:31.474343 total=$121.77 burn=$36.58/h boxes=7 remaining_h=4.46
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:52:40.803752 total=$122.47 burn=$36.58/h boxes=7 remaining_h=4.44
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:53:49.098347 total=$123.18 burn=$36.58/h boxes=7 remaining_h=4.42
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:54:57.751406 total=$123.87 burn=$36.58/h boxes=7 remaining_h=4.40
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:56:06.521531 total=$124.57 burn=$36.58/h boxes=7 remaining_h=4.39
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:57:14.975494 total=$125.27 burn=$36.58/h boxes=7 remaining_h=4.37
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:58:23.373574 total=$125.96 burn=$36.58/h boxes=7 remaining_h=4.35
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T02:59:31.713931 total=$126.66 burn=$36.58/h boxes=7 remaining_h=4.33
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:00:40.076945 total=$127.35 burn=$36.58/h boxes=7 remaining_h=4.31
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:01:48.689627 total=$128.05 burn=$36.58/h boxes=7 remaining_h=4.29
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:02:57.231437 total=$128.74 burn=$36.58/h boxes=7 remaining_h=4.27
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:04:05.642411 total=$129.44 burn=$36.58/h boxes=7 remaining_h=4.25
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:05:14.001399 total=$130.14 burn=$36.58/h boxes=7 remaining_h=4.23
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:06:22.431617 total=$130.83 burn=$36.58/h boxes=7 remaining_h=4.21
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:07:30.887678 total=$131.53 burn=$36.58/h boxes=7 remaining_h=4.20
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:08:39.337704 total=$132.22 burn=$36.58/h boxes=7 remaining_h=4.18
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:09:47.682201 total=$132.92 burn=$36.58/h boxes=7 remaining_h=4.16
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:10:56.178055 total=$133.61 burn=$36.58/h boxes=7 remaining_h=4.14
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:12:04.579793 total=$134.31 burn=$36.58/h boxes=7 remaining_h=4.12
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:13:13.091026 total=$135.00 burn=$36.58/h boxes=7 remaining_h=4.10
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:14:21.744156 total=$135.70 burn=$36.58/h boxes=7 remaining_h=4.08
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:15:30.323675 total=$136.40 burn=$36.58/h boxes=7 remaining_h=4.06
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:16:38.717118 total=$137.09 burn=$36.58/h boxes=7 remaining_h=4.04
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:17:47.074965 total=$137.79 burn=$36.58/h boxes=7 remaining_h=4.02
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:18:55.652787 total=$138.48 burn=$36.58/h boxes=7 remaining_h=4.01
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:20:04.284977 total=$139.18 burn=$36.58/h boxes=7 remaining_h=3.99
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:21:13.259663 total=$139.88 burn=$36.58/h boxes=7 remaining_h=3.97
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:22:21.904943 total=$140.58 burn=$36.58/h boxes=7 remaining_h=3.95
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:23:30.672582 total=$141.28 burn=$36.58/h boxes=7 remaining_h=3.93
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:24:39.419364 total=$141.97 burn=$36.58/h boxes=7 remaining_h=3.91
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:25:48.098938 total=$142.67 burn=$36.58/h boxes=7 remaining_h=3.89
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:26:57.073614 total=$143.37 burn=$36.58/h boxes=7 remaining_h=3.87
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:28:06.309040 total=$144.07 burn=$36.58/h boxes=7 remaining_h=3.85
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:29:14.804992 total=$144.77 burn=$36.58/h boxes=7 remaining_h=3.83
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:30:23.739848 total=$145.47 burn=$36.58/h boxes=7 remaining_h=3.81
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:31:32.300353 total=$146.17 burn=$36.58/h boxes=7 remaining_h=3.80
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:32:41.205328 total=$146.87 burn=$36.58/h boxes=7 remaining_h=3.78
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:33:50.098283 total=$147.57 burn=$36.58/h boxes=7 remaining_h=3.76
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:34:58.634874 total=$148.27 burn=$36.58/h boxes=7 remaining_h=3.74
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:36:07.363554 total=$148.96 burn=$36.58/h boxes=7 remaining_h=3.72
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:37:16.090734 total=$149.66 burn=$36.58/h boxes=7 remaining_h=3.70
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:38:25.000382 total=$150.36 burn=$36.58/h boxes=7 remaining_h=3.68
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:39:33.518471 total=$151.06 burn=$36.58/h boxes=7 remaining_h=3.66
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:40:42.610560 total=$151.76 burn=$36.58/h boxes=7 remaining_h=3.64
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:41:53.306807 total=$152.46 burn=$36.58/h boxes=7 remaining_h=3.62
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:43:02.279777 total=$153.18 burn=$36.58/h boxes=7 remaining_h=3.60
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:44:11.484749 total=$153.88 burn=$36.58/h boxes=7 remaining_h=3.58
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:45:20.168204 total=$154.58 burn=$36.58/h boxes=7 remaining_h=3.57
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:46:29.177261 total=$155.30 burn=$41.18/h boxes=8 remaining_h=3.15
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:47:38.422605 total=$156.09 burn=$41.18/h boxes=8 remaining_h=3.13
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:48:48.285865 total=$156.89 burn=$41.18/h boxes=8 remaining_h=3.11
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:49:56.876812 total=$157.68 burn=$41.18/h boxes=8 remaining_h=3.09
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:51:05.663228 total=$158.47 burn=$41.18/h boxes=8 remaining_h=3.07
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:52:14.186030 total=$159.26 burn=$41.18/h boxes=8 remaining_h=3.05
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:53:23.824959 total=$160.04 burn=$41.18/h boxes=8 remaining_h=3.03
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:54:33.648208 total=$160.84 burn=$41.18/h boxes=8 remaining_h=3.02
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:55:42.236324 total=$161.63 burn=$41.18/h boxes=8 remaining_h=3.00
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:56:50.995790 total=$162.42 burn=$41.18/h boxes=8 remaining_h=2.98
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:57:59.722959 total=$163.21 burn=$41.18/h boxes=8 remaining_h=2.96
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T03:59:08.556643 total=$163.99 burn=$41.18/h boxes=8 remaining_h=2.94
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:00:17.240404 total=$164.78 burn=$41.18/h boxes=8 remaining_h=2.92
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:01:25.992896 total=$165.57 burn=$41.18/h boxes=8 remaining_h=2.90
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:02:34.467512 total=$166.35 burn=$41.18/h boxes=8 remaining_h=2.88
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:03:42.966427 total=$167.13 burn=$41.18/h boxes=8 remaining_h=2.86
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:04:51.959694 total=$167.92 burn=$41.18/h boxes=8 remaining_h=2.84
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:06:01.105410 total=$168.71 burn=$41.18/h boxes=8 remaining_h=2.82
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:07:09.654169 total=$169.50 burn=$41.18/h boxes=8 remaining_h=2.80
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:08:27.055913 total=$170.28 burn=$41.18/h boxes=8 remaining_h=2.79
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:09:35.763963 total=$171.17 burn=$41.18/h boxes=8 remaining_h=2.76
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:10:44.766903 total=$171.95 burn=$41.18/h boxes=8 remaining_h=2.75
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:11:54.355705 total=$172.74 burn=$41.18/h boxes=8 remaining_h=2.73
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:13:03.226196 total=$173.54 burn=$41.18/h boxes=8 remaining_h=2.71
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:14:11.843454 total=$174.33 burn=$41.18/h boxes=8 remaining_h=2.69
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:15:20.536109 total=$175.11 burn=$41.18/h boxes=8 remaining_h=2.67
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:16:29.203246 total=$175.90 burn=$41.18/h boxes=8 remaining_h=2.65
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:17:37.922556 total=$176.68 burn=$41.18/h boxes=8 remaining_h=2.63
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:18:46.084501 total=$177.47 burn=$41.18/h boxes=8 remaining_h=2.61
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:19:54.531295 total=$178.25 burn=$41.18/h boxes=8 remaining_h=2.59
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:21:03.264305 total=$179.03 burn=$41.18/h boxes=8 remaining_h=2.57
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:22:15.266618 total=$179.82 burn=$41.18/h boxes=8 remaining_h=2.55
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:23:26.599039 total=$180.64 burn=$41.18/h boxes=8 remaining_h=2.53
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:24:35.281900 total=$181.46 burn=$41.18/h boxes=8 remaining_h=2.51
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:25:43.879165 total=$182.24 burn=$41.18/h boxes=8 remaining_h=2.50
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:26:52.378820 total=$183.03 burn=$41.18/h boxes=8 remaining_h=2.48
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:28:00.699309 total=$183.58 burn=$29.12/h boxes=7 remaining_h=3.48
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:29:08.842919 total=$183.58 burn=$0.00/h boxes=0 remaining_h=0.00
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:30:17.832604 total=$184.36 burn=$41.18/h boxes=8 remaining_h=2.44
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:31:26.596320 total=$185.15 burn=$41.18/h boxes=8 remaining_h=2.42
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:32:35.111010 total=$185.79 burn=$33.22/h boxes=6 remaining_h=2.99
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:33:43.791794 total=$186.42 burn=$33.22/h boxes=6 remaining_h=2.97
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:34:52.215585 total=$187.05 burn=$33.22/h boxes=6 remaining_h=2.95
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:36:00.817137 total=$187.68 burn=$33.22/h boxes=6 remaining_h=2.93
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:37:09.420102 total=$188.32 burn=$33.22/h boxes=6 remaining_h=2.91
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:38:18.090998 total=$188.95 burn=$33.22/h boxes=6 remaining_h=2.89
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:39:26.985594 total=$189.58 burn=$33.22/h boxes=6 remaining_h=2.87
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:40:35.598391 total=$190.22 burn=$33.22/h boxes=6 remaining_h=2.85
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:41:44.070965 total=$190.85 burn=$33.22/h boxes=6 remaining_h=2.83
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:42:52.556537 total=$191.48 burn=$33.22/h boxes=6 remaining_h=2.82
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:44:01.440571 total=$192.11 burn=$33.22/h boxes=6 remaining_h=2.80
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:45:09.779651 total=$192.75 burn=$33.22/h boxes=6 remaining_h=2.78
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:46:18.057196 total=$193.38 burn=$33.22/h boxes=6 remaining_h=2.76
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:47:26.302427 total=$193.69 burn=$16.56/h boxes=4 remaining_h=5.51
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:48:36.346717 total=$194.01 burn=$16.56/h boxes=4 remaining_h=5.50
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:49:44.613165 total=$194.33 burn=$16.56/h boxes=4 remaining_h=5.48
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:50:53.050521 total=$194.64 burn=$16.56/h boxes=4 remaining_h=5.46
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:52:01.416921 total=$194.96 burn=$16.56/h boxes=4 remaining_h=5.44
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:53:09.698618 total=$195.27 burn=$16.56/h boxes=4 remaining_h=5.42
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:54:18.440377 total=$195.59 burn=$16.56/h boxes=4 remaining_h=5.40
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:55:26.858144 total=$195.90 burn=$16.56/h boxes=4 remaining_h=5.38
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:56:35.118480 total=$196.22 burn=$16.56/h boxes=4 remaining_h=5.36
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:57:43.507882 total=$196.53 burn=$16.56/h boxes=4 remaining_h=5.34
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T04:58:51.884112 total=$196.85 burn=$16.56/h boxes=4 remaining_h=5.32
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:00:00.181506 total=$197.16 burn=$16.56/h boxes=4 remaining_h=5.31
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:01:08.794710 total=$197.48 burn=$16.56/h boxes=4 remaining_h=5.29
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:02:17.376752 total=$197.79 burn=$16.56/h boxes=4 remaining_h=5.27
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:03:28.127131 total=$198.11 burn=$16.56/h boxes=4 remaining_h=5.25
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:04:38.584447 total=$198.43 burn=$16.56/h boxes=4 remaining_h=5.23
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:05:47.319055 total=$198.76 burn=$16.56/h boxes=4 remaining_h=5.21
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:06:56.096733 total=$199.07 burn=$16.56/h boxes=4 remaining_h=5.19
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:08:04.743790 total=$199.39 burn=$16.56/h boxes=4 remaining_h=5.17
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:09:13.389430 total=$199.70 burn=$16.56/h boxes=4 remaining_h=5.15
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:10:21.851577 total=$200.02 burn=$16.56/h boxes=4 remaining_h=5.13
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:11:30.392059 total=$200.34 burn=$16.56/h boxes=4 remaining_h=5.11
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:12:38.621057 total=$200.67 burn=$19.92/h boxes=5 remaining_h=4.23
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:13:46.892588 total=$201.05 burn=$19.92/h boxes=5 remaining_h=4.21
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:14:55.331821 total=$201.43 burn=$19.92/h boxes=5 remaining_h=4.20
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:16:03.690648 total=$201.80 burn=$19.92/h boxes=5 remaining_h=4.18
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:17:12.228980 total=$202.18 burn=$19.92/h boxes=5 remaining_h=4.16
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:18:20.876312 total=$202.56 burn=$19.92/h boxes=5 remaining_h=4.14
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:19:31.538597 total=$202.94 burn=$19.92/h boxes=5 remaining_h=4.12
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:20:41.264504 total=$203.33 burn=$19.92/h boxes=5 remaining_h=4.10
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:21:49.626031 total=$203.72 burn=$19.92/h boxes=5 remaining_h=4.08
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:22:59.394817 total=$204.10 burn=$19.92/h boxes=5 remaining_h=4.06
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:24:07.660425 total=$204.48 burn=$19.92/h boxes=5 remaining_h=4.04
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:25:16.381748 total=$204.86 burn=$19.92/h boxes=5 remaining_h=4.02
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:26:24.547481 total=$205.24 burn=$19.92/h boxes=5 remaining_h=4.00
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:27:33.202792 total=$205.64 burn=$29.12/h boxes=7 remaining_h=2.73
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:28:41.635311 total=$206.19 burn=$29.12/h boxes=7 remaining_h=2.71
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:29:50.028678 total=$206.74 burn=$29.12/h boxes=7 remaining_h=2.69
+/Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
+2026-11-07T05:31:00.720174 total=$207.30 burn=$29.12/h boxes=7 remaining_h=2.67

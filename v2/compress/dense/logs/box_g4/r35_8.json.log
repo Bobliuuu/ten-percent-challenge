@@ -1,0 +1,35 @@
+JOB 0 t096_cal_kl
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [00:03<00:12,  3.01s/it]Fetching 5 files:  40%|████      | 2/5 [00:17<00:25,  8.56s/it]Fetching 5 files:  60%|██████    | 3/5 [00:17<00:11,  5.84s/it]Fetching 5 files:  80%|████████  | 4/5 [00:23<00:05,  5.82s/it]Fetching 5 files: 100%|██████████| 5/5 [00:28<00:00,  5.77s/it]Fetching 5 files: 100%|██████████| 5/5 [00:28<00:00,  5.77s/it]
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 229.77it/s]
+sensA 0 42
+sensA 8 83
+sensA 16 123
+sensA 24 164
+sensA 32 205
+klsens 0 259
+klsens 8 483
+klsens 16 651
+klsens 24 821
+klsens 32 989
+alloc body_bits/param 1.4426778276243064 target 1.4463398241528407
+passB 0 1079
+passB 8 1219
+passB 16 1358
+passB 24 1498
+passB 32 1638
+T1_DONE Qwen3-8B t096_cal_kl 254
+JOB 1 t096_cal_ep
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 231.94it/s]
+alloc body_bits/param 1.4444666910149917 target 1.4463398241528407
+passB 0 22
+passB 8 478
+passB 16 1332
+passB 24 1798
+passB 32 1950
+T1_DONE Qwen3-8B t096_cal_ep 48
+JOB 2 t096_cal_ep_ao
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 231.52it/s]
+alloc body_bits/param 1.4444666910149917 target 1.4463398241528407
+passB 0 21
+passB 8 173

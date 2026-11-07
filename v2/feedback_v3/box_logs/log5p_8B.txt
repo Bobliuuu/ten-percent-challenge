@@ -1,0 +1,20 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:00<00:00, 31.35it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 39.09it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    13s] failure classes (n, distinct gold tools) {'argnum': (56, 43), 'argkeys': (249, 162), 'abstain': (47, 39), 'argstr': (154, 114), 'argcase': (16, 9), 'argtype': (9, 6), 'parsefail': (62, 61), 'sibling': (14, 14), 'multi': (21, 21), 'argother': (2, 2)}
+[   298s] pairS ann_pool 966 teach 100 dev 50 neigh verified 400 of 700 (same-tool 1 ) base teach 0.12
+[   349s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.03}, 'nsites': 35, 'dev_gain': 0.28, 'neigh_dev': 1.0}
+[   402s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.01}, 'nsites': 35, 'dev_gain': 0.1, 'neigh_dev': 1.0}
+[   636s] pairS lmhead_plain 0 real 0.25 neigh 0.998 mixed 0.1 rand 0.02
+[   859s] pairS lmhead_plain 1 real 0.41 neigh 0.995 mixed 0.1 rand 0.07
+[  1099s] pairS lmhead_plain 2 real 0.24 neigh 0.99 mixed 0.1 rand 0.1
+[  1334s] pairS lmhead_plain 3 real 0.43 neigh 0.995 mixed 0.1 rand 0.08
+[  1575s] pairS lmhead_plain 4 real 0.2 neigh 0.995 mixed 0.1 rand 0.14
+[  1807s] pairS lmhead_plain 5 real 0.42 neigh 0.995 mixed 0.1 rand 0.01
+[  2030s] pairS lmhead_plain 6 real 0.44 neigh 0.995 mixed 0.1 rand 0.06
+[  2191s] pairS lmhead_plain 7 real 0.42 neigh 0.998 mixed 0.42 rand 0.14
+[  2391s] pairS lmhead_plain 8 real 0.43 neigh 0.99 mixed 0.1 rand 0.16
+[  2603s] pairS lmhead_plain 9 real 0.14 neigh 0.99 mixed 0.1 rand 0.16
+[  2603s] codec_real failed TypeError("Generator(): argument 'device' must be torch.device, not list")
+[  2603s] DONE Qwen3-8B_pairS_plain

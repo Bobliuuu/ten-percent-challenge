@@ -82,6 +82,9 @@ class Quantiser:
         return Q, hist, QI, SC
 
 
+def signs_kl(oli, key, C): return (torch.randint(0, 2, (C,), generator=torch.Generator().manual_seed(1000 * oli + len(key)), dtype=torch.float32) * 2 - 1).cuda()
+
+
 def pack4(QI): return (QI[:, 0::2] | (QI[:, 1::2] << 4)).contiguous()
 
 
@@ -94,7 +97,8 @@ class QLinear(nn.Module):
         Q = (q.half() - (s.Lv - 1) / 2) * s.scales.repeat_interleave(s.g, 1)
         W = (Q.view(s.R, s.C // HB, HB) @ s.Hb16).reshape(s.R, s.C)
         return (W.float() * s.sg).to(torch.bfloat16)
-    def forward(s, x): return F.linear(x, s.weight(), s.bias)
+    def forward(s, x): return F.linear(x, s.wc if getattr(s, "wc", None) is not None else s.weight(), s.bias)
+    def cache(s): s.wc = s.weight(); s.codes = None; s.scales = None
 
 
 class WLinear(nn.Module):
@@ -110,6 +114,8 @@ def log(*a): print(time.strftime("%H:%M:%S"), *a, flush=True)
 
 def run(cfg):
     from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM, GenerationConfig
+    global T1DIR
+    T1DIR = cfg.get('t1dir', T1DIR)
     t0 = time.time(); torch.manual_seed(0)
     MD = cfg["model_dir"]; tag = cfg["tag"]; mode = cfg.get("mode", "all"); name = cfg.get("name", "x")
     g = cfg.get("g", 256); GB = 11; dz = 0.0
@@ -125,7 +131,7 @@ def run(cfg):
     V = conf.vocab_size
     def new_rot(): return RotCls(config=conf, device="cuda")
     # ------------------------------------------------------------------ eval helpers
-    def gen_raw(model, texts, newtok, bs):
+    def gen_raw(model, texts, newtok, bs, label_=None):
         enc = [tok.encode(t, add_special_tokens=False)[-12000:] for t in texts]; order = np.argsort([-len(e) for e in enc]); out = [None] * len(enc)
         for b in range(0, len(enc), bs):
             idx = order[b:b + bs]; mx = max(len(enc[i]) for i in idx)
@@ -135,6 +141,7 @@ def run(cfg):
                 gg = model.generate(input_ids=ids.cuda(), attention_mask=att.cuda(), max_new_tokens=newtok, do_sample=False, use_cache=True,
                                     pad_token_id=tok.pad_token_id, temperature=None, top_p=None, top_k=None)
             for j, i in enumerate(idx): out[i] = tok.decode(gg[j, mx:], skip_special_tokens=False)
+            json.dump(out, open(f"{OUT}/partial_{label_}.json", "w")) if label_ else None
             log("gen batch", b // bs + 1, "/", math.ceil(len(enc) / bs), "len", mx)
         return out
     def chat(p):
@@ -163,12 +170,12 @@ def run(cfg):
         return float(np.mean(t1)), float(np.mean(kl))
     def run_t1(model, label):
         sys.path.insert(0, T1DIR); from scorer import score_item
-        items = [json.loads(l) for l in open(T1DIR + "/probe_items.jsonl")]; prompts = []
+        items = [json.loads(l) for l in open(T1DIR + "/probe_items.jsonl")][::cfg.get('sub', 1)]; prompts = []
         for it in items:
             tools = [{"type": "function", "function": t} for t in it["tools"]]
             try: prompts.append(tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False, enable_thinking=False))
             except TypeError: prompts.append(tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False))
-        txt = gen_raw(model, prompts, cfg.get("t1_new", 400), cfg.get("t1_bs", 24)); rows = []
+        txt = gen_raw(model, prompts, cfg.get("t1_new", 400), cfg.get("t1_bs", 24), label_=label); rows = []
         for it, t in zip(items, txt):
             s_ = score_item(t, it); rows.append(dict(id=it["id"], source=it["source"], kind=it["kind"], correct=bool(s_["correct"]), parse_fail=bool(s_["parse_fail"]), output=t[:600]))
         return rows
@@ -189,7 +196,9 @@ def run(cfg):
         m.to_empty(device="cuda")
         for i, l in enumerate(m.model.layers):
             for n in linn:
-                q = l.get_submodule(n); wname = f"model.layers.{i}.{n}"
+                q = l.get_submodule(n)
+                if qdir and i < cfg.get("deq_layers", 0): q.cache()
+                wname = f"model.layers.{i}.{n}"
                 if not qdir:
                     w = st.get(wname + ".weight", "cpu")
                     q.w = w.cuda() if i < nres else w.pin_memory()
@@ -204,20 +213,79 @@ def run(cfg):
         return m
     # ------------------------------------------------------------------ base mode
     if mode == "base":
-        m = build_eval_model(None); rows = run_t1(m, "base")
-        json.dump(dict(cfg=cfg, model=MD, t1=rows, secs=time.time() - t0), open(f"{OUT}/t1_bf16.json", "w"))
-        log("T1_BASE_DONE", sum(r["correct"] for r in rows), len(rows))
+        m = build_eval_model(None)
+        if not cfg.get("tf_only"):
+            rows = run_t1(m, "base")
+            json.dump(dict(cfg=cfg, model=MD, t1=rows, secs=time.time() - t0), open(f"{OUT}/t1_bf16{cfg.get('suffix','')}.json", "w"))
+            log("T1_BASE_DONE", sum(r["correct"] for r in rows), len(rows))
         m.config.use_cache = False
         tf = tf_logp(m, tf_items()); json.dump(dict(tf=tf, base_bytes=base_bytes, base_params=base_params), open(f"{OUT}/base_tf.json", "w")); log("BASE_TF_DONE"); return
     # ------------------------------------------------------------------ eval mode
     qdir = f"{OUT}/q_{name}"
     if mode == "eval":
-        meta_ = json.load(open(qdir + "/meta.json")); m = build_eval_model(qdir); rows = run_t1(m, name)
+        meta_ = json.load(open(qdir + "/meta.json")); m = build_eval_model(qdir); rows = [] if cfg.get("tf_only") else run_t1(m, name)
         res = dict(cfg=cfg, model=MD, t1=rows, secs=time.time() - t0, **{k: meta_[k] for k in ("bytes", "base_bytes", "ratio", "body_bpw", "dropped")})
         m.config.use_cache = False
         if os.path.exists(f"{OUT}/base_tf.json"):
             btf = json.load(open(f"{OUT}/base_tf.json"))["tf"]; ti = tf_items(); res["tf_top1"], res["tf_kl"] = tf_cmp(m, ti, btf)
-        json.dump(res, open(f"{OUT}/t1_{name}.json", "w")); log("T1_DONE", name, sum(r["correct"] for r in rows), res.get("tf_kl")); return
+        json.dump(res, open(f"{OUT}/{'tf' if cfg.get('tf_only') else 't1'}_{name}.json", "w")); log("T1_DONE", name, sum(r["correct"] for r in rows), res.get("tf_kl")); return
+    # ------------------------------------------------------------------ R3: measured-KL per-tensor sensitivity (model resident on GPU)
+    if mode == "klsens":
+        sys.path.insert(0, T1DIR)
+        its = [json.loads(l) for l in open(T1DIR + "/calib_t1.jsonl")]
+        seqs = []
+        for it in its:
+            tools = [{"type": "function", "function": t} for t in it["tools"]]
+            try: pr = tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False, enable_thinking=False)
+            except TypeError: pr = tok.apply_chat_template([{"role": "user", "content": it["query"]}], tools=tools, add_generation_prompt=True, tokenize=False)
+            ans = "\n".join("<tool_call>\n" + json.dumps(dict(name=gg["name"], arguments=gg["arguments"])) + "\n</tool_call>" for gg in it["gold"]) or "None of the available tools applies to this request."
+            p = tok.encode(pr, add_special_tokens=False); a = tok.encode(ans + "<|im_end|>", add_special_tokens=False)
+            if len(p) + len(a) <= cfg.get("kl_maxlen", 1100): seqs.append((p, a, it["kind"]))
+        if cfg.get("kl_ct"):
+            cc = [json.loads(l) for l in open(cfg["kl_ct"])]; rr = np.random.RandomState(1); rr.shuffle(cc)
+            for c in cc[:cfg.get("kl_nct", 24)]:
+                p = tok.encode(chat(c["user"]), add_special_tokens=False); a = tok.encode(c["answer"] + "<|im_end|>", add_special_tokens=False); seqs.append((p, a, "ct"))
+        rr = np.random.RandomState(2); rr.shuffle(seqs)
+        nm = {k: [x for x in seqs if x[2] == k] for k in ("multi", "single", "nocall", "ct")}
+        pick_ = nm["multi"][:cfg.get("kl_nmulti", 10)] + nm["single"][:cfg.get("kl_nsingle", 6)] + nm["nocall"][:cfg.get("kl_nnocall", 4)] + nm["ct"][:cfg.get("kl_nct", 24)]
+        T = max(len(p) + len(a) for p, a, _ in pick_); B = len(pick_)
+        ids = torch.full((B, T), tok.pad_token_id); msk = torch.zeros(B, T, dtype=torch.bool)
+        for j, (p, a, _) in enumerate(pick_): ids[j, :len(p) + len(a)] = torch.tensor(p + a); msk[j, len(p) - 1:len(p) + len(a) - 1] = True   # positions predicting answer tokens
+        ids = ids.cuda(); msk = msk.cuda(); log("klsens seqs", B, "T", T, "answer positions", int(msk.sum()))
+        m = build_eval_model(None); m.eval(); layers_ = m.model.layers; rope_ = m.model.rotary_emb
+        pos = torch.arange(T, device="cuda")[None]
+        @torch.no_grad()
+        def lp_of(hs):
+            outs = []
+            for j in range(0, B, 4):
+                y = m.model.norm(hs[j:j + 4]); lg = m.lm_head(y).float(); lp = torch.log_softmax(lg, -1)[msk[j:j + 4]]; outs.append(lp.half())
+            return torch.cat(outs)
+        @torch.no_grad()
+        def run_from(l0, hs, store=None):
+            cos_sin = rope_(hs, pos)
+            for l in range(l0, nl):
+                if store is not None: store.append(hs)
+                hs = layers_[l](hs, attention_mask=None, position_ids=pos, position_embeddings=cos_sin)
+                hs = hs[0] if isinstance(hs, tuple) else hs
+            return hs
+        with torch.no_grad():
+            h0 = m.model.embed_tokens(ids); inputs = []; hfin = run_from(0, h0, inputs); base_lp = lp_of(hfin)
+        def kl_from(l0, hs):
+            with torch.no_grad():
+                hf_ = run_from(l0, hs); lp = lp_of(hf_); bl = base_lp.float(); return float((bl.exp() * (bl - lp.float())).sum(-1).mean())
+        Ls_ = cfg.get("kl_levels", [2, 3, 4, 8]); res = {}
+        kpath = f"{OUT}/klsens_{cfg.get('kl_tag', 'T1')}_g{g}.json"
+        for l in range(nl):
+            for key, mem in groups:
+                sg = signs_kl(l, key, getattr(layers_[l].get_submodule(mem[0]), "w").shape[1])
+                for n in mem:
+                    q = layers_[l].get_submodule(n); W0 = q.w; Wf = Qz.rot(W0.float(), sg); res[f"{l}.{n}"] = {}
+                    for Lv in Ls_:
+                        Qr, _ = Qz.rtn(Wf, Lv); q.w = Qz.unrot(Qr, sg).to(torch.bfloat16)
+                        res[f"{l}.{n}"][Lv] = kl_from(l, inputs[l]); del Qr
+                    q.w = W0
+            json.dump(res, open(kpath, "w")); log("klsens layer", l, {n: [round(v, 5) for v in res[f"{l}.{n}"].values()] for n in ("self_attn.v_proj", "mlp.down_proj")}, round(time.time() - t0))
+        log("KLSENS_DONE"); return
     # ------------------------------------------------------------------ calibration stream (never locked / S2: calib_t1.jsonl is S1-calib only)
     cal_txt = [chat(c["prompt"]) + c["ref"] + "<|im_end|>\n" for c in D["calib"]]
     if cfg.get("calib_t1", True):
@@ -229,6 +297,9 @@ def run(cfg):
             ans = "\n".join("<tool_call>\n" + json.dumps(dict(name=gg["name"], arguments=gg["arguments"])) + "\n</tool_call>" for gg in it["gold"]) or "None of the available tools applies to this request."
             t1c.append(pr + ans + "<|im_end|>\n")
         cal_txt = t1c[:len(t1c) // 2] + cal_txt[:len(t1c) // 2] if cfg.get("calib_mix", True) else t1c
+    if cfg.get('calib_ct'):
+        cc = [json.loads(l) for l in open(cfg['calib_ct'])]; cal_txt = [chat(c['user']) + c['answer'] + '<|im_end|>\n' for c in cc]
+        if cfg.get('calib_ct_mix'): cal_txt = cal_txt + t1c[:len(cc) // 2]
     rng = np.random.RandomState(0); rng.shuffle(cal_txt)
     ncal = cfg.get("ncal", 128); CL = cfg.get("CL", 512); stream = []
     for s_ in cal_txt:
@@ -295,13 +366,22 @@ def run(cfg):
     ent_e = est_ent(emb_w, eL); ent_h = est_ent(head_w, hL)
     emb_bytes = V * hid * (ent_e * 1.005 + GB / g) / 8; head_bytes = 0 if tied else V * hid * (ent_h * 1.005 + GB / g) / 8
     target = cfg["target_ratio"] * base_bytes; body_bits = (target - fixed_bytes - emb_bytes - head_bytes) * 8
-    items = [(f"{i}.{n}", S["tab"][f"{i}.{n}"]) for i in keep for n in linn]
+    bi = np.array(S['bi']); gam = cfg.get('gamma', 0.0); lw = {i: (bi[i] / bi.mean()) ** gam for i in keep}
+    items = [(f"{i}.{n}", S["tab"][f"{i}.{n}"], lw[i]) for i in keep for n in linn]
+    klm = json.load(open(cfg['kl_file'])) if cfg.get('kl_file') else None
+    if klm is not None:
+        for k_, d_ in klm.items():
+            prev = None
+            for L_ in sorted(d_, key=int):
+                if prev is not None: d_[L_] = min(d_[L_], prev)
+                prev = d_[L_]
     def pick(lam):
         tot = 0; ch = {}
-        for k, it in items:
+        for k, it, wt in items:
             best = None
-            for Lv in LS:
-                e, H_ = it["tab"][str(Lv)]; b = it["n"] * (H_ * 1.005 + GB / g); c = e * it["n"] / lin_total * 1e3 + lam * b
+            for Lv in (LS if klm is None else [int(x) for x in klm[k]]):
+                e, H_ = it["tab"][str(Lv)]; b = it["n"] * (H_ * 1.005 + GB / g)
+                c = (wt * e * it["n"] / lin_total * 1e3 if klm is None else wt * klm[k][str(Lv)] * cfg.get('kl_scale', 1.0)) + lam * b
                 if best is None or c < best[0]: best = (c, Lv, b)
             ch[k] = best[1]; tot += best[2]
         return tot, ch
@@ -320,7 +400,7 @@ def run(cfg):
             H = Hs[key]; C = H.shape[0]; sg = signs(oli, key, C); Hr = Qz.rot(Qz.rot(H, sg).T.contiguous(), sg).T.contiguous()
             for n in mem:
                 Lv = levels[f"{oli}.{n}"]; W = Qz.rot(mods[n].weight.data.float(), sg)
-                Q, h, QI, SC = Qz.gptq(W, Hr, Lv); mods[n].weight.data = Qz.unrot(Q, sg).to(torch.bfloat16)
+                Q, h, QI, SC = Qz.gptq(W, Hr, Lv, damp=cfg.get('damp', 0.01)); mods[n].weight.data = Qz.unrot(Q, sg).to(torch.bfloat16)
                 qbits += W.numel() * (ent(h) * 1.005 + GB / g); Lcount[Lv] += W.numel()
                 sv[n] = dict(L=Lv, codes=pack4(QI).cpu(), scales=SC.cpu(), sg=sg.to(torch.int8).cpu()); del Q, QI, SC, W
             del Hr

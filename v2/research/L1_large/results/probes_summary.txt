@@ -1,0 +1,3 @@
+BASE_DONE 183 1300 {('S1', 'multi'): 0.0, ('S1', 'single'): 0.0, ('S1', 'nocall'): 1.0, ('S3', 'nocall'): 1.0, ('S3', 'single'): 0.0, ('S3', 'multi'): 0.0}
+BASE_DONE 183 1300 {('S1', 'multi'): 0.0, ('S1', 'single'): 0.0, ('S1', 'nocall'): 1.0, ('S3', 'nocall'): 1.0, ('S3', 'single'): 0.0, ('S3', 'multi'): 0.0}
+BASE_DONE 183 1300 {('S1', 'multi'): 0.0, ('S1', 'single'): 0.0, ('S1', 'nocall'): 1.0, ('S3', 'nocall'): 1.0, ('S3', 'single'): 0.0, ('S3', 'multi'): 0.0}

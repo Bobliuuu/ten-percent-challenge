@@ -1,0 +1,112 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-bym2h4GCBAJat5VNKjl3wI
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb6.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/scorer.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/data/s3_pool.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/raw/aegis/train.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/data/s1_pool.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/TOX/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s]
+[1ALoading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.12it/s]
+[1ALoading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  1.72it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    10s] failure classes (n, distinct gold tools) {}
+[    35s] nl nl:tox new total 157 ann(base-wrong) 58 dev 26 teach 73 old pool 4600 {'teach_ids_sha': 'ff345455d94b89d7d352facbc6fb2ead8c9878da7a5aa736269737e55a19a511'}
+[    88s] nl_tox ann_pool 58 teach 73 dev 26 neigh verified 400 of 1100 (same-tool 0 ) base teach 0.0
+[    99s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 51, 'dev_gain': 0.0, 'neigh_dev': 0.9875}
+[   109s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 51, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   120s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 51, 'dev_gain': 0.19230769230769232, 'neigh_dev': 1.0}
+[   130s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 51, 'dev_gain': 0.5384615384615384, 'neigh_dev': 1.0}
+[   141s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 51, 'dev_gain': 0.8076923076923077, 'neigh_dev': 0.9875}
+[   152s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.03}, 'nsites': 51, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   162s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.01}, 'nsites': 51, 'dev_gain': 0.0, 'neigh_dev': 0.9875}
+[   189s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 51, 'dev_gain': 0.0, 'neigh_dev': 0.9625}
+[   231s] nl_tox lmhead_lda 0 real 0.644 neigh 0.978 mixed 0.685 rand 0.0
+[   295s] nl_tox lmhead_lda 1 real 0.658 neigh 0.978 mixed 0.055 rand 0.0
+[   356s] nl_tox lmhead_lda 2 real 0.658 neigh 0.988 mixed 0.055 rand 0.0
+[   418s] nl_tox lmhead_lda 3 real 0.699 neigh 0.985 mixed 0.041 rand 0.0
+[   461s] nl_tox lmhead_lda 4 real 0.616 neigh 0.975 mixed 0.63 rand 0.0
+[   505s] nl_tox lmhead_lda 5 real 0.63 neigh 0.988 mixed 0.63 rand 0.0
+[   550s] nl_tox lmhead_lda 6 real 0.603 neigh 0.975 mixed 0.603 rand 0.0
+[   592s] nl_tox lmhead_lda 7 real 0.685 neigh 0.978 mixed 0.63 rand 0.0
+[   636s] nl_tox lmhead_lda 8 real 0.658 neigh 0.985 mixed 0.658 rand 0.0
+[   679s] nl_tox lmhead_lda 9 real 0.63 neigh 0.98 mixed 0.562 rand 0.0
+[   720s] nl_tox lmhead_plain 0 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[   761s] nl_tox lmhead_plain 1 real 0.0 neigh 0.98 mixed 0.0 rand 0.0
+[   802s] nl_tox lmhead_plain 2 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[   850s] nl_tox lmhead_plain 3 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[   892s] nl_tox lmhead_plain 4 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[   935s] nl_tox lmhead_plain 5 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[   978s] nl_tox lmhead_plain 6 real 0.0 neigh 0.988 mixed 0.0 rand 0.0
+[  1019s] nl_tox lmhead_plain 7 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[  1062s] nl_tox lmhead_plain 8 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[  1104s] nl_tox lmhead_plain 9 real 0.0 neigh 0.985 mixed 0.0 rand 0.0
+[  1146s] nl_tox lmhead_plain_xs 0 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1187s] nl_tox lmhead_plain_xs 1 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1229s] nl_tox lmhead_plain_xs 2 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1271s] nl_tox lmhead_plain_xs 3 real 0.0 neigh 1.0 mixed 0.0 rand 0.0
+[  1314s] nl_tox lmhead_plain_xs 4 real 0.0 neigh 1.0 mixed 0.0 rand 0.0
+[  1356s] nl_tox lmhead_plain_xs 5 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1399s] nl_tox lmhead_plain_xs 6 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1440s] nl_tox lmhead_plain_xs 7 real 0.0 neigh 0.998 mixed 0.0 rand 0.0
+[  1482s] nl_tox lmhead_plain_xs 8 real 0.0 neigh 1.0 mixed 0.0 rand 0.0
+[  1523s] nl_tox lmhead_plain_xs 9 real 0.0 neigh 1.0 mixed 0.0 rand 0.0
+[  1647s] nl_tox lmhead_cal 0 real 0.0 neigh 0.92 mixed 0.068 rand 0.0
+[  1761s] nl_tox lmhead_cal 1 real 0.055 neigh 0.9 mixed 0.301 rand 0.0
+[  1869s] nl_tox lmhead_cal 2 real 0.014 neigh 0.927 mixed 0.0 rand 0.0
+[  1990s] nl_tox lmhead_cal 3 real 0.0 neigh 0.922 mixed 0.0 rand 0.0
+Stopping app - user stopped from CLI.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/jhome/ten-percent/v2/feedback_v3/fb6.py:425 in main                   │
+│                                                                              │
+│   424 def main(model:str="Qwen/Qwen3-8B",scen:str="nat",ptag:str="",ndraw:in │
+│ ❱ 425 │   print(run.remote(model,scen,ptag,ndraw,only))                      │
+│   426                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_obj │
+│ ect.py:49 in wrapped                                                         │
+│                                                                              │
+│    48 │   │   await self.hydrate()                                           │
+│ ❱  49 │   │   return await method(self, *args, **kwargs)                     │
+│    50                                                                        │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2081 in remote                                                     │
+│                                                                              │
+│   2080 │   │                                                                 │
+│ ❱ 2081 │   │   return await self._call_function(args, kwargs)                │
+│   2082                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:2018 in _call_function                                             │
+│                                                                              │
+│   2017 │   │                                                                 │
+│ ❱ 2018 │   │   return await invocation.run_function()                        │
+│   2019                                                                       │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_fun │
+│ ctions.py:498 in run_function                                                │
+│                                                                              │
+│    497 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  498 │   │   │   │   return await _process_result(                         │
+│    499 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/site-packages/modal/_uti │
+│ ls/function_utils.py:574 in _process_result                                  │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

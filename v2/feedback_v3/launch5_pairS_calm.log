@@ -1,0 +1,58 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-0cr2ySBO7WDDUtuHHDbXu5
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/feedback_v3/fb5.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s1_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/data/s3_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/tournament/T1/scorer.py
+└── ✓ Created Function run.
+
+[1ALoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+[1ALoading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.74it/s]
+[1ALoading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.42it/s]
+[1ALoading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.36it/s]
+[1ALoading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.43it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.78it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    16s] failure classes (n, distinct gold tools) {'argnum': (56, 43), 'argkeys': (248, 160), 'abstain': (49, 39), 'argstr': (153, 113), 'argcase': (16, 9), 'argtype': (9, 6), 'parsefail': (62, 61), 'sibling': (14, 14), 'multi': (21, 21), 'argother': (2, 2)}
+[   210s] pairS ann_pool 966 teach 100 dev 50 neigh verified 400 of 700 (same-tool 1 ) base teach 0.12
+[   242s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 35, 'dev_gain': 0.7, 'neigh_dev': 0.8875}
+[   275s] {'cfg': {'m': 'lmhead_cal2'}, 'nsites': 35, 'dev_gain': 0.7, 'neigh_dev': 1.0}
+[   345s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 35, 'dev_gain': 0.1, 'neigh_dev': 0.4375}
+[   510s] pairS lmhead_cal 0 real 0.75 neigh 0.93 mixed 0.0 rand 0.04
+[   668s] pairS lmhead_cal 1 real 0.69 neigh 0.998 mixed 0.62 rand 0.13
+[   824s] pairS lmhead_cal 2 real 0.77 neigh 0.993 mixed 0.73 rand 0.07
+[  1031s] pairS lmhead_cal 3 real 0.48 neigh 0.698 mixed 0.45 rand 0.09
+[  1187s] pairS lmhead_cal 4 real 0.63 neigh 0.995 mixed 0.21 rand 0.07
+[  1338s] pairS lmhead_cal 5 real 0.65 neigh 0.993 mixed 0.39 rand 0.06
+[  1494s] pairS lmhead_cal 6 real 0.65 neigh 0.995 mixed 0.41 rand 0.06
+[  1646s] pairS lmhead_cal 7 real 0.78 neigh 0.975 mixed 0.78 rand 0.1
+[  1804s] pairS lmhead_cal 8 real 0.73 neigh 0.988 mixed 0.73 rand 0.08
+[  1961s] pairS lmhead_cal 9 real 0.7 neigh 0.98 mixed 0.54 rand 0.11
+[  2125s] pairS lmhead_cal2 0 real 0.78 neigh 0.988 mixed 0.0 rand 0.05
+[  2286s] pairS lmhead_cal2 1 real 0.65 neigh 0.998 mixed 0.55 rand 0.11
+[  2449s] pairS lmhead_cal2 2 real 0.69 neigh 0.998 mixed 0.72 rand 0.08
+[  2607s] pairS lmhead_cal2 3 real 0.69 neigh 1.0 mixed 0.68 rand 0.07
+[  2770s] pairS lmhead_cal2 4 real 0.64 neigh 0.995 mixed 0.5 rand 0.08
+[  2926s] pairS lmhead_cal2 5 real 0.65 neigh 1.0 mixed 0.34 rand 0.1
+[  3080s] pairS lmhead_cal2 6 real 0.67 neigh 0.998 mixed 0.6 rand 0.06
+[  3241s] pairS lmhead_cal2 7 real 0.78 neigh 0.995 mixed 0.73 rand 0.11
+[  3401s] pairS lmhead_cal2 8 real 0.66 neigh 0.995 mixed 0.66 rand 0.07
+[  3556s] pairS lmhead_cal2 9 real 0.69 neigh 0.993 mixed 0.27 rand 0.11
+[  3796s] pairS memit_down 0 real 0.24 neigh 0.417 mixed 0.09 rand 0.1
+[  4042s] pairS memit_down 1 real 0.7 neigh 0.995 mixed 0.32 rand 0.18
+[  4277s] pairS memit_down 2 real 0.73 neigh 1.0 mixed 0.53 rand 0.09
+[  4500s] pairS memit_down 3 real 0.7 neigh 0.998 mixed 0.62 rand 0.11
+[  4735s] pairS memit_down 4 real 0.61 neigh 0.998 mixed 0.45 rand 0.15
+[  4966s] pairS memit_down 5 real 0.68 neigh 0.995 mixed 0.53 rand 0.13
+[  5194s] pairS memit_down 6 real 0.56 neigh 0.995 mixed 0.58 rand 0.13
+[  5419s] pairS memit_down 7 real 0.71 neigh 0.968 mixed 0.65 rand 0.13
+[  5635s] pairS memit_down 8 real 0.72 neigh 0.993 mixed 0.62 rand 0.12
+[  5911s] pairS memit_down 9 real 0.69 neigh 0.99 mixed 0.61 rand 0.12
+[  5912s] codec_real failed TypeError("Generator(): argument 'device' must be torch.device, not list")
+[  5913s] DONE Qwen3-8B_pairS_calm
+ok
+[modal-client] 2026-11-06T23:13:26-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-0cr2ySBO7WDDUtuHHDbXu5

@@ -1,0 +1,50 @@
+base acc per task: {'FIN': 0.888, 'INJ': 0.943, 'ROUTE': 0.796, 'SENT': 0.948, 'TOOLSEL': 0.878}
+
+== reap:0.0:4
+FIN      ret 0.994 (lo 0.984; 530/533) worst cell:S3/Bullish 0.979(94) PASS=True | role:S1 1.00(241); role:S3 0.99(292)
+INJ      ret 0.995 (lo 0.985; 563/566) worst cell:S3/Benign 0.978(137) PASS=True | role:S1 1.00(283); role:S3 0.99(283)
+ROUTE    ret 0.982 (lo 0.965; 480/489) worst cell:S1/qa 0.900(10) PASS=False | role:S1 0.98(251); role:S3 0.98(238)
+SENT     ret 1.000 (lo 0.993; 569/569) worst cell:S1/Negative 1.000(146) PASS=True | role:S1 1.00(277); role:S3 1.00(292)
+TOOLSEL  ret 0.989 (lo 0.975; 521/527) worst cell:S1/tool 0.980(149) PASS=False | role:S1 0.99(299); role:S3 0.99(228)
+
+== reap:0.0:3
+FIN      ret 0.989 (lo 0.976; 527/533) worst cell:S3/Bullish 0.968(94) PASS=False | role:S1 0.99(241); role:S3 0.99(292)
+INJ      ret 0.989 (lo 0.977; 560/566) worst cell:S3/Benign 0.978(137) PASS=False | role:S1 0.99(283); role:S3 0.99(283)
+ROUTE    ret 0.978 (lo 0.960; 478/489) worst cell:S1/qa 0.800(10) PASS=False | role:S1 0.98(251); role:S3 0.97(238)
+SENT     ret 0.993 (lo 0.982; 565/569) worst cell:S1/Positive 0.969(131) PASS=True | role:S1 0.99(277); role:S3 1.00(292)
+TOOLSEL  ret 0.991 (lo 0.978; 522/527) worst cell:S3/tool 0.973(149) PASS=False | role:S1 1.00(299); role:S3 0.98(228)
+
+== reap:0.5:3
+FIN      ret 0.938 (lo 0.914; 500/533) worst cell:S1/Neutral 0.870(69) PASS=False | role:S1 0.92(241); role:S3 0.96(292)
+INJ      ret 0.896 (lo 0.868; 507/566) worst cell:S1/Benign 0.792(144) PASS=False | role:S1 0.89(283); role:S3 0.90(283)
+ROUTE    ret 0.941 (lo 0.916; 460/489) worst cell:S1/qa 0.700(10) PASS=False | role:S1 0.96(251); role:S3 0.92(238)
+SENT     ret 0.979 (lo 0.964; 557/569) worst cell:S1/Positive 0.924(131) PASS=False | role:S1 0.96(277); role:S3 1.00(292)
+TOOLSEL  ret 0.972 (lo 0.954; 512/527) worst cell:S3/tool 0.946(149) PASS=False | role:S1 0.99(299); role:S3 0.95(228)
+
+== reap:0.4375:3
+FIN      ret 0.949 (lo 0.927; 506/533) worst cell:S1/Neutral 0.826(69) PASS=False | role:S1 0.93(241); role:S3 0.96(292)
+INJ      ret 0.966 (lo 0.948; 547/566) worst cell:S3/Benign 0.883(137) PASS=False | role:S1 1.00(283); role:S3 0.94(283)
+ROUTE    ret 0.928 (lo 0.902; 454/489) worst cell:S1/qa 0.700(10) PASS=False | role:S1 0.96(251); role:S3 0.90(238)
+SENT     ret 0.977 (lo 0.961; 556/569) worst cell:S1/Positive 0.916(131) PASS=False | role:S1 0.96(277); role:S3 1.00(292)
+TOOLSEL  ret 0.987 (lo 0.973; 520/527) worst cell:S1/tool 0.980(149) PASS=False | role:S1 0.99(299); role:S3 0.98(228)
+
+== reap:0.5
+FIN      ret 0.946 (lo 0.923; 504/533) worst cell:S3/Bullish 0.894(94) PASS=False | role:S1 0.93(241); role:S3 0.96(292)
+INJ      ret 0.956 (lo 0.936; 541/566) worst cell:S3/Benign 0.832(137) PASS=False | role:S1 1.00(283); role:S3 0.92(283)
+ROUTE    ret 0.959 (lo 0.938; 469/489) worst cell:S1/qa 0.700(10) PASS=False | role:S1 0.96(251); role:S3 0.95(238)
+SENT     ret 0.974 (lo 0.957; 554/569) worst cell:S1/Positive 0.908(131) PASS=False | role:S1 0.96(277); role:S3 0.99(292)
+TOOLSEL  ret 0.981 (lo 0.965; 517/527) worst cell:S3/none 0.962(79) PASS=False | role:S1 0.99(299); role:S3 0.97(228)
+
+== reap:0.25:3
+FIN      ret 0.970 (lo 0.952; 517/533) worst cell:S1/Neutral 0.899(69) PASS=False | role:S1 0.95(241); role:S3 0.99(292)
+INJ      ret 0.982 (lo 0.968; 556/566) worst cell:S3/Benign 0.956(137) PASS=False | role:S1 0.99(283); role:S3 0.98(283)
+ROUTE    ret 0.967 (lo 0.948; 473/489) worst cell:S1/play 0.700(10) PASS=False | role:S1 0.98(251); role:S3 0.96(238)
+SENT     ret 0.991 (lo 0.980; 564/569) worst cell:S1/Positive 0.962(131) PASS=False | role:S1 0.98(277); role:S3 1.00(292)
+TOOLSEL  ret 0.989 (lo 0.975; 521/527) worst cell:S3/tool 0.973(149) PASS=False | role:S1 0.99(299); role:S3 0.98(228)
+
+== reap:0.375:4
+FIN      ret 0.966 (lo 0.947; 515/533) worst cell:S1/Neutral 0.870(69) PASS=False | role:S1 0.95(241); role:S3 0.98(292)
+INJ      ret 0.965 (lo 0.946; 546/566) worst cell:S3/Benign 0.861(137) PASS=False | role:S1 1.00(283); role:S3 0.93(283)
+ROUTE    ret 0.961 (lo 0.940; 470/489) worst cell:S1/qa 0.500(10) PASS=False | role:S1 0.96(251); role:S3 0.96(238)
+SENT     ret 0.993 (lo 0.982; 565/569) worst cell:S1/Positive 0.977(131) PASS=True | role:S1 0.99(277); role:S3 1.00(292)
+TOOLSEL  ret 0.991 (lo 0.978; 522/527) worst cell:S3/tool 0.980(149) PASS=False | role:S1 1.00(299); role:S3 0.98(228)

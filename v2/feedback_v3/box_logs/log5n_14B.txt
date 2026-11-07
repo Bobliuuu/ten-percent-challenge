@@ -1,0 +1,27 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:00<00:00, 162.48it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    21s] failure classes (n, distinct gold tools) {'argnum': (56, 41), 'argkeys': (224, 154), 'abstain': (33, 30), 'argstr': (147, 108), 'argcase': (21, 10), 'argtype': (6, 6), 'parsefail': (58, 57), 'sibling': (13, 13), 'multi': (22, 22), 'argother': (2, 2)}
+[   591s] pairS ann_pool 966 teach 100 dev 50 neigh verified 400 of 700 (same-tool 1 ) base teach 0.29
+[   693s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 21, 'dev_gain': 0.2, 'neigh_dev': 0.975}
+[   793s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 21, 'dev_gain': 0.37999999999999995, 'neigh_dev': 0.9625}
+[   888s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 21, 'dev_gain': 0.32, 'neigh_dev': 0.9125}
+[  1030s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 21, 'dev_gain': -0.14, 'neigh_dev': 0.3625}
+[  1145s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 21, 'dev_gain': -0.4, 'neigh_dev': 0.0875}
+[  1291s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.2}, 'nsites': 21, 'dev_gain': -0.44, 'neigh_dev': 0.0}
+[  1407s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 21, 'dev_gain': 0.08000000000000002, 'neigh_dev': 0.875}
+[  1509s] {'cfg': {'m': 'lmhead_cal2'}, 'nsites': 21, 'dev_gain': 0.2, 'neigh_dev': 0.9875}
+[  1698s] {'cfg': {'m': 'memit_down', 'ls': 'd3_80', 'lam': 1000.0}, 'nsites': 21, 'dev_gain': -0.28, 'neigh_dev': 0.2875}
+[  2140s] pairS lmhead_lda 0 real 0.78 neigh 0.943 mixed 0.35 rand 0.25
+[  2481s] pairS lmhead_lda 1 real 0.75 neigh 0.985 mixed 0.31 rand 0.35
+[  2805s] pairS lmhead_lda 2 real 0.81 neigh 0.993 mixed 0.36 rand 0.26
+[  3124s] pairS lmhead_lda 3 real 0.76 neigh 1.0 mixed 0.31 rand 0.26
+[  3450s] pairS lmhead_lda 4 real 0.74 neigh 0.995 mixed 0.32 rand 0.24
+[  3776s] pairS lmhead_lda 5 real 0.75 neigh 0.993 mixed 0.33 rand 0.26
+[  4100s] pairS lmhead_lda 6 real 0.76 neigh 0.995 mixed 0.32 rand 0.26
+[  4428s] pairS lmhead_lda 7 real 0.83 neigh 0.998 mixed 0.34 rand 0.26
+[  4748s] pairS lmhead_lda 8 real 0.83 neigh 0.988 mixed 0.39 rand 0.27
+[  5097s] pairS lmhead_lda 9 real 0.73 neigh 0.98 mixed 0.33 rand 0.27
+[  5565s] pairS lmhead_plain 0 real 0.0 neigh 0.0 mixed 0.0 rand 0.0
+[  6037s] pairS lmhead_plain 1 real 0.0 neigh 0.0 mixed 0.0 rand 0.0

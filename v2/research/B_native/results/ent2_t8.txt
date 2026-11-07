@@ -1,0 +1,5 @@
+body n 6945767424 trit bpw 1.5730 scale bits/group 6.66 MB trit 1365.7 scale 45.2
+small 616448
+head n 621236224 trit bpw 1.5843 scale bits/group 7.61 MB trit 123.0 scale 4.6
+embed n 621236224 trit bpw 1.5830 scale bits/group 7.18 MB trit 122.9 scale 4.4
+TOTAL bytes (ideal entropy, excl tokenizer/code) 1666416585.7922413 fp16 bytes 16377096192

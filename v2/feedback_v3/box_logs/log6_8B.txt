@@ -1,0 +1,46 @@
+/opt/dlami/nvme/work/venv/lib/python3.11/site-packages/modal/_functions.py:2153: UserWarning: The run function is executing locally and will not have access to the mounted Volume or NetworkFileSystem data
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 235.20it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[     6s] failure classes (n, distinct gold tools) {}
+[    26s] nl nl:tox new total 157 ann(base-wrong) 58 dev 26 teach 73 old pool 4600 {'teach_ids_sha': 'ff345455d94b89d7d352facbc6fb2ead8c9878da7a5aa736269737e55a19a511'}
+[    64s] nl_tox ann_pool 58 teach 73 dev 26 neigh verified 400 of 1100 (same-tool 0 ) base teach 0.0
+[    71s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.1, 'ridge': 0.1}, 'nsites': 32, 'dev_gain': 0.038461538461538464, 'neigh_dev': 1.0}
+[    78s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.2, 'ridge': 0.1}, 'nsites': 32, 'dev_gain': 0.38461538461538464, 'neigh_dev': 1.0}
+[    86s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.3, 'ridge': 0.1}, 'nsites': 32, 'dev_gain': 0.6538461538461539, 'neigh_dev': 1.0}
+[    93s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.45, 'ridge': 0.1}, 'nsites': 32, 'dev_gain': 0.7307692307692307, 'neigh_dev': 1.0}
+[   107s] {'cfg': {'m': 'lmhead_lda', 'alpha': 0.7, 'ridge': 0.1}, 'nsites': 32, 'dev_gain': 0.7307692307692307, 'neigh_dev': 1.0}
+[   114s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.03}, 'nsites': 32, 'dev_gain': 0.07692307692307693, 'neigh_dev': 0.975}
+[   121s] {'cfg': {'m': 'lmhead_plain', 'alpha': 0.01}, 'nsites': 32, 'dev_gain': 0.0, 'neigh_dev': 1.0}
+[   163s] {'cfg': {'m': 'lmhead_cal'}, 'nsites': 32, 'dev_gain': 0.0, 'neigh_dev': 0.9625}
+[   210s] nl_tox lmhead_lda 0 real 0.589 neigh 0.988 mixed 0.603 rand 0.0
+[   256s] nl_tox lmhead_lda 1 real 0.63 neigh 0.988 mixed 0.616 rand 0.0
+[   302s] nl_tox lmhead_lda 2 real 0.644 neigh 0.988 mixed 0.63 rand 0.0
+[   354s] nl_tox lmhead_lda 3 real 0.63 neigh 0.988 mixed 0.658 rand 0.0
+[   417s] nl_tox lmhead_lda 4 real 0.616 neigh 0.988 mixed 0.63 rand 0.0
+[   480s] nl_tox lmhead_lda 5 real 0.63 neigh 0.988 mixed 0.616 rand 0.0
+[   526s] nl_tox lmhead_lda 6 real 0.616 neigh 0.988 mixed 0.644 rand 0.0
+[   568s] nl_tox lmhead_lda 7 real 0.589 neigh 0.988 mixed 0.603 rand 0.0
+[   615s] nl_tox lmhead_lda 8 real 0.63 neigh 0.993 mixed 0.63 rand 0.0
+[   662s] nl_tox lmhead_lda 9 real 0.616 neigh 0.988 mixed 0.603 rand 0.0
+[   709s] nl_tox lmhead_plain 0 real 0.027 neigh 0.948 mixed 0.027 rand 0.0
+[   757s] nl_tox lmhead_plain 1 real 0.027 neigh 0.94 mixed 0.027 rand 0.0
+[   803s] nl_tox lmhead_plain 2 real 0.027 neigh 0.938 mixed 0.027 rand 0.0
+[   851s] nl_tox lmhead_plain 3 real 0.027 neigh 0.948 mixed 0.027 rand 0.0
+[   897s] nl_tox lmhead_plain 4 real 0.027 neigh 0.94 mixed 0.027 rand 0.0
+[   945s] nl_tox lmhead_plain 5 real 0.027 neigh 0.938 mixed 0.027 rand 0.0
+[   993s] nl_tox lmhead_plain 6 real 0.027 neigh 0.945 mixed 0.027 rand 0.0
+[  1039s] nl_tox lmhead_plain 7 real 0.027 neigh 0.945 mixed 0.027 rand 0.0
+[  1086s] nl_tox lmhead_plain 8 real 0.027 neigh 0.945 mixed 0.027 rand 0.0
+[  1133s] nl_tox lmhead_plain 9 real 0.027 neigh 0.95 mixed 0.027 rand 0.0
+[  1180s] nl_tox lmhead_plain_xs 0 real 0.0 neigh 0.98 mixed 0.0 rand 0.0
+[  1226s] nl_tox lmhead_plain_xs 1 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1273s] nl_tox lmhead_plain_xs 2 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1320s] nl_tox lmhead_plain_xs 3 real 0.0 neigh 0.98 mixed 0.0 rand 0.0
+[  1366s] nl_tox lmhead_plain_xs 4 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1414s] nl_tox lmhead_plain_xs 5 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1462s] nl_tox lmhead_plain_xs 6 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1508s] nl_tox lmhead_plain_xs 7 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1556s] nl_tox lmhead_plain_xs 8 real 0.0 neigh 0.975 mixed 0.0 rand 0.0
+[  1601s] nl_tox lmhead_plain_xs 9 real 0.0 neigh 0.98 mixed 0.0 rand 0.0
+[  1808s] nl_tox lmhead_cal 0 real 0.0 neigh 0.912 mixed 0.0 rand 0.0

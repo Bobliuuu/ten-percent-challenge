@@ -1,1 +1,5 @@
 results/*/base_*.json
+results/box*/
+results/final_*/
+results/vol/
+*.bak

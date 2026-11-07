@@ -1,0 +1,5 @@
+[{"name":"v1_gam1_ncal256","cfg":{"gamma":1.0,"ncal":256}},
+ {"name":"v2_gam1_emb8","cfg":{"gamma":1.0,"emb_L":8,"head_L":8}},
+ {"name":"v3_gam1_lcm","cfg":{"gamma":1.0,"calib_ct":true,"calib_ct_mix":true}},
+ {"name":"v4_gam1_r12","cfg":{"gamma":1.0,"target_ratio":0.12,"emb_L":4,"head_L":4}},
+ {"name":"v5_gam1_g64","cfg":{"gamma":1.0,"g":64}}]
