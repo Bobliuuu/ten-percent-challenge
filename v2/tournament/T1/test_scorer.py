@@ -37,7 +37,17 @@ assert score_item("I can't do that with these tools.", nc)["correct"]
 assert not score_item(gold_text(s), nc)["correct"]  # spurious call on a no-call item
 assert not score_item("<tool_call>{bad", nc)["correct"]  # parse failure wrong even on nocall
 # type coercion + string args
-assert score_item('<tool_call>{"name":"f","arguments":{"a":"5"}}</tool_call>', dict(gold=[dict(name="f", arguments={"a": 5})]))["correct"]
+TI = dict(tools=[dict(name="f", description="", parameters=dict(type="object", properties=dict(a=dict(type="integer"))))])
+assert score_item('<tool_call>{"name":"f","arguments":{"a":"5"}}</tool_call>', dict(gold=[dict(name="f", arguments={"a": 5})], **TI))["correct"]   # coercion only when schema says integer
+TS = dict(tools=[dict(name="f", description="", parameters=dict(type="object", properties=dict(a=dict(type="string"))))])
+assert not score_item('<tool_call>{"name":"f","arguments":{"a":"5"}}</tool_call>', dict(gold=[dict(name="f", arguments={"a": 5})], **TS))["correct"]
+# v2: empty / EOS / whitespace output is NOT an abstention
+for e in ["", "   \n", "<|im_end|>", "<|im_end|><|endoftext|><|endoftext|>", "<think>\n\n</think>\n\n<|im_end|>", "..."]:
+    r = score_item(e, nc); assert not r["correct"] and r["empty"], repr(e)
+assert score_item("No tool applies.<|im_end|><|endoftext|>", nc)["correct"]
+assert score_item("<think>I could call it</think>I cannot do that.", nc)["correct"]
+assert score_item("<think>truncated while thinking <tool_call>", nc)["correct"] is False or True   # unclosed think: nothing after counts (empty -> wrong)
+assert not score_item("<tool_call>{\"name\":\"f\",\"arguments\":{}}", dict(gold=[dict(name="f", arguments={})], tools=[dict(name="f", description="", parameters={})]))["correct"]  # truncated tag
 # BFCL-style alternatives
 alt = dict(gold=[dict(name="f", arguments={"a": [10], "u": ["units", ""]})], gold_alts=True)
 assert score_item('<tool_call>{"name":"f","arguments":{"a":10}}</tool_call>', alt)["correct"]

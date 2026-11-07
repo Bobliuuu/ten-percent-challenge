@@ -50,6 +50,56 @@
   "mean_out_tokens": 2.0
  },
  {
+  "model": "Qwen/Qwen3-14B",
+  "prompt": "P0",
+  "acc": 0.5266666666666666,
+  "S1": 0.51,
+  "S3": 0.5433333333333333,
+  "auc_S1": 0.6148,
+  "auc_S3": 0.6232888888888888,
+  "per_kind": {
+   "S1_ai": 0.02666666666666667,
+   "S1_human": 0.9933333333333333,
+   "S3_ai": 0.14666666666666667,
+   "S3_human": 0.94
+  },
+  "fmt_fail": 0.0,
+  "pred_dist": {
+   "human": 564,
+   "ai": 36
+  },
+  "R8_S1": false,
+  "R8_S3": false,
+  "fp16_bytes": 29540000000.0,
+  "budget10pct_bytes": 2954000000.0,
+  "mean_out_tokens": 2.0
+ },
+ {
+  "model": "Qwen/Qwen3-14B",
+  "prompt": "P1",
+  "acc": 0.7266666666666667,
+  "S1": 0.9133333333333333,
+  "S3": 0.54,
+  "auc_S1": 0.9544888888888889,
+  "auc_S3": 0.5520888888888889,
+  "per_kind": {
+   "S1_ai": 0.98,
+   "S1_human": 0.8466666666666667,
+   "S3_ai": 0.36,
+   "S3_human": 0.72
+  },
+  "fmt_fail": 0.0,
+  "pred_dist": {
+   "human": 334,
+   "ai": 266
+  },
+  "R8_S1": true,
+  "R8_S3": false,
+  "fp16_bytes": 29540000000.0,
+  "budget10pct_bytes": 2954000000.0,
+  "mean_out_tokens": 2.0
+ },
+ {
   "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
   "prompt": "P0",
   "acc": 0.5266666666666666,
