@@ -106,3 +106,10 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 2026-11-06 07:40 EST REAL C2 stage 2 PASS_BOTH_STAGES: cand .802 vs base .7675 (+3.45pt, CI [+1.85,+5.05]), NI p=.001, same tree 6290414d, memory 852B sha 3cc96ec2
 - 2026-11-06 07:50 EST SUBMITTED proof issue https://github.com/DeusExperiments/ten-percent-challenge/issues/2 (C2, 9.404%, stage1 .799 vs .7675, stage2 .802; artifact download link still to add)
 - 2026-11-06T13:28:22Z v2/demo/demo_run.py: app ap-8VGp2T5nOkAe8cC2AjoEsw (modal run --detach demo_run.py), result Volume tenpct-demo:/demo_outputs.json
+- 2026-11-07T02:36:20Z v2/research/L3_405B: apps l3-405b-dl (download, done), l3-405b (quant/evalrun), Volume tenpct-l3-405b
+2026-11-07T02:45:56Z modal probe_base 8B,14B launched (tenpct-tox-probe)
+2026-11-07T03:09:52Z modal fb_tox 1.7B,4B launched
+- 2026-11-07T04:15:09Z L3_405B: spawned quant t096_c256 (fc-01M6T3F4V824676N65YSV963MP) in app l3-405b
+
+## Vast (04:50Z 2026-11-07): no tenpct-* instances rented; create blocked by account instance cap (see v2/research/V_vast/INSTANCES.md)
+- 2026-11-07 ~05:25Z D_scale: Modal app tenpct-dscale (deployed, fn run) call fc-01M6T6ZGZ3ASW8HK1HAX2A5MA5 = m72_gam1_lcm_nc (Qwen2.5-72B gamma1 + C_tasks label calib + nocall-heavy T1 calib, H200); launcher v2/research/D_scale/modal_launch.py mvars3.json; results -> Volume tenpct-dscale:/72B/m72_gam1_lcm_nc.json
