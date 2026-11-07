@@ -1,0 +1,115 @@
+{
+ "details": {
+  "acc_delta_vs_base": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "behavioural_agreement": 1.0,
+  "difficulty_log10_base_fp16_bytes": 9.17703547902637,
+  "exam_retention_after_feedback": {
+   "kept": 91,
+   "n_base_correct": 91,
+   "ret": 1.0,
+   "ret_lo": 0.959494567784601
+  },
+  "generative": true,
+  "harmful_flip_rate": 0.0,
+  "helpful_flip_rate": 0.0,
+  "neighbor_retention": {
+   "kept": 30,
+   "n_base_correct": 30,
+   "ret": 1.0,
+   "ret_lo": 0.886482908609522
+  },
+  "ood_gap": 0.0,
+  "real_minus_empty": {
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "real_minus_shuffled": {
+   "lo": 0.0,
+   "mean": 0.0
+  },
+  "retention_overall": {
+   "kept": 91,
+   "n_base_correct": 91,
+   "ret": 1.0,
+   "ret_lo": 0.959494567784601
+  },
+  "retention_per_kind": {
+   "multi": {
+    "kept": 20,
+    "n_base_correct": 20,
+    "n_locked": 40,
+    "ret": 1.0,
+    "ret_lo": 0.8388698745050667
+   },
+   "nocall": {
+    "kept": 39,
+    "n_base_correct": 39,
+    "n_locked": 40,
+    "ret": 1.0,
+    "ret_lo": 0.910330146399761
+   },
+   "single": {
+    "kept": 32,
+    "n_base_correct": 32,
+    "n_locked": 40,
+    "ret": 1.0,
+    "ret_lo": 0.8928172849426365
+   }
+  },
+  "size_ratio": 1.0105943891848066,
+  "teach_gain": {
+   "hi": 0.0,
+   "lo": 0.0,
+   "mean": 0.0,
+   "n": 30
+  }
+ },
+ "failed_gates": [
+  "size<=10%",
+  "exam>=2000",
+  "every_kind>=300",
+  "ood_block>=500",
+  "teach_clear_gain(lo>0,mean>=.15)",
+  "controls_clearly_worse(lo>0)",
+  "size_after_feedback<=10%"
+ ],
+ "gates": {
+  "base_above_chance_below_ceiling": 1.0,
+  "controls_clearly_worse(lo>0)": false,
+  "every_kind>=300": false,
+  "every_kind_retention>=95%": true,
+  "exam>=2000": false,
+  "exam_after_feedback_retention>=98%": true,
+  "feedback_n<=25": true,
+  "neighbors_kept>=98%": true,
+  "no_new_parts": true,
+  "ood_block>=500": false,
+  "real_output": true,
+  "retention>=98%": true,
+  "size<=10%": false,
+  "size_after_feedback<=10%": false,
+  "teach_clear_gain(lo>0,mean>=.15)": false,
+  "teach_set>=25": true
+ },
+ "maximin": 0.0,
+ "mean_score": 0.30149869025636666,
+ "scores": {
+  "agreement": 1.0,
+  "control_separation": 0.0,
+  "exam_after_feedback": 0.1582427964100166,
+  "feedback_bytes_added": 1.0,
+  "harmful_flips": 1.0,
+  "neighbor_retention": 0.0,
+  "ood_robustness": 0.0,
+  "retention_overall": 0.1582427964100166,
+  "retention_worst_kind": 0.0,
+  "size_margin": 0.0,
+  "teach_gain": 0.0
+ },
+ "verdict": "FAIL",
+ "weakest": "size_margin"
+}
