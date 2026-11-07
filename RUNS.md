@@ -133,3 +133,4 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 2026-11-07 general check DONE (ap-va9imwk0raYVaRctLfJmu4): q3_8b artifact at chance on MMLU/ARC/HellaSwag/TQA, ppl 11.09->642.7; results v2/harness/validity/q3_8b_general_result.json
 - 2026-11-07 v2/harness/validity/general_c2_remote.py: Modal app tenpct-general-c2 ap-uRyjoRqY1RCZIT13zjEH0y fc-01M6V3WK01BKQTS6PAZ8HCCR2R (--detach), filed C2 artifact general check, result Volume tenpct-c2fb:/general/general_c2_result.json
 - 2026-11-07 general check filed C2 DONE (ap-YGbm6ItpQZ3PBpggJcY8f4): cand MMLU .467 vs base .693 etc; v2/harness/validity/c2_general_result.json
+fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1.json (see launch1.log)
