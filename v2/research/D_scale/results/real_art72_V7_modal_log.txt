@@ -1,0 +1,19 @@
+13:18:06 [0s] art files ['answer.py', 'config.json', 'feedback.py', 'generation_config.json', 'model.tpq', 'tensor_manifest.json', 'tokenizer.json', 'tokenizer_config.json'] 13875111866
+13:18:21 [15s] model.tpq sha256 f8043a87bfeb01740c2f254c0b6bcc863764dff50ce158ddac3981e23a876dc3
+13:21:44 [219s] export rc 0  
+13:21:44 [219s] bf16 bytes 145419625334
+13:24:59 [413s] vllm rc 0 REAL_DONE toolsel 856 1063
+REAL_DONE inj 1351 1566 37%|███▋      | 578/1566 [00:24<00:31, 30.90it/s, est. speed input: 6170.70 toks/s, output: 72.21 toks/s]
+Processed prompts:  41%|████      | 643/1566 [00:26<00:29, 31.40it/s, est. speed input: 6316.27 toks/s, output: 74.17 toks/s]
+Processed prompts:  45%|████▌     | 710/1566 [00:28<00:26, 32.04it/s, est. speed input: 6451.59 toks/s, output: 76.06 toks/s]
+Processed prompts:  50%|████▉     | 776/1566 [00:30<00:24, 32.32it/s, est. speed input: 6561.82 toks/s, output: 77.58 toks/s]
+Processed prompts:  55%|█████▍    | 860/1566 [00:32<00:20, 35.21it/s, est. speed input: 6654.50 toks/s, output: 80.59 toks/s]
+Processed prompts:  61%|██████    | 954/1566 [00:34<00:15, 38.75it/s, est. speed input: 6742.22 toks/s, output: 84.14 toks/s]
+Processed prompts:  67%|██████▋   | 1044/1566 [00:36<00:12, 40.60it/s, est. speed input: 6815.27 toks/s, output: 86.96 toks/s]
+Processed prompts:  73%|███████▎  | 1138/1566 [00:38<00:10, 42.50it/s, est. speed input: 6883.86 toks/s, output: 89.79 toks/s]
+Processed prompts:  79%|███████▉  | 1234/1566 [00:40<00:07, 44.04it/s, est. speed input: 6941.73 toks/s, output: 92.46 toks/s]
+Processed prompts:  85%|████████▍ | 1328/1566 [00:41<00:04, 50.65it/s, est. speed input: 7125.57 toks/s, output: 96.50 toks/s]
+Processed prompts: 100%|██████████| 1566/1566 [00:41<00:00, 50.65it/s, est. speed input: 8135.51 toks/s, output: 113.60 toks/s]
+Processed prompts: 100%|██████████| 1566/1566 [00:41<00:00, 37.87it/s, est. speed input: 8135.51 toks/s, output: 113.60 toks/s]
+
+13:25:00 [414s] done
