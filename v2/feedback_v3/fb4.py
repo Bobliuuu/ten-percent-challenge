@@ -16,6 +16,7 @@ GPU=os.environ.get("FB4_GPU","A100-80GB")
 @app.function(image=img,gpu=GPU,timeout=36000,volumes={"/vol":vol})
 def run(model="Qwen/Qwen3-8B",scen="T1pairS:first",ptag=""):
     import torch,numpy as np,random,hashlib,re,time,sys
+    VC=(lambda: None) if os.environ.get('NOVOL') else vol.commit
     sys.path.insert(0,"/app"); from scorer import score_item
     os.environ["HF_HOME"]="/vol/hf"; os.makedirs("/vol/fb3",exist_ok=True)
     from transformers import AutoTokenizer,AutoModelForCausalLM
@@ -296,7 +297,7 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
             try:
                 r,n=run_cfg(cfg,ann0,["dev","neigh_dev"]); rec=dict(cfg=cfg,nsites=n,dev=float(r["dev"].mean()),gain=float(r["dev"].mean()-base_dev.mean()),neigh_dev=float(r["neigh_dev"].mean()))
             except Exception as e: rec=dict(cfg=cfg,err=repr(e)[:300])
-            R["sweep"].append(rec); log(rec); json.dump(R,open(f"/vol/fb3/{tag}.json","w")); vol.commit()
+            R["sweep"].append(rec); log(rec); json.dump(R,open(f"/vol/fb3/{tag}.json","w")); VC()
         def best_of(pred):
             c=[r for r in R["sweep"] if "err" not in r and pred(r["cfg"]["m"])]
             if not c: return None
@@ -312,7 +313,7 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
                     restore(); n,_=apply(cfg,A); t=ev(items["teach"]); nbv=ev(items["neigh"]); dr=drift() if (ctl=="real" and scn in("A","B","T1pairS")) else None; restore()
                     rec[ctl]=dict(teach=t.tolist(),neigh=nbv.tolist(),nsites=n,drift=dr)
                 R["final"].append(rec); log(name,seed,"real",np.mean(rec["real"]["teach"]),"neigh",np.mean(rec["real"]["neigh"]),"shuf",np.mean(rec["shuffled"]["teach"]))
-                json.dump(R,open(f"/vol/fb3/{tag}.json","w")); vol.commit()
+                json.dump(R,open(f"/vol/fb3/{tag}.json","w")); VC()
         # ---- codec test: lm_head quantised 4-bit g128 (stage-1 artifact), edit lmhead_lda, variants for the edited rows
         cfg=chosen["lmhead_lda"]
         if cfg and (scn in("B","A","T1pairS","T1new") ):
@@ -332,9 +333,9 @@ escalate_to_human(reason): Hand the conversation to a human agent."""
                     t_=ev(items["teach"]); n_=ev(items["neigh"])
                     badd=0 if var!="fp16row" else len(ed)*(D_h*2-D_h*0.5-(D_h/128)*4)
                     R["codec"].append(dict(var=var,seed=seed,teach=t_.tolist(),neigh=n_.tolist(),rows_edited=len(ed),bytes_added=badd)); log("codec",var,seed,t_.mean(),n_.mean(),len(ed),badd)
-                    json.dump(R,open(f"/vol/fb3/{tag}.json","w")); vol.commit()
+                    json.dump(R,open(f"/vol/fb3/{tag}.json","w")); VC()
             lm.lm_head.weight.data.copy_(W0)
-        R["done"]=True; R["secs"]=time.time()-T0; json.dump(R,open(f"/vol/fb3/{tag}.json","w")); vol.commit(); log("DONE",tag)
+        R["done"]=True; R["secs"]=time.time()-T0; json.dump(R,open(f"/vol/fb3/{tag}.json","w")); VC(); log("DONE",tag)
     return "ok"
 
 @app.local_entrypoint()

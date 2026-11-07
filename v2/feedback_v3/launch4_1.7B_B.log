@@ -46,3 +46,10 @@ The following generation flags are not valid and may be ignored: ['temperature',
 [   677s] codec req4_newscale 1 0.54 0.98 2 0
 [   691s] codec req4_newscale 2 0.54 0.98 2 0
 [   705s] codec snap_orig 0 0.53 0.99 2 0
+[   717s] codec snap_orig 1 0.51 0.98 2 0
+[   731s] codec snap_orig 2 0.51 0.98 2 0
+[   734s] DONE Qwen3-1.7B_B_first_r2
+ok
+[modal-client] 2026-11-06T16:25:19-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-JexL7fCooyxCmqvBcc65rd
