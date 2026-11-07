@@ -1,0 +1,32 @@
+{
+ "jb": {
+  "ann": [
+   158,
+   127
+  ],
+  "dev": [
+   72,
+   55
+  ],
+  "teach": [
+   155,
+   136
+  ]
+ },
+ "ood": [
+  150,
+  125
+ ],
+ "neigh": {
+  "S1dev/Benign": 400,
+  "S1dev/Injection": 400,
+  "S3dev/Benign": 383,
+  "S3dev/Injection": 381,
+  "jhBenign/Benign": 347
+ },
+ "alphaN": 200,
+ "other": 750,
+ "teach_ids_sha256": "c4e84581b32b354705b867a45622e82ef0adffd49fc16e0c18090428526d8154",
+ "ood_ids_sha256": "fad25d52da30dec4603413ab0bef11baefe8217b05c7efb0aad6013628a09aa8",
+ "note": "teach ids hashed at data build, before any feedback/edit run; S2/JailbreakHub/locked rows never read"
+}
