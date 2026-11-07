@@ -1,0 +1,4 @@
+[{"name":"base_gen","mode":"base"},
+ {"name":"q_gen_v24k","mode":"quant","calib":"gen","vocab":24000,"general":true},
+ {"name":"q_letter_v24k","mode":"quant","calib":"letter","vocab":24000,"general":true},
+ {"name":"q_mix_v24k","mode":"quant","calib":"mix","vocab":24000,"general":true}]
