@@ -1,0 +1,6 @@
+{"time": "2026-11-07T00:07:35+00:00", "event": "security_group_created", "group": "sg-0f654df5a74662ebe"}
+{"time": "2026-11-07T00:07:37+00:00", "event": "launch_request", "zone": "ap-northeast-2a", "region": "ap-northeast-2", "market": "on-demand", "instance_type": "g7e.4xlarge", "deadline": "2026-11-07T08:07:37+00:00", "hours": 8.0, "max_usd": 31.99, "user_data": "/Users/jhome/ten-percent/v2/aws/g7e-bootstrap.sh", "user_data_sha256": "3a24994cf544e28d"}
+{"time": "2026-11-07T00:07:38+00:00", "event": "no_capacity", "zone": "ap-northeast-2a"}
+{"time": "2026-11-07T00:07:38+00:00", "event": "launch_request", "zone": "ap-northeast-2b", "region": "ap-northeast-2", "market": "on-demand", "instance_type": "g7e.4xlarge", "deadline": "2026-11-07T08:07:37+00:00", "hours": 8.0, "max_usd": 31.99, "user_data": "/Users/jhome/ten-percent/v2/aws/g7e-bootstrap.sh", "user_data_sha256": "3a24994cf544e28d"}
+{"time": "2026-11-07T00:07:40+00:00", "event": "no_capacity", "zone": "ap-northeast-2b"}
+no on-demand capacity for g7e.4xlarge in ap-northeast-2 ['ap-northeast-2a', 'ap-northeast-2b']; nothing was created
