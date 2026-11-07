@@ -1,0 +1,63 @@
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:  58%|█████▊    | 7/12 [00:20<00:14,  2.86s/it]Fetching 12 files:  67%|██████▋   | 8/12 [00:53<00:26,  6.65s/it]Fetching 12 files:  75%|███████▌  | 9/12 [02:57<00:59, 19.71s/it]Fetching 12 files:  83%|████████▎ | 10/12 [03:22<00:40, 20.26s/it]Fetching 12 files:  92%|█████████▏| 11/12 [03:23<00:18, 18.54s/it]Fetching 12 files: 100%|██████████| 12/12 [03:25<00:00, 17.11s/it]Fetching 12 files: 100%|██████████| 12/12 [03:25<00:00, 17.11s/it]
+13:27:37 snap /opt/dlami/nvme/hf/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218
+14:09:42 FINAL_PROOF rc 0
+14:09:42 RECEIPT_JSON:{"status": "completed", "accuracy": {"base": 0.7916666666666666, "cand": 0.10833333333333334, "agree": 0.08333333333333333, "base_parse_fail": 1, "cand_parse_fail": 17}, "all_checks_ok": true, "isolation_ok": true, "REAL_RESULT": false}
+VERDICT: FAIL | failed: ['retention>=98%', 'retention_excl_S1_nocall>=98%', 'retention>=floor-0.5pt', 'every_source_retention>=95%', 'every_kind_retention>=95%', 'every_source_kind_cell_retention>=95%', 'exam>=2000', 'every_source_kind_cell>=330', 'ood_block>=500', 'base_above_chance_below_ceiling_every_cell', 'controls_clearly_worse(>=10pt,lo>0)', 'teach_clear_gain(lo>0,mean>=.15)', 'neighbors_kept>=98%', 'exam_after_feedback_retention>=98%']
+GATES
+  ok noise_floor_runs>=3
+  ok noise_floor_runs_vary_engine_or_batch
+  ok size<=10%
+  XX retention>=98%
+  XX retention_excl_S1_nocall>=98%
+  XX retention>=floor-0.5pt
+  XX every_source_retention>=95%
+  XX every_kind_retention>=95%
+  XX every_source_kind_cell_retention>=95%
+  XX exam>=2000
+  XX every_source_kind_cell>=330
+  XX ood_block>=500
+  ok ood_block_has_every_S1_kind
+  XX base_above_chance_below_ceiling_every_cell
+  ok real_output
+  ok no_new_parts
+  ok controls_complete(empty,shuffled|mixed,random_wrong_tool)
+  XX controls_clearly_worse(>=10pt,lo>0)
+  ok feedback_n<=25
+  ok teach_set>=25
+  ok teach_clusters_given
+  XX teach_clear_gain(lo>0,mean>=.15)
+  XX neighbors_kept>=98%
+  XX exam_after_feedback_retention>=98%
+  ok size_after_feedback<=10%
+SCORES (0.5 = rule threshold, 1 = target)
+   0.00  retention_overall
+   0.00  retention_worst_kind
+   0.00  retention_worst_cell
+   0.00  ood_robustness
+   0.00  harmful_flips
+   0.00  agreement
+   0.00  teach_gain
+   0.00  control_separation
+   0.00  neighbor_retention
+   0.00  exam_after_feedback
+   1.00  size_margin
+   1.00  feedback_bytes_added
+MAXIMIN 0.00 (weakest: retention_overall)  MEAN 0.17
+POWER NOTE (observed retention needed to certify with Wilson lo at actual n):
+  neighbors                                  n=   20 need cannot certify at this n; observed 0.95 -> NOT certified
+  overall (98%)                              n=   95 need cannot certify at this n; observed 0.1368 -> NOT certified
+  overall excl S1/nocall (98%)               n=   75 need cannot certify at this n; observed 0.1733 -> NOT certified
+  source S1 (95%)                            n=   55 need cannot certify at this n; observed 0.1818 -> NOT certified
+  source S2 (95%)                            n=   40 need cannot certify at this n; observed 0.075 -> NOT certified
+  kind multi (95%)                           n=   28 need cannot certify at this n; observed 0.1071 -> NOT certified
+  kind nocall (95%)                          n=   34 need cannot certify at this n; observed 0.0294 -> NOT certified
+  kind single (95%)                          n=   33 need cannot certify at this n; observed 0.2727 -> NOT certified
+  cell S1/multi (95%)                        n=   16 need cannot certify at this n; observed 0.125 -> NOT certified
+  cell S1/nocall (95%)                       n=   20 need cannot certify at this n; observed 0.0 -> NOT certified
+  cell S1/single (95%)                       n=   19 need cannot certify at this n; observed 0.4211 -> NOT certified
+  cell S2/multi (95%)                        n=   12 need cannot certify at this n; observed 0.0833 -> NOT certified
+  cell S2/nocall (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified
+  cell S2/single (95%)                       n=   14 need cannot certify at this n; observed 0.0714 -> NOT certified
+{"base": 0.0, "real": 0.0, "mixed": 0.0, "wrong_tool": 0.0, "shuffled": 0.0, "empty": 0.0} empty_byte_identical True
+
+14:09:42 
