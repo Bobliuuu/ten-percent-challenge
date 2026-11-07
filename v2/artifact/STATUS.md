@@ -48,3 +48,13 @@ Goal: run the real TOOLSEL/INJ dev exams on the exact bits of the real artifact.
 ## 2026-11-07 405B conversion DONE (Modal CPU, app tenpct-artifact-405b; volume tenpct-artifact:/l3_405b/art, report results/l3_405b/report_t096_full.json)
 * Llama-3.1-405B L3 t096 -> TPQ1: model.tpq 78,125,928,831 B; total artifact 78,135,186,376 B = **9.527%** of 820,162,494,464 B (header-derived fp16 baseline) (9.646% vs 810e9, 9.626% vs 811.7e9). Build 3462 s. Bit-exact sample (layers 0/62/125 x 7 modules): all True. tokenizer.json 9.09 MB, raw 8.29 MB.
 * H200 load test NOT run: bf16 export would be ~810 GB (needs >=6 H200 / 1 TB disk), not cheap; 72B real-exam eval prioritised.
+
+## 2026-11-07 REAL packed 72B artifacts on the real TOOLSEL/INJ dev exams (Modal H200:2, deployed app tenpct-artifact-real72, modal_real72.py + launch_real72.py; ~8 min/artifact, ~$2-3 each)
+Pipeline: volume tenpct-artifact:/art72_Vx (model.tpq sha256 verified in-container: V7 f8043a87.., V3 ab14637b.. = Mac) -> loader.export_bf16 (219-247 s, 145,419,625,334 B bf16) -> vLLM 0.11 TP=2 bf16 -> D's vllm_real.py (greedy, strict scorers, TOOLSEL 1063 / INJ 1566 items). Raw outputs + logs: v2/research/D_scale/results/real_art72_V{7,3}_{toolsel,inj}.json, *_modal_log.txt. Base = D's real_base72 (fp8-dynamic base: TOOLSEL 877/1063 correct, INJ 1379/1566).
+| artifact | task | raw acc | retention vs base-correct (Wilson lo) | per-cell min | D's fp8-requant eval | verdict |
+|---|---|---|---|---|---|---|
+| V7 | TOOLSEL | 856/1063 | 95.44% (837/877) [93.8] | S1/none 88.3 | 95.55 | fail (<98 overall, <95 cell) |
+| V7 | INJ | 1351/1566 | 94.42% (1302/1379) [93.1] | S1/benign 88.6 | 94.13 | fail |
+| V3 | TOOLSEL | 841/1063 | 94.30% (827/877) [92.6] | S1/none 80.5 | 93.96 | fail |
+| V3 | INJ | 1335/1566 | 93.76% (1293/1379) [92.4] | S1/injection 92.0, S3/inj 91.5 | 93.47 | fail |
+Conclusion: real-bits quality == D's evaluation within +-0.4 pt (head/emb snapping perturbation is harmless); the 72B artifacts are a valid 9.5468% artifact but do NOT pass the exam-retention rules (98% overall / 95% per cell). Plumbing/size OK, quality is the blocker, not the packing. Modal app stopped.
