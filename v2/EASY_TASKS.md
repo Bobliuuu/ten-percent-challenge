@@ -50,3 +50,14 @@ Use the dev items for configuration only; build your own locked exam from hash b
 - Apps `ap-1ijOLCu4ciOBrFYZBkR0fJ` (batch 1: Qwen2.5-14B/32B, Qwen3-14B at 9.85%, files `ct_<model>_e_r985.json`) and `ap-Af7mjo8pozdtrnn25aLxp0` (batch 2: `ct_<model>_f_r985.json`) write to Modal volume `tenpct-tasksearch:/dense/`.
 - Pull: `modal volume get tenpct-tasksearch dense/ct_<model>_<e|f>_r985.json task_search/results/easy/ --force`; then `python3 task_search/analyze_easy.py task_search/results/easy` gives per-task retention + Wilson lower bound + worst (src x kind) and worst pooled kind cells.
 - Rule-8 filter: base .94-.98. Currently SKILL7 (.95-.97) is the only built task in that window with two real sources; BANK6 .90, SPAM3 .90-.95, SKILL10 .93-.94 are close; LANG8 too easy (.997), others too hard.
+
+## Batch 2 retention at ~9.88% (pulled 2026-11-08; dev, 1 draw, ±2 pt noise; full table v2/task_search/results/easy/ANALYSIS.txt)
+| task | Qwen2.5-14B | Qwen3-14B | note |
+|---|---|---|---|
+| BANK6 (banking77 6 families) | .962 [.936] | **.986 [.968]** | worst cell TopUp .89 / .97; GOOD secondary |
+| SKILL10 (MASSIVE 10 skills) | .946 [.919] | **.976 [.955]** | worst cell SmartHome .81 / .95 |
+| SKILLB | .925 | .940 | fuzzy skills |
+| DOMAIN6 | .854 | .908 | too hard |
+| SPAM3 (Enron+SMS) | .625 | .757 | COLLAPSES: Enron Ham cell .13-.26; spam/phishing across sources is NOT easy under quantization |
+(32B batch 2 not in the pull: only 14B files landed.)
+Updated ranking by retention: SKILL7 (.977/.985/.980) > BANK6 (.962/.986) > SKILL10 (.946/.976) > SUPPORT7 (.975, single synthetic source). Spam tasks DROPPED. Secondary = BANK6.
