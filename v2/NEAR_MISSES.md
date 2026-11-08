@@ -174,3 +174,17 @@ fp16 470.19 GB, 10% = 47.02 GB. Recipe: routing-mass expert prune (per layer), g
 | keep 32 / 24 / 16, RTN2 | 4.12 / 3.31 / 2.50% | REP 97.5 / 96.7 / 78.6 | 94.1 / 90.3 / 0 | not run | retention |
 | keep 88, RTN2, attn/emb/head 3b | 9.57% | REP 98.29 [97.2] | 93.5 | not run | retention |
 | BANK8 dev, keep 88 RTN2 (simulated) | 9.78% | 98.96 [98.32] | 97.8 | not run | single source |
+
+
+## T3 task catalogue lane (per-task-calibrated, 9.85% of fp16, real generation, DEV; details v2/TASK_CATALOGUE.md)
+| task | model | base | retention [Wilson lo] | worst kind | note |
+|---|---|---|---|---|---|
+| NEWS4C (HuffPost + BBC, 4 desks) | Q2.5-14B | .928 | .916 [.879] | Business .85 | best new find |
+| NEWS4C | Q2.5-32B | .928 | .949 [.918] | Business .91 | still < 98 |
+| PII2C (sensitive yes/no) | Q2.5-14B | .849 | .957 [.924] | Harmless .92 | base low, synthetic sources |
+| SENT2C (Yelp+IMDB+tweets) | Q2.5-14B | .902 | .841 [.803] | tweets Positive .39 | |
+| TOX2C | Q2.5-14B | .841 | .796 [.743] | Fine .60 | |
+| PHISH2B (definition prompt) | Q2.5-32B | .956 | .807 [.759] | Legitimate .63 | |
+| COMM4 (StackExchange + Reddit titles) | Q2.5-14B | .875 | .750 [.696] | Astronomy .21 | class collapse |
+| PHISH2C (Scam/Genuine) | Q2.5-14B | .931 | .508 [.452] | Genuine .06 | class flip |
+| 26 tasks in ONE mixture calibration | Q2.5-14B | - | PHISH2 .50, CODELANG .52, LANG20 .46 (class collapses); CODEPROSE .99 | | protocol (a): pessimistic, not used for ranking |

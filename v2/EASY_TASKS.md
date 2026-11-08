@@ -63,8 +63,8 @@ Use the dev items for configuration only; build your own locked exam from hash b
 Updated ranking by retention: SKILL7 (.977/.985/.980) > BANK6 (.962/.986) > SKILL10 (.946/.976) > SUPPORT7 (.975, single synthetic source). Spam tasks DROPPED. Secondary = BANK6.
 
 
-## T3 catalogue sweep (v2/TASK_CATALOGUE.md, 40+ candidate tasks, 13+ probed on 3 rounds, Qwen2.5-7B/14B/32B base; retention in the catalogue)
-- Nothing probed beats SKILL7/SPAM3 on base accuracy in the .94-.98 window. Closest new finds: **NEWS4C** (newsroom desk Business/Entertainment/Politics/Sports, HuffPost + BBC 2004, base .928 14B) and **PHISH2C** (Scam/Genuine email, base .928 14B, sources not fully independent).
-- Ceiling (drop): LANG12B .997, CODEPROSE 1.000, CODELANG .984. Too noisy/hard: toxicity, hate, PII flag, injection, NLI, paraphrase, ticket type/priority, sarcasm, fake news, vulnerability (base .4-.85).
-- Lesson: zero-shot base is capped by dataset label noise and fuzzy class definitions; only coarse, cleanly defined label sets reach .93+.
-- Hard gate per primary: TASK_RULE_AUDIT.md (SKILL10 and BANK6 FAIL R3: single source; SKILL7 needs a MASSIVE-only dev rebuild with CLINC sealed; SPAM3 has no FAIL cell).
+## T3 catalogue sweep (v2/TASK_CATALOGUE.md: 45+ candidate tasks, 40 probed over 4 rounds on Qwen2.5-7B/14B/32B base; per-task-calibrated retention for the 8 best)
+- NOTHING beats SKILL7 (14B .977 / 32B .985). Best new find **NEWS4C** (newsroom desk Business/Entertainment/Politics/Sports; HuffPost 2012-22 + BBC 2004; base .928): retention 14B .916 [.879], 32B .949 [.918]. Others: PII2C .957 [.924] at base .849 (synthetic sources), SENT2C .841, TOX2C .796, PHISH2B (32B) .807, COMM4 .750, PHISH2C .508 (class flip).
+- Ceiling (drop): LANG12B .997, CODEPROSE 1.000, CODELANG .984. Too noisy/hard: toxicity, hate, injection, NLI, paraphrase, ticket type/priority, sarcasm, fake news, vulnerability (base .4-.85).
+- Lesson: zero-shot base is capped by dataset label noise, not model size; only coarse, cleanly defined label sets reach .93+ and retain >=97%.
+- Hard gate per primary: TASK_RULE_AUDIT.md (SKILL10 and BANK6 FAIL R3: single source; SKILL7 needs a MASSIVE-only dev rebuild with CLINC sealed).

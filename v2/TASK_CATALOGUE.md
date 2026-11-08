@@ -1,22 +1,44 @@
 # TASK_CATALOGUE: what is the EASIEST commercial task that can pass the rules? (T3 lane, 2026-11-08)
 
-DEV DATA ONLY. No locked/sealed exam, X15 file or GitHub post touched. Every number is REAL greedy generation of the label word (`<|im_end|>` stop, exact string, zero-shot prompt, no letters/options), bf16 base vs the repo quantizer at 9.85% of fp16 (`dense_core.py`, target_ratio 0.0985, Hadamard + GPTQ + entropy-coded grids, ~1.5 bpw body) on Qwen2.5-14B/32B-Instruct. Retention = P(quantized output correct | base output correct) on identical items. Items: `task_search/T3/items_dev_all.jsonl` (round 1, 26 tasks, 7.2k items), `items_r2.jsonl` (7 refined tasks, 2.6k), `items_r3.jsonl` (6 cleaner-label tasks, 2.5k); class-balanced, sha256-ordered, deduplicated, 160 items per source (2 or 3 sources per task), builder `build_t3.py`, licences `LICENCES_T3.md`, pool sizes `PLAN*.json`. Quantizer calibration = the mixture of ALL tasks' calibration rows of that item file (hash-disjoint), not task-matched, so retention is a little pessimistic. Compute: 3 Vast boxes (RTX PRO 6000 96GB, A100-80GB, A40), all destroyed at the end (RUNS.md).
+DEV DATA ONLY. No locked/sealed exam, X15 file or GitHub post touched. Every number is REAL greedy generation of the label word (`<|im_end|>` stop, exact string, zero-shot prompt, no letters/options), bf16 base vs the repo quantizer at 9.85% of fp16 (`dense_core.py`, target_ratio 0.0985, Hadamard + GPTQ + entropy-coded grids, ~1.5 bpw body) on Qwen2.5-14B/32B-Instruct. Retention = P(quantized output correct | base output correct) on identical items. Items: `task_search/T3/items_dev_all.jsonl` (round 1, 26 tasks, 7.2k items), `items_r2.jsonl` (7 refined tasks, 2.6k), `items_r3.jsonl` (6 cleaner-label tasks, 2.5k); class-balanced, sha256-ordered, deduplicated, 160 items per source (2 or 3 sources per task), builder `build_t3.py`, licences `LICENCES_T3.md`, pool sizes `PLAN*.json`. Quantizer calibration = the mixture of ALL tasks' calibration rows of that item file (hash-disjoint), not task-matched, so retention is a little pessimistic. Compute: 5 Vast boxes over the day (RTX PRO 6000 96GB x2, A100-80GB, A40 x1, one unreachable box destroyed), all destroyed at the end (RUNS.md). Two quantization protocols were run: (a) one quantization per model calibrated on a MIXTURE of every task in the item file (`mixture_retention.md`), (b) per-task calibration with 400 hash-disjoint rows of that task only (`per_task_retention.md`, the comparable protocol: EASY lane also calibrates on its own tasks). Protocol (a) is pessimistic (class-prior flips, e.g. PHISH2 Legitimate 0.00), so only (b) is used for ranking.
 The other agent's lane (`EASY_TASKS.md`: SKILL7, SKILL10, BANK6/8, SPAM3, SENT, LANG8, QTOPIC6, ...) is NOT duplicated here; where it matters its numbers are quoted.
 
 ## 0. The filters used (ROADMAP_LANES TASK OBJECTIVE)
 R1 commercial/not toy/not narrow; R3 >=2 real sources, >=2000 locked, >=300 per kind, >=500 from a source never tuned on; R7 real label word; R8 base .94-.98 target (drop >.985); R5 teachable NEW label; then rank by predicted robustness (few classes, separable labels, big margin, clean labels, short inputs).
 
-## 1. INTERIM RESULT (base accuracy, margins; quantized retention at 9.85% still running, see section 2 when filled)
-Best new finds that satisfy the filters on paper and have base in or near the .93 band (Qwen2.5-14B bf16, real generation):
-| task | classes | sources (period) | base 14B | worst class | margin>=6 of correct | why it is easy | rule risks |
-|---|---|---|---|---|---|---|---|
-| **NEWS4C** newsroom desk: Business/Entertainment/Politics/Sports | 4 | HuffPost 2012-22 (CC0) + BBC 2004-05 (non-commercial research licence) | .928 | .89 Sports | .95 | coarse separable topics; BBC cells .93-.97 | HuffPost Sports/Business label noise; BBC licence NC (sealed-source licence GRAY); BBC pool only ~1k (>=500 OK, per-class cells inside BBC <300 but pooled >=300 OK); topic routing is a benchmark-shaped job (R1/R9 GRAY) |
-| **PHISH2C** email Scam/Genuine | 2 | zefang-liu phishing-email + puyang seven-phishing-email (both Kaggle-style aggregations of Nazario/Enron/SpamAssassin: NOT independent, R3 GRAY) | .928 | .88 Scam | .94 | binary, strong lexical cues | the two sources overlap in upstream corpora; mixed-era; licence per upstream |
-| SPAM3 / SKILL7 (EASY lane) | 2 / 7 | see EASY_TASKS.md | .953 (Q2.5-14B) / .949 (Q3-14B) | | | | see TASK_RULE_AUDIT.md |
-Ceiling controls (rule 8 FAIL, base >.985): LANG12B language ID 12 languages .997 (papluca + MASSIVE utterances, two real sources), CODEPROSE 1.000, CODELANG .984 (.92 Ruby), LANG20 .955 (Portuguese .50 label noise). Near misses (base .88-.92): SENT2B .919 (SST2 Positive .80), SENT2C .902 (IMDB Positive .75), ENTAIL2 .894, PHISH2 .903, PHISH2B .897, NEWS5 .887 (HuffPost Technology .53 label noise), TOPIC4 .869. Too hard (base .65-.85, label noise or ambiguous definitions): TOX2/TOX2B/TOX2C .79-.84, HATE2 .85, OFFEN2 .81, PSAFE .79, PII2/PII2C .86-.89, INJ2 .81 (also lock-limited: deepset Injection 203 rows), NLI3 .84, PARA2 .78, BOOLQ .81, FINSENT .84, DEPT3 .65, TOPIC5 .82, UNFAIR .71, RCT5 .67, SARC2 .68, FAKENEWS .72 (artefact), TICKETTYPE .56, TICKETPRIO .37, ANSWERABLE .65, DEFECT .42 (chance). Pattern: zero-shot base accuracy is capped by DATASET LABEL NOISE and fuzzy class definitions, not by the model; only coarse, cleanly-defined label sets (language, code-vs-prose, voice skills, desk routing) reach .93+.
+## 1. RESULT: nothing probed here beats SKILL7; best new find is NEWS4C (still ~4-7 pts short)
+Retention at 9.85% of fp16 (real generation, per-task calibration, one quantizer draw, DEV, Wilson lo in brackets). EASY-lane rows quoted from EASY_TASKS.md for comparison (same quantizer, own-task calibration).
+| rank | task | classes | sources | base 14B / 32B | retention 14B | retention 32B | worst kind (14B) | rule gate (TASK_RULE_AUDIT.md) |
+|---|---|---|---|---|---|---|---|---|
+| 1 | **SKILL7** (EASY lane) | 7 | MASSIVE + CLINC150 | .957 / .969 | .977 [.962] | **.985 [.972]** | Music .95 | no FAIL; GRAY R1, R2 pool depth, R3 (seal CLINC, MASSIVE-only dev) |
+| 2 | BANK6 (EASY lane) | 6 | Banking77 | .905 | .962 | .986 | | FAIL R3 (single source); BANK8/BANKFAM with sealed CLINC = GRAY |
+| 3 | SKILL10 (EASY lane) | 10 | MASSIVE | .93-.94 | .946 | .976 | | FAIL R3 (single source), Cooking <300 |
+| 4 | **NEWS4C** newsroom desk (T3) | 4 | HuffPost 2012-22 + BBC 2004 | .928 / .928 | .916 [.879] | .949 [.918] | Business .85 | no FAIL; GRAY R1, R3 (BBC ~1k rows, NC licence), BBC cells <300 |
+| 5 | PII2C sensitive-identifier yes/no (T3) | 2 | ai4privacy + gretel (both synthetic) | .849 / .919 | .957 [.924] | pending | Harmless .92 | base <.88, both sources synthetic: R1/R9 GRAY-FAIL |
+| 6 | SENT2C sentiment-2 (T3) | 2 | Yelp + IMDB + tweets | .902 / .881 | .841 [.803] | pending | tweets Positive .39 | R8 ok, retention far below gate |
+| 7 | TOX2C toxicity (T3) | 2 | civil_comments + Davidson | .841 / .838 | .796 [.743] | pending | Fine .60 | label noise |
+| 8 | PHISH2B email phishing, definition prompt (T3) | 2 | zefang + seven-corpora (not independent) | .90 / .956 | pending | .807 [.759] | | R3 GRAY (overlapping upstream corpora) |
+| 9 | COMM4 forum-post community routing (T3) | 4 | StackExchange titles + Reddit titles | .875 / pending | .750 [.696] | pending | Astronomy .21 | collapses on one class |
+| 10 | PHISH2C Scam/Genuine (T3) | 2 | same two phishing corpora | .931 / .912 | .508 [.452] | pending | Genuine .06 (class flip) | collapse |
+Ceiling controls (base >.985, R8 FAIL, not ranked): LANG12B language ID (2 real sources) .997; CODEPROSE 1.000 (mixture-calibrated retention .991); CODELANG .984.
+**Answer to the objective: the easiest task that passes the rules on today's evidence is still SKILL7 (voice-skill routing) with MASSIVE as tuning source and CLINC150 sealed. NEWS4C is the best independent alternative (two sources a decade apart, 4 coarse classes, base .928) but loses 6-8 points of retention to HuffPost label noise (Business/Sports boundary).** Why the new finds retain worse: their per-class base accuracy is limited by dataset label noise (borderline items have small margins), and 1.5 bpw noise flips the borderline items; SKILL7's labels are clean (utterance -> scenario is nearly deterministic).
 
-## 2. Per-task base tables (zero-shot, real generation)
-### Qwen2.5-14B round 1
+## 2. Per-task-calibrated retention (full table, `per_task_retention.md`)
+| model | task | classes | base acc | base-correct | margin>=6 | retention [Wilson lo] | worst kind (n) | worst src x kind (n) | ratio | body bpw |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen2.5-14B-Instruct | COMM4 | 4 | 0.875 | 280 | 0.95 | 0.750 [0.696] | 0.21 Astronomy (72) | 0.08 stackexchange_titles/Astronomy (36) | 9.88% | 1.53 |
+| Qwen2.5-14B-Instruct | NEWS4C | 4 | 0.928 | 297 | 0.95 | 0.916 [0.879] | 0.85 Business (74) | 0.83 huffpost/Business (36) | 9.88% | 1.53 |
+| Qwen2.5-14B-Instruct | PHISH2C | 2 | 0.931 | 295 | 0.94 | 0.508 [0.452] | 0.06 Genuine (155) | 0.04 zefang_phish/Genuine (77) | 9.88% | 1.53 |
+| Qwen2.5-14B-Instruct | PII2C | 2 | 0.849 | 254 | 0.92 | 0.957 [0.924] | 0.92 Harmless (137) | 0.85 ai4privacy/Harmless (59) | 9.88% | 1.53 |
+| Qwen2.5-14B-Instruct | SENT2C | 2 | 0.902 | 433 | 0.95 | 0.841 [0.803] | 0.67 Positive (207) | 0.39 tweets/Positive (71) | 9.88% | 1.53 |
+| Qwen2.5-14B-Instruct | TOX2C | 2 | 0.841 | 269 | 0.90 | 0.796 [0.743] | 0.60 Fine (132) | 0.51 civil_comments/Fine (69) | 9.88% | 1.53 |
+| Qwen2.5-32B-Instruct | NEWS4C | 4 | 0.928 | 297 | 0.95 | 0.949 [0.918] | 0.91 Business (65) | 0.87 huffpost/Business (31) | 9.87% | 1.56 |
+| Qwen2.5-32B-Instruct | PHISH2B | 2 | 0.956 | 305 | 0.94 | 0.807 [0.759] | 0.63 Legitimate (159) | 0.59 zefang_phish/Legitimate (80) | 9.87% | 1.56 |
+
+Not finished at the time of writing (jobs were cut for time): PII2C 32B, SENT2C 32B, TOX2C 32B, COMM4 32B, PHISH2C 32B, PHISH2B 14B; their configs/items are in `research/V_vast/bundles/t3`.
+
+## 3. Base-accuracy tables (zero-shot, real generation; margin = min-token top1-top2 logit gap of the gold answer)
+### Qwen2.5-14B round 1 (26 tasks)
 | task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
 |---|---|---|---|---|---|---|
 | ADE | 160 | 0.863 | 0.86 No | 0.86 ade_corpus | 0.93 | 10.8 |
@@ -67,6 +89,11 @@ Ceiling controls (rule 8 FAIL, base >.985): LANG12B language ID 12 languages .99
 | SENT2C | 480 | 0.902 | 0.86 Positive | 0.84 imdb_movies | 0.95 | 10.8 |
 | TOX2C | 320 | 0.841 | 0.82 Fine | 0.79 civil_comments | 0.90 | 10.4 |
 
+### Qwen2.5-14B COMM4
+| task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
+|---|---|---|---|---|---|---|
+| COMM4 | 320 | 0.875 | 0.78 Brewing | 0.81 reddit_titles | 0.95 | 10.5 |
+
 ### Qwen2.5-32B round 1
 | task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
 |---|---|---|---|---|---|---|
@@ -96,6 +123,26 @@ Ceiling controls (rule 8 FAIL, base >.985): LANG12B language ID 12 languages .99
 | TOPIC5 | 320 | 0.809 | 0.52 Business | 0.78 yahoo_answers | 0.92 | 11.1 |
 | TOX2 | 320 | 0.759 | 0.56 Toxic | 0.72 toxic_chat | 0.86 | 11.9 |
 | UNFAIR | 160 | 0.731 | 0.72 Unfair | 0.73 lexglue_unfairtos | 0.68 | 9.0 |
+
+### Qwen2.5-32B rounds 2 and 3
+| task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
+|---|---|---|---|---|---|---|
+| LANG12 | 360 | 0.997 | 0.97 Turkish | 1.00 papluca | 1.00 | 11.5 |
+| NEWS5 | 320 | 0.881 | 0.72 Technology | 0.84 huffpost | 0.94 | 11.0 |
+| PHISH2B | 320 | 0.953 | 0.91 Phishing | 0.94 sevenphish | 0.94 | 11.6 |
+| PII2 | 320 | 0.912 | 0.85 Clean | 0.86 ai4privacy | 0.94 | 12.1 |
+| SENT2B | 480 | 0.881 | 0.85 Positive | 0.84 sst2_movie | 0.94 | 11.9 |
+| TOPIC4 | 320 | 0.859 | 0.76 Health | 0.81 huffpost | 0.96 | 11.1 |
+| TOX2B | 480 | 0.752 | 0.60 Toxic | 0.68 civil_comments | 0.90 | 11.8 |
+
+| task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
+|---|---|---|---|---|---|---|
+| LANG12B | 720 | 0.996 | 0.97 Arabic | 0.99 massive_utterances | 1.00 | 11.5 |
+| NEWS4C | 320 | 0.928 | 0.81 Business | 0.91 huffpost | 0.95 | 11.1 |
+| PHISH2C | 320 | 0.912 | 0.87 Genuine | 0.91 sevenphish | 0.87 | 10.9 |
+| PII2C | 320 | 0.919 | 0.91 Harmless | 0.89 ai4privacy | 0.96 | 11.8 |
+| SENT2C | 480 | 0.881 | 0.85 Positive | 0.84 imdb_movies | 0.93 | 11.8 |
+| TOX2C | 320 | 0.838 | 0.77 Toxic | 0.78 civil_comments | 0.93 | 11.6 |
 
 ### Qwen2.5-7B round 1
 | task | n | acc | worst class | worst src | m_min>=6 of correct | median m_min |
@@ -127,9 +174,7 @@ Ceiling controls (rule 8 FAIL, base >.985): LANG12B language ID 12 languages .99
 | TOX2 | 320 | 0.828 | 0.77 Toxic | 0.77 civil_comments | 0.73 | 8.2 |
 | UNFAIR | 160 | 0.606 | 0.47 Fair | 0.61 lexglue_unfairtos | 0.67 | 9.0 |
 
-
-## 3. Quantized retention at 9.85% of fp16 (real generation)
-PENDING (14B/32B quantization jobs running on Vast; 7B finished: 7B retention collapses to class priors, e.g. CODELANG Go 0.00, PHISH2 Legitimate 0.02; 7B is not a candidate). Section is regenerated by `rank_t3.py` when files land.
+Pattern: zero-shot base accuracy is capped by DATASET LABEL NOISE and fuzzy class definitions, not by the model: only coarse, cleanly defined label sets (language, code-vs-prose, voice skills, desk routing) reach .93+. Too noisy/hard (base .65-.85): toxicity, hate, offensive, PII flag, injection (also lock-limited: deepset Injection 203 rows), NLI, paraphrase, BoolQ, FINSENT, DEPT3, UNFAIR, RCT5, SARC2, FAKENEWS (artefact), TICKETTYPE/PRIO, ANSWERABLE, DEFECT (chance).
 
 ## 4. Desk catalogue (45+ candidate tasks: public sources, licence, lockability, estimate, R1 risk, new-label story)
 | ID | task (real output: one label word unless noted) | classes | public sources, >=2 distinct (licence) | lockable (>=2000, >=300/kind, >=500 other source) | est. base (14B) | R1 risk | new-label feedback story | status |
@@ -181,11 +226,11 @@ PENDING (14B/32B quantization jobs running on Vast; 7B finished: 7B retention co
 | NER / PIIRED / PIIDET / TOOLARG / LOGTPL / SQL | structured generation | JSON/text | see TASK_SEARCH2.md | partly | .3-.9 | - | - | EARLIER LANE (copy tasks retain worse) |
 
 ## 5. Feedback (R5) feasibility of the leading finds
-- NEWS4C: new label **Technology** (HuffPost TECH 2055 rows + BBC tech ~400; base cannot emit a label absent from its menu) or **Health** (HuffPost WELLNESS 17.9k). 25 annotated + >=25 unseen teach items + neighbours Business (gadget/earnings stories). Mismatch risk: Technology vs Business is the base's weakest boundary.
-- PHISH2C: new label **Spam** (junk advertising, Enron/SMS spam, large pools) or Fraud-by-SMS; neighbours = Scam/Genuine mail that mentions offers. 
-- SPAM3 (EASY lane): new label Phishing (zefang-liu 6.4k phishing rows).
-- SKILL7: new skill Email/SmartHome (MASSIVE).
-- LANG12B (ceiling): new language (e.g. Vietnamese) is trivially teachable but base is at ceiling, R8 FAIL.
+- NEWS4C: new label **Technology** (HuffPost TECH 2055 rows + BBC tech ~400; base cannot emit a label absent from its menu) or **Health** (HuffPost WELLNESS 17.9k). 25 annotated + >=25 unseen teach items + neighbours Business (gadget/earnings stories). Weak boundary: Technology vs Business.
+- SKILL7: new skill Email/SmartHome (MASSIVE 949/768 rows). BANK6: new queue.
+- PHISH2B/C: new label **Spam** (Enron/SMS spam, large pools).
+- PII2C: new type label (e.g. Credential) hard to separate. COMM4: new community (e.g. Photography, SE photo 3.8k rows).
+- LANG12B (ceiling): new language trivially teachable but R8 FAIL.
 
 ## 6. Caveats
-Single zero-shot prompt per task (round 2/3 are prompt refinements of round 1; they are NOT hidden-set tuned: all numbers are on the dev items used to choose, so base accuracies carry 1-2 pt selection optimism). 160 items per (task, source) so per-class cells are n=40-80. Quantizer calibration is a cross-task mixture. No locked data used; nothing sealed. Full per-task rule gate: TASK_RULE_AUDIT.md.
+Single zero-shot prompt per task (rounds 2/3 are prompt/label refinements chosen on the same dev items: ~1-2 pt selection optimism on base accuracy). 160 items per (task, source), per-class cells n=40-80. One quantizer draw (+-2 pt draw noise, larger for 2-class tasks with a class flip). Calibration for the per-task protocol includes ~400 rows from every source of the task, i.e. it uses the future sealed source (BBC for NEWS4C), which a legal artifact must not do: retention for a legal NEWS4C build (BBC sealed) would be a little lower. Committed item files drop rows that the repo leak scanner flagged (IP/token-like strings; up to ~20/320 rows in PII tasks). No locked data used, nothing sealed. Licences: `LICENCES_T3.md`.

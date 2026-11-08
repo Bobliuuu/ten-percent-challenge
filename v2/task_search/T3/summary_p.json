@@ -1,0 +1,394 @@
+{
+ "Qwen2.5-14B-Instruct|COMM4": {
+  "base": 0.875,
+  "n": 320,
+  "nbc": 280,
+  "ret": 0.75,
+  "lo": 0.6961274973123732,
+  "wkind": 0.20833333333333334,
+  "wcell": 0.08333333333333333,
+  "ratio": 0.09882157732777991,
+  "bpw": 1.5289733172039544,
+  "kinds": {
+   "Astronomy": [
+    15,
+    72
+   ],
+   "Pets": [
+    67,
+    70
+   ],
+   "Brewing": [
+    54,
+    62
+   ],
+   "Cars": [
+    74,
+    76
+   ]
+  },
+  "cells": {
+   "stackexchange_titles/Astronomy": [
+    3,
+    36
+   ],
+   "stackexchange_titles/Pets": [
+    39,
+    40
+   ],
+   "stackexchange_titles/Brewing": [
+    33,
+    37
+   ],
+   "stackexchange_titles/Cars": [
+    36,
+    37
+   ],
+   "reddit_titles/Astronomy": [
+    12,
+    36
+   ],
+   "reddit_titles/Pets": [
+    28,
+    30
+   ],
+   "reddit_titles/Brewing": [
+    21,
+    25
+   ],
+   "reddit_titles/Cars": [
+    38,
+    39
+   ]
+  }
+ },
+ "Qwen2.5-14B-Instruct|NEWS4C": {
+  "base": 0.928125,
+  "n": 320,
+  "nbc": 297,
+  "ret": 0.9158249158249159,
+  "lo": 0.8786937875376928,
+  "wkind": 0.8513513513513513,
+  "wcell": 0.8333333333333334,
+  "ratio": 0.09882770144751758,
+  "bpw": 1.529089028097512,
+  "kinds": {
+   "Business": [
+    63,
+    74
+   ],
+   "Entertainment": [
+    70,
+    78
+   ],
+   "Politics": [
+    70,
+    74
+   ],
+   "Sports": [
+    69,
+    71
+   ]
+  },
+  "cells": {
+   "huffpost/Business": [
+    30,
+    36
+   ],
+   "huffpost/Entertainment": [
+    33,
+    39
+   ],
+   "huffpost/Politics": [
+    34,
+    37
+   ],
+   "huffpost/Sports": [
+    31,
+    33
+   ],
+   "bbc_2004/Business": [
+    33,
+    38
+   ],
+   "bbc_2004/Entertainment": [
+    37,
+    39
+   ],
+   "bbc_2004/Politics": [
+    36,
+    37
+   ],
+   "bbc_2004/Sports": [
+    38,
+    38
+   ]
+  }
+ },
+ "Qwen2.5-14B-Instruct|PHISH2C": {
+  "base": 0.9305993690851735,
+  "n": 317,
+  "nbc": 295,
+  "ret": 0.5084745762711864,
+  "lo": 0.4516837929902918,
+  "wkind": 0.06451612903225806,
+  "wcell": 0.03896103896103896,
+  "ratio": 0.0988300854551442,
+  "bpw": 1.5291240101502765,
+  "kinds": {
+   "Scam": [
+    140,
+    140
+   ],
+   "Genuine": [
+    10,
+    155
+   ]
+  },
+  "cells": {
+   "zefang_phish/Scam": [
+    70,
+    70
+   ],
+   "zefang_phish/Genuine": [
+    3,
+    77
+   ],
+   "sevenphish/Scam": [
+    70,
+    70
+   ],
+   "sevenphish/Genuine": [
+    7,
+    78
+   ]
+  }
+ },
+ "Qwen2.5-14B-Instruct|PII2C": {
+  "base": 0.8494983277591973,
+  "n": 299,
+  "nbc": 254,
+  "ret": 0.9566929133858267,
+  "lo": 0.9241283626454745,
+  "wkind": 0.9197080291970803,
+  "wcell": 0.847457627118644,
+  "ratio": 0.09883336496811246,
+  "bpw": 1.5291742262121815,
+  "kinds": {
+   "Sensitive": [
+    117,
+    117
+   ],
+   "Harmless": [
+    126,
+    137
+   ]
+  },
+  "cells": {
+   "ai4privacy/Sensitive": [
+    56,
+    56
+   ],
+   "ai4privacy/Harmless": [
+    50,
+    59
+   ],
+   "gretel_fin/Sensitive": [
+    61,
+    61
+   ],
+   "gretel_fin/Harmless": [
+    76,
+    78
+   ]
+  }
+ },
+ "Qwen2.5-14B-Instruct|SENT2C": {
+  "base": 0.9020833333333333,
+  "n": 480,
+  "nbc": 433,
+  "ret": 0.8406466512702079,
+  "lo": 0.8031978137141595,
+  "wkind": 0.6714975845410628,
+  "wcell": 0.39436619718309857,
+  "ratio": 0.09882796613547216,
+  "bpw": 1.5290980620141184,
+  "kinds": {
+   "Positive": [
+    139,
+    207
+   ],
+   "Negative": [
+    225,
+    226
+   ]
+  },
+  "cells": {
+   "yelp_restaurants/Positive": [
+    72,
+    76
+   ],
+   "yelp_restaurants/Negative": [
+    79,
+    79
+   ],
+   "imdb_movies/Positive": [
+    39,
+    60
+   ],
+   "imdb_movies/Negative": [
+    75,
+    75
+   ],
+   "tweets/Positive": [
+    28,
+    71
+   ],
+   "tweets/Negative": [
+    71,
+    72
+   ]
+  }
+ },
+ "Qwen2.5-14B-Instruct|TOX2C": {
+  "base": 0.840625,
+  "n": 320,
+  "nbc": 269,
+  "ret": 0.7955390334572491,
+  "lo": 0.7433412468846455,
+  "wkind": 0.5984848484848485,
+  "wcell": 0.5072463768115942,
+  "ratio": 0.09883053677277244,
+  "bpw": 1.5291337206580096,
+  "kinds": {
+   "Toxic": [
+    135,
+    137
+   ],
+   "Fine": [
+    79,
+    132
+   ]
+  },
+  "cells": {
+   "civil_comments/Toxic": [
+    57,
+    58
+   ],
+   "civil_comments/Fine": [
+    35,
+    69
+   ],
+   "davidson_offensive/Toxic": [
+    78,
+    79
+   ],
+   "davidson_offensive/Fine": [
+    44,
+    63
+   ]
+  }
+ },
+ "Qwen2.5-32B-Instruct|NEWS4C": {
+  "base": 0.928125,
+  "n": 320,
+  "nbc": 297,
+  "ret": 0.9494949494949495,
+  "lo": 0.9183523932587916,
+  "wkind": 0.9076923076923077,
+  "wcell": 0.8709677419354839,
+  "ratio": 0.09867827797336332,
+  "bpw": 1.5565240402201261,
+  "kinds": {
+   "Business": [
+    59,
+    65
+   ],
+   "Entertainment": [
+    75,
+    78
+   ],
+   "Politics": [
+    74,
+    78
+   ],
+   "Sports": [
+    74,
+    76
+   ]
+  },
+  "cells": {
+   "huffpost/Business": [
+    27,
+    31
+   ],
+   "huffpost/Entertainment": [
+    36,
+    39
+   ],
+   "huffpost/Politics": [
+    35,
+    39
+   ],
+   "huffpost/Sports": [
+    34,
+    36
+   ],
+   "bbc_2004/Business": [
+    32,
+    34
+   ],
+   "bbc_2004/Entertainment": [
+    39,
+    39
+   ],
+   "bbc_2004/Politics": [
+    39,
+    39
+   ],
+   "bbc_2004/Sports": [
+    40,
+    40
+   ]
+  }
+ },
+ "Qwen2.5-32B-Instruct|PHISH2B": {
+  "base": 0.9561128526645768,
+  "n": 319,
+  "nbc": 305,
+  "ret": 0.8065573770491803,
+  "lo": 0.7585258175682751,
+  "wkind": 0.6289308176100629,
+  "wcell": 0.5875,
+  "ratio": 0.0986732053191944,
+  "bpw": 1.556433091816913,
+  "kinds": {
+   "Phishing": [
+    146,
+    146
+   ],
+   "Legitimate": [
+    100,
+    159
+   ]
+  },
+  "cells": {
+   "zefang_phish/Phishing": [
+    75,
+    75
+   ],
+   "zefang_phish/Legitimate": [
+    47,
+    80
+   ],
+   "sevenphish/Phishing": [
+    71,
+    71
+   ],
+   "sevenphish/Legitimate": [
+    53,
+    79
+   ]
+  }
+ }
+}

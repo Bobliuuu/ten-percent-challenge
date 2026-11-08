@@ -385,3 +385,11 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08 L11 relaunch (first X_* spawns failed on a stale deploy; A1b/F crashed, stderr now saved): A1c fc-01M6Y2NWAYJDNMNMR0AHXE0Q4K, F2 fc-01M6Y2NX2HS4A5BQB5AGEPJMPR, X_SKILL7_bf16 fc-01M6Y2NXSYFHMX1G87MFT3GTH5, X_SKILL7_q4 fc-01M6Y2NYG3Y0EDVG0E18V8SEYP, X_BANK6_bf16 fc-01M6Y2NZ6R4GJT27DWTVZ9ABF0, X_BANK6_q4 fc-01M6Y2NZXWBGHTJFZAV1M8GXBQ; CLI test CLI2 fc-01M6Y020C2V5E2028TFXPHDBNP done
 - 2026-11-08T17:20Z vast id 59744507 tenpct-rival3_final_s7 destroyed after 0.17 h (~$0.18)
 - 2026-11-08 modal tenpct-l13 job d (alloc fix L2..6 + seed-noise arms, SKILL7)
+- 2026-11-08T17:39Z vast id 59749496 label tenpct-L11_X1 GPU A100 PCIE 80GB $0.801/h (+5% guard) started
+- 2026-11-08T17:42Z vast id 59749787 label tenpct-L11_X1 GPU A100 PCIE 80GB $0.801/h (+5% guard) started
+- 2026-11-08T17:43Z vast id 59749956 label tenpct-L11_X2 GPU A100 SXM4 80GB $0.988/h (+5% guard) started
+- 2026-11-08T17:45Z vast id 59750143 label tenpct-L11_X3 GPU A100 SXM4 80GB $1.135/h (+5% guard) started
+- 2026-11-08T17:46Z vast id 59750290 label tenpct-L11_X4 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T17:48Z vast id 59750444 label tenpct-L11_G GPU A100 SXM4 80GB $1.015/h (+5% guard) started
+- 2026-11-08T17:51Z vast id 59750988 label tenpct-L11_X2 GPU RTX PRO 6000 Max-Q 96GB $1.402/h (+5% guard) started
+- 2026-11-08T17:53Z vast id 59749787 tenpct-L11_X1 destroyed after 0.18 h (~$0.15)
