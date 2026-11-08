@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 img = (modal.Image.debian_slim(python_version="3.12").pip_install("vllm==0.10.2", "transformers==4.56.2", "huggingface_hub<1.0", "hf_transfer")
        .env({"HF_HUB_ENABLE_HF_TRANSFER": "1"}).add_local_file(f"{HERE}/scorer.py", "/root/scorer.py"))
 vol = modal.Volume.from_name("tenpct-tox-exam"); hfv = modal.Volume.from_name("tenpct-v2-hf")
-KW = {"Qwen/Qwen3-8B": {"enable_thinking": False}, "Qwen/Qwen3-14B": {"enable_thinking": False}, "Qwen/Qwen3-32B": {"enable_thinking": False}}
+KW = {"prism-ml/Bonsai-8B-unpacked": {"enable_thinking": False}, "Qwen/Qwen3-8B": {"enable_thinking": False}, "Qwen/Qwen3-14B": {"enable_thinking": False}, "Qwen/Qwen3-32B": {"enable_thinking": False}}
 TP = {"Qwen/Qwen2.5-72B-Instruct": 4, "unsloth/Llama-3.3-70B-Instruct": 4}
 DEV_FILES = ("s1_dev.jsonl", "s3_dev.jsonl", "s2_probe.jsonl")     # whitelist: NO locked file
 def _run(model):

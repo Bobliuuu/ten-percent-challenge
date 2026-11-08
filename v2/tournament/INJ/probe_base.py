@@ -13,6 +13,7 @@ MODELS = {  # name -> (gpu spec, tensor_parallel, chat kwargs, fp16 params)
     "Qwen/Qwen3-32B": ("A100-80GB", 1, {"enable_thinking": False}, 32.76e9),
     "Qwen/Qwen2.5-72B-Instruct": ("H200:2", 2, {}, 72.7e9),
     "unsloth/Llama-3.3-70B-Instruct": ("H200:2", 2, {}, 70.6e9),
+    "prism-ml/Bonsai-8B-unpacked": ("A100-80GB", 1, {"enable_thinking": False}, 8.19e9),
     "Qwen/Qwen3-1.7B": ("A100-40GB", 1, {"enable_thinking": False}, 1.72e9),
     "Qwen/Qwen3-4B": ("A100-40GB", 1, {"enable_thinking": False}, 4.02e9),
 }
