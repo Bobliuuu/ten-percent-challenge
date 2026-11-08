@@ -1,0 +1,5 @@
+#!/bin/bash
+# usage: chain2.sh ID SHARDKEY : upload phase-2 cfgs and queue them after phase 1 finishes on that box
+cd "$(dirname "$0")"; L=$(python3 -c "import json;s=json.load(open('shards2.json'));print(' '.join(s['$2']))")
+./vast_cp.sh $1 up cfgs_sweep2.json /root/code/cfgs_sweep2.json
+./vast_ssh.sh $1 "cd /root/code && (nohup bash -c 'while pgrep -f \"box_run.py cfgs_sweep.json\" >/dev/null; do sleep 10; done; python box_run.py cfgs_sweep2.json base $L > /r/run2.log 2>&1' > /dev/null 2>&1 < /dev/null &); echo queued" 2>&1 | LC_ALL=C sed 's/@[0-9.]*//'

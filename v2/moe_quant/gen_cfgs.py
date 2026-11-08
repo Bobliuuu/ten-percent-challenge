@@ -12,7 +12,7 @@ def keep_for(bpw, ratio=0.099):
         k += 1
 def nominal(m, b, g=128):
     base = m.replace("_had", "")
-    if base in ("gptq", "rtnq", "nf", "awq", "awq_gptq", "omni", "admm", "owq", "hqq"): return b + (16 + b) / g if base not in ("nf",) else b + 16 / g
+    if base in ("gptq", "gptq_clip", "rtn_noclip", "rtnq", "nf", "awq", "awq_gptq", "omni", "admm", "owq", "hqq"): return b + (16 + b) / g if base not in ("nf",) else b + 16 / g
     if base == "ecsq": return b + 16 / g * 0 + 0.0  # target_bpw already includes scale bits (solve_c subtracts sbits/g)
     if base in ("vq", "rvq", "tcq", "gptvq"): return b + 0.01
     if base == "squeeze": return b + 16 * 2 ** b / 2048 + 0.0045 * 32
