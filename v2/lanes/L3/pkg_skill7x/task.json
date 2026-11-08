@@ -1,0 +1,1 @@
+{"task": "SKILL7", "prompt": "You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport.\n\nRequest: {X}"}
