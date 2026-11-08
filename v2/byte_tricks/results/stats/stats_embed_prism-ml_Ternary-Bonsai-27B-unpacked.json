@@ -1,0 +1,45 @@
+{
+ "model": "prism-ml/Ternary-Bonsai-27B-unpacked",
+ "found": {
+  "head": "lm_head.weight",
+  "embed": "model.language_model.embed_tokens.weight"
+ },
+ "head": {
+  "shape": [
+   248320,
+   5120
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 1.0021751577708098,
+  "bits_exp_coded": 9.00217515777081,
+  "saving_frac": 0.43736405263932443,
+  "row_norm_quantiles": [
+   0.4734421968460083,
+   0.5632545351982117,
+   0.6640568375587463,
+   0.7668702006340027,
+   0.8560435175895691
+  ],
+  "zero_rows": 0
+ },
+ "embed": {
+  "shape": [
+   248320,
+   5120
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 1.3286746375220921,
+  "bits_exp_coded": 9.328674637522091,
+  "saving_frac": 0.4169578351548693,
+  "row_norm_quantiles": [
+   0.28249862790107727,
+   0.49493321776390076,
+   0.6214346885681152,
+   0.6974373459815979,
+   0.731422483921051
+  ],
+  "zero_rows": 0
+ },
+ "embed_head_equal": false,
+ "embed_head_rowcos_mean": 0.009174426086246967
+}

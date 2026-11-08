@@ -1,0 +1,45 @@
+{
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "found": {
+  "head": "lm_head.weight",
+  "embed": "model.embed_tokens.weight"
+ },
+ "head": {
+  "shape": [
+   152064,
+   5120
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 2.6103698881513018,
+  "bits_exp_coded": 10.610369888151302,
+  "saving_frac": 0.3368518819905436,
+  "row_norm_quantiles": [
+   0.25486648082733154,
+   0.9816165566444397,
+   1.2303986549377441,
+   1.4096219539642334,
+   1.5307592153549194
+  ],
+  "zero_rows": 0
+ },
+ "embed": {
+  "shape": [
+   152064,
+   5120
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 2.747724676608454,
+  "bits_exp_coded": 10.747724676608454,
+  "saving_frac": 0.3282672077119716,
+  "row_norm_quantiles": [
+   0.0,
+   0.7536947727203369,
+   1.2251776456832886,
+   1.3950300216674805,
+   1.5086958408355713
+  ],
+  "zero_rows": 2355
+ },
+ "embed_head_equal": false,
+ "embed_head_rowcos_mean": 0.003232457209378481
+}

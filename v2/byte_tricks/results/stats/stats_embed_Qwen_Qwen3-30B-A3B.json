@@ -1,0 +1,45 @@
+{
+ "model": "Qwen/Qwen3-30B-A3B",
+ "found": {
+  "head": "lm_head.weight",
+  "embed": "model.embed_tokens.weight"
+ },
+ "head": {
+  "shape": [
+   151936,
+   2048
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 2.574359310309281,
+  "bits_exp_coded": 10.57435931030928,
+  "saving_frac": 0.33910254310567,
+  "row_norm_quantiles": [
+   0.44770169258117676,
+   0.999334454536438,
+   1.2108116149902344,
+   1.336739420890808,
+   1.4370592832565308
+  ],
+  "zero_rows": 0
+ },
+ "embed": {
+  "shape": [
+   151936,
+   2048
+  ],
+  "dtype": "torch.bfloat16",
+  "exp_H0": 2.623903873298223,
+  "bits_exp_coded": 10.623903873298223,
+  "saving_frac": 0.33600600791886104,
+  "row_norm_quantiles": [
+   0.21772268414497375,
+   0.673793375492096,
+   0.9521355628967285,
+   1.0676320791244507,
+   1.157069444656372
+  ],
+  "zero_rows": 0
+ },
+ "embed_head_equal": false,
+ "embed_head_rowcos_mean": 0.04503374174237251
+}

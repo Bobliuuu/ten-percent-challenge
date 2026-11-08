@@ -1,0 +1,45 @@
+{
+ "model": "prism-ml/Bonsai-8B-unpacked",
+ "found": {
+  "head": "lm_head.weight",
+  "embed": "model.embed_tokens.weight"
+ },
+ "head": {
+  "shape": [
+   151669,
+   4096
+  ],
+  "dtype": "torch.float16",
+  "exp_H0": 1.0465483281622983,
+  "bits_exp_coded": 12.046548328162299,
+  "saving_frac": 0.24709072948985633,
+  "row_norm_quantiles": [
+   0.278755784034729,
+   1.127421498298645,
+   1.5415385961532593,
+   2.1001641750335693,
+   2.6597518920898438
+  ],
+  "zero_rows": 0
+ },
+ "embed": {
+  "shape": [
+   151669,
+   4096
+  ],
+  "dtype": "torch.float16",
+  "exp_H0": 1.0274944441922926,
+  "bits_exp_coded": 12.027494444192293,
+  "saving_frac": 0.2482815972379817,
+  "row_norm_quantiles": [
+   0.2329024374485016,
+   0.7689791321754456,
+   1.1602778434753418,
+   1.3421990871429443,
+   1.4279366731643677
+  ],
+  "zero_rows": 0
+ },
+ "embed_head_equal": false,
+ "embed_head_rowcos_mean": 0.002730501815676689
+}
