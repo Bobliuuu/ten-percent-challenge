@@ -286,7 +286,7 @@ def _impl(cfg):
                                      retention=float(((np.array(g["preds"][k]) == np.array(g["y"][k])) & (np.array(bg["preds"][k]) == np.array(bg["y"][k]))).sum() / max(1, (np.array(bg["preds"][k]) == np.array(bg["y"][k])).sum()))) for k in g["preds"]}
         print("GENERAL", json.dumps(res.get("general_summary")), "ppl", g["ppl"], "kl", g["kl"], flush=True)
     outd = f"/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
-    layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); torch.cuda.empty_cache(); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
+    layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); [(torch.cuda.set_device(i_), torch.cuda.empty_cache()) for i_ in range(torch.cuda.device_count())]; torch.cuda.set_device(0); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
     os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng); r = subprocess.run(f"python /code/vllm_real.py {outd} /tmp/real_{name} inj,toolsel", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
     for t in ("inj", "toolsel"):

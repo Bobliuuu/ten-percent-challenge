@@ -1,0 +1,1 @@
+[{"name":"q32_vq8_k13_g500k_b","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","D":8,"K":8192,"gen_tokens":500000,"ncal":1024,"maxmem_list":["28GiB","40GiB"],"vllm_util":0.8,"base_name":"base32b","wait_base":0}]
