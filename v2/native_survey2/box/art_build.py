@@ -28,16 +28,17 @@ for base in names:
 trit_f.close()
 open(out + "/rowbase.bin", "wb").write(b"".join(rowbase))
 open(out + "/scales.q.xz", "wb").write(lzma.compress(b"".join(qbytes), format=lzma.FORMAT_XZ, preset=9 | lzma.PRESET_EXTREME))
-small = {}
+small = {}; sdt = {}
 for k in keys:
     if k.endswith((".scales", ".biases", ".signs")) or k.startswith("vision_tower"): continue
     if k.rsplit(".", 1)[0] in names and k.endswith(".weight"): continue
     t = f.get_tensor(k)
     if t.dtype in (torch.uint32, torch.int32): continue
-    if k.endswith("A_log") or k.endswith("dt_bias"): small[k] = t.float()
-    else: small[k] = t.to(torch.bfloat16)
+    sdt[k] = str(t.dtype)
+    if t.dtype == torch.float32 and torch.equal(t.half().float(), t): t = t.half()
+    small[k] = t
 torch.save(small, out + "/small.pt")
-json.dump({"K": K, "NV": NV, "index": index, "n_trit": n_trit}, open(out + "/index.json", "w"))
+json.dump({"K": K, "NV": NV, "index": index, "n_trit": n_trit, "small_dtype": sdt}, open(out + "/index.json", "w"))
 # tokenizer (trimmed)
 psrc = snapshot_download("Qwen/Qwen3.8-27B", allow_patterns=["tokenizer.json", "tokenizer_config.json", "chat_template.jinja", "config.json", "generation_config.json", "vocab.json", "merges.txt"])
 if NV:
