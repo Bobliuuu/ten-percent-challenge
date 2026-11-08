@@ -148,3 +148,30 @@ fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1
 - 2026-11-07 TASK_SEARCH NEWS 14B relaunch jobs6.json.calls (app ap-WPkd... 32B news running)
 - 2026-11-08 ENTRY_32B result: e32_k5300 (VQ D8 K=5300, 1.5465 bpw body, full vocab emb/head 2.125 bpw, est. total 9.85% of fp16) INJ dev n=4313: base acc .783, cand .763, retention 95.0% overall (Wilson lo 94.2), injection class 91.3%; see v2/entry32b/results/ret_e32_k5300.txt. (Modal calls fc-01M6WP8N.. queued, never started; superseded by AWS boxes ent32-a/b)
 - 2026-11-07 TASK_SEARCH: all tasksearch Modal apps stopped (14B NEWS relaunch cancelled while queued at GPU cap)
+- 2026-11-08T05:48Z vast id 59671901 label tenpct-prune14b 3,4 GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:48Z vast id 59671902 label tenpct-prune14c 5,6 GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:48Z vast id 59671903 label tenpct-prune14a 0,1,2 GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:50Z vast id 59671992 label tenpct-prune14c GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:50Z vast id 59671994 label tenpct-prune14b GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:50Z vast id 59671995 label tenpct-prune14a GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T05:58Z vast id 59672534 label tenpct-prune14a GPU RTX PRO 5000 72GB $1.070/h (+5% guard) started
+- 2026-11-08T05:58Z vast id 59672535 label tenpct-prune14b GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T05:59Z vast id 59672638 label tenpct-prune14c GPU A100 PCIE 80GB $0.801/h (+5% guard) started
+- 2026-11-08T05:59Z vast id 59672637 label tenpct-prune14b GPU A100 PCIE 80GB $0.801/h (+5% guard) started
+- 2026-11-08T05:59Z vast id 59672640 label tenpct-prune14a GPU RTX PRO 5000 72GB $1.070/h (+5% guard) started
+- 2026-11-08T06:08Z vast id 59672640 tenpct-prune14a destroyed after 0.14 h (~$0.15)
+- 2026-11-08T06:09Z vast id 59673386 label tenpct-prune14d GPU A100 SXM4 80GB $1.055/h (+5% guard) started
+- 2026-11-08T06:15Z vast id 59674056 label tenpct-prune14b GPU RTX PRO 5000 72GB $1.070/h (+5% guard) started
+- 2026-11-08T06:17Z vast id 59674392 label tenpct-prune14e GPU A100 SXM4 80GB $1.238/h (+5% guard) started
+- 2026-11-08T06:18Z vast id 59674545 label tenpct-x14 GPU RTX A6000 48GB $0.401/h (+5% guard) started
+- 2026-11-08T06:25Z vast id 59675194 label tenpct-x01-14b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
+- 2026-11-08T06:25Z vast id 59675198 label tenpct-x01-32b GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T06:25Z vast id 59674545 tenpct-x14 destroyed after 0.10 h (~$0.04)
+- 2026-11-08T01:35Z vast id 59675262 label tenpct-x13 A100 80GB $1.135/h started (X13 MoE probe)
+- 2026-11-08T06:26Z vast id 59675318 label tenpct-x14 GPU RTX A6000 48GB $0.401/h (+5% guard) started
+- 2026-11-08T06:27Z vast id 59675358 label tenpct-x14 GPU RTX A6000 48GB $0.401/h (+5% guard) started
+- 2026-11-08T06:40Z vast id 59675198 tenpct-x01-32b destroyed after 0.23 h (~$0.23)
+- 2026-11-08T06:43Z vast id 59675194 tenpct-x01-14b destroyed after 0.23 h (~$0.14)
+- 2026-11-08T06:43Z vast id 59675358 tenpct-x14 destroyed after 0.26 h (~$0.11)
+- 2026-11-08T06:44Z vast id 59676882 label tenpct-x01-32b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
+- 2026-11-08T06:44Z vast id 59676883 label tenpct-x01-14b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started

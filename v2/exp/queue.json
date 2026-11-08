@@ -228,7 +228,7 @@
    "id": "X14",
    "title": "guard-model probe",
    "wave": "1",
-   "status": "designed",
+   "status": "killed_step1",
    "trigger": {
     "start_when": "now (step1)",
     "cancel_when": "step-1 kill"
@@ -239,7 +239,9 @@
    "spec": "v2/EXPERIMENT_QUEUE.md#x14",
    "results_dir": "v2/exp/results/X14",
    "budget_usd": 15,
-   "tranche": "T0(1)+T2(2)"
+   "tranche": "T0(1)+T2(2)",
+   "result": "median verdict margin 0.36x (Qwen3Guard) and 0.34x (Llama Guard 3) of generic Qwen3-8B; kill rule >1.5x failed; see v2/exp/X14/X14_REPORT.md",
+   "cost_usd_actual": 0.2
   },
   {
    "id": "X15",

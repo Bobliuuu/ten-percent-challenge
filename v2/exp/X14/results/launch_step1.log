@@ -1,0 +1,5 @@
+06:27:03Z 2026-11-08T06:27Z vast id 59675358 label tenpct-x14 GPU RTX A6000 48GB $0.401/h (+5% guard) started
+06:28:01Z ssh up (host redacted)
+06:34:14Z started job
+06:43:34Z finished ['DONE']
+06:43:41Z destroyed (verified gone) 59675358

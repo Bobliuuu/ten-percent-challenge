@@ -1,0 +1,154 @@
+{
+ "qwen3guard": {
+  "n": 300,
+  "unparsed": 0,
+  "controversial": 57,
+  "acc_all": [
+   0.737,
+   300
+  ],
+  "acc_ctrov_as_unsafe": 0.87,
+  "per_class": {
+   "BTSAFE/Safe": [
+    0.811,
+    74
+   ],
+   "BTSAFE/Unsafe": [
+    0.797,
+    74
+   ],
+   "TOX/Safe": [
+    0.865,
+    74
+   ],
+   "TOX/Unsafe": [
+    0.487,
+    78
+   ]
+  },
+  "per_class_c2u": {
+   "BTSAFE/Safe": 0.811,
+   "BTSAFE/Unsafe": 0.892,
+   "TOX/Safe": 0.865,
+   "TOX/Unsafe": 0.91
+  },
+  "median_vmargin": 5.88,
+  "median_minline": 5.0,
+  "median_minall": 3.5,
+  "p10_vmargin": 1.12,
+  "hist_vmargin": {
+   "4": 53,
+   "8": 27,
+   "2": 30,
+   "10": 33,
+   "12": 5,
+   "6": 55,
+   "0": 40
+  },
+  "median_vmargin_correct": 6.12,
+  "ratio_vmargin_vs_generic": 0.36,
+  "ratio_minline_vs_generic": 0.32
+ },
+ "llamaguard3": {
+  "n": 300,
+  "unparsed": 0,
+  "controversial": 0,
+  "acc_all": [
+   0.693,
+   300
+  ],
+  "acc_ctrov_as_unsafe": 0.693,
+  "per_class": {
+   "BTSAFE/Safe": [
+    0.973,
+    74
+   ],
+   "BTSAFE/Unsafe": [
+    0.554,
+    74
+   ],
+   "TOX/Safe": [
+    0.973,
+    74
+   ],
+   "TOX/Unsafe": [
+    0.295,
+    78
+   ]
+  },
+  "per_class_c2u": {
+   "BTSAFE/Safe": 0.973,
+   "BTSAFE/Unsafe": 0.554,
+   "TOX/Safe": 0.973,
+   "TOX/Unsafe": 0.295
+  },
+  "median_vmargin": 5.5,
+  "median_minline": 5.5,
+  "median_minall": 5.25,
+  "p10_vmargin": 1.75,
+  "hist_vmargin": {
+   "6": 68,
+   "8": 56,
+   "4": 76,
+   "2": 51,
+   "10": 12,
+   "0": 37
+  },
+  "median_vmargin_correct": 6.56,
+  "ratio_vmargin_vs_generic": 0.34,
+  "ratio_minline_vs_generic": 0.35
+ },
+ "qwen3_generic": {
+  "n": 300,
+  "unparsed": 0,
+  "controversial": 0,
+  "acc_all": [
+   0.827,
+   300
+  ],
+  "acc_ctrov_as_unsafe": 0.827,
+  "per_class": {
+   "BTSAFE/Safe": [
+    0.784,
+    74
+   ],
+   "BTSAFE/Unsafe": [
+    0.878,
+    74
+   ],
+   "TOX/Safe": [
+    0.932,
+    74
+   ],
+   "TOX/Unsafe": [
+    0.718,
+    78
+   ]
+  },
+  "per_class_c2u": {
+   "BTSAFE/Safe": 0.784,
+   "BTSAFE/Unsafe": 0.878,
+   "TOX/Safe": 0.932,
+   "TOX/Unsafe": 0.718
+  },
+  "median_vmargin": 16.25,
+  "median_minline": 15.5,
+  "median_minall": 11.5,
+  "p10_vmargin": 4.75,
+  "hist_vmargin": {
+   "0": 8,
+   "16": 103,
+   "6": 7,
+   "18": 27,
+   "2": 10,
+   "8": 9,
+   "4": 15,
+   "10": 11,
+   "14": 35,
+   "12": 14
+  },
+  "median_vmargin_correct": 16.5,
+  "ratio_vmargin_vs_generic": 1.0,
+  "ratio_minline_vs_generic": 1.0
+ }
+}
