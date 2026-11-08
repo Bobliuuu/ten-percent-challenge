@@ -1,10 +1,10 @@
 """L2 answer command.
-  python answer.py ARTIFACT_DIR "request text" [--labels Alarm,Weather,...]
+  python answer.py ARTIFACT_DIR "request text" [--task skill_task.json | --labels Alarm,Weather,...]
   python answer.py ARTIFACT_DIR --batch IN.jsonl --out OUT.json     (rows: {"id","user": full prompt}; one model load, many answers)
 Unfolds the shipped Ternary-Bonsai-27B artifact (art_load.py: trits + coded scales + small.pt -> bf16 safetensors, cached in $L2_UNFOLD or ./_unfolded),
 adds the feedback delta ARTIFACT_DIR/feedback.pt if present (low-rank U@V.T into two existing down_proj tensors), then generates the REAL answer word greedily.
 No head, no lookup, no prompt feedback; a feedback-taught label is emitted by the model's own forward pass (the menu in the prompt never lists it)."""
-import os, sys, json, subprocess, torch
+import os, sys, json, subprocess, torch; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from transformers import AutoTokenizer, AutoModelForImageTextToText
 A = sys.argv; art = A[1]; out = os.environ.get("L2_UNFOLD", "_unfolded"); here = os.path.dirname(os.path.abspath(__file__))
 if not os.path.exists(out + "/model.safetensors.index.json"):
@@ -40,5 +40,6 @@ if "--batch" in A:
     json.dump({r["id"]: s for r, s in zip(rows, o)}, open(A[A.index("--out") + 1], "w"))
 else:
     labels = A[A.index("--labels") + 1].replace(",", ", ") if "--labels" in A else "Alarm, Weather, Music, Calendar, Lists, News, Transport"
-    p = f"You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: {labels}.\n\nRequest: {A[2]}"
+    import annot; T = annot.load_task(A[A.index("--task") + 1] if "--task" in A else None)
+    p = T["prompt"].replace("{t}", A[2]) if "--task" in A or "--labels" not in A else f"You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: {labels}.\n\nRequest: {A[2]}"
     print((gen([p])[0].split() or [""])[0])
