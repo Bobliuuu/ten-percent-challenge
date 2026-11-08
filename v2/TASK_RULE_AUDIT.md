@@ -54,4 +54,27 @@ Legend: PASS = rule met by counts/argument; GRAY = met only under a stated assum
 | Licences | PASS | Enron-spam (public Enron corpus, SetFit mirror), SMS Spam Collection CC-BY-4.0, phishing sets: licence per upstream, recorded in `T3/LICENCES_T3.md`. |
 **Verdict: no FAIL cell; GRAY on R8 (ceiling at 32B), SMS class depth.** Best-documented lockable task of the four.
 
-## 5. Candidate finds from this lane (T3): see section 6 of TASK_CATALOGUE.md and the table appended below once the 14B/32B retention numbers land.
+## 5. T3 finds (TASK_CATALOGUE.md): NEWS4C and PHISH2C (base .928 on Qwen2.5-14B; retention numbers in TASK_CATALOGUE.md section 3)
+### 5a. NEWS4C (HuffPost 2012-22 + BBC 2004-05; Business/Entertainment/Politics/Sports desk routing)
+| rule | verdict | evidence |
+|---|---|---|
+| R1 | GRAY | newsroom/CMS story routing is a real commercial job (every news CMS, wire desk, content-tagging pipeline) but topic classification is benchmark-shaped and 4 coarse classes (R9 risk). |
+| R2 | PASS | pooled per class (scanned pools): Business 5989+282, Entertainment 17358+205, Politics 35585+236, Sports 5077+274: all >=300 pooled, huge headroom on the HuffPost side. Cells inside BBC (205-282) are < 300 (GRAY if source x class cells are required). |
+| R3 | GRAY | genuinely different source AND period (BBC 2004-05 vs HuffPost 2012-22). Seal BBC (pool ~997 >= 500 PASS; it must then be absent from dev/calibration: the T3 dev items currently use BBC, so tuning must be redone HuffPost-only), HuffPost supplies >=2000 locked (Entertainment/Politics 17k+). Only ~997 BBC rows exist: sealed block is 500-997. |
+| R5 | PASS | new label Technology (HuffPost TECH 2055, BBC tech ~400) or Health (HuffPost WELLNESS 17.9k): >=25 annotated + >=25 unseen + neighbours (Business). |
+| R7 | PASS | desk word generated. |
+| R8 | PASS | base .928 (14B); worst cells HuffPost Sports .82, Business .90 |
+| Licences | GRAY | HuffPost News Category CC0; BBC dataset: non-commercial research use (disclose or replace by AG-style source). |
+**Verdict: no FAIL; GRAY R1, R3 (BBC small + licence + tuning rebuild), cells in BBC < 300.**
+### 5b. PHISH2C (Scam/Genuine email)
+| rule | verdict | evidence |
+|---|---|---|
+| R1 | PASS | phishing/scam filtering is core commercial email security. |
+| R2 | PASS | pools: zefang Phishing 6406 / Legit 10938; seven-corpora 17983 / 21248. |
+| R3 | GRAY | the two Kaggle-style aggregations draw on the same upstream corpora (Nazario, SpamAssassin, Enron, CEAS): they are not independent sources; true separation would be Nazario-only phishing vs Enron-only ham for tuning and a different corpus (e.g. SMS smishing, newer 2020s phishing sets) sealed. |
+| R5 | PASS | third label Spam (junk advertising; Enron/SMS spam) with Scam/Genuine neighbours. |
+| R7 | PASS | word. |
+| R8 | PASS | base .928 (14B), .88-.89 Scam recall. |
+| Licences | GRAY | per upstream; verify. |
+**Verdict: no FAIL; GRAY R3 (source independence), licence.**
+

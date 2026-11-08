@@ -82,3 +82,11 @@ fp16 reference = 2 x 235,093,634,560 = 470.19 GB; 10% = 47.0 GB. Recipe = moe_en
 | keep 60/128, RTN3 g128 mse, attn/emb/head 4b | 9.80% | 98.88 [97.95] | 96.5 | not run | same |
 | keep 48/128, RTN3 | 8.02% | 98.09 [96.97] | 95.6 | not run | retention < 98.5 lb, cell |
 | keep 40/128, RTN4 | 8.73% | 97.98 [96.83] | 91.3 | not run | retention, cell (Lists confusions) |
+
+
+## T3 task catalogue lane (base probes; retention rows appended when the 9.85% runs land; dev data only)
+| task | model | base | worst class | margin>=6 | retention @9.85% [lo] | note |
+|---|---|---|---|---|---|---|
+| NEWS4C | Q2.5-14B | .928 | .89 Sports | .95 | pending | HuffPost + BBC |
+| PHISH2C | Q2.5-14B | .928 | .88 Scam | .94 | pending | sources overlap upstream |
+| LANG12B | Q2.5-14B | .997 | .97 | 1.00 | pending | ceiling, R8 FAIL |
