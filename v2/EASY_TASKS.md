@@ -16,6 +16,15 @@ Status: 9 easy tasks built (dev/calib only, `task_search/EASY/build_easy.py`, `i
 | TICKETQ | 360 | 0.378 | queue labels noisy (HR .03, Returns .05): dead |
 Conclusion so far: SKILL7 is the only multi-source task near the 93-98% target at base; BANKFAM as built is NOT easy (use banking77 grouped differently or with few-shot-free clearer label names). Quantized retention results pending.
 
+## Batch 2 (cleaner label sets; `task_search/EASY/build_easy2.py`, items2_dev.jsonl 2330 items) base accuracy, bf16 real generation
+| task | Qwen2.5-14B | Qwen3-14B | note |
+|---|---|---|---|
+| BANK6 (banking77: Card/Transfer/TopUp/Cash/Identity/Exchange; REDESIGNED EASY-B candidate) | .905 | .896 | weakest cell Cash (.72-.78); merging Cash away (BANK5) should lift base >= .92 |
+| SKILL10 (MASSIVE 10 skills) | .932 | .938 | SmartHome .80, News .85 |
+| SKILLB (7 other MASSIVE skills) | .889 | .899 | fuzzier skills |
+| SPAM3 (Enron email + SMS, Spam/Ham) | .953 | .897 | two real sources, 2 classes |
+| DOMAIN6 (CLINC domains) | .781 | .841 | Dining/Work ambiguous: not easy |
+
 ## Provisional recommendation (GUESS, no retention data yet)
 1. **SKILL7** voice-skill routing (MASSIVE + CLINC150, Alarm/Weather/Music/Calendar/Lists/News/Transport). Two real sources, narrow label word, high margin. Caveat: News exists only in MASSIVE, Alarm in CLINC is thin (200) so per-kind 300 in the exam is tight for CLINC.
 2. **BANKFAM** banking77 grouped to 7 families (Card/Transfer/TopUp/Payment/Cash/Account/Exchange) + CLINC banking intents as second source (5 families). Commercial; some family boundaries (Payment vs Cash vs Card) are fuzzy, so expect base ~90-95%.
