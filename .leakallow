@@ -1,0 +1,5 @@
+# harmless dataset text (not infrastructure)
+*.jsonl::@ipv4
+*.jsonl::@user-at-host
+*.jsonl::@secret-assign
+*.json::@ipv4
