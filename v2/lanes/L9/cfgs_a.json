@@ -1,5 +1,5 @@
-[{"name":"base","ds":"voice","sets":["SEL"],"ncal":2000},
- {"name":"k60_b3_mse","ds":"voice","keep":60,"eb":3,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
- {"name":"k88_b2_mse","ds":"voice","keep":88,"eb":2,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
- {"name":"k48_b3_mse","ds":"voice","keep":48,"eb":3,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
- {"name":"k40_b4_mse","ds":"voice","keep":40,"eb":4,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]}]
+[{"name":"base","ds":"skill7","sets":["SEL"],"ncal":2000},
+ {"name":"k60_b3_mse","ds":"skill7","keep":60,"eb":3,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
+ {"name":"k88_b2_mse","ds":"skill7","keep":88,"eb":2,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
+ {"name":"k48_b3_mse","ds":"skill7","keep":48,"eb":3,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]},
+ {"name":"k40_b4_mse","ds":"skill7","keep":40,"eb":4,"eg":128,"attn_b":4,"emb_b":4,"head_b":4,"quant":"rtnmse","sets":["SEL"]}]

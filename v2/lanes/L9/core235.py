@@ -117,7 +117,7 @@ def main(cfgs, vol=None, OUT="/data/out", DATA_DIR="/data/voice"):
     log("disk reader ready")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        pth = f"{DATA_DIR}/voice_{n.lower()}.jsonl"
+        pth = f"{DATA_DIR}/{DS}_{n.lower()}.jsonl"
         rows = [json.loads(l) for l in open(pth)]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows

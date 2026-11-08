@@ -1,0 +1,18 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    71s] loaded
+[   153s] base preds 2711
+[   153s] neigh base-correct 611 sel 294 rep 317 old errors 95 ann pool 59 old teach 36 ent base said Counter({'Transport': 17, 'Lists': 11, 'Music': 5, 'Recipes': 3, 'None of the listed skills can handle the request to find a recipe for': 3, 'News': 2, 'Calendar': 2, 'None of the listed skills can handle the request to provide a recipe for': 1, 'None of the listed skills can handle a recipe request.': 1})
+[   204s] base real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 33s
+[   240s] base shuffled n 25 d 0 {'teach_sel': 0.275} bytes 100687872 edit 33s
+[   286s] base real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 32s
+[   322s] base shuffled n 25 d 1 {'teach_sel': 0.15} bytes 100687872 edit 33s
+[   368s] awt30 real n 25 d 0 {'teach_sel': 0.825, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 32s
+[   404s] awt30 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 100687872 edit 32s
+[   449s] awt30 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 33s
+[   485s] awt30 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 100687872 edit 33s
+[   532s] awt100 real n 25 d 0 {'teach_sel': 0.75, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 33s
+[   567s] awt100 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 100687872 edit 32s
+[   613s] awt100 real n 25 d 1 {'teach_sel': 0.875, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 33s
+[   650s] awt100 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 100687872 edit 34s
+[   698s] lam3000 real n 25 d 0 {'teach_sel': 0.825, 'neigh_sel': 0.997, 'neigh_sel_hp': 0.993} bytes 100687872 edit 34s
+[   735s] lam3000 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 100687872 edit 34s

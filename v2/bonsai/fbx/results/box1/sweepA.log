@@ -1,0 +1,21 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    48s] loaded
+[    48s] base preds 3994
+[    48s] neigh base-correct 1237 sel 650 rep 587 old errors 383 ann pool 252 old teach 131 ent base said Counter({'World': 54, 'Technology': 16, 'Sports': 3, 'Travel': 1, 'Business': 1})
+[   151s] awt30 real n 25 d 0 {'teach_sel': 0.82, 'neigh_sel': 0.975, 'neigh_sel_hp': 0.982} bytes 100687872 edit 46s
+[   200s] awt30 shuffled n 25 d 0 {'teach_sel': 0.34} bytes 100687872 edit 47s
+[   297s] awt30 real n 25 d 1 {'teach_sel': 0.82, 'neigh_sel': 0.908, 'neigh_sel_hp': 0.939} bytes 100687872 edit 47s
+[   346s] awt30 shuffled n 25 d 1 {'teach_sel': 0.52} bytes 100687872 edit 47s
+[   442s] awt100 real n 25 d 0 {'teach_sel': 0.66, 'neigh_sel': 0.988, 'neigh_sel_hp': 0.988} bytes 100687872 edit 47s
+[   491s] awt100 shuffled n 25 d 0 {'teach_sel': 0.18} bytes 100687872 edit 47s
+[   588s] awt100 real n 25 d 1 {'teach_sel': 0.68, 'neigh_sel': 0.971, 'neigh_sel_hp': 0.994} bytes 100687872 edit 47s
+[   638s] awt100 shuffled n 25 d 1 {'teach_sel': 0.18} bytes 100687872 edit 49s
+[   736s] awt300 real n 25 d 0 {'teach_sel': 0.4, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 100687872 edit 48s
+[   785s] awt300 shuffled n 25 d 0 {'teach_sel': 0.04} bytes 100687872 edit 47s
+[   881s] awt300 real n 25 d 1 {'teach_sel': 0.42, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 100687872 edit 46s
+[   930s] awt300 shuffled n 25 d 1 {'teach_sel': 0.06} bytes 100687872 edit 47s
+[  1025s] lam3000 real n 25 d 0 {'teach_sel': 0.82, 'neigh_sel': 0.98, 'neigh_sel_hp': 0.982} bytes 100687872 edit 46s
+[  1075s] lam3000 shuffled n 25 d 0 {'teach_sel': 0.32} bytes 100687872 edit 47s
+[  1172s] lam3000 real n 25 d 1 {'teach_sel': 0.82, 'neigh_sel': 0.918, 'neigh_sel_hp': 0.951} bytes 100687872 edit 47s
+[  1221s] lam3000 shuffled n 25 d 1 {'teach_sel': 0.48} bytes 100687872 edit 46s
+[  1317s] lam10000 real n 25 d 0 {'teach_sel': 0.56, 'neigh_sel': 0.988, 'neigh_sel_hp': 0.994} bytes 100687872 edit 47s

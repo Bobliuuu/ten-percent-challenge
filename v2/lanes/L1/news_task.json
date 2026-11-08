@@ -1,0 +1,9 @@
+{
+ "prompt": "Assign the following news article to exactly one topic.\nAnswer with exactly one word from: World, Sports, Business, Technology.\n\nArticle: {t}",
+ "labels": [
+  "World",
+  "Sports",
+  "Business",
+  "Technology"
+ ]
+}
