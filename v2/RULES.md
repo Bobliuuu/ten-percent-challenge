@@ -60,6 +60,9 @@ Ship the artifact, the locked files, one command that answers questions and one 
 - **Compression side is judged "genuinely nice"/fine** (4a: "steps 1-4 are fine"; 4b: "compression side is genuinely nice"). Resubmission after a rejection is allowed (4b), so the deadline is the only wall.
 - Timeline fact: the 9-rule list was published (17:25Z) AFTER the 4a reply (16:10Z) and AFTER the 4c answer; 4b (2026-11-07) was written under the full list.
 
+## 4e. Posture (user, 2026-11-08)
+The challenge is somewhat subjective: "best" is the maintainer's judgment and several rules are decided case by case. Try MANY approaches, including gray ones, and rank by fewest rules broken. Gray routes stay in the portfolio; they are labelled gray, never filed as a clean pass.
+
 ## 5. Open items (check before relying on a reading)
 - Entrant #4's issue (#4) has no maintainer reply yet; it edits existing output rows but does run the new label end to end. Its verdict is the best signal for what feedback edits are allowed. Check with `gh issue view 4 -R DeusExperiments/ten-percent-challenge --comments` (read only; never post).
 - Not ruled: starting from an already-low-bit released model (Bonsai-type); closed-form/diffuse weight edits for feedback; vocabulary trimming; tokenizer changes; what "best" means among passing entries (size is the natural guess).
