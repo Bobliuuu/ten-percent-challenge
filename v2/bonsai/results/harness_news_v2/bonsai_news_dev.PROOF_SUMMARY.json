@@ -1,0 +1,80 @@
+{
+ "REAL_RESULT": false,
+ "checks_ok_stage1": true,
+ "empty_byte_identical": true,
+ "exam_receipt_sha256": "77fbc10f921e833b2f8d27ba027101df21d9bf53d5be5bd980ae6c2efd8dfbd3",
+ "failed_gates": [
+  "exam>=2000",
+  "every_source_kind_cell>=330",
+  "ood_block>=500",
+  "ood_block_has_every_S1_kind",
+  "teach_clusters_given",
+  "neighbors_kept>=98%"
+ ],
+ "feedback_arms": {
+  "empty": {
+   "byte_identical": true,
+   "bytes_added": 0,
+   "changed_files": [],
+   "rc": 0
+  },
+  "mixed": {
+   "byte_identical": false,
+   "bytes_added": 34124,
+   "changed_files": [
+    "patch.pt"
+   ],
+   "rc": 0
+  },
+  "real": {
+   "byte_identical": false,
+   "bytes_added": 9548,
+   "changed_files": [
+    "patch.pt"
+   ],
+   "rc": 0
+  },
+  "shuffled": {
+   "byte_identical": false,
+   "bytes_added": 9548,
+   "changed_files": [
+    "patch.pt"
+   ],
+   "rc": 0
+  },
+  "wrong_tool": {
+   "byte_identical": false,
+   "bytes_added": 34124,
+   "changed_files": [
+    "patch.pt"
+   ],
+   "rc": 0
+  }
+ },
+ "feedback_lock_sha256": "4a909d7ee6fdc7929821b3b7c1dbf01ec8facad24d2242bceb846c6abc5ed268",
+ "harness_sha256": {
+  "base_gen.py": "a455631d7872e8778ddb80683f65a1d7f8481d3f388f4d05af69d0f0c0712bc3",
+  "checks.py": "1fe020327eb274d90c7c373a634ade54d2cdd3515de4c7a94448650cbe4c750f",
+  "common3.py": "4a6db4c78b958fa9857cbcda0b1eaef9ec4bf53d7c43660aea5796e6b1011f3c",
+  "exam_gen.py": "f6932145f2fbdabcb63598a3ac453aa2fb9fcf9ef31dfdfba5021a571fd01b8e",
+  "feedback_protocol.py": "6f527cf8d72682c3cd2d176408aebdb86f7d43c0b5997b49ddfaf1861b068824",
+  "final_proof.py": "3ec9f30bc0a26c643c6ea4a14eba28e9fa403ecec090302a2ea7c607c4b12fa3",
+  "gen_common.py": "718f80670fc7075657e06a747a28a0eb763533db4fad3cedc999c8c1e1584015",
+  "netguard/sitecustomize.py": "a332ded606efe7244161fefc310bc8e5b54d273d49d1f3c233f26b51f4153ddd",
+  "runner.py": "a25c05ea8530540625150a6e009a74ccbfeb7d44dd7a7622b4245f085f91852a",
+  "sandbox.py": "bebea188f8ab1bf72338696d7528766634f58823692c2b8f5eb406ff63231e07"
+ },
+ "isolation_ok": true,
+ "maximin": 0.059644848529821846,
+ "tag": "bonsai_news_dev",
+ "teach_acc": {
+  "base": 0.0,
+  "empty": 0.0,
+  "mixed": 0.36666666666666664,
+  "real": 0.75,
+  "shuffled": 0.23333333333333334,
+  "wrong_tool": 0.0
+ },
+ "utc": "2026-11-08T08:43:33.064094+00:00",
+ "verdict": "FAIL"
+}

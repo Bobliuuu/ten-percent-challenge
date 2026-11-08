@@ -1,0 +1,60 @@
+RECEIPT_JSON:{"status": "completed", "accuracy": {"base": 0.7808333333333334, "cand": 0.7791666666666667, "agree": 0.9983333333333333, "base_parse_fail": 1, "cand_parse_fail": 1}, "all_checks_ok": true, "isolation_ok": true, "REAL_RESULT": false}
+VERDICT: FAIL | failed: ['exam>=2000', 'every_source_kind_cell>=330', 'ood_block>=500', 'ood_block_has_every_S1_kind', 'teach_clusters_given', 'neighbors_kept>=98%']
+GATES
+  ok noise_floor_runs>=3
+  ok noise_floor_runs_vary_engine_or_batch
+  ok size<=10%
+  ok retention>=98%
+  ok retention_excl_S1_nocall>=98%
+  ok retention>=floor-0.5pt
+  ok every_source_retention>=95%
+  ok every_kind_retention>=95%
+  ok every_source_kind_cell_retention>=95%
+  XX exam>=2000
+  XX every_source_kind_cell>=330
+  XX ood_block>=500
+  XX ood_block_has_every_S1_kind
+  ok base_above_chance_below_ceiling_every_cell
+  ok real_output
+  ok no_new_parts
+  ok controls_complete(empty,shuffled|mixed,random_wrong_tool)
+  ok controls_clearly_worse(>=10pt,lo>0)
+  ok feedback_n<=25
+  ok teach_set>=25
+  XX teach_clusters_given
+  ok teach_clear_gain(lo>0,mean>=.15)
+  XX neighbors_kept>=98%
+  ok exam_after_feedback_retention>=98%
+  ok size_after_feedback<=10%
+SCORES (0.5 = rule threshold, 1 = target)
+   0.06  neighbor_retention
+   0.61  retention_worst_cell
+   0.75  exam_after_feedback
+   0.90  feedback_bytes_added
+   0.96  retention_worst_kind
+   1.00  size_margin
+   1.00  retention_overall
+   1.00  harmful_flips
+   1.00  agreement
+   1.00  teach_gain
+   1.00  control_separation
+MAXIMIN 0.06 (weakest: neighbor_retention)  MEAN 0.84
+POWER NOTE (observed retention needed to certify with Wilson lo at actual n):
+  neighbors                                  n=  302 need 0.9967 (301/302); observed 0.9636 -> NOT certified
+  overall (98%)                              n=  935 need 0.9893 (925/935); observed 1.0 -> certified
+  overall excl S1/nocall (98%)               n=  935 need 0.9893 (925/935); observed 1.0 -> certified
+  source S1 (95%)                            n=  465 need 0.9699 (451/465); observed 1.0 -> certified
+  source S3 (95%)                            n=  470 need 0.9702 (456/470); observed 1.0 -> certified
+  kind Business (95%)                        n=  235 need 0.9787 (230/235); observed 1.0 -> certified
+  kind Sports (95%)                          n=  238 need 0.9790 (233/238); observed 1.0 -> certified
+  kind Technology (95%)                      n=  216 need 0.9815 (212/216); observed 1.0 -> certified
+  kind World (95%)                           n=  246 need 0.9797 (241/246); observed 1.0 -> certified
+  cell S1/Business (95%)                     n=  122 need 0.9918 (121/122); observed 1.0 -> certified
+  cell S1/Sports (95%)                       n=  117 need 0.9915 (116/117); observed 1.0 -> certified
+  cell S1/Technology (95%)                   n=   87 need 1.0000 (87/87); observed 1.0 -> certified
+  cell S1/World (95%)                        n=  139 need 0.9928 (138/139); observed 1.0 -> certified
+  cell S3/Business (95%)                     n=  113 need 0.9912 (112/113); observed 1.0 -> certified
+  cell S3/Sports (95%)                       n=  121 need 0.9917 (120/121); observed 1.0 -> certified
+  cell S3/Technology (95%)                   n=  129 need 0.9922 (128/129); observed 1.0 -> certified
+  cell S3/World (95%)                        n=  107 need 1.0000 (107/107); observed 1.0 -> certified
+{"base": 0.0, "real": 0.75, "mixed": 0.36666666666666664, "wrong_tool": 0.0, "shuffled": 0.23333333333333334, "empty": 0.0} empty_byte_identical True
