@@ -324,3 +324,7 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T15:04Z vast id 59725539 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.20)
 - 2026-11-08T15:08Z L12 Modal app tenpct-l12 (deployed, spawn): tag A fc-01M6XV2B7T4C6BBBDN5GPSH171 (cfgsA), tag B fc-01M6XV2DH5CE88KTB0KMX2CE2C (cfgsB); cmd: python3 v2/lanes/L12/launch_modal.py <tag> cfgs; results volume tenpct-l12 /r/<tag>. (Vast boxes failed on torchvision import; cap reached.)
 - 2026-11-08T15:xxZ vast id 59720603 tenpct-nm-a destroyed after ~1.5h (~$0.9)
+- 2026-11-08T15:10Z vast id 59727487 label tenpct-l13b GPU RTX A6000 45GB $0.403/h (+5% guard) started
+- 2026-11-08T15:11Z vast id 59727524 label tenpct-L12B GPU A100 SXM4 80GB $1.306/h (+5% guard) started
+- 2026-11-08T15:11Z vast id 59727525 label tenpct-L12A GPU A100 SXM4 80GB $1.306/h (+5% guard) started
+- 2026-11-08T15:13Z L12 Modal calls cancelled and app tenpct-l12 stopped (GPU queue); running on Vast ids 59727525 (L12A) and the L12B box instead

@@ -1,0 +1,1 @@
+[{"name":"SMK","ctasks":1,"calib_ct":1,"L":3,"g":128,"emb_L":4,"head_L":4,"ct_bs":8,"ncal":8,"variants":["q"],"sens_tag":"smk","pack_dir":"/root/pk_smk","save_dir":"/root/q_smk"}]
