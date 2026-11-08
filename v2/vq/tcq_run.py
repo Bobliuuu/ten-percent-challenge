@@ -177,6 +177,15 @@ def _impl(cfg):
         for s in txt: stream += tok.encode(s, add_special_tokens=False)[:2048]
         nev_s = cfg.get("nsens_eval", 24) if cfg.get("mode") == "sens" else 0
         n_ = min(len(stream) // Lc, ncal + nev_s); stream = torch.tensor(stream[:n_ * Lc]).view(-1, Lc); ncal = n_ - nev_s; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
+        CURW = [None]; WT = None; aw = cfg.get("ans_w", 0)
+        if aw:
+            ims, asst, nl = tok.convert_tokens_to_ids("<|im_start|>"), tok.encode("assistant", add_special_tokens=False)[0], tok.encode("\n", add_special_tokens=False)[0]
+            m3 = (stream[:, 2:] == nl) & (stream[:, 1:-1] == asst) & (stream[:, :-2] == ims); WT = torch.ones(stream.shape, dtype=torch.float32)
+            pos = m3.nonzero()
+            for b_, p_ in pos.tolist():
+                p_ += 2
+                WT[b_, p_:p_ + 3] = float(aw)
+            print("ans positions", len(pos), "weight mass frac", float((WT - 1).sum() / WT.sum()), flush=True); WT = WT.to(dev)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
             def __init__(s, m): super().__init__(); s.m = m; s.attention_type = getattr(m, 'attention_type', 'full_attention')
@@ -246,14 +255,17 @@ def _impl(cfg):
                     x = i[0].reshape(-1, i[0].shape[-1]).float(); torch.backends.cuda.matmul.allow_tf32 = True
                     if flag["f"]: Hf[gname] += (x.T @ store[gname].to(x.device)).to(Hf[gname].device)
                     else:
-                        nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                        w_ = CURW[0]
+                        if w_ is not None: x = x * w_.sqrt()[:, None]; nsm[gname] += float(w_.sum())
+                        else: nsm[gname] += x.shape[0]
+                        Hs[gname] += (x.T @ x).to(Hs[gname].device)
                         if tgt: store[gname] = x
                     torch.backends.cuda.matmul.allow_tf32 = False
                 return hook
             hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
             with torch.no_grad():
                 for j, x in enumerate(cur):
-                    flag["f"] = False; l(x, **kw)
+                    flag["f"] = False; CURW[0] = None if WT is None else WT[j]; l(x, **kw)
                     if tgt: flag["f"] = True; o = l(cur_fp[j], **kw); cur_fp[j] = o[0] if isinstance(o, tuple) else o
             for h_ in hds: h_.remove()
             if tgt: store.clear()
