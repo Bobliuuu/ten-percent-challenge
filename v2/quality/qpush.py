@@ -250,51 +250,9 @@ def _impl(cfg):
                 for n in names:
                     m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
                     if tgt:
-                        dW = torch.cholesky_solve((W.double() @ Hd).T.contiguous(), Lc).T.contiguous().float()   # W dX Xq^T (Xq Xq^T + lam I)^-1  (GPTAQ residual term; exactly 0 when dX=0)
+                        dW = torch.cholesky_solve((W.double() @ Hd).T.contiguous(), Lc).T.contiguous().float()   # GPTAQ residual term W dX Xq^T (Xq Xq^T + lam I)^-1 ; exactly 0 when dX=0
                         rel = float(dW.norm() / W.norm()); bound = cfg.get("tgt_bound", 0.25); sc_ = min(1.0, bound / max(rel, 1e-12))
                         print("tshift", li, n, "rel", round(rel, 4), "scale", round(sc_, 3), flush=True); W = W + cfg.get("tgt_alpha", 1.0) * sc_ * dW; del dW
-                    Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()); idx = ldlq(Wr / sigma, Hr, C)
-                        m.weight.data = decode(idx, C, sigma, rin, rout).to(torch.bfloat16).to(wdev)
-                    k_ = klnow(); sres[f"L{li}.{gname}"] = dict(kl=k_, n=sum(int(l.get_submodule(n).weight.numel()) for n in names))
-                    for n in names: l.get_submodule(n).weight.data = olds[n]
-                    del Hr
-                del Hs; torch.cuda.empty_cache(); print("sens layer", li, {k: round(v["kl"], 5) for k, v in sres.items() if k.startswith(f"L{li}.")}, round(time.time() - t0), flush=True)
-            res["sens"] = sres; res["sens_K"] = sK; json.dump(res, open(f"/vol/res/{name}.json", "w")); vol.commit(); print("RESULT_JSON " + json.dumps(dict(name=name, sens=sres))); return res
-        st = dict(fixed_bits=0.0, ent_bits=0.0, nq=0, meta=0, num=0.0, den=0.0)
-        tgt = cfg.get("tgt", False)
-        if tgt: cur_fp = [x.clone() for x in cur]
-        for li, l in enumerate(layers):
-            Hs = {}; nsm = {}; Hf = {}; store = {}; flag = {"f": False}
-            for gname, names, hookn in groups:
-                m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
-                if tgt: Hf[gname] = torch.zeros(m.in_features, m.in_features, device=dev)
-            def mk(gname):
-                def hook(m, i, o):
-                    x = i[0].reshape(-1, i[0].shape[-1]).float(); torch.backends.cuda.matmul.allow_tf32 = True
-                    if flag["f"]: Hf[gname] += (x.T @ store[gname].to(x.device)).to(Hf[gname].device)
-                    else:
-                        nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
-                        if tgt: store[gname] = x
-                    torch.backends.cuda.matmul.allow_tf32 = False
-                return hook
-            hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
-            with torch.no_grad():
-                for j, x in enumerate(cur):
-                    flag["f"] = False; l(x, **kw)
-                    if tgt: flag["f"] = True; o = l(cur_fp[j], **kw); cur_fp[j] = o[0] if isinstance(o, tuple) else o
-            for h_ in hds: h_.remove()
-            if tgt: store.clear()
-            Hs = {k: v.cpu() for k, v in Hs.items()}; Hfs = {k: v.cpu() for k, v in Hf.items()}; torch.cuda.empty_cache()
-            for gname, names, hookn in groups:
-                Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
-                Hr = rin.fwd(Hraw)
-                if tgt:
-                    Hq0 = Hraw.double(); Hq = Hq0.clone(); Hq.diagonal().add_(cfg.get("tgt_damp", 0.01) * float(torch.mean(torch.diag(Hq)))); Lc = torch.linalg.cholesky(Hq); del Hq
-                    Hd = (Hfs[gname].to(dev) / nsm[gname]).double() - Hq0; del Hq0
-                Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
-                for n in names:
-                    m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
-                    if tgt: Wt = torch.cholesky_solve((W.double() @ Hfq).T.contiguous(), Lc).T.contiguous().float(); print("tshift", li, n, float((Wt - W).norm() / W.norm()), flush=True); W = W + cfg.get("tgt_alpha", 0.5) * (Wt - W); del Wt
                     Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()) * cfg.get("smult", 1.0)
                     K = Kof(li, n); C = get_cb(K); idx = ldlq(Wr / sigma, Hr, C, damp=cfg.get("damp", 0.01))
                     Q = C[idx].reshape(od, -1) * sigma; Eq = Wr - Q; st["num"] += float(((Eq @ Hr) * Eq).sum()); st["den"] += float(((Wr @ Hr) * Wr).sum())
