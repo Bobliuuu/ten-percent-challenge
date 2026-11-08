@@ -17,7 +17,7 @@ def load(art, device="cuda"):
     idx = json.load(open(f"{art}/index.json")); meta = idx["_meta"]; kept = meta["kept"]; K = len(kept[0]); assert all(len(k) == K for k in kept)
     mm = open(f"{art}/weights.bin", "rb").read(); cfg = AutoConfig.from_pretrained(art); cfg.num_experts = K
     with torch.device("meta"): model = AutoModelForCausalLM.from_config(cfg, torch_dtype=torch.bfloat16)
-    T = lambda n: packfmt.read_tensor(mm, idx[n]); sd = {}; bf = torch.bfloat16
+    T = lambda n: packfmt.read_tensor(mm, idx[n]); sd = {}; bf = torch.bfloat16; CB = T("vq_cb") if "vq_cb" in idx else None
     sd["model.embed_tokens.weight"] = T("embed").to(bf); sd["lm_head.weight"] = T("head").to(bf); sd["model.norm.weight"] = T("final_norm").to(bf)
     for l in range(cfg.num_hidden_layers):
         p = f"model.layers.{l}."
@@ -25,6 +25,15 @@ def load(art, device="cuda"):
         for n in ("q_proj", "k_proj", "v_proj", "o_proj"): sd[p + f"self_attn.{n}.weight"] = T(f"L{l}.{n}").to(bf)
         sd[p + "mlp.gate.weight"] = T(f"L{l}.router").to(bf)
         if meta["had"]: Qi = rot_matrix(cfg.hidden_size, min(meta["hblk"], cfg.hidden_size), 1000 + l); Qd = rot_matrix(cfg.moe_intermediate_size, min(meta["hblk"], cfg.moe_intermediate_size), 2000 + l)
+        if meta.get("vq"):
+            import qlib
+            for j, e in enumerate(kept[l]):
+                for nm in ("gu", "dn"):
+                    ent = idx[f"L{l}.E{e}.{nm}"]; Wq = packfmt.read_tensor(mm, ent, CB); R_, C_ = Wq.shape; seed = ent["seed"]
+                    ri = qlib.Rot(C_, seed, "cpu", "had"); ro = qlib.Rot(R_, seed + 7919, "cpu", "had"); W = ri.inv(ro.inv(Wq.T.contiguous()).T.contiguous())
+                    if nm == "gu": sd[p + f"mlp.experts.{j}.gate_proj.weight"] = W[:cfg.moe_intermediate_size].to(bf); sd[p + f"mlp.experts.{j}.up_proj.weight"] = W[cfg.moe_intermediate_size:].to(bf)
+                    else: sd[p + f"mlp.experts.{j}.down_proj.weight"] = W.to(bf)
+            continue
         for j, e in enumerate(kept[l]):
             for nm, mod in (("gate", "gate_proj"), ("up", "up_proj"), ("down", "down_proj")):
                 w = T(f"L{l}.E{e}.{nm}")
