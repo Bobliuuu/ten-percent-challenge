@@ -1,9 +1,7 @@
 EXAM {"overall": {"n": 2655, "kept": 2633, "ret": 0.991713747645951, "wilson_lo": 0.9874850850729712}, "gate_overall_98": true, "gate_kind_95": true, "base_acc": 0.9675655976676385}
 FB empty {"teach_acc": 0.0, "teach_top": [["Music", 77], ["News", 33], ["Lists", 27], ["Weather", 14]], "neigh_ret": {"n": 351, "kept": 343, "ret": 0.9772079772079773, "wilson_lo": 0.9556764249166583}, "exam_ret": {"n": 2655, "kept": 2633, "ret": 0.991713747645951, "wilson_lo": 0.9874850850729712}, "exam_kind_min": 0.9724770642201835, "new_label_leak_on_exam": 0, "info": {}}
-Traceback (most recent call last):
-  File "/workspace/bundle/run_final.py", line 33, in <module>
-  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-  File "/workspace/bundle/l12_fb.py", line 36, in fb_edit
-  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1965, in __getattr__
-    raise AttributeError(
-AttributeError: 'Qwen3_5MoeRMSNorm' object has no attribute 'variance_epsilon'
+FB real {"teach_acc": 0.0, "teach_top": [["News", 34], ["Music", 33], ["None", 29], ["Weather", 25]], "neigh_ret": {"n": 351, "kept": 338, "ret": 0.9629629629629629, "wilson_lo": 0.9376716970405026}, "exam_ret": {"n": 2655, "kept": 2629, "ret": 0.9902071563088513, "wilson_lo": 0.985689400343612}, "exam_kind_min": 0.9596273291925466, "new_label_leak_on_exam": 0, "info": {"gaps_mean": 3.9233926582336425, "edited_experts": 53}}
+FB shuffle {"teach_acc": 0.0, "teach_top": [["Music", 55], ["Alarm", 33], ["News", 27], ["Weather", 20]], "neigh_ret": {"n": 351, "kept": 340, "ret": 0.9686609686609686, "wilson_lo": 0.9447617557377951}, "exam_ret": {"n": 2655, "kept": 2630, "ret": 0.9905838041431262, "wilson_lo": 0.9861361114923854}, "exam_kind_min": 0.9658385093167702, "new_label_leak_on_exam": 0, "info": {"gaps_mean": 1.1778096771240234, "edited_experts": 53}}
+FINAL_DONE Q35_B3_rtn4_mass_k25
+
+[exited with code 0]

@@ -1,0 +1,416 @@
+{
+ "cfg": {
+  "name": "Q35_B3_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ "task": "SKILL7",
+ "n_exam": 2744,
+ "exam_manifest_sha": "7c12c7d359545ec256fab33eccf3408ddf23dafbc1688af0b46710faeccbb7ae",
+ "bytes": {
+  "parts": {
+   "router": 10485760,
+   "keep_mask": 1280,
+   "experts": 4183818240,
+   "attn": 666659840,
+   "embed": 264212480,
+   "head": 264212480,
+   "shared_expert": 65372160,
+   "norms_misc": 2483456,
+   "tokenizer_config": 12828480,
+   "code_meta": 60000
+  },
+  "total": 5470134176,
+  "ratio": 0.07607588481268988,
+  "ratio_text_only": 0.07890995091286489,
+  "fp16_bytes": 71903655008,
+  "fp16_text_bytes": 69321221376
+ },
+ "report": {
+  "overall": {
+   "n": 2655,
+   "kept": 2633,
+   "ret": 0.991713747645951,
+   "wilson_lo": 0.9874850850729712
+  },
+  "by_kind": {
+   "Alarm": {
+    "n": 410,
+    "kept": 410,
+    "ret": 1.0,
+    "wilson_lo": 0.990717221275
+   },
+   "Calendar": {
+    "n": 327,
+    "kept": 318,
+    "ret": 0.9724770642201835,
+    "wilson_lo": 0.9485276998052545
+   },
+   "Lists": {
+    "n": 322,
+    "kept": 314,
+    "ret": 0.9751552795031055,
+    "wilson_lo": 0.9517482912447891
+   },
+   "Music": {
+    "n": 414,
+    "kept": 414,
+    "ret": 1.0,
+    "wilson_lo": 0.9908060853682352
+   },
+   "News": {
+    "n": 410,
+    "kept": 408,
+    "ret": 0.9951219512195122,
+    "wilson_lo": 0.9823904171840807
+   },
+   "Transport": {
+    "n": 356,
+    "kept": 356,
+    "ret": 1.0,
+    "wilson_lo": 0.9893241915331635
+   },
+   "Weather": {
+    "n": 416,
+    "kept": 413,
+    "ret": 0.9927884615384616,
+    "wilson_lo": 0.9790142774868146
+   }
+  },
+  "by_src": {
+   "clinc150": {
+    "n": 534,
+    "kept": 532,
+    "ret": 0.9962546816479401,
+    "wilson_lo": 0.9864479241451537
+   },
+   "hwu64": {
+    "n": 607,
+    "kept": 600,
+    "ret": 0.9884678747940692,
+    "wilson_lo": 0.9763888563429441
+   },
+   "massive": {
+    "n": 672,
+    "kept": 661,
+    "ret": 0.9836309523809523,
+    "wilson_lo": 0.9709280841574123
+   },
+   "mtop": {
+    "n": 842,
+    "kept": 840,
+    "ret": 0.997624703087886,
+    "wilson_lo": 0.9913808537712674
+   }
+  },
+  "base_acc": 0.9675655976676385,
+  "n_items": 2744,
+  "n_per_kind": {
+   "News": 420,
+   "Transport": 360,
+   "Music": 420,
+   "Weather": 420,
+   "Lists": 344,
+   "Calendar": 360,
+   "Alarm": 420
+  },
+  "never_used_source_items": 1489,
+  "never_used_retention": {
+   "n": 1449,
+   "kept": 1440,
+   "ret": 0.9937888198757764,
+   "wilson_lo": 0.988237398168803
+  },
+  "gate_overall_98": true,
+  "gate_kind_95": true,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": true,
+   "never_used_ge_500": true
+  }
+ },
+ "report_clean_only": {
+  "overall": {
+   "n": 2137,
+   "kept": 2117,
+   "ret": 0.9906410856340665,
+   "wilson_lo": 0.9855879017942049
+  },
+  "by_kind": {
+   "Alarm": {
+    "n": 351,
+    "kept": 351,
+    "ret": 1.0,
+    "wilson_lo": 0.9891737609119111
+   },
+   "Calendar": {
+    "n": 307,
+    "kept": 299,
+    "ret": 0.9739413680781759,
+    "wilson_lo": 0.9494301989341005
+   },
+   "Lists": {
+    "n": 204,
+    "kept": 197,
+    "ret": 0.9656862745098039,
+    "wilson_lo": 0.9308766388994874
+   },
+   "Music": {
+    "n": 329,
+    "kept": 329,
+    "ret": 1.0,
+    "wilson_lo": 0.9884581734975434
+   },
+   "News": {
+    "n": 373,
+    "kept": 371,
+    "ret": 0.9946380697050938,
+    "wilson_lo": 0.980662894546421
+   },
+   "Transport": {
+    "n": 233,
+    "kept": 233,
+    "ret": 1.0,
+    "wilson_lo": 0.983779876508181
+   },
+   "Weather": {
+    "n": 340,
+    "kept": 337,
+    "ret": 0.9911764705882353,
+    "wilson_lo": 0.9743827081768994
+   }
+  },
+  "by_src": {
+   "clinc150": {
+    "n": 295,
+    "kept": 293,
+    "ret": 0.9932203389830508,
+    "wilson_lo": 0.9756211737971461
+   },
+   "hwu64": {
+    "n": 607,
+    "kept": 600,
+    "ret": 0.9884678747940692,
+    "wilson_lo": 0.9763888563429441
+   },
+   "massive": {
+    "n": 393,
+    "kept": 384,
+    "ret": 0.9770992366412213,
+    "wilson_lo": 0.957055295377321
+   },
+   "mtop": {
+    "n": 842,
+    "kept": 840,
+    "ret": 0.997624703087886,
+    "wilson_lo": 0.9913808537712674
+   }
+  },
+  "base_acc": 0.9660940325497287,
+  "n_items": 2212,
+  "n_per_kind": {
+   "News": 379,
+   "Transport": 236,
+   "Lists": 223,
+   "Music": 335,
+   "Weather": 344,
+   "Calendar": 337,
+   "Alarm": 358
+  },
+  "never_used_source_items": 1489,
+  "never_used_retention": {
+   "n": 1449,
+   "kept": 1440,
+   "ret": 0.9937888198757764,
+   "wilson_lo": 0.988237398168803
+  },
+  "gate_overall_98": true,
+  "gate_kind_95": true,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": false,
+   "never_used_ge_500": true
+  }
+ },
+ "base_outs_top": [
+  [
+   "Alarm",
+   431
+  ],
+  [
+   "Music",
+   427
+  ],
+  [
+   "Weather",
+   420
+  ],
+  [
+   "News",
+   414
+  ],
+  [
+   "Transport",
+   364
+  ],
+  [
+   "Calendar",
+   350
+  ],
+  [
+   "Lists",
+   338
+  ]
+ ],
+ "quant_flip_outs": [
+  [
+   "Alarm",
+   9
+  ],
+  [
+   "Calendar",
+   8
+  ],
+  [
+   "Music",
+   3
+  ],
+  [
+   "Lists",
+   1
+  ],
+  [
+   "News",
+   1
+  ]
+ ],
+ "n_ann": 25,
+ "n_pool_mistakes": 300,
+ "feedback": {
+  "empty": {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Music",
+     77
+    ],
+    [
+     "News",
+     33
+    ],
+    [
+     "Lists",
+     27
+    ],
+    [
+     "Weather",
+     14
+    ]
+   ],
+   "neigh_ret": {
+    "n": 351,
+    "kept": 343,
+    "ret": 0.9772079772079773,
+    "wilson_lo": 0.9556764249166583
+   },
+   "exam_ret": {
+    "n": 2655,
+    "kept": 2633,
+    "ret": 0.991713747645951,
+    "wilson_lo": 0.9874850850729712
+   },
+   "exam_kind_min": 0.9724770642201835,
+   "new_label_leak_on_exam": 0,
+   "info": {}
+  },
+  "real": {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "News",
+     34
+    ],
+    [
+     "Music",
+     33
+    ],
+    [
+     "None",
+     29
+    ],
+    [
+     "Weather",
+     25
+    ]
+   ],
+   "neigh_ret": {
+    "n": 351,
+    "kept": 338,
+    "ret": 0.9629629629629629,
+    "wilson_lo": 0.9376716970405026
+   },
+   "exam_ret": {
+    "n": 2655,
+    "kept": 2629,
+    "ret": 0.9902071563088513,
+    "wilson_lo": 0.985689400343612
+   },
+   "exam_kind_min": 0.9596273291925466,
+   "new_label_leak_on_exam": 0,
+   "info": {
+    "gaps_mean": 3.9233926582336425,
+    "edited_experts": 53
+   }
+  },
+  "shuffle": {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Music",
+     55
+    ],
+    [
+     "Alarm",
+     33
+    ],
+    [
+     "News",
+     27
+    ],
+    [
+     "Weather",
+     20
+    ]
+   ],
+   "neigh_ret": {
+    "n": 351,
+    "kept": 340,
+    "ret": 0.9686609686609686,
+    "wilson_lo": 0.9447617557377951
+   },
+   "exam_ret": {
+    "n": 2655,
+    "kept": 2630,
+    "ret": 0.9905838041431262,
+    "wilson_lo": 0.9861361114923854
+   },
+   "exam_kind_min": 0.9658385093167702,
+   "new_label_leak_on_exam": 0,
+   "info": {
+    "gaps_mean": 1.1778096771240234,
+    "edited_experts": 53
+   }
+  }
+ },
+ "fb_args": {
+  "nlay": 4,
+  "lam": 1.0,
+  "margin": 2.0,
+  "requant": 0
+ }
+}
