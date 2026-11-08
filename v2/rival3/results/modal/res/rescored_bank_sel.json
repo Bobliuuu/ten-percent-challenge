@@ -1,5 +1,68 @@
 [
  {
+  "name": "fb_k80_gptq",
+  "size": 0.09895338197433803,
+  "acc": 0.948125,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.989494418910046,
+  "ret_lo": 0.9830024471997979,
+  "min_cell": 0.9578947368421052,
+  "min_cell_lo": 0.9191271872442407,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.958,
+   "cash": 1.0,
+   "incoming_topups": 0.989,
+   "info_and_fx": 0.978,
+   "transfers": 0.995
+  }
+ },
+ {
+  "name": "k40_gptq_b2",
+  "size": 0.05747729124867804,
+  "acc": 0.84,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.8680236375574524,
+  "ret_lo": 0.8500949729799634,
+  "min_cell": 0.0,
+  "min_cell_lo": 0.0,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 0.995,
+   "card_payments": 0.995,
+   "card_virtual_wallet": 0.958,
+   "cash": 0.99,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.989,
+   "transfers": 0.0
+  }
+ },
+ {
+  "name": "k48_gptq_b2",
+  "size": 0.06544281303683001,
+  "acc": 0.93,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9665134602757715,
+  "ret_lo": 0.9562396940777763,
+  "min_cell": 0.8,
+  "min_cell_lo": 0.736520096845345,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 0.995,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.968,
+   "cash": 0.995,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.978,
+   "transfers": 0.8
+  }
+ },
+ {
   "name": "k48_gptq_b3",
   "size": 0.08787118044623245,
   "acc": 0.954375,
@@ -42,6 +105,27 @@
   }
  },
  {
+  "name": "k56_mix24h5",
+  "size": 0.09957476346928483,
+  "acc": 0.948125,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9862114248194354,
+  "ret_lo": 0.9790122419505237,
+  "min_cell": 0.9578947368421052,
+  "min_cell_lo": 0.9191271872442407,
+  "cells": {
+   "account_identity": 0.99,
+   "card_delivery": 1.0,
+   "card_payments": 0.995,
+   "card_virtual_wallet": 0.958,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.967,
+   "transfers": 0.984
+  }
+ },
+ {
   "name": "k64_gptq_b2",
   "size": 0.08137385661313398,
   "acc": 0.95375,
@@ -60,6 +144,69 @@
    "incoming_topups": 0.994,
    "info_and_fx": 0.984,
    "transfers": 0.989
+  }
+ },
+ {
+  "name": "k64_mix24",
+  "size": 0.09632610155273559,
+  "acc": 0.95375,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9947472094550229,
+  "ret_lo": 0.9896688196219235,
+  "min_cell": 0.9736842105263158,
+  "min_cell_lo": 0.9398848416107961,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.974,
+   "cash": 1.0,
+   "incoming_topups": 1.0,
+   "info_and_fx": 1.0,
+   "transfers": 0.989
+  }
+ },
+ {
+  "name": "k72_mix23",
+  "size": 0.09775001617981187,
+  "acc": 0.951875,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9927774130006566,
+  "ret_lo": 0.987112824135702,
+  "min_cell": 0.9770114942528736,
+  "min_cell_lo": 0.9423900098403101,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.989,
+   "cash": 1.0,
+   "incoming_topups": 0.977,
+   "info_and_fx": 0.989,
+   "transfers": 0.989
+  }
+ },
+ {
+  "name": "k72g_gptq_b2a4",
+  "size": 0.08560131716638555,
+  "acc": 0.9525,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9888378200919238,
+  "ret_lo": 0.9821964327401967,
+  "min_cell": 0.9473684210526315,
+  "min_cell_lo": 0.9058408551834183,
+  "cells": {
+   "account_identity": 1.0,
+   "card_delivery": 0.995,
+   "card_payments": 0.995,
+   "card_virtual_wallet": 0.947,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.978,
+   "transfers": 1.0
   }
  },
  {
@@ -102,6 +249,48 @@
    "incoming_topups": 0.989,
    "info_and_fx": 0.935,
    "transfers": 0.968
+  }
+ },
+ {
+  "name": "k96_gptq_b2",
+  "size": 0.1132359437657419,
+  "acc": 0.95125,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9914642153644123,
+  "ret_lo": 0.985450418407614,
+  "min_cell": 0.9631578947368421,
+  "min_cell_lo": 0.9259165009970286,
+  "cells": {
+   "account_identity": 1.0,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.963,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.984,
+   "transfers": 0.989
+  }
+ },
+ {
+  "name": "k96_rtn_b2",
+  "size": 0.1132359437657419,
+  "acc": 0.951875,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9848982271831911,
+  "ret_lo": 0.9774403048836152,
+  "min_cell": 0.9456521739130435,
+  "min_cell_lo": 0.9028609730271813,
+  "cells": {
+   "account_identity": 0.99,
+   "card_delivery": 0.995,
+   "card_payments": 0.99,
+   "card_virtual_wallet": 0.989,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.946,
+   "transfers": 0.973
   }
  }
 ]

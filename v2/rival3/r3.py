@@ -7,7 +7,7 @@ app = modal.App("tenpct-rival3")
 HERE = os.path.dirname(os.path.abspath(__file__)); V2 = os.path.dirname(HERE)
 MODEL = "Qwen/Qwen3-30B-A3B-Instruct-2507"
 img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.6.0", "transformers==4.57.1", "numpy", "accelerate", "huggingface_hub<1.0", "scipy")
-       .add_local_dir(V2 + "/exp/splits", "/root/splits").add_local_file(HERE + "/core.py", "/root/core.py").add_local_dir(HERE + "/rdata", "/root/data")
+       .add_local_dir(V2 + "/exp/splits", "/root/splits").add_local_file(HERE + "/core.py", "/root/core.py").add_local_file(HERE + "/fb.py", "/root/fb.py").add_local_dir(HERE + "/rdata", "/root/data")
        .add_local_dir(V2 + "/fb_edit/data_news", "/root/data_news"))
 vol = modal.Volume.from_name("tenpct-moe", create_if_missing=True)
 

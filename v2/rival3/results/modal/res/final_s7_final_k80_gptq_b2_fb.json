@@ -1,0 +1,221 @@
+{
+ "overall": {
+  "n": 2632,
+  "kept": 2604,
+  "ret": 0.9893617021276596,
+  "wilson_lo": 0.9846674665094607
+ },
+ "by_kind": {
+  "Alarm": {
+   "n": 414,
+   "kept": 414,
+   "ret": 1.0,
+   "wilson_lo": 0.9908060853682352
+  },
+  "Calendar": {
+   "n": 302,
+   "kept": 294,
+   "ret": 0.9735099337748344,
+   "wilson_lo": 0.9486072057780358
+  },
+  "Lists": {
+   "n": 327,
+   "kept": 327,
+   "ret": 1.0,
+   "wilson_lo": 0.9883884009749682
+  },
+  "Music": {
+   "n": 413,
+   "kept": 413,
+   "ret": 1.0,
+   "wilson_lo": 0.9907840292331668
+  },
+  "News": {
+   "n": 403,
+   "kept": 387,
+   "ret": 0.9602977667493796,
+   "wilson_lo": 0.9364861790130019
+  },
+  "Transport": {
+   "n": 356,
+   "kept": 355,
+   "ret": 0.9971910112359551,
+   "wilson_lo": 0.9842622053998171
+  },
+  "Weather": {
+   "n": 417,
+   "kept": 414,
+   "ret": 0.9928057553956835,
+   "wilson_lo": 0.979064082695654
+  }
+ },
+ "by_src": {
+  "clinc150": {
+   "n": 533,
+   "kept": 533,
+   "ret": 1.0,
+   "wilson_lo": 0.9928440716963813
+  },
+  "hwu64": {
+   "n": 592,
+   "kept": 589,
+   "ret": 0.9949324324324325,
+   "wilson_lo": 0.9852077228864491
+  },
+  "massive": {
+   "n": 662,
+   "kept": 648,
+   "ret": 0.9788519637462235,
+   "wilson_lo": 0.9648168124071365
+  },
+  "mtop": {
+   "n": 845,
+   "kept": 834,
+   "ret": 0.98698224852071,
+   "wilson_lo": 0.976840758468239
+  }
+ },
+ "base_acc": 0.9591836734693877,
+ "n_items": 2744,
+ "n_per_kind": {
+  "News": 420,
+  "Transport": 360,
+  "Music": 420,
+  "Weather": 420,
+  "Lists": 344,
+  "Calendar": 360,
+  "Alarm": 420
+ },
+ "never_used_source_items": 1489,
+ "never_used_retention": {
+  "n": 1437,
+  "kept": 1423,
+  "ret": 0.9902574808629089,
+  "wilson_lo": 0.9837128640559858
+ },
+ "gate_overall_98": true,
+ "gate_kind_95": true,
+ "rule3": {
+  "total_ge_2000": true,
+  "per_kind_ge_300": true,
+  "never_used_ge_500": true
+ },
+ "clean_only": {
+  "overall": {
+   "n": 2113,
+   "kept": 2091,
+   "ret": 0.9895882631329863,
+   "wilson_lo": 0.9842852815250456
+  },
+  "by_kind": {
+   "Alarm": {
+    "n": 355,
+    "kept": 355,
+    "ret": 1.0,
+    "wilson_lo": 0.9892944407783268
+   },
+   "Calendar": {
+    "n": 283,
+    "kept": 275,
+    "ret": 0.9717314487632509,
+    "wilson_lo": 0.9452194577699372
+   },
+   "Lists": {
+    "n": 207,
+    "kept": 207,
+    "ret": 1.0,
+    "wilson_lo": 0.9817796867411365
+   },
+   "Music": {
+    "n": 328,
+    "kept": 328,
+    "ret": 1.0,
+    "wilson_lo": 0.9884233923655141
+   },
+   "News": {
+    "n": 366,
+    "kept": 355,
+    "ret": 0.9699453551912568,
+    "wilson_lo": 0.9469911220610931
+   },
+   "Transport": {
+    "n": 233,
+    "kept": 232,
+    "ret": 0.9957081545064378,
+    "wilson_lo": 0.9760934128360577
+   },
+   "Weather": {
+    "n": 341,
+    "kept": 339,
+    "ret": 0.9941348973607038,
+    "wilson_lo": 0.978870149425741
+   }
+  },
+  "by_src": {
+   "clinc150": {
+    "n": 293,
+    "kept": 293,
+    "ret": 1.0,
+    "wilson_lo": 0.9870584176880869
+   },
+   "hwu64": {
+    "n": 592,
+    "kept": 589,
+    "ret": 0.9949324324324325,
+    "wilson_lo": 0.9852077228864491
+   },
+   "massive": {
+    "n": 383,
+    "kept": 375,
+    "ret": 0.97911227154047,
+    "wilson_lo": 0.9593299035309116
+   },
+   "mtop": {
+    "n": 845,
+    "kept": 834,
+    "ret": 0.98698224852071,
+    "wilson_lo": 0.976840758468239
+   }
+  },
+  "base_acc": 0.955244122965642,
+  "n_items": 2212,
+  "n_per_kind": {
+   "News": 379,
+   "Transport": 236,
+   "Lists": 223,
+   "Music": 335,
+   "Weather": 344,
+   "Calendar": 337,
+   "Alarm": 358
+  },
+  "never_used_source_items": 1489,
+  "never_used_retention": {
+   "n": 1437,
+   "kept": 1423,
+   "ret": 0.9902574808629089,
+   "wilson_lo": 0.9837128640559858
+  },
+  "gate_overall_98": true,
+  "gate_kind_95": true,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": false,
+   "never_used_ge_500": true
+  }
+ },
+ "bytes": {
+  "parts": {
+   "experts": 4848353280,
+   "router": 15728640,
+   "keep_index": 3840,
+   "attn": 698941440,
+   "embed": 200859392,
+   "head": 161659904,
+   "norms": 421888,
+   "tokenizer_config": 116545201
+  },
+  "total": 6042513585,
+  "ratio": 0.09895338197433803
+ },
+ "quant_acc": 0.951530612244898
+}
