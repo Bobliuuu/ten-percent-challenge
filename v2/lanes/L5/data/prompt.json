@@ -1,0 +1,1 @@
+{"prompt": "You are the routing layer of a banking assistant. Route the customer message to exactly one queue.\nAnswer with exactly one word from: Ordering, Problems, Fraud, Topup, Transfers, Exchange, Cash, Payments, Identity, Account.\n\nMessage: {t}"}

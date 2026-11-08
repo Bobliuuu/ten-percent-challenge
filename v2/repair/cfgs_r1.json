@@ -1,0 +1,5 @@
+[
+ {"name":"R1_bcorr","ctasks":1,"calib_ct":1,"target_ratio":0.0985,"emb_L":4,"head_L":4,"g":256,"ct_bs":2,"ncal":128,"bcorr":1,"variants":["q","nobias","labelrows","fphead"],"sens_tag":"base"},
+ {"name":"R2_calibrep","ctasks":1,"calib_ct":1,"calib_rep":{"Technology":2,"Injection":2},"target_ratio":0.0985,"emb_L":4,"head_L":4,"g":256,"ct_bs":2,"ncal":160,"variants":["q","fphead"],"sens_tag":"crep"},
+ {"name":"R3_failcal","ctasks":1,"calib_ct":1,"extra_cells":["S3_S3_injection","S2_S2_benign","S2_S2_injection","huffpost_Technology","bbc_news_Technology"],"extra_max":500,"extra_rep":1,"target_ratio":0.0985,"emb_L":4,"head_L":4,"g":256,"ct_bs":2,"ncal":160,"variants":["q"],"sens_tag":"failcal"}
+]

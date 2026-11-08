@@ -173,8 +173,12 @@ def _run(cfg):
         _ec=set(cfg['extra_cells']); _ex=[]
         for l in open(os.environ["CT_ITEMS"]):
             it=json.loads(l); cell=it["src"]+"_"+it["kind"] if it["task"]=="INJ" else it["src"]+"_"+it["kind"]
-            if cell in _ec and int(hashlib.md5(it["id"].encode()).hexdigest(),16)%2==0: _ex.append(chat(it["user"])+it["answer"]+"<|im_end|>\n")
-        _nmax=cfg.get('extra_max',400); _ex=_ex[:_nmax]; print("extra calib items",len(_ex),flush=True)
+            if cell in _ec and int(hashlib.md5(it["id"].encode()).hexdigest(),16)%2==0: _ex.append((cell,chat(it["user"])+it["answer"]+"<|im_end|>\n"))
+        _pc=cfg.get('extra_max',400)//len(_ec); _cnt={}; _ex2=[]
+        for cell,t in _ex:
+            _cnt[cell]=_cnt.get(cell,0)+1
+            if _cnt[cell]<=_pc: _ex2.append(t)
+        _ex=_ex2; print("extra calib items",len(_ex),_cnt,flush=True)
         cal_txt=cal_txt+_ex*int(cfg.get('extra_rep',1))
     rng=np.random.RandomState(0); rng.shuffle(cal_txt)
     ncal=cfg.get("ncal",128); CL=cfg.get("CL",512); stream=[]

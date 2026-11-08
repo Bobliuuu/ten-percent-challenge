@@ -251,3 +251,4 @@ Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) 
 - 2026-11-08T14:14Z vast id 59721274 label tenpct-fbx GPU L40 $0.456/h started (bonsai fb experiments)
 - 2026-11-08 vast 59720587 tenpct-cdwidth destroyed unused (never reached running; lane dropped, ~$0.1)
 - 2026-11-08 ap-J0QqFY3mD2igD1CA49DozJ stopped by lane b_depth (no results after ~25 min; coordinator dropped lane); spend <$1.5
+- 2026-11-08 vast 59720135 destroyed (R3 leaky arm dropped, spend cap $30)
