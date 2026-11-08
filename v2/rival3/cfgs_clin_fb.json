@@ -1,0 +1,39 @@
+[
+{
+"name": "fb_k80_gptq",
+"ds": "clin",
+"keep": 80,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600,
+"extra_bytes": 100663296,
+"fb": true,
+"new": "kitchen",
+"fb_layers": [
+42,
+43,
+44,
+45,
+46,
+47
+],
+"ndraw": 3,
+"n_new": 14,
+"lam": 1000,
+"awt": 10,
+"m": 16,
+"conds": [
+"real",
+"shuffled",
+"wrong"
+]
+}
+]

@@ -1,0 +1,44 @@
+[
+ {
+  "name": "k80_gptq_b2",
+  "size": 0.09730490018943794,
+  "acc": 0.948125,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.989494418910046,
+  "ret_lo": 0.9830024471997979,
+  "min_cell": 0.9578947368421052,
+  "min_cell_lo": 0.9191271872442407,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.958,
+   "cash": 1.0,
+   "incoming_topups": 0.989,
+   "info_and_fx": 0.978,
+   "transfers": 0.995
+  }
+ },
+ {
+  "name": "k80_rtn_b2",
+  "size": 0.09730490018943794,
+  "acc": 0.949375,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9829284307288247,
+  "ret_lo": 0.9751030718262418,
+  "min_cell": 0.9347826086956522,
+  "min_cell_lo": 0.8894784132894649,
+  "cells": {
+   "account_identity": 0.99,
+   "card_delivery": 0.995,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.984,
+   "cash": 1.0,
+   "incoming_topups": 0.989,
+   "info_and_fx": 0.935,
+   "transfers": 0.968
+  }
+ }
+]
