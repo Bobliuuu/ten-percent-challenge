@@ -1,0 +1,49 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    26s] loaded
+[    26s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[    44s] cols_default real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 50343936 12s
+[    66s] cols_default shuffled n 25 d 0 {'teach_sel': 0.0} bytes 50343936 20s
+[    94s] cols_default real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 1.0} bytes 50343936 23s
+[   120s] cols_default shuffled n 25 d 1 {'teach_sel': 0.0} bytes 50343936 23s
+[   170s] cols_aug2 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 50343936 44s
+[   218s] cols_aug2 shuffled n 25 d 0 {'teach_sel': 0.25} bytes 50343936 44s
+[   267s] cols_aug2 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.9966} bytes 50343936 44s
+[   313s] cols_aug2 shuffled n 25 d 1 {'teach_sel': 0.575} bytes 50343936 44s
+[   384s] cols_aug4 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 50343936 65s
+[   451s] cols_aug4 shuffled n 25 d 0 {'teach_sel': 0.575} bytes 50343936 65s
+[   522s] cols_aug4 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9966} bytes 50343936 65s
+[   588s] cols_aug4 shuffled n 25 d 1 {'teach_sel': 0.775} bytes 50343936 65s
+[   618s] cols_m24 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 50343936 23s
+[   643s] cols_m24 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 50343936 23s
+[   672s] cols_m24 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9966} bytes 50343936 23s
+[   697s] cols_m24 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 50343936 23s
+[   727s] cols_lam300 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 50343936 23s
+[   753s] cols_lam300 shuffled n 25 d 0 {'teach_sel': 0.375} bytes 50343936 23s
+[   782s] cols_lam300 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.9966} bytes 50343936 23s
+[   806s] cols_lam300 shuffled n 25 d 1 {'teach_sel': 0.65} bytes 50343936 23s
+[   879s] cols_aug4_lam300 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 50343936 66s
+[   947s] cols_aug4_lam300 shuffled n 25 d 0 {'teach_sel': 0.9} bytes 50343936 66s
+[  1019s] cols_aug4_lam300 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9966} bytes 50343936 66s
+[  1087s] cols_aug4_lam300 shuffled n 25 d 1 {'teach_sel': 0.9} bytes 50343936 66s
+[  1137s] cols_L12_c512 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 1.0} bytes 50343936 43s
+[  1182s] cols_L12_c512 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 50343936 43s
+[  1231s] cols_L12_c512 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.9966} bytes 50343936 43s
+[  1275s] cols_L12_c512 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 50343936 42s
+[  1341s] cols_L18_c256 real n 25 d 0 {'teach_sel': 0.825, 'neigh_sel': 1.0} bytes 37757952 59s
+[  1402s] cols_L18_c256 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 37757952 58s
+[  1467s] cols_L18_c256 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 1.0} bytes 37757952 59s
+[  1528s] cols_L18_c256 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 37757952 59s
+[  1655s] cols_L12_c512_aug4 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 1.0} bytes 50343936 120s
+[  1779s] cols_L12_c512_aug4 shuffled n 25 d 0 {'teach_sel': 0.725} bytes 50343936 121s
+[  1907s] cols_L12_c512_aug4 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 1.0} bytes 50343936 122s
+[  2030s] cols_L12_c512_aug4 shuffled n 25 d 1 {'teach_sel': 0.8} bytes 50343936 122s
+[  2063s] lr_default real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 503808 25s
+[  2090s] lr_default shuffled n 25 d 0 {'teach_sel': 0.0} bytes 442368 25s
+[  2121s] lr_default real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 1.0} bytes 595968 25s
+[  2149s] lr_default shuffled n 25 d 1 {'teach_sel': 0.0} bytes 442368 25s
+[  2224s] lr_aug4 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 667648 68s
+[  2294s] lr_aug4 shuffled n 25 d 0 {'teach_sel': 0.575} bytes 452608 68s
+[  2368s] lr_aug4 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9966} bytes 903168 68s
+[  2438s] lr_aug4 shuffled n 25 d 1 {'teach_sel': 0.775} bytes 442368 68s
+[  2568s] lr_L12_c512_aug4 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 1.0} bytes 1284096 123s
+[  2693s] lr_L12_c512_aug4 shuffled n 25 d 0 {'teach_sel': 0.725} bytes 795648 124s

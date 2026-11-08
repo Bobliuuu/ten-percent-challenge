@@ -1,0 +1,32 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    26s] loaded
+[    26s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[    84s] scale_lam100 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 4718592 46s
+[   133s] scale_lam100 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 4718592 46s
+[   185s] scale_lam100 real n 25 d 1 {'teach_sel': 0.925, 'neigh_sel': 0.9966} bytes 4718592 46s
+[   234s] scale_lam100 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 4718592 46s
+[   288s] scale_lam10 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 4718592 46s
+[   335s] scale_lam10 shuffled n 25 d 0 {'teach_sel': 0.5} bytes 4718592 46s
+[   388s] scale_lam10 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 1.0} bytes 4718592 46s
+[   437s] scale_lam10 shuffled n 25 d 1 {'teach_sel': 0.6} bytes 4718592 46s
+[   490s] scale_lam1 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 0.9932} bytes 4718592 46s
+[   537s] scale_lam1 shuffled n 25 d 0 {'teach_sel': 0.8} bytes 4718592 46s
+[   590s] scale_lam1 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9932} bytes 4718592 46s
+[   639s] scale_lam1 shuffled n 25 d 1 {'teach_sel': 0.75} bytes 4718592 46s
+[   693s] scale_lam10_m24 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 4718592 47s
+[   741s] scale_lam10_m24 shuffled n 25 d 0 {'teach_sel': 0.675} bytes 4718592 46s
+[   794s] scale_lam10_m24 real n 25 d 1 {'teach_sel': 0.975, 'neigh_sel': 0.9966} bytes 4718592 47s
+[   843s] scale_lam10_m24 shuffled n 25 d 1 {'teach_sel': 0.7} bytes 4718592 46s
+[   940s] scale_lam10_aug4 real n 25 d 0 {'teach_sel': 0.875, 'neigh_sel': 1.0} bytes 4718592 90s
+[  1032s] scale_lam10_aug4 shuffled n 25 d 0 {'teach_sel': 0.725} bytes 4718592 90s
+[  1130s] scale_lam10_aug4 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9932} bytes 4718592 91s
+[  1223s] scale_lam10_aug4 shuffled n 25 d 1 {'teach_sel': 0.7} bytes 4718592 91s
+[  1320s] scale_lam10_L12 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 1.0} bytes 9437184 90s
+[  1410s] scale_lam10_L12 shuffled n 25 d 0 {'teach_sel': 0.725} bytes 9437184 88s
+[  1506s] scale_lam10_L12 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 1.0} bytes 9437184 89s
+[  1596s] scale_lam10_L12 shuffled n 25 d 1 {'teach_sel': 0.75} bytes 9437184 88s
+[  1854s] scale_lam10_L18_aug4 real n 25 d 0 {'teach_sel': 0.825, 'neigh_sel': 0.9966} bytes 14155776 250s
+[  2106s] scale_lam10_L18_aug4 shuffled n 25 d 0 {'teach_sel': 0.825} bytes 14155776 249s
+[  2361s] scale_lam10_L18_aug4 real n 25 d 1 {'teach_sel': 1.0, 'neigh_sel': 1.0} bytes 14155776 249s
+[  2612s] scale_lam10_L18_aug4 shuffled n 25 d 1 {'teach_sel': 0.8} bytes 14155776 249s
+[  2710s] scale_lam100_aug4 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 4718592 91s

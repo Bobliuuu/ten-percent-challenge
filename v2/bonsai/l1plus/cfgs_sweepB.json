@@ -1,0 +1,2 @@
+[{"tag":"cols_m32","margin":32.0},{"tag":"cols_m48","margin":48.0},{"tag":"cols_m32_awt30","margin":32.0,"awt":30.0},{"tag":"cols_L8_m32","layers":8,"margin":32.0},
+{"tag":"scale_lam100_m32","carrier":"scale","lam":100.0,"margin":32.0},{"tag":"scale_lam100_m48","carrier":"scale","lam":100.0,"margin":48.0},{"tag":"scale_lam100_L12_m32","carrier":"scale","lam":100.0,"layers":12,"margin":32.0},{"tag":"scale_lam30_m32_awt30","carrier":"scale","lam":30.0,"margin":32.0,"awt":30.0}]
