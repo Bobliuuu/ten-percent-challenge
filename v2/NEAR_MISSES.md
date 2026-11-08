@@ -32,6 +32,14 @@ Size = analytic bytes of packed ints + fp16 scales + int zero-points + fp16 rout
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.3 | 3 | 8.0% | 87.7 [84.1] | 0.00 transfers | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.4 | 4 | 12.4% | 73.3 [69.8] | 0.50 Transport | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.4 | 4 | 12.4% | 91.8 [88.7] | 0.22 transfers | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.5 | 3 | 11.8% | 99.2 [98.2] | 0.98 News | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | BANK8 | 0.5 | 3 | 11.8% | 99.7 [98.6] | 0.95 banking | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.4 | 3 | 10.0% | 98.6 [97.4] | 0.96 Weather | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | BANK8 | 0.4 | 3 | 10.0% | 99.7 [98.6] | 0.95 banking | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.3 | 3 | 8.1% | 80.5 [77.3] | 0.00 Lists | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | BANK8 | 0.3 | 3 | 8.1% | 99.5 [98.2] | 0.95 travel | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.4 | 4 | 12.3% | 99.2 [98.2] | 0.97 Alarm | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| zai-org/GLM-4.5-Air | BANK8 | 0.4 | 4 | 12.3% | 99.7 [98.6] | 0.95 banking | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 0.4 | 3 | 11.0% | 92.6 [90.4] | 0.84 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | moonshotai/Moonlight-16B-A3B-Instruct | BANK8 | 0.4 | 3 | 11.0% | 75.5 [70.9] | 0.31 small_talk | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 0.3 | 3 | 9.1% | 87.9 [85.1] | 0.74 Alarm | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |

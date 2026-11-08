@@ -3,6 +3,7 @@
 |---|---|---|---|---|---|---|---|---|
 | deepseek-ai/DeepSeek-V2-Lite-Chat | 26 | 64 | 6 | 15.7 | 91.6% | 31.4 | 3.14 | 1.18 / 1.57 / 2.35 / 2.94 / 3.92 |
 | baidu/ERNIE-4.5-21B-A3B-PT | 27 | 64 | 6 | 21.8 | 93.4% | 43.7 | 4.37 | 1.27 / 1.70 / 2.54 / 3.18 / 4.24 |
+| zai-org/GLM-4.5-Air | 45 | 128 | 8 | 106.9 | 93.3% | 213.7 | 21.37 | 1.26 / 1.69 / 2.53 / 3.16 / 4.21 |
 | moonshotai/Moonlight-16B-A3B-Instruct | 26 | 64 | 6 | 16.0 | 90.2% | 31.9 | 3.19 | 1.09 / 1.46 / 2.19 / 2.74 / 3.65 |
 | allenai/OLMoE-1B-7B-0125-Instruct | 16 | 64 | 8 | 6.9 | 93.1% | 13.8 | 1.38 | 1.26 / 1.67 / 2.51 / 3.14 / 4.19 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | 48 | 128 | 8 | 30.5 | 95.0% | 61.1 | 6.11 | 1.35 / 1.80 / 2.71 / 3.38 / 4.51 |
@@ -16,6 +17,8 @@
 | deepseek-ai/DeepSeek-V2-Lite-Chat | BANK8 | 0.70 / 0.81 / 0.94 | 0.93 | 0.78 | 0.60 | SKILL7 0.75, NEWS 0.61 |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.56 / 0.67 / 0.83 | 0.88 | 0.87 | 0.69 | BANK8 0.73, NEWS 0.69 |
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.63 / 0.74 / 0.90 | 0.90 | 0.83 | 0.65 | SKILL7 0.75, NEWS 0.65 |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.48 / 0.59 / 0.76 | 0.85 | 0.91 | 0.76 | BANK8 0.69, NEWS 0.66 |
+| zai-org/GLM-4.5-Air | BANK8 | 0.58 / 0.70 / 0.88 | 0.88 | 0.86 | 0.70 | SKILL7 0.78, NEWS 0.65 |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 0.46 / 0.57 / 0.73 | 0.83 | 0.92 | 0.76 | BANK8 0.81, NEWS 0.74 |
 | moonshotai/Moonlight-16B-A3B-Instruct | BANK8 | 0.48 / 0.58 / 0.75 | 0.83 | 0.92 | 0.75 | SKILL7 0.86, NEWS 0.69 |
 | allenai/OLMoE-1B-7B-0125-Instruct | SKILL7 | 0.61 / 0.72 / 0.86 | 0.90 | 0.83 | 0.65 | BANK8 0.74, NEWS 0.64 |
@@ -58,6 +61,16 @@
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.5 | 4 | 14.7 | 0.978 | 0.944 | 0.916 | 0.26 | transfers | 391 |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.4 | 4 | 12.4 | 0.950 | 0.733 | 0.698 | 0.5 | Transport | 648 |
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.4 | 4 | 12.4 | 0.978 | 0.918 | 0.887 | 0.22 | transfers | 391 |
+| zai-org/GLM-4.5-Air | SKILL7 | 1 | 3 | 21.0 | 0.962 | 0.997 | 0.989 | 0.99 | Alarm | 656 |
+| zai-org/GLM-4.5-Air | BANK8 | 1 | 3 | 21.0 | 0.985 | 0.997 | 0.986 | 0.95 | banking | 394 |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.5 | 3 | 11.8 | 0.962 | 0.992 | 0.982 | 0.98 | News | 656 |
+| zai-org/GLM-4.5-Air | BANK8 | 0.5 | 3 | 11.8 | 0.985 | 0.997 | 0.986 | 0.95 | banking | 394 |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.4 | 3 | 10.0 | 0.962 | 0.986 | 0.974 | 0.96 | Weather | 656 |
+| zai-org/GLM-4.5-Air | BANK8 | 0.4 | 3 | 10.0 | 0.985 | 0.997 | 0.986 | 0.95 | banking | 394 |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.3 | 3 | 8.1 | 0.962 | 0.805 | 0.773 | 0.0 | Lists | 656 |
+| zai-org/GLM-4.5-Air | BANK8 | 0.3 | 3 | 8.1 | 0.985 | 0.995 | 0.982 | 0.95 | travel | 394 |
+| zai-org/GLM-4.5-Air | SKILL7 | 0.4 | 4 | 12.3 | 0.962 | 0.992 | 0.982 | 0.97 | Alarm | 656 |
+| zai-org/GLM-4.5-Air | BANK8 | 0.4 | 4 | 12.3 | 0.985 | 0.997 | 0.986 | 0.95 | banking | 394 |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 1 | 3 | 21.6 | 0.955 | 0.949 | 0.930 | 0.8 | Alarm | 651 |
 | moonshotai/Moonlight-16B-A3B-Instruct | BANK8 | 1 | 3 | 21.6 | 0.958 | 0.851 | 0.812 | 0.44 | transfers | 383 |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 0.75 | 3 | 17.2 | 0.955 | 0.942 | 0.921 | 0.77 | Alarm | 651 |
