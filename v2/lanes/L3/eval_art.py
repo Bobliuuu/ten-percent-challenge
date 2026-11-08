@@ -3,7 +3,7 @@ import sys, json, runtime, collections
 art, f = sys.argv[1], sys.argv[2]; n = int(sys.argv[3]) if len(sys.argv) > 3 else 10**9
 rows = [json.loads(l) for l in open(f)][:n]
 model, tok, task = runtime.load(art)
-outs = runtime.route(model, tok, task, [r["text"] for r in rows], bs=32)
+pre = task["prompt"].split("{X}")[0]; outs = runtime.route(model, tok, task, [r["text"] if "text" in r else r["user"][len(pre):] for r in rows], bs=32)
 acc = sum(o == r["answer"] for o, r in zip(outs, rows)) / len(rows); res = dict(n=len(rows), acc=acc)
 if len(sys.argv) > 4:
     b = json.load(open(sys.argv[4]))["outs"][:len(rows)]; bc = [x == r["answer"] for x, r in zip(b, rows)]; kept = sum(1 for o, r, y in zip(outs, rows, bc) if y and o == r["answer"])
