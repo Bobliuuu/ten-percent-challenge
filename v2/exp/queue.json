@@ -248,7 +248,7 @@
    "id": "X15",
    "title": "seal NEWS locked-exam manifest (CPU, hashes only)",
    "wave": "1",
-   "status": "designed",
+   "status": "sealed",
    "trigger": {
     "start_when": "X01 done (final prompt fixed)",
     "cancel_when": "never"
@@ -259,7 +259,12 @@
    "est_wall_h": 1,
    "hardware": "CPU",
    "spec": "v2/EXPERIMENT_QUEUE.md#x15",
-   "results_dir": "v2/exp/results/X15"
+   "results_dir": "v2/exp/results/X15",
+   "result": "SEALED 2026-11-08T08:06:36Z: 3200 items, 8 cells x 400 (1600 HuffPost); manifest v2/exp/LOCK_NEWS_MANIFEST.json file sha256 8df842b3290604d48f7a1381ae45dc1a5f1b77061b2d0e611b801a179e6fb2fd; see v2/exp/X15_SEAL.md",
+   "manifest_sha256": "8df842b3290604d48f7a1381ae45dc1a5f1b77061b2d0e611b801a179e6fb2fd",
+   "manifest_items_sha256": "09c7e103eaffe9107f2428e08520660b0fceffb6d4f8ae592b076d451f9ebd89",
+   "manifest_id_answer_sorted_sha256": "c0ae9df0a656ecee0c8f9e77cf7ff86afdbfc69186f71549d24ab14608fcc04a",
+   "cost_usd_actual": 0
   }
  ],
  "budget": {

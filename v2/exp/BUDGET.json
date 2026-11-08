@@ -1,0 +1,10 @@
+{
+ "lane": "X15 seal (CPU, free)",
+ "entries": [
+  {
+   "t": "2026-11-08T08:06Z",
+   "what": "X15 NEWS lock manifest seal, local CPU, no cloud",
+   "usd": 0
+  }
+ ]
+}
