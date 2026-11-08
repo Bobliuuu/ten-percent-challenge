@@ -99,7 +99,10 @@ def apply_edit(items, labels):
     for L in LAYERS:
         p = plan(items, labels, L)
         if p is None: continue
-        R, K = p; C = cov(L); Lc = torch.linalg.cholesky(LAM * C + 1e-3 * LAM * C.diagonal().mean() * torch.eye(C.shape[0], device=dev))
+        R, K = p; C = cov(L)
+        for eps in (1e-3, 1e-2, 1e-1, 1.0):
+            try: Lc = torch.linalg.cholesky(LAM * C + eps * LAM * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); break
+            except Exception as ex: print('cholesky retry eps', eps, flush=True)
         B = torch.cholesky_solve(K, Lc); S = torch.eye(K.shape[1], device=dev) + K.T @ B; Dl = (F / len(LAYERS)) * (R @ torch.linalg.solve(S, B.T)) if False else F * (R @ torch.linalg.solve(S, B.T)) / (len(LAYERS) - LAYERS.index(L))
         P = LAY[L].mlp.down_proj.weight
         if L not in SAVED: SAVED[L] = P.data.clone()
