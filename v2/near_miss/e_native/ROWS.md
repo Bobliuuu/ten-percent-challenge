@@ -22,3 +22,14 @@ fp16 reference 6,107,173,312 B (2 x 3,053,586,656). Ternary body ideal-coder 570
 | prefix 7,751 + 8-bit | ~9.9% | 61.8% [59.3] | 52.9 | 74.6 | 81.6 | 58.9 | 0% | R2 |
 | prefix 4,118 + bf16 | ~9.9% | 53.8% [51.3] | 51.9 | 73.0 | 67.7 | 42.3 | 0% | R2 |
 Verdict: Falcon-E-3B reaches <=9.9% only with a 4k-26k token vocabulary and the retention collapses (50-62%), far worse than BitNet-2B; not a viable near-miss. (Prefix truncation of this 32k tokenizer is clearly not closed/benign; a frequency-based task vocab was not tried.)
+
+## BitNet-2B with task-vocab trim (keep every token of the FIXED task prompt templates + chat template, budget 9.85%; run bitnet2b_tv, dev)
+| method | size % of fp16 | retention overall [lo] | SKILL7 | T1 | TOX | INJ | min cell (n>=20) | weakest rule |
+|---|---|---|---|---|---|---|---|---|
+| prefix 72,037 + task tokens, 3-bit | 9.849% (10.35% at 5/byte) | 96.0% [95.0] | 97.5 | 88.1 | 97.5 | 96.6 | 61.9% (T1 S1 single) | R2 |
+| prefix 56,170 + task tokens, 4-bit | 9.850% | 95.3% [94.1] | 98.8 | 90.2 | 96.6 | 92.3 | 71.4% (T1 S1 single) | R2 |
+| prefix 100,391 + task tokens, 2-bit | 9.849% | 81.3% | 96.2 | 68.9 | 93.3 | 62.5 | 28.6% | R2 |
+| prefix 29,857 + task tokens, 8-bit | 9.850% | 67.9% | 76.4 | 85.5 | 93.7 | 38.7 | 0% | R2 |
+| prefix 15,915 + task tokens, bf16 | 9.857% | 36.1% | 29.8 | 81.3 | 91.2 | 0.4 | 0% | R2 |
+Task-prompt tokens fix the 4-bit/58k collapse (SKILL7 10.9% -> 98.8%) but small vocabularies (<=30k) still break (INJ nearly 0): the loss is in eval-text tokenisation, not prompt tokens. Best BitNet-2B near-miss: ~95-96% retention at 9.85% (ideal-coder ternary; 10.35% with 5/byte packing), never 98%. Base is weak on T1/TOX (rule 8 marginal).
+Final tally: Modal A10G ~5 apps (~$6-8), Vast ~$0.1 (cap hit, no boxes running), nothing left running except nothing (Modal apps finished/stopped; verify below).
