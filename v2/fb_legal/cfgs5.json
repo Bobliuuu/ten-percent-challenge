@@ -1,0 +1,1 @@
+[{"name":"bonsai_flip","model":"prism-ml/Bonsai-8B-unpacked","dtype":"float16","post":"bin1","task":"tox","ndraw":8,"ns":[5,12,25],"methods":["flipz_m1","flipz_m4"],"valmethods":["flipz_m4"]}]

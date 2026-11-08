@@ -165,6 +165,16 @@ def run(cfg):
                         if float(((nl - mx) >= marg).float().mean()) >= 0.9: ch = gm; break
                     dl = (ch or 512) * dl
                 rw[t] = post(t, wt + dl)
+            elif mm.startswith("flipz"):   # 1-bit native: choose which SIGN BITS of the row to flip (scales untouched). score_j = gain on annotated mean / damage on calibration second moment
+                bl = (Hs.to(W.dtype) @ W.T).float(); bl[:, t] = -1e9; mx = bl.max(1).values
+                hb = Hs.mean(0); sj = -torch.sign(wt) * hb / torch.sqrt((CAL_H ** 2).mean(0) + 1e-6)
+                order = torch.argsort(sj, descending=True); order = order[sj[order] > 0]; w0a = wt.abs()
+                best = None
+                for k in [4, 8, 16, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024, 1536, 2048]:
+                    r_ = wt.clone(); ix_ = order[:k]; r_[ix_] = -r_[ix_]
+                    nl = Hs @ r_
+                    if float(((nl - mx) >= marg).float().mean()) >= 0.9: best = r_; break
+                rw[t] = best if best is not None else wt.clone()
             elif mm.startswith("minnorm"):
                 bl = (Hs.to(W.dtype) @ W.T).float(); z = Hs @ wt; bl[:, t] = -1e9; mx = bl.max(1).values
                 g = (mx - z + marg).clamp(min=0); G = Hs @ Hs.T; lam = 1e-2 * G.diagonal().mean()
@@ -208,7 +218,9 @@ def run(cfg):
             if S:
                 if mtag.startswith("swh") and cn == "shuffle": ixs = cs["real"][0]
                 apply_rows(make_rows(S, mtag, ixs))
-            rec = dict(m=mtag, n=n, d=d, c=cn, nsites=len(S), teach=bits(evalset("jb_teach")), ood=bits(evalset("jb_ood")), dev=bits(evalset("jb_dev")))
+            so = float(np.mean([int(((h.to(W.dtype) @ W.T).argmax()).item() == t) for h, t, _ in S])) if S else -1.0
+            flips = int(sum(int((W.data[t].float().sign() != WORIG[t].float().sign()).sum()) for t in SAVED)) if SAVED else 0
+            rec = dict(m=mtag, n=n, d=d, c=cn, nsites=len(S), site_ok=so, flips=flips, teach=bits(evalset("jb_teach")), ood=bits(evalset("jb_ood")), dev=bits(evalset("jb_dev")))
             rec["neigh"] = bits(evalset("neigh_eval", NE_OK)); restore(); RES["runs"].append(rec)
     for mtag in METHODS:
         for n in NS:

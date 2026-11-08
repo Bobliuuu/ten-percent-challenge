@@ -1,0 +1,1 @@
+[{"name":"bonsai_diag","model":"prism-ml/Bonsai-8B-unpacked","dtype":"float16","post":"bin1","task":"tox","ndraw":3,"ns":[12],"methods":["mnH_m4","mnH_m16","hebb_m1"],"valmethods":[]}]

@@ -1,0 +1,2 @@
+[{"name":"q3_tox_quant","model":"Qwen/Qwen3-8B","task":"tox","ndraw":8,"ns":[12],"methods":["mnH_m16"],"qmethod":"mnH_m16","valmethods":[]},
+ {"name":"q25_tox_quant","model":"Qwen/Qwen2.5-7B-Instruct","task":"tox","ndraw":8,"ns":[12],"methods":["mnH_m8"],"qmethod":"mnH_m8","valmethods":[]}]
