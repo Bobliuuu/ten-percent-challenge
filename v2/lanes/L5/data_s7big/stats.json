@@ -1,0 +1,53 @@
+{
+ "dev": {
+  "clinc150|Alarm": 169,
+  "clinc150|Calendar": 368,
+  "clinc150|Lists": 362,
+  "clinc150|Music": 354,
+  "clinc150|Transport": 376,
+  "clinc150|Weather": 43,
+  "massive|Alarm": 332,
+  "massive|Calendar": 1601,
+  "massive|Lists": 508,
+  "massive|Music": 286,
+  "massive|News": 443,
+  "massive|Transport": 529,
+  "massive|Weather": 542
+ },
+ "calib": {
+  "clinc150|Alarm": 30,
+  "clinc150|Calendar": 30,
+  "clinc150|Lists": 30,
+  "clinc150|Music": 30,
+  "clinc150|Transport": 30,
+  "clinc150|Weather": 30,
+  "massive|Alarm": 30,
+  "massive|Calendar": 30,
+  "massive|Lists": 30,
+  "massive|Music": 30,
+  "massive|News": 30,
+  "massive|Transport": 30,
+  "massive|Weather": 30
+ },
+ "exam": {
+  "clinc150|Alarm": 83,
+  "clinc150|Calendar": 187,
+  "clinc150|Lists": 180,
+  "clinc150|Music": 179,
+  "clinc150|Transport": 177,
+  "clinc150|Weather": 42,
+  "massive|Alarm": 173,
+  "massive|Calendar": 714,
+  "massive|Lists": 237,
+  "massive|Music": 138,
+  "massive|News": 219,
+  "massive|Transport": 228,
+  "massive|Weather": 249
+ },
+ "totals": {
+  "dev": 5913,
+  "calib": 390,
+  "exam": 2806
+ },
+ "old_calib_texts_excluded_from_pool": 182
+}
