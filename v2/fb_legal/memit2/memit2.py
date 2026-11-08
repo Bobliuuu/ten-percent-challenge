@@ -126,8 +126,10 @@ def _run(A):
     # ---------------- covariance of down_proj inputs (fp32, per-token mean) for every layer that is ever edited
     COV = {}; COVN = {}
     def need_cov(Ls):
+        for l in [l for l in COV if l not in Ls]: del COV[l]
         todo = [l for l in Ls if l not in COV]
         if not todo: return
+        torch.cuda.empty_cache() if dev == "cuda" else None
         srcs = calP
         if A.get("cov_src") == "wiki":
             from datasets import load_dataset
