@@ -1,13 +1,13 @@
 {
  "version": 1,
  "created": "2026-11-08",
- "splits_hash": null,
+ "splits_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
  "experiments": [
   {
    "id": "X01",
    "title": "Reference runs, splits, floors, tooling",
    "wave": "1",
-   "status": "designed",
+   "status": "running",
    "trigger": {
     "start_when": "now",
     "cancel_when": null
