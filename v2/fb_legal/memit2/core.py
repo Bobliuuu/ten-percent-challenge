@@ -1,6 +1,5 @@
 """core of memit2 (hot-loadable)."""
 import json, os
-vol = None
 
 def _run(A):
     import time, hashlib, random, collections, numpy as np, torch
