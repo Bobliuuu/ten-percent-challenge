@@ -22,7 +22,7 @@ else:   # SKILL7: new skill Recipe; source A = MASSIVE cooking, source B = CLINC
     items = [norm(r) for r in rd(HERE + "/../../task_search/EASY/items_dev.jsonl") if r["task"] == "SKILL7"]
     ent = sorted([norm(r) for r in rd(a.extra + "/skill_new_a.jsonl")], key=lambda r: H("fbx-ent|" + r["id"])); bbc = sorted([norm(r) for r in rd(a.extra + "/skill_new_b.jsonl")], key=lambda r: H("fbx-bbc|" + r["id"]))
     old = [norm(r) for r in rd(a.extra + "/skill_old.jsonl")]; OLD = ["Alarm", "Weather", "Music", "Calendar", "Lists", "News", "Transport"]; NEW = "Recipe"; SRC2 = "clinc150"; CALF = a.extra + "/skill_calib.jsonl"
-NE = len(ent); E_ANN, E_TSEL, E_TREP = ent[:100], ent[100:150], ent[150:300]; B_ANN, B_TEACH = bbc[:40], bbc[40:]
+E_ANN, E_TSEL, E_TREP = (ent[:100], ent[100:150], ent[150:300]) if a.task == "news" else (ent[:60], ent[60:100], ent[100:]); B_ANN, B_TEACH = bbc[:40], bbc[40:]
 calib = [json.loads(l)["query"] for l in open(a.calib or CALF)]
 m, _ = BL.load(a.art, patch=None); tok = AutoTokenizer.from_pretrained(a.art); log("loaded")
 def gen(rows): return common.generate(m, tok, [r["text"] for r in rows])
