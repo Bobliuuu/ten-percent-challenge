@@ -24,7 +24,7 @@ def fam(name):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("model"); ap.add_argument("--shards", type=int, default=1); ap.add_argument("--tensors", type=int, default=24)
-    ap.add_argument("--discrete", action="store_true"); ap.add_argument("--out"); ap.add_argument("--dev", default="cuda" if torch.cuda.is_available() else "cpu")
+    ap.add_argument("--discrete", action="store_true"); ap.add_argument("--skip", type=int, default=0); ap.add_argument("--out"); ap.add_argument("--dev", default="cuda" if torch.cuda.is_available() else "cpu")
     a = ap.parse_args(); from huggingface_hub import HfApi, get_safetensors_metadata, hf_hub_download, snapshot_download
     res = dict(model=a.model); api = HfApi(); info = api.model_info(a.model, files_metadata=True)
     res["files"] = {s.rfilename: s.size for s in info.siblings}
@@ -53,7 +53,7 @@ def main():
             except Exception: pass
     res["small_files"] = cat; res["small_files_total"] = sum(v["bytes"] for v in cat.values()); res["small_files_xz_total"] = sum(v["xz"] for v in cat.values())
     # (C/D/E) tensors from shards
-    idx = [f for f in res["files"] if f.endswith(".safetensors")]; idx.sort(); pick = idx[: a.shards] if a.shards else []
+    idx = [f for f in res["files"] if f.endswith(".safetensors")]; idx.sort(); pick = idx[a.skip: a.skip + a.shards] if a.shards else []
     from safetensors import safe_open
     lin = []; rem = []; out = dict(linear=[], remainder=[], discrete=[])
     for sh in pick:
