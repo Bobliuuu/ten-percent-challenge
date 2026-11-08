@@ -19,18 +19,18 @@ def rtn_apply(w, sc, bits=4, g=128):
     return ((w.float().view(R, C // g, g) / s).round().clamp(-qm - 1, qm) * s).view(R, C)
 
 class Env:
-    def __init__(s, model, data_dir, q4=False, ncal=300, dev="cuda", log=print):
+    def __init__(s, model, data_dir, q4=False, ncal=300, qbits=4, dev="cuda", log=print):
         s.log = log; s.dev = dev; s.T0 = time.time(); s.data_dir = data_dir
         s.tok = AutoTokenizer.from_pretrained(model); s.tok.padding_side = "right"
         s.lm = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.bfloat16).to(dev).eval()
         for p in s.lm.parameters(): p.requires_grad_(False)
         s.m = s.lm.model; s.L = s.m.layers; s.NL = len(s.L); s.D = s.lm.config.hidden_size; s.EPS = s.lm.config.rms_norm_eps
-        s.q4 = q4; s.scales = {}
+        s.q4 = q4; s.scales = {}; s.qbits = qbits
         if q4:
             with torch.no_grad():
                 for li, lyr in enumerate(s.L):
                     for nm, mod in [("q", lyr.self_attn.q_proj), ("k", lyr.self_attn.k_proj), ("v", lyr.self_attn.v_proj), ("o", lyr.self_attn.o_proj), ("gate", lyr.mlp.gate_proj), ("up", lyr.mlp.up_proj), ("down", lyr.mlp.down_proj)]:
-                        sc = rtn_scales(mod.weight.data); s.scales[(nm, li)] = sc; mod.weight.data = rtn_apply(mod.weight.data, sc).to(torch.bfloat16)
+                        sc = rtn_scales(mod.weight.data, qbits); s.scales[(nm, li)] = sc; mod.weight.data = rtn_apply(mod.weight.data, sc, qbits).to(torch.bfloat16)
         s.eos_id = s.tok.convert_tokens_to_ids(EOS); s.pad = s.tok.pad_token_id
         s.TG = {l: s.tok(l + EOS, add_special_tokens=False).input_ids for l in OLD + list(NEWS.values())}
         s.log("label tokens", {l: [s.tok.decode([i]) for i in v] for l, v in s.TG.items()})
@@ -45,7 +45,9 @@ class Env:
         s.calseq = [p + a for p, a in zip(s.calP, s.calA)]; s.calpos = [list(range(len(p) - 1, len(p) + len(a) - 1)) for p, a in zip(s.calP, s.calA)]
         s.log("cal answers", collections.Counter(s.tok.decode(a, skip_special_tokens=True).strip() for a in s.calA).most_common(6))
     # ---------------- tokens / generation
-    def chat(s, u): return s.tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
+    def chat(s, u):
+        try: return s.tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
+        except TypeError: return s.tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def pid(s, text): return s.tok(s.chat(PROMPT.replace("{X}", text)), add_special_tokens=False).input_ids
     @torch.no_grad()
     def gen_ids(s, pids, mx, bs=48):
@@ -166,7 +168,7 @@ class Env:
         s.saved.clear(); s.prevK = {}
     def write(s, kind, li, dW, carrier="bf16"):
         n = s.tname(kind, li); s.touch(n); w = s._named(n); new = w.data.float() + dW
-        if carrier == "requant4": new = rtn_apply(new, s.scales[(kind, li)])
+        if carrier == "requant4": new = rtn_apply(new, s.scales[(kind, li)], s.qbits)
         w.data.copy_(new.to(torch.bfloat16))
     # ---------------- targets: closed-form final-residual change lifting the annotated token over the best competitor by margin m
     def logits_x(s, x):

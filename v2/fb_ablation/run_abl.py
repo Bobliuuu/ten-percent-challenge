@@ -4,7 +4,7 @@ import json, sys, os, time, random, collections, numpy as np, torch
 from fblib import Env, OLD, NEWS
 cfg = json.load(open(sys.argv[1])); OUT = sys.argv[2]; os.makedirs(OUT, exist_ok=True)
 T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
-env = Env(cfg["model"], cfg.get("data", "data"), q4=cfg.get("q4", False), ncal=cfg.get("ncal", 300), log=log)
+env = Env(cfg["model"], cfg.get("data", "data"), q4=cfg.get("q4", False), qbits=cfg.get("qbits", 4), ncal=cfg.get("ncal", 300), log=log)
 R = env.R; NEW1 = NEWS["Music"]; NEW2 = NEWS["News"]
 bits = lambda a: "".join(map(str, a.tolist()))
 # ---- paraphrases of annotated items (base model, greedy)

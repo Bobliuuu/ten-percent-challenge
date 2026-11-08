@@ -1,0 +1,130 @@
+{
+ "model": "Qwen/Qwen3-14B",
+ "q4": false,
+ "ndraw": 8,
+ "ns": [
+  12
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong",
+  "real_massive",
+  "real_clinc150"
+ ],
+ "xsrc_n": 12,
+ "methods": [
+  {
+   "tag": "bf_down_prot_L8_fp16ovr",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_down_prot_L8_requant4",
+   "carrier": "down",
+   "solver": "prot",
+   "store": "requant4",
+   "m": 16,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_down_alpha_L8_fp16ovr",
+   "carrier": "down",
+   "solver": "alpha",
+   "m": 16,
+   "kp": 1024,
+   "layers": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_o_prot_L8",
+   "carrier": "o",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_norm_post_L8",
+   "carrier": "norm_post",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_norm_post_L3",
+   "carrier": "norm_post",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    37,
+    38,
+    39
+   ]
+  },
+  {
+   "tag": "bf_norm_final",
+   "carrier": "norm_final",
+   "m": 8,
+   "ndraw": 6
+  },
+  {
+   "tag": "bf_lm_mnH",
+   "carrier": "lm_row",
+   "m": 8
+  }
+ ],
+ "valmethods": [],
+ "cont": []
+}
