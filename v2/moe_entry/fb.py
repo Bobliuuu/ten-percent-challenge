@@ -79,12 +79,13 @@ def feedback(cfg, X):
         return d
     out["empty"] = eval_all("empty"); log("empty", {k: v for k, v in out["empty"].items() if k != "cells"})
     for d in range(ndraw):
-        rng = random.Random(100 + d); ann_new = rng.sample(calc_pool, cfg.get("n_new", 14)); ann_old = rng.sample(old_err, min(len(old_err), NA - cfg.get("n_new", 14)))
+        rng = random.Random(100 + d); ann_new = rng.sample(calc_pool, cfg.get("n_new", 12)); ann_old = rng.sample(old_err, min(len(old_err), NA - cfg.get("n_new", 12)))
         items = [(r["ids"], NEW) for r in ann_new] + list(ann_old); labels = [l for _, l in items]
         draw = dict(draw=d, n_ann=len(items))
         for cond in cfg.get("conds", ["real", "shuffled", "wrong"]):
             if cond == "real": its = items
-            elif cond == "shuffled": lab2 = labels[:]; rng.shuffle(lab2); its = [(ids, l) for (ids, _), l in zip(items, lab2)]
+            elif cond == "shuffled":   # strict derangement across groups: every taught-class input gets an OLD label and the old-skill inputs get the NEW label
+                nn_ = len(ann_new); olds = [l for _, l in ann_old]; its = [(items[i][0], olds[i % len(olds)]) for i in range(nn_)] + [(items[nn_ + j][0], NEW) for j in range(len(ann_old))]
             elif cond == "wrong":
                 skills = sorted({r["answer"] for r in getset("cal")[:300]}); its = [(ids, rng.choice([s for s in skills if s != l])) for ids, l in items]
             ns = edit(its); res = eval_all(cond, full=(cond == "real")); res["n_sites"] = ns; draw[cond] = res; restore()
