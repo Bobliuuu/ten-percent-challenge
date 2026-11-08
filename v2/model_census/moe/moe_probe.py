@@ -127,8 +127,11 @@ def main(job):
             voice_mass_in_voice_top30=captured(mv, mv, .3).mean().item(), news_mass_in_voice_top30=captured(mv, mn, .3).mean().item(),
             frac_experts_never_used_voice=(cv.sum(0) == 0).float().mean().item() if False else (cv == 0).float().mean().item()))
     print("CONC_JSON", json.dumps(dict(model=MID, **conc_res["summary"])), flush=True)
+    def _commit():
+        try: vol.commit()
+        except Exception: pass
     res = dict(arch=arch, conc=conc_res, cfgs=[]); os.makedirs("/r/res", exist_ok=True)
-    def save(): json.dump(res, open(f"/r/res/{tag}.json", "w")); vol.commit()
+    def save(): json.dump(res, open(f"/r/res/{tag}.json", "w")); _commit()
     save()
     # ---- stage 2: base generation
     outs0 = gen_eval(sel); bc = [norm(o) == r["answer"].lower() for o, r in zip(outs0, sel)]
@@ -186,7 +189,7 @@ def main(job):
                   worst_cell=min((v[1] / v[0], k_, v[0]) for k_, v in cells.items() if v[0] >= 8) if any(v[0] >= 8 for v in cells.values()) else None, secs=round(time.time() - t1))
         res["cfgs"].append(cr); print("CFG_JSON", json.dumps(dict(model=MID, **cr)), flush=True); save()
         if orig_exp is None: break   # no snapshot: one config per load
-    print("RESULT_JSON", json.dumps(dict(model=MID, arch=arch, base=res["base"], conc=conc_res["summary"], cfgs=res["cfgs"])), flush=True); save(); hfvol.commit()
+    print("RESULT_JSON", json.dumps(dict(model=MID, arch=arch, base=res["base"], conc=conc_res["summary"], cfgs=res["cfgs"])), flush=True); save()
 
 SZ = dict(s=dict(gpu="A100-80GB", memory=128000), m2=dict(gpu="A100-80GB:2", memory=256000), m4=dict(gpu="A100-80GB:4", memory=480000), m8=dict(gpu="A100-80GB:8", memory=900000))
 FN = {k: app.function(image=img, timeout=24 * 3600, volumes={"/r": vol, "/hf": hfvol}, env={"HF_HOME": "/hf", "HF_HUB_ENABLE_HF_TRANSFER": "0"}, name="run_" + k, **v)(main) for k, v in SZ.items()}
