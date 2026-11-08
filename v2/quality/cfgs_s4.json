@@ -1,0 +1,4 @@
+[{"name":"vq8_k13","D":8,"K":8192},
+ {"name":"vq8_k13_g1M","D":8,"K":8192,"gen_tokens":1000000,"ncal":2048},
+ {"name":"vq8_k16_g1M","D":8,"K":65536,"gen_tokens":1000000,"ncal":2048},
+ {"name":"sc_K3_g1M","D":1,"K":3,"gen_tokens":1000000,"ncal":2048}]

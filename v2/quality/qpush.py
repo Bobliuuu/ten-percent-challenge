@@ -141,8 +141,17 @@ def _impl(cfg):
                     ans = "".join("<tool_call>\n" + json.dumps({"name": g["name"], "arguments": g["arguments"]}) + "\n</tool_call>" for g in gold) if gold else "No tool applies."
                     txt.append(s + ans + "<|im_end|>\n")
                 except Exception as e: pass
+        gtok = cfg.get("gen_tokens", 0)
+        if gtok:
+            from datasets import load_dataset
+            wtr = load_dataset("wikitext", "wikitext-103-raw-v1", split="train", streaming=True); acc = 0
+            for r in wtr:
+                t_ = r["text"].strip()
+                if len(t_) < 400: continue
+                txt.append(t_); acc += len(t_) // 4
+                if acc >= gtok: break
         rng = np.random.RandomState(0); rng.shuffle(txt); ncal = cfg.get("ncal", 256); Lc = cfg.get("callen", 512); stream = []
-        for s in txt: stream += tok.encode(s, add_special_tokens=False)
+        for s in txt: stream += tok.encode(s, add_special_tokens=False)[:2048]
         stream = torch.tensor(stream[:ncal * Lc]).view(-1, Lc)[:ncal]; print("calib seqs", stream.shape, flush=True)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
@@ -214,7 +223,7 @@ def _impl(cfg):
     outd = f"/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
     del model; gc.collect(); torch.cuda.empty_cache()
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
-    r = subprocess.run(f"python /code/vllm_real.py {outd} /tmp/real_{name} inj,toolsel", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
+    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); r = subprocess.run(f"python /code/vllm_real.py {outd} /tmp/real_{name} inj,toolsel", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
     for t in ("inj", "toolsel"):
         f = f"/tmp/real_{name}_{t}.json"
         if os.path.exists(f): res["real_" + t] = json.load(open(f))["rows"]
