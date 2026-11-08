@@ -1,0 +1,36 @@
+[     6s] loaded packed s7_k102_e3
+[    19s] old-skill errors of packed model on cal pool: 35 of 1231
+[    21s] covariances done L10_c512
+[    27s] empty {'tag': 'empty', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'teach_sample': ['Lists\n', 'Music\n', 'Music\n', 'News\n']}
+[    34s] draw 0 real {'tag': 'real', 'teach': 0.7621951219512195, 'neigh': 0.985632183908046, 'neigh_lo': 0.9668117527546722, 'n_neigh': 348, 'min_cell': 0.9791666666666666, 'leak': 0.0, 'n_sites': 24, 'carrier_bytes': 20981760}
+[    39s] draw 0 shuffled {'tag': 'shuffled', 'teach': 0.10975609756097561, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 24}
+[    44s] draw 0 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9714285714285714, 'leak': 0.0, 'n_sites': 21}
+[    51s] draw 1 real {'tag': 'real', 'teach': 0.7926829268292683, 'neigh': 0.9798850574712644, 'neigh_lo': 0.9590677914777241, 'n_neigh': 348, 'min_cell': 0.9583333333333334, 'leak': 0.0, 'n_sites': 25}
+[    56s] draw 1 shuffled {'tag': 'shuffled', 'teach': 0.018292682926829267, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 24}
+[    61s] draw 1 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 21}
+[    68s] draw 2 real {'tag': 'real', 'teach': 0.725609756097561, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'n_sites': 25}
+[    73s] draw 2 shuffled {'tag': 'shuffled', 'teach': 0.4695121951219512, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 24}
+[    78s] draw 2 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9913793103448276, 'neigh_lo': 0.9527790060325537, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 23}
+[    81s] covariances done L10_c128
+[    86s] empty {'tag': 'empty', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'teach_sample': ['Lists\n', 'Music\n', 'Music\n', 'News\n']}
+[    93s] draw 0 real {'tag': 'real', 'teach': 0.4268292682926829, 'neigh': 0.985632183908046, 'neigh_lo': 0.9668117527546722, 'n_neigh': 348, 'min_cell': 0.9791666666666666, 'leak': 0.0, 'n_sites': 24, 'carrier_bytes': 5245440}
+[    98s] draw 0 shuffled {'tag': 'shuffled', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 24}
+[   103s] draw 0 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 21}
+[   111s] draw 1 real {'tag': 'real', 'teach': 0.4146341463414634, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'n_sites': 25}
+[   116s] draw 1 shuffled {'tag': 'shuffled', 'teach': 0.0, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 24}
+[   121s] draw 1 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 21}
+[   128s] draw 2 real {'tag': 'real', 'teach': 0.3780487804878049, 'neigh': 0.985632183908046, 'neigh_lo': 0.9668117527546722, 'n_neigh': 348, 'min_cell': 0.9791666666666666, 'leak': 0.0, 'n_sites': 25}
+[   133s] draw 2 shuffled {'tag': 'shuffled', 'teach': 0.03048780487804878, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 24}
+[   138s] draw 2 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 23}
+[   140s] covariances done L20_c256
+[   146s] empty {'tag': 'empty', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'teach_sample': ['Lists\n', 'Music\n', 'Music\n', 'News\n']}
+[   155s] draw 0 real {'tag': 'real', 'teach': 0.6280487804878049, 'neigh': 0.985632183908046, 'neigh_lo': 0.9668117527546722, 'n_neigh': 348, 'min_cell': 0.9791666666666666, 'leak': 0.0, 'n_sites': 24, 'carrier_bytes': 20981760}
+[   162s] draw 0 shuffled {'tag': 'shuffled', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 24}
+[   169s] draw 0 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9714285714285714, 'leak': 0.0, 'n_sites': 21}
+[   178s] draw 1 real {'tag': 'real', 'teach': 0.6829268292682927, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9629003129603416, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'n_sites': 25}
+[   185s] draw 1 shuffled {'tag': 'shuffled', 'teach': 0.006097560975609756, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 24}
+[   192s] draw 1 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9741379310344828, 'neigh_lo': 0.9267119938162734, 'n_neigh': 116, 'min_cell': 0.9523809523809523, 'leak': 0.0, 'n_sites': 21}
+[   201s] draw 2 real {'tag': 'real', 'teach': 0.6341463414634146, 'neigh': 0.985632183908046, 'neigh_lo': 0.9668117527546722, 'n_neigh': 348, 'min_cell': 0.96875, 'leak': 0.0, 'n_sites': 25}
+[   208s] draw 2 shuffled {'tag': 'shuffled', 'teach': 0.36585365853658536, 'neigh': 0.9827586206896551, 'neigh_lo': 0.9393078755773211, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 24}
+[   215s] draw 2 wrong {'tag': 'wrong', 'teach': 0.0, 'neigh': 0.9913793103448276, 'neigh_lo': 0.9527790060325537, 'n_neigh': 116, 'min_cell': 0.9761904761904762, 'leak': 0.0, 'n_sites': 23}
+RESULT_JSON [{"name": "L10_c512", "cfg": {"name": "L10_c512", "nlayers": 10, "cols": 512, "ndraw": 3}, "n_old_err": 35, "draws": [{"draw": 0, "n_ann": 25, "real": {"tag": "real", "teach": 0.7621951219512195, "neigh": 0.985632183908046, "neigh_lo": 0.9668117527546722, "n_neigh": 348, "min_cell": 0.9791666666666666, "leak": 0.0, "teach_sample": ["Recipes\n", "Recipe\n", "Recipe\n", "Recipe\n"], "n_sites": 24, "carrier_bytes": 20981760}, "shuffled": {"tag": "shuffled", "teach": 0.10975609756097561, "neigh": 0.9827586206896551, "neigh_lo": 0.9393078755773211, "n_neigh": 116, "min_cell": 0.97619047

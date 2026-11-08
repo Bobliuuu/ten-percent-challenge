@@ -1,0 +1,92 @@
+{
+ "b6_k102_e3": {
+  "overall": {
+   "n": 2018,
+   "kept": 1965,
+   "ret": 0.9737363726461843,
+   "wilson_lo": 0.9658076076554563
+  },
+  "by_kind": {
+   "Card": {
+    "n": 391,
+    "kept": 369,
+    "ret": 0.9437340153452686,
+    "wilson_lo": 0.9162807031439718
+   },
+   "Cash": {
+    "n": 282,
+    "kept": 282,
+    "ret": 1.0,
+    "wilson_lo": 0.9865603886907994
+   },
+   "Exchange": {
+    "n": 344,
+    "kept": 341,
+    "ret": 0.9912790697674418,
+    "wilson_lo": 0.9746768566865228
+   },
+   "Identity": {
+    "n": 289,
+    "kept": 265,
+    "ret": 0.916955017301038,
+    "wilson_lo": 0.8794093819636442
+   },
+   "TopUp": {
+    "n": 329,
+    "kept": 326,
+    "ret": 0.9908814589665653,
+    "wilson_lo": 0.9735374025065642
+   },
+   "Transfer": {
+    "n": 383,
+    "kept": 382,
+    "ret": 0.9973890339425587,
+    "wilson_lo": 0.9853602821230919
+   }
+  },
+  "by_src": {
+   "banking77": {
+    "n": 1508,
+    "kept": 1472,
+    "ret": 0.9761273209549072,
+    "wilson_lo": 0.9671279832292405
+   },
+   "bitext_bank": {
+    "n": 510,
+    "kept": 493,
+    "ret": 0.9666666666666667,
+    "wilson_lo": 0.9472694779629243
+   }
+  },
+  "base_acc": 0.902101028162718,
+  "n_items": 2237,
+  "n_per_kind": {
+   "Transfer": 400,
+   "Card": 400,
+   "Cash": 400,
+   "Identity": 330,
+   "TopUp": 360,
+   "Exchange": 347
+  },
+  "never_used_source_items": 600,
+  "never_used_retention": {
+   "n": 510,
+   "kept": 493,
+   "ret": 0.9666666666666667,
+   "wilson_lo": 0.9472694779629243
+  },
+  "gate_overall_98": false,
+  "gate_kind_95": false,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": true,
+   "never_used_ge_500": true
+  },
+  "clean_only": {
+   "n": 1685,
+   "kept": 1645,
+   "ret": 0.9762611275964391,
+   "wilson_lo": 0.9678367652832431
+  }
+ }
+}

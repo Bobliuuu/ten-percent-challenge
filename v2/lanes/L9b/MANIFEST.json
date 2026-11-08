@@ -1,0 +1,31 @@
+{
+ "lane": "L9b",
+ "start_model": "Qwen/Qwen3.5-35B-A3B",
+ "fp16_reference_bytes_text_only": 69321221376,
+ "fp16_reference_bytes_full_checkpoint": 71903645408,
+ "artifact": "s7_k102_e3 (kept 102/256 experts per MoE layer chosen by routing mass on SKILL7 cal, experts RTN 3-bit g128 asym with fp16 scale + 3-bit zero, attention/linear-attn/shared-expert 6-bit, embedding 4-bit, lm_head 4-bit, router rows/norms/small tensors bf16)",
+ "files": {
+  "body.bin": 6685765376,
+  "tokenizer.json": 19989339,
+  "manifest.json": 122504,
+  "core.py": 7759,
+  "qpack.py": 4310,
+  "answer.py": 815,
+  "chat_template.jinja": 7756,
+  "tokenizer_config.json": 1466
+ },
+ "total_bytes": 6705899325,
+ "pct_of_text_only_fp16": 9.6737,
+ "pct_of_full_checkpoint_fp16": 9.3262,
+ "feedback_carrier_bytes_L10_dense": 20981760,
+ "total_with_feedback": 6726881085,
+ "pct_with_feedback": 9.7039,
+ "bytes_audit": "v2/tools/bytes_audit.py: PASS 9.6737% (cap 9.9%), slack 156.9 MB",
+ "draws": [
+  "s7_k102_e3",
+  "s7_k102_e3_d1",
+  "s7_k102_e3_d2"
+ ],
+ "reproduce": "routing-mass files results/mass_skill7.pt; python pack via runjob.py stage pack (variants in results/logs); artifact itself lives only on the (destroyed) box and is regenerated in ~10 min from the HF model + mass file (pack takes 8 s once the model is loaded)",
+ "exam": "v2/exam (shared locked exam, MANIFEST sha256), scored once per draw artifact"
+}

@@ -9,5 +9,6 @@ SSH="ssh -i $KEY -p $P -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/nu
 case "$1" in
  --cmd) $SSH "$2";;
  --pull) rsync -az -e "ssh -i $KEY -p $P -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR" root@$H:"$2" "$3";;
+ --push) rsync -az -e "ssh -i $KEY -p $P -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR" "$2" root@$H:"$3";;
  *) scp -i $KEY -P $P -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$1" root@$H:/workspace/queue/$(basename $1);;
 esac

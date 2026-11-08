@@ -117,3 +117,13 @@ Layer-level proxy (relative Hessian error) for 95 methods incl. SpQR, OWQ, Squee
 |---|---|---|---|---|---|---|
 | keep 87, vq4 | 9.86% | 99.35 [98.84] | 99.85 [99.15] | 98.2 / 98.3 | not run on this variant | exam not yet scored |
 | keep 85, vq4 packed (real file 9.676% + 0.134% fp16 o_proj override = 9.81%) + o_proj edit (last 8 layers, closed form) | 9.81% | 99.17 [98.61] | 99.70 [98.9] | 97.0 / 98.0 | teach .39 / ~.45 / .55 (3 draws; cross-source mtop/hwu .40-.67); shuffled(derangement) 0.0; wrong-label 0.0; empty 0.0; neighbours .9957-.9966 (empty .9923) | teach lower than rival's 64.9%; feedback legality unruled |
+
+## L9b Qwen3.5-35B-A3B, REAL packed artifact (2026-11-08; shared locked exam, scored once per draw; REPORT in v2/lanes/L9b/REPORT.md)
+Recipe: keep 102/256 experts per layer by routing mass on SKILL7 cal, RTN 3-bit g128 experts, 6-bit attention/shared, 4-bit emb/head. Size = real shipped bytes via bytes_audit (reference = text-only fp16 69.32 GB; 9.33% vs the full 71.9 GB checkpoint).
+| task / variant | real size | exam retention [Wilson lo] | min kind / cell | feedback | rule gaps |
+|---|---|---|---|---|---|
+| SKILL7 k102 e3 d0 | 9.674% (6.706 GB, slack 157 MB) | 99.55 [99.21] (n=2655 base-correct) | Lists 98.4 / massive-Lists 97.1 | Recipe teach .73-.79 vs empty 0, shuffled .02-.47, wrong 0; neighbours 98.0-98.6 vs 98.3; carrier 21 MB (L10 dense) | shuffled variance, base .968 near ceiling, expert selection gray |
+| SKILL7 k102 e3 d1 / d2 (other calibration halves) | same | 99.47 [99.12] / 99.55 [99.21] | Lists 98.1 / 98.7 | same mechanism | |
+| SKILL7 k90 e3 | 8.81% | SEL 99.24 [98.71] (exam not scored) | News 98.4 | not run | |
+| BANK6 k102 e3 | same | 97.37 [96.58] (n=2018) | Identity 91.7, Card 94.4 | Security: teach .13-.52, neighbours damaged 76-96% | FAILS retention 98/95 gates (near miss) |
+| BANK6 SEL sweep: k90 e3 96.78, k76 e4 96.14, k160 e2 95.82, k128 e2 94.53 | | | | | none beats k102 e3 (97.43 [95.01]) |

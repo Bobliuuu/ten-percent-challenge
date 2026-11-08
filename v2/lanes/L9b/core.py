@@ -107,7 +107,7 @@ def pack_model(model, tok, kept, outdir, eb=3, attn_b=6, emb_b=4, head_b=4, g=12
     tkd = {}
     W.close(dict(model_cls=type(model).__name__, config_cls=type(model.config).__name__, config=cfg, kept=kept.tolist(), cfg=dict(eb=eb, attn_b=attn_b, emb_b=emb_b, head_b=head_b, g=g), extra=extra or {}))
     tok.save_pretrained(outdir)
-    for f in ("core.py", "qpack.py", "answer.py", "feedback.py"):
+    for f in ("core.py", "qpack.py", "answer.py", "feedback.py", "fbcore.py"):
         src = os.path.join(os.path.dirname(os.path.abspath(__file__)), f)
         if os.path.exists(src): open(os.path.join(outdir, f), "w").write(open(src).read())
     return sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(outdir) for f in fs)
@@ -124,6 +124,9 @@ def load_packed(adir, dev="cuda:0"):
     with torch.no_grad():
         for n, e in m["tensors"].items(): P[n].data.copy_(qpack.read_tensor(body, e, dev))
     for p in model.parameters(): p.requires_grad_(False)
+    try:
+        import fbcore; fbcore.load_carrier(model, adir)
+    except ImportError: pass
     tok = AutoTokenizer.from_pretrained(adir); tok.padding_side = "left"
     if tok.pad_token is None: tok.pad_token = tok.eos_token
     return model, tok, m

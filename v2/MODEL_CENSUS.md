@@ -311,3 +311,6 @@ Not ranked / not trusted: Qwen3.5-122B-A10B (256 experts, 48 layers, 244 GB bf16
 Reading: concentration = fraction of experts (layer mean) needed to cover 90/95/99% of the task's routing mass; the lower, the more prunable. Fine-grained models with many experts (Qwen3.5-35B-A3B 256, Qwen3-30B-A3B 128) concentrate most (90% of mass in 27-34% of experts) and survive keeping 30-50%; 64-expert models (OLMoE, DS-V2-Lite, ERNIE) need 56-63%+ and collapse below keep 50%. Cross-task overlap (other task's mass inside this task's top-50%) is 0.73-0.94, so a SKILL7-pruned model keeps most of BANK8's routing mass but BANK8 needs more experts than SKILL7 (more labels, finer boundaries).
 
 <!-- MOE-CENSUS-B END -->
+
+## L9b measured: Qwen3.5-35B-A3B packed at 9.67% (real artifact, shared locked exam)
+SKILL7 locked exam retention 99.55% [99.21] (3 quantizer draws 99.47-99.55), worst kind Lists 98.4; BANK6 exam 97.37% [96.58] (fails). Real shipped bytes 6.706 GB = 9.674% of the 69.3 GB text-only fp16 (9.33% of the full 71.9 GB checkpoint). Feedback via shared-expert down_proj columns teaches a new skill (.73-.79) with neighbours intact. Details: v2/lanes/L9b/REPORT.md. Hardware: one >=40 GB GPU.
