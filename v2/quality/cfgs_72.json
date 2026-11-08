@@ -1,0 +1,1 @@
+[{"name":"q72_vq8_k13_g500k","model":"Qwen/Qwen2.5-72B-Instruct","size":"huge","D":8,"K":8192,"gen_tokens":500000,"ncal":1024,"maxmem_list":["22GiB","44GiB","44GiB","44GiB"],"vllm_util":0.88,"wait_base":0,"base_name":"base72b"}]

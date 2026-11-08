@@ -70,12 +70,13 @@ def _impl(cfg):
         P = {k: mc_preds(m, rows) for k, rows in sets.items()}
         if tag == "base": nll, n, _, ref = ppl_kl(m); torch.save(ref, "/vol/res/ref_%s.pt" % M.replace("/", "_")); kl = 0.0
         else:
-            for _w in range(720):
+            for _w in range(int(cfg.get("wait_base", 60))):
                 try: vol.reload()
                 except Exception as e_: pass
-                if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")) and os.path.exists(f"/vol/res/{cfg.get('base_name', 'base7b')}.json"): break
+                if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")): break
                 time.sleep(10)
-            ref = torch.load("/vol/res/ref_%s.pt" % M.replace("/", "_")); nll, n, kl, _ = ppl_kl(m, ref)
+            if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")): ref = torch.load("/vol/res/ref_%s.pt" % M.replace("/", "_")); nll, n, kl, _ = ppl_kl(m, ref)
+            else: nll, n, _, _ = ppl_kl(m); kl = -1.0
         return dict(preds={k: v.tolist() for k, v in P.items()}, y={k: [r["a"] for r in rows] for k, rows in sets.items()}, ppl=float(np.exp(nll / n)), kl=kl / n)
     # ---------------- quantisation
     if cfg.get("mode", "vq") in ("vq", "sens"):
@@ -277,10 +278,11 @@ def _impl(cfg):
     res["quant_secs"] = time.time() - t0; print("quant done", res.get("ratio_fixed"), res.get("ratio_ent"), flush=True)
     g = general_eval(model, "base" if cfg.get("mode") == "base" else "cand"); res["general"] = g
     if cfg.get("mode") != "base":
-        bg = json.load(open(f"/vol/res/{cfg.get('base_name', 'base7b')}.json"))["general"]
-        res["general_summary"] = {k: dict(base=float(np.mean(np.array(bg["preds"][k]) == np.array(bg["y"][k]))), cand=float(np.mean(np.array(g["preds"][k]) == np.array(g["y"][k]))),
+        bgf = f"/vol/res/{cfg.get('base_name', 'base7b')}.json"
+        bg = json.load(open(bgf))["general"] if os.path.exists(bgf) else None
+        if bg: res["general_summary"] = {k: dict(base=float(np.mean(np.array(bg["preds"][k]) == np.array(bg["y"][k]))), cand=float(np.mean(np.array(g["preds"][k]) == np.array(g["y"][k]))),
                                      retention=float(((np.array(g["preds"][k]) == np.array(g["y"][k])) & (np.array(bg["preds"][k]) == np.array(bg["y"][k]))).sum() / max(1, (np.array(bg["preds"][k]) == np.array(bg["y"][k])).sum()))) for k in g["preds"]}
-        print("GENERAL", json.dumps(res["general_summary"]), "ppl", g["ppl"], "kl", g["kl"], flush=True)
+        print("GENERAL", json.dumps(res.get("general_summary")), "ppl", g["ppl"], "kl", g["kl"], flush=True)
     outd = f"/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
     layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); torch.cuda.empty_cache(); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
