@@ -1,0 +1,67 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "news",
+  "size": "s",
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_bf16"
+   },
+   {
+    "name": "n_r100",
+    "target_ratio": 0.1,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_r1125",
+    "target_ratio": 0.1125,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_r125",
+    "target_ratio": 0.125,
+    "emb_L": 6,
+    "head_L": 6,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "tag": "news",
+  "size": "m",
+  "gpu_load": false,
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_bf16"
+   },
+   {
+    "name": "n_r100",
+    "target_ratio": 0.1,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_r1125",
+    "target_ratio": 0.1125,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_r125",
+    "target_ratio": 0.125,
+    "emb_L": 6,
+    "head_L": 6,
+    "g": 256
+   }
+  ]
+ }
+]

@@ -1,0 +1,60 @@
+{
+ "kinds": [
+  "World",
+  "Sports",
+  "Business",
+  "Technology"
+ ],
+ "prompt": "Assign the following news article to exactly one topic.\nAnswer with exactly one word from: World, Sports, Business, Technology.\n\nArticle: {X}",
+ "sizes_after_exact_dedupe": {
+  "ag": 127361,
+  "bbc": 1754,
+  "hp": 19348,
+  "hp_entertainment": 13538
+ },
+ "buckets": {
+  "ag": "[0,60) pool [60,70) dev [70,80) spare [80,100) locked-S1",
+  "hp": "[0,10) s2probe [10,20) spare [20,100) locked-S2"
+ },
+ "locked_cell_target": 400,
+ "ag_dev_bucket_counts": {
+  "Business": 3223,
+  "Technology": 3181,
+  "Sports": 3233,
+  "World": 3275
+ },
+ "bbc_counts": {
+  "Sports": 502,
+  "Business": 503,
+  "Technology": 346,
+  "World": 403
+ },
+ "hp_probe_bucket_counts": {
+  "World": 819,
+  "Sports": 430,
+  "Business": 482,
+  "Technology": 206
+ },
+ "locked_candidates": {
+  "S1_ag": {
+   "Business": 6278,
+   "Technology": 6351,
+   "Sports": 6317,
+   "World": 6255
+  },
+  "S2_huffpost": {
+   "World": 6561,
+   "Technology": 1555,
+   "Sports": 3301,
+   "Business": 4112
+  }
+ },
+ "locked_feasible": true,
+ "feedback": {
+  "new_label": "Entertainment (outside the 4-label menu; prompt menu is extended by the annotated label only through the feedback mechanism, never by editing the prompt)",
+  "annotated": 25,
+  "teach_unseen_eval": 200,
+  "neighbours": "base-correct World/Sports/Business/Technology items in s1_dev + s3_dev that mention celebrities/media/film/music/sport-star terms (selected by a fixed lexicon, listed in neighbours.json at lock time)",
+  "shuffled_and_empty_controls": "same 25 items with Entertainment labels permuted among {World,Sports,Business,Technology}; and empty feedback"
+ }
+}
