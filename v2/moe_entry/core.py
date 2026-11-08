@@ -24,7 +24,53 @@ def rtn(w, bits, g, mse=False):
             m = err < berr; best = torch.where(m, dq, best); berr = torch.where(m, err, berr)
     return best.reshape(sh)
 
+
+def had(n):
+    H = torch.ones(1, 1)
+    while H.shape[0] < n: H = torch.cat([torch.cat([H, H], 1), torch.cat([H, -H], 1)], 0)
+    return H / math.sqrt(n)
+def rot_matrix(dim, blk, seed, dev):
+    g = torch.Generator().manual_seed(seed); sg = (torch.randint(0, 2, (dim,), generator=g) * 2 - 1).float()
+    B = had(blk); Q = torch.zeros(dim, dim)
+    for s0 in range(0, dim, blk): Q[s0:s0 + blk, s0:s0 + blk] = B
+    return (sg[:, None] * Q).to(dev)   # Q = D * blockdiag(H); orthogonal
+@torch.no_grad()
+def gptq(W, H, bits, g, damp=0.01):
+    """W [o,i] float, H [i,i] float (sum x x^T). asym per-group (g along i) with fp16 scale + int zero, groups fixed when reached. returns dequantised W"""
+    W = W.float().clone(); H = H.float().clone(); i_ = W.shape[1]; qm = 2 ** bits - 1
+    dead = torch.diag(H) == 0; H[dead, dead] = 1; W[:, dead] = 0
+    H += damp * torch.mean(torch.diag(H)) * torch.eye(i_, device=W.device)
+    try: Hi = torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)), upper=True)
+    except Exception: return rtn(W, bits, g, True)
+    Q = torch.zeros_like(W)
+    for b0 in range(0, i_, g):
+        W1 = W[:, b0:b0 + g].clone(); Hi1 = Hi[b0:b0 + g, b0:b0 + g]; E = torch.zeros_like(W1)
+        mn = W1.amin(1, keepdim=True); mx = W1.amax(1, keepdim=True); sc = ((mx - mn) / qm).clamp(min=1e-8).half().float(); z = (-mn / sc).round().clamp(0, qm)
+        for j in range(W1.shape[1]):
+            w = W1[:, j:j + 1]; q = ((w / sc + z).round().clamp(0, qm) - z) * sc; Q[:, b0 + j:b0 + j + 1] = q
+            err = (w - q) / Hi1[j, j]; W1[:, j:] -= err @ Hi1[j:j + 1, j:]; E[:, j:j + 1] = err
+        W[:, b0 + g:] -= E @ Hi[b0:b0 + g, b0 + g:]
+    return Q
+
 def bpw(bits, g): return 16.0 if not bits else bits + (16 + bits) / g
+
+
+def moe_fwd(self, hs):
+    B, T, D = hs.shape; x = hs.view(-1, D); lg = self.gate(x)
+    p = F.softmax(lg.float(), -1); w, ii = torch.topk(p, TOPK, -1); w = (w / w.sum(-1, keepdim=True)).to(x.dtype)
+    out = torch.zeros_like(x); rec = getattr(self, "rec", None); hs_ = getattr(self, "hset", None); valid = getattr(self, "valid", None)
+    em = F.one_hot(ii, NE).permute(2, 1, 0); hit = (em.sum((1, 2)) > 0).nonzero().flatten().tolist()
+    for e in hit:
+        k_, t_ = torch.where(em[e]); xe = x[t_]; ex = self.experts[e]
+        a = ex.act_fn(ex.gate_proj(xe)) * ex.up_proj(xe); y = ex.down_proj(a); we = w[t_, k_]
+        out.index_add_(0, t_, y * we[:, None])
+        if rec is not None:
+            v = valid[t_] if valid is not None else torch.ones(len(t_), device=x.device)
+            rec[0][e] += (we.float() * v).sum(); rec[1][e] += v.sum(); rec[2][e] += (we.float() * y.float().norm(dim=-1) * v).sum()
+        if hs_ is not None and e in hs_:
+            v = valid[t_].bool() if valid is not None else slice(None); h = hs_[e]
+            xv = xe[v].float(); av = a[v].float(); h[0] += xv.T @ xv; h[1] += av.T @ av; h[2] += xv.shape[0]
+    return out.view(B, T, D)
 
 class GateW(nn.Module):
     def __init__(s, gate): super().__init__(); s.g = gate; s.mask = None; s.rec = None; s.valid = None
@@ -49,7 +95,8 @@ def main(cfgs, vol):
     for p in lm.parameters(): p.requires_grad_(False)
     dev = "cuda"; os.makedirs("/r/res", exist_ok=True)
     blocks = [l.mlp for l in lm.model.layers]; gates = []
-    for b in blocks: gw = GateW(b.gate); b.gate = gw; gates.append(gw)
+    import types
+    for b in blocks: gw = GateW(b.gate); b.gate = gw; gates.append(gw); b.forward = types.MethodType(moe_fwd, b)
     # CPU copies of original weights
     log("copy orig to cpu")
     O = []
@@ -90,16 +137,28 @@ def main(cfgs, vol):
         return outs
     @torch.no_grad()
     def routing_mass(rows, budget=40000):
-        rec = [(torch.zeros(NE, device=dev), torch.zeros(NE, device=dev)) for _ in range(NL)]
-        for l, g in enumerate(gates): g.rec = rec[l]
+        rec = [(torch.zeros(NE, device=dev), torch.zeros(NE, device=dev), torch.zeros(NE, device=dev)) for _ in range(NL)]
+        for l, b in enumerate(blocks): b.rec = rec[l]
         for idx in batches(rows, budget):
             ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
-            for g in gates: g.valid = v
+            for b in blocks: b.valid = v
             lm.model(input_ids=ids, attention_mask=am)
-        for g in gates: g.rec = None; g.valid = None
-        return torch.stack([r[0] for r in rec]).cpu(), torch.stack([r[1] for r in rec]).cpu()
+        for b in blocks: b.rec = None; b.valid = None
+        return tuple(torch.stack([r[j] for r in rec]).cpu() for j in range(3))
+    @torch.no_grad()
+    def collect_hessians(rows, layers, kept, budget=30000):
+        for l in layers: blocks[l].hset = {e: [torch.zeros(HID, HID, device=dev), torch.zeros(FF, FF, device=dev), 0] for e in kept[l]}
+        for idx in batches(rows, budget):
+            ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
+            for l in layers: blocks[l].valid = v
+            lm.model(input_ids=ids, attention_mask=am, use_cache=False, logits_to_keep=1) if False else lm.model.forward(input_ids=ids, attention_mask=am, use_cache=False)
+        out = {l: blocks[l].hset for l in layers}
+        for l in layers: blocks[l].hset = None; blocks[l].valid = None
+        return out
     # ---- apply config
-    def keep_lists(cfg, mass):
+    def keep_lists(cfg, mass0):
+        mass = {"mass": mass0, "reap": reap / cnt.clamp(min=1), "massreap": (mass0 / mass0.sum(1, keepdim=True)) * (reap / cnt.clamp(min=1) / (reap / cnt.clamp(min=1)).mean(1, keepdim=True))}[cfg.get("score", "mass")]
+        if cfg.get("kept_counts"): return [sorted(torch.topk(mass[l], cfg["kept_counts"][l]).indices.tolist()) for l in range(NL)]
         k = cfg.get("keep", NE)
         if cfg.get("kept_file"): return [sorted(x) for x in json.load(open(cfg["kept_file"]))]
         if isinstance(k, float) and k <= 1.0: k = int(round(k * NE))
@@ -132,7 +191,7 @@ def main(cfgs, vol):
             ki = kept[l]; ex = lay.mlp.experts
             for nm, mod in (("gate", "gate_proj"), ("up", "up_proj"), ("down", "down_proj")):
                 w = O[l][nm][ki].to(dev)
-                if eb: w = rtn(w, eb, eg, mse)
+                if eb and cfg.get("quant") != "gptq": w = rtn(w, eb, eg, mse)
                 for j, e in enumerate(ki): getattr(ex[e], mod).weight.data.copy_(w[j].to(torch.bfloat16))
                 del w
             m = torch.zeros(NE, device=dev); m[[e for e in range(NE) if e not in set(ki)]] = float("-inf"); gates[l].mask = m if len(ki) < NE else None
@@ -145,16 +204,37 @@ def main(cfgs, vol):
                 w = src[s:s + 20000].to(dev)
                 if b: w = rtn(w, b, 128, False)
                 tgt.weight.data[s:s + 20000].copy_(w.to(torch.bfloat16))
+    @torch.no_grad()
+    def gptq_all(cfg, kept):
+        calrows = getset("cal")[:cfg.get("nh", 1000)]; eb, eg = cfg["eb"], cfg.get("eg", 128); blk = cfg.get("hblk", 256); fb = 0
+        for g0 in range(0, NL, cfg.get("lgroup", 6)):
+            layers = list(range(g0, min(NL, g0 + cfg.get("lgroup", 6)))); Hs = collect_hessians(calrows, layers, kept); log("hessians", layers[0], layers[-1])
+            for l in layers:
+                Qi = rot_matrix(HID, min(blk, HID), 1000 + l, dev) if cfg.get("had", True) else torch.eye(HID, device=dev); Qd = rot_matrix(FF, min(blk, FF), 2000 + l, dev) if cfg.get("had", True) else torch.eye(FF, device=dev)
+                ex = lm.model.layers[l].mlp.experts
+                for e in kept[l]:
+                    Hin, Hdn, n = Hs[l][e]
+                    gw = O[l]["gate"][e].to(dev).float(); uw = O[l]["up"][e].to(dev).float(); dw = O[l]["down"][e].to(dev).float()
+                    if n < cfg.get("nmin", 32): fb += 1; qg, qu, qd = rtn(gw, eb, eg, True), rtn(uw, eb, eg, True), rtn(dw, eb, eg, True)
+                    else:
+                        Hi_ = Qi.T @ Hin @ Qi; Hd_ = Qd.T @ Hdn @ Qd; gu = torch.cat([gw, uw], 0) @ Qi; q = gptq(gu, Hi_, eb, eg, cfg.get("damp", 0.01)) @ Qi.T; qg, qu = q[:FF], q[FF:]
+                        qd = gptq(dw @ Qd, Hd_, eb, eg, cfg.get("damp", 0.01)) @ Qd.T
+                    ex[e].gate_proj.weight.data.copy_(qg.to(torch.bfloat16)); ex[e].up_proj.weight.data.copy_(qu.to(torch.bfloat16)); ex[e].down_proj.weight.data.copy_(qd.to(torch.bfloat16))
+                Hs[l] = None
+            del Hs; torch.cuda.empty_cache()
+        log("gptq done, rtn fallbacks", fb)
     # ---- routing mass (cached)
     ncal = max([c.get("ncal", 2000) for c in cfgs]); mp = f"/r/res/mass_{DS}_{ncal}.pt"
-    if os.path.exists(mp): mass, cnt = torch.load(mp)
+    if os.path.exists(mp): mass, cnt, reap = torch.load(mp)
     else:
-        cal = getset("cal")[:ncal]; mass, cnt = routing_mass(cal); torch.save((mass, cnt), mp); vol.commit(); log("mass done", cal and len(cal))
+        cal = getset("cal")[:ncal]; mass, cnt, reap = routing_mass(cal); torch.save((mass, cnt, reap), mp); vol.commit(); log("mass done", cal and len(cal))
     for cfg in cfgs:
         t1 = time.time(); name = cfg["name"]; log("CFG", name, cfg)
         kept = keep_lists(cfg, mass); by = bytes_of(cfg, kept)
         if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
-        apply(cfg, kept); res = dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept], sets={})
+        apply(cfg, kept)
+        if cfg.get('quant') == 'gptq': gptq_all(cfg, kept)
+        res = dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept], sets={})
         for sn in cfg.get("sets", ["SEL"]):
             rows = getset(sn)
             if cfg.get("sub"): rows = rows[::cfg["sub"]]
@@ -178,3 +258,5 @@ def main(cfgs, vol):
             res["sets"][sn] = sm; json.dump(res_s, open(f"/r/res/outs_{DS}_{name}_{sn}.json", "w"))
         res["secs"] = round(time.time() - t1); json.dump(res, open(f"/r/res/{DS}_{name}.json", "w")); vol.commit()
         print("RESULT_JSON", json.dumps(res), flush=True)
+        if cfg.get("fb"):
+            import fb; fb.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
