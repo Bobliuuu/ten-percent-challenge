@@ -217,24 +217,39 @@ def _impl(cfg):
                 del Hs; torch.cuda.empty_cache(); print("sens layer", li, {k: round(v["kl"], 5) for k, v in sres.items() if k.startswith(f"L{li}.")}, round(time.time() - t0), flush=True)
             res["sens"] = sres; res["sens_K"] = sK; json.dump(res, open(f"/vol/res/{name}.json", "w")); vol.commit(); print("RESULT_JSON " + json.dumps(dict(name=name, sens=sres))); return res
         st = dict(fixed_bits=0.0, ent_bits=0.0, nq=0, meta=0, num=0.0, den=0.0)
+        tgt = cfg.get("tgt", False)
+        if tgt: cur_fp = [x.clone() for x in cur]
         for li, l in enumerate(layers):
-            Hs = {}; nsm = {}
+            Hs = {}; nsm = {}; Hf = {}; store = {}; flag = {"f": False}
             for gname, names, hookn in groups:
                 m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
+                if tgt: Hf[gname] = torch.zeros(m.in_features, m.in_features, device=dev)
             def mk(gname):
                 def hook(m, i, o):
-                        x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; torch.backends.cuda.matmul.allow_tf32 = True; Hs[gname] += (x.T @ x).to(Hs[gname].device); torch.backends.cuda.matmul.allow_tf32 = False
+                    x = i[0].reshape(-1, i[0].shape[-1]).float(); torch.backends.cuda.matmul.allow_tf32 = True
+                    if flag["f"]: Hf[gname] += (x.T @ store[gname].to(x.device)).to(Hf[gname].device)
+                    else:
+                        nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                        if tgt: store[gname] = x
+                    torch.backends.cuda.matmul.allow_tf32 = False
                 return hook
             hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
             with torch.no_grad():
-                for x in cur: l(x, **kw)
+                for j, x in enumerate(cur):
+                    flag["f"] = False; l(x, **kw)
+                    if tgt: flag["f"] = True; o = l(cur_fp[j], **kw); cur_fp[j] = o[0] if isinstance(o, tuple) else o
             for h_ in hds: h_.remove()
-            Hs = {k: v.cpu() for k, v in Hs.items()}; torch.cuda.empty_cache()
+            if tgt: store.clear()
+            Hs = {k: v.cpu() for k, v in Hs.items()}; Hfs = {k: v.cpu() for k, v in Hf.items()}; torch.cuda.empty_cache()
             for gname, names, hookn in groups:
                 Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
-                Hr = rin.fwd(Hraw); Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
+                Hr = rin.fwd(Hraw)
+                if tgt:
+                    Hq = Hraw.double(); Hq.diagonal().add_(cfg.get("damp", 0.01) * float(torch.mean(torch.diag(Hq)))); Lc = torch.linalg.cholesky(Hq); del Hq; Hfq = (Hfs[gname].to(dev) / nsm[gname]).double()
+                Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
                 for n in names:
                     m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
+                    if tgt: Wt = torch.cholesky_solve((W.double() @ Hfq).T.contiguous(), Lc).T.contiguous().float(); st["tshift"] = st.get("tshift", 0.0) + float((Wt - W).norm() / W.norm()); W = Wt; del Wt
                     Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()) * cfg.get("smult", 1.0)
                     K = Kof(li, n); C = get_cb(K); idx = ldlq(Wr / sigma, Hr, C, damp=cfg.get("damp", 0.01))
                     Q = C[idx].reshape(od, -1) * sigma; Eq = Wr - Q; st["num"] += float(((Eq @ Hr) * Eq).sum()); st["den"] += float(((Wr @ Hr) * Wr).sum())
