@@ -73,9 +73,9 @@ def locked_guard(exam_path, allow_locked=False):
     """Refuse to read/score the real locked exam (or anything with the locked hash) unless explicitly final.
     Checked on the file name AND on the sha256 recorded in tournament/T1/data/LOCK.json (hash computed on bytes; rows not parsed)."""
     p = os.path.abspath(exam_path)
-    lk = json.load(open(os.path.join(T1, "data", "LOCK.json")))
-    locked_sha = lk["splits"]["locked"]["file_sha256"]
-    is_locked = os.path.basename(p) == "locked.jsonl" or sha_file(p) == locked_sha
+    try: locked_sha = json.load(open(os.path.join(T1, "data", "LOCK.json")))["splits"]["locked"]["file_sha256"]
+    except Exception: locked_sha = None    # box copy has no T1 lock file; name guard below still applies
+    is_locked = os.path.basename(p) == "locked.jsonl" or (locked_sha is not None and sha_file(p) == locked_sha)
     is_locked = is_locked or os.path.basename(p).startswith("locked")
     if is_locked and not (allow_locked and os.environ.get("TENPCT_FINAL") == "1"):
         raise PermissionError("REFUSING: this is the LOCKED exam. It is only runnable in the final proof "
