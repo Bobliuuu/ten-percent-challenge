@@ -295,6 +295,14 @@ def run_gpu(cfgs):
             import traceback; traceback.print_exc(); print("CFG FAILED", c["name"], repr(e), flush=True)
 
 
+@app.function(image=img, gpu="A10G", cpu=8, memory=32768, timeout=43200, volumes={"/r": vol, "/hf": hf}, env={"HF_HOME": "/hf"})
+def run_a10g(cfgs):
+    for c in cfgs:
+        try: _run(c)
+        except Exception as e:
+            import traceback; traceback.print_exc(); print("CFG FAILED", c["name"], repr(e), flush=True)
+
+
 @app.function(image=img, cpu=8, memory=32768, timeout=14400, volumes={"/r": vol, "/hf": hf}, env={"HF_HOME": "/hf"})
 def run_cpu(cfgs):
     for c in cfgs:
@@ -307,5 +315,5 @@ def run_cpu(cfgs):
 @app.local_entrypoint()
 def main(cfgs: str, where: str = "gpu"):
     """modal run --detach memit2.py --cfgs cfgs_x.json [--where cpu]"""
-    f = run_gpu if where == "gpu" else run_cpu
+    f = {"gpu": run_gpu, "a10g": run_a10g, "cpu": run_cpu}[where]
     print("RUN", f.remote(json.load(open(cfgs))), flush=True)
