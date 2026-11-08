@@ -266,3 +266,37 @@ census relaunch (cen2) 2026-11-08: v2/model_census/jobs_census2.json.calls
 - 2026-11-08T14:25Z vast id 59722449 label tenpct-rival3_clin1 GPU RTX PRO 6000 Max-Q 96GB $1.402/h (+5% guard) started
 
 - 2026-11-08 L10 (denominator bonus) Modal app tenpct-l10 (ap-ZmhdcXnnZJbLoJZKGUj1HD), spawned detached via `python3 v2/lanes/L10/modal_l10.py v2/lanes/L10/jobs1.json`: calls llama fc-01M6XRS477KYTN60ZG7N90W81D, omni7 fc-01M6XRS4AHZ9CQAQNA1JN56X3D, omni3 fc-01M6XRS4DS6EWJS8QYEN11NAVM. Results: Volume tenpct-tasksearch:/dense/ct_l10_*_{l,o,p}_*.json
+- 2026-11-08T14:26Z vast id 59722574 label tenpct-rival3_clin1 GPU A100 SXM4 80GB $1.319/h (+5% guard) started
+- 2026-11-08T14:26Z vast id 59722601 label tenpct-ne_b GPU RTX 3090 24GB $0.176/h (+5% guard) started
+census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
+- 2026-11-08T14:27Z vast id 59721406 tenpct-rival3_clin destroyed after 0.17 h (~$0.19)
+- 2026-11-08T14:27Z vast id 59721403 tenpct-rival3_bank destroyed after 0.18 h (~$0.17)
+- 2026-11-08T14:27Z vast id 59716954 tenpct-x03n12 destroyed after 1.00 h (~$0.60)
+- 2026-11-08T14:27Z vast id 59722748 label tenpct-L12A GPU RTX PRO 6000 WS 96GB $1.335/h (+5% guard) started
+- 2026-11-08T14:27Z vast id 59722752 label tenpct-L12B GPU RTX PRO 6000 WS 96GB $1.403/h (+5% guard) started
+- 2026-11-08T14:31Z vast id 59722574 tenpct-rival3_clin1 destroyed after 0.07 h (~$0.09)
+- 2026-11-08T14:31Z vast id 59717440 tenpct-x03n13 destroyed after 0.97 h (~$0.58)
+- 2026-11-08T14:31Z vast id 59723157 label tenpct-l13a GPU RTX A6000 45GB $0.403/h (+5% guard) started
+- 2026-11-08T14:31Z vast id 59723199 label tenpct-l13b GPU RTX 4090 48GB $0.472/h (+5% guard) started
+- 2026-11-08T14:31Z vast id 59723262 label tenpct-l13s GPU RTX A4000 16GB $0.109/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723282 label tenpct-x03p11 GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723286 label tenpct-x03p12 GPU RTX A6000 48GB $0.564/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723285 label tenpct-x03p13 GPU RTX A6000 48GB $0.564/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723459 label tenpct-t3-q3-14b GPU A40 45GB $0.269/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723460 label tenpct-t3-32b GPU A100 PCIE 80GB $0.937/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723462 label tenpct-t3-14b GPU A40 45GB $0.269/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723461 label tenpct-t3-7b GPU A40 45GB $0.269/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59722086 tenpct-rival3_bank1 destroyed after 0.18 h (~$0.18)
+- 2026-11-08T14:34Z vast id 59722416 tenpct-L11_smoke destroyed after 0.16 h (~$0.16)
+- 2026-11-08T14:34Z vast id 59723617 label tenpct-t3-q3-14b GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T14:34Z vast id 59723618 label tenpct-t3-14b GPU RTX PRO 6000 Max-Q 96GB $1.335/h (+5% guard) started
+- 2026-11-08T14:3xZ vast 14B A40 pair destroyed (45GB too small), relaunched on >=80GB
+- 2026-11-08T14:35Z vast id 59723688 label tenpct-ne_b GPU RTX PRO 4000 24GB $0.230/h (+5% guard) started
+- 2026-11-08T14:36Z vast id 59722752 tenpct-L12B destroyed after 0.11 h (~$0.16)
+- 2026-11-08T14:36Z vast id 59722748 tenpct-L12A destroyed after 0.13 h (~$0.18)
+- 2026-11-08T14:37Z vast id 59723852 label tenpct-rival3_clin1 GPU A100 SXM4 80GB $1.279/h (+5% guard) started
+- 2026-11-08T14:38Z vast id 59723921 label tenpct-L11_A1 GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08 stopped ap-eyM0.. ap-1C3k.. (vllm/transformers pin bug); relaunched 14B grid a/b as ap-i693NeqXzMnTP7paF1lwu9 + ap-l7ydeh0S7gSFg1jDvR8vTW (near_miss b_depth)
+- 2026-11-08T14:39Z vast id 59724116 label tenpct-L11_C GPU RTX PRO 6000 Max-Q 96GB $1.338/h (+5% guard) started
+- 2026-11-08T14:40Z vast id 59723157 tenpct-l13a destroyed after 0.14 h (~$0.06)
+- 2026-11-08T14:40Z vast id 59724219 label tenpct-l13a GPU RTX 4090 48GB $0.605/h (+5% guard) started
