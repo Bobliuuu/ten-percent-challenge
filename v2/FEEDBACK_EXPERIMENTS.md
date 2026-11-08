@@ -85,7 +85,17 @@ Per source: neighbours kept AG 0.992-0.993, BBC 0.984-0.989 (the unseen-source c
 Read: teach gain +0.48 to +0.59 over base (CI > 0 everywhere); real - shuffled +0.24 to +0.34 (weak tier >= 0.10 passes everywhere; strong tier >= 0.25 passes except F1 n=25 at +0.235), but the shuffled control is large (0.37-0.60) because the model already knows the word and ANY 5-25 inputs labelled Entertainment push its prior; only the wrong-label control is clearly below base (0.00-0.06). Aggregate neighbours 0.984-0.991 (>= 0.98); per-class cell bar (>= 0.95) FAILS for the HuffPost cells. The cross-source arm (annotations from AG errors, teach from BBC/HuffPost) was NOT run: all annotations and the teach set are HuffPost Entertainment; only the neighbour cells are cross-source. A per-source teach number does not exist because no second source of Entertainment items exists in the prepared data.
 
 ## 7. Qwen2.5-7B-Instruct, TOX + selfharm
-PENDING_Q25
+Same harness and data as section 3 (5 draws per n, controls real/wrong/mixed/shuffled, 528 base-correct neighbours, base teach 0.000, natural errors safe 22 / toxic 16 / violence 14 / hate 5). Layers: last 8 / last 6 of 28; same hyper-parameters as Qwen3-8B (no re-tuning).
+| method | n | teach real [CI] | shuffled | wrong | mixed | real - shuf [CI] | unseen-bucket | paraphrase | neigh kept | worst draw | min cell |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| F1 L8 | 5 | 0.650 [.57,.70] | 0.000 | 0.000 | 0.325 | +0.650 [.57,.70] | 0.647 | 0.840 | 0.9973 | 0.994 | 0.992 |
+| F1 L8 | 12 | 0.786 [.76,.81] | 0.100 | 0.000 | 0.507 | +0.686 [.57,.77] | 0.718 | 0.767 | 0.9955 | 0.994 | 0.980 |
+| F1 L8 | 25 | 0.800 [.79,.81] | 0.150 | 0.000 | 0.546 | +0.650 [.44,.77] | 0.776 | 0.776 | 0.9939 | 0.992 | 0.976 |
+| F2 L6 | 5 | 0.621 [.52,.70] | 0.000 | 0.000 | 0.300 | +0.621 [.52,.70] | 0.647 | 0.880 | 0.9977 | 0.996 | 0.984 |
+| F2 L6 | 12 | 0.771 [.75,.80] | 0.079 | 0.000 | 0.457 | +0.693 [.56,.78] | 0.694 | 0.717 | 0.9981 | 0.996 | 0.992 |
+| F2 L6 | 25 | 0.800 [.79,.80] | 0.146 | 0.000 | 0.529 | +0.654 [.43,.78] | 0.753 | 0.744 | 0.9947 | 0.992 | 0.984 |
+| mnH row (reference) | 5 / 12 / 25 | 0.657 / 0.789 / 0.679 | 0.032 / 0.054 / 0.129 | 0.000 | 0.31 / 0.24 / 0.18 | +0.625 / +0.736 / +0.550 | 0.65-0.78 | 0.60-0.80 | 0.998-0.999 | 0.998 | 0.984-0.988 |
+Real generation (2 draws, up to 100 items): agreement 0.96-1.00 on teach, 1.00 on neighbours; generated teach 0.68-0.73. Bytes: 0 in a bf16 body; as fp16 override 136 MB per layer (F2 815 MB, F1 1.09 GB). Collapsed draws: 0. On this model the diffuse arm meets EVERY X09 criterion (teach gain >= +0.15, real - shuffled >= +0.62, empty exactly 0, aggregate neighbours >= 0.994, every cell >= 0.976, no collapsed draw) at n=5/12/25; note the hyper-parameters were tuned only on Qwen3-8B, so this is also a transfer result.
 
 ## 8. E4 proxy: edit on a fake-quantised body (RTN 4-bit / 3-bit, group 128, all attention+MLP linears of Qwen3-8B; edited tensors fp16; lm_head fp)
 PENDING_FQ
