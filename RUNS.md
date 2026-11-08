@@ -393,3 +393,7 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T17:48Z vast id 59750444 label tenpct-L11_G GPU A100 SXM4 80GB $1.015/h (+5% guard) started
 - 2026-11-08T17:51Z vast id 59750988 label tenpct-L11_X2 GPU RTX PRO 6000 Max-Q 96GB $1.402/h (+5% guard) started
 - 2026-11-08T17:53Z vast id 59749787 tenpct-L11_X1 destroyed after 0.18 h (~$0.15)
+- 2026-11-08T17:55Z vast id 59750143 tenpct-L11_X3 destroyed after 0.17 h (~$0.20)
+- 2026-11-08 vast id 59723460 tenpct-t3-32b destroyed (T3 lane done, results pulled)
+- 2026-11-08 vast id 59725948 tenpct-t3-14b destroyed (T3 lane done, results pulled)
+- 2026-11-08T17:56Z vast id 59751753 label tenpct-L11_G GPU RTX PRO 6000 Max-Q 96GB $1.393/h (+5% guard) started

@@ -1,0 +1,10 @@
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.45it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.52it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.53it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.54it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:02,  1.49it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:04<00:01,  1.47it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:04<00:00,  1.49it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:05<00:00,  1.78it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:05<00:00,  1.60it/s]
+alloc body_bits/param 1.5258076941787837 target 1.5260907472924299
+passB 0 35
+passB 8 241
+passB 16 447
+passB 24 653
+passB 32 876
+passB 40 1013
+CT_DONE Qwen2.5-14B-Instruct t3pPHISH2B_r985 ratio 0.09883212542079123 bpw 1.5291455807801166 acc 0.7523510971786834
+JOB_DONE 28 []

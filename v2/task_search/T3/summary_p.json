@@ -125,6 +125,45 @@
    ]
   }
  },
+ "Qwen2.5-14B-Instruct|PHISH2B": {
+  "base": 0.8996865203761756,
+  "n": 319,
+  "nbc": 287,
+  "ret": 0.7317073170731707,
+  "lo": 0.6776334372959559,
+  "wkind": 0.51875,
+  "wcell": 0.5125,
+  "ratio": 0.09883212542079123,
+  "bpw": 1.5291455807801166,
+  "kinds": {
+   "Phishing": [
+    127,
+    127
+   ],
+   "Legitimate": [
+    83,
+    160
+   ]
+  },
+  "cells": {
+   "zefang_phish/Phishing": [
+    63,
+    63
+   ],
+   "zefang_phish/Legitimate": [
+    41,
+    80
+   ],
+   "sevenphish/Phishing": [
+    64,
+    64
+   ],
+   "sevenphish/Legitimate": [
+    42,
+    80
+   ]
+  }
+ },
  "Qwen2.5-14B-Instruct|PHISH2C": {
   "base": 0.9305993690851735,
   "n": 317,

@@ -1,0 +1,25 @@
+++ dirname run_p.sh
++ cd .
++ mkdir -p results
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
++ tail -2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ for tj in $1
++ t=PHISH2B
++ j=29
++ T3_ITEMS=items_p_PHISH2B.jsonl
++ T3_CALIB=calib_p_PHISH2B.jsonl
++ T3_TAG=_p_PHISH2B
++ python code/runner.py 29
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 264.10it/s]
+alloc body_bits/param 1.5536215521637045 target 1.5547254442404195
+passB 0 29
+passB 8 245
+passB 16 461
+passB 24 677
+passB 32 892
+passB 40 1106
+passB 48 1321
+passB 56 1538
+CT_DONE Qwen2.5-32B-Instruct t3pPHISH2B_r985 ratio 0.0986732053191944 bpw 1.556433091816913 acc 0.8119122257053292
+JOB_DONE 29 []

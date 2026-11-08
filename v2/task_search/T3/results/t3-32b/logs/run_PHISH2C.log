@@ -1,0 +1,7 @@
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 266.08it/s]
+alloc body_bits/param 1.5536215521637045 target 1.5547254442404195
+passB 0 31
+passB 8 247
+passB 16 464
+passB 24 678
+passB 32 893
