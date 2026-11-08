@@ -41,3 +41,22 @@ Evidence: dense quant (scalar/VQ/TCQ/GPTAQ) all 92-97% at <=10% -> method-insens
 6. L6 other MoE bases.  ~8%
 7. L5 dense 32B + repair (fallback only).  ~3%
 Dropped: L8 depth/width pruning, VQ/trellis/GPTAQ sweeps. Quant sweep refocus: best quantizer for KEPT MoE EXPERTS at 2-3 bits. GPUs go to L3/L4/L9 first.
+
+## Research feed adopted (v2/RESEARCH_EXHAUSTIVE.md, queue rows X16-X28; arXiv ids unverified until checked)
+- MoE upgrade (X17/X18): expert scoring beyond routing mass (REAP 2510.13999, unified score 2606.15716); GPTQ/VQ on kept experts. -> L3, L4, L6, L9.
+- Denominator bonus (X16): multimodal start models (Llama-3.2-11B/90B-Vision, Qwen2.5-Omni-7B) give ~2.0-2.2 bpw on the text path at 10% of whole-model fp16. Gray-low (R1 literal, R9 spirit): disclose. -> NEW lane L10.
+- Diffuse feedback (X19): AlphaEdit null-space, UltraEdit, Steer2Edit, edit down_proj in 3-5 layers, no lm_head row edit, no stats side file. -> L11.
+- Byte tricks (X20/X21/X24): coded scales (~0.03 bpw vs 0.125), ANS-coded indices (+1-6%), data-free quantizers (HIGGS/HyperQuant/AIMER), vocab trim with byte-fallback kept. -> L13.
+- Bonsai byte audit (X22): Ternary-Bonsai-27B ~10.9%; 8-bit scales g256 -> ~10.06%, borderline. -> L2.
+- Guard-model start (X23): over-confident, big margins. -> L6/support.
+- Quantizer upgrades (X25): Proteus, LLVQ, residual compensation. -> quant sweep.
+- Layer removal + compensation (X26-28), shared-subspace MoE (GS-MoE/D2-MoE), fine-grained Qwen3.5 MoE bases (35B-A3B 256 experts, 397B-A17B 512). -> L12, L9.
+- Rival #4 note: its feedback is the row edit the maintainer rejected for us and #3, and it counts a 1 MB feedback_stats file; do not copy that.
+
+## New lanes (added 2026-11-08)
+| ID | Lane | Type | Owner |
+|---|---|---|---|
+| L10 | Multimodal denominator bonus (text path at ~2.1 bpw) | entry lane | L10 agent |
+| L11 | Feedback ablation: AlphaEdit/UltraEdit/Steer2Edit/MEMIT/row edit on ONE fixed model; layers, edit count, key-covariance protection, paraphrase and cross-source teach; best legal-ish carrier by bytes | research/ablation | L11 agent |
+| L12 | MoE combos: expert prune x merge x shared-subspace x quant (GS-MoE, D2-MoE, REAP) on Qwen3-30B-A3B, fine-grained Qwen3.5-35B-A3B | combination | L12 agent |
+| L13 | Byte tricks ablation: coded scales, ANS indices, data-free quantizers, vocab trim, tied/deduped tensors, ship-code size; how many % free per lane | ablation | L13 agent |
