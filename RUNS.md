@@ -259,3 +259,10 @@ Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) 
 Modal deployed app tenpct-moe-census (v2/model_census/moe/moe_probe.py), jobs v2/model_census/moe/jobs_small.json(.calls); launch: python3 v2/model_census/moe/launch.py jobs_small.json; results volume tenpct-moe-census:/res
 - 2026-11-08T14:50Z modal apps ap-eyM0KFgbSwVnxY5ww9DKe3 + ap-1C3k8AhLVDntUE7WkeYX7v tenpct-nm-b-depth (14B grid a/b, A100-80GB each, ~$2.5/h each; near_miss b_depth/L8)
 - 2026-11-08T14:19:31Z easy2 sweep: app ap-Af7mjo8pozdtrnn25aLxp0 (jobs_easy2.json); easy1 app ap-1ijOLCu4ciOBrFYZBkR0fJ
+- 2026-11-08T14:21Z vast id 59722086 label tenpct-rival3_bank1 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T14:3xZ vast id 59722073 label tenpct-nm-b L40S $0.428/h (+5% guard) started (L6 MoE lane; destroy at end)
+census relaunch (cen2) 2026-11-08: v2/model_census/jobs_census2.json.calls
+- 2026-11-08T14:24Z vast id 59722416 label tenpct-L11_smoke GPU A100 SXM4 80GB $1.001/h (+5% guard) started
+- 2026-11-08T14:25Z vast id 59722449 label tenpct-rival3_clin1 GPU RTX PRO 6000 Max-Q 96GB $1.402/h (+5% guard) started
+
+- 2026-11-08 L10 (denominator bonus) Modal app tenpct-l10 (ap-ZmhdcXnnZJbLoJZKGUj1HD), spawned detached via `python3 v2/lanes/L10/modal_l10.py v2/lanes/L10/jobs1.json`: calls llama fc-01M6XRS477KYTN60ZG7N90W81D, omni7 fc-01M6XRS4AHZ9CQAQNA1JN56X3D, omni3 fc-01M6XRS4DS6EWJS8QYEN11NAVM. Results: Volume tenpct-tasksearch:/dense/ct_l10_*_{l,o,p}_*.json
