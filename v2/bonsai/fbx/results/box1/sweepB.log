@@ -19,3 +19,4 @@
 [  1141s] L4 real n 25 d 1 {'teach_sel': 0.86, 'neigh_sel': 0.789, 'neigh_sel_hp': 0.823} bytes 67125248 edit 32s
 [  1176s] L4 shuffled n 25 d 1 {'teach_sel': 0.7} bytes 67125248 edit 33s
 [  1286s] L8 real n 25 d 0 {'teach_sel': 0.86, 'neigh_sel': 0.966, 'neigh_sel_hp': 0.963} bytes 134250496 edit 60s
+[  1350s] L8 shuffled n 25 d 0 {'teach_sel': 0.72} bytes 134250496 edit 61s

@@ -67,6 +67,7 @@ def ensure_omni(src, out):
     save_file(sd, out + "/model.safetensors", metadata={"format": "pt"})
     for f in ("tokenizer.json", "tokenizer_config.json", "special_tokens_map.json", "generation_config.json", "chat_template.json", "vocab.json", "merges.txt"):
         if os.path.exists(d + "/" + f): os.system(f"cp {d}/{f} {out}/{f}")
+    json.dump(dict(bos_token_id=151643, pad_token_id=151643, eos_token_id=[151645, 151643], do_sample=False, max_new_tokens=64), open(out + "/generation_config.json", "w"))   # Omni's own gen config lacks <|im_end|> as a stop token
     # chat template may live in chat_template.json
     if os.path.exists(out + "/chat_template.json"):
         ct = json.load(open(out + "/chat_template.json")); tk = json.load(open(out + "/tokenizer_config.json")); tk["chat_template"] = ct.get("chat_template", ct); json.dump(tk, open(out + "/tokenizer_config.json", "w"))

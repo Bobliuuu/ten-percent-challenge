@@ -16,7 +16,7 @@ import torch
 sys.dont_write_bytecode = True   # never write into the artifact dir
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bonsai_loader as BL, common
-DEF = dict(layers=6, cols=2048, lam=1000.0, awt=10.0, margin=16.0, ridge=0.05)
+DEF = dict(layers=6, cols=1024, lam=1000.0, awt=10.0, margin=16.0, ridge=0.05)
 
 class _Stop(Exception): pass
 
