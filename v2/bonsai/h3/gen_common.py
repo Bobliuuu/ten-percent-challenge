@@ -23,5 +23,5 @@ def generate(model_dir, items, max_new_tokens=512, bs=8, device=None, prompts_ou
             idx = order[s:s + bs]
             enc = tok([prompts[i] for i in idx], return_tensors="pt", padding=True, add_special_tokens=False, return_token_type_ids=False).to(dev)
             g = lm.generate(**enc, max_new_tokens=max_new_tokens, do_sample=False, pad_token_id=tok.pad_token_id)
-            for j, i in enumerate(idx): out[i] = tok.decode(g[j, enc.input_ids.shape[1]:], skip_special_tokens=False).strip()
+            for j, i in enumerate(idx): out[i] = tok.decode(g[j, enc.input_ids.shape[1]:], skip_special_tokens=True).strip()
     return out

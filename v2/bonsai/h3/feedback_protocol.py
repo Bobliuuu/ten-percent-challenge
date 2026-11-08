@@ -39,12 +39,19 @@ def validate_sets(ann, teach, nb, exam_rows=()):
 def shuffled_annotations(ann, seed=0):
     """Permute the corrected labels across annotations so that no item keeps its own (derangement when possible). Same prompts, wrong labels."""
     keys = [gold_key(a) for a in ann]
-    if len(set(keys)) < 2: return None, "degenerate: all annotations have the same gold; shuffling is impossible"
-    rng = random.Random(seed)
-    for _ in range(1000):
-        perm = list(range(len(ann))); rng.shuffle(perm)
-        if all(keys[perm[i]] != keys[i] for i in range(len(ann))): break
-    else: return None, "no derangement found"
+    if len(set(keys)) < 2:
+        # all annotations carry the same (new) label: detach labels from inputs by putting the gold on UNRELATED ordinary inputs (BONSAI_SHUFFLE_POOL jsonl rows {id, query, tools}); same labels, wrong inputs
+        pp = os.environ.get("BONSAI_SHUFFLE_POOL")
+        if not pp: return None, "degenerate: all annotations have the same gold; shuffling is impossible (set BONSAI_SHUFFLE_POOL)"
+        pool = C.load_jsonl(pp)[:len(ann)]
+        if len(pool) < len(ann): return None, "shuffle pool too small"
+        return [dict(a, id=p["id"], query=p["query"], tools=p["tools"]) for a, p in zip(ann, pool)], None
+    # deterministic label derangement: order by label (seeded tie-break), shift by the largest label group (exists iff max group <= n/2)
+    rng = random.Random(seed); n = len(ann); order = sorted(range(n), key=lambda i: (keys[i], rng.random())); m = max(keys.count(k) for k in set(keys))
+    if 2 * m > n: return None, "no derangement exists (a label covers more than half of the annotations)"
+    perm = [0] * n
+    for pos, i in enumerate(order): perm[i] = order[(pos + m) % n]
+    assert all(keys[perm[i]] != keys[i] for i in range(n))
     return [dict(a, gold=copy.deepcopy(ann[perm[i]]["gold"])) for i, a in enumerate(ann)], None
 
 

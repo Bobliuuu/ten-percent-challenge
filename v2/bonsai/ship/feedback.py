@@ -6,12 +6,14 @@ For each target token t (a row of the existing output matrix) at an annotated an
     delta_t = M^-1 H^T (H M^-1 H^T + lam I)^-1 g,   g_i = (best competitor logit - logit_t at site i) + margin,   M = E[h h^T] over the shipped UNLABELED calibration prompts
     (feedback_calib.jsonl, or --calib) at the answer position and over the model's own greedy continuations. Touched rows are stored as fp16 in DIR/patch.pt (a 1-bit row cannot take a small step).
 Always starts from the original weights (patch removed first). Zero rows => patch.pt removed => artifact byte-identical to the base artifact."""
-import sys, os, json, argparse, torch
+import sys, os, json, argparse
+import torch
+sys.dont_write_bytecode = True   # never write into the artifact dir
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bonsai_loader as BL, common
 from transformers import AutoTokenizer
 a = argparse.ArgumentParser(); a.add_argument("--artifact", "--dir", dest="art", default=os.path.dirname(os.path.abspath(__file__))); a.add_argument("--task"); a.add_argument("--ann", "--annotations", dest="ann", required=True)
-a.add_argument("--calib"); a.add_argument("--margin", type=float, default=8.0); a.add_argument("--ridge", type=float, default=0.05); a = a.parse_args()
+a.add_argument("--calib"); a.add_argument("--margin", type=float, default=4.0); a.add_argument("--ridge", type=float, default=0.05); a = a.parse_args()
 pf = a.art + "/patch.pt"; T = common.task(a.task) if a.task else None
 ann = [json.loads(l) for l in open(a.ann) if l.strip()]; assert len(ann) <= 25, "at most 25 annotated items"
 if os.path.exists(pf): os.remove(pf)                       # always edit from the ORIGINAL weights

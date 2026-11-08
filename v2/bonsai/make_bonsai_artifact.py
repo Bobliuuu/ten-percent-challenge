@@ -7,7 +7,7 @@ ap = argparse.ArgumentParser(); [ap.add_argument("--" + k, required=True) for k 
 os.makedirs(a.out)
 for f in os.listdir(a.pack):
     if os.path.isfile(os.path.join(a.pack, f)): shutil.copy(os.path.join(a.pack, f), a.out)
-for f in ("answer.py", "feedback.py", "common.py", "bonsai_loader.py"): shutil.copy(os.path.join(a.ship, f), a.out)
+for f in ("answer.py", "feedback.py", "common.py", "bonsai_loader.py", "news_task.json"): shutil.copy(os.path.join(a.ship, f), a.out)
 shutil.copy(a.calib, a.out + "/feedback_calib.jsonl")
 arch = checks.arch_of_dir(getattr(a, "hf_snapshot")); fp16 = sum(2 * math.prod(s) for _, s in arch.values())
 json.dump(arch, open(a.out + "/tensor_manifest.json", "w"))

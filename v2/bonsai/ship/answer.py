@@ -3,6 +3,7 @@
   harness mode:  python answer.py --artifact DIR --in view.json --out out.json [--dump-prompts p.json]  (view = [{id, query, tools}], query = the full prompt; out = [{id, text}])
 The text is the model's own generated word; uses DIR/patch.pt automatically if feedback was given. No constrained decoding."""
 import sys, os, json, argparse
+sys.dont_write_bytecode = True   # never write into the artifact dir
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bonsai_loader as BL, common
 from transformers import AutoTokenizer

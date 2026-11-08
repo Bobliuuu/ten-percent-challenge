@@ -1,0 +1,181 @@
+{
+ "REAL_RESULT": false,
+ "accuracy": {
+  "agree": 0.9983333333333333,
+  "base": 0.7808333333333334,
+  "base_parse_fail": 1,
+  "cand": 0.7791666666666667,
+  "cand_parse_fail": 1
+ },
+ "all_checks_ok": true,
+ "artifact_tree_sha256_after": "db57debf57a93637712c3b5f2ff6cd07747490310919710673e3e358f43f1c43",
+ "artifact_tree_sha256_before": "db57debf57a93637712c3b5f2ff6cd07747490310919710673e3e358f43f1c43",
+ "artifact_unchanged_by_answer": true,
+ "base_arch_sha256": "eac4ebfc92292d4c926071edc59ae7202dc8d0c3809f61b3cc6e89d68407d750",
+ "base_id": "prism-ml/Bonsai-8B-unpacked",
+ "base_out_sha256": "ba0bc1c231fae20c5d4f6d04f96ca08d7c229f8084ede899652e86f5efc10ed8",
+ "cand_evidence": {
+  "hidden": {
+   "/opt/dlami/nvme/w/data_news": 0
+  },
+  "mode": "netns",
+  "network": "blocked (OSError)",
+  "network_attempts_logged": []
+ },
+ "cand_out_sha256": "b7bf8aceecfe61859b2a040e1a945a4cd4ad0d3abf70bb9f6ef8e6164e720c22",
+ "checks": {
+  "leak_outputs": {
+   "n_checked": 1200,
+   "ok": true
+  },
+  "leak_prompts": {
+   "n_checked": 1200,
+   "ok": true,
+   "problems": []
+  },
+  "leak_view": {
+   "n_checked": 1200,
+   "ok": true,
+   "problems": []
+  }
+ },
+ "exam_file_sha256": "acd0419c5f9dfb90f8feea50fc86ae40cb8683067b1a2539a2f093740cb2b26c",
+ "exam_rows_sha256": "4730b386f286847563e944fbe8e157a4705a69003e6ea19ca0925de80ca76dc8",
+ "harness_sha256": {
+  "base_gen.py": "a455631d7872e8778ddb80683f65a1d7f8481d3f388f4d05af69d0f0c0712bc3",
+  "checks.py": "1fe020327eb274d90c7c373a634ade54d2cdd3515de4c7a94448650cbe4c750f",
+  "common3.py": "4a6db4c78b958fa9857cbcda0b1eaef9ec4bf53d7c43660aea5796e6b1011f3c",
+  "exam_gen.py": "f6932145f2fbdabcb63598a3ac453aa2fb9fcf9ef31dfdfba5021a571fd01b8e",
+  "feedback_protocol.py": "1d75c313562e2f05c262d27af053444b800d048a19bd04d50c44e3d71e2f48ef",
+  "final_proof.py": "3ec9f30bc0a26c643c6ea4a14eba28e9fa403ecec090302a2ea7c607c4b12fa3",
+  "gen_common.py": "718f80670fc7075657e06a747a28a0eb763533db4fad3cedc999c8c1e1584015",
+  "netguard/sitecustomize.py": "a332ded606efe7244161fefc310bc8e5b54d273d49d1f3c233f26b51f4153ddd",
+  "runner.py": "a25c05ea8530540625150a6e009a74ccbfeb7d44dd7a7622b4245f085f91852a",
+  "sandbox.py": "bebea188f8ab1bf72338696d7528766634f58823692c2b8f5eb406ff63231e07"
+ },
+ "isolation_ok": true,
+ "locked_exam": false,
+ "n_rows": 1200,
+ "network_attempts": [],
+ "no_new_parts": {
+  "config_arch_diff": [],
+  "constrained_decoding_hits": 0,
+  "constrained_lines": [],
+  "dtype_mismatch": [],
+  "extra_files": [],
+  "extra_tensors": [],
+  "grep_train_hits": 0,
+  "grep_train_lines": [],
+  "missing_tensors": [],
+  "n_tensors": 399,
+  "network_hits": 0,
+  "network_lines": [],
+  "ok": true,
+  "shape_mismatch": [],
+  "tensor_source": "declared_manifest"
+ },
+ "scorer_sha256": "75933490622f6a6f51999eaa65bd1d701ea0391df435b4c128787cbbec113810",
+ "size": {
+  "base_fp16_bytes": 16377096192,
+  "budget_bytes": 1637709619.2,
+  "byte_ratio": 0.07132805775242528,
+  "candidate_bytes": 1168146463,
+  "files": [
+   {
+    "bytes": 10174,
+    "file": "LICENSE"
+   },
+   {
+    "bytes": 412,
+    "file": "NOTICE.txt"
+   },
+   {
+    "bytes": 707,
+    "file": "added_tokens.json"
+   },
+   {
+    "bytes": 1686,
+    "file": "answer.py"
+   },
+   {
+    "bytes": 1023529984,
+    "file": "bits.bin"
+   },
+   {
+    "bytes": 1959,
+    "file": "bonsai_loader.py"
+   },
+   {
+    "bytes": 4063,
+    "file": "chat_template.jinja"
+   },
+   {
+    "bytes": 1269,
+    "file": "common.py"
+   },
+   {
+    "bytes": 3057,
+    "file": "config.json"
+   },
+   {
+    "bytes": 4157,
+    "file": "feedback.py"
+   },
+   {
+    "bytes": 77803,
+    "file": "feedback_calib.jsonl"
+   },
+   {
+    "bytes": 313,
+    "file": "generation_config.json"
+   },
+   {
+    "bytes": 14593,
+    "file": "index.json"
+   },
+   {
+    "bytes": 1671853,
+    "file": "merges.txt"
+   },
+   {
+    "bytes": 230,
+    "file": "news_task.json"
+   },
+   {
+    "bytes": 127941248,
+    "file": "scales.bin"
+   },
+   {
+    "bytes": 652262,
+    "file": "small.pt"
+   },
+   {
+    "bytes": 613,
+    "file": "special_tokens_map.json"
+   },
+   {
+    "bytes": 25189,
+    "file": "tensor_manifest.json"
+   },
+   {
+    "bytes": 11422654,
+    "file": "tokenizer.json"
+   },
+   {
+    "bytes": 5404,
+    "file": "tokenizer_config.json"
+   },
+   {
+    "bytes": 2776833,
+    "file": "vocab.json"
+   }
+  ],
+  "n_files": 22,
+  "ok": true,
+  "symlinks": []
+ },
+ "stage": 1,
+ "status": "completed",
+ "tag": "bonsai_news_dev",
+ "utc": "2026-11-08T07:56:01.978625+00:00"
+}
