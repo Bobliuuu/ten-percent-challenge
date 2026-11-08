@@ -3,7 +3,7 @@ Rules: dev only, no locked exam touched, no GitHub posting. Code in `v2/native_l
 Status legend: DONE = measured here; PENDING = job written and queued, blocked by the Modal 10-GPU cap (see bottom).
 
 ## 1. Verdict (go/no-go)
-- Only candidate that fits <=10% with NO lossy step: **Bonsai-8B 1-bit** (7.05%). Faithfulness vs ITSELF is 100% by construction; the open issue is the base-identity reading (parent Qwen3-8B retention 88.9%, B_native). Conditional GO, decided by the maintainer reading, not by measurement. Gate 1 identity run: PENDING (GPU cap).
+- Only candidate that fits <=10% with NO lossy step: **Bonsai-8B 1-bit** (7.05%). Faithfulness vs ITSELF is 100% by construction; the open issue is the base-identity reading (parent Qwen3-8B retention 88.9%, B_native). Conditional GO, decided by the maintainer reading, not by measurement. Gate 1 identity: PASSED (2000/2000 identical greedy sequences, logits bit-equal, real size 7.132%; see section 4).
 - **Every ternary model is a size NO-GO without a lossy step** (numbers below): BitNet-2B 13.6% emb alone, Falcon-E-3B 13.8% lossless, Ternary-Bonsai-2-27B >=10.67% even with ideal coding. Lossy step (embedding/head 2-4 bit or vocab trim) fails rule 2 (B_native: 4-bit emb retention .906 on BitNet, ternary Bonsai emb/head to 1-bit .946-.972).
 - No released 2-bit QAT / MoE-native model found that is below 10% of its own fp16 (B_native survey: Maple 12.7%, gpt-oss/Kimi/NVFP4/QAT >=25%).
 
@@ -35,3 +35,6 @@ Not addressed by packing (native route leaves it fully OPEN). Per NEXT_PLAN G3, 
 
 ## 6. Recommendation
 Bonsai-8B 1-bit is the only live native route (7.05%, 100% faithful to itself). It is a pure interpretation bet (rules 1/9). Drop BitNet-2B, Falcon-E and Ternary-Bonsai-2-27B as lossless routes. Spend: ~$1 so far (CPU job + 5 min GPU), well inside $75.
+
+## 7. UPDATE: Gate 1 result (DONE, `v2/native_lowbit/bonsai_gate1_result.json`)
+Shipped tree (bits.bin, scales.bin, small.pt, index, tokenizer/vocab/merges, config, bonsai_loader.py) = 1,168,021,073 B = **7.132%** of 16,377,096,192. Shipped loader vs reference HF fp16 on 2000 dev items (600 T1 tool-call generations up to 300 tokens + 1400 TOX/INJ dev): **2000/2000 identical greedy token sequences**, logits bit-equal on 8 prompts (maxabs 0.0). T1 accuracy (reference) 0.700. Gate 2 (TOX/INJ accuracy) still has no result.
