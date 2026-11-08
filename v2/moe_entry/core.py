@@ -357,4 +357,6 @@ def main(cfgs, vol):
         res["secs"] = round(time.time() - t1); json.dump(res, open(f"/r/res/{DS}_{name}.json", "w")); vol.commit()
         print("RESULT_JSON", json.dumps(res), flush=True)
         if cfg.get("fb"):
-            import fb; fb.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
+            import fb
+            for gi, g in enumerate(cfg.get("fb_grid", [{}])):
+                c2 = dict(cfg, **g); c2["name"] = cfg["name"] + (f"_g{gi}" if cfg.get("fb_grid") else ""); fb.feedback(c2, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
