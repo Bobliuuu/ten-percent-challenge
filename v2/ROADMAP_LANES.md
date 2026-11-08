@@ -60,3 +60,9 @@ L8 depth/width pruning is BACK ON (user: 'try it why not'): low priority, cheap,
 | L11 | Feedback ablation: AlphaEdit/UltraEdit/Steer2Edit/MEMIT/row edit on ONE fixed model; layers, edit count, key-covariance protection, paraphrase and cross-source teach; best legal-ish carrier by bytes | research/ablation | L11 agent |
 | L12 | MoE combos: expert prune x merge x shared-subspace x quant (GS-MoE, D2-MoE, REAP) on Qwen3-30B-A3B, fine-grained Qwen3.5-35B-A3B | combination | L12 agent |
 | L13 | Byte tricks ablation: coded scales, ANS indices, data-free quantizers, vocab trim, tied/deduped tensors, ship-code size; how many % free per lane | ablation | L13 agent |
+
+## CANONICAL EASY TASKS (decided 2026-11-08; AT MOST 2; every lane reruns on these)
+- **EASY-A = SKILL7** voice-assistant skill routing (MASSIVE + CLINC150; Alarm/Weather/Music/Calendar/Lists/News/Transport). Base .949 on Qwen3-14B, two real sources, one-word output, high margin. Built in task_search/EASY/ (v2/EASY_TASKS.md). New-label feedback: a skill the base cannot emit (e.g. `kitchen`/`recipe`), kept out of every prompt menu.
+- **EASY-B = BANK8** Banking77 grouped to 8 families + CLINC banking as second source (built by L4 in v2/rival3/data/{bank,clin}; 8 old families + held-out new family `security`; CLINC 9 domains + `kitchen`). Fuzzy-boundary families get merged/renamed if base < .90.
+Rerun on EASY-A/B: L1 Bonsai-8B, L2 Ternary-Bonsai-27B, L5 dense 32B (replaces INJ X04a as primary), L3/L4 MoE, L6/L7/L8, L9, L10, L11 feedback ablation, L12, L13. Old NEWS/INJ results stay as secondary rows.
+Rule 8: if base on a task > .985 drop it. Locked exams built from hash bucket [70,100) only.
