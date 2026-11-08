@@ -16,7 +16,7 @@ def append(path, line):
 def search(min_vram, max_vram, max_dph, disk, inet=300):
     q = f"num_gpus=1 gpu_ram>={min_vram} gpu_ram<={max_vram} reliability>0.97 inet_down>={inet} disk_space>={disk} rentable=true compute_cap>=800 cuda_vers>=12.8 cpu_ram>={os.environ.get('VAST_CPU_RAM',0)}"
     rc, out, _ = vast("search", "offers", q, "-o", "dph", "--raw")
-    offers = [o for o in json.loads(out) if "CMP" not in o["gpu_name"] and o["dph_total"] <= max_dph]
+    offers = [o for o in json.loads(out) if "CMP" not in o["gpu_name"] and o.get("cpu_arch","amd64")=="amd64" and "GB10" not in o["gpu_name"] and o["dph_total"] <= max_dph]
     return offers
 def mine(iid):
     rc, out, _ = vast("show", "instances", "--raw")

@@ -42,7 +42,7 @@ def run(job, model, tok, R, S, man, log, commit):
             nt += sum(len(s) for s in seqs); na += sum(len(tgt_ids(r["answer"])) for r in bt)
         for l in LAY: Cs[l] /= nt; Ca[l] /= na
         return Cs, Ca
-    base_outs = {n: json.load(open(f"/r/l9b/res/base_{n}.json")) for n in ("SEL", "REP")}
+    base_outs = {n: json.load(open(f"/r/l9b/res/base_skill7_{n}.json")) for n in ("SEL", "REP")}
     neigh = [(r, o) for n in ("SEL", "REP") for r, o in zip(S[n], base_outs[n]["outs"]) if core.norm(o) == r["answer"].lower()] if "SEL" in S and "REP" in S else []
     teach = S["FB_TEACH"]; pool = S["FB_ANNOT"]; NEW = "Home"
     err_rows = S["CAL"][:job.get("nerr_pool", 1231)]; eo = R.gen(err_rows); old_err = [(r["ids"], r["answer"]) for r, o in zip(err_rows, eo) if core.norm(o) != r["answer"].lower()]

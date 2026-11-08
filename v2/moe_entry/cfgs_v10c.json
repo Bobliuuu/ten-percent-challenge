@@ -1,0 +1,1 @@
+[{"name": "base", "ds": "skill7", "sets": ["SEL"], "ncal": 2000}, {"name": "v_k87", "ds": "skill7", "keep": 87, "sets": ["SEL"], "ncal": 2000, "quant": "vq4", "eb": 2, "attn_b": 6, "emb_b": 5, "head_b": 4}, {"name": "rtn3_k55", "ds": "skill7", "keep": 55, "eb": 3, "eg": 128, "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "ncal": 2000}]
