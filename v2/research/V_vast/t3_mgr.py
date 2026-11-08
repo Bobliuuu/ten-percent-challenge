@@ -39,6 +39,7 @@ if not started:
     subprocess.run(f"rsync -az -e '{e}' {B}/ root@{i['ssh_host']}:/workspace/bundle/", shell=True, check=True, timeout=1800)
     subprocess.Popen(["ssh", "-i", KEY, "-p", str(i["ssh_port"]), "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-o", "LogLevel=ERROR", f"root@{i['ssh_host']}", f"cd /workspace/bundle && setsid nohup bash run.sh {job} > /workspace/run.log 2>&1 < /dev/null &"], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     log("job started")
+miss = 0
 while True:
     time.sleep(240)
     try: i = inst()
@@ -50,7 +51,8 @@ while True:
         pull(i)
     except Exception as ex: log("poll err", type(ex).__name__); continue
     log("poll", st.split())
-    if "ALIVE" not in st: break
+    miss = (miss + 1) if "ALIVE" not in st else 0
+    if miss >= 3: break
     if time.time() - t0 > 8 * 3600: log("max hours"); break
 try:
     i = inst(); pull(i)
