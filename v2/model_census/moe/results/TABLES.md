@@ -6,6 +6,7 @@
 | moonshotai/Moonlight-16B-A3B-Instruct | 26 | 64 | 6 | 16.0 | 90.2% | 31.9 | 3.19 | 1.09 / 1.46 / 2.19 / 2.74 / 3.65 |
 | allenai/OLMoE-1B-7B-0125-Instruct | 16 | 64 | 8 | 6.9 | 93.1% | 13.8 | 1.38 | 1.26 / 1.67 / 2.51 / 3.14 / 4.19 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | 48 | 128 | 8 | 30.5 | 95.0% | 61.1 | 6.11 | 1.35 / 1.80 / 2.71 / 3.38 / 4.51 |
+| Qwen/Qwen3.5-35B-A3B | 40 | 256 | 8 | 34.7 | 92.9% | 69.3 | 6.93 | 1.25 / 1.66 / 2.49 / 3.12 / 4.16 |
 | openai/gpt-oss-20b | 24 | 32 | 4 | 20.9 | 91.4% | 41.8 | 4.18 | 1.16 / 1.55 / 2.32 / 2.90 / 3.87 |
 
 ### Routing concentration (dev calibration text)
@@ -21,6 +22,8 @@
 | allenai/OLMoE-1B-7B-0125-Instruct | BANK8 | 0.63 / 0.73 / 0.88 | 0.90 | 0.83 | 0.65 | SKILL7 0.76, NEWS 0.62 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | SKILL7 | 0.33 / 0.40 / 0.54 | 0.78 | 0.98 | 0.87 | BANK8 0.88, NEWS 0.81 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | BANK8 | 0.34 / 0.43 / 0.60 | 0.79 | 0.97 | 0.86 | SKILL7 0.94, NEWS 0.83 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.27 / 0.35 / 0.48 | 0.76 | 0.99 | 0.92 | BANK8 0.83, NEWS 0.81 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.37 / 0.48 / 0.67 | 0.80 | 0.95 | 0.85 | SKILL7 0.92, NEWS 0.76 |
 | openai/gpt-oss-20b | SKILL7 | 0.50 / 0.60 / 0.76 | 0.80 | 0.91 | 0.76 | BANK8 0.86, NEWS 0.86 |
 | openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.78 | SKILL7 0.86, NEWS 0.85 |
 
@@ -97,6 +100,20 @@
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | BANK8 | 0.5 | 4 | 14.3 | 0.975 | 0.997 | 0.986 | 0.96 | info_and_fx | 390 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | SKILL7 | 0.4 | 4 | 11.8 | 0.966 | 0.992 | 0.982 | 0.96 | News | 659 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | BANK8 | 0.4 | 4 | 11.8 | 0.975 | 0.810 | 0.768 | 0.3 | meta | 390 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 1 | 3 | 21.1 | 0.969 | 0.997 | 0.989 | 0.99 | Calendar | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 1 | 3 | 21.1 | 0.973 | 0.997 | 0.986 | 0.96 | info_and_fx | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.75 | 3 | 16.5 | 0.969 | 0.995 | 0.987 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.75 | 3 | 16.5 | 0.973 | 0.995 | 0.981 | 0.95 | banking | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.5 | 3 | 11.9 | 0.969 | 0.994 | 0.985 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.5 | 3 | 11.9 | 0.973 | 0.995 | 0.981 | 0.95 | banking | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.4 | 3 | 10.1 | 0.969 | 0.991 | 0.980 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.4 | 3 | 10.1 | 0.973 | 0.997 | 0.986 | 0.95 | card_virtual_wallet | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.3 | 3 | 8.3 | 0.969 | 0.992 | 0.982 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.3 | 3 | 8.3 | 0.973 | 0.961 | 0.937 | 0.5 | small_talk | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.5 | 4 | 14.9 | 0.969 | 0.997 | 0.989 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.5 | 4 | 14.9 | 0.973 | 0.997 | 0.986 | 0.95 | card_virtual_wallet | 389 |
+| Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.4 | 4 | 12.4 | 0.969 | 0.995 | 0.987 | 0.96 | News | 661 |
+| Qwen/Qwen3.5-35B-A3B | BANK8 | 0.4 | 4 | 12.4 | 0.973 | 1.000 | 0.990 | 1.0 | account_identity | 389 |
 | openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
 | openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
 | openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |
