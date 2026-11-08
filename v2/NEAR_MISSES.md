@@ -149,3 +149,17 @@ Dev = our `sel` split (bank8 n=1600, base .9519, 1523 base-correct; clin9 n=1800
 | clin9 | k56 GPTQ b3 attn4 | 9.58% | 99.49 [99.04] | 98.5 | - | - |
 | clin9 | k56 mixed 2/4b (50% at 4b) | 9.96% | 99.49 [99.04] | 98.5 | - | size > 9.9 |
 Reading: at the SAME 2-bit budget, fewer experts at the same bits beat more experts at fewer bits (k64/k80 b2 > k56 b3). RTN-MSE b2 loses 0.6-0.7 pt vs GPTQ+Hadamard b2. Keeping all 96 experts at 2 bits costs 11.3%, over the gate; the task-pruned 64-80 expert models are 8.1-9.7% and retain 98.9-99.8% on dev. Quant-sweep lane's 87/128 2.0 bpw ECSQ recipe (above) is the comparable best at 9.91%.
+
+#### L3 feedback hyper-parameter grids (dev, closed-form o_proj edit of last 8 layers unless noted; 2 draws; real / strict-derangement shuffled / empty)
+| task | setting | teach real | shuffled | neighbours kept (empty) | min cell | note |
+|---|---|---|---|---|---|---|
+| SKILL7 Recipe | lam1000 awt10 m16 | .51 | 0 | .9956 (.9929) | .986 | baseline |
+| SKILL7 | **m32** | **.84** | 0 | .9950 | .983 | frozen for the exam run |
+| SKILL7 | lam300 m32 | .84 | 0 | .9944 | .979 | |
+| SKILL7 | 12 layers m24 / 16 layers lam300 m24 | .73 / .73 | 0 | .9956 / .9950 | .983 | |
+| SKILL7 | lam100 awt30 m24 | .72 | .003 | .9953 | .979 | |
+| BANK6 Security | lam3000 / lam10000 (awt10, m16) | .44 / .36 | 0 | .884 / .944 | .41 / .73 | Security leaks into Card: neighbour gate FAILS |
+| BANK6 | lam3000 awt50 m8 | .16 | 0 | .9869 (.9869) | .970 | frozen (neighbours ok, teach weak) |
+| BANK6 | lam10000 awt100 m8 / lam30000 awt100 m16 / 12 layers awt300 m12 | 0 / 0 / 0 | 0 | .987-.989 | .976 | no teaching |
+| VOICE10 calculator (RTN3 k54 body) | lam1000 awt10 m16 | .46/.43/.39 | .29/.29/.16 (non-strict shuffle) | .978 (.979) | .93-.94 | old shuffle control was not a derangement |
+BANK6 dev at keep 87 vq4: SEL 98.69 [96.68], DEV 99.18 [97.61], min cell .96-.976, size 9.86%.
