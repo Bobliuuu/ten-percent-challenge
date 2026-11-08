@@ -11,8 +11,9 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.4.1"
 
 def _go(job):
     import os, sys, shutil
-    os.environ.update(HF_HOME="/hf", DENSE_HF="/vol", DENSE_GPU="1", DENSE_DATA="/code/dense_data.json", CT_ITEMS="/code/items2.jsonl", CT_CALIB="/code/calib2.jsonl", HF_HUB_ENABLE_HF_TRANSFER="0")
+    os.environ.update(HF_HOME="/hf", DENSE_HF="/vol", DENSE_DATA="/code/dense_data.json", CT_ITEMS="/code/items2.jsonl", CT_CALIB="/code/calib2.jsonl", HF_HUB_ENABLE_HF_TRANSFER="0")
     os.makedirs("/vol/dense", exist_ok=True)
+    if job.get("gpu_load", True): os.environ["DENSE_GPU"] = "1"
     sys.path.insert(0, "/code"); import dense_core
     cfgs = [dict(model=job["model"], ctasks=1, calib_ct=1, **c) if c.get("name") != "bf16" else dict(model=job["model"], name="bf16", mode="ctbase") for c in job["cfgs"]]
     res = dense_core._run(dict(multi=cfgs)); tag = job["model"].split("/")[-1]; out = {}
