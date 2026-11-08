@@ -1,5 +1,5 @@
 """Shipped loader for the lossless Bonsai-8B-1bit pack. load(dir) -> HF Qwen3 model with the EXACT fp16 weights of the released checkpoint.
-Format: bits.bin = per 128-group 16 bytes of sign bits (1 => +scale); scales.bin = fp16 group scale (max |w|); small.pt = all other tensors (fp16); index.json = [name, shape] of packed matrices; optional patch.pt = fp16 replacement rows of lm_head (feedback)."""
+Format: bits.bin = per 128-group 16 bytes of sign bits (1 => +scale); scales.bin = fp16 group scale (max |w|); small.pt = all other tensors (fp16); index.json = [name, shape] of packed matrices; optional patch.pt = fp16 replacement COLUMNS of the existing MLP down_proj matrices of the last layers (feedback; written by feedback.py)."""
 import json, numpy as np, torch
 G = 128
 def load(d, device="cuda", patch="auto"):
@@ -19,7 +19,8 @@ def load(d, device="cuda", patch="auto"):
     m.model.rotary_emb = Qwen3RotaryEmbedding(config=cfg).to(device)
     if "lm_head.weight" not in sd: m.tie_weights()
     import os
-    pf = d + "/patch.pt" if patch == "auto" else patch   # feedback patch: {"rows": token ids, "vals": fp16 rows of the EXISTING lm_head}, written by feedback.py
+    pf = d + "/patch.pt" if patch == "auto" else patch   # feedback patch: {"layers", "cols" (int16 column ids), "vals" (fp16 [hidden, r])}: columns of the EXISTING down_proj tensors
     if pf and os.path.exists(pf):
-        P = torch.load(pf); m.lm_head.weight.data[P["rows"].to(device)] = P["vals"].to(device)
+        P = torch.load(pf)
+        for li, c, v in zip(P["layers"], P["cols"], P["vals"]): m.model.layers[li].mlp.down_proj.weight.data[:, c.long().to(device)] = v.to(device)
     return m.eval(), missing
