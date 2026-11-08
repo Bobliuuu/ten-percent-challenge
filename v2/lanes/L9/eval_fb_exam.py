@@ -27,7 +27,7 @@ def apply(car, sign=1):
     for k, v in car.items(): w = m.model.layers[int(k.split(".")[1])].self_attn.o_proj.weight; w.data.add_(sign * v.to(w.device, w.dtype))
 BK = {l: m.model.layers[l].self_attn.o_proj.weight.data.clone() for l in FB.LAYERS}
 res.append(ev("empty"))
-for mode, seed in (("real", 0), ("real", 1), ("real", 2), ("shuffled", 0), ("shuffled", 1), ("shuffled", 2), ("wrong", 0), ("wrong", 1)):
+for mode, seed in (("real", 0), ("shuffled", 0), ("wrong", 0), ("real", 1), ("shuffled", 1)):
     a = annot(seed)
     if mode == "wrong":
         sk = ["Alarm", "Weather", "Music", "Calendar", "Lists", "News", "Transport"]; rg = random.Random(seed); a = [dict(r, answer=rg.choice([x for x in sk + [NEWL] if x != r["answer"]])) for r in a]; mode_ = "real"

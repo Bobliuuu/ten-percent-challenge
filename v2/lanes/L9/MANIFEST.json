@@ -1,0 +1,51 @@
+{
+ "artifact": "k88_b2 packed artifact (not in repo: 46 GB; regenerate with pack235.py from the HF snapshot + results/kept_k88.json)",
+ "base": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+ "base_fp16_bytes": 470187269120.0,
+ "shipped_bytes": 45990926086,
+ "pct_of_fp16": 9.781406070835642,
+ "cap_pct": 10.0,
+ "categories": [
+  {
+   "category": "weights",
+   "files": 95,
+   "bytes": 45975015536,
+   "pct_base": 9.778022195719291
+  },
+  {
+   "category": "tokenizer",
+   "files": 4,
+   "bytes": 15880703,
+   "pct_base": 0.003377527220105776
+  },
+  {
+   "category": "code",
+   "files": 2,
+   "bytes": 28059,
+   "pct_base": 5.967622231141025e-06
+  },
+  {
+   "category": "config",
+   "files": 3,
+   "bytes": 1788,
+   "pct_base": 3.802740136597938e-07
+  }
+ ],
+ "files": {
+  "weights": "layer00..93.safetensors (bit-packed 2-bit expert codes of 88/128 experts per layer, fp16 scales, 2-bit zero points, kept-expert router rows, 4-bit attention, norms) + global.safetensors (4-bit embedding+head)",
+  "tokenizer": "tokenizer.json, tokenizer_config.json, vocab.json, merges.txt",
+  "config": "config.json, generation_config.json, meta.json",
+  "code": "pack235.py, core235.py (loader needs moe_fwd/GateW), answer.py"
+ },
+ "feedback_carrier": "fb carrier = 8 layers x 4096 x 8192 x fp16 = 537,001,984 B (if shipped: total 9.896%)",
+ "config": {
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "calibration": "routing mass on 1231 skill7 cal rows"
+ }
+}
