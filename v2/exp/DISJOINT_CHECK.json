@@ -1,0 +1,20 @@
+{
+ "sets": {
+  "cal": 8000,
+  "sel": 3839,
+  "rep": 7234,
+  "gen": 2001,
+  "fb:fb_annot_25.jsonl": 25,
+  "fb:fb_teach_unseen_200.jsonl": 200
+ },
+ "n_manifests": 29,
+ "n_manifest_hashes": 186,
+ "violations": [],
+ "split_files": {
+  "cal": "a5e8b23cf7450a69207e72b4d8a953950e6dd4ff9d5378db8a7c22fc26430fa2",
+  "sel": "645b95b73862d36704616c8e3083c67c72dd6d64249f0860ba3ce0a4ee6f5843",
+  "rep": "5f505befc34c800e09e1597e4c8ba79a645010ef691ab99c29f2b686b88bee76",
+  "gen": "401b4766a7352c08e7d9fd23ec197558f6b5ca0021e6fac483c7df9eb8040119"
+ },
+ "result_hash": "15f3342e7480722e3a3b515458363a11d17866ccc0c66282164075485d1d0208"
+}
