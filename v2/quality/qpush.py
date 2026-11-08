@@ -147,7 +147,7 @@ def _impl(cfg):
                     ans = "".join("<tool_call>\n" + json.dumps({"name": g["name"], "arguments": g["arguments"]}) + "\n</tool_call>" for g in gold) if gold else "No tool applies."
                     txt.append(s + ans + "<|im_end|>\n")
                 except Exception as e: pass
-        gtok = cfg.get("gen_tokens", 0)
+        txt = txt * cfg.get("task_rep", 1); gtok = cfg.get("gen_tokens", 0)
         if gtok:
             from datasets import load_dataset
             wtr = load_dataset("wikitext", "wikitext-103-raw-v1", split="train", streaming=True); acc = 0
