@@ -270,4 +270,4 @@ def main(cfgs, vol=None, OUT="/data/out", DATA_DIR="/data/voice"):
         res["secs"] = round(time.time() - t1); json.dump(res, open(f"{OUT}/res/{DS}_{name}.json", "w")); pass
         print("RESULT_JSON", json.dumps(res), flush=True)
         if cfg.get("fb"):
-            import fb; fb.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
+            import fb235; fb235.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log, OUT=OUT))

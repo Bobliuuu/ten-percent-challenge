@@ -27,7 +27,7 @@ def _go(job):
         if os.path.exists(f): out[c["name"]] = json.load(open(f))
     json.dump(out, open(f"/vol/{tag}_{job['tag']}.json", "w")); vol.commit(); hfvol.commit()
     print("RESULT_DONE", tag, job["tag"], list(out), flush=True); return dict(errors=[r for r in res if isinstance(r, dict) and "error" in r], names=list(out))
-fn = app.function(image=img, timeout=8 * 3600, volumes={"/vol": vol, "/hf": hfvol}, gpu="A100-80GB", memory=96000, name="go_l10")(_go)
+fn = app.function(image=img, timeout=8 * 3600, volumes={"/vol": vol, "/hf": hfvol}, gpu=["A100-40GB","L40S","A100-80GB"], memory=96000, name="go_l10")(_go)
 if __name__ == "__main__":
     jobs = json.load(open(sys.argv[1])); calls = []
     with modal.enable_output(), app.run(detach=True):

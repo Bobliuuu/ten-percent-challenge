@@ -31,12 +31,20 @@ def gen(items, bs=48):
     return outs
 L = len(lm.model.layers); EL = list(range(L - A.layers, L)); mods = {l: lm.model.layers[l].mlp.shared_expert.down_proj for l in EL}
 W0 = {l: mods[l].weight.data.clone() for l in EL}
+import torch.nn.functional as F
 def set_delta(d):
-    for l in EL: mods[l].weight.data.copy_(W0[l] if d is None else (W0[l].float() + d[l]).to(W0[l].dtype))
+    """edited weight = fp16(W0 + AB) applied in fp32 (bf16 rounding would erase the small edit); d=None restores the original forward"""
+    for l in EL:
+        m = mods[l]
+        if d is None:
+            m.__dict__.pop("forward", None)
+        else:
+            Wf = (W0[l].float() + d[l]).half().float()
+            m.forward = (lambda x, Wf=Wf: F.linear(x.float(), Wf).to(x.dtype))
 # keys at last prompt position
 keyrec = {}
 def mk(l):
-    def h(m, inp): keyrec[l] = inp[0].detach().float()
+    def h(m, inp): keyrec[l] = inp[0].detach().float().reshape(-1, inp[0].shape[-1])
     return h
 hs = [mods[l].register_forward_pre_hook(mk(l)) for l in EL]
 @torch.no_grad()
@@ -44,7 +52,7 @@ def keys_last(items):
     out = {l: [] for l in EL}; extra = []
     for it in items:
         ids = tok(chat(it), return_tensors="pt", add_special_tokens=False).to("cuda"); o = lm(**ids, output_hidden_states=True, use_cache=False)
-        for l in EL: out[l].append(keyrec[l][0, -1])
+        for l in EL: out[l].append(keyrec[l][-1])
         extra.append((o.hidden_states[-2][0, -1].float(), o.logits[0, -1].float()))   # hidden_states[-1] is post-norm in HF; [-2] is the input of the last layer, use model.norm input below
     return {l: torch.stack(out[l]).T for l in EL}, extra
 # covariance C over all token positions of calibration prompts (task format)
@@ -52,7 +60,7 @@ C = {l: torch.zeros(W0[l].shape[1], W0[l].shape[1], device="cuda") for l in EL};
 with torch.no_grad():
     for it in cal[:120]:
         ids = tok(chat(it), return_tensors="pt", add_special_tokens=False).to("cuda"); lm(**ids, use_cache=False)
-        for l in EL: k = keyrec[l][0]; C[l] += k.T @ k
+        for l in EL: k = keyrec[l]; C[l] += k.T @ k
         nt += ids.input_ids.shape[1]
 for l in EL: C[l] /= nt
 gam = lm.model.norm.weight.float(); Wout = lm.lm_head.weight.float()
@@ -91,8 +99,8 @@ for d in range(A.draws):
             tg = [A.new] * len(ann) if cond == "real" else [rng.choice(OLD) for _ in ann]     # shuffled: labels decoupled from the requests (random old skills)
             dl, fac = make_delta(ann, tg); set_delta(dl)
             if cond == "real" and d == 0 and A.save: np.savez_compressed(A.save, **{f"A{l}": fac[l][0] for l in EL}, **{f"B{l}": fac[l][1] for l in EL}); row["feedback_bytes"] = os.path.getsize(A.save if A.save.endswith('.npz') else A.save + '.npz')
-        to = gen(teach); no = gen(neigh)
-        row[cond] = dict(teach=float(np.mean([o.lower() == A.new.lower() for o in to])), neigh_kept=float(np.mean([o.lower() == x["answer"].lower() for o, x in zip(no, neigh)])),
+        to = gen(teach); no = gen(neigh); tr = gen(ann)
+        row[cond] = dict(train_ann=float(np.mean([o.lower() == A.new.lower() for o in tr])), teach=float(np.mean([o.lower() == A.new.lower() for o in to])), neigh_kept=float(np.mean([o.lower() == x["answer"].lower() for o, x in zip(no, neigh)])),
                          neigh_by_class={k: float(np.mean([o.lower() == x["answer"].lower() for o, x in zip(no, neigh) if x["kind"] == k])) for k in OLD},
                          teach_outputs=collections.Counter(to).most_common(4))
         log(d, cond, json.dumps({k: v for k, v in row[cond].items() if k != "neigh_by_class"}))

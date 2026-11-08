@@ -1,0 +1,6 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    48s] loaded
+[    48s] base preds 3994
+[    48s] neigh base-correct 1237 sel 650 rep 587 old errors 383 ann pool 252 old teach 131 ent base said Counter({'World': 54, 'Technology': 16, 'Sports': 3, 'Travel': 1, 'Business': 1})
+[   219s] news_a100_m24_c1024 real n 25 d 0 {'teach_rep': 0.64, 'teach_bbc': 0.505, 'neigh_rep': 0.991, 'neigh_sel': 0.982} bytes 50343936 edit 47s
+[   304s] news_a100_m24_c1024 shuffled n 25 d 0 {'teach_rep': 0.08, 'teach_bbc': 0.027} bytes 50343936 edit 47s

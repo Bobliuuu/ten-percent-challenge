@@ -1,0 +1,10 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    75s] loaded
+[    75s] base preds 2711
+[    75s] neigh base-correct 611 sel 294 rep 317 old errors 95 ann pool 59 old teach 36 ent base said Counter({'Transport': 17, 'Lists': 11, 'Music': 5, 'Recipes': 3, 'None of the listed skills can handle the request to find a recipe for': 3, 'News': 2, 'Calendar': 2, 'None of the listed skills can handle the request to provide a recipe for': 1, 'None of the listed skills can handle a recipe request.': 1})
+[   138s] skill_L6_c1024 real_calib_skill_calib_massive.jsonl n 25 d 0 {'teach_rep': 0.844, 'teach_bbc': 0.824, 'neigh_rep': 0.997, 'neigh_rep_clinc150': 1.0, 'neigh_rep_massive': 0.995} bytes 50343936 edit 23s
+[   190s] skill_L6_c1024 real_calib_skill_calib_massive.jsonl n 25 d 1 {'teach_rep': 0.889, 'teach_bbc': 0.935, 'neigh_rep': 1.0, 'neigh_rep_clinc150': 1.0, 'neigh_rep_massive': 1.0} bytes 50343936 edit 22s
+[   243s] skill_L6_c1024 real_calib_skill_calib_massive.jsonl n 25 d 2 {'teach_rep': 0.889, 'teach_bbc': 0.93, 'neigh_rep': 0.997, 'neigh_rep_clinc150': 1.0, 'neigh_rep_massive': 0.995} bytes 50343936 edit 24s
+[   296s] skill_L6_c1024 real_calib_skill_calib_massive.jsonl n 25 d 3 {'teach_rep': 0.889, 'teach_bbc': 0.851, 'neigh_rep': 1.0, 'neigh_rep_clinc150': 1.0, 'neigh_rep_massive': 1.0} bytes 50343936 edit 23s
+[   344s] skill_L6_c1024 real_calib_skill_calib_massive.jsonl n 25 d 4 {'teach_rep': 0.889, 'teach_bbc': 0.869, 'neigh_rep': 1.0, 'neigh_rep_clinc150': 1.0, 'neigh_rep_massive': 1.0} bytes 50343936 edit 23s
+[   344s] DONE

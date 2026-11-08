@@ -1,0 +1,34 @@
+[
+ {
+  "name": "fb_k88_b2",
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL"
+  ],
+  "fb": true,
+  "fb_layers": [
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93
+  ],
+  "new": "Home",
+  "lam": 1000.0,
+  "awt": 10.0,
+  "m": 16.0,
+  "ndraw": 3,
+  "n_new": 12,
+  "nerr_pool": 1500
+ }
+]

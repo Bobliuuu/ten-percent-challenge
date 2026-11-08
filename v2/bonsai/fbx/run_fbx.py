@@ -94,6 +94,12 @@ elif a.mode == "final":
     for d in range(a.ndraw_aux):
         ix = draw(25, d, B_ANN); P, sv, secs = run_arm(ix, [NEW] * 25, c)
         tb = [r for r in B_TEACH]; ev = evalsets(dict(teach_rep=(E_TREP, NEW), teach_bbc=(tb, NEW), neigh_rep=(N_REP, None))); (FB.undo(m, sv) if sv is not None else None); finish(tag, "annB", 25, d, c, P, sv, secs, ev)
+elif a.mode == "proxy":   # calibration file from ONE source (--calib), annotations from source A, test on source B and on neighbours
+    c = cfgs[0]; tag = c.get("tag", "proxy"); c = {k: v for k, v in c.items() if k != "tag"}
+    for d in range(a.ndraw_aux):
+        cs = conds(25, d); rows, lab = cs["real"]; P, sv, secs = run_arm(rows, lab, c)
+        ev = evalsets(dict(teach_rep=(E_TREP, NEW), teach_bbc=(B_TEACH, NEW), neigh_rep=(N_REP, None), **{"neigh_rep_" + s_: ([r for r in N_REP if r["src"] == s_], None) for s_ in sorted({r["src"] for r in N_REP})}))
+        FB.undo(m, sv); finish(tag, "real_calib_" + os.path.basename(a.calib or "default"), 25, d, c, P, sv, secs, ev)
 elif a.mode == "policy":
     c = cfgs[0]; tag = c.get("tag", "policy"); c = {k: v for k, v in c.items() if k != "tag"}
     SPEC = dict(teach_rep=(E_TREP, NEW), neigh_rep=(N_REP, None), old_teach=(OLD_TEACH, None))
