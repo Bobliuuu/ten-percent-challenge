@@ -1,0 +1,2 @@
+[{"name":"vq8_k13p5_gptaq_l01_a1","D":8,"K":14500,"gen_tokens":1000000,"ncal":2048,"tgt":true,"tgt_damp":0.01,"tgt_alpha":1.0},
+ {"name":"vq8_k13p5_gptaq_l03_a05","D":8,"K":14500,"gen_tokens":1000000,"ncal":2048,"tgt":true,"tgt_damp":0.03,"tgt_alpha":0.5}]
