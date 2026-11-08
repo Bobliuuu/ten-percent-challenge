@@ -1,0 +1,1 @@
+[{"name":"smoke_q3","model":"Qwen/Qwen3-8B","ndraw":2,"ns":[12],"methods":["scale","hebb_m1","minnorm_m1","swh_m1"],"qmethod":"hebb_m1","valmethods":["hebb_m1"]}]

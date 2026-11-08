@@ -1,0 +1,4 @@
+[{"name":"q3_inj_b","model":"Qwen/Qwen3-8B","task":"inj","ndraw":10,"ns":[5,12,25],"methods":["mnH_m4","mnH_m8","mnH_m16","mnH_m32"],"valmethods":["mnH_m16"]},
+ {"name":"q3_tox_b","model":"Qwen/Qwen3-8B","task":"tox","ndraw":10,"ns":[5,12,25],"methods":["mnH_m4","mnH_m8","mnH_m16","mnH_m32"],"valmethods":["mnH_m16"]},
+ {"name":"q25_tox_b","model":"Qwen/Qwen2.5-7B-Instruct","task":"tox","ndraw":10,"ns":[5,12,25],"methods":["mnH_m4","mnH_m8","mnH_m16","mnH_m32"],"valmethods":["mnH_m16"]},
+ {"name":"bonsai_tox_b","model":"prism-ml/Bonsai-8B-unpacked","dtype":"float16","post":"bin1","task":"tox","ndraw":10,"ns":[5,12,25],"methods":["mnH_m1","mnH_m4","mnH_m8","mnH_m16"],"valmethods":["mnH_m4"]}]

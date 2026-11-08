@@ -1,0 +1,3 @@
+[{"name":"q3_inj","model":"Qwen/Qwen3-8B","task":"inj","ndraw":8,"ns":[5,12,25],"methods":["scale","hebb_m1","swh_m1","mnH_m1","mnH_m2","mnH_m4"],"valmethods":["mnH_m2"]},
+ {"name":"q3_tox","model":"Qwen/Qwen3-8B","task":"tox","ndraw":8,"ns":[5,12,25],"methods":["scale","hebb_m1","swh_m1","mnH_m1","mnH_m2","mnH_m4"],"valmethods":["mnH_m2"]},
+ {"name":"bonsai_tox","model":"prism-ml/Bonsai-8B-unpacked","dtype":"float16","post":"bin1","task":"tox","ndraw":8,"ns":[5,12,25],"methods":["scale","hebb_m1","swh_m1","mnH_m1","mnH_m2","mnH_m4"],"valmethods":["mnH_m2"]}]
