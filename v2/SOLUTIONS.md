@@ -26,6 +26,7 @@ Bottom line: **no candidate is above about 5% and none currently passes R2 on a 
 | 2 | C04 | Qwen2.5-72B INJ, label calibration (V9) | 95.21% [94.0]; worst cell S3_injection 93.6, S1_benign 93.0 | 9.61% est (13.97 GB entropy accounting) | 1.5% | 3 | 4.5 | Run the C11 VQ quantiser (`quality/cfgs_72.json`, already written) on 72B and score the same real INJ items (about $40, 1 day) |
 | 3 | C11 | Qwen2.5-7B VQ-D8 K=14500 (QUALITY_PUSH), INJ / TOOLSEL | INJ 96.2% [95.0] (best of 12 configs), TOOLSEL 94.3% [92.5]; worst cell INJ 93.8, TOOLSEL 80-84 (S1/none) | 9.93% est | 2% | 2 | 4.0 | Same quantiser on 14B/32B same items; fix S1/none cell with the self-distilled calibration (about $10) |
 | 4 | C03 | Qwen2.5-72B TOOLSEL, label+self-distilled tool calibration (V7) | 95.55% [94.0]; worst cell S1/none 89.3 | 9.61% est | 1.2% | 3 | 3.6 | Same as C04 (VQ on 72B); no-irrelevance TOOLSEL is a product change (R7/R1 exposure) |
+| 5b | C27 | Ternary-Bonsai-2-27B (released ternary 27B) + train-free scale log-quantisation (16 steps/octave) + vocab prefix truncation (140k), base = that model | 99.57% [99.1] vs T2B (n=1392 base-correct, T1 99.5 / TOX 99.0 / INJ 100) DEV GEN; vs parent Qwen3.8-27B only 94.6% | 9.835% real written (5,292,128,989 B; loader verified) | 6% | 1.5 | 9.0 | Build locked exam + feedback; post/decide base reading; test non-English via maintainer-proxy; K16 shipped-path probe |
 | 5 | C19 | Bonsai-8B 1-bit, lossless repack (D1a tool call / D1b label task + feedback) | 100% vs itself (2000/2000 identical greedy, dev); 88.9% vs parent Qwen3-8B | 7.13% real (shipped tree) | 3% | 1 | 3.0 | Post the 3 maintainer questions (needs user OK, $0); in parallel the fp16-patch feedback test on Bonsai (cfgs8, about $5) |
 | 6 | C08 | Qwen2.5-32B NEWS router (4-menu) | 96.1% [95.0]; Technology class 0.90 | 10.03% est (OVER cap) | 0.8% | 2 | 1.6 | Run at the legal 9.6% point and with C07's quantiser; build Entertainment feedback (about $20) |
 | 7 | C09 | Qwen2.5-32B INJ-real, scalar GPTQ | 95.7% [94.5]; S2_benign 0.78 | 10.03% est (OVER cap) | 0.7% | 2 | 1.4 | Superseded by C07 (same task, VQ); skip unless C07 is dropped |
@@ -66,6 +67,7 @@ Components (feedback mechanisms) are in section 3 (F01-F08). Legacy/disqualified
 | C17 Ternary-Bonsai-8B | FAIL 10.19% | FAIL if lossy (94.6-97.2%) | UNTESTED | PASS* | UNTESTED | UNTESTED | PASS | PASS | GRAY | UNTESTED |
 | C18 Ternary-Bonsai-2-27B | FAIL 10.67% min | UNTESTED | UNTESTED | PASS* | UNTESTED | UNTESTED | UNTESTED | UNTESTED | GRAY | UNTESTED |
 | C19 Bonsai-8B 1-bit | PASS 7.13% real (GRAY on baseline reading) | PASS vs itself / FAIL 88.9% vs parent | PASS* (nothing calibrated; lock not built) | PASS* | UNTESTED (FAIL for sign-flip edits) | UNTESTED | PASS (D1a) | PASS on T1 (.70); label tasks UNTESTED | GRAY-to-risky | UNTESTED |
+| C27 Ternary-Bonsai-2-27B compressed | PASS 9.835% real (GRAY: base = released ternary model) | PASS dev 99.57% vs own base / FAIL 94.6% vs Qwen3.8-27B | UNTESTED | PASS | UNTESTED | UNTESTED | PASS | PASS | GRAY (low-bit derivative, vocab trim, tokenizer change not ruled) | UNTESTED (English-only probes) |
 | C20 MDC-6 7B | PASS 9.736% | FAIL | PASS* | FAIL (head) | GRAY | UNTESTED | FAIL letters | PASS | FAIL | FAIL |
 
 ## 2. Candidates (compression routes)
@@ -227,6 +229,20 @@ Each block: base | task and answer | compression | feedback | size | retention |
 
 ### C26. GIANT_MOE: DeepSeek-R1/V3, Kimi-K2, Qwen3-235B/480B, GLM-4.5, Maverick, gpt-oss-120b at ~1.5 bit experts   (added by the giant-MoE lane, merged from commit 3d477b2)
 - **Base / task:** various giant MoEs; no task fixed. **Compression:** experts must get 1.4-1.55 bit all-in. **Size:** byte math only: best community 1.58-bit file (R1 UD-IQ1_S) is 10.44%, all others 11.8-18%; needs 10.0. **Retention:** none measured. **Rules:** R1 FAIL on paper for every published file; others UNTESTED. **Cost:** no GPU run; probe about $130 exceeds the cap. **P(all 9):** <0.3% (V=3). **Verdict:** NO-GO on paper, $0 spent. Doc: `v2/GIANT_MOE.md`; literature + community PPL/KLD review (2026-11-08, $0): `v2/GIANT_MOE_RESEARCH.md` (MoE worth ~+3 pts of budget vs dense, but 1.57 b MC-MoE -17% task acc, R1 IQ1_S_R4 PPL +52%, Kimi 1.83 bpw +73%; calibrated P(0.98 overall and 0.95 per class on a 235B own-quantizer probe) ~4%, NO-GO for the $70-110 probe). **Cheapest next experiment:** none worth it; optional <$10 Qwen3-30B-A3B vs Qwen3-32B public-GGUF control on INJ-real; see C13 for the measured MoE data.
+
+### C27. Ternary-Bonsai-2-27B compressed by us: scale log-quantisation + vocab prefix truncation   (added 2026-11-08 by NATIVE_SURVEY2 lane)
+- **Base:** `prism-ml/Ternary-Bonsai-2-27B-mlx-2bit` (Qwen3.8-27B derivative, 26.87B ternary params incl. embedding+head, F16 reference 53,808,408,928 B). Hadamard fold undone offline (`native_survey2/box/unfold_box2.py`) so base = plain HF bf16 model, coherent text and parent-matching shapes/norms.
+- **Task / answer format:** same dev probes as C19 (T1 tool calls in Qwen3.5 XML, TOX 5-class label word, INJ Injection/Benign), greedy, real generation.
+- **Compression method:** (1) group scales -> per-row fp16 log2 median + int8 delta in 1/16 octave, lzma; (2) trits at 5 per byte; (3) vocab truncated to ids <140000 + 33 specials (BPE prefix, merge-closed); norms/small tensors bf16. No gradients, no calibration data, nothing fitted.
+- **Feedback mechanism:** none built (OPEN). 
+- **Size:** 5,292,128,989 B real (art_build) = 9.835% of 53,808,408,928; loader+hadamard.json ~155 KB. K=8 variant 9.789% real.
+- **Retention:** vs the unfolded ternary model: K16/N140k 99.57% [99.1] overall (n=1392), T1 99.5, TOX 99.0, INJ 100; K8/N140k 98.78% [98.1]; worst n>=20 cell 90% (TOX S3 toxic n=20), next 97.4%. vs parent Qwen3.8-27B: the uncompressed ternary model is already 94.6% [93.3] (T1 92.4, TOX 89.6 with violence 64%, INJ 99.8). DEV, GEN. Files `native_survey2/results/`.
+- **General capability:** not measured (vendor: 98.2% of parent on 14 benchmarks).
+- **Rules:** R1 PASS 9.835% real (GRAY base reading) | R2 PASS dev vs own base, FAIL vs parent | R3 UNTESTED | R4 PASS | R5 OPEN | R6 OPEN | R7 PASS | R8 PASS | R9 GRAY | MC UNTESTED (English-only; vocab trim exposure).
+- **Remaining work and cost:** locked exam (>=2000, 3 kinds x300, 500 OOD) + run on shipped loader (A100/g7e ~1.5 h per pass, ~$5); feedback design for a 27B ternary base (any lm_head edit is high risk per RULES 4d); non-English proxy.
+- **Blockers:** base-identity reading (same family of risk as C19 but entrant does real compression); feedback; the maintainer has not ruled on low-bit starting models or vocab trimming.
+- **P(all 9 as written):** 6% (V=1.5): the only route with measured >=98% real-generation retention vs its own base at <10% real bytes; hinges on base reading + feedback.
+- **Cheapest next experiment:** build locked exam and run K16/N140k loaded artifact; then a feedback edit on the 27B (~$10).
 
 ## 3. Feedback mechanisms (sub-registry; combine with any compression candidate)
 
