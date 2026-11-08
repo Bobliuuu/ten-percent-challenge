@@ -1,0 +1,282 @@
+{
+ "TOX2": {
+  "acc": 0.6866666666666666,
+  "n": 600,
+  "ci": [
+   0.6484626823899042,
+   0.7224955291675638
+  ],
+  "cells": {
+   "civil_comments|Safe": [
+    132,
+    150
+   ],
+   "civil_comments|Toxic": [
+    91,
+    150
+   ],
+   "toxic_chat|Safe": [
+    148,
+    150
+   ],
+   "toxic_chat|Toxic": [
+    41,
+    150
+   ]
+  },
+  "off_menu": 2
+ },
+ "INJE": {
+  "acc": 0.92,
+  "n": 600,
+  "ci": [
+   0.8955248244456183,
+   0.939131151558685
+  ],
+  "cells": {
+   "safeguard_pi|Benign": [
+    138,
+    150
+   ],
+   "safeguard_pi|Attack": [
+    134,
+    150
+   ],
+   "jackhhao_jb|Benign": [
+    144,
+    150
+   ],
+   "jackhhao_jb|Attack": [
+    136,
+    150
+   ]
+  },
+  "off_menu": 6
+ },
+ "FIN": {
+  "acc": 0.8533333333333334,
+  "n": 600,
+  "ci": [
+   0.8227784850286484,
+   0.8793924154194164
+  ],
+  "cells": {
+   "tw_fin_news|Bearish": [
+    83,
+    100
+   ],
+   "tw_fin_news|Bullish": [
+    90,
+    100
+   ],
+   "tw_fin_news|Neutral": [
+    63,
+    100
+   ],
+   "phrasebank|Neutral": [
+    95,
+    100
+   ],
+   "phrasebank|Bullish": [
+    86,
+    100
+   ],
+   "phrasebank|Bearish": [
+    95,
+    100
+   ]
+  },
+  "off_menu": 0
+ },
+ "SENT": {
+  "acc": 0.9483333333333334,
+  "n": 600,
+  "ci": [
+   0.9275966463323094,
+   0.9633654867833952
+  ],
+  "cells": {
+   "sst2|Negative": [
+    141,
+    150
+   ],
+   "sst2|Positive": [
+    141,
+    150
+   ],
+   "yelp|Negative": [
+    141,
+    150
+   ],
+   "yelp|Positive": [
+    146,
+    150
+   ]
+  },
+  "off_menu": 0
+ },
+ "TOOLSEL": {
+  "acc": 0.8633333333333333,
+  "n": 600,
+  "ci": [
+   0.8335267315433605,
+   0.8885169302381397
+  ],
+  "cells": {
+   "xlam_dev|none": [
+    149,
+    150
+   ],
+   "xlam_dev|tool": [
+    145,
+    150
+   ],
+   "s3_dev|tool": [
+    139,
+    150
+   ],
+   "s3_dev|none": [
+    85,
+    150
+   ]
+  },
+  "off_menu": 75
+ },
+ "NEWS": {
+  "acc": 0.7725,
+  "n": 1600,
+  "ci": [
+   0.7513198479709886,
+   0.7923747413201233
+  ],
+  "cells": {
+   "ag_news|Business": [
+    122,
+    150
+   ],
+   "ag_news|Technology": [
+    87,
+    150
+   ],
+   "ag_news|Sports": [
+    117,
+    150
+   ],
+   "ag_news|World": [
+    139,
+    150
+   ],
+   "bbc_news|Sports": [
+    121,
+    150
+   ],
+   "bbc_news|Business": [
+    113,
+    150
+   ],
+   "bbc_news|Technology": [
+    129,
+    150
+   ],
+   "bbc_news|World": [
+    107,
+    150
+   ],
+   "huffpost|World": [
+    98,
+    100
+   ],
+   "huffpost|Sports": [
+    66,
+    100
+   ],
+   "huffpost|Business": [
+    67,
+    100
+   ],
+   "huffpost|Technology": [
+    70,
+    100
+   ]
+  },
+  "off_menu": 5
+ },
+ "INJR": {
+  "acc": 0.7487283825025433,
+  "n": 1966,
+  "ci": [
+   0.7290825167105043,
+   0.7674041043457268
+  ],
+  "cells": {
+   "promptshield|S1_benign": [
+    399,
+    400
+   ],
+   "promptshield|S1_injection": [
+    166,
+    400
+   ],
+   "deepset_gandalf|S3_benign": [
+    378,
+    383
+   ],
+   "deepset_gandalf|S3_injection": [
+    283,
+    383
+   ],
+   "jailbreakhub_audit|S2_injection": [
+    101,
+    200
+   ],
+   "jailbreakhub_audit|S2_benign": [
+    145,
+    200
+   ]
+  },
+  "off_menu": 104
+ },
+ "TOX5": {
+  "acc": 0.5375,
+  "n": 1600,
+  "ci": [
+   0.5130082929721549,
+   0.56181206335231
+  ],
+  "cells": {
+   "S1|toxic": [
+    155,
+    200
+   ],
+   "S1|violence": [
+    134,
+    200
+   ],
+   "S1|safe": [
+    146,
+    200
+   ],
+   "S1|sexual": [
+    11,
+    200
+   ],
+   "S1|hate": [
+    119,
+    200
+   ],
+   "S3|hate": [
+    100,
+    200
+   ],
+   "S3|safe": [
+    56,
+    200
+   ],
+   "S3|toxic": [
+    139,
+    200
+   ]
+  },
+  "off_menu": 2
+ }
+}

@@ -1,0 +1,1 @@
+[{"name":"bonsai_news_fp16patch","model":"/opt/dlami/nvme/w/art","dtype":"float16","task":"news","ndraw":10,"ns":[5,12,25],"methods":["mnH_m8","mnH_m4","mnH_m16"],"valmethods":["mnH_m8"]}]
