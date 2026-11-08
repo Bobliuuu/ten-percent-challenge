@@ -9,7 +9,7 @@ def curve(model, cfg):
     k = "32B pooled 12 tasks" if "32B" in model else "14B pooled 12 tasks"
     return [r["flip_" + cfg] for r in E0[k]]
 def flip_p(cv, m):
-    b = max(j for j in range(len(EDGE) - 1) if EDGE[j] <= max(m, 0)); return cv[b]
+    b = max(j for j in range(len(EDGE) - 1) if EDGE[j] <= max(m, 0)); return cv[min(b, len(cv) - 1)]
 def wil(k, n, z=1.96):
     if n == 0: return (0, 1)
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); a = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return ((c - a) / d, (c + a) / d)
