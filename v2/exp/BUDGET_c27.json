@@ -11,6 +11,11 @@
    "t": "2026-11-08T09:10Z",
    "what": "tenpct-c27 running ~1.5h so far (est $5.5); AWS lab login expired 08:55Z, box unreachable; auto-terminates 17:43Z at latest",
    "est_spend_so_far": 5.5
+  },
+  {
+   "t": "2026-11-08T16:00Z",
+   "what": "results rescued; box tenpct-c27 shared with L2 agent runs; est spend 8.2 h x 3.363 = $27.6 total (previous lane $7 separate)",
+   "est_spend_c27_push": 27.6
   }
  ],
  "previous_lane_spend_est": 7.0
