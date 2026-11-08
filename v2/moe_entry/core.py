@@ -123,8 +123,10 @@ def main(cfgs, vol):
     log("orig copied")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS == "voice" else f"/root/splits/{n.lower()}.jsonl"
+        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS.startswith("voice") else f"/root/splits/{n.lower()}.jsonl"
         rows = [json.loads(l) for l in open(pth)]
+        if DS == "voices":
+            for r in rows: r["user"] = "Route the request to one skill: clock, calendar, lists, email, smart_home, music, weather, transport, food, qa. Answer with the skill name only.\nRequest: " + r["text"]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows
     DATA = {}
