@@ -1,0 +1,29 @@
+{
+ "tag": "pre_g_x2g128_reap",
+ "base": "qwen15",
+ "cfg": {
+  "xb": 16,
+  "xg": 128,
+  "ab": 16,
+  "ag": 128,
+  "eb": 16,
+  "eg": 64,
+  "crit": "reap",
+  "K": "max",
+  "gptq": 1
+ },
+ "K": 0,
+ "ne": 60,
+ "fp16_bytes": 28631568384,
+ "shipped_bytes": 3723013528,
+ "ratio": 0.13003177045936848,
+ "breakdown": {
+  "expert": 0,
+  "attn": 2466250752,
+  "embed": 1244659712,
+  "router": 0,
+  "fp16": 593920,
+  "aux": 11509144,
+  "index": 0
+ }
+}

@@ -323,3 +323,4 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T15:0xZ modal app ap-3Jj5qz1zXkB5naXSRZTm7X tenpct-near-miss-e (lane e native low-bit probes BitNet-2B + Falcon-E-3B, 2x A10G; Vast was at its instance cap)
 - 2026-11-08T15:04Z vast id 59725539 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.20)
 - 2026-11-08T15:08Z L12 Modal app tenpct-l12 (deployed, spawn): tag A fc-01M6XV2B7T4C6BBBDN5GPSH171 (cfgsA), tag B fc-01M6XV2DH5CE88KTB0KMX2CE2C (cfgsB); cmd: python3 v2/lanes/L12/launch_modal.py <tag> cfgs; results volume tenpct-l12 /r/<tag>. (Vast boxes failed on torchvision import; cap reached.)
+- 2026-11-08T15:xxZ vast id 59720603 tenpct-nm-a destroyed after ~1.5h (~$0.9)

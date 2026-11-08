@@ -1,0 +1,28 @@
+{
+ "tag": "d_x2g64_reapmass",
+ "base": "dsv2l",
+ "cfg": {
+  "xb": 2,
+  "xg": 64,
+  "ab": 4,
+  "ag": 128,
+  "eb": 4,
+  "eg": 64,
+  "crit": "reapmass",
+  "K": "max"
+ },
+ "K": 37,
+ "ne": 64,
+ "fp16_bytes": 31412968448,
+ "shipped_bytes": 3070139507.0,
+ "ratio": 0.09773477829967608,
+ "breakdown": {
+  "expert": 2373076992.0,
+  "attn": 462128640.0,
+  "embed": 226099200.0,
+  "router": 3940352,
+  "fp16": 252928,
+  "aux": 4640433,
+  "index": 962
+ }
+}

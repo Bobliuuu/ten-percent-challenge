@@ -1,0 +1,1 @@
+[["g_x2g64_reap", {"xb": 2, "xg": 64, "ab": 4, "ag": 128, "eb": 4, "eg": 64, "crit": "reap", "K": "max", "gptq": 1}], ["g_x2g128_reap", {"xb": 2, "xg": 128, "ab": 4, "ag": 128, "eb": 4, "eg": 64, "crit": "reap", "K": "max", "gptq": 1}], ["g_x3g128_reap", {"xb": 3, "xg": 128, "ab": 4, "ag": 128, "eb": 4, "eg": 64, "crit": "reap", "K": "max", "gptq": 1}]]
