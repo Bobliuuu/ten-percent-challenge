@@ -3,10 +3,10 @@
 + mkdir -p results
 + export HF_HOME=/workspace/hf
 + HF_HOME=/workspace/hf
-+ pip install -q torch==2.10.0 transformers==5.22.2 safetensors scipy huggingface_hub accelerate
++ pip install -q transformers==5.22.2 safetensors scipy huggingface_hub accelerate
 + tail -2
-torchvision 0.23.0+cu128 requires torch==2.8.0, but you have torch 2.10.0 which is incompatible.
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-+ python -c 'import torch,transformers;print(torch.__version__,transformers.__version__,torch.cuda.is_available());from transformers import Qwen3MoeForCausalLM'
++ python -c 'import torch,transformers;print(torch.__version__,transformers.__version__)'
+2.8.0+cu128 5.22.2
 + python l12_core.py --cfgs cfgsA.json --data data --out results
 + touch results/DONE
