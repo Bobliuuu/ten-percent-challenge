@@ -1,0 +1,3 @@
+[
+{"name":"t7_smoke_kb3","model":"Qwen/Qwen2.5-7B-Instruct","K":3,"L":12,"V":2,"calib_file":"calib_mix.jsonl","gen_tokens":200000,"ncal":256,"vllm_util":0.6,"no_general":true}
+]

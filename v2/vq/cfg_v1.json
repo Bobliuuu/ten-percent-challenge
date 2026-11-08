@@ -1,0 +1,4 @@
+[
+{"name":"b32_base","mode":"base","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","maxmem_list":["40GiB","40GiB"],"vllm_util":0.8,"no_general":true},
+{"name":"b32_vq8_k5300","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","D":8,"K":5300,"calib_file":"calib_mix.jsonl","gen_tokens":1000000,"ncal":2048,"maxmem_list":["28GiB","40GiB"],"vllm_util":0.8,"no_general":true}
+]
