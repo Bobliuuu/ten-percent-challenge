@@ -14,7 +14,7 @@ def log(*a):
 def append(path, line):
     with open(os.path.expanduser(path), "a") as f: f.write(line + "\n")
 def search(min_vram, max_vram, max_dph, disk, inet=300):
-    q = f"num_gpus=1 gpu_ram>={min_vram} gpu_ram<={max_vram} reliability>0.97 inet_down>={inet} disk_space>={disk} rentable=true compute_cap>=800 cuda_vers>=12.8"
+    q = f"num_gpus=1 gpu_ram>={min_vram} gpu_ram<={max_vram} reliability>0.97 inet_down>={inet} disk_space>={disk} rentable=true compute_cap>=800 cuda_vers>=12.8 cpu_ram>={os.environ.get('VAST_CPU_RAM',0)}"
     rc, out, _ = vast("search", "offers", q, "-o", "dph", "--raw")
     offers = [o for o in json.loads(out) if "CMP" not in o["gpu_name"] and o["dph_total"] <= max_dph]
     return offers
@@ -85,7 +85,7 @@ def main():
         import shlex; e = "-e " + shlex.quote("ssh " + " ".join(ssh_args(host, port)))
         sh(host, port, "mkdir -p /workspace/bundle")
         subprocess.run(f"rsync -az {e} {bundle}/ root@{host}:/workspace/bundle/", shell=True, check=True, timeout=1800)
-        sh(host, port, f"cd /workspace/bundle && nohup bash run.sh {a.run_args} > /workspace/run.log 2>&1 & echo started")
+        sh(host, port, f"cd /workspace/bundle && setsid nohup bash run.sh {a.run_args} > /workspace/run.log 2>&1 < /dev/null & echo started")
         log("started job")
         def pull():
             subprocess.run(f"rsync -az {e} root@{host}:/workspace/bundle/results/ {a.results_dir}/ ; rsync -az {e} root@{host}:/workspace/run.log {a.results_dir}/run.log",

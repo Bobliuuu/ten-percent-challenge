@@ -1,0 +1,128 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "tag": "p32_i",
+  "size": "m",
+  "injr": true,
+  "cfgs": [
+   {
+    "name": "i_b096",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "i_v64",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "i_f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9
+   },
+   {
+    "name": "i_v64f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "i_d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2
+   },
+   {
+    "name": "i_v64d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "tag": "p32_n",
+  "size": "m",
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_b096",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_v64",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "n_f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9
+   },
+   {
+    "name": "n_v64f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "n_d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2
+   },
+   {
+    "name": "n_v64d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   }
+  ]
+ }
+]
