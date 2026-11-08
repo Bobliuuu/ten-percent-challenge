@@ -60,7 +60,7 @@ def main(job):
                 else:
                     pr = torch.softmax(lgm, dim=-1); tv, ix = torch.topk(pr, r.top_k, dim=-1)
                     if cls.startswith("Deepseek"): w = tv * getattr(r, "routed_scaling_factor", 1.0)
-                    else: w = tv / tv.sum(-1, keepdim=True)
+                    else: w = tv / tv.sum(-1, keepdim=True) if getattr(r, "norm_topk_prob", True) else tv
                 w = w.to(lg.dtype); out = (lg, w, ix)
             if STAT["on"]:
                 v = STAT["valid"].to(w.device)

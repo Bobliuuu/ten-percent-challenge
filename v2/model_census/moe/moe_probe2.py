@@ -60,7 +60,7 @@ def main(job):
                 else:
                     pr = torch.softmax(lgm, dim=-1); tv, ix = torch.topk(pr, r.top_k, dim=-1)
                     if cls.startswith("Deepseek"): w = tv * getattr(r, "routed_scaling_factor", 1.0)
-                    else: w = tv / tv.sum(-1, keepdim=True)
+                    else: w = tv / tv.sum(-1, keepdim=True) if getattr(r, "norm_topk_prob", True) else tv
                 w = w.to(lg.dtype); out = (lg, w, ix)
             if STAT["on"]:
                 v = STAT["valid"].to(w.device)
@@ -192,7 +192,7 @@ def main(job):
             if y: c = cells[r["kind"]]; c[0] += 1; c[1] += int(x)
         wc = [(v[1] / v[0], k_, v[0]) for k_, v in cells.items() if v[0] >= 8]
         cr = dict(task=task, name=cfg.get("name", f"f{f}_b{b}"), f=f, bits=b, k_keep=k_keep, est_ratio=est / (tot_params * 2), acc=sum(cor) / len(rows), n_bc=kb, ret=kk_ / max(kb, 1), ret_lo=wil(kk_, kb),
-                  worst_cell=min(wc) if wc else None, secs=round(time.time() - t1))
+                  worst_cell=min(wc) if wc else None, secs=round(time.time() - t1), sample_outs=outs[:6])
         res["cfgs"].append(cr); print("CFG_JSON", json.dumps(dict(model=MID, **cr)), flush=True); save()
         if orig_exp is None: break
       if orig_exp is None: break
