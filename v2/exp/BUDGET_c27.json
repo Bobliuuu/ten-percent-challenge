@@ -1,3 +1,17 @@
-{"lane":"C27 push (budget +$45 from the $330 ledger)","entries":[
- {"t":"2026-11-08T07:44Z","what":"g7e.2xlarge eu-north-1 tenpct-c27 launched (deadline 17:43Z)","rate_per_h":3.363,"est_total_cap":45.0}
-],"previous_lane_spend_est":7.0}
+{
+ "lane": "C27 push (budget +$45 from the $330 ledger)",
+ "entries": [
+  {
+   "t": "2026-11-08T07:44Z",
+   "what": "g7e.2xlarge eu-north-1 tenpct-c27 launched (deadline 17:43Z)",
+   "rate_per_h": 3.363,
+   "est_total_cap": 45.0
+  },
+  {
+   "t": "2026-11-08T09:10Z",
+   "what": "tenpct-c27 running ~1.5h so far (est $5.5); AWS lab login expired 08:55Z, box unreachable; auto-terminates 17:43Z at latest",
+   "est_spend_so_far": 5.5
+  }
+ ],
+ "previous_lane_spend_est": 7.0
+}

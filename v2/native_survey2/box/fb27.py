@@ -4,14 +4,14 @@ usage: fb27.py MODELDIR OUT.json [layers=62,63] [lam=1.0] [m=8] [f=1.0] [draws=4
 import os, sys, json, random, time, math, collections
 import torch
 os.environ["HF_HOME"] = "/home/ubuntu/work/hf"
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForImageTextToText
 mdir, outp = sys.argv[1], sys.argv[2]
 LAYERS = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else "62,63").split(",")]; LAM = float(sys.argv[4]) if len(sys.argv) > 4 else 1.0
 M = float(sys.argv[5]) if len(sys.argv) > 5 else 8.0; F = float(sys.argv[6]) if len(sys.argv) > 6 else 1.0; DRAWS = int(sys.argv[7]) if len(sys.argv) > 7 else 4
 D = "/home/ubuntu/work/fbdata"; rd = lambda n: [json.loads(l) for l in open(f"{D}/{n}.jsonl")]
 ann, teach, neigh_pool, cal = rd("ann"), rd("teach"), rd("neigh"), rd("cal")
 tok = AutoTokenizer.from_pretrained(mdir); tok.padding_side = "left"
-model = AutoModelForCausalLM.from_pretrained(mdir, dtype=torch.bfloat16, device_map={"": 0}).eval()
+model = AutoModelForImageTextToText.from_pretrained(mdir, dtype=torch.bfloat16, device_map={"": 0}).eval()
 base_model = model.model if hasattr(model, "model") else model
 LM = getattr(base_model, "language_model", base_model); LAY = LM.layers; HEAD = model.lm_head; NORM = LM.norm
 dev = "cuda"
@@ -78,7 +78,8 @@ def cov(L):
             for r, k in enumerate(idx): ids[r, :len(seqs[k])] = torch.tensor(seqs[k]); am[r, :len(seqs[k])] = 1
             LM(input_ids=ids.to(dev), attention_mask=am.to(dev)); kk = buf["k"][am.bool().to(dev)].float(); C += kk.T @ kk; n += len(kk); i = j
     hk.remove(); COV[L] = C / n; return COV[L]
-GN = NORM.weight.float() + 1.0 if False else NORM.weight.float()
+with torch.no_grad(): GN = NORM(torch.ones(1, NORM.weight.shape[0], device=dev, dtype=torch.bfloat16)).float()[0] * math.sqrt(1 + 1e-6)
+print('GN mean', float(GN.mean()), 'weight mean', float(NORM.weight.float().mean()), flush=True)
 def plan(items, labels, L):
     sq = [mkseq(r, lab) for r, lab in zip(items, labels)]; caps = capture([(a, b) for a, b, _ in sq], L); Rs = []; Ks = []; W = HEAD.weight
     for (h, k, rms), (_, _, g) in zip(caps, sq):
@@ -114,7 +115,7 @@ def evaluate(tag):
 res = dict(config=dict(layers=LAYERS, lam=LAM, m=M, f=F), base=dict(teach=0.0, n_teach=len(TEACH), n_neigh=len(NEI)), runs=[])
 for arm in ("empty",):
     r = evaluate("empty"); r["arm"] = "empty"; print(r, flush=True); res["runs"].append(r)
-for n in (5, 12, 25):
+for n in tuple(int(x) for x in os.environ.get('NS', '5,12,25').split(',')):
     for d in range(DRAWS):
         rng = random.Random(1000 * n + d); sel = rng.sample(ANN, min(n, len(ANN)))
         for arm in ("real", "shuffled"):
