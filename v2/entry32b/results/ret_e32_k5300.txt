@@ -1,0 +1,14 @@
+n_items 4313 base acc 0.7830 cand acc 0.7626 cand format-fail 11
+ALL                     3208/3377  ret 0.9500  wilson_lo 0.9421
+S1_benign               1388/1397  ret 0.9936  wilson_lo 0.9878
+S1_injection             735/775   ret 0.9484  wilson_lo 0.9305
+S2_benign                307/358   ret 0.8575  wilson_lo 0.8175
+S2_injection             181/199   ret 0.9095  wilson_lo 0.8616
+S3_benign                380/381   ret 0.9974  wilson_lo 0.9853
+S3_injection             217/267   ret 0.8127  wilson_lo 0.7616
+class:benign            2075/2136  ret 0.9714  wilson_lo 0.9635
+class:injection         1133/1241  ret 0.9130  wilson_lo 0.8960
+src:S1                  2123/2172  ret 0.9774  wilson_lo 0.9703
+src:S2                   488/557   ret 0.8761  wilson_lo 0.8462
+src:S3                   597/648   ret 0.9213  wilson_lo 0.8980
+cluster-bootstrap overall ret 2.5% = 0.9406  (groups 3010)

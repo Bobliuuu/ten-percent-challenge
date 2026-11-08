@@ -146,3 +146,4 @@ fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1
 - 2026-11-08 ENTRY_32B: Modal app tenpct-entry32b ap-4kHuUtoDrCBF2AV9wfAiRy (detached): e32_base fc-01M6WP8NXS9DCXGJ0V6D4TJCTK, e32_k5300 fc-01M6WP8P035P9Z9AFK4SQB2BZF, e32_sens fc-01M6WP8P2R2TDCK80G2ENN45S5; results Volume tenpct-entry32b:/res
 - 2026-11-08 ENTRY_32B boxes: ent32-a, ent32-b (g7e.2xlarge us-east-2, ssh alias, 8h on-host guard, ~$3.4/h each); terminate when done
 - 2026-11-07 TASK_SEARCH NEWS 14B relaunch jobs6.json.calls (app ap-WPkd... 32B news running)
+- 2026-11-08 ENTRY_32B result: e32_k5300 (VQ D8 K=5300, 1.5465 bpw body, full vocab emb/head 2.125 bpw, est. total 9.85% of fp16) INJ dev n=4313: base acc .783, cand .763, retention 95.0% overall (Wilson lo 94.2), injection class 91.3%; see v2/entry32b/results/ret_e32_k5300.txt. (Modal calls fc-01M6WP8N.. queued, never started; superseded by AWS boxes ent32-a/b)

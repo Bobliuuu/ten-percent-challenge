@@ -274,6 +274,7 @@ def _impl(cfg):
         eh_params = 0
         for nm_, mod in (("emb", model.get_input_embeddings()), ("head", model.get_output_embeddings())):
             if nm_ == "head" and tied: continue
+            if cfg.get("skip_eh"): continue
             q_embhead(mod, "eh." + nm_); eh_params += mod.weight.numel()
         eh_bytes = eh_params * (2 + 16 / GS) / 8
         other = allp - nb - eh_params - (V * hd if tied else 0)
