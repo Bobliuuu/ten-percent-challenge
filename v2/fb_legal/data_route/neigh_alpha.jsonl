@@ -1,0 +1,200 @@
+{"id": "massive-6980-test", "text": "give me to do list", "gold": "calendar", "src": "test", "grp": "massive-6980-test", "intent": "calendar_query"}
+{"id": "massive-9059-test", "text": "alert me at the time of the event", "gold": "calendar", "src": "test", "grp": "massive-9059-test", "intent": "calendar_set"}
+{"id": "massive-7927-test", "text": "what do i have to do this week", "gold": "calendar", "src": "test", "grp": "massive-7927-test", "intent": "calendar_query"}
+{"id": "massive-7199-test", "text": "set a notification for three two and one hours before next week's english final", "gold": "calendar", "src": "test", "grp": "massive-7199-test", "intent": "calendar_set"}
+{"id": "massive-7046-test", "text": "add tal meeting on twenty first at seven", "gold": "calendar", "src": "test", "grp": "massive-7046-test", "intent": "calendar_set"}
+{"id": "massive-7732-dev", "text": "set bob's birthday for every june third", "gold": "calendar", "src": "dev", "grp": "massive-7732-dev", "intent": "calendar_set"}
+{"id": "massive-7064-dev", "text": "please delete all of my calendar events for the rest of the day", "gold": "calendar", "src": "dev", "grp": "massive-7064-dev", "intent": "calendar_remove"}
+{"id": "massive-8466-test", "text": "i have a nine am meeting on wednesday send me a reminder", "gold": "calendar", "src": "test", "grp": "massive-8466-test", "intent": "calendar_set"}
+{"id": "massive-8434-dev", "text": "remove my event at one p. m. in my calendar", "gold": "calendar", "src": "dev", "grp": "massive-8434-dev", "intent": "calendar_remove"}
+{"id": "massive-1276-test", "text": "i want a coffee", "gold": "home", "src": "test", "grp": "massive-1276-test", "intent": "iot_coffee"}
+{"id": "massive-5856-test", "text": "turn off smart plug socket", "gold": "home", "src": "test", "grp": "massive-5856-test", "intent": "iot_wemo_off"}
+{"id": "massive-7541-dev", "text": "set reminder for tomorrow for this item", "gold": "calendar", "src": "dev", "grp": "massive-7541-dev", "intent": "calendar_set"}
+{"id": "massive-7653-dev", "text": "don't forget to remind me of my brother's birthday on april twenty", "gold": "calendar", "src": "dev", "grp": "massive-7653-dev", "intent": "calendar_set"}
+{"id": "massive-2591-test", "text": "turn up the brightness", "gold": "home", "src": "test", "grp": "massive-2591-test", "intent": "iot_hue_lightup"}
+{"id": "massive-13178-test", "text": "remind me to contact old friends that i have not talked with in six months before they pass", "gold": "calendar", "src": "test", "grp": "massive-13178-test", "intent": "calendar_set"}
+{"id": "massive-843-test", "text": "start the robot roomba", "gold": "home", "src": "test", "grp": "massive-843-test", "intent": "iot_cleaning"}
+{"id": "massive-8047-dev", "text": "on february fourteenth make dinner reservations at the restaurant", "gold": "calendar", "src": "dev", "grp": "massive-8047-dev", "intent": "calendar_set"}
+{"id": "massive-7305-dev", "text": "add to the calendar a reunion event for this afternoon", "gold": "calendar", "src": "dev", "grp": "massive-7305-dev", "intent": "calendar_set"}
+{"id": "massive-8469-test", "text": "what is scheduled on my calendar today", "gold": "calendar", "src": "test", "grp": "massive-8469-test", "intent": "calendar_query"}
+{"id": "massive-8868-test", "text": "remind me to call mom every tuesday at ten am", "gold": "calendar", "src": "test", "grp": "massive-8868-test", "intent": "calendar_set"}
+{"id": "massive-8619-dev", "text": "set and event for the fifteenth of every month to remind me to pay my internet bill", "gold": "calendar", "src": "dev", "grp": "massive-8619-dev", "intent": "calendar_set"}
+{"id": "massive-6932-dev", "text": "what is my event schedule tomorrow", "gold": "calendar", "src": "dev", "grp": "massive-6932-dev", "intent": "calendar_query"}
+{"id": "massive-8959-dev", "text": "i want you to remind me about the evening program", "gold": "calendar", "src": "dev", "grp": "massive-8959-dev", "intent": "calendar_set"}
+{"id": "massive-6789-test", "text": "set meeting with joanna on saturday four p. m.", "gold": "calendar", "src": "test", "grp": "massive-6789-test", "intent": "calendar_set"}
+{"id": "massive-15890-test", "text": "check to see if i have any new emails from my dad", "gold": "email", "src": "test", "grp": "massive-15890-test", "intent": "email_query"}
+{"id": "massive-8535-test", "text": "will you remind me of the dentist appointment i have in two hours", "gold": "calendar", "src": "test", "grp": "massive-8535-test", "intent": "calendar_set"}
+{"id": "massive-8766-test", "text": "do i have a meeting on saturday march twenty fifth", "gold": "calendar", "src": "test", "grp": "massive-8766-test", "intent": "calendar_query"}
+{"id": "massive-5156-test", "text": "turn the light off in the living room", "gold": "home", "src": "test", "grp": "massive-5156-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-9004-dev", "text": "i need a meeting with the c. f. o. on thursday", "gold": "calendar", "src": "dev", "grp": "massive-9004-dev", "intent": "calendar_set"}
+{"id": "massive-8063-dev", "text": "when is my next reminder", "gold": "calendar", "src": "dev", "grp": "massive-8063-dev", "intent": "calendar_query"}
+{"id": "massive-17015-test", "text": "start reply", "gold": "email", "src": "test", "grp": "massive-17015-test", "intent": "email_sendemail"}
+{"id": "massive-16729-test", "text": "respond to my email from bob letting them know i'll see them tomorrow", "gold": "email", "src": "test", "grp": "massive-16729-test", "intent": "email_sendemail"}
+{"id": "massive-16956-test", "text": "send email to new contact", "gold": "email", "src": "test", "grp": "massive-16956-test", "intent": "email_sendemail"}
+{"id": "massive-1778-test", "text": "please dim the lights", "gold": "home", "src": "test", "grp": "massive-1778-test", "intent": "iot_hue_lightdim"}
+{"id": "massive-7953-test", "text": "remove my appointment with my doctor on saturday please", "gold": "calendar", "src": "test", "grp": "massive-7953-test", "intent": "calendar_remove"}
+{"id": "massive-6755-test", "text": "please clean my calendar", "gold": "calendar", "src": "test", "grp": "massive-6755-test", "intent": "calendar_remove"}
+{"id": "massive-6041-test", "text": "hey olly turn off the light please", "gold": "home", "src": "test", "grp": "massive-6041-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-16375-test", "text": "compose an email to bob", "gold": "email", "src": "test", "grp": "massive-16375-test", "intent": "email_sendemail"}
+{"id": "massive-7846-dev", "text": "what reminders are coming up this week", "gold": "calendar", "src": "dev", "grp": "massive-7846-dev", "intent": "calendar_query"}
+{"id": "massive-7946-test", "text": "what are the upcoming concerts in dallas", "gold": "calendar", "src": "test", "grp": "massive-7946-test", "intent": "calendar_query"}
+{"id": "massive-8345-test", "text": "let me know when the meeting is gonna happen", "gold": "calendar", "src": "test", "grp": "massive-8345-test", "intent": "calendar_set"}
+{"id": "massive-16749-test", "text": "are their any new emails for me today", "gold": "email", "src": "test", "grp": "massive-16749-test", "intent": "email_query"}
+{"id": "massive-6774-test", "text": "set an event for friday", "gold": "calendar", "src": "test", "grp": "massive-6774-test", "intent": "calendar_set"}
+{"id": "massive-7528-test", "text": "thirteenth june is a day of election result please set it", "gold": "calendar", "src": "test", "grp": "massive-7528-test", "intent": "calendar_set"}
+{"id": "massive-7278-test", "text": "remind me of rita's birthday twenty four hours in advance", "gold": "calendar", "src": "test", "grp": "massive-7278-test", "intent": "calendar_set"}
+{"id": "massive-16318-test", "text": "respond to email", "gold": "email", "src": "test", "grp": "massive-16318-test", "intent": "email_sendemail"}
+{"id": "massive-7450-test", "text": "i need a meeting to be schedule with this person", "gold": "calendar", "src": "test", "grp": "massive-7450-test", "intent": "calendar_set"}
+{"id": "massive-16029-test", "text": "please compose a new email to coworker", "gold": "email", "src": "test", "grp": "massive-16029-test", "intent": "email_sendemail"}
+{"id": "massive-665-test", "text": "can you lower the lights", "gold": "home", "src": "test", "grp": "massive-665-test", "intent": "iot_hue_lightdim"}
+{"id": "massive-8323-dev", "text": "did you add tomorrow's meeting to my calendar", "gold": "calendar", "src": "dev", "grp": "massive-8323-dev", "intent": "calendar_query"}
+{"id": "massive-7397-test", "text": "is there any events planned for the next three months", "gold": "calendar", "src": "test", "grp": "massive-7397-test", "intent": "calendar_query"}
+{"id": "massive-8781-test", "text": "am i free at four p. m.", "gold": "calendar", "src": "test", "grp": "massive-8781-test", "intent": "calendar_query"}
+{"id": "massive-16872-test", "text": "find naty from my contacts and send her an email", "gold": "email", "src": "test", "grp": "massive-16872-test", "intent": "email_sendemail"}
+{"id": "massive-8828-test", "text": "is calendar event true", "gold": "calendar", "src": "test", "grp": "massive-8828-test", "intent": "calendar_query"}
+{"id": "massive-6929-dev", "text": "remove all the events and schedules", "gold": "calendar", "src": "dev", "grp": "massive-6929-dev", "intent": "calendar_remove"}
+{"id": "massive-8358-test", "text": "remind me about this", "gold": "calendar", "src": "test", "grp": "massive-8358-test", "intent": "calendar_set"}
+{"id": "massive-9054-test", "text": "event reminder mona tuesday", "gold": "calendar", "src": "test", "grp": "massive-9054-test", "intent": "calendar_set"}
+{"id": "massive-15957-test", "text": "email alice to let her know we are on the way", "gold": "email", "src": "test", "grp": "massive-15957-test", "intent": "email_sendemail"}
+{"id": "massive-16222-test", "text": "tell me about mary s.", "gold": "email", "src": "test", "grp": "massive-16222-test", "intent": "email_querycontact"}
+{"id": "massive-15305-test", "text": "do i have any notifications from social media", "gold": "calendar", "src": "test", "grp": "massive-15305-test", "intent": "calendar_query"}
+{"id": "massive-8670-test", "text": "remove events from calendar", "gold": "calendar", "src": "test", "grp": "massive-8670-test", "intent": "calendar_remove"}
+{"id": "massive-8276-test", "text": "remove my next scheduled appointment please", "gold": "calendar", "src": "test", "grp": "massive-8276-test", "intent": "calendar_remove"}
+{"id": "massive-6792-dev", "text": "tell me about my events", "gold": "calendar", "src": "dev", "grp": "massive-6792-dev", "intent": "calendar_query"}
+{"id": "massive-7726-test", "text": "i need to something every monday set a reminder for it", "gold": "calendar", "src": "test", "grp": "massive-7726-test", "intent": "calendar_set"}
+{"id": "massive-914-test", "text": "please turn lights off", "gold": "home", "src": "test", "grp": "massive-914-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-16648-test", "text": "please check my emails for me", "gold": "email", "src": "test", "grp": "massive-16648-test", "intent": "email_query"}
+{"id": "massive-16668-test", "text": "have any emails come in since four hundred today", "gold": "email", "src": "test", "grp": "massive-16668-test", "intent": "email_query"}
+{"id": "massive-8188-test", "text": "what date is it", "gold": "calendar", "src": "test", "grp": "massive-8188-test", "intent": "calendar_query"}
+{"id": "massive-16183-test", "text": "check email about my job", "gold": "email", "src": "test", "grp": "massive-16183-test", "intent": "email_query"}
+{"id": "massive-16145-test", "text": "show me the most recent emails", "gold": "email", "src": "test", "grp": "massive-16145-test", "intent": "email_query"}
+{"id": "massive-9182-test", "text": "cancel my plans to pick up my parents from the airport", "gold": "calendar", "src": "test", "grp": "massive-9182-test", "intent": "calendar_remove"}
+{"id": "massive-7879-test", "text": "what are my next three events", "gold": "calendar", "src": "test", "grp": "massive-7879-test", "intent": "calendar_query"}
+{"id": "massive-7808-test", "text": "remind me i take mom to the hairdresser's thursday at one thousand one hundred am", "gold": "calendar", "src": "test", "grp": "massive-7808-test", "intent": "calendar_set"}
+{"id": "massive-17095-test", "text": "what's leon's email", "gold": "email", "src": "test", "grp": "massive-17095-test", "intent": "email_querycontact"}
+{"id": "massive-8133-dev", "text": "set a remainder at three p. m. to pick jo", "gold": "calendar", "src": "dev", "grp": "massive-8133-dev", "intent": "calendar_set"}
+{"id": "massive-9107-test", "text": "what time does the zach brown concert on june third begin", "gold": "calendar", "src": "test", "grp": "massive-9107-test", "intent": "calendar_query"}
+{"id": "massive-7769-dev", "text": "add my practice at king's park on feb four at two p. m.", "gold": "calendar", "src": "dev", "grp": "massive-7769-dev", "intent": "calendar_set"}
+{"id": "massive-7682-dev", "text": "find and delete all of my weekend events with evan parker", "gold": "calendar", "src": "dev", "grp": "massive-7682-dev", "intent": "calendar_remove"}
+{"id": "massive-8059-dev", "text": "is this week trash pickup week", "gold": "calendar", "src": "dev", "grp": "massive-8059-dev", "intent": "calendar_query"}
+{"id": "massive-6540-dev", "text": "today needs to be marked as my cheat day", "gold": "calendar", "src": "dev", "grp": "massive-6540-dev", "intent": "calendar_set"}
+{"id": "massive-7755-dev", "text": "repeat an event in my calendar", "gold": "calendar", "src": "dev", "grp": "massive-7755-dev", "intent": "calendar_set"}
+{"id": "massive-17005-test", "text": "please check for new email", "gold": "email", "src": "test", "grp": "massive-17005-test", "intent": "email_query"}
+{"id": "massive-8730-test", "text": "please set a reminder in my calendar for my meeting on march twenty five", "gold": "calendar", "src": "test", "grp": "massive-8730-test", "intent": "calendar_set"}
+{"id": "massive-9043-test", "text": "upcoming events in calendar", "gold": "calendar", "src": "test", "grp": "massive-9043-test", "intent": "calendar_set"}
+{"id": "massive-1804-test", "text": "more lights please", "gold": "home", "src": "test", "grp": "massive-1804-test", "intent": "iot_hue_lightup"}
+{"id": "massive-6819-test", "text": "olly there's a good band playing tonight at nine at jazz bar i want to go", "gold": "calendar", "src": "test", "grp": "massive-6819-test", "intent": "calendar_set"}
+{"id": "massive-7730-test", "text": "i need you to mark next monday", "gold": "calendar", "src": "test", "grp": "massive-7730-test", "intent": "calendar_set"}
+{"id": "massive-8699-dev", "text": "i needed to prepare for a meeting", "gold": "calendar", "src": "dev", "grp": "massive-8699-dev", "intent": "calendar_query"}
+{"id": "massive-9149-test", "text": "what time is the black tie gala dinner supposed to begin", "gold": "calendar", "src": "test", "grp": "massive-9149-test", "intent": "calendar_query"}
+{"id": "massive-7971-test", "text": "set a reminder for two days prior of the event", "gold": "calendar", "src": "test", "grp": "massive-7971-test", "intent": "calendar_set"}
+{"id": "massive-8562-test", "text": "delete my meeting for two o'clock p. m. today", "gold": "calendar", "src": "test", "grp": "massive-8562-test", "intent": "calendar_remove"}
+{"id": "massive-16398-test", "text": "please send the email to jeff", "gold": "email", "src": "test", "grp": "massive-16398-test", "intent": "email_sendemail"}
+{"id": "massive-8073-test", "text": "schedule a sales meeting for wednesday at eleven am", "gold": "calendar", "src": "test", "grp": "massive-8073-test", "intent": "calendar_set"}
+{"id": "massive-16296-test", "text": "send an email to mom to tell her wyatt's birthday party is on sunday", "gold": "email", "src": "test", "grp": "massive-16296-test", "intent": "email_sendemail"}
+{"id": "massive-635-test", "text": "please start vacuum cleaner", "gold": "home", "src": "test", "grp": "massive-635-test", "intent": "iot_cleaning"}
+{"id": "massive-16356-test", "text": "did i email tom on the subject of gun control", "gold": "email", "src": "test", "grp": "massive-16356-test", "intent": "email_query"}
+{"id": "massive-3196-test", "text": "hey olly can you please make me a creamy coffee", "gold": "home", "src": "test", "grp": "massive-3196-test", "intent": "iot_coffee"}
+{"id": "massive-6962-test", "text": "can i know what i have to do the next saturday at six p. m.", "gold": "calendar", "src": "test", "grp": "massive-6962-test", "intent": "calendar_set"}
+{"id": "massive-8058-test", "text": "do i have a sales meeting today", "gold": "calendar", "src": "test", "grp": "massive-8058-test", "intent": "calendar_query"}
+{"id": "massive-8182-test", "text": "can you delete the dentist appointment", "gold": "calendar", "src": "test", "grp": "massive-8182-test", "intent": "calendar_remove"}
+{"id": "massive-8791-test", "text": "more information on this event", "gold": "calendar", "src": "test", "grp": "massive-8791-test", "intent": "calendar_query"}
+{"id": "massive-16384-test", "text": "hey do i have any new emails", "gold": "email", "src": "test", "grp": "massive-16384-test", "intent": "email_query"}
+{"id": "massive-9155-test", "text": "on friday please put dentist appointment at three", "gold": "calendar", "src": "test", "grp": "massive-9155-test", "intent": "calendar_set"}
+{"id": "massive-16713-test", "text": "please check my emails and notify me if exists any new email", "gold": "email", "src": "test", "grp": "massive-16713-test", "intent": "email_query"}
+{"id": "massive-2264-test", "text": "light color for study room", "gold": "home", "src": "test", "grp": "massive-2264-test", "intent": "iot_hue_lightup"}
+{"id": "massive-8004-test", "text": "dorothy needs to talk to me about our divorce can you please set up a meeting as soon as i am available", "gold": "calendar", "src": "test", "grp": "massive-8004-test", "intent": "calendar_set"}
+{"id": "massive-8916-test", "text": "what is my schedule for the day", "gold": "calendar", "src": "test", "grp": "massive-8916-test", "intent": "calendar_query"}
+{"id": "massive-7890-test", "text": "clear haircut today", "gold": "calendar", "src": "test", "grp": "massive-7890-test", "intent": "calendar_remove"}
+{"id": "massive-7723-dev", "text": "tell me about the meeting i have this week", "gold": "calendar", "src": "dev", "grp": "massive-7723-dev", "intent": "calendar_query"}
+{"id": "massive-8990-test", "text": "make event", "gold": "calendar", "src": "test", "grp": "massive-8990-test", "intent": "calendar_set"}
+{"id": "massive-8751-dev", "text": "tuesday meeting noon", "gold": "calendar", "src": "dev", "grp": "massive-8751-dev", "intent": "calendar_set"}
+{"id": "massive-3785-test", "text": "turn off the bathroom light please", "gold": "home", "src": "test", "grp": "massive-3785-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-8829-dev", "text": "is calendar event false", "gold": "calendar", "src": "dev", "grp": "massive-8829-dev", "intent": "calendar_query"}
+{"id": "massive-9065-dev", "text": "put a repeating event on the calendar", "gold": "calendar", "src": "dev", "grp": "massive-9065-dev", "intent": "calendar_set"}
+{"id": "massive-15849-test", "text": "send an email to my boss", "gold": "email", "src": "test", "grp": "massive-15849-test", "intent": "email_sendemail"}
+{"id": "massive-8912-test", "text": "give me today's calendar events after six p. m.", "gold": "calendar", "src": "test", "grp": "massive-8912-test", "intent": "calendar_query"}
+{"id": "massive-8474-test", "text": "add jane's birthday party for tomorrow two p. m. at one hundred and twenty three main on my calendar", "gold": "calendar", "src": "test", "grp": "massive-8474-test", "intent": "calendar_set"}
+{"id": "massive-6891-test", "text": "are there morning shows available", "gold": "calendar", "src": "test", "grp": "massive-6891-test", "intent": "calendar_query"}
+{"id": "massive-322-test", "text": "enable my plug", "gold": "home", "src": "test", "grp": "massive-322-test", "intent": "iot_wemo_on"}
+{"id": "massive-1090-test", "text": "can you increase the brightness in the room", "gold": "home", "src": "test", "grp": "massive-1090-test", "intent": "iot_hue_lightup"}
+{"id": "massive-16170-test", "text": "open inbox to check unread mails", "gold": "email", "src": "test", "grp": "massive-16170-test", "intent": "email_query"}
+{"id": "massive-9121-test", "text": "what days do i have booked", "gold": "calendar", "src": "test", "grp": "massive-9121-test", "intent": "calendar_query"}
+{"id": "massive-7120-test", "text": "what's my schedule like today", "gold": "calendar", "src": "test", "grp": "massive-7120-test", "intent": "calendar_query"}
+{"id": "massive-7266-test", "text": "what are my pending tasks", "gold": "calendar", "src": "test", "grp": "massive-7266-test", "intent": "calendar_query"}
+{"id": "massive-6722-test", "text": "is there anything i should be reminded about", "gold": "calendar", "src": "test", "grp": "massive-6722-test", "intent": "calendar_query"}
+{"id": "massive-16799-test", "text": "have i received any emails since noon", "gold": "email", "src": "test", "grp": "massive-16799-test", "intent": "email_query"}
+{"id": "massive-1360-test", "text": "please raise the light i am not comfortable at this", "gold": "home", "src": "test", "grp": "massive-1360-test", "intent": "iot_hue_lightup"}
+{"id": "massive-16096-test", "text": "has amy sent me any new emails", "gold": "email", "src": "test", "grp": "massive-16096-test", "intent": "email_query"}
+{"id": "massive-8390-test", "text": "remind me of my meeting on", "gold": "calendar", "src": "test", "grp": "massive-8390-test", "intent": "calendar_set"}
+{"id": "massive-16523-test", "text": "can you tell me the contact information of jo", "gold": "email", "src": "test", "grp": "massive-16523-test", "intent": "email_querycontact"}
+{"id": "massive-6370-test", "text": "what's my upcoming week look like", "gold": "calendar", "src": "test", "grp": "massive-6370-test", "intent": "calendar_query"}
+{"id": "massive-15847-test", "text": "how we can get credit", "gold": "email", "src": "test", "grp": "massive-15847-test", "intent": "email_sendemail"}
+{"id": "massive-8783-dev", "text": "do i have any calendar events today", "gold": "calendar", "src": "dev", "grp": "massive-8783-dev", "intent": "calendar_query"}
+{"id": "massive-8333-dev", "text": "remove everything from the calendar", "gold": "calendar", "src": "dev", "grp": "massive-8333-dev", "intent": "calendar_remove"}
+{"id": "massive-6831-dev", "text": "delete all events for the next five days", "gold": "calendar", "src": "dev", "grp": "massive-6831-dev", "intent": "calendar_remove"}
+{"id": "massive-16317-test", "text": "did i get new emails from sarah", "gold": "email", "src": "test", "grp": "massive-16317-test", "intent": "email_query"}
+{"id": "massive-8667-test", "text": "within the past three months how many meetings did i have with mr. richards", "gold": "calendar", "src": "test", "grp": "massive-8667-test", "intent": "calendar_query"}
+{"id": "massive-8132-dev", "text": "when are the trains running tomorrow", "gold": "calendar", "src": "dev", "grp": "massive-8132-dev", "intent": "calendar_query"}
+{"id": "massive-16560-test", "text": "respond to my bosses email with the word that i will be in at four in the evening", "gold": "email", "src": "test", "grp": "massive-16560-test", "intent": "email_sendemail"}
+{"id": "massive-8824-test", "text": "what do i have scheduled for the nineteenth at two p. m.", "gold": "calendar", "src": "test", "grp": "massive-8824-test", "intent": "calendar_query"}
+{"id": "massive-15930-dev", "text": "let me know if there are any new emails from ebay", "gold": "email", "src": "dev", "grp": "massive-15930-dev", "intent": "email_query"}
+{"id": "massive-16176-dev", "text": "compose reply", "gold": "email", "src": "dev", "grp": "massive-16176-dev", "intent": "email_sendemail"}
+{"id": "massive-8107-test", "text": "set a birthday event for martin", "gold": "calendar", "src": "test", "grp": "massive-8107-test", "intent": "calendar_set"}
+{"id": "massive-7152-test", "text": "set lunch every day at twelve thirty", "gold": "calendar", "src": "test", "grp": "massive-7152-test", "intent": "calendar_set"}
+{"id": "massive-6865-test", "text": "set up a notification about tomorrow's meeting at ten", "gold": "calendar", "src": "test", "grp": "massive-6865-test", "intent": "calendar_set"}
+{"id": "massive-16098-test", "text": "check unread emails from amy", "gold": "email", "src": "test", "grp": "massive-16098-test", "intent": "email_query"}
+{"id": "massive-6726-test", "text": "cancel next meeting", "gold": "calendar", "src": "test", "grp": "massive-6726-test", "intent": "calendar_remove"}
+{"id": "massive-7461-test", "text": "invite people to the calendar event", "gold": "calendar", "src": "test", "grp": "massive-7461-test", "intent": "calendar_set"}
+{"id": "massive-3050-test", "text": "change my light color to blue and please turn off the kitchen light", "gold": "home", "src": "test", "grp": "massive-3050-test", "intent": "iot_hue_lightchange"}
+{"id": "massive-7686-test", "text": "include mike and jack to festival calendar", "gold": "calendar", "src": "test", "grp": "massive-7686-test", "intent": "calendar_set"}
+{"id": "massive-8769-test", "text": "delete upcoming event", "gold": "calendar", "src": "test", "grp": "massive-8769-test", "intent": "calendar_remove"}
+{"id": "massive-8110-test", "text": "please add supervision to my calendar", "gold": "calendar", "src": "test", "grp": "massive-8110-test", "intent": "calendar_set"}
+{"id": "massive-6060-test", "text": "please start the coffee pot", "gold": "home", "src": "test", "grp": "massive-6060-test", "intent": "iot_coffee"}
+{"id": "massive-7258-test", "text": "remind me to send email to boss after one hour", "gold": "calendar", "src": "test", "grp": "massive-7258-test", "intent": "calendar_set"}
+{"id": "massive-16066-dev", "text": "send a hi to", "gold": "email", "src": "dev", "grp": "massive-16066-dev", "intent": "email_sendemail"}
+{"id": "massive-8125-test", "text": "create a meeting event in my calendar", "gold": "calendar", "src": "test", "grp": "massive-8125-test", "intent": "calendar_set"}
+{"id": "massive-6074-test", "text": "turn off bedroom light at nine thirty p. m.", "gold": "home", "src": "test", "grp": "massive-6074-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-2128-test", "text": "color of light should be dimmed bright", "gold": "home", "src": "test", "grp": "massive-2128-test", "intent": "iot_hue_lightdim"}
+{"id": "massive-8119-test", "text": "where is mary's birthday party being held", "gold": "calendar", "src": "test", "grp": "massive-8119-test", "intent": "calendar_query"}
+{"id": "massive-16890-test", "text": "what new email says", "gold": "email", "src": "test", "grp": "massive-16890-test", "intent": "email_query"}
+{"id": "massive-16314-test", "text": "send an email to margaret", "gold": "email", "src": "test", "grp": "massive-16314-test", "intent": "email_sendemail"}
+{"id": "massive-7712-test", "text": "hey olly cancel all my other meetings and calls for second march as it is jim's birthday tag it as an event in your calendar", "gold": "calendar", "src": "test", "grp": "massive-7712-test", "intent": "calendar_set"}
+{"id": "massive-286-test", "text": "light up the lights in the kitchen", "gold": "home", "src": "test", "grp": "massive-286-test", "intent": "iot_hue_lighton"}
+{"id": "massive-8260-test", "text": "please alert me a day before jeff's birthday", "gold": "calendar", "src": "test", "grp": "massive-8260-test", "intent": "calendar_set"}
+{"id": "massive-6920-dev", "text": "set a notification for sixth march that there is a society meeting at eleven am", "gold": "calendar", "src": "dev", "grp": "massive-6920-dev", "intent": "calendar_set"}
+{"id": "massive-7675-dev", "text": "remind me the upcoming meeting at four am today", "gold": "calendar", "src": "dev", "grp": "massive-7675-dev", "intent": "calendar_set"}
+{"id": "massive-7523-dev", "text": "what we got in that meeting which held yesterday", "gold": "calendar", "src": "dev", "grp": "massive-7523-dev", "intent": "calendar_query"}
+{"id": "massive-7061-test", "text": "give me a reminder twenty four hours before my friday meeting with edg", "gold": "calendar", "src": "test", "grp": "massive-7061-test", "intent": "calendar_set"}
+{"id": "massive-4442-test", "text": "make coffee at three", "gold": "home", "src": "test", "grp": "massive-4442-test", "intent": "iot_coffee"}
+{"id": "massive-7892-test", "text": "delete the next event today", "gold": "calendar", "src": "test", "grp": "massive-7892-test", "intent": "calendar_remove"}
+{"id": "massive-8899-dev", "text": "details", "gold": "calendar", "src": "dev", "grp": "massive-8899-dev", "intent": "calendar_query"}
+{"id": "massive-8046-dev", "text": "how many meetings do i have next week", "gold": "calendar", "src": "dev", "grp": "massive-8046-dev", "intent": "calendar_query"}
+{"id": "massive-16814-test", "text": "check emails", "gold": "email", "src": "test", "grp": "massive-16814-test", "intent": "email_query"}
+{"id": "massive-16888-test", "text": "what about new mail", "gold": "email", "src": "test", "grp": "massive-16888-test", "intent": "email_query"}
+{"id": "massive-8653-test", "text": "remind me of the event in my calendar", "gold": "calendar", "src": "test", "grp": "massive-8653-test", "intent": "calendar_set"}
+{"id": "massive-7912-test", "text": "alexa remove dinner with mike from my calendar", "gold": "calendar", "src": "test", "grp": "massive-7912-test", "intent": "calendar_remove"}
+{"id": "massive-6411-test", "text": "what's the weather next wednesday", "gold": "weather", "src": "test", "grp": "massive-6411-test", "intent": "weather_query"}
+{"id": "massive-7181-test", "text": "wake me at six am thursday so i have time for the meeting", "gold": "calendar", "src": "test", "grp": "massive-7181-test", "intent": "calendar_set"}
+{"id": "massive-7762-test", "text": "what reminders do i have", "gold": "calendar", "src": "test", "grp": "massive-7762-test", "intent": "calendar_query"}
+{"id": "massive-5524-test", "text": "weather at the moment", "gold": "weather", "src": "test", "grp": "massive-5524-test", "intent": "weather_query"}
+{"id": "massive-8029-test", "text": "what events are upcoming today", "gold": "calendar", "src": "test", "grp": "massive-8029-test", "intent": "calendar_query"}
+{"id": "massive-7777-test", "text": "do i have an appointment today", "gold": "calendar", "src": "test", "grp": "massive-7777-test", "intent": "calendar_query"}
+{"id": "massive-3212-test", "text": "remind me to do something then", "gold": "calendar", "src": "test", "grp": "massive-3212-test", "intent": "calendar_set"}
+{"id": "massive-7945-dev", "text": "what is on november twenty", "gold": "calendar", "src": "dev", "grp": "massive-7945-dev", "intent": "calendar_query"}
+{"id": "massive-9088-test", "text": "wipe everything on my calendar", "gold": "calendar", "src": "test", "grp": "massive-9088-test", "intent": "calendar_remove"}
+{"id": "massive-2578-test", "text": "turn off the porch light", "gold": "home", "src": "test", "grp": "massive-2578-test", "intent": "iot_hue_lightoff"}
+{"id": "massive-8311-dev", "text": "set a reminder for wednesdays at two p. m.", "gold": "calendar", "src": "dev", "grp": "massive-8311-dev", "intent": "calendar_set"}
+{"id": "massive-16455-test", "text": "add new email to my contacts macs at gmail dot com", "gold": "email", "src": "test", "grp": "massive-16455-test", "intent": "email_addcontact"}
+{"id": "massive-263-test", "text": "let's have the lights blue", "gold": "home", "src": "test", "grp": "massive-263-test", "intent": "iot_hue_lightchange"}
+{"id": "massive-7066-dev", "text": "what are my calendar event", "gold": "calendar", "src": "dev", "grp": "massive-7066-dev", "intent": "calendar_query"}
+{"id": "massive-15966-test", "text": "send a reply if it is very important", "gold": "email", "src": "test", "grp": "massive-15966-test", "intent": "email_query"}
+{"id": "massive-7039-test", "text": "set me a meeting next tuesday at eleven am with jesse", "gold": "calendar", "src": "test", "grp": "massive-7039-test", "intent": "calendar_set"}
+{"id": "massive-8206-test", "text": "don't let me forget to buy a gift for my sister", "gold": "calendar", "src": "test", "grp": "massive-8206-test", "intent": "calendar_set"}
+{"id": "massive-5573-test", "text": "please set the brightness of lightness appropriately in kitchen", "gold": "home", "src": "test", "grp": "massive-5573-test", "intent": "iot_hue_lightup"}
+{"id": "massive-8325-dev", "text": "add lunch meetings at noon every day this week", "gold": "calendar", "src": "dev", "grp": "massive-8325-dev", "intent": "calendar_set"}
+{"id": "massive-7345-dev", "text": "add bola birthday of twelveth july to my calendar", "gold": "calendar", "src": "dev", "grp": "massive-7345-dev", "intent": "calendar_set"}
+{"id": "massive-16248-test", "text": "please check my mail", "gold": "email", "src": "test", "grp": "massive-16248-test", "intent": "email_query"}
+{"id": "massive-7122-test", "text": "could you repeat this event", "gold": "calendar", "src": "test", "grp": "massive-7122-test", "intent": "calendar_set"}
+{"id": "massive-8541-test", "text": "remind me please", "gold": "calendar", "src": "test", "grp": "massive-8541-test", "intent": "calendar_set"}
+{"id": "massive-6827-dev", "text": "have you added a meeting with tom tomorrow at nine p. m.", "gold": "calendar", "src": "dev", "grp": "massive-6827-dev", "intent": "calendar_query"}

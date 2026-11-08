@@ -1,0 +1,125 @@
+{"id": "massive-6613-dev", "text": "cooking", "gold": "recipe", "src": "dev", "grp": "massive-6613-dev", "intent": "cooking_query"}
+{"id": "massive-9926-dev", "text": "how much time to cook pasta", "gold": "recipe", "src": "dev", "grp": "massive-9926-dev", "intent": "cooking_recipe"}
+{"id": "massive-9943-test", "text": "how long does it take to make vegetable lasagna", "gold": "recipe", "src": "test", "grp": "massive-9943-test", "intent": "cooking_recipe"}
+{"id": "massive-9952-test", "text": "give me a cooking tutorial", "gold": "recipe", "src": "test", "grp": "massive-9952-test", "intent": "cooking_recipe"}
+{"id": "massive-9954-train", "text": "what temperature should a baked chicken be", "gold": "recipe", "src": "train", "grp": "massive-9954-train", "intent": "cooking_recipe"}
+{"id": "massive-9955-test", "text": "show me a video on cooking fried chicken", "gold": "recipe", "src": "test", "grp": "massive-9955-test", "intent": "cooking_recipe"}
+{"id": "massive-9957-train", "text": "how long should you cook a whole chicken in a three hundred and seventy five degree oven", "gold": "recipe", "src": "train", "grp": "massive-9957-train", "intent": "cooking_recipe"}
+{"id": "massive-9962-test", "text": "what is the best way to cook pasta al dente", "gold": "recipe", "src": "test", "grp": "massive-9962-test", "intent": "cooking_recipe"}
+{"id": "massive-9965-dev", "text": "how can i cook pasta", "gold": "recipe", "src": "dev", "grp": "massive-9965-dev", "intent": "cooking_recipe"}
+{"id": "massive-9969-test", "text": "what ingredient can be used instead of saffron", "gold": "recipe", "src": "test", "grp": "massive-9969-test", "intent": "cooking_recipe"}
+{"id": "massive-9971-test", "text": "what conducts heat better copper bottomed pots or cast iron", "gold": "recipe", "src": "test", "grp": "massive-9971-test", "intent": "cooking_recipe"}
+{"id": "massive-9975-train", "text": "what is a good vegan egg substitute olly", "gold": "recipe", "src": "train", "grp": "massive-9975-train", "intent": "cooking_recipe"}
+{"id": "massive-9988-train", "text": "evaporated", "gold": "recipe", "src": "train", "grp": "massive-9988-train", "intent": "cooking_recipe"}
+{"id": "massive-9991-train", "text": "show me tutorials on cooking food", "gold": "recipe", "src": "train", "grp": "massive-9991-train", "intent": "cooking_recipe"}
+{"id": "massive-10027-test", "text": "instructions to make a meal", "gold": "recipe", "src": "test", "grp": "massive-10027-test", "intent": "cooking_recipe"}
+{"id": "massive-10031-test", "text": "i need a recipe that is from ingredients on my shopping list", "gold": "recipe", "src": "test", "grp": "massive-10031-test", "intent": "cooking_recipe"}
+{"id": "massive-10033-train", "text": "explain in brief about fish fry", "gold": "recipe", "src": "train", "grp": "massive-10033-train", "intent": "cooking_recipe"}
+{"id": "massive-10034-train", "text": "how to make a burger", "gold": "recipe", "src": "train", "grp": "massive-10034-train", "intent": "cooking_recipe"}
+{"id": "massive-10039-dev", "text": "show me the recipe for cookies", "gold": "recipe", "src": "dev", "grp": "massive-10039-dev", "intent": "cooking_recipe"}
+{"id": "massive-10040-train", "text": "what is a cookie recipe", "gold": "recipe", "src": "train", "grp": "massive-10040-train", "intent": "cooking_recipe"}
+{"id": "massive-10043-train", "text": "how many cups of sugar in texas sheet cake frosting", "gold": "recipe", "src": "train", "grp": "massive-10043-train", "intent": "cooking_recipe"}
+{"id": "massive-10045-test", "text": "can you give me a recipe for homemade chicken noodle soup", "gold": "recipe", "src": "test", "grp": "massive-10045-test", "intent": "cooking_recipe"}
+{"id": "massive-10063-train", "text": "what is in a curry", "gold": "recipe", "src": "train", "grp": "massive-10063-train", "intent": "cooking_recipe"}
+{"id": "massive-10066-train", "text": "tell me the recipe for mashed potatoes", "gold": "recipe", "src": "train", "grp": "massive-10066-train", "intent": "cooking_recipe"}
+{"id": "massive-10067-train", "text": "how do i make mashed potatoes", "gold": "recipe", "src": "train", "grp": "massive-10067-train", "intent": "cooking_recipe"}
+{"id": "massive-10088-train", "text": "give me a recipe for meatballs", "gold": "recipe", "src": "train", "grp": "massive-10088-train", "intent": "cooking_recipe"}
+{"id": "massive-10091-train", "text": "how do i cook a meatloaf", "gold": "recipe", "src": "train", "grp": "massive-10091-train", "intent": "cooking_recipe"}
+{"id": "massive-10115-train", "text": "how do you barbecue chicken", "gold": "recipe", "src": "train", "grp": "massive-10115-train", "intent": "cooking_recipe"}
+{"id": "massive-10116-train", "text": "olly how do you barbecue chicken", "gold": "recipe", "src": "train", "grp": "massive-10116-train", "intent": "cooking_recipe"}
+{"id": "massive-10121-train", "text": "how to make fried rice", "gold": "recipe", "src": "train", "grp": "massive-10121-train", "intent": "cooking_recipe"}
+{"id": "massive-10124-train", "text": "how do i make peanut butter cookies", "gold": "recipe", "src": "train", "grp": "massive-10124-train", "intent": "cooking_recipe"}
+{"id": "massive-10125-test", "text": "what is the difference between bake and broil", "gold": "recipe", "src": "test", "grp": "massive-10125-test", "intent": "cooking_recipe"}
+{"id": "massive-10135-dev", "text": "search for gluten free menus", "gold": "recipe", "src": "dev", "grp": "massive-10135-dev", "intent": "cooking_recipe"}
+{"id": "massive-10139-train", "text": "how do you make cookies", "gold": "recipe", "src": "train", "grp": "massive-10139-train", "intent": "cooking_recipe"}
+{"id": "massive-10147-train", "text": "look up recipes for four cheese omelet", "gold": "recipe", "src": "train", "grp": "massive-10147-train", "intent": "cooking_recipe"}
+{"id": "massive-10148-train", "text": "find the highest rated recipe from foodnetworkcom for a four cheese omelet", "gold": "recipe", "src": "train", "grp": "massive-10148-train", "intent": "cooking_recipe"}
+{"id": "massive-10155-train", "text": "how do i cook chicken alfredo", "gold": "recipe", "src": "train", "grp": "massive-10155-train", "intent": "cooking_recipe"}
+{"id": "massive-10156-test", "text": "i need to know how to make stuffed peppers", "gold": "recipe", "src": "test", "grp": "massive-10156-test", "intent": "cooking_recipe"}
+{"id": "massive-10159-train", "text": "how do you make sunny side up eggs", "gold": "recipe", "src": "train", "grp": "massive-10159-train", "intent": "cooking_recipe"}
+{"id": "massive-10160-train", "text": "what goes with risotto", "gold": "recipe", "src": "train", "grp": "massive-10160-train", "intent": "cooking_recipe"}
+{"id": "massive-10167-train", "text": "find apple pie recipe", "gold": "recipe", "src": "train", "grp": "massive-10167-train", "intent": "cooking_recipe"}
+{"id": "massive-10182-test", "text": "how many eggs do i need for an omelet", "gold": "recipe", "src": "test", "grp": "massive-10182-test", "intent": "cooking_recipe"}
+{"id": "massive-10183-train", "text": "what are jalapenos", "gold": "recipe", "src": "train", "grp": "massive-10183-train", "intent": "cooking_recipe"}
+{"id": "massive-10186-dev", "text": "how long do i roast chicken breasts", "gold": "recipe", "src": "dev", "grp": "massive-10186-dev", "intent": "cooking_recipe"}
+{"id": "massive-10187-train", "text": "what is a good substitute for butter", "gold": "recipe", "src": "train", "grp": "massive-10187-train", "intent": "cooking_recipe"}
+{"id": "massive-10197-test", "text": "show me the best recipe for spaghetti", "gold": "recipe", "src": "test", "grp": "massive-10197-test", "intent": "cooking_recipe"}
+{"id": "massive-10214-test", "text": "recipes that can be cooked in an hour", "gold": "recipe", "src": "test", "grp": "massive-10214-test", "intent": "cooking_recipe"}
+{"id": "massive-10215-train", "text": "show results for cooking lasagna from web", "gold": "recipe", "src": "train", "grp": "massive-10215-train", "intent": "cooking_recipe"}
+{"id": "massive-10233-train", "text": "is fish and chips really british", "gold": "recipe", "src": "train", "grp": "massive-10233-train", "intent": "cooking_recipe"}
+{"id": "massive-10239-train", "text": "give me instructions on how to cook chicken", "gold": "recipe", "src": "train", "grp": "massive-10239-train", "intent": "cooking_recipe"}
+{"id": "massive-13435-train", "text": "what is the best recipe for a margarita", "gold": "recipe", "src": "train", "grp": "massive-13435-train", "intent": "cooking_recipe"}
+{"id": "massive-14736-train", "text": "what's the easiest and quickest way to cook a turkey", "gold": "recipe", "src": "train", "grp": "massive-14736-train", "intent": "cooking_query"}
+{"id": "massive-70-train", "text": "my favorite music band is queen", "gold": "music", "src": "train", "grp": "massive-70-train", "intent": "music_likeness"}
+{"id": "massive-79-train", "text": "this is one of the best songs for me", "gold": "music", "src": "train", "grp": "massive-79-train", "intent": "music_likeness"}
+{"id": "massive-117-train", "text": "what music is this", "gold": "music", "src": "train", "grp": "massive-117-train", "intent": "music_query"}
+{"id": "massive-142-train", "text": "that's a good song", "gold": "music", "src": "train", "grp": "massive-142-train", "intent": "music_likeness"}
+{"id": "massive-154-train", "text": "save settings", "gold": "music", "src": "train", "grp": "massive-154-train", "intent": "music_settings"}
+{"id": "massive-255-train", "text": "olly what music do i usually like after work", "gold": "music", "src": "train", "grp": "massive-255-train", "intent": "music_query"}
+{"id": "massive-276-train", "text": "who covered the song one more cup of coffee", "gold": "music", "src": "train", "grp": "massive-276-train", "intent": "music_query"}
+{"id": "massive-542-train", "text": "its peaceful", "gold": "music", "src": "train", "grp": "massive-542-train", "intent": "music_likeness"}
+{"id": "massive-549-train", "text": "please repeat that music again of akon", "gold": "music", "src": "train", "grp": "massive-549-train", "intent": "music_settings"}
+{"id": "massive-821-train", "text": "put the playlist on shuffle", "gold": "music", "src": "train", "grp": "massive-821-train", "intent": "music_settings"}
+{"id": "massive-870-test", "text": "opinion save", "gold": "music", "src": "test", "grp": "massive-870-test", "intent": "music_likeness"}
+{"id": "massive-948-train", "text": "i like the background song", "gold": "music", "src": "train", "grp": "massive-948-train", "intent": "music_likeness"}
+{"id": "massive-1022-train", "text": "in classic all music are there ever any singers", "gold": "music", "src": "train", "grp": "massive-1022-train", "intent": "music_query"}
+{"id": "massive-1055-train", "text": "do not play this song again", "gold": "music", "src": "train", "grp": "massive-1055-train", "intent": "music_dislikeness"}
+{"id": "massive-1219-train", "text": "turn on spotify shuffle", "gold": "music", "src": "train", "grp": "massive-1219-train", "intent": "music_settings"}
+{"id": "massive-1331-train", "text": "whose song is this", "gold": "music", "src": "train", "grp": "massive-1331-train", "intent": "music_query"}
+{"id": "massive-1515-train", "text": "when was the song playing now released", "gold": "music", "src": "train", "grp": "massive-1515-train", "intent": "music_query"}
+{"id": "massive-1585-train", "text": "please save my opinion about the song that is currently playing", "gold": "music", "src": "train", "grp": "massive-1585-train", "intent": "music_likeness"}
+{"id": "massive-1623-train", "text": "lyrics", "gold": "music", "src": "train", "grp": "massive-1623-train", "intent": "music_likeness"}
+{"id": "massive-1677-test", "text": "what music is currently playing on", "gold": "music", "src": "test", "grp": "massive-1677-test", "intent": "music_query"}
+{"id": "massive-1679-train", "text": "what music is playing now nine hundred and ninety nine f. m.", "gold": "music", "src": "train", "grp": "massive-1679-train", "intent": "music_query"}
+{"id": "massive-1697-train", "text": "the song playing now is released by which artist", "gold": "music", "src": "train", "grp": "massive-1697-train", "intent": "music_query"}
+{"id": "massive-1699-train", "text": "this is a good song put it on repeat", "gold": "music", "src": "train", "grp": "massive-1699-train", "intent": "music_likeness"}
+{"id": "massive-1740-train", "text": "please tell me the name of this song that is currently playing", "gold": "music", "src": "train", "grp": "massive-1740-train", "intent": "music_query"}
+{"id": "massive-1746-train", "text": "i love the song do you", "gold": "music", "src": "train", "grp": "massive-1746-train", "intent": "music_likeness"}
+{"id": "massive-1874-test", "text": "add song to running list", "gold": "music", "src": "test", "grp": "massive-1874-test", "intent": "music_likeness"}
+{"id": "massive-1893-train", "text": "is that the song from specter", "gold": "music", "src": "train", "grp": "massive-1893-train", "intent": "music_query"}
+{"id": "massive-1953-dev", "text": "what song is currently playing", "gold": "music", "src": "dev", "grp": "massive-1953-dev", "intent": "music_query"}
+{"id": "massive-2055-train", "text": "keep that song for when i need cheering up", "gold": "music", "src": "train", "grp": "massive-2055-train", "intent": "music_likeness"}
+{"id": "massive-2092-dev", "text": "check the current playing music title", "gold": "music", "src": "dev", "grp": "massive-2092-dev", "intent": "music_query"}
+{"id": "massive-2241-train", "text": "save the last radio stations of the last month", "gold": "music", "src": "train", "grp": "massive-2241-train", "intent": "music_likeness"}
+{"id": "massive-2354-test", "text": "which type of music it is", "gold": "music", "src": "test", "grp": "massive-2354-test", "intent": "music_query"}
+{"id": "massive-2366-train", "text": "when did this song come out", "gold": "music", "src": "train", "grp": "massive-2366-train", "intent": "music_query"}
+{"id": "massive-2407-train", "text": "does this song belongs to the classic", "gold": "music", "src": "train", "grp": "massive-2407-train", "intent": "music_query"}
+{"id": "massive-2439-train", "text": "when was this song recorded", "gold": "music", "src": "train", "grp": "massive-2439-train", "intent": "music_query"}
+{"id": "massive-2586-train", "text": "save this channel on pandora please", "gold": "music", "src": "train", "grp": "massive-2586-train", "intent": "music_likeness"}
+{"id": "massive-2648-train", "text": "please check my playlists for jazz music", "gold": "music", "src": "train", "grp": "massive-2648-train", "intent": "music_settings"}
+{"id": "massive-3104-train", "text": "save this song as a favorite", "gold": "music", "src": "train", "grp": "massive-3104-train", "intent": "music_likeness"}
+{"id": "massive-3143-train", "text": "this is a five star song", "gold": "music", "src": "train", "grp": "massive-3143-train", "intent": "music_likeness"}
+{"id": "massive-3193-test", "text": "rate five", "gold": "music", "src": "test", "grp": "massive-3193-test", "intent": "music_likeness"}
+{"id": "massive-3203-dev", "text": "please check my playlist", "gold": "music", "src": "dev", "grp": "massive-3203-dev", "intent": "music_likeness"}
+{"id": "massive-3267-train", "text": "please save my rating on this song it is five stars please", "gold": "music", "src": "train", "grp": "massive-3267-train", "intent": "music_likeness"}
+{"id": "massive-3392-train", "text": "remember that this is my favorite music", "gold": "music", "src": "train", "grp": "massive-3392-train", "intent": "music_likeness"}
+{"id": "massive-3405-train", "text": "select shuffle all", "gold": "music", "src": "train", "grp": "massive-3405-train", "intent": "music_settings"}
+{"id": "massive-3573-train", "text": "hi google this song is too noisy", "gold": "music", "src": "train", "grp": "massive-3573-train", "intent": "music_dislikeness"}
+{"id": "massive-3654-test", "text": "what kind of music do you think i like", "gold": "music", "src": "test", "grp": "massive-3654-test", "intent": "music_query"}
+{"id": "massive-3657-train", "text": "what music do i prefer", "gold": "music", "src": "train", "grp": "massive-3657-train", "intent": "music_query"}
+{"id": "massive-3681-train", "text": "what genre is this song currently playing", "gold": "music", "src": "train", "grp": "massive-3681-train", "intent": "music_query"}
+{"id": "massive-3709-train", "text": "when was this song first recorded", "gold": "music", "src": "train", "grp": "massive-3709-train", "intent": "music_query"}
+{"id": "massive-3715-train", "text": "please save the remarks i have on this current song", "gold": "music", "src": "train", "grp": "massive-3715-train", "intent": "music_likeness"}
+{"id": "massive-3716-train", "text": "please keep everything i have on this song", "gold": "music", "src": "train", "grp": "massive-3716-train", "intent": "music_likeness"}
+{"id": "massive-3826-train", "text": "olly what's this playing right now", "gold": "music", "src": "train", "grp": "massive-3826-train", "intent": "music_query"}
+{"id": "massive-3864-test", "text": "who sings the song that i am listening to right now", "gold": "music", "src": "test", "grp": "massive-3864-test", "intent": "music_query"}
+{"id": "massive-4045-train", "text": "who's this song by", "gold": "music", "src": "train", "grp": "massive-4045-train", "intent": "music_query"}
+{"id": "massive-4147-train", "text": "make sure my shuffles are always repeat and always shuffled", "gold": "music", "src": "train", "grp": "massive-4147-train", "intent": "music_settings"}
+{"id": "massive-4335-train", "text": "what music is playing", "gold": "music", "src": "train", "grp": "massive-4335-train", "intent": "music_query"}
+{"id": "massive-4345-train", "text": "remember that this song is good but too slow to exercise to", "gold": "music", "src": "train", "grp": "massive-4345-train", "intent": "music_likeness"}
+{"id": "massive-4787-train", "text": "what is my most played song", "gold": "music", "src": "train", "grp": "massive-4787-train", "intent": "music_query"}
+{"id": "massive-5056-train", "text": "what song in the theme song for frasier", "gold": "music", "src": "train", "grp": "massive-5056-train", "intent": "music_query"}
+{"id": "massive-5152-test", "text": "please skip two songs", "gold": "music", "src": "test", "grp": "massive-5152-test", "intent": "music_settings"}
+{"id": "massive-5153-train", "text": "please repeat the last song", "gold": "music", "src": "train", "grp": "massive-5153-train", "intent": "music_settings"}
+{"id": "massive-5200-train", "text": "save this song in my great songs category", "gold": "music", "src": "train", "grp": "massive-5200-train", "intent": "music_likeness"}
+{"id": "massive-5260-train", "text": "add this song to my music", "gold": "music", "src": "train", "grp": "massive-5260-train", "intent": "music_likeness"}
+{"id": "massive-5276-train", "text": "please don't shuffle songs in music player just playing continuously", "gold": "music", "src": "train", "grp": "massive-5276-train", "intent": "music_settings"}
+{"id": "massive-5314-train", "text": "repeat previous song", "gold": "music", "src": "train", "grp": "massive-5314-train", "intent": "music_settings"}
+{"id": "massive-5532-train", "text": "the song makes me remember certain memories", "gold": "music", "src": "train", "grp": "massive-5532-train", "intent": "music_likeness"}
+{"id": "massive-5693-train", "text": "draw petabits", "gold": "music", "src": "train", "grp": "massive-5693-train", "intent": "music_likeness"}
+{"id": "massive-5993-train", "text": "what kind of music am i into", "gold": "music", "src": "train", "grp": "massive-5993-train", "intent": "music_query"}
+{"id": "massive-6014-test", "text": "what artist is this", "gold": "music", "src": "test", "grp": "massive-6014-test", "intent": "music_query"}
+{"id": "massive-6122-train", "text": "that background song is terrible", "gold": "music", "src": "train", "grp": "massive-6122-train", "intent": "music_dislikeness"}
+{"id": "massive-6375-train", "text": "olly what is a good rap album that came out this year", "gold": "music", "src": "train", "grp": "massive-6375-train", "intent": "music_query"}
+{"id": "massive-10603-train", "text": "list out all song", "gold": "music", "src": "train", "grp": "massive-10603-train", "intent": "music_query"}
+{"id": "massive-10604-train", "text": "tell me the song track", "gold": "music", "src": "train", "grp": "massive-10604-train", "intent": "music_query"}

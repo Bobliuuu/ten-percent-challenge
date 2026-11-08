@@ -1,0 +1,29 @@
+## batch2
+[   808s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.486, 'neigh_alpha': 0.635}
+[  1056s] sweep L 8 lam 1 n 12 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.032 f 6.0
+[  1259s] sweep L 8 lam 30 n 12 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.033 f 6.0
+[  1481s] sweep L 14 lam 1 n 12 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.1 f 6.0
+[  1682s] sweep L 14 lam 30 n 12 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.104 f 6.0
+## batch3
+[   163s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.486, 'neigh_alpha': 0.635}
+[   382s] sweep L 10 lam (1, 30) n 12 site_ok 0.31 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 32.0
+[   560s] sweep L 10 lam (30, 30) n 12 site_ok 0.31 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.001 f 32.0
+CFG FAILED m_q3_tox _LinAlgError('linalg.cholesky: The factorization could not be completed because the input is not positive-definite (the leading minor of order 2878 is not positive-definite).')
+## batch4
+[   179s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.486, 'neigh_alpha': 0.635}
+[   512s] sweep L 16 lam (1, 0) n 12 site_ok 0.41 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 32.0
+[   716s] sweep L 16 lam (1, 30) n 12 site_ok 0.29 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 32.0
+[  1024s] sweep L 22 lam (1, 0) n 12 site_ok 0.31 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 32.0
+## batch5
+[   180s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.486, 'neigh_alpha': 0.635}
+[   464s] sweep L 10 lam (300, 0) n 12 site_ok 0.5 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+## batch6
+[   105s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484, 'neigh_alpha': 0.635}
+[   215s] sweep L 12 lam (300, 0) n 12 site_ok 0.5 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+## batch7
+[   107s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484, 'neigh_alpha': 0.635}
+[   223s] sweep L 12 lam (300, 0) n 12 site_ok 0.0 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+[   312s] sweep L 12 lam (3000, 0) n 12 site_ok 0.0 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+[   401s] sweep L 12 lam (3000, 30) n 12 site_ok 0.01 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+[   504s] sweep L 20 lam (300, 0) n 12 site_ok 0.0 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0
+[   593s] sweep L 20 lam (3000, 0) n 12 site_ok 0.01 real teach 0.0 shuf 0.0 wrong -1.0 neigh 0.0 f 1024.0

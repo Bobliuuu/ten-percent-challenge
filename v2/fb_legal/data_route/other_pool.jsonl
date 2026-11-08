@@ -1,0 +1,750 @@
+{"id": "massive-814-train", "text": "open the new york times app", "gold": "news", "src": "train", "grp": "massive-814-train", "intent": "news_query"}
+{"id": "massive-323-train", "text": "turn on the smart charger", "gold": "home", "src": "train", "grp": "massive-323-train", "intent": "iot_wemo_on"}
+{"id": "massive-15892-train", "text": "send an email to adele", "gold": "email", "src": "train", "grp": "massive-15892-train", "intent": "email_sendemail"}
+{"id": "massive-652-train", "text": "control lights turn off room lights", "gold": "home", "src": "train", "grp": "massive-652-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-7391-train", "text": "i will no longer be joining mom for lunch tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7391-train", "intent": "calendar_remove"}
+{"id": "massive-3282-train", "text": "olly darker lights please", "gold": "home", "src": "train", "grp": "massive-3282-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-9173-train", "text": "remind me about the meeting with dentist on the twenty third of may", "gold": "calendar", "src": "train", "grp": "massive-9173-train", "intent": "calendar_set"}
+{"id": "massive-8098-train", "text": "hi google please cancel all the programs for friday", "gold": "calendar", "src": "train", "grp": "massive-8098-train", "intent": "calendar_remove"}
+{"id": "massive-8991-train", "text": "pop-up meeting", "gold": "calendar", "src": "train", "grp": "massive-8991-train", "intent": "calendar_set"}
+{"id": "massive-8951-train", "text": "remind me of the meeting on tuesday", "gold": "calendar", "src": "train", "grp": "massive-8951-train", "intent": "calendar_set"}
+{"id": "massive-8064-train", "text": "when do i need to pay the bills", "gold": "calendar", "src": "train", "grp": "massive-8064-train", "intent": "calendar_query"}
+{"id": "massive-8620-train", "text": "set up recurring date on my calendar", "gold": "calendar", "src": "train", "grp": "massive-8620-train", "intent": "calendar_set"}
+{"id": "massive-7059-train", "text": "my events", "gold": "calendar", "src": "train", "grp": "massive-7059-train", "intent": "calendar_query"}
+{"id": "massive-10639-train", "text": "what are the things i need for my journey", "gold": "lists", "src": "train", "grp": "massive-10639-train", "intent": "lists_query"}
+{"id": "massive-8595-train", "text": "do i have any available time for a doctor's appointment on tuesday morning", "gold": "calendar", "src": "train", "grp": "massive-8595-train", "intent": "calendar_set"}
+{"id": "massive-17032-train", "text": "hi please send mail to sam by evening", "gold": "email", "src": "train", "grp": "massive-17032-train", "intent": "email_sendemail"}
+{"id": "massive-566-train", "text": "what's the temperature", "gold": "weather", "src": "train", "grp": "massive-566-train", "intent": "weather_query"}
+{"id": "massive-413-train", "text": "change my room lights to blue", "gold": "home", "src": "train", "grp": "massive-413-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-3833-train", "text": "turn off lights", "gold": "home", "src": "train", "grp": "massive-3833-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-7340-train", "text": "cancel my meeting tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7340-train", "intent": "calendar_remove"}
+{"id": "massive-4311-train", "text": "please find me the p. e. most recent news on", "gold": "news", "src": "train", "grp": "massive-4311-train", "intent": "news_query"}
+{"id": "massive-4293-train", "text": "what are the upcoming reminders", "gold": "calendar", "src": "train", "grp": "massive-4293-train", "intent": "calendar_query"}
+{"id": "massive-6765-train", "text": "tell me later to file the invoice", "gold": "calendar", "src": "train", "grp": "massive-6765-train", "intent": "calendar_set"}
+{"id": "massive-8279-train", "text": "set a reminder on fifteenth march as meeting", "gold": "calendar", "src": "train", "grp": "massive-8279-train", "intent": "calendar_set"}
+{"id": "massive-16571-train", "text": "send an email to my sister", "gold": "email", "src": "train", "grp": "massive-16571-train", "intent": "email_sendemail"}
+{"id": "massive-8823-train", "text": "who do i have a meeting with on january nineteenth in the afternoon", "gold": "calendar", "src": "train", "grp": "massive-8823-train", "intent": "calendar_query"}
+{"id": "massive-5464-train", "text": "do i need pants", "gold": "weather", "src": "train", "grp": "massive-5464-train", "intent": "weather_query"}
+{"id": "massive-3380-train", "text": "turn on vacuum", "gold": "home", "src": "train", "grp": "massive-3380-train", "intent": "iot_cleaning"}
+{"id": "massive-17177-train", "text": "what emails are new", "gold": "email", "src": "train", "grp": "massive-17177-train", "intent": "email_query"}
+{"id": "massive-9117-train", "text": "would you please notify me about the event in my calendar", "gold": "calendar", "src": "train", "grp": "massive-9117-train", "intent": "calendar_set"}
+{"id": "massive-12393-train", "text": "show me the direction of this location", "gold": "transport", "src": "train", "grp": "massive-12393-train", "intent": "transport_query"}
+{"id": "massive-3084-train", "text": "lighter shade on the lights please", "gold": "home", "src": "train", "grp": "massive-3084-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-5591-train", "text": "open weather", "gold": "weather", "src": "train", "grp": "massive-5591-train", "intent": "weather_query"}
+{"id": "massive-16093-train", "text": "let me know of any incoming emails for the last hour please", "gold": "email", "src": "train", "grp": "massive-16093-train", "intent": "email_query"}
+{"id": "massive-6954-train", "text": "set a notification about my meeting next tuesday", "gold": "calendar", "src": "train", "grp": "massive-6954-train", "intent": "calendar_set"}
+{"id": "massive-7552-train", "text": "tell me what happened today from eight am to nine am", "gold": "news", "src": "train", "grp": "massive-7552-train", "intent": "news_query"}
+{"id": "massive-13703-train", "text": "celeb news", "gold": "news", "src": "train", "grp": "massive-13703-train", "intent": "news_query"}
+{"id": "massive-8534-train", "text": "alert me of my dentist appointment at two p. m.", "gold": "calendar", "src": "train", "grp": "massive-8534-train", "intent": "calendar_set"}
+{"id": "massive-5879-train", "text": "start irobot", "gold": "home", "src": "train", "grp": "massive-5879-train", "intent": "iot_cleaning"}
+{"id": "massive-10983-train", "text": "make a note on my to do list to call the realtor", "gold": "lists", "src": "train", "grp": "massive-10983-train", "intent": "lists_createoradd"}
+{"id": "massive-3379-train", "text": "today's forecast", "gold": "weather", "src": "train", "grp": "massive-3379-train", "intent": "weather_query"}
+{"id": "massive-2547-train", "text": "what's the headlines from bob's news", "gold": "news", "src": "train", "grp": "massive-2547-train", "intent": "news_query"}
+{"id": "massive-7538-train", "text": "what's on for this week", "gold": "calendar", "src": "train", "grp": "massive-7538-train", "intent": "calendar_query"}
+{"id": "massive-3198-train", "text": "i need to wake up make me the strongest coffee you can make", "gold": "home", "src": "train", "grp": "massive-3198-train", "intent": "iot_coffee"}
+{"id": "massive-5874-train", "text": "should i wear a coat to the pool", "gold": "weather", "src": "train", "grp": "massive-5874-train", "intent": "weather_query"}
+{"id": "massive-16086-train", "text": "send an email to george brown", "gold": "email", "src": "train", "grp": "massive-16086-train", "intent": "email_sendemail"}
+{"id": "massive-15758-train", "text": "hey email jan about our meeting", "gold": "email", "src": "train", "grp": "massive-15758-train", "intent": "email_sendemail"}
+{"id": "massive-15782-train", "text": "do i have any new email", "gold": "email", "src": "train", "grp": "massive-15782-train", "intent": "email_query"}
+{"id": "massive-11206-train", "text": "delete the list brads appointments", "gold": "lists", "src": "train", "grp": "massive-11206-train", "intent": "lists_remove"}
+{"id": "massive-16678-train", "text": "hey can you check my email and see if there are any new messages", "gold": "email", "src": "train", "grp": "massive-16678-train", "intent": "email_query"}
+{"id": "massive-10677-train", "text": "add build my resume to my to do list", "gold": "lists", "src": "train", "grp": "massive-10677-train", "intent": "lists_createoradd"}
+{"id": "massive-4133-train", "text": "tell me how many inches of snow did new york city get today", "gold": "weather", "src": "train", "grp": "massive-4133-train", "intent": "weather_query"}
+{"id": "massive-7493-train", "text": "weekend appointments", "gold": "calendar", "src": "train", "grp": "massive-7493-train", "intent": "calendar_query"}
+{"id": "massive-16006-train", "text": "olly please check my email for me", "gold": "email", "src": "train", "grp": "massive-16006-train", "intent": "email_query"}
+{"id": "massive-8264-train", "text": "remind me about tomorrows meeting tonight", "gold": "calendar", "src": "train", "grp": "massive-8264-train", "intent": "calendar_set"}
+{"id": "massive-12714-train", "text": "book an uber to pick me up outside of long island bar right now", "gold": "transport", "src": "train", "grp": "massive-12714-train", "intent": "transport_taxi"}
+{"id": "massive-6870-train", "text": "can you add this event with karl", "gold": "calendar", "src": "train", "grp": "massive-6870-train", "intent": "calendar_set"}
+{"id": "massive-6975-train", "text": "please remind me for the function at miami tomorrow", "gold": "calendar", "src": "train", "grp": "massive-6975-train", "intent": "calendar_set"}
+{"id": "massive-16637-train", "text": "what is john smith's number", "gold": "email", "src": "train", "grp": "massive-16637-train", "intent": "email_querycontact"}
+{"id": "massive-8879-train", "text": "do i have anything going on tonight", "gold": "calendar", "src": "train", "grp": "massive-8879-train", "intent": "calendar_query"}
+{"id": "massive-10877-train", "text": "start list", "gold": "lists", "src": "train", "grp": "massive-10877-train", "intent": "lists_createoradd"}
+{"id": "massive-16820-train", "text": "open my contact list", "gold": "email", "src": "train", "grp": "massive-16820-train", "intent": "email_querycontact"}
+{"id": "massive-16236-train", "text": "can you look up and add john's old email to my contacts again", "gold": "email", "src": "train", "grp": "massive-16236-train", "intent": "email_addcontact"}
+{"id": "massive-17134-train", "text": "please check mails quickly", "gold": "email", "src": "train", "grp": "massive-17134-train", "intent": "email_query"}
+{"id": "massive-10573-train", "text": "what do i have on my shopping list", "gold": "lists", "src": "train", "grp": "massive-10573-train", "intent": "lists_query"}
+{"id": "massive-10644-train", "text": "remove cheese from my list", "gold": "lists", "src": "train", "grp": "massive-10644-train", "intent": "lists_remove"}
+{"id": "massive-16486-train", "text": "report what is new in my email inbox please", "gold": "email", "src": "train", "grp": "massive-16486-train", "intent": "email_query"}
+{"id": "massive-8540-train", "text": "tell me later about", "gold": "calendar", "src": "train", "grp": "massive-8540-train", "intent": "calendar_set"}
+{"id": "massive-10717-train", "text": "ok google can you remove this item from the list", "gold": "lists", "src": "train", "grp": "massive-10717-train", "intent": "lists_remove"}
+{"id": "massive-16862-train", "text": "what sapp", "gold": "email", "src": "train", "grp": "massive-16862-train", "intent": "email_querycontact"}
+{"id": "massive-16841-train", "text": "do i have any new emails from paul", "gold": "email", "src": "train", "grp": "massive-16841-train", "intent": "email_query"}
+{"id": "massive-7521-train", "text": "tell me every day to take green tea at four p. m.", "gold": "calendar", "src": "train", "grp": "massive-7521-train", "intent": "calendar_set"}
+{"id": "massive-7540-train", "text": "how free am i this week", "gold": "calendar", "src": "train", "grp": "massive-7540-train", "intent": "calendar_query"}
+{"id": "massive-11055-train", "text": "trash the open list google", "gold": "lists", "src": "train", "grp": "massive-11055-train", "intent": "lists_remove"}
+{"id": "massive-16656-train", "text": "read to me the email of john smith", "gold": "email", "src": "train", "grp": "massive-16656-train", "intent": "email_query"}
+{"id": "massive-12480-train", "text": "find an uber that can get me to the airport now", "gold": "transport", "src": "train", "grp": "massive-12480-train", "intent": "transport_taxi"}
+{"id": "massive-2745-train", "text": "what's the news in politics on c. n. n.", "gold": "news", "src": "train", "grp": "massive-2745-train", "intent": "news_query"}
+{"id": "massive-12561-train", "text": "book a train ticket for friday april fourteenth for boston", "gold": "transport", "src": "train", "grp": "massive-12561-train", "intent": "transport_ticket"}
+{"id": "massive-11249-train", "text": "join this", "gold": "lists", "src": "train", "grp": "massive-11249-train", "intent": "lists_createoradd"}
+{"id": "massive-11114-train", "text": "create a list for the following", "gold": "lists", "src": "train", "grp": "massive-11114-train", "intent": "lists_createoradd"}
+{"id": "massive-2736-train", "text": "is it currently raining", "gold": "weather", "src": "train", "grp": "massive-2736-train", "intent": "weather_query"}
+{"id": "massive-8233-train", "text": "let's just skip appointment at time", "gold": "calendar", "src": "train", "grp": "massive-8233-train", "intent": "calendar_remove"}
+{"id": "massive-16381-train", "text": "please check email from mom", "gold": "email", "src": "train", "grp": "massive-16381-train", "intent": "email_query"}
+{"id": "massive-13108-train", "text": "just schedule a meeting with my boss", "gold": "calendar", "src": "train", "grp": "massive-13108-train", "intent": "calendar_set"}
+{"id": "massive-12171-train", "text": "how bad is the traffic near the airport", "gold": "transport", "src": "train", "grp": "massive-12171-train", "intent": "transport_traffic"}
+{"id": "massive-10432-train", "text": "delete the shopping list", "gold": "lists", "src": "train", "grp": "massive-10432-train", "intent": "lists_remove"}
+{"id": "massive-7544-train", "text": "delete all appointments for tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7544-train", "intent": "calendar_remove"}
+{"id": "massive-8922-train", "text": "please put me your input to know my schedule", "gold": "calendar", "src": "train", "grp": "massive-8922-train", "intent": "calendar_set"}
+{"id": "massive-7940-train", "text": "what's my next appointment", "gold": "calendar", "src": "train", "grp": "massive-7940-train", "intent": "calendar_query"}
+{"id": "massive-6794-train", "text": "is there any event today in my calendar", "gold": "calendar", "src": "train", "grp": "massive-6794-train", "intent": "calendar_query"}
+{"id": "massive-16016-train", "text": "what's jesse's number", "gold": "email", "src": "train", "grp": "massive-16016-train", "intent": "email_querycontact"}
+{"id": "massive-7205-train", "text": "there are many important event in this month note down that", "gold": "calendar", "src": "train", "grp": "massive-7205-train", "intent": "calendar_set"}
+{"id": "massive-6829-train", "text": "delete all meetings for tomorrow", "gold": "calendar", "src": "train", "grp": "massive-6829-train", "intent": "calendar_remove"}
+{"id": "massive-16705-train", "text": "in the past two hours have i gotten any new emails", "gold": "email", "src": "train", "grp": "massive-16705-train", "intent": "email_query"}
+{"id": "massive-3612-train", "text": "it is not going to rain is it", "gold": "weather", "src": "train", "grp": "massive-3612-train", "intent": "weather_query"}
+{"id": "massive-11116-train", "text": "add new items in the alarm list", "gold": "lists", "src": "train", "grp": "massive-11116-train", "intent": "lists_createoradd"}
+{"id": "massive-7858-train", "text": "where is baseball practice happening tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7858-train", "intent": "calendar_query"}
+{"id": "massive-1181-train", "text": "find new trump articles but not from fox news", "gold": "news", "src": "train", "grp": "massive-1181-train", "intent": "news_query"}
+{"id": "massive-6852-train", "text": "show me the programs i have today", "gold": "calendar", "src": "train", "grp": "massive-6852-train", "intent": "calendar_query"}
+{"id": "massive-3130-train", "text": "is it windy today", "gold": "weather", "src": "train", "grp": "massive-3130-train", "intent": "weather_query"}
+{"id": "massive-7881-train", "text": "what event is next", "gold": "calendar", "src": "train", "grp": "massive-7881-train", "intent": "calendar_query"}
+{"id": "massive-9060-train", "text": "what reminders do i have currently", "gold": "calendar", "src": "train", "grp": "massive-9060-train", "intent": "calendar_query"}
+{"id": "massive-5664-train", "text": "do i need to apply sunburn cream when i go to golf club", "gold": "weather", "src": "train", "grp": "massive-5664-train", "intent": "weather_query"}
+{"id": "massive-8885-train", "text": "remind me about tuesday meeting with client at ten am", "gold": "calendar", "src": "train", "grp": "massive-8885-train", "intent": "calendar_set"}
+{"id": "massive-11106-train", "text": "please list my query", "gold": "lists", "src": "train", "grp": "massive-11106-train", "intent": "lists_query"}
+{"id": "massive-3517-train", "text": "what's the latest on the train", "gold": "news", "src": "train", "grp": "massive-3517-train", "intent": "news_query"}
+{"id": "massive-9046-train", "text": "for the week of the twentieth delete all tutoring events", "gold": "calendar", "src": "train", "grp": "massive-9046-train", "intent": "calendar_remove"}
+{"id": "massive-15884-train", "text": "look up for my email updates", "gold": "email", "src": "train", "grp": "massive-15884-train", "intent": "email_query"}
+{"id": "massive-2748-train", "text": "can i change this light to orange", "gold": "home", "src": "train", "grp": "massive-2748-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-6886-train", "text": "hi to all", "gold": "calendar", "src": "train", "grp": "massive-6886-train", "intent": "calendar_set"}
+{"id": "massive-17163-train", "text": "send alert mail to sandy", "gold": "email", "src": "train", "grp": "massive-17163-train", "intent": "email_sendemail"}
+{"id": "massive-3427-train", "text": "can you turn the lights up", "gold": "home", "src": "train", "grp": "massive-3427-train", "intent": "iot_hue_lightup"}
+{"id": "massive-7264-train", "text": "what meetings do i have this week", "gold": "calendar", "src": "train", "grp": "massive-7264-train", "intent": "calendar_query"}
+{"id": "massive-16213-train", "text": "send an email to dad how is the weather this week", "gold": "email", "src": "train", "grp": "massive-16213-train", "intent": "email_sendemail"}
+{"id": "massive-6511-train", "text": "reminders", "gold": "calendar", "src": "train", "grp": "massive-6511-train", "intent": "calendar_set"}
+{"id": "massive-11016-train", "text": "what's my to do list for today", "gold": "lists", "src": "train", "grp": "massive-11016-train", "intent": "lists_query"}
+{"id": "massive-16977-train", "text": "please find a contact number of rahul judawa", "gold": "email", "src": "train", "grp": "massive-16977-train", "intent": "email_querycontact"}
+{"id": "massive-5442-train", "text": "shut the smart socket down", "gold": "home", "src": "train", "grp": "massive-5442-train", "intent": "iot_wemo_off"}
+{"id": "massive-15781-train", "text": "hey google email to caroline how are you can you send me updates on last project cheers tomasz", "gold": "email", "src": "train", "grp": "massive-15781-train", "intent": "email_sendemail"}
+{"id": "massive-7529-train", "text": "please add my birthday", "gold": "calendar", "src": "train", "grp": "massive-7529-train", "intent": "calendar_set"}
+{"id": "massive-7187-train", "text": "what day of the week is my birthday this year", "gold": "calendar", "src": "train", "grp": "massive-7187-train", "intent": "calendar_query"}
+{"id": "massive-1949-train", "text": "are there any latest news", "gold": "news", "src": "train", "grp": "massive-1949-train", "intent": "news_query"}
+{"id": "massive-15820-train", "text": "change my mum's email in my phonebook", "gold": "email", "src": "train", "grp": "massive-15820-train", "intent": "email_addcontact"}
+{"id": "massive-1828-train", "text": "tell me some braking news in new york", "gold": "news", "src": "train", "grp": "massive-1828-train", "intent": "news_query"}
+{"id": "massive-12922-train", "text": "hey olly what time can i catch the nearest train to me", "gold": "transport", "src": "train", "grp": "massive-12922-train", "intent": "transport_query"}
+{"id": "massive-403-train", "text": "can you shuffle the light colors in the house", "gold": "home", "src": "train", "grp": "massive-403-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-8947-train", "text": "is today my brothers birthday", "gold": "calendar", "src": "train", "grp": "massive-8947-train", "intent": "calendar_query"}
+{"id": "massive-6667-train", "text": "cricket live scorecards", "gold": "news", "src": "train", "grp": "massive-6667-train", "intent": "news_query"}
+{"id": "massive-8735-train", "text": "repeat my reminders from yesterday", "gold": "calendar", "src": "train", "grp": "massive-8735-train", "intent": "calendar_query"}
+{"id": "massive-16854-train", "text": "jane doe", "gold": "email", "src": "train", "grp": "massive-16854-train", "intent": "email_query"}
+{"id": "massive-2501-train", "text": "please turn off the smart socket", "gold": "home", "src": "train", "grp": "massive-2501-train", "intent": "iot_wemo_off"}
+{"id": "massive-9017-train", "text": "calendar erase all", "gold": "calendar", "src": "train", "grp": "massive-9017-train", "intent": "calendar_remove"}
+{"id": "massive-7856-train", "text": "set a meeting with the h. r. department for the end of the month", "gold": "calendar", "src": "train", "grp": "massive-7856-train", "intent": "calendar_set"}
+{"id": "massive-6137-train", "text": "should i wear a coat outside", "gold": "weather", "src": "train", "grp": "massive-6137-train", "intent": "weather_query"}
+{"id": "massive-7853-train", "text": "weekly badminton classes start tomorrow and will end may one", "gold": "calendar", "src": "train", "grp": "massive-7853-train", "intent": "calendar_set"}
+{"id": "massive-17097-train", "text": "what's rene phone number", "gold": "email", "src": "train", "grp": "massive-17097-train", "intent": "email_querycontact"}
+{"id": "massive-10693-train", "text": "clear this list", "gold": "lists", "src": "train", "grp": "massive-10693-train", "intent": "lists_remove"}
+{"id": "massive-15755-train", "text": "send email to my brother", "gold": "email", "src": "train", "grp": "massive-15755-train", "intent": "email_sendemail"}
+{"id": "massive-12636-train", "text": "what does the traffic look like headed to la", "gold": "transport", "src": "train", "grp": "massive-12636-train", "intent": "transport_traffic"}
+{"id": "massive-17028-train", "text": "olly let's email sandy", "gold": "email", "src": "train", "grp": "massive-17028-train", "intent": "email_sendemail"}
+{"id": "massive-4252-train", "text": "should i carry an umbrella with me today", "gold": "weather", "src": "train", "grp": "massive-4252-train", "intent": "weather_query"}
+{"id": "massive-16650-train", "text": "what did ben email me", "gold": "email", "src": "train", "grp": "massive-16650-train", "intent": "email_query"}
+{"id": "massive-11097-train", "text": "delete the famous actors list", "gold": "lists", "src": "train", "grp": "massive-11097-train", "intent": "lists_remove"}
+{"id": "massive-6082-train", "text": "should i plan to shovel my way out of the house", "gold": "weather", "src": "train", "grp": "massive-6082-train", "intent": "weather_query"}
+{"id": "massive-9052-train", "text": "event calendar monas wedding tuesday", "gold": "calendar", "src": "train", "grp": "massive-9052-train", "intent": "calendar_set"}
+{"id": "massive-7501-train", "text": "next event is canceled", "gold": "calendar", "src": "train", "grp": "massive-7501-train", "intent": "calendar_remove"}
+{"id": "massive-7218-train", "text": "how many reminders are there for tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7218-train", "intent": "calendar_query"}
+{"id": "massive-7331-train", "text": "turn off wifi when you leave home to save power", "gold": "home", "src": "train", "grp": "massive-7331-train", "intent": "iot_wemo_off"}
+{"id": "massive-8254-train", "text": "erase my next event", "gold": "calendar", "src": "train", "grp": "massive-8254-train", "intent": "calendar_remove"}
+{"id": "massive-16109-train", "text": "reply to all emails received between ten p. m. and seven am everyday", "gold": "email", "src": "train", "grp": "massive-16109-train", "intent": "email_sendemail"}
+{"id": "massive-11211-train", "text": "i need to start a list called by", "gold": "lists", "src": "train", "grp": "massive-11211-train", "intent": "lists_createoradd"}
+{"id": "massive-7428-train", "text": "could you provide my upcoming events", "gold": "calendar", "src": "train", "grp": "massive-7428-train", "intent": "calendar_query"}
+{"id": "massive-11188-train", "text": "open the list", "gold": "lists", "src": "train", "grp": "massive-11188-train", "intent": "lists_query"}
+{"id": "massive-12188-train", "text": "how is the traffic around city center", "gold": "transport", "src": "train", "grp": "massive-12188-train", "intent": "transport_traffic"}
+{"id": "massive-2756-train", "text": "headline news for texas", "gold": "news", "src": "train", "grp": "massive-2756-train", "intent": "news_query"}
+{"id": "massive-1130-train", "text": "is it going to rain later today", "gold": "weather", "src": "train", "grp": "massive-1130-train", "intent": "weather_query"}
+{"id": "massive-8862-train", "text": "please delete all meetings of today after seven p. m.", "gold": "calendar", "src": "train", "grp": "massive-8862-train", "intent": "calendar_remove"}
+{"id": "massive-7342-train", "text": "check the events on calendar and delete the next event", "gold": "calendar", "src": "train", "grp": "massive-7342-train", "intent": "calendar_remove"}
+{"id": "massive-16835-train", "text": "send the email to this new email address", "gold": "email", "src": "train", "grp": "massive-16835-train", "intent": "email_sendemail"}
+{"id": "massive-7578-train", "text": "have john join me on the tenth at the fifth floor meeting", "gold": "calendar", "src": "train", "grp": "massive-7578-train", "intent": "calendar_set"}
+{"id": "massive-16015-train", "text": "please start an email to jesse", "gold": "email", "src": "train", "grp": "massive-16015-train", "intent": "email_sendemail"}
+{"id": "massive-7476-train", "text": "could you please check if i am free on thursday afternoon if so add a reminder to go to the food festival", "gold": "calendar", "src": "train", "grp": "massive-7476-train", "intent": "calendar_set"}
+{"id": "massive-16811-train", "text": "do i have a new email from eric", "gold": "email", "src": "train", "grp": "massive-16811-train", "intent": "email_query"}
+{"id": "massive-777-train", "text": "alert me when the outside temperature reaches sixty eight degrees", "gold": "weather", "src": "train", "grp": "massive-777-train", "intent": "weather_query"}
+{"id": "massive-17010-train", "text": "is there a new mail from jay in the inbox", "gold": "email", "src": "train", "grp": "massive-17010-train", "intent": "email_query"}
+{"id": "massive-12547-train", "text": "olly find a ride to the bar", "gold": "transport", "src": "train", "grp": "massive-12547-train", "intent": "transport_taxi"}
+{"id": "massive-4557-train", "text": "weather fulton missouri", "gold": "weather", "src": "train", "grp": "massive-4557-train", "intent": "weather_query"}
+{"id": "massive-12648-train", "text": "practical driving assessment", "gold": "transport", "src": "train", "grp": "massive-12648-train", "intent": "transport_ticket"}
+{"id": "massive-16269-train", "text": "send a reply to robert for his email received today morning", "gold": "email", "src": "train", "grp": "massive-16269-train", "intent": "email_sendemail"}
+{"id": "massive-10917-train", "text": "can you remove the last list for me", "gold": "lists", "src": "train", "grp": "massive-10917-train", "intent": "lists_remove"}
+{"id": "massive-988-train", "text": "world news", "gold": "news", "src": "train", "grp": "massive-988-train", "intent": "news_query"}
+{"id": "massive-12428-train", "text": "i need a taxi ride now", "gold": "transport", "src": "train", "grp": "massive-12428-train", "intent": "transport_taxi"}
+{"id": "massive-9047-train", "text": "clear my day on the twenty ninth", "gold": "calendar", "src": "train", "grp": "massive-9047-train", "intent": "calendar_remove"}
+{"id": "massive-8826-train", "text": "remind me to call the bank next thursday", "gold": "calendar", "src": "train", "grp": "massive-8826-train", "intent": "calendar_set"}
+{"id": "massive-10873-train", "text": "delete shopping list", "gold": "lists", "src": "train", "grp": "massive-10873-train", "intent": "lists_remove"}
+{"id": "massive-7415-train", "text": "repeat reminder for christmas", "gold": "calendar", "src": "train", "grp": "massive-7415-train", "intent": "calendar_set"}
+{"id": "massive-15913-train", "text": "do i have any emails from katherine", "gold": "email", "src": "train", "grp": "massive-15913-train", "intent": "email_query"}
+{"id": "massive-9139-train", "text": "hey please provide information about events by the end of the day", "gold": "calendar", "src": "train", "grp": "massive-9139-train", "intent": "calendar_query"}
+{"id": "massive-8763-train", "text": "what is the plan for tonight", "gold": "calendar", "src": "train", "grp": "massive-8763-train", "intent": "calendar_query"}
+{"id": "massive-9058-train", "text": "tell me when the event is happening", "gold": "calendar", "src": "train", "grp": "massive-9058-train", "intent": "calendar_set"}
+{"id": "massive-16142-train", "text": "compose an email to aran", "gold": "email", "src": "train", "grp": "massive-16142-train", "intent": "email_sendemail"}
+{"id": "massive-7183-train", "text": "add sally's birthday to calendar for saturday at ten p. m.", "gold": "calendar", "src": "train", "grp": "massive-7183-train", "intent": "calendar_set"}
+{"id": "massive-809-train", "text": "brew coffee at noon", "gold": "home", "src": "train", "grp": "massive-809-train", "intent": "iot_coffee"}
+{"id": "massive-12285-train", "text": "how long does train a take to get to station b.", "gold": "transport", "src": "train", "grp": "massive-12285-train", "intent": "transport_query"}
+{"id": "massive-14991-train", "text": "alexa state the weather in our city", "gold": "weather", "src": "train", "grp": "massive-14991-train", "intent": "weather_query"}
+{"id": "massive-3376-train", "text": "lights to fifty percent", "gold": "home", "src": "train", "grp": "massive-3376-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-8792-train", "text": "what are the details of this event", "gold": "calendar", "src": "train", "grp": "massive-8792-train", "intent": "calendar_query"}
+{"id": "massive-16456-train", "text": "add the email oriam at gmail dot com to my contacts", "gold": "email", "src": "train", "grp": "massive-16456-train", "intent": "email_addcontact"}
+{"id": "massive-12790-train", "text": "book a train ticket to new york", "gold": "transport", "src": "train", "grp": "massive-12790-train", "intent": "transport_ticket"}
+{"id": "massive-5941-train", "text": "donald trump", "gold": "news", "src": "train", "grp": "massive-5941-train", "intent": "news_query"}
+{"id": "massive-16484-train", "text": "create new email address", "gold": "email", "src": "train", "grp": "massive-16484-train", "intent": "email_sendemail"}
+{"id": "massive-10835-train", "text": "tell me what's on my shopping list", "gold": "lists", "src": "train", "grp": "massive-10835-train", "intent": "lists_query"}
+{"id": "massive-9033-train", "text": "july three calendar", "gold": "calendar", "src": "train", "grp": "massive-9033-train", "intent": "calendar_query"}
+{"id": "massive-3325-train", "text": "could you please turn on the plug", "gold": "home", "src": "train", "grp": "massive-3325-train", "intent": "iot_wemo_on"}
+{"id": "massive-16958-train", "text": "start email to client", "gold": "email", "src": "train", "grp": "massive-16958-train", "intent": "email_sendemail"}
+{"id": "massive-7783-train", "text": "do i have a soccer game this weekend", "gold": "calendar", "src": "train", "grp": "massive-7783-train", "intent": "calendar_query"}
+{"id": "massive-10460-train", "text": "cancel the list", "gold": "lists", "src": "train", "grp": "massive-10460-train", "intent": "lists_remove"}
+{"id": "massive-12763-train", "text": "i need a train ticket to", "gold": "transport", "src": "train", "grp": "massive-12763-train", "intent": "transport_ticket"}
+{"id": "massive-6862-train", "text": "let me know about upcoming events", "gold": "calendar", "src": "train", "grp": "massive-6862-train", "intent": "calendar_query"}
+{"id": "massive-7457-train", "text": "please reschedule the meeting to six p. m. tomorrow and inform members", "gold": "calendar", "src": "train", "grp": "massive-7457-train", "intent": "calendar_set"}
+{"id": "massive-10874-train", "text": "can you remove my to do list", "gold": "lists", "src": "train", "grp": "massive-10874-train", "intent": "lists_remove"}
+{"id": "massive-5601-train", "text": "what is the weather forecast", "gold": "weather", "src": "train", "grp": "massive-5601-train", "intent": "weather_query"}
+{"id": "massive-1598-train", "text": "please turn on roomba", "gold": "home", "src": "train", "grp": "massive-1598-train", "intent": "iot_cleaning"}
+{"id": "massive-16391-train", "text": "has john smith sent me any new email", "gold": "email", "src": "train", "grp": "massive-16391-train", "intent": "email_query"}
+{"id": "massive-10829-train", "text": "what's next on my list", "gold": "lists", "src": "train", "grp": "massive-10829-train", "intent": "lists_query"}
+{"id": "massive-12596-train", "text": "google i need one train ticket to new york can you book that for me", "gold": "transport", "src": "train", "grp": "massive-12596-train", "intent": "transport_ticket"}
+{"id": "massive-7466-train", "text": "show me events that are going on right now", "gold": "calendar", "src": "train", "grp": "massive-7466-train", "intent": "calendar_query"}
+{"id": "massive-11209-train", "text": "save appointment to list", "gold": "lists", "src": "train", "grp": "massive-11209-train", "intent": "lists_createoradd"}
+{"id": "massive-787-train", "text": "how is the weather today", "gold": "weather", "src": "train", "grp": "massive-787-train", "intent": "weather_query"}
+{"id": "massive-7932-train", "text": "olly remind me about my eye exam at walmart on the twenty sixth", "gold": "calendar", "src": "train", "grp": "massive-7932-train", "intent": "calendar_set"}
+{"id": "massive-16658-train", "text": "send an email to scott asking what the weather will be like this week", "gold": "email", "src": "train", "grp": "massive-16658-train", "intent": "email_sendemail"}
+{"id": "massive-8840-train", "text": "what time is the next event scheduled", "gold": "calendar", "src": "train", "grp": "massive-8840-train", "intent": "calendar_query"}
+{"id": "massive-7605-train", "text": "what time is the cantonese dog festival", "gold": "calendar", "src": "train", "grp": "massive-7605-train", "intent": "calendar_query"}
+{"id": "massive-983-train", "text": "change the color of the lights in my bedroom to red", "gold": "home", "src": "train", "grp": "massive-983-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-4885-train", "text": "what's the news about in africa", "gold": "news", "src": "train", "grp": "massive-4885-train", "intent": "news_query"}
+{"id": "massive-2185-train", "text": "turn off the light of my bed room please", "gold": "home", "src": "train", "grp": "massive-2185-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-12512-train", "text": "what's traffic likexchange on four hundred and forty one", "gold": "transport", "src": "train", "grp": "massive-12512-train", "intent": "transport_traffic"}
+{"id": "massive-8458-train", "text": "what are my reminders for this month", "gold": "calendar", "src": "train", "grp": "massive-8458-train", "intent": "calendar_query"}
+{"id": "massive-11187-train", "text": "my party list", "gold": "lists", "src": "train", "grp": "massive-11187-train", "intent": "lists_query"}
+{"id": "massive-12269-train", "text": "will punjab mail reach on time in gwalior", "gold": "transport", "src": "train", "grp": "massive-12269-train", "intent": "transport_query"}
+{"id": "massive-15929-train", "text": "check to see if new emails have come from title nine", "gold": "email", "src": "train", "grp": "massive-15929-train", "intent": "email_query"}
+{"id": "massive-17101-train", "text": "how is my inbox looking at the moment", "gold": "email", "src": "train", "grp": "massive-17101-train", "intent": "email_query"}
+{"id": "massive-16490-train", "text": "check email client", "gold": "email", "src": "train", "grp": "massive-16490-train", "intent": "email_query"}
+{"id": "massive-7506-train", "text": "show me future events", "gold": "calendar", "src": "train", "grp": "massive-7506-train", "intent": "calendar_query"}
+{"id": "massive-2568-train", "text": "is there any breaking news from c. n. n.", "gold": "news", "src": "train", "grp": "massive-2568-train", "intent": "news_query"}
+{"id": "massive-11246-train", "text": "current", "gold": "lists", "src": "train", "grp": "massive-11246-train", "intent": "lists_createoradd"}
+{"id": "massive-2694-train", "text": "prepare some cups of coffee for us", "gold": "home", "src": "train", "grp": "massive-2694-train", "intent": "iot_coffee"}
+{"id": "massive-11078-train", "text": "what are the items on my list", "gold": "lists", "src": "train", "grp": "massive-11078-train", "intent": "lists_query"}
+{"id": "massive-12335-train", "text": "find me the distance and direction by train to rccg in ikoyi lagos", "gold": "transport", "src": "train", "grp": "massive-12335-train", "intent": "transport_query"}
+{"id": "massive-11062-train", "text": "add remember to call mom to my reminders", "gold": "calendar", "src": "train", "grp": "massive-11062-train", "intent": "calendar_set"}
+{"id": "massive-5345-train", "text": "make a pot of strong coffee", "gold": "home", "src": "train", "grp": "massive-5345-train", "intent": "iot_coffee"}
+{"id": "massive-7492-train", "text": "open events this week", "gold": "calendar", "src": "train", "grp": "massive-7492-train", "intent": "calendar_query"}
+{"id": "massive-17077-train", "text": "send a personal thank you email to george", "gold": "email", "src": "train", "grp": "massive-17077-train", "intent": "email_sendemail"}
+{"id": "massive-10637-train", "text": "the available lists", "gold": "lists", "src": "train", "grp": "massive-10637-train", "intent": "lists_query"}
+{"id": "massive-1185-train", "text": "what is the latest local news for the greenville area", "gold": "news", "src": "train", "grp": "massive-1185-train", "intent": "news_query"}
+{"id": "massive-10664-train", "text": "what is on my list today", "gold": "lists", "src": "train", "grp": "massive-10664-train", "intent": "lists_query"}
+{"id": "massive-5348-train", "text": "give me some dim light", "gold": "home", "src": "train", "grp": "massive-5348-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-16918-train", "text": "check email for subject", "gold": "email", "src": "train", "grp": "massive-16918-train", "intent": "email_query"}
+{"id": "massive-11143-train", "text": "please find all name start with alphabetic of g. and create a list", "gold": "lists", "src": "train", "grp": "massive-11143-train", "intent": "lists_createoradd"}
+{"id": "massive-4539-train", "text": "i did not want you to send that text yet wait until i say send", "gold": "email", "src": "train", "grp": "massive-4539-train", "intent": "email_sendemail"}
+{"id": "massive-699-train", "text": "what is the weather report", "gold": "weather", "src": "train", "grp": "massive-699-train", "intent": "weather_query"}
+{"id": "massive-5806-train", "text": "you can set schedules for your devices and control them remotely using a mobile internet connection", "gold": "home", "src": "train", "grp": "massive-5806-train", "intent": "iot_wemo_on"}
+{"id": "massive-8529-train", "text": "give me the weather for merced at three p. m.", "gold": "weather", "src": "train", "grp": "massive-8529-train", "intent": "weather_query"}
+{"id": "massive-16537-train", "text": "now i need to write an email to my colleague", "gold": "email", "src": "train", "grp": "massive-16537-train", "intent": "email_sendemail"}
+{"id": "massive-2519-train", "text": "i want to turn on the robot vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-2519-train", "intent": "iot_cleaning"}
+{"id": "massive-3990-train", "text": "b. b. c.", "gold": "news", "src": "train", "grp": "massive-3990-train", "intent": "news_query"}
+{"id": "massive-5712-train", "text": "will this morning stay sunny", "gold": "weather", "src": "train", "grp": "massive-5712-train", "intent": "weather_query"}
+{"id": "massive-7360-train", "text": "delete the next wedding event", "gold": "calendar", "src": "train", "grp": "massive-7360-train", "intent": "calendar_remove"}
+{"id": "massive-7024-train", "text": "delete all events from calendar", "gold": "calendar", "src": "train", "grp": "massive-7024-train", "intent": "calendar_remove"}
+{"id": "massive-16466-train", "text": "add this email to a new contact", "gold": "email", "src": "train", "grp": "massive-16466-train", "intent": "email_addcontact"}
+{"id": "massive-1969-train", "text": "today is sunny day or not", "gold": "weather", "src": "train", "grp": "massive-1969-train", "intent": "weather_query"}
+{"id": "massive-16234-train", "text": "i need you to respond to jennifer's email by stating we will be late", "gold": "email", "src": "train", "grp": "massive-16234-train", "intent": "email_sendemail"}
+{"id": "massive-8524-train", "text": "remind me of the following event", "gold": "calendar", "src": "train", "grp": "massive-8524-train", "intent": "calendar_set"}
+{"id": "massive-5381-train", "text": "what's the news like in the u. k.", "gold": "news", "src": "train", "grp": "massive-5381-train", "intent": "news_query"}
+{"id": "massive-7643-train", "text": "what was the upcoming event's", "gold": "calendar", "src": "train", "grp": "massive-7643-train", "intent": "calendar_query"}
+{"id": "massive-10542-train", "text": "describe your list", "gold": "lists", "src": "train", "grp": "massive-10542-train", "intent": "lists_query"}
+{"id": "massive-8354-train", "text": "set a reminder for gymnastics every wednesday at three", "gold": "calendar", "src": "train", "grp": "massive-8354-train", "intent": "calendar_set"}
+{"id": "massive-7002-train", "text": "set a calendar event to repeat yearly on this date", "gold": "calendar", "src": "train", "grp": "massive-7002-train", "intent": "calendar_set"}
+{"id": "massive-4255-train", "text": "olly tell me the most recent news from c. n. n.", "gold": "news", "src": "train", "grp": "massive-4255-train", "intent": "news_query"}
+{"id": "massive-5472-train", "text": "brighten the lights in living room", "gold": "home", "src": "train", "grp": "massive-5472-train", "intent": "iot_hue_lightup"}
+{"id": "massive-7259-train", "text": "please remind me to take off coffee off stove in ten minutes", "gold": "calendar", "src": "train", "grp": "massive-7259-train", "intent": "calendar_set"}
+{"id": "massive-11127-train", "text": "what is included in the tour's list", "gold": "lists", "src": "train", "grp": "massive-11127-train", "intent": "lists_query"}
+{"id": "massive-7656-train", "text": "alexa give me my to do list for today", "gold": "calendar", "src": "train", "grp": "massive-7656-train", "intent": "calendar_set"}
+{"id": "massive-12313-train", "text": "what is time of indianapolis express", "gold": "transport", "src": "train", "grp": "massive-12313-train", "intent": "transport_query"}
+{"id": "massive-16728-train", "text": "tell sean i appreciate him reaching out to me", "gold": "email", "src": "train", "grp": "massive-16728-train", "intent": "email_sendemail"}
+{"id": "massive-8482-train", "text": "my daughter's anniversary is thursday send me a reminder", "gold": "calendar", "src": "train", "grp": "massive-8482-train", "intent": "calendar_set"}
+{"id": "massive-3332-train", "text": "add newscast time to daily schedule", "gold": "news", "src": "train", "grp": "massive-3332-train", "intent": "news_query"}
+{"id": "massive-4106-train", "text": "what will the high be tomorrow in tucson", "gold": "weather", "src": "train", "grp": "massive-4106-train", "intent": "weather_query"}
+{"id": "massive-16403-train", "text": "new email recipient donna do you have plans for today", "gold": "email", "src": "train", "grp": "massive-16403-train", "intent": "email_sendemail"}
+{"id": "massive-15912-train", "text": "email gary", "gold": "email", "src": "train", "grp": "massive-15912-train", "intent": "email_sendemail"}
+{"id": "massive-12521-train", "text": "how do i go to athens by train", "gold": "transport", "src": "train", "grp": "massive-12521-train", "intent": "transport_query"}
+{"id": "massive-9025-train", "text": "wish birthday", "gold": "calendar", "src": "train", "grp": "massive-9025-train", "intent": "calendar_set"}
+{"id": "massive-7123-train", "text": "mark the event monthly", "gold": "calendar", "src": "train", "grp": "massive-7123-train", "intent": "calendar_set"}
+{"id": "massive-2831-train", "text": "please make coffee", "gold": "home", "src": "train", "grp": "massive-2831-train", "intent": "iot_coffee"}
+{"id": "massive-16309-train", "text": "can you see if i have any new emails", "gold": "email", "src": "train", "grp": "massive-16309-train", "intent": "email_query"}
+{"id": "massive-8123-train", "text": "do i have any appointments coming up", "gold": "calendar", "src": "train", "grp": "massive-8123-train", "intent": "calendar_query"}
+{"id": "massive-105-train", "text": "what's the news on b. b. c. news", "gold": "news", "src": "train", "grp": "massive-105-train", "intent": "news_query"}
+{"id": "massive-2572-train", "text": "change the lights to green", "gold": "home", "src": "train", "grp": "massive-2572-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-1842-train", "text": "is the sun gonna shine in devon this weekend", "gold": "weather", "src": "train", "grp": "massive-1842-train", "intent": "weather_query"}
+{"id": "massive-16295-train", "text": "how many emails do i have", "gold": "email", "src": "train", "grp": "massive-16295-train", "intent": "email_query"}
+{"id": "massive-12613-train", "text": "i need to book a train ticket from mumbai to goa", "gold": "transport", "src": "train", "grp": "massive-12613-train", "intent": "transport_ticket"}
+{"id": "massive-12355-train", "text": "please arrange a train ticket for me", "gold": "transport", "src": "train", "grp": "massive-12355-train", "intent": "transport_ticket"}
+{"id": "massive-14483-train", "text": "when is the best time to travel to canada what airport to use", "gold": "transport", "src": "train", "grp": "massive-14483-train", "intent": "transport_query"}
+{"id": "massive-3100-train", "text": "turn the news on", "gold": "news", "src": "train", "grp": "massive-3100-train", "intent": "news_query"}
+{"id": "massive-12860-train", "text": "what time does the next train leave to paris", "gold": "transport", "src": "train", "grp": "massive-12860-train", "intent": "transport_query"}
+{"id": "massive-12555-train", "text": "how is the traffic", "gold": "transport", "src": "train", "grp": "massive-12555-train", "intent": "transport_traffic"}
+{"id": "massive-12483-train", "text": "what's the closest taxi to me", "gold": "transport", "src": "train", "grp": "massive-12483-train", "intent": "transport_taxi"}
+{"id": "massive-8048-train", "text": "on my sisters birthday send her flowers", "gold": "calendar", "src": "train", "grp": "massive-8048-train", "intent": "calendar_set"}
+{"id": "massive-12831-train", "text": "book a local cab", "gold": "transport", "src": "train", "grp": "massive-12831-train", "intent": "transport_taxi"}
+{"id": "massive-10710-train", "text": "put this on my list", "gold": "lists", "src": "train", "grp": "massive-10710-train", "intent": "lists_createoradd"}
+{"id": "massive-8489-train", "text": "what happened in beirut this morning", "gold": "news", "src": "train", "grp": "massive-8489-train", "intent": "news_query"}
+{"id": "massive-12529-train", "text": "what are the train times to chicago for today", "gold": "transport", "src": "train", "grp": "massive-12529-train", "intent": "transport_query"}
+{"id": "massive-12296-train", "text": "get me a taxi", "gold": "transport", "src": "train", "grp": "massive-12296-train", "intent": "transport_taxi"}
+{"id": "massive-5885-train", "text": "increase light intensity", "gold": "home", "src": "train", "grp": "massive-5885-train", "intent": "iot_hue_lightup"}
+{"id": "massive-7325-train", "text": "notify me the day before the horse race at santa anita on march seventh", "gold": "calendar", "src": "train", "grp": "massive-7325-train", "intent": "calendar_set"}
+{"id": "massive-2652-train", "text": "open the local news app", "gold": "news", "src": "train", "grp": "massive-2652-train", "intent": "news_query"}
+{"id": "massive-11132-train", "text": "remove my shopping list", "gold": "lists", "src": "train", "grp": "massive-11132-train", "intent": "lists_remove"}
+{"id": "massive-6911-train", "text": "who is scheduled for tomorrow's meeting", "gold": "calendar", "src": "train", "grp": "massive-6911-train", "intent": "calendar_query"}
+{"id": "massive-12928-train", "text": "calculate the travel time if i go to orlando by train", "gold": "transport", "src": "train", "grp": "massive-12928-train", "intent": "transport_query"}
+{"id": "massive-12342-train", "text": "check time of ten thousand eight hundred and eighty seven train from jodhpur station on monday", "gold": "transport", "src": "train", "grp": "massive-12342-train", "intent": "transport_query"}
+{"id": "massive-2947-train", "text": "alexa turn off the wemo socket in the kitchen", "gold": "home", "src": "train", "grp": "massive-2947-train", "intent": "iot_wemo_off"}
+{"id": "massive-7075-train", "text": "please delete my next calendar event", "gold": "calendar", "src": "train", "grp": "massive-7075-train", "intent": "calendar_remove"}
+{"id": "massive-4028-train", "text": "color the lights red", "gold": "home", "src": "train", "grp": "massive-4028-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-16416-train", "text": "all new email messages", "gold": "email", "src": "train", "grp": "massive-16416-train", "intent": "email_query"}
+{"id": "massive-7452-train", "text": "could you please create a new event on my calendar", "gold": "calendar", "src": "train", "grp": "massive-7452-train", "intent": "calendar_set"}
+{"id": "massive-8019-train", "text": "save this afternoon for my date", "gold": "calendar", "src": "train", "grp": "massive-8019-train", "intent": "calendar_set"}
+{"id": "massive-8010-train", "text": "update my calendar and delete next event", "gold": "calendar", "src": "train", "grp": "massive-8010-train", "intent": "calendar_remove"}
+{"id": "massive-16447-train", "text": "how many recent emails have this sender or subject line", "gold": "email", "src": "train", "grp": "massive-16447-train", "intent": "email_query"}
+{"id": "massive-15846-train", "text": "how it's come to us", "gold": "email", "src": "train", "grp": "massive-15846-train", "intent": "email_sendemail"}
+{"id": "massive-16815-train", "text": "read mail", "gold": "email", "src": "train", "grp": "massive-16815-train", "intent": "email_query"}
+{"id": "massive-6029-train", "text": "i have to wear a jacket in the morning", "gold": "weather", "src": "train", "grp": "massive-6029-train", "intent": "weather_query"}
+{"id": "massive-7649-train", "text": "clear all events from calendar", "gold": "calendar", "src": "train", "grp": "massive-7649-train", "intent": "calendar_remove"}
+{"id": "massive-6124-train", "text": "what's the latest news from t. mobile", "gold": "news", "src": "train", "grp": "massive-6124-train", "intent": "news_query"}
+{"id": "massive-7276-train", "text": "show me the list of friends having birthday yesterday and i have not wished them", "gold": "calendar", "src": "train", "grp": "massive-7276-train", "intent": "calendar_query"}
+{"id": "massive-12599-train", "text": "what is the longest time to a location", "gold": "transport", "src": "train", "grp": "massive-12599-train", "intent": "transport_query"}
+{"id": "massive-12574-train", "text": "book ticket for paris by train", "gold": "transport", "src": "train", "grp": "massive-12574-train", "intent": "transport_ticket"}
+{"id": "massive-4932-train", "text": "what will the weather be on friday", "gold": "weather", "src": "train", "grp": "massive-4932-train", "intent": "weather_query"}
+{"id": "massive-6784-train", "text": "do i have any reminders", "gold": "calendar", "src": "train", "grp": "massive-6784-train", "intent": "calendar_query"}
+{"id": "massive-4444-train", "text": "you need to give me different directions", "gold": "transport", "src": "train", "grp": "massive-4444-train", "intent": "transport_query"}
+{"id": "massive-12664-train", "text": "train tickets for two people from delhi to mumbai", "gold": "transport", "src": "train", "grp": "massive-12664-train", "intent": "transport_ticket"}
+{"id": "massive-192-train", "text": "turn on my plug", "gold": "home", "src": "train", "grp": "massive-192-train", "intent": "iot_wemo_on"}
+{"id": "massive-2637-train", "text": "open news", "gold": "news", "src": "train", "grp": "massive-2637-train", "intent": "news_query"}
+{"id": "massive-16259-train", "text": "write an email about next week weather to my wife", "gold": "email", "src": "train", "grp": "massive-16259-train", "intent": "email_sendemail"}
+{"id": "massive-5733-train", "text": "olly do i need sun screen lotion today", "gold": "weather", "src": "train", "grp": "massive-5733-train", "intent": "weather_query"}
+{"id": "massive-9026-train", "text": "add to calendar an office meeting for the next three days", "gold": "calendar", "src": "train", "grp": "massive-9026-train", "intent": "calendar_set"}
+{"id": "massive-3347-train", "text": "tell me the top stories in the news", "gold": "news", "src": "train", "grp": "massive-3347-train", "intent": "news_query"}
+{"id": "massive-7588-train", "text": "remind me clock that i have a event", "gold": "calendar", "src": "train", "grp": "massive-7588-train", "intent": "calendar_set"}
+{"id": "massive-16646-train", "text": "send a text to alice", "gold": "email", "src": "train", "grp": "massive-16646-train", "intent": "email_querycontact"}
+{"id": "massive-17173-train", "text": "check someone's recent emails", "gold": "email", "src": "train", "grp": "massive-17173-train", "intent": "email_query"}
+{"id": "massive-7757-train", "text": "what is next in my calendar", "gold": "calendar", "src": "train", "grp": "massive-7757-train", "intent": "calendar_query"}
+{"id": "massive-15947-train", "text": "open contacts and find john smith", "gold": "email", "src": "train", "grp": "massive-15947-train", "intent": "email_querycontact"}
+{"id": "massive-2750-train", "text": "i need one cup of coffee", "gold": "home", "src": "train", "grp": "massive-2750-train", "intent": "iot_coffee"}
+{"id": "massive-16124-train", "text": "carlos linux upgrade email", "gold": "email", "src": "train", "grp": "massive-16124-train", "intent": "email_query"}
+{"id": "massive-12502-train", "text": "is traffic heavy on route eighty today", "gold": "transport", "src": "train", "grp": "massive-12502-train", "intent": "transport_traffic"}
+{"id": "massive-5459-train", "text": "will i need a sweater after work", "gold": "weather", "src": "train", "grp": "massive-5459-train", "intent": "weather_query"}
+{"id": "massive-8940-train", "text": "when is my daughter birthday", "gold": "calendar", "src": "train", "grp": "massive-8940-train", "intent": "calendar_query"}
+{"id": "massive-7673-train", "text": "read my upcoming events", "gold": "calendar", "src": "train", "grp": "massive-7673-train", "intent": "calendar_query"}
+{"id": "massive-16226-train", "text": "edit contacts", "gold": "email", "src": "train", "grp": "massive-16226-train", "intent": "email_addcontact"}
+{"id": "massive-7518-train", "text": "conduct meeting on thursday", "gold": "calendar", "src": "train", "grp": "massive-7518-train", "intent": "calendar_set"}
+{"id": "massive-8820-train", "text": "any upcoming events", "gold": "calendar", "src": "train", "grp": "massive-8820-train", "intent": "calendar_query"}
+{"id": "massive-3505-train", "text": "what the weather going to be in n. y. c. next week", "gold": "weather", "src": "train", "grp": "massive-3505-train", "intent": "weather_query"}
+{"id": "massive-10914-train", "text": "please tell me what lists i have", "gold": "lists", "src": "train", "grp": "massive-10914-train", "intent": "lists_query"}
+{"id": "massive-8956-train", "text": "i want five hours freed up for jenn's birthday this saturday", "gold": "calendar", "src": "train", "grp": "massive-8956-train", "intent": "calendar_set"}
+{"id": "massive-9064-train", "text": "set a repeating calendar event", "gold": "calendar", "src": "train", "grp": "massive-9064-train", "intent": "calendar_set"}
+{"id": "massive-1067-train", "text": "how do you activate the robot vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-1067-train", "intent": "iot_cleaning"}
+{"id": "massive-3038-train", "text": "olly front page news articles please", "gold": "news", "src": "train", "grp": "massive-3038-train", "intent": "news_query"}
+{"id": "massive-7593-train", "text": "remind me to turn off the lights in ten minutes", "gold": "calendar", "src": "train", "grp": "massive-7593-train", "intent": "calendar_set"}
+{"id": "massive-16347-train", "text": "message my mother in law to book the reservations before friday or they will expire", "gold": "email", "src": "train", "grp": "massive-16347-train", "intent": "email_sendemail"}
+{"id": "massive-7965-train", "text": "i need to know if i have any new reminders", "gold": "calendar", "src": "train", "grp": "massive-7965-train", "intent": "calendar_query"}
+{"id": "massive-11099-train", "text": "include this", "gold": "lists", "src": "train", "grp": "massive-11099-train", "intent": "lists_createoradd"}
+{"id": "massive-1052-train", "text": "what is the chance of rain today", "gold": "weather", "src": "train", "grp": "massive-1052-train", "intent": "weather_query"}
+{"id": "massive-7172-train", "text": "jonathan wants to meet up sundays at eleven can you remind me saturday night every week", "gold": "calendar", "src": "train", "grp": "massive-7172-train", "intent": "calendar_set"}
+{"id": "massive-7051-train", "text": "add an event to my google calendar for the date march twenty second please", "gold": "calendar", "src": "train", "grp": "massive-7051-train", "intent": "calendar_set"}
+{"id": "massive-12344-train", "text": "check time of kalka train from jodhpur station on monday", "gold": "transport", "src": "train", "grp": "massive-12344-train", "intent": "transport_query"}
+{"id": "massive-6418-train", "text": "open memo add note about my meeting", "gold": "calendar", "src": "train", "grp": "massive-6418-train", "intent": "calendar_set"}
+{"id": "massive-16785-train", "text": "have i received any mail in the last hour", "gold": "email", "src": "train", "grp": "massive-16785-train", "intent": "email_query"}
+{"id": "massive-646-train", "text": "increase the light a little", "gold": "home", "src": "train", "grp": "massive-646-train", "intent": "iot_hue_lightup"}
+{"id": "massive-6977-train", "text": "can you read me my next reminders", "gold": "calendar", "src": "train", "grp": "massive-6977-train", "intent": "calendar_query"}
+{"id": "massive-11240-train", "text": "i want you to create a list for me", "gold": "lists", "src": "train", "grp": "massive-11240-train", "intent": "lists_createoradd"}
+{"id": "massive-5368-train", "text": "what's the latest on the travel ban", "gold": "news", "src": "train", "grp": "massive-5368-train", "intent": "news_query"}
+{"id": "massive-3628-train", "text": "make me a cup of coffee", "gold": "home", "src": "train", "grp": "massive-3628-train", "intent": "iot_coffee"}
+{"id": "massive-10803-train", "text": "do i have coffee on the grocery list", "gold": "lists", "src": "train", "grp": "massive-10803-train", "intent": "lists_query"}
+{"id": "massive-7802-train", "text": "open my reminders", "gold": "calendar", "src": "train", "grp": "massive-7802-train", "intent": "calendar_query"}
+{"id": "massive-5177-train", "text": "do i need umbrella now", "gold": "weather", "src": "train", "grp": "massive-5177-train", "intent": "weather_query"}
+{"id": "massive-12412-train", "text": "can you tell me the current traffic condition of my location", "gold": "transport", "src": "train", "grp": "massive-12412-train", "intent": "transport_traffic"}
+{"id": "massive-16197-train", "text": "what is jeff's number", "gold": "email", "src": "train", "grp": "massive-16197-train", "intent": "email_querycontact"}
+{"id": "massive-1868-train", "text": "olly climate details now", "gold": "weather", "src": "train", "grp": "massive-1868-train", "intent": "weather_query"}
+{"id": "massive-16828-train", "text": "what is my daughter's phone number", "gold": "email", "src": "train", "grp": "massive-16828-train", "intent": "email_querycontact"}
+{"id": "massive-6086-train", "text": "what is the weather in zip code thirty two thousand two hundred and thirty four", "gold": "weather", "src": "train", "grp": "massive-6086-train", "intent": "weather_query"}
+{"id": "massive-10922-train", "text": "make a list", "gold": "lists", "src": "train", "grp": "massive-10922-train", "intent": "lists_createoradd"}
+{"id": "massive-16696-train", "text": "read freds emails", "gold": "email", "src": "train", "grp": "massive-16696-train", "intent": "email_query"}
+{"id": "massive-8443-train", "text": "include this event in my calendar", "gold": "calendar", "src": "train", "grp": "massive-8443-train", "intent": "calendar_set"}
+{"id": "massive-16544-train", "text": "what's john's home phone number", "gold": "email", "src": "train", "grp": "massive-16544-train", "intent": "email_querycontact"}
+{"id": "massive-5112-train", "text": "do i need a raincoat day after", "gold": "weather", "src": "train", "grp": "massive-5112-train", "intent": "weather_query"}
+{"id": "massive-12727-train", "text": "how long will it take me to get to the west side", "gold": "transport", "src": "train", "grp": "massive-12727-train", "intent": "transport_traffic"}
+{"id": "massive-10972-train", "text": "make a new list for school supplies", "gold": "lists", "src": "train", "grp": "massive-10972-train", "intent": "lists_createoradd"}
+{"id": "massive-3752-train", "text": "latest news story", "gold": "news", "src": "train", "grp": "massive-3752-train", "intent": "news_query"}
+{"id": "massive-10635-train", "text": "show me what lists are available", "gold": "lists", "src": "train", "grp": "massive-10635-train", "intent": "lists_query"}
+{"id": "massive-2077-train", "text": "do more light", "gold": "home", "src": "train", "grp": "massive-2077-train", "intent": "iot_hue_lightup"}
+{"id": "massive-16369-train", "text": "any new emails from derek", "gold": "email", "src": "train", "grp": "massive-16369-train", "intent": "email_query"}
+{"id": "massive-3849-train", "text": "can i get a recap on the latest news going on in the world", "gold": "news", "src": "train", "grp": "massive-3849-train", "intent": "news_query"}
+{"id": "massive-16121-train", "text": "reply back to emily", "gold": "email", "src": "train", "grp": "massive-16121-train", "intent": "email_sendemail"}
+{"id": "massive-4005-train", "text": "raise living room lights half way", "gold": "home", "src": "train", "grp": "massive-4005-train", "intent": "iot_hue_lightup"}
+{"id": "massive-2370-train", "text": "read about the latest new about this world", "gold": "news", "src": "train", "grp": "massive-2370-train", "intent": "news_query"}
+{"id": "massive-1919-train", "text": "tell me about the weather this week", "gold": "weather", "src": "train", "grp": "massive-1919-train", "intent": "weather_query"}
+{"id": "massive-4368-train", "text": "i want some coffee", "gold": "home", "src": "train", "grp": "massive-4368-train", "intent": "iot_coffee"}
+{"id": "massive-7736-train", "text": "input a meeting with jack for tuesday", "gold": "calendar", "src": "train", "grp": "massive-7736-train", "intent": "calendar_set"}
+{"id": "massive-8102-train", "text": "alexa mark my calendar as unavailable today", "gold": "calendar", "src": "train", "grp": "massive-8102-train", "intent": "calendar_set"}
+{"id": "massive-8768-train", "text": "is mothers day on a sunday", "gold": "calendar", "src": "train", "grp": "massive-8768-train", "intent": "calendar_query"}
+{"id": "massive-11158-train", "text": "make me a new checklist", "gold": "lists", "src": "train", "grp": "massive-11158-train", "intent": "lists_createoradd"}
+{"id": "massive-12279-train", "text": "can you look up train ticket prices for me", "gold": "transport", "src": "train", "grp": "massive-12279-train", "intent": "transport_query"}
+{"id": "massive-4640-train", "text": "what topic is the most talked about today", "gold": "news", "src": "train", "grp": "massive-4640-train", "intent": "news_query"}
+{"id": "massive-7302-train", "text": "any suggestions on a good time for an hour meeting this week", "gold": "calendar", "src": "train", "grp": "massive-7302-train", "intent": "calendar_set"}
+{"id": "massive-3862-train", "text": "get the roomba to clean up", "gold": "home", "src": "train", "grp": "massive-3862-train", "intent": "iot_cleaning"}
+{"id": "massive-1118-train", "text": "please tell me the latest news about politics", "gold": "news", "src": "train", "grp": "massive-1118-train", "intent": "news_query"}
+{"id": "massive-7809-train", "text": "i have a department head meeting friday at nine am sharp", "gold": "calendar", "src": "train", "grp": "massive-7809-train", "intent": "calendar_set"}
+{"id": "massive-7941-train", "text": "olly tell me what's going on tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7941-train", "intent": "calendar_query"}
+{"id": "massive-8318-train", "text": "please make a reminder for friday at six p. m.", "gold": "calendar", "src": "train", "grp": "massive-8318-train", "intent": "calendar_set"}
+{"id": "massive-5995-train", "text": "do i need to wear my slicker today", "gold": "weather", "src": "train", "grp": "massive-5995-train", "intent": "weather_query"}
+{"id": "massive-15772-train", "text": "what's his number", "gold": "email", "src": "train", "grp": "massive-15772-train", "intent": "email_querycontact"}
+{"id": "massive-11253-train", "text": "please add new item to list", "gold": "lists", "src": "train", "grp": "massive-11253-train", "intent": "lists_createoradd"}
+{"id": "massive-5759-train", "text": "weather for the next week in new york", "gold": "weather", "src": "train", "grp": "massive-5759-train", "intent": "weather_query"}
+{"id": "massive-17053-train", "text": "search nandy containing payment", "gold": "email", "src": "train", "grp": "massive-17053-train", "intent": "email_query"}
+{"id": "massive-16272-train", "text": "how do i dial sarah", "gold": "email", "src": "train", "grp": "massive-16272-train", "intent": "email_querycontact"}
+{"id": "massive-7671-train", "text": "what is the my upcoming events", "gold": "calendar", "src": "train", "grp": "massive-7671-train", "intent": "calendar_query"}
+{"id": "massive-3409-train", "text": "what is going on with blank", "gold": "news", "src": "train", "grp": "massive-3409-train", "intent": "news_query"}
+{"id": "massive-8509-train", "text": "is there a chili cook-off this weekend", "gold": "calendar", "src": "train", "grp": "massive-8509-train", "intent": "calendar_query"}
+{"id": "massive-16374-train", "text": "are there any emails from the school about my conference", "gold": "email", "src": "train", "grp": "massive-16374-train", "intent": "email_query"}
+{"id": "massive-2349-train", "text": "replace the current light colors in the house with dark ones", "gold": "home", "src": "train", "grp": "massive-2349-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-16159-train", "text": "add a new email", "gold": "email", "src": "train", "grp": "massive-16159-train", "intent": "email_addcontact"}
+{"id": "massive-12570-train", "text": "what are departure arrival times for this train", "gold": "transport", "src": "train", "grp": "massive-12570-train", "intent": "transport_query"}
+{"id": "massive-3622-train", "text": "tell me the top stories on c. n. n.", "gold": "news", "src": "train", "grp": "massive-3622-train", "intent": "news_query"}
+{"id": "massive-12770-train", "text": "show me timetables for trains going from prague to brno", "gold": "transport", "src": "train", "grp": "massive-12770-train", "intent": "transport_query"}
+{"id": "massive-2041-train", "text": "today's weather is awesome", "gold": "weather", "src": "train", "grp": "massive-2041-train", "intent": "weather_query"}
+{"id": "massive-6814-train", "text": "olly remind me my mom's birthday a week before", "gold": "calendar", "src": "train", "grp": "massive-6814-train", "intent": "calendar_set"}
+{"id": "massive-16433-train", "text": "please send my family an email that says the following", "gold": "email", "src": "train", "grp": "massive-16433-train", "intent": "email_sendemail"}
+{"id": "massive-16117-train", "text": "email work team this week's schedule", "gold": "email", "src": "train", "grp": "massive-16117-train", "intent": "email_sendemail"}
+{"id": "massive-9055-train", "text": "make an event reminder for a meeting with mona on tuesday", "gold": "calendar", "src": "train", "grp": "massive-9055-train", "intent": "calendar_set"}
+{"id": "massive-1500-train", "text": "turn on hall lights", "gold": "home", "src": "train", "grp": "massive-1500-train", "intent": "iot_hue_lighton"}
+{"id": "massive-8427-train", "text": "add lunch appointment with lisa to january second at twelve thirty p. m.", "gold": "calendar", "src": "train", "grp": "massive-8427-train", "intent": "calendar_set"}
+{"id": "massive-10822-train", "text": "name all lists", "gold": "lists", "src": "train", "grp": "massive-10822-train", "intent": "lists_query"}
+{"id": "massive-2759-train", "text": "i want to see news about politics", "gold": "news", "src": "train", "grp": "massive-2759-train", "intent": "news_query"}
+{"id": "massive-16520-train", "text": "show me my emails from the past hour", "gold": "email", "src": "train", "grp": "massive-16520-train", "intent": "email_query"}
+{"id": "massive-14524-train", "text": "give me the driving directions from faripir to gurpur", "gold": "transport", "src": "train", "grp": "massive-14524-train", "intent": "transport_query"}
+{"id": "massive-7247-train", "text": "today is fifth march", "gold": "calendar", "src": "train", "grp": "massive-7247-train", "intent": "calendar_query"}
+{"id": "massive-7031-train", "text": "add to calendar new event thanksgiving", "gold": "calendar", "src": "train", "grp": "massive-7031-train", "intent": "calendar_set"}
+{"id": "massive-15924-train", "text": "list emails from jim for today", "gold": "email", "src": "train", "grp": "massive-15924-train", "intent": "email_query"}
+{"id": "massive-7368-train", "text": "add all rrcg events in march to my calendar", "gold": "calendar", "src": "train", "grp": "massive-7368-train", "intent": "calendar_set"}
+{"id": "massive-2044-train", "text": "i don't need the lights", "gold": "home", "src": "train", "grp": "massive-2044-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-899-train", "text": "give me some lavender toned light", "gold": "home", "src": "train", "grp": "massive-899-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-985-train", "text": "today's news c. n. n.", "gold": "news", "src": "train", "grp": "massive-985-train", "intent": "news_query"}
+{"id": "massive-7938-train", "text": "please tell me what day this event reminder is set for", "gold": "calendar", "src": "train", "grp": "massive-7938-train", "intent": "calendar_query"}
+{"id": "massive-3223-train", "text": "lower lights please", "gold": "home", "src": "train", "grp": "massive-3223-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-10665-train", "text": "iterate events on the note", "gold": "calendar", "src": "train", "grp": "massive-10665-train", "intent": "calendar_query"}
+{"id": "massive-8464-train", "text": "remind me of my meeting on wednesday at nine am", "gold": "calendar", "src": "train", "grp": "massive-8464-train", "intent": "calendar_set"}
+{"id": "massive-3935-train", "text": "is it cold out", "gold": "weather", "src": "train", "grp": "massive-3935-train", "intent": "weather_query"}
+{"id": "massive-10735-train", "text": "please delete my grocery list in entirety", "gold": "lists", "src": "train", "grp": "massive-10735-train", "intent": "lists_remove"}
+{"id": "massive-5585-train", "text": "do i need sunscreen for today", "gold": "weather", "src": "train", "grp": "massive-5585-train", "intent": "weather_query"}
+{"id": "massive-16076-train", "text": "display recent email from john olly", "gold": "email", "src": "train", "grp": "massive-16076-train", "intent": "email_query"}
+{"id": "massive-2010-train", "text": "this week weather will be sunny or not", "gold": "weather", "src": "train", "grp": "massive-2010-train", "intent": "weather_query"}
+{"id": "massive-7275-train", "text": "show me the list of pending meetings", "gold": "calendar", "src": "train", "grp": "massive-7275-train", "intent": "calendar_query"}
+{"id": "massive-16962-train", "text": "olly send email to family member and read it first", "gold": "email", "src": "train", "grp": "massive-16962-train", "intent": "email_sendemail"}
+{"id": "massive-8724-train", "text": "how soon is my anniversary", "gold": "calendar", "src": "train", "grp": "massive-8724-train", "intent": "calendar_query"}
+{"id": "massive-16366-train", "text": "who's emailed me recently", "gold": "email", "src": "train", "grp": "massive-16366-train", "intent": "email_query"}
+{"id": "massive-7036-train", "text": "empty calendar for this week", "gold": "calendar", "src": "train", "grp": "massive-7036-train", "intent": "calendar_remove"}
+{"id": "massive-12243-train", "text": "book a taxi for tomorrow morning", "gold": "transport", "src": "train", "grp": "massive-12243-train", "intent": "transport_taxi"}
+{"id": "massive-12388-train", "text": "what time will i arrive home if i take this train", "gold": "transport", "src": "train", "grp": "massive-12388-train", "intent": "transport_query"}
+{"id": "massive-1552-train", "text": "switch on smart plug", "gold": "home", "src": "train", "grp": "massive-1552-train", "intent": "iot_wemo_on"}
+{"id": "massive-5815-train", "text": "kill the lights", "gold": "home", "src": "train", "grp": "massive-5815-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-313-train", "text": "increase brightness by twenty percent", "gold": "home", "src": "train", "grp": "massive-313-train", "intent": "iot_hue_lightup"}
+{"id": "massive-16901-train", "text": "have i received any emails from my father", "gold": "email", "src": "train", "grp": "massive-16901-train", "intent": "email_query"}
+{"id": "massive-241-train", "text": "what's going on outside", "gold": "weather", "src": "train", "grp": "massive-241-train", "intent": "weather_query"}
+{"id": "massive-7364-train", "text": "delete an first event of twenty third of march twenty seventeen", "gold": "calendar", "src": "train", "grp": "massive-7364-train", "intent": "calendar_remove"}
+{"id": "massive-3697-train", "text": "turn on this socket", "gold": "home", "src": "train", "grp": "massive-3697-train", "intent": "iot_wemo_on"}
+{"id": "massive-11170-train", "text": "provide the list", "gold": "lists", "src": "train", "grp": "massive-11170-train", "intent": "lists_query"}
+{"id": "massive-7488-train", "text": "appointments this wednesday", "gold": "calendar", "src": "train", "grp": "massive-7488-train", "intent": "calendar_query"}
+{"id": "massive-7347-train", "text": "twelveth july is bola's birthday and my calendar to be updated with this date", "gold": "calendar", "src": "train", "grp": "massive-7347-train", "intent": "calendar_set"}
+{"id": "massive-16538-train", "text": "would you open the email and i would like to compose a new one", "gold": "email", "src": "train", "grp": "massive-16538-train", "intent": "email_sendemail"}
+{"id": "massive-3245-train", "text": "do you know if there is any rain today", "gold": "weather", "src": "train", "grp": "massive-3245-train", "intent": "weather_query"}
+{"id": "massive-165-train", "text": "i fancy some coffee now", "gold": "home", "src": "train", "grp": "massive-165-train", "intent": "iot_coffee"}
+{"id": "massive-12803-train", "text": "please book train ticket to new york", "gold": "transport", "src": "train", "grp": "massive-12803-train", "intent": "transport_ticket"}
+{"id": "massive-1315-train", "text": "hey can you make it blue in here", "gold": "home", "src": "train", "grp": "massive-1315-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-7088-train", "text": "open calendar", "gold": "calendar", "src": "train", "grp": "massive-7088-train", "intent": "calendar_set"}
+{"id": "massive-5285-train", "text": "show news of migration", "gold": "news", "src": "train", "grp": "massive-5285-train", "intent": "news_query"}
+{"id": "massive-12297-train", "text": "hail taxi", "gold": "transport", "src": "train", "grp": "massive-12297-train", "intent": "transport_taxi"}
+{"id": "massive-7913-train", "text": "remove the event from monday", "gold": "calendar", "src": "train", "grp": "massive-7913-train", "intent": "calendar_remove"}
+{"id": "massive-10706-train", "text": "which lists are present in the notes app", "gold": "lists", "src": "train", "grp": "massive-10706-train", "intent": "lists_query"}
+{"id": "massive-7179-train", "text": "please give me a two hour warning before next saturdays meeting", "gold": "calendar", "src": "train", "grp": "massive-7179-train", "intent": "calendar_set"}
+{"id": "massive-282-train", "text": "who is going to win the next elections in the france", "gold": "news", "src": "train", "grp": "massive-282-train", "intent": "news_query"}
+{"id": "massive-8910-train", "text": "show me the meetings held last month", "gold": "calendar", "src": "train", "grp": "massive-8910-train", "intent": "calendar_query"}
+{"id": "massive-16113-train", "text": "my friend emails me to check", "gold": "email", "src": "train", "grp": "massive-16113-train", "intent": "email_query"}
+{"id": "massive-1105-train", "text": "get me the weather forecast of beijing", "gold": "weather", "src": "train", "grp": "massive-1105-train", "intent": "weather_query"}
+{"id": "massive-17088-train", "text": "check for me new emails received from peter", "gold": "email", "src": "train", "grp": "massive-17088-train", "intent": "email_query"}
+{"id": "massive-16900-train", "text": "have i received any emails from my mother", "gold": "email", "src": "train", "grp": "massive-16900-train", "intent": "email_query"}
+{"id": "massive-5244-train", "text": "turn lights off in kitchen", "gold": "home", "src": "train", "grp": "massive-5244-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-17152-train", "text": "please let me know when delia replies to my email from this morning", "gold": "email", "src": "train", "grp": "massive-17152-train", "intent": "email_query"}
+{"id": "massive-6040-train", "text": "hey turn off the light please", "gold": "home", "src": "train", "grp": "massive-6040-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-16055-train", "text": "send mail to sil for cap", "gold": "email", "src": "train", "grp": "massive-16055-train", "intent": "email_sendemail"}
+{"id": "massive-1885-train", "text": "give me the headlines from sky news", "gold": "news", "src": "train", "grp": "massive-1885-train", "intent": "news_query"}
+{"id": "massive-3619-train", "text": "what's the weather like in sydney", "gold": "weather", "src": "train", "grp": "massive-3619-train", "intent": "weather_query"}
+{"id": "massive-1070-train", "text": "turn up the lights in the living room", "gold": "home", "src": "train", "grp": "massive-1070-train", "intent": "iot_hue_lightup"}
+{"id": "massive-7280-train", "text": "what do i have going on today", "gold": "calendar", "src": "train", "grp": "massive-7280-train", "intent": "calendar_query"}
+{"id": "massive-16679-train", "text": "did i ever get the email from sean today", "gold": "email", "src": "train", "grp": "massive-16679-train", "intent": "email_query"}
+{"id": "massive-2063-train", "text": "tell me this week's weather", "gold": "weather", "src": "train", "grp": "massive-2063-train", "intent": "weather_query"}
+{"id": "massive-7512-train", "text": "do i have a meeting today", "gold": "calendar", "src": "train", "grp": "massive-7512-train", "intent": "calendar_query"}
+{"id": "massive-656-train", "text": "how is the current weather in washington d. c.", "gold": "weather", "src": "train", "grp": "massive-656-train", "intent": "weather_query"}
+{"id": "massive-16737-train", "text": "any mail marked as important", "gold": "email", "src": "train", "grp": "massive-16737-train", "intent": "email_query"}
+{"id": "massive-7864-train", "text": "can you let me know when it's two hundred", "gold": "calendar", "src": "train", "grp": "massive-7864-train", "intent": "calendar_set"}
+{"id": "massive-15773-train", "text": "tell me the last message", "gold": "email", "src": "train", "grp": "massive-15773-train", "intent": "email_query"}
+{"id": "massive-8711-train", "text": "check my calendar for today", "gold": "calendar", "src": "train", "grp": "massive-8711-train", "intent": "calendar_query"}
+{"id": "massive-10975-train", "text": "tell me the names on the list", "gold": "lists", "src": "train", "grp": "massive-10975-train", "intent": "lists_query"}
+{"id": "massive-4790-train", "text": "what's the temperature today", "gold": "weather", "src": "train", "grp": "massive-4790-train", "intent": "weather_query"}
+{"id": "massive-12911-train", "text": "i need a ride in an hour", "gold": "transport", "src": "train", "grp": "massive-12911-train", "intent": "transport_taxi"}
+{"id": "massive-2714-train", "text": "want to have vibrant colors", "gold": "home", "src": "train", "grp": "massive-2714-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-3173-train", "text": "these lights are too bright please lower them", "gold": "home", "src": "train", "grp": "massive-3173-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-4757-train", "text": "b. b. c. live", "gold": "news", "src": "train", "grp": "massive-4757-train", "intent": "news_query"}
+{"id": "massive-7190-train", "text": "what's on the calendar today", "gold": "calendar", "src": "train", "grp": "massive-7190-train", "intent": "calendar_query"}
+{"id": "massive-2807-train", "text": "can you get me a cup of coffee", "gold": "home", "src": "train", "grp": "massive-2807-train", "intent": "iot_coffee"}
+{"id": "massive-666-train", "text": "i need to turn the lights down", "gold": "home", "src": "train", "grp": "massive-666-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-8673-train", "text": "what is my meeting at nine am", "gold": "calendar", "src": "train", "grp": "massive-8673-train", "intent": "calendar_query"}
+{"id": "massive-7462-train", "text": "i have a date with the world bank group on the twenty eighth please remind me", "gold": "calendar", "src": "train", "grp": "massive-7462-train", "intent": "calendar_set"}
+{"id": "massive-16541-train", "text": "olly have i gotten any emails from mom lately", "gold": "email", "src": "train", "grp": "massive-16541-train", "intent": "email_query"}
+{"id": "massive-7800-train", "text": "set a reminder", "gold": "calendar", "src": "train", "grp": "massive-7800-train", "intent": "calendar_set"}
+{"id": "massive-9126-train", "text": "what time is my eye doctor appointment on the twenty third", "gold": "calendar", "src": "train", "grp": "massive-9126-train", "intent": "calendar_query"}
+{"id": "massive-10517-train", "text": "what lists do i have saved", "gold": "lists", "src": "train", "grp": "massive-10517-train", "intent": "lists_query"}
+{"id": "massive-4139-train", "text": "do i need to wear a heavy coat today", "gold": "weather", "src": "train", "grp": "massive-4139-train", "intent": "weather_query"}
+{"id": "massive-7267-train", "text": "hey make sure i go to sarahs birthday party on the twelveth", "gold": "calendar", "src": "train", "grp": "massive-7267-train", "intent": "calendar_set"}
+{"id": "massive-963-train", "text": "dim the lights please", "gold": "home", "src": "train", "grp": "massive-963-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-3974-train", "text": "give me the latest population statistics for donald trump", "gold": "news", "src": "train", "grp": "massive-3974-train", "intent": "news_query"}
+{"id": "massive-10932-train", "text": "what songs are on my favorite list", "gold": "lists", "src": "train", "grp": "massive-10932-train", "intent": "lists_query"}
+{"id": "massive-12179-train", "text": "what is the traffic situation right in broadway street", "gold": "transport", "src": "train", "grp": "massive-12179-train", "intent": "transport_traffic"}
+{"id": "massive-10580-train", "text": "remove buying eggs item from to do list", "gold": "lists", "src": "train", "grp": "massive-10580-train", "intent": "lists_remove"}
+{"id": "massive-10910-train", "text": "read my lists to me", "gold": "lists", "src": "train", "grp": "massive-10910-train", "intent": "lists_query"}
+{"id": "massive-8184-train", "text": "what do i have pending", "gold": "calendar", "src": "train", "grp": "massive-8184-train", "intent": "calendar_query"}
+{"id": "massive-8995-train", "text": "set rotating event", "gold": "calendar", "src": "train", "grp": "massive-8995-train", "intent": "calendar_set"}
+{"id": "massive-8161-train", "text": "cancel the plan of party", "gold": "calendar", "src": "train", "grp": "massive-8161-train", "intent": "calendar_remove"}
+{"id": "massive-844-train", "text": "turn the robot vacuum cleaner on", "gold": "home", "src": "train", "grp": "massive-844-train", "intent": "iot_cleaning"}
+{"id": "massive-10811-train", "text": "alexa add bananas to my shopping list", "gold": "lists", "src": "train", "grp": "massive-10811-train", "intent": "lists_createoradd"}
+{"id": "massive-16790-train", "text": "what do you know about mary", "gold": "email", "src": "train", "grp": "massive-16790-train", "intent": "email_querycontact"}
+{"id": "massive-16000-train", "text": "alex has told me that he will send an email regarding the price of the machine please check if that has come", "gold": "email", "src": "train", "grp": "massive-16000-train", "intent": "email_query"}
+{"id": "massive-7490-train", "text": "remind me tomorrow morning of my schedules for tuesday", "gold": "calendar", "src": "train", "grp": "massive-7490-train", "intent": "calendar_set"}
+{"id": "massive-4863-train", "text": "what is the weather in utah", "gold": "weather", "src": "train", "grp": "massive-4863-train", "intent": "weather_query"}
+{"id": "massive-4666-train", "text": "c. n. n. news", "gold": "news", "src": "train", "grp": "massive-4666-train", "intent": "news_query"}
+{"id": "massive-12721-train", "text": "how heavy is traffic on interstate twenty", "gold": "transport", "src": "train", "grp": "massive-12721-train", "intent": "transport_traffic"}
+{"id": "massive-3587-train", "text": "what is the weather in this week", "gold": "weather", "src": "train", "grp": "massive-3587-train", "intent": "weather_query"}
+{"id": "massive-1781-train", "text": "may i know the weather there", "gold": "weather", "src": "train", "grp": "massive-1781-train", "intent": "weather_query"}
+{"id": "massive-4446-train", "text": "you need to find an alternate route to my destination", "gold": "transport", "src": "train", "grp": "massive-4446-train", "intent": "transport_query"}
+{"id": "massive-5663-train", "text": "do i need a jacket in the evening", "gold": "weather", "src": "train", "grp": "massive-5663-train", "intent": "weather_query"}
+{"id": "massive-16654-train", "text": "please tell me if i got any email recently", "gold": "email", "src": "train", "grp": "massive-16654-train", "intent": "email_query"}
+{"id": "massive-10821-train", "text": "is there anything on my list today", "gold": "lists", "src": "train", "grp": "massive-10821-train", "intent": "lists_query"}
+{"id": "massive-905-train", "text": "what will the temperatures be for the next week", "gold": "weather", "src": "train", "grp": "massive-905-train", "intent": "weather_query"}
+{"id": "massive-16804-train", "text": "display all unread messages from my gmail account", "gold": "email", "src": "train", "grp": "massive-16804-train", "intent": "email_query"}
+{"id": "massive-8630-train", "text": "remind me at the fifteenth of every month", "gold": "calendar", "src": "train", "grp": "massive-8630-train", "intent": "calendar_set"}
+{"id": "massive-6993-train", "text": "set reminder at", "gold": "calendar", "src": "train", "grp": "massive-6993-train", "intent": "calendar_set"}
+{"id": "massive-15780-train", "text": "email to caroline how are you can you send me updates on last project cheers tomasz", "gold": "email", "src": "train", "grp": "massive-15780-train", "intent": "email_sendemail"}
+{"id": "massive-6007-train", "text": "should i close the window before i leave this afternoon", "gold": "weather", "src": "train", "grp": "massive-6007-train", "intent": "weather_query"}
+{"id": "massive-479-train", "text": "find me news about trumps speech", "gold": "news", "src": "train", "grp": "massive-479-train", "intent": "news_query"}
+{"id": "massive-7789-train", "text": "don't let me forget to call alex", "gold": "calendar", "src": "train", "grp": "massive-7789-train", "intent": "calendar_set"}
+{"id": "massive-1543-train", "text": "please tell me if there is going to be snow this weekend", "gold": "weather", "src": "train", "grp": "massive-1543-train", "intent": "weather_query"}
+{"id": "massive-4660-train", "text": "give me the news on n. b. c. alexa", "gold": "news", "src": "train", "grp": "massive-4660-train", "intent": "news_query"}
+{"id": "massive-8476-train", "text": "please delete this event", "gold": "calendar", "src": "train", "grp": "massive-8476-train", "intent": "calendar_remove"}
+{"id": "massive-20-train", "text": "set lights to twenty percent", "gold": "home", "src": "train", "grp": "massive-20-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-8718-train", "text": "make appointment for next friday", "gold": "calendar", "src": "train", "grp": "massive-8718-train", "intent": "calendar_set"}
+{"id": "massive-4074-train", "text": "please turn on my robot vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-4074-train", "intent": "iot_cleaning"}
+{"id": "massive-1364-train", "text": "keep the socket in off condition", "gold": "home", "src": "train", "grp": "massive-1364-train", "intent": "iot_wemo_off"}
+{"id": "massive-5637-train", "text": "do i need to bring a coat out tonight", "gold": "weather", "src": "train", "grp": "massive-5637-train", "intent": "weather_query"}
+{"id": "massive-12227-train", "text": "where to buy a train ticket", "gold": "transport", "src": "train", "grp": "massive-12227-train", "intent": "transport_query"}
+{"id": "massive-12211-train", "text": "is there any train plying from pune to mumbai tonight", "gold": "transport", "src": "train", "grp": "massive-12211-train", "intent": "transport_query"}
+{"id": "massive-16224-train", "text": "add email", "gold": "email", "src": "train", "grp": "massive-16224-train", "intent": "email_addcontact"}
+{"id": "massive-6816-train", "text": "olly help me remember to call janice at four p. m.", "gold": "calendar", "src": "train", "grp": "massive-6816-train", "intent": "calendar_set"}
+{"id": "massive-12598-train", "text": "tell me where i should go for times", "gold": "transport", "src": "train", "grp": "massive-12598-train", "intent": "transport_ticket"}
+{"id": "massive-2067-train", "text": "did anyone win the powerball lottery yesterday", "gold": "news", "src": "train", "grp": "massive-2067-train", "intent": "news_query"}
+{"id": "massive-3216-train", "text": "how is the news media reacting to trump's potential ties with russia", "gold": "news", "src": "train", "grp": "massive-3216-train", "intent": "news_query"}
+{"id": "massive-6813-train", "text": "could you remind me to take the bins out on thursday", "gold": "calendar", "src": "train", "grp": "massive-6813-train", "intent": "calendar_set"}
+{"id": "massive-3032-train", "text": "olly what's the current weather", "gold": "weather", "src": "train", "grp": "massive-3032-train", "intent": "weather_query"}
+{"id": "massive-16329-train", "text": "reply to sarah's email", "gold": "email", "src": "train", "grp": "massive-16329-train", "intent": "email_sendemail"}
+{"id": "massive-12432-train", "text": "i need the arrival time for new york train", "gold": "transport", "src": "train", "grp": "massive-12432-train", "intent": "transport_query"}
+{"id": "massive-7638-train", "text": "add dentist appointment for friday at five", "gold": "calendar", "src": "train", "grp": "massive-7638-train", "intent": "calendar_set"}
+{"id": "massive-16647-train", "text": "let me know about the new emails", "gold": "email", "src": "train", "grp": "massive-16647-train", "intent": "email_query"}
+{"id": "massive-1572-train", "text": "get me some latte please", "gold": "home", "src": "train", "grp": "massive-1572-train", "intent": "iot_coffee"}
+{"id": "massive-973-train", "text": "what is the latest news", "gold": "news", "src": "train", "grp": "massive-973-train", "intent": "news_query"}
+{"id": "massive-9034-train", "text": "meeting july calendar", "gold": "calendar", "src": "train", "grp": "massive-9034-train", "intent": "calendar_query"}
+{"id": "massive-8746-train", "text": "remind me to pick up john from the airport tonight at eight", "gold": "calendar", "src": "train", "grp": "massive-8746-train", "intent": "calendar_set"}
+{"id": "massive-3429-train", "text": "can you put the vacuum on", "gold": "home", "src": "train", "grp": "massive-3429-train", "intent": "iot_cleaning"}
+{"id": "massive-12695-train", "text": "is the traffic bad enough that i should leave early", "gold": "transport", "src": "train", "grp": "massive-12695-train", "intent": "transport_traffic"}
+{"id": "massive-12370-train", "text": "train times for tomorrow", "gold": "transport", "src": "train", "grp": "massive-12370-train", "intent": "transport_query"}
+{"id": "massive-6978-train", "text": "read my next reminders for this afternoon", "gold": "calendar", "src": "train", "grp": "massive-6978-train", "intent": "calendar_query"}
+{"id": "massive-2331-train", "text": "what is the weather right now", "gold": "weather", "src": "train", "grp": "massive-2331-train", "intent": "weather_query"}
+{"id": "massive-16458-train", "text": "send email to newmail at gmail dot com", "gold": "email", "src": "train", "grp": "massive-16458-train", "intent": "email_sendemail"}
+{"id": "massive-8281-train", "text": "remove all scheduled events from the calendar", "gold": "calendar", "src": "train", "grp": "massive-8281-train", "intent": "calendar_remove"}
+{"id": "massive-12847-train", "text": "can you book train ticket from mumbai to sangli for tomorrow morning", "gold": "transport", "src": "train", "grp": "massive-12847-train", "intent": "transport_ticket"}
+{"id": "massive-16209-train", "text": "send email to nancy about tomorrow's work party details", "gold": "email", "src": "train", "grp": "massive-16209-train", "intent": "email_sendemail"}
+{"id": "massive-10611-train", "text": "remove the item from list", "gold": "lists", "src": "train", "grp": "massive-10611-train", "intent": "lists_remove"}
+{"id": "massive-5730-train", "text": "turn off the lights please", "gold": "home", "src": "train", "grp": "massive-5730-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-6716-train", "text": "remove stand-up on friday at ten am", "gold": "calendar", "src": "train", "grp": "massive-6716-train", "intent": "calendar_remove"}
+{"id": "massive-8886-train", "text": "put a reminder in my calendar about meeting with client at ten am on tuesday", "gold": "calendar", "src": "train", "grp": "massive-8886-train", "intent": "calendar_set"}
+{"id": "massive-12321-train", "text": "olly call a taxi", "gold": "transport", "src": "train", "grp": "massive-12321-train", "intent": "transport_taxi"}
+{"id": "massive-12390-train", "text": "bring me a train ticket", "gold": "transport", "src": "train", "grp": "massive-12390-train", "intent": "transport_ticket"}
+{"id": "massive-10833-train", "text": "what's on my to do list", "gold": "lists", "src": "train", "grp": "massive-10833-train", "intent": "lists_query"}
+{"id": "massive-1153-train", "text": "remove dust with vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-1153-train", "intent": "iot_cleaning"}
+{"id": "massive-2680-train", "text": "is it going to warm up soon", "gold": "weather", "src": "train", "grp": "massive-2680-train", "intent": "weather_query"}
+{"id": "massive-16500-train", "text": "please send a mail to my hubby i will late tonight", "gold": "email", "src": "train", "grp": "massive-16500-train", "intent": "email_sendemail"}
+{"id": "massive-9105-train", "text": "please clear my calendar of all events", "gold": "calendar", "src": "train", "grp": "massive-9105-train", "intent": "calendar_remove"}
+{"id": "massive-11248-train", "text": "list out", "gold": "lists", "src": "train", "grp": "massive-11248-train", "intent": "lists_createoradd"}
+{"id": "massive-3621-train", "text": "find me the top news of the day", "gold": "news", "src": "train", "grp": "massive-3621-train", "intent": "news_query"}
+{"id": "massive-621-train", "text": "what is the latest controversy on donald trump", "gold": "news", "src": "train", "grp": "massive-621-train", "intent": "news_query"}
+{"id": "massive-7679-train", "text": "speak more about the event", "gold": "calendar", "src": "train", "grp": "massive-7679-train", "intent": "calendar_query"}
+{"id": "massive-5846-train", "text": "should i bring extra water with me today", "gold": "weather", "src": "train", "grp": "massive-5846-train", "intent": "weather_query"}
+{"id": "massive-16257-train", "text": "send an email to my wife about next week weather", "gold": "email", "src": "train", "grp": "massive-16257-train", "intent": "email_sendemail"}
+{"id": "massive-7256-train", "text": "when is my next appointment and who do i contact to reschedule", "gold": "calendar", "src": "train", "grp": "massive-7256-train", "intent": "calendar_query"}
+{"id": "massive-6016-train", "text": "has the governor enacted the new crime bill yet", "gold": "news", "src": "train", "grp": "massive-6016-train", "intent": "news_query"}
+{"id": "massive-8114-train", "text": "what meetings occurred between january one and january twelve", "gold": "calendar", "src": "train", "grp": "massive-8114-train", "intent": "calendar_query"}
+{"id": "massive-11110-train", "text": "read me the content of this list", "gold": "lists", "src": "train", "grp": "massive-11110-train", "intent": "lists_query"}
+{"id": "massive-11203-train", "text": "remove fruits from the list", "gold": "lists", "src": "train", "grp": "massive-11203-train", "intent": "lists_remove"}
+{"id": "massive-16610-train", "text": "i need to see if i got any new email", "gold": "email", "src": "train", "grp": "massive-16610-train", "intent": "email_query"}
+{"id": "massive-367-train", "text": "what's going on in the news", "gold": "news", "src": "train", "grp": "massive-367-train", "intent": "news_query"}
+{"id": "massive-2266-train", "text": "what's the weather doing in grand rapids mi now", "gold": "weather", "src": "train", "grp": "massive-2266-train", "intent": "weather_query"}
+{"id": "massive-10657-train", "text": "add eggs to the list", "gold": "lists", "src": "train", "grp": "massive-10657-train", "intent": "lists_createoradd"}
+{"id": "massive-632-train", "text": "notify me when there's news on the dakota pipeline", "gold": "news", "src": "train", "grp": "massive-632-train", "intent": "news_query"}
+{"id": "massive-8830-train", "text": "erase all data from calendar", "gold": "calendar", "src": "train", "grp": "massive-8830-train", "intent": "calendar_remove"}
+{"id": "massive-15799-train", "text": "show new emails to me", "gold": "email", "src": "train", "grp": "massive-15799-train", "intent": "email_query"}
+{"id": "massive-10633-train", "text": "provide what is there on the list", "gold": "lists", "src": "train", "grp": "massive-10633-train", "intent": "lists_query"}
+{"id": "massive-7694-train", "text": "anything interesting happening next friday", "gold": "calendar", "src": "train", "grp": "massive-7694-train", "intent": "calendar_query"}
+{"id": "massive-7514-train", "text": "set event on repeat", "gold": "calendar", "src": "train", "grp": "massive-7514-train", "intent": "calendar_set"}
+{"id": "massive-10818-train", "text": "do i have any lists", "gold": "lists", "src": "train", "grp": "massive-10818-train", "intent": "lists_query"}
+{"id": "massive-8131-train", "text": "how many calories did i burn between three and five today", "gold": "calendar", "src": "train", "grp": "massive-8131-train", "intent": "calendar_query"}
+{"id": "massive-7905-train", "text": "open calendar schedule event meeting", "gold": "calendar", "src": "train", "grp": "massive-7905-train", "intent": "calendar_set"}
+{"id": "massive-7431-train", "text": "i want you to remove this event", "gold": "calendar", "src": "train", "grp": "massive-7431-train", "intent": "calendar_remove"}
+{"id": "massive-5075-train", "text": "how is this week's weather", "gold": "weather", "src": "train", "grp": "massive-5075-train", "intent": "weather_query"}
+{"id": "massive-16013-train", "text": "send an email to jesse", "gold": "email", "src": "train", "grp": "massive-16013-train", "intent": "email_sendemail"}
+{"id": "massive-3961-train", "text": "show me a forecast", "gold": "weather", "src": "train", "grp": "massive-3961-train", "intent": "weather_query"}
+{"id": "massive-7581-train", "text": "list my today's meeting", "gold": "calendar", "src": "train", "grp": "massive-7581-train", "intent": "calendar_query"}
+{"id": "massive-8365-train", "text": "i need a reminder at two hundred every day to check on my mother", "gold": "calendar", "src": "train", "grp": "massive-8365-train", "intent": "calendar_set"}
+{"id": "massive-1254-train", "text": "what was the temperature in new york this morning", "gold": "weather", "src": "train", "grp": "massive-1254-train", "intent": "weather_query"}
+{"id": "massive-390-train", "text": "switch the smart plug socket", "gold": "home", "src": "train", "grp": "massive-390-train", "intent": "iot_wemo_on"}
+{"id": "massive-6002-train", "text": "go and make me a coffee", "gold": "home", "src": "train", "grp": "massive-6002-train", "intent": "iot_coffee"}
+{"id": "massive-15834-train", "text": "are there unread emails in my inbox", "gold": "email", "src": "train", "grp": "massive-15834-train", "intent": "email_query"}
+{"id": "massive-179-train", "text": "tell me the weather", "gold": "weather", "src": "train", "grp": "massive-179-train", "intent": "weather_query"}
+{"id": "massive-1974-train", "text": "turn off garage light", "gold": "home", "src": "train", "grp": "massive-1974-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-16755-train", "text": "send voice email", "gold": "email", "src": "train", "grp": "massive-16755-train", "intent": "email_sendemail"}
+{"id": "massive-5559-train", "text": "turn off the bedroom lamp", "gold": "home", "src": "train", "grp": "massive-5559-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-5571-train", "text": "open vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-5571-train", "intent": "iot_cleaning"}
+{"id": "massive-4802-train", "text": "make the lights a different color", "gold": "home", "src": "train", "grp": "massive-4802-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-6907-train", "text": "remind me every first of the month", "gold": "calendar", "src": "train", "grp": "massive-6907-train", "intent": "calendar_set"}
+{"id": "massive-16536-train", "text": "send an email to my supervisor", "gold": "email", "src": "train", "grp": "massive-16536-train", "intent": "email_sendemail"}
+{"id": "massive-10586-train", "text": "remember to put carrots in there", "gold": "lists", "src": "train", "grp": "massive-10586-train", "intent": "lists_createoradd"}
+{"id": "massive-5711-train", "text": "should i take a coat to birmingham this evening", "gold": "weather", "src": "train", "grp": "massive-5711-train", "intent": "weather_query"}
+{"id": "massive-5231-train", "text": "should i wear rain boots", "gold": "weather", "src": "train", "grp": "massive-5231-train", "intent": "weather_query"}
+{"id": "massive-15764-train", "text": "hey please reply to last pawel's email", "gold": "email", "src": "train", "grp": "massive-15764-train", "intent": "email_sendemail"}
+{"id": "massive-10564-train", "text": "please remove task list", "gold": "lists", "src": "train", "grp": "massive-10564-train", "intent": "lists_remove"}
+{"id": "massive-4036-train", "text": "light green", "gold": "home", "src": "train", "grp": "massive-4036-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-489-train", "text": "what is the temperature outside", "gold": "weather", "src": "train", "grp": "massive-489-train", "intent": "weather_query"}
+{"id": "massive-7186-train", "text": "do i have anything scheduled for tomorrow", "gold": "calendar", "src": "train", "grp": "massive-7186-train", "intent": "calendar_query"}
+{"id": "massive-16670-train", "text": "how many unopened emails do i have right now", "gold": "email", "src": "train", "grp": "massive-16670-train", "intent": "email_query"}
+{"id": "massive-12749-train", "text": "can you please buy me a train ticket", "gold": "transport", "src": "train", "grp": "massive-12749-train", "intent": "transport_ticket"}
+{"id": "massive-6838-train", "text": "remind me about mike's birthdays", "gold": "calendar", "src": "train", "grp": "massive-6838-train", "intent": "calendar_set"}
+{"id": "massive-4768-train", "text": "can you please turn off the wemo plug socket", "gold": "home", "src": "train", "grp": "massive-4768-train", "intent": "iot_wemo_off"}
+{"id": "massive-3495-train", "text": "i'd like a coffee now", "gold": "home", "src": "train", "grp": "massive-3495-train", "intent": "iot_coffee"}
+{"id": "massive-12482-train", "text": "find a taxi for me", "gold": "transport", "src": "train", "grp": "massive-12482-train", "intent": "transport_taxi"}
+{"id": "massive-8760-train", "text": "what about this event", "gold": "calendar", "src": "train", "grp": "massive-8760-train", "intent": "calendar_query"}
+{"id": "massive-7526-train", "text": "set on second january about soccer match of manchester", "gold": "calendar", "src": "train", "grp": "massive-7526-train", "intent": "calendar_set"}
+{"id": "massive-3105-train", "text": "what's the current temperature", "gold": "weather", "src": "train", "grp": "massive-3105-train", "intent": "weather_query"}
+{"id": "massive-11135-train", "text": "make new playlist from recent songs", "gold": "lists", "src": "train", "grp": "massive-11135-train", "intent": "lists_createoradd"}
+{"id": "massive-7604-train", "text": "when is dale's birthday", "gold": "calendar", "src": "train", "grp": "massive-7604-train", "intent": "calendar_query"}
+{"id": "massive-8190-train", "text": "please clear my calendar for tomorrow", "gold": "calendar", "src": "train", "grp": "massive-8190-train", "intent": "calendar_remove"}
+{"id": "massive-8419-train", "text": "do i have any reminders for today", "gold": "calendar", "src": "train", "grp": "massive-8419-train", "intent": "calendar_query"}
+{"id": "massive-16465-train", "text": "use that email address as a contact", "gold": "email", "src": "train", "grp": "massive-16465-train", "intent": "email_addcontact"}
+{"id": "massive-15937-train", "text": "add email to contacts", "gold": "email", "src": "train", "grp": "massive-15937-train", "intent": "email_addcontact"}
+{"id": "massive-1506-train", "text": "switch on the wemo plug", "gold": "home", "src": "train", "grp": "massive-1506-train", "intent": "iot_wemo_on"}
+{"id": "massive-1355-train", "text": "system please dim lights to dull blue", "gold": "home", "src": "train", "grp": "massive-1355-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-12126-train", "text": "hey i want to get trains to manchester on wednesday", "gold": "transport", "src": "train", "grp": "massive-12126-train", "intent": "transport_ticket"}
+{"id": "massive-5889-train", "text": "open c. n. n. app", "gold": "news", "src": "train", "grp": "massive-5889-train", "intent": "news_query"}
+{"id": "massive-6825-train", "text": "add a reminder on thursdays at eleven and thirty am and name it dance classes", "gold": "calendar", "src": "train", "grp": "massive-6825-train", "intent": "calendar_set"}
+{"id": "massive-5429-train", "text": "will i need to wear a coat today in the afternoon", "gold": "weather", "src": "train", "grp": "massive-5429-train", "intent": "weather_query"}
+{"id": "massive-12516-train", "text": "what is the fastest route to town", "gold": "transport", "src": "train", "grp": "massive-12516-train", "intent": "transport_traffic"}
+{"id": "massive-11228-train", "text": "what is planned today", "gold": "calendar", "src": "train", "grp": "massive-11228-train", "intent": "calendar_query"}
+{"id": "massive-8695-train", "text": "who was the chief guest of the event", "gold": "calendar", "src": "train", "grp": "massive-8695-train", "intent": "calendar_query"}
+{"id": "massive-12262-train", "text": "can i get a train ticket to chicago for next saturday around noon", "gold": "transport", "src": "train", "grp": "massive-12262-train", "intent": "transport_query"}
+{"id": "massive-7093-train", "text": "clear my calendar", "gold": "calendar", "src": "train", "grp": "massive-7093-train", "intent": "calendar_remove"}
+{"id": "massive-7177-train", "text": "please send a mail to mr. richard stating that i going to met him on first of february twenty seventeen at five p. m. at this office", "gold": "email", "src": "train", "grp": "massive-7177-train", "intent": "email_sendemail"}
+{"id": "massive-5448-train", "text": "it looks sunny and clear today is that true", "gold": "weather", "src": "train", "grp": "massive-5448-train", "intent": "weather_query"}
+{"id": "massive-16898-train", "text": "what was the subject of my last email", "gold": "email", "src": "train", "grp": "massive-16898-train", "intent": "email_query"}
+{"id": "massive-8185-train", "text": "remind me about the march sixteen meeting", "gold": "calendar", "src": "train", "grp": "massive-8185-train", "intent": "calendar_set"}
+{"id": "massive-16904-train", "text": "i want to respond to my last email", "gold": "email", "src": "train", "grp": "massive-16904-train", "intent": "email_sendemail"}
+{"id": "massive-3197-train", "text": "hey can you please make me a creamy coffee", "gold": "home", "src": "train", "grp": "massive-3197-train", "intent": "iot_coffee"}
+{"id": "massive-12815-train", "text": "give me directions to my nearest bank location", "gold": "transport", "src": "train", "grp": "massive-12815-train", "intent": "transport_query"}
+{"id": "massive-16097-train", "text": "olly has amy sent me any new emails", "gold": "email", "src": "train", "grp": "massive-16097-train", "intent": "email_query"}
+{"id": "massive-9093-train", "text": "clear all events in calendar for march", "gold": "calendar", "src": "train", "grp": "massive-9093-train", "intent": "calendar_remove"}
+{"id": "massive-5289-train", "text": "i want to know what the latest news", "gold": "news", "src": "train", "grp": "massive-5289-train", "intent": "news_query"}
+{"id": "massive-15819-train", "text": "create new contact", "gold": "email", "src": "train", "grp": "massive-15819-train", "intent": "email_addcontact"}
+{"id": "massive-10137-train", "text": "call mom", "gold": "email", "src": "train", "grp": "massive-10137-train", "intent": "email_querycontact"}
+{"id": "massive-3805-train", "text": "weather this week", "gold": "weather", "src": "train", "grp": "massive-3805-train", "intent": "weather_query"}
+{"id": "massive-6727-train", "text": "remove chat with allan", "gold": "calendar", "src": "train", "grp": "massive-6727-train", "intent": "calendar_remove"}
+{"id": "massive-2126-train", "text": "what's happening with the hurricane in the gulf", "gold": "news", "src": "train", "grp": "massive-2126-train", "intent": "news_query"}
+{"id": "massive-5803-train", "text": "more light", "gold": "home", "src": "train", "grp": "massive-5803-train", "intent": "iot_hue_lightup"}
+{"id": "massive-7010-train", "text": "send a calendar appointment to jan", "gold": "calendar", "src": "train", "grp": "massive-7010-train", "intent": "calendar_set"}
+{"id": "massive-3278-train", "text": "dim the lights in my bedroom", "gold": "home", "src": "train", "grp": "massive-3278-train", "intent": "iot_hue_lightdim"}
+{"id": "massive-6965-train", "text": "what are the pending reminder for today evening", "gold": "calendar", "src": "train", "grp": "massive-6965-train", "intent": "calendar_query"}
+{"id": "massive-16912-train", "text": "did i receive emails from this person", "gold": "email", "src": "train", "grp": "massive-16912-train", "intent": "email_query"}
+{"id": "massive-7904-train", "text": "i have a meeting tomorrow at two p. m. with john put that in my calendar", "gold": "calendar", "src": "train", "grp": "massive-7904-train", "intent": "calendar_set"}
+{"id": "massive-440-train", "text": "read me new headlines", "gold": "news", "src": "train", "grp": "massive-440-train", "intent": "news_query"}
+{"id": "massive-1399-train", "text": "i always pay attention", "gold": "weather", "src": "train", "grp": "massive-1399-train", "intent": "weather_query"}
+{"id": "massive-563-train", "text": "light color change", "gold": "home", "src": "train", "grp": "massive-563-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-4926-train", "text": "this weeks weather forecast", "gold": "weather", "src": "train", "grp": "massive-4926-train", "intent": "weather_query"}
+{"id": "massive-12830-train", "text": "book an outstation cab of ola", "gold": "transport", "src": "train", "grp": "massive-12830-train", "intent": "transport_taxi"}
+{"id": "massive-12499-train", "text": "is there a train ticket available for boston tomorrow", "gold": "transport", "src": "train", "grp": "massive-12499-train", "intent": "transport_query"}
+{"id": "massive-4633-train", "text": "bedroom lights off now", "gold": "home", "src": "train", "grp": "massive-4633-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-247-train", "text": "play c. n. n. news", "gold": "news", "src": "train", "grp": "massive-247-train", "intent": "news_query"}
+{"id": "massive-2215-train", "text": "tell me about the federal budget", "gold": "news", "src": "train", "grp": "massive-2215-train", "intent": "news_query"}
+{"id": "massive-8076-train", "text": "is today when my paper is due", "gold": "calendar", "src": "train", "grp": "massive-8076-train", "intent": "calendar_query"}
+{"id": "massive-5682-train", "text": "off lights", "gold": "home", "src": "train", "grp": "massive-5682-train", "intent": "iot_hue_lightoff"}
+{"id": "massive-7416-train", "text": "repeat reminder for my appointments for christmas", "gold": "calendar", "src": "train", "grp": "massive-7416-train", "intent": "calendar_set"}
+{"id": "massive-12198-train", "text": "book me a train ticket to newcastle", "gold": "transport", "src": "train", "grp": "massive-12198-train", "intent": "transport_ticket"}
+{"id": "massive-9070-train", "text": "notify me in fifteen before meeting starts", "gold": "calendar", "src": "train", "grp": "massive-9070-train", "intent": "calendar_set"}
+{"id": "massive-16970-train", "text": "i want the email to be sent to my new email address a. b. c. at gmail dot com", "gold": "email", "src": "train", "grp": "massive-16970-train", "intent": "email_sendemail"}
+{"id": "massive-7725-train", "text": "set a reminder to happy thing every two days", "gold": "calendar", "src": "train", "grp": "massive-7725-train", "intent": "calendar_set"}
+{"id": "massive-12621-train", "text": "what time does the train run in beaumont tx", "gold": "transport", "src": "train", "grp": "massive-12621-train", "intent": "transport_query"}
+{"id": "massive-2616-train", "text": "am i going to have to worry about the snowplows burying my car in the driveway tuesday", "gold": "weather", "src": "train", "grp": "massive-2616-train", "intent": "weather_query"}
+{"id": "massive-7464-train", "text": "date with love the next day", "gold": "calendar", "src": "train", "grp": "massive-7464-train", "intent": "calendar_set"}
+{"id": "massive-9010-train", "text": "is the birthday event on fifteenth of this month true", "gold": "calendar", "src": "train", "grp": "massive-9010-train", "intent": "calendar_query"}
+{"id": "massive-7126-train", "text": "remind me to send the presentation today at one p. m.", "gold": "calendar", "src": "train", "grp": "massive-7126-train", "intent": "calendar_set"}
+{"id": "massive-7441-train", "text": "meeting with love the next day", "gold": "calendar", "src": "train", "grp": "massive-7441-train", "intent": "calendar_set"}
+{"id": "massive-10918-train", "text": "i'd like to delete the middle list", "gold": "lists", "src": "train", "grp": "massive-10918-train", "intent": "lists_remove"}
+{"id": "massive-15818-train", "text": "did i get any replies from jan", "gold": "email", "src": "train", "grp": "massive-15818-train", "intent": "email_query"}
+{"id": "massive-9056-train", "text": "alexa make an event reminder for a meeting with mona on tuesday", "gold": "calendar", "src": "train", "grp": "massive-9056-train", "intent": "calendar_set"}
+{"id": "massive-1660-train", "text": "take it in hand", "gold": "home", "src": "train", "grp": "massive-1660-train", "intent": "iot_cleaning"}
+{"id": "massive-8878-train", "text": "what do i have going on next friday", "gold": "calendar", "src": "train", "grp": "massive-8878-train", "intent": "calendar_query"}
+{"id": "massive-15831-train", "text": "start a new email to", "gold": "email", "src": "train", "grp": "massive-15831-train", "intent": "email_sendemail"}
+{"id": "massive-12519-train", "text": "how much time is a train to there", "gold": "transport", "src": "train", "grp": "massive-12519-train", "intent": "transport_query"}
+{"id": "massive-8776-train", "text": "set reminder at three p. m.", "gold": "calendar", "src": "train", "grp": "massive-8776-train", "intent": "calendar_set"}
+{"id": "massive-4880-train", "text": "change color", "gold": "home", "src": "train", "grp": "massive-4880-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-4661-train", "text": "read me the news from nsnbc", "gold": "news", "src": "train", "grp": "massive-4661-train", "intent": "news_query"}
+{"id": "massive-7787-train", "text": "remind me the night before my doctor's appointment", "gold": "calendar", "src": "train", "grp": "massive-7787-train", "intent": "calendar_set"}
+{"id": "massive-8675-train", "text": "who is going to my meeting at nine am", "gold": "calendar", "src": "train", "grp": "massive-8675-train", "intent": "calendar_query"}
+{"id": "massive-12229-train", "text": "find a taxi service close to me", "gold": "transport", "src": "train", "grp": "massive-12229-train", "intent": "transport_taxi"}
+{"id": "massive-2053-train", "text": "make my iroomba clean the living room", "gold": "home", "src": "train", "grp": "massive-2053-train", "intent": "iot_cleaning"}
+{"id": "massive-3358-train", "text": "keep track of the standing rock protest", "gold": "news", "src": "train", "grp": "massive-3358-train", "intent": "news_query"}
+{"id": "massive-3232-train", "text": "start making a coffee", "gold": "home", "src": "train", "grp": "massive-3232-train", "intent": "iot_coffee"}
+{"id": "massive-11254-train", "text": "please update list with new item", "gold": "lists", "src": "train", "grp": "massive-11254-train", "intent": "lists_createoradd"}
+{"id": "massive-4760-train", "text": "is snow in the forecast", "gold": "weather", "src": "train", "grp": "massive-4760-train", "intent": "weather_query"}
+{"id": "massive-11123-train", "text": "tell me items that are on my shopping list", "gold": "lists", "src": "train", "grp": "massive-11123-train", "intent": "lists_query"}
+{"id": "massive-6845-train", "text": "create an event for a john's birthday", "gold": "calendar", "src": "train", "grp": "massive-6845-train", "intent": "calendar_set"}
+{"id": "massive-17070-train", "text": "do i have a new email from sandy", "gold": "email", "src": "train", "grp": "massive-17070-train", "intent": "email_query"}
+{"id": "massive-3259-train", "text": "what is the most recent update regarding the hurricane katrina", "gold": "news", "src": "train", "grp": "massive-3259-train", "intent": "news_query"}
+{"id": "massive-7832-train", "text": "do i have a doctor's appointment this thursday", "gold": "calendar", "src": "train", "grp": "massive-7832-train", "intent": "calendar_query"}
+{"id": "massive-12649-train", "text": "what is the traffic like today", "gold": "transport", "src": "train", "grp": "massive-12649-train", "intent": "transport_traffic"}
+{"id": "massive-2235-train", "text": "headlines from dhaka tribune", "gold": "news", "src": "train", "grp": "massive-2235-train", "intent": "news_query"}
+{"id": "massive-8599-train", "text": "remind me in the morning to call my mother", "gold": "calendar", "src": "train", "grp": "massive-8599-train", "intent": "calendar_set"}
+{"id": "massive-8567-train", "text": "schedule brunch at ten am today and invite tiffany and jessica please", "gold": "calendar", "src": "train", "grp": "massive-8567-train", "intent": "calendar_set"}
+{"id": "massive-7248-train", "text": "today is john's birthday", "gold": "calendar", "src": "train", "grp": "massive-7248-train", "intent": "calendar_query"}
+{"id": "massive-3604-train", "text": "what's the latest news from b. b. c.", "gold": "news", "src": "train", "grp": "massive-3604-train", "intent": "news_query"}
+{"id": "massive-8293-train", "text": "repetitive event added to calendar", "gold": "calendar", "src": "train", "grp": "massive-8293-train", "intent": "calendar_set"}
+{"id": "massive-5766-train", "text": "initiate vacuum cleaner", "gold": "home", "src": "train", "grp": "massive-5766-train", "intent": "iot_cleaning"}
+{"id": "massive-16516-train", "text": "reply to this email", "gold": "email", "src": "train", "grp": "massive-16516-train", "intent": "email_sendemail"}
+{"id": "massive-9020-train", "text": "first week of march meetings", "gold": "calendar", "src": "train", "grp": "massive-9020-train", "intent": "calendar_query"}
+{"id": "massive-7418-train", "text": "meeting this friday", "gold": "calendar", "src": "train", "grp": "massive-7418-train", "intent": "calendar_set"}
+{"id": "massive-3182-train", "text": "turn off on the socket", "gold": "home", "src": "train", "grp": "massive-3182-train", "intent": "iot_wemo_off"}
+{"id": "massive-10595-train", "text": "what's on the list", "gold": "lists", "src": "train", "grp": "massive-10595-train", "intent": "lists_query"}
+{"id": "massive-497-train", "text": "confirm whether the color is blue", "gold": "home", "src": "train", "grp": "massive-497-train", "intent": "iot_hue_lightchange"}
+{"id": "massive-11147-train", "text": "the list contain what", "gold": "lists", "src": "train", "grp": "massive-11147-train", "intent": "lists_query"}
+{"id": "massive-16300-train", "text": "what are the latest mails i received", "gold": "email", "src": "train", "grp": "massive-16300-train", "intent": "email_query"}
+{"id": "massive-8636-train", "text": "can you delete the doctors appointment i had tuesday", "gold": "calendar", "src": "train", "grp": "massive-8636-train", "intent": "calendar_remove"}
+{"id": "massive-3569-train", "text": "make five coffee tell the coffee machine", "gold": "home", "src": "train", "grp": "massive-3569-train", "intent": "iot_coffee"}
+{"id": "massive-8887-train", "text": "alert me two hours before my meeting on tuesday with client happening at ten in the morning", "gold": "calendar", "src": "train", "grp": "massive-8887-train", "intent": "calendar_set"}
+{"id": "massive-11148-train", "text": "mention the thing in the list", "gold": "lists", "src": "train", "grp": "massive-11148-train", "intent": "lists_query"}
+{"id": "massive-12893-train", "text": "i want you to book a train ticket for me", "gold": "transport", "src": "train", "grp": "massive-12893-train", "intent": "transport_ticket"}
+{"id": "massive-12132-train", "text": "what's the next train at westcombe park", "gold": "transport", "src": "train", "grp": "massive-12132-train", "intent": "transport_query"}
+{"id": "massive-1350-train", "text": "what's the weather for this week", "gold": "weather", "src": "train", "grp": "massive-1350-train", "intent": "weather_query"}
+{"id": "massive-8754-train", "text": "schedule my doctors appointment on friday at two p. m.", "gold": "calendar", "src": "train", "grp": "massive-8754-train", "intent": "calendar_set"}
+{"id": "massive-4961-train", "text": "need to carry a umbrella this evening", "gold": "weather", "src": "train", "grp": "massive-4961-train", "intent": "weather_query"}
