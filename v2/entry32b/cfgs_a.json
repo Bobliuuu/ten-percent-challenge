@@ -1,0 +1,5 @@
+[
+{"name":"e32_base","mode":"base","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","maxmem_list":["40GiB","40GiB"],"vllm_util":0.8},
+{"name":"e32_k5300","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","D":8,"K":5300,"gen_tokens":1000000,"ncal":2048,"maxmem_list":["28GiB","40GiB"],"vllm_util":0.8,"base_name":"e32_base","save_pack":true},
+{"name":"e32_sens","mode":"sens","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","D":8,"sens_K":8192,"ncal":256,"gen_tokens":300000,"nsens_eval":24,"emb4":false,"no_general":true,"maxmem_list":["28GiB","40GiB"]}
+]

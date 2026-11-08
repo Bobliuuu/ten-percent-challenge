@@ -1,0 +1,14 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-4kHuUtoDrCBF2AV9wfAiRy
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/entry32b/q32.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/entry32b
+├── ✓ Created Function run.
+├── ✓ Created Function run_big.
+└── ✓ Created Function run_huge.
+('e32_base', 'fc-01M6WP8NXS9DCXGJ0V6D4TJCTK')
+('e32_k5300', 'fc-01M6WP8P035P9Z9AFK4SQB2BZF')
+('e32_sens', 'fc-01M6WP8P2R2TDCK80G2ENN45S5')
+[modal-client] 2026-11-07T23:22:13-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-4kHuUtoDrCBF2AV9wfAiRy

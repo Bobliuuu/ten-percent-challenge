@@ -21,3 +21,5 @@ known_hosts
 vast_api_key
 sw.sh
 *.local.sh
+v2/entry32b/dev_inj.jsonl
+v2/entry32b/calib_inj.jsonl
