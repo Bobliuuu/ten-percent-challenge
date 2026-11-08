@@ -1,0 +1,9 @@
+++ dirname run.sh
++ cd .
++ mkdir -p results
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
++ tail -2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ python code/runner.py 1
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   6%|▌         | 1/17 [05:24<1:26:30, 324.43s/it]Fetching 17 files:  53%|█████▎    | 9/17 [05:46<03:49, 28.67s/it]   Fetching 17 files:  59%|█████▉    | 10/17 [06:16<03:21, 28.84s/it]Fetching 17 files:  65%|██████▍   | 11/17 [06:59<03:06, 31.15s/it]Fetching 17 files:  71%|███████   | 12/17 [07:13<02:19, 27.81s/it]Fetching 17 files:  76%|███████▋  | 13/17 [08:01<02:09, 32.28s/it]Fetching 17 files:  82%|████████▏ | 14/17 [08:25<01:31, 30.39s/it]Fetching 17 files:  88%|████████▊ | 15/17 [08:28<00:46, 23.49s/it]Fetching 17 files:  94%|█████████▍| 16/17 [08:31<00:17, 17.86s/it]Fetching 17 files: 100%|██████████| 17/17 [08:33<00:00, 13.50s/it]Fetching 17 files: 100%|██████████| 17/17 [08:33<00:00, 30.18s/it]
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 214.53it/s]

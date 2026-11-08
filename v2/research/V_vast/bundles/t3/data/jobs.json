@@ -75,5 +75,45 @@
     "g": 256
    }
   ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 24,
+    "ct_bs": 4
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 24,
+    "ct_bs": 4,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ],
+  "gpu_load": false
+ },
+ {
+  "model": "Qwen/Qwen3-14B",
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 24,
+    "ct_bs": 4
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 24,
+    "ct_bs": 4,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ],
+  "gpu_load": false
  }
 ]
