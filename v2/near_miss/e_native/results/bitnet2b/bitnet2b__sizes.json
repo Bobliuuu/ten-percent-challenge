@@ -1,0 +1,51 @@
+{
+ "ternary_params": 2084044800,
+ "ternary_bits_ideal": 3142782119.227025,
+ "ternary_bytes_5pb": 416808960,
+ "small_bytes": 881060,
+ "emb": [
+  128256,
+  2560
+ ],
+ "head": null,
+ "other_params": 440530,
+ "total_params": 2412820690,
+ "ternary_bytes_ideal": 392847764.9033781,
+ "fp16_ref_bytes": 4825641380,
+ "model": "microsoft/bitnet-b1.58-2B-4T",
+ "vocab": 128256,
+ "dim": 2560,
+ "tied": true,
+ "cands": [
+  [
+   16387,
+   16,
+   64,
+   true
+  ],
+  [
+   30741,
+   8,
+   64,
+   true
+  ],
+  [
+   57830,
+   4,
+   64,
+   true
+  ],
+  [
+   74167,
+   3,
+   64,
+   true
+  ],
+  [
+   103368,
+   2,
+   64,
+   true
+  ]
+ ]
+}

@@ -65,6 +65,13 @@ def special_ids():
             if a["content"] in names: ids.add(a["id"])
     return sorted(ids)
 SPECIAL = special_ids()
+if os.environ.get("TASKVOCAB", "1") == "1":   # task-vocab trim: keep every token of the FIXED task prompt templates + label words (not of any eval item)
+    _tk = __import__("tokenizers").Tokenizer.from_file(tok_path)
+    _tpl = [open(D + "/tox_prompt.txt").read().replace("{t}", ""), open(D + "/inj_prompt.txt").read().replace("{t}", ""), "Alarm, Weather, Music, Calendar, Lists, News, Transport.\n\nRequest:",
+            "safe toxic hate sexual violence injection benign Alarm Weather Music Calendar Lists News Transport", "<tool_call>\n{\"name\": \"\", \"arguments\": {}}\n</tool_call>", TC.get("chat_template") if isinstance(TC.get("chat_template"), str) else "",
+            "You are a function calling assistant. You may call one or more of these functions to answer the user's request.\n<tools>\n</tools>\n"]
+    EXTRA = sorted({i for s in _tpl for i in _tk.encode(s, add_special_tokens=False).ids}); SPECIAL = sorted(set(SPECIAL) | set(EXTRA))
+    print("TASKVOCAB extra ids", len(EXTRA), flush=True)
 print("SPECIAL_IDS", len(SPECIAL), "FULLV", FULLV, flush=True)
 def trim_tok(N):
     """prefix truncation: keep ids < N plus template/special tokens. returns (tokenizers.Tokenizer, old->new map, keep list, shipped xz bytes)"""
