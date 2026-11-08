@@ -1,0 +1,1 @@
+- 2026-11-08 relaunch 14B a/b with easy task (previous apps stopped, edits had been reverted)

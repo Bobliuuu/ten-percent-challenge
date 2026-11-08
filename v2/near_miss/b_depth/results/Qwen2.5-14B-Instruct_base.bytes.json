@@ -1,0 +1,1 @@
+{"name": "Qwen2.5-14B-Instruct_base", "cfg": {"name": "base", "bits": 16}, "bytes": {"body_q": 0, "body_fp16": 26425796608, "embed": 419696640.0, "head": 419696640.0, "scales": 0, "tied": false, "tokenizer": 4456864, "layers_kept": 48, "dropped": [], "total_bytes": 27269646752.0, "base_fp16_bytes": 29540067328, "size_pct": 92.314098167786}, "ok": true}
