@@ -1,0 +1,33 @@
+{
+ "sealed_utc": "2026-11-08T14:03:43.832083Z",
+ "note": "MoE entry uses existing disjoint splits of v2/exp/SPLITS.json (hash-sealed before any MoE run). CAL (AG only, unlabeled text) -> routing mass; SEL (AG+BBC) -> all choices; REP (AG+BBC+HuffPost, HuffPost never in CAL/SEL = unseen source) -> reported once per finalist. The sealed X15 NEWS lock (v2/exp/LOCK_NEWS_MANIFEST.json) is NOT touched.",
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "files": {
+  "cal": {
+   "path": "v2/exp/splits/cal.jsonl",
+   "sha256": "a5e8b23cf7450a69207e72b4d8a953950e6dd4ff9d5378db8a7c22fc26430fa2",
+   "n": 8000
+  },
+  "sel": {
+   "path": "v2/exp/splits/sel.jsonl",
+   "sha256": "645b95b73862d36704616c8e3083c67c72dd6d64249f0860ba3ce0a4ee6f5843",
+   "n": 3839
+  },
+  "rep": {
+   "path": "v2/exp/splits/rep.jsonl",
+   "sha256": "5f505befc34c800e09e1597e4c8ba79a645010ef691ab99c29f2b686b88bee76",
+   "n": 7234
+  },
+  "gen": {
+   "path": "v2/exp/splits/gen.jsonl",
+   "sha256": "401b4766a7352c08e7d9fd23ec197558f6b5ca0021e6fac483c7df9eb8040119",
+   "n": 2001
+  }
+ },
+ "roles": {
+  "cal": "routing mass / GPTQ Hessians",
+  "sel": "choices (experts kept, bits)",
+  "rep": "report (finalists only)",
+  "gen": "unused"
+ }
+}

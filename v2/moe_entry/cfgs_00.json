@@ -1,0 +1,4 @@
+[{"name":"base","sets":["SEL"],"ncal":2000},
+ {"name":"r_f55_b3","keep":55,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_all_b3","keep":128,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_f64_b3","keep":64,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]}]
