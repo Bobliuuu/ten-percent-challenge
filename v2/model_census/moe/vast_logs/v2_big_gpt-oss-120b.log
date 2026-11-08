@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 15 files:   0%|          | 0/15 [00:00<?, ?it/s]Fetching 15 files:  67%|██████▋   | 10/15 [00:15<00:07,  1.52s/it]Fetching 15 files:  73%|███████▎  | 11/15 [00:25<00:10,  2.63s/it]Fetching 15 files:  80%|████████  | 12/15 [00:44<00:15,  5.14s/it]Fetching 15 files:  87%|████████▋ | 13/15 [00:53<00:11,  5.82s/it]Fetching 15 files:  93%|█████████▎| 14/15 [01:08<00:07,  7.58s/it]Fetching 15 files: 100%|██████████| 15/15 [01:20<00:00,  8.66s/it]Fetching 15 files: 100%|██████████| 15/15 [01:20<00:00,  5.38s/it]
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights:   1%|          | 5/615 [00:00<01:25,  7.10it/s]Loading weights:   1%|          | 7/615 [00:01<02:03,  4.92it/s]Loading weights:   4%|▎         | 22/615 [00:01<00:34, 16.97it/s]Loading weights:   4%|▍         | 25/615 [00:02<00:52, 11.25it/s]Loading weights:   7%|▋         | 41/615 [00:02<00:23, 24.24it/s]Loading weights:   9%|▉         | 58/615 [00:02<00:14, 39.15it/s]Loading weights:  12%|█▏        | 75/615 [00:02<00:09, 54.14it/s]Loading weights:  15%|█▍        | 92/615 [00:02<00:07, 68.50it/s]Loading weights:  18%|█▊        | 109/615 [00:02<00:06, 81.36it/s]Loading weights:  20%|██        | 126/615 [00:03<00:05, 92.27it/s]Loading weights:  23%|██▎       | 143/615 [00:03<00:04, 101.00it/s]Loading weights:  26%|██▌       | 158/615 [00:03<00:06, 70.21it/s] Loading weights:  27%|██▋       | 168/615 [00:04<00:13, 32.42it/s]Loading weights:  31%|███       | 192/615 [00:04<00:08, 48.34it/s]Loading weights:  34%|███▍      | 209/615 [00:04<00:06, 59.35it/s]Loading weights:  37%|███▋      | 226/615 [00:04<00:05, 70.62it/s]Loading weights:  40%|███▉      | 243/615 [00:05<00:04, 81.42it/s]Loading weights:  42%|████▏     | 260/615 [00:05<00:03, 91.16it/s]Loading weights:  45%|████▌     | 277/615 [00:05<00:03, 99.53it/s]Loading weights:  48%|████▊     | 294/615 [00:05<00:03, 106.35it/s]Loading weights:  50%|████▉     | 307/615 [00:12<00:41,  7.43it/s] Loading weights:  51%|█████▏    | 316/615 [00:19<01:16,  3.90it/s]Loading weights:  56%|█████▌    | 345/615 [00:19<00:37,  7.28it/s]Loading weights:  59%|█████▉    | 362/615 [00:19<00:25,  9.93it/s]Loading weights:  62%|██████▏   | 379/615 [00:19<00:17, 13.53it/s]Loading weights:  64%|██████▍   | 396/615 [00:19<00:11, 18.31it/s]Loading weights:  67%|██████▋   | 413/615 [00:19<00:08, 24.46it/s]Loading weights:  70%|██████▉   | 430/615 [00:19<00:05, 32.15it/s]Loading weights:  73%|███████▎  | 447/615 [00:19<00:04, 41.32it/s]Loading weights:  75%|███████▌  | 464/615 [00:20<00:02, 51.71it/s]Loading weights:  78%|███████▊  | 477/615 [00:26<00:19,  7.19it/s]Loading weights:  79%|███████▉  | 486/615 [00:33<00:32,  4.01it/s]Loading weights:  84%|████████▎ | 515/615 [00:33<00:13,  7.45it/s]Loading weights:  87%|████████▋ | 532/615 [00:33<00:08, 10.17it/s]Loading weights:  89%|████████▉ | 549/615 [00:33<00:04, 13.84it/s]Loading weights:  92%|█████████▏| 566/615 [00:33<00:02, 18.71it/s]Loading weights:  95%|█████████▍| 583/615 [00:33<00:01, 24.88it/s]Loading weights:  98%|█████████▊| 600/615 [00:33<00:00, 32.64it/s]Loading weights: 100%|██████████| 615/615 [00:33<00:00, 18.11it/s]
+Traceback (most recent call last):
+  File "/root/runner2.py", line 6, in <module>
+    moe_probe2.main(job)
+  File "/root/moe_probe2.py", line 26, in main
+    model = Cls.from_pretrained(MID, **kw).eval()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 406, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4375, in from_pretrained
+    accelerate_dispatch(model, hf_quantizer, device_map, offload_folder, disk_offload_index, offload_buffers)
+  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/accelerate.py", line 430, in accelerate_dispatch
+    dispatch_model(model, **device_map_kwargs)
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/big_modeling.py", line 434, in dispatch_model
+    attach_align_device_hook_on_blocks(
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 707, in attach_align_device_hook_on_blocks
+    attach_align_device_hook_on_blocks(
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 665, in attach_align_device_hook_on_blocks
+    add_hook_to_module(module, hook)
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 183, in add_hook_to_module
+    module = hook.init_hook(module)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 305, in init_hook
+    set_module_tensor_to_device(module, name, self.execution_device, tied_params_map=self.tied_params_map)
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/utils/modeling.py", line 345, in set_module_tensor_to_device
+    new_value = old_value.to(device, non_blocking=non_blocking)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.96 GiB. GPU 1 has a total capacity of 79.25 GiB of which 2.89 GiB is free. Including non-PyTorch memory, this process has 76.35 GiB memory in use. Of the allocated memory 55.89 GiB is allocated by PyTorch, and 19.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

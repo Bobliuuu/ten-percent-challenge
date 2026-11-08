@@ -1,0 +1,99 @@
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s]Loading weights:   0%|          | 1/615 [00:00<05:59,  1.71it/s]Loading weights:   1%|          | 5/615 [00:01<03:28,  2.93it/s]Loading weights:   1%|          | 7/615 [00:04<06:58,  1.45it/s]Loading weights:   4%|▎         | 22/615 [00:05<02:03,  4.81it/s]Loading weights:   4%|▍         | 24/615 [00:06<02:08,  4.60it/s]Loading weights:   6%|▋         | 39/615 [00:06<00:54, 10.60it/s]Loading weights:   9%|▉         | 56/615 [00:06<00:29, 19.08it/s]Loading weights:  12%|█▏        | 73/615 [00:06<00:18, 29.28it/s]Loading weights:  15%|█▍        | 90/615 [00:06<00:12, 40.93it/s]Loading weights:  17%|█▋        | 107/615 [00:06<00:09, 53.45it/s]Loading weights:  20%|██        | 124/615 [00:06<00:07, 66.07it/s]Loading weights:  23%|██▎       | 141/615 [00:07<00:06, 78.09it/s]Loading weights:  26%|██▌       | 158/615 [00:08<00:12, 36.29it/s]Loading weights:  27%|██▋       | 167/615 [00:09<00:21, 20.76it/s]Loading weights:  28%|██▊       | 175/615 [00:10<00:33, 13.13it/s]Loading weights:  29%|██▉       | 180/615 [00:12<00:43,  9.97it/s]Loading weights:  32%|███▏      | 194/615 [00:12<00:27, 15.19it/s]Loading weights:  34%|███▍      | 211/615 [00:12<00:17, 23.17it/s]Loading weights:  37%|███▋      | 228/615 [00:12<00:11, 32.81it/s]Loading weights:  40%|███▉      | 245/615 [00:12<00:08, 43.75it/s]Loading weights:  43%|████▎     | 262/615 [00:12<00:06, 55.65it/s]Loading weights:  45%|████▌     | 279/615 [00:12<00:04, 67.72it/s]Loading weights:  48%|████▊     | 296/615 [00:12<00:04, 79.19it/s]Loading weights:  51%|█████     | 311/615 [00:14<00:09, 33.37it/s]Loading weights:  52%|█████▏    | 320/615 [00:15<00:15, 19.20it/s]Loading weights:  53%|█████▎    | 328/615 [00:17<00:29,  9.87it/s]Loading weights:  54%|█████▍    | 333/615 [00:19<00:35,  8.04it/s]Loading weights:  56%|█████▋    | 347/615 [00:19<00:21, 12.31it/s]Loading weights:  59%|█████▉    | 364/615 [00:19<00:13, 19.13it/s]Loading weights:  62%|██████▏   | 381/615 [00:19<00:08, 27.56it/s]Loading weights:  65%|██████▍   | 398/615 [00:19<00:05, 37.51it/s]Loading weights:  67%|██████▋   | 415/615 [00:19<00:04, 48.76it/s]Loading weights:  70%|███████   | 432/615 [00:19<00:03, 60.59it/s]Loading weights:  73%|███████▎  | 449/615 [00:20<00:02, 72.40it/s]Loading weights:  75%|███████▌  | 464/615 [00:21<00:04, 31.59it/s]Loading weights:  77%|███████▋  | 473/615 [00:22<00:07, 18.08it/s]Loading weights:  78%|███████▊  | 481/615 [00:23<00:09, 13.76it/s]Loading weights:  79%|███████▉  | 486/615 [00:25<00:15,  8.40it/s]Loading weights:  84%|████████▎ | 515/615 [00:25<00:05, 17.70it/s]Loading weights:  87%|████████▋ | 532/615 [00:25<00:03, 24.34it/s]Loading weights:  89%|████████▉ | 549/615 [00:26<00:02, 32.55it/s]Loading weights:  92%|█████████▏| 566/615 [00:26<00:01, 42.21it/s]Loading weights:  95%|█████████▍| 583/615 [00:26<00:00, 53.03it/s]Loading weights:  98%|█████████▊| 600/615 [00:26<00:00, 64.45it/s]Loading weights: 100%|██████████| 615/615 [00:26<00:00, 23.22it/s]
+[    35s] loaded 116.829156672 B params
+ARCH_JSON {"model": "openai/gpt-oss-120b", "moe_layers": 36, "experts": 128, "topk": 4, "total_params": 116829156672, "expert_params": 114661785600, "nonexpert_params": 2167371072, "expert_share": 0.9814483718470643, "router_cls": "GptOssTopKRouter", "experts_cls": "GptOssExperts", "gate_up_shape": [128, 2880, 5760], "fp16_gb": 233.658313344}
+[    83s] stats done
+CONC_JSON {"model": "openai/gpt-oss-120b", "SKILL7": {"n90": 0.3207465410232544, "n95": 0.4066840410232544, "n99": 0.5399305820465088, "entropy_norm": 0.748866856098175, "mass_in_own_top50": 0.977834165096283, "mass_in_own_top30": 0.8819032311439514, "never_used": 0.2309027761220932, "cross_top50": {"BANK8": 0.9018166065216064, "NEWS": 0.920952558517456}, "cross_top30": {"BANK8": 0.7800338268280029, "NEWS": 0.7933959364891052}}, "BANK8": {"n90": 0.3268229067325592, "n95": 0.4292534589767456, "n99": 0.609375, "entropy_norm": 0.7453899383544922, "mass_in_own_top50": 0.9669663906097412, "mass_in_own_top30": 0.8764125108718872, "never_used": 0.1202256977558136, "cross_top50": {"SKILL7": 0.9413001537322998, "NEWS": 0.9164864420890808}, "cross_top30": {"SKILL7": 0.7991843819618225, "NEWS": 0.7650002241134644}}, "NEWS": {"n90": 0.3576388955116272, "n95": 0.4537760317325592, "n99": 0.6111111044883728, "entropy_norm": 0.7738916873931885, "mass_in_own_top50": 0.9629666209220886, "mass_in_own_top30": 0.853979229927063, "never_used": 0.1516927033662796, "cross_top50": {"SKILL7": 0.9528696537017822, "BANK8": 0.904937207698822}, "cross_top30": {"SKILL7": 0.8374097943305969, "BANK8": 0.7689943313598633}}}
+Traceback (most recent call last):
+  File "/root/runner2.py", line 6, in <module>
+    moe_probe2.main(job)
+  File "/root/moe_probe2.py", line 150, in main
+    o0 = gen_eval(SEL[t]); BC[t] = [norm(o) == r["answer"].lower() for o, r in zip(o0, SEL[t])]
+         ^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/moe_probe2.py", line 120, in gen_eval
+    g = model.generate(input_ids=ids, attention_mask=am, max_new_tokens=max_new, do_sample=False, pad_token_id=tok.pad_token_id)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py", line 3000, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py", line 3228, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py", line 617, in forward
+    outputs: MoeModelOutputWithPast = self.model(
+                                      ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py", line 475, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py", line 366, in forward
+    hidden_states, _ = self.mlp(hidden_states)  # diff with llama: router scores
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/gpt_oss/modeling_gpt_oss.py", line 143, in forward
+    hidden_states = self.experts(hidden_states, router_indices, router_scores)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/moe.py", line 602, in forward
+    return experts_forward(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/moe.py", line 139, in batched_mm_experts_forward
+    selected_weights = self.gate_up_proj[expert_ids]
+                       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 7.91 GiB. GPU 0 has a total capacity of 79.25 GiB of which 5.78 GiB is free. Including non-PyTorch memory, this process has 73.46 GiB memory in use. Of the allocated memory 55.13 GiB is allocated by PyTorch, and 17.83 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

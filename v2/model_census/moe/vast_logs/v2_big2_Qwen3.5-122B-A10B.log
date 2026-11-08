@@ -1,0 +1,105 @@
+Loading weights:   0%|          | 0/831 [00:00<?, ?it/s]Loading weights:   2%|▏         | 13/831 [00:00<00:13, 60.68it/s]Loading weights:   2%|▏         | 20/831 [00:00<00:26, 30.31it/s]Loading weights:   4%|▎         | 31/831 [00:00<00:22, 35.37it/s]Loading weights:   4%|▍         | 35/831 [00:01<00:29, 26.83it/s]Loading weights:   6%|▌         | 49/831 [00:01<00:20, 38.83it/s]Loading weights:   6%|▋         | 54/831 [00:01<00:26, 29.05it/s]Loading weights:   7%|▋         | 58/831 [00:01<00:27, 27.78it/s]Loading weights:   7%|▋         | 62/831 [00:02<00:34, 22.18it/s]Loading weights:  10%|▉         | 82/831 [00:02<00:17, 41.88it/s]Loading weights:  10%|█         | 87/831 [00:02<00:23, 31.28it/s]Loading weights:  12%|█▏        | 100/831 [00:02<00:18, 39.11it/s]Loading weights:  13%|█▎        | 105/831 [00:03<00:24, 30.00it/s]Loading weights:  14%|█▍        | 118/831 [00:03<00:18, 38.40it/s]Loading weights:  15%|█▍        | 123/831 [00:03<00:22, 31.46it/s]Loading weights:  15%|█▌        | 127/831 [00:03<00:22, 31.27it/s]Loading weights:  16%|█▌        | 131/831 [00:04<00:31, 22.01it/s]Loading weights:  18%|█▊        | 151/831 [00:04<00:17, 38.83it/s]Loading weights:  19%|█▉        | 156/831 [00:04<00:24, 27.66it/s]Loading weights:  20%|██        | 168/831 [00:05<00:19, 34.73it/s]Loading weights:  21%|██        | 173/831 [00:05<00:24, 27.17it/s]Loading weights:  23%|██▎       | 187/831 [00:05<00:17, 35.97it/s]Loading weights:  23%|██▎       | 192/831 [00:06<00:21, 29.10it/s]Loading weights:  24%|██▎       | 196/831 [00:06<00:23, 26.98it/s]Loading weights:  24%|██▍       | 200/831 [00:06<00:29, 21.54it/s]Loading weights:  26%|██▋       | 220/831 [00:06<00:15, 39.67it/s]Loading weights:  27%|██▋       | 225/831 [00:07<00:20, 29.96it/s]Loading weights:  29%|██▊       | 238/831 [00:07<00:15, 37.57it/s]Loading weights:  29%|██▉       | 243/831 [00:07<00:20, 28.29it/s]Loading weights:  31%|███       | 256/831 [00:07<00:16, 35.52it/s]Loading weights:  31%|███▏      | 261/831 [00:08<00:20, 27.70it/s]Loading weights:  32%|███▏      | 265/831 [00:08<00:21, 26.92it/s]Loading weights:  32%|███▏      | 269/831 [00:08<00:26, 21.28it/s]Loading weights:  35%|███▍      | 289/831 [00:09<00:13, 38.86it/s]Loading weights:  35%|███▌      | 294/831 [00:09<00:18, 29.16it/s]Loading weights:  37%|███▋      | 307/831 [00:09<00:14, 36.54it/s]Loading weights:  38%|███▊      | 312/831 [00:10<00:22, 23.00it/s]Loading weights:  39%|███▉      | 323/831 [00:11<00:35, 14.13it/s]Loading weights:  40%|████      | 334/831 [00:12<00:30, 16.50it/s]Loading weights:  41%|████      | 337/831 [00:12<00:42, 11.53it/s]Loading weights:  43%|████▎     | 358/831 [00:13<00:23, 19.93it/s]Loading weights:  43%|████▎     | 361/831 [00:14<00:34, 13.60it/s]Loading weights:  45%|████▌     | 376/831 [00:14<00:25, 17.89it/s]Loading weights:  46%|████▌     | 379/831 [00:15<00:36, 12.55it/s]Loading weights:  47%|████▋     | 394/831 [00:15<00:25, 16.94it/s]Loading weights:  48%|████▊     | 397/831 [00:16<00:37, 11.63it/s]Loading weights:  48%|████▊     | 403/831 [00:17<00:31, 13.68it/s]Loading weights:  49%|████▉     | 406/831 [00:17<00:45,  9.31it/s]Loading weights:  51%|█████▏    | 427/831 [00:18<00:23, 17.33it/s]Loading weights:  52%|█████▏    | 430/831 [00:19<00:37, 10.68it/s]Loading weights:  54%|█████▎    | 445/831 [00:20<00:26, 14.83it/s]Loading weights:  54%|█████▍    | 448/831 [00:21<00:37, 10.30it/s]Loading weights:  56%|█████▌    | 462/831 [00:21<00:26, 14.09it/s]Loading weights:  56%|█████▌    | 464/831 [00:22<00:38,  9.53it/s]Loading weights:  57%|█████▋    | 472/831 [00:24<00:46,  7.66it/s]Loading weights:  60%|█████▉    | 496/831 [00:24<00:22, 14.76it/s]Loading weights:  60%|██████    | 499/831 [00:25<00:29, 11.30it/s]Loading weights:  62%|██████▏   | 514/831 [00:25<00:20, 15.18it/s]Loading weights:  62%|██████▏   | 517/831 [00:26<00:28, 11.19it/s]Loading weights:  64%|██████▍   | 532/831 [00:27<00:18, 15.86it/s]Loading weights:  64%|██████▍   | 535/831 [00:28<00:26, 11.09it/s]Loading weights:  65%|██████▌   | 541/831 [00:28<00:25, 11.55it/s]Loading weights:  65%|██████▌   | 543/831 [00:29<00:35,  8.02it/s]Loading weights:  68%|██████▊   | 565/831 [00:30<00:16, 15.87it/s]Loading weights:  68%|██████▊   | 568/831 [00:31<00:24, 10.72it/s]Loading weights:  70%|███████   | 583/831 [00:31<00:14, 17.10it/s]Loading weights:  71%|███████   | 587/831 [00:32<00:20, 11.95it/s]Loading weights:  72%|███████▏  | 599/831 [00:32<00:16, 14.47it/s]Loading weights:  72%|███████▏  | 602/831 [00:33<00:22, 10.30it/s]Loading weights:  73%|███████▎  | 610/831 [00:33<00:16, 13.44it/s]Loading weights:  74%|███████▍  | 613/831 [00:34<00:24,  8.89it/s]Loading weights:  76%|███████▋  | 634/831 [00:35<00:10, 18.92it/s]Loading weights:  77%|███████▋  | 638/831 [00:36<00:15, 12.63it/s]Loading weights:  78%|███████▊  | 652/831 [00:36<00:10, 16.76it/s]Loading weights:  79%|███████▉  | 655/831 [00:37<00:15, 11.15it/s]Loading weights:  81%|████████  | 670/831 [00:38<00:10, 15.31it/s]Loading weights:  81%|████████  | 673/831 [00:39<00:14, 10.78it/s]Loading weights:  82%|████████▏ | 679/831 [00:39<00:11, 12.80it/s]Loading weights:  82%|████████▏ | 682/831 [00:40<00:16,  9.00it/s]Loading weights:  85%|████████▍ | 703/831 [00:40<00:06, 19.48it/s]Loading weights:  85%|████████▌ | 707/831 [00:41<00:09, 13.04it/s]Loading weights:  87%|████████▋ | 721/831 [00:41<00:06, 16.75it/s]Loading weights:  87%|████████▋ | 724/831 [00:42<00:10, 10.24it/s]Loading weights:  89%|████████▉ | 739/831 [00:43<00:06, 14.55it/s]Loading weights:  89%|████████▉ | 742/831 [00:44<00:08, 10.52it/s]Loading weights:  90%|█████████ | 748/831 [00:45<00:10,  7.56it/s]Loading weights:  93%|█████████▎| 771/831 [00:46<00:04, 14.23it/s]Loading weights:  93%|█████████▎| 774/831 [00:47<00:05, 10.38it/s]Loading weights:  95%|█████████▌| 790/831 [00:47<00:02, 14.50it/s]Loading weights:  95%|█████████▌| 793/831 [00:48<00:03, 10.64it/s]Loading weights:  97%|█████████▋| 808/831 [00:49<00:01, 14.62it/s]Loading weights:  97%|█████████▋| 810/831 [00:50<00:02, 10.33it/s]Loading weights:  98%|█████████▊| 817/831 [00:50<00:01, 11.37it/s]Loading weights:  99%|█████████▊| 819/831 [00:51<00:01,  8.17it/s]Loading weights: 100%|██████████| 831/831 [00:51<00:00, 16.09it/s]
+[    65s] loaded 122.111526912 B params
+ARCH_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "moe_layers": 48, "experts": 256, "topk": 8, "total_params": 122111526912, "expert_params": 115964116992, "nonexpert_params": 6147409920, "expert_share": 0.9496574150249538, "router_cls": "Qwen3_5MoeTopKRouter", "experts_cls": "Qwen3_5MoeExperts", "gate_up_shape": [256, 2048, 3072], "fp16_gb": 244.223053824}
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   252s] stats done
+CONC_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "SKILL7": {"n90": 0.2901204526424408, "n95": 0.3739420473575592, "n99": 0.521240234375, "entropy_norm": 0.7642650604248047, "mass_in_own_top50": 0.9785034656524658, "mass_in_own_top30": 0.9060567021369934, "never_used": 0.1611328125, "cross_top50": {"BANK8": 0.8207113146781921, "NEWS": 0.7811436057090759}, "cross_top30": {"BANK8": 0.6661620140075684, "NEWS": 0.6104846000671387}}, "BANK8": {"n90": 0.409912109375, "n95": 0.5250651240348816, "n99": 0.708740234375, "entropy_norm": 0.8171310424804688, "mass_in_own_top50": 0.9319166541099548, "mass_in_own_top30": 0.8276710510253906, "never_used": 0.0425618477165699, "cross_top50": {"SKILL7": 0.9024164080619812, "NEWS": 0.764137327671051}, "cross_top30": {"SKILL7": 0.7701525688171387, "NEWS": 0.5859069228172302}}, "NEWS": {"n90": 0.4142252504825592, "n95": 0.5291340947151184, "n99": 0.7174479365348816, "entropy_norm": 0.8317516446113586, "mass_in_own_top50": 0.9350919723510742, "mass_in_own_top30": 0.8236956596374512, "never_used": 0.04150390625, "cross_top50": {"SKILL7": 0.8339707255363464, "BANK8": 0.7423271536827087}, "cross_top30": {"SKILL7": 0.6967061161994934, "BANK8": 0.555938184261322}}}
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+BASE_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "task": "SKILL7", "n": 682, "acc": 0.967741935483871, "sample_outs": ["Alarm", "Alarm", "Alarm", "Alarm", "Alarm", "Alarm"]}
+BASE_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "task": "BANK8", "n": 400, "acc": 0.9775, "sample_outs": ["card_delivery", "account_identity", "info_and_fx", "transfers", "incoming_topups", "card_delivery"]}
+CFG_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "task": "SKILL7", "name": "f1_b3", "f": 1, "bits": 3, "k_keep": 256, "est_ratio": 0.20684526913009926, "acc": 0.0, "n_bc": 660, "ret": 0.0, "ret_lo": 0.0, "worst_cell": [0.0, "Alarm", 106], "secs": 75, "sample_outs": ["!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!"]}
+CFG_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "task": "BANK8", "name": "f1_b3", "f": 1, "bits": 3, "k_keep": 256, "est_ratio": 0.20684526913009926, "acc": 0.0, "n_bc": 391, "ret": 0.0, "ret_lo": 8.589227668854189e-19, "worst_cell": [0.0, "account_identity", 26], "secs": 126, "sample_outs": ["!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!"]}
+CFG_JSON {"model": "Qwen/Qwen3.5-122B-A10B", "task": "SKILL7", "name": "f0.5_b3", "f": 0.5, "bits": 3, "k_keep": 128, "est_ratio": 0.11325517069298835, "acc": 0.0, "n_bc": 660, "ret": 0.0, "ret_lo": 0.0, "worst_cell": [0.0, "Alarm", 106], "secs": 130, "sample_outs": ["!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!"]}
+Traceback (most recent call last):
+  File "/root/runner2.py", line 6, in <module>
+    moe_probe2.main(job)
+  File "/root/moe_probe2.py", line 195, in main
+    est = (exp_params * (k_keep / E) * ebits + (tot_params - exp_params) * 6.25) / 8 + NL * k_keep * model.config.get_text_config().hidden_size * 2
+                             ^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/moe_probe2.py", line 121, in gen_eval
+    ids, am = pad([rows[k]["ids"] for k in idx]); L = ids.shape[1]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py", line 3000, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py", line 3200, in _sample
+    outputs = self._prefill(
+              ^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py", line 4312, in _prefill
+    return self(**model_inputs, return_dict=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py", line 1900, in forward
+    outputs: MoeModelOutputWithPast = self.model(
+                                      ^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py", line 1389, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py", line 962, in forward
+    hidden_states = self.linear_attn(
+                    ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/accelerate.py", line 1012, in wrapped
+    output = forward_func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py", line 628, in forward
+    core_attn_out, last_recurrent_state = torch_chunk_gated_delta_rule(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/hub_kernels.py", line 1051, in wrapped
+    return implementation(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_5_moe/modeling_qwen3_5_moe.py", line 401, in torch_chunk_gated_delta_rule
+    query = query * cum_decay.exp().unsqueeze(-1)
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 896.00 MiB. GPU 2 has a total capacity of 79.25 GiB of which 250.94 MiB is free. Including non-PyTorch memory, this process has 79.00 GiB memory in use. Of the allocated memory 74.97 GiB is allocated by PyTorch, and 3.52 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
