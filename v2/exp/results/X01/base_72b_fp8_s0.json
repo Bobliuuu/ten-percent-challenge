@@ -1,0 +1,39 @@
+{
+ "exp": "X01",
+ "arm": "base_72b_fp8",
+ "model": "RedHatAI/Qwen2.5-72B-Instruct-FP8-dynamic",
+ "seed": 0,
+ "passno": 1,
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "code_commit": null,
+ "backend": "vllm",
+ "tp": 2,
+ "sets": {
+  "SEL": {
+   "n_items": 3839,
+   "n_correct": 3207,
+   "items_sha": "9efb0f622ba09d5f42d7360c0c4ca3f989134cc9a51a23615be3f718b5d52aed",
+   "format_failures": 0
+  },
+  "REP": {
+   "sealed": true,
+   "n_items": 7234,
+   "items_sha": "551e9e11705b65113c4e41b49bfbe2e854af0cd6edb7acdb7285eecfe6316c5e"
+  },
+  "GEN": {
+   "n_items": 2001,
+   "n_correct": 1316,
+   "items_sha": "b7b4997bdd3f25194f7483c73252045f99a95287c007a7e511ed7d02ad1b3cff",
+   "format_failures": 0
+  },
+  "INJ": {
+   "n_items": 4313,
+   "n_correct": 3530,
+   "items_sha": "9741c96f8de6c0575fa38cf2008f0905d90c29b5fbf5a605afc64020ee1c0df8",
+   "format_failures": 1
+  }
+ },
+ "started": "2026-11-08T07:20:50Z",
+ "ended": "2026-11-08T07:33:10Z",
+ "wall_s": 740
+}
