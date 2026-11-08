@@ -78,6 +78,7 @@ def feedback(cfg, X):
             NID = set(json.load(open(cfg["neigh_ids_file"]))); sub = [o == r["answer"] for o, (r, _) in zip(no, nb) if r["id"] in NID]; extra = dict(neigh_sub=sum(sub) / max(1, len(sub)), n_sub=len(sub), neigh_sub_lo=wilson(sum(sub), len(sub)))
         d = dict(tag=tag, teach=sum(ta) / len(ta), teach_by_src=by_src, neigh=sum(ok) / len(ok), neigh_lo=wilson(sum(ok), len(ok)), n_neigh=len(ok),
                  min_cell=min(v[1] / v[0] for v in cells.values()), **extra, cells={k: round(v[1] / v[0], 4) for k, v in sorted(cells.items())}, leak=leak)
+        if cfg.get("save_outs") and full: d["neigh_outs"] = {r["id"]: o for (r, _), o in zip(nb, no)}; d["teach_outs"] = {r["id"]: o for r, o in zip(teach, to)}
         return d
     out["empty"] = eval_all("empty"); log("empty", {k: v for k, v in out["empty"].items() if k != "cells"})
     for d in range(ndraw):
