@@ -1,0 +1,10 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 94.31it/s]
+/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[    58s] base run bs 8 acc 0.9074344023323615
+[   138s] base run bs 4 acc 0.9074344023323615
+[   181s] base run bs 16 acc 0.907798833819242
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   251s] candidate acc 0.907798833819242
+[   251s] stage 1 saved
