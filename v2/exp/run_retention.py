@@ -147,6 +147,8 @@ def stage_eval(a):
         summ["sets"][name] = dict(n_items=len(rows), n_correct=sum(r["correct"] for r in sc) if sc else None, items_sha=sha(out),
                                   format_failures=sum(1 for r in sc if r["pred"] is None)) if name != "REP" else dict(sealed=True, n_items=len(rows), items_sha=sha(out))
         print(name, summ["sets"][name], flush=True)
+    pj = f"{rd}/{tag}.json"
+    if os.path.exists(pj): old = json.load(open(pj)); old["sets"].update(summ["sets"]); summ["sets"] = old["sets"]   # resume: merge sets
     summ["ended"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()); summ["wall_s"] = round(time.time() - t0)
     json.dump(summ, open(f"{rd}/{tag}.json", "w"), indent=1)
 
