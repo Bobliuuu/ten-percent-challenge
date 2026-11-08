@@ -272,6 +272,22 @@ Each block: base | task and answer | compression | feedback | size | retention |
 ### C32. NER / log-template / SQL exact-match tasks (TASK_SEARCH2), measured-negative   (added 2026-11-08 by task-search-2 lane)
 - NER (CoNLL-2003 research-only, WNUT-17 CC-BY-4.0) 32B 30 / 44 / 52% retention, base .34; LOGTPL (loghub, research) 32B 79 / 81 / 86%, narrow (2k lines per system); SQL (sql-create-context CC-BY-4.0, gretel text2sql Apache-2.0) base 4-14% strict, 24-41%. All FAIL R2 by 12-70 pt, R8 or R3/R9 problems. **P: ~0%.** Details: `TASK_SEARCH2.md`.
 
+## 2b. Task-specific structured pruning x low-bit (added 2026-11-08 by prune lane)
+
+### C28. Task-calibrated structured pruning (FFN neurons / layers / KV groups / generic vocab trim) + entropy-coded GPTQ on survivors   (added 2026-11-08 by prune lane)
+- **Base:** Qwen2.5-32B-Instruct (also 14B); fp16 as in TASK_SEARCH.
+- **Task / answer format:** INJ-real (Injection/Benign) and NEWS 4-menu, label word generated, scorer = all answer tokens argmax (teacher-forced equivalent of greedy; NOT generation-verified).
+- **Compression method:** `v2/prune/tsp_core.py`: Wanda/FLAP structured FFN prune, block-influence layer drop, KV-group prune, label-free vocab trim (ids <65536 + specials) for emb and head, then repo quantizer at target 9.63%. Calibration = S1 train text only (+ optional neutral mix); no training, no reconstruction. Results `v2/prune/TSP_RESULTS.md`, `table_prune.txt`.
+- **Feedback mechanism:** none built.
+- **Size:** 9.64-9.67% measured by the quantizer's byte accounting (EST, no written dir); vocab bitmap counted.
+- **Retention:** 32B vocab-trim INJ 0.957 [0.945] (S2benign cell .74), NEWS 0.961 [0.950] (Technology .82); same-run no-prune .930 / .940. FFN .9 on 32B: INJ .858, NEWS .951. DEV, TF, real-source.
+- **General capability:** not measured.
+- **Rules:** R1 PASS* | R2 FAIL (95.7 / 96.1 overall, cells <95) | R3 UNTESTED | R4 PASS (sub-network of original, no new part) | R5/R6 UNTESTED | R7 PASS | R8 PASS | R9 GRAY (vocab trim; task-fitted masks lose more on S3/S2 than S1) | MC: pruned masks over-fit the S1 calibration source.
+- **Remaining work and cost:** none worth it; combine only the vocab trim with a better quantizer (VQ C07): maybe +2 pt, ~$30.
+- **Blockers:** R2; structured pruning net-negative at this byte budget.
+- **P(all 9 as written):** <0.5% as a stand-alone route; the vocab-trim lever (+13% of budget) is a component for C07/C08, V=2.
+- **Cheapest next experiment:** apply vocab trim 64k to the VQ-D8 32B run (C07) and score on real INJ dev (one box, ~$30).
+
 ## 3. Feedback mechanisms (sub-registry; combine with any compression candidate)
 
 Common facts: no feedback mechanism has zero R4 risk (NEXT_PLAN ladder). The mechanism must also be run on the real compressed artifact, with the harness-v3 protocol (`harness/v3/PROOF_RUN.md`: real vs shuffled vs empty arms, teach >= 25 pre-locked, neighbours >= 400 verified). P here is P(R4+R5+R6 judged OK on a base where it applies), not P(all 9).
