@@ -70,6 +70,11 @@ def _impl(cfg):
         P = {k: mc_preds(m, rows) for k, rows in sets.items()}
         if tag == "base": nll, n, _, ref = ppl_kl(m); torch.save(ref, "/vol/res/ref_%s.pt" % M.replace("/", "_")); kl = 0.0
         else:
+            for _w in range(720):
+                try: vol.reload()
+                except Exception as e_: pass
+                if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")) and os.path.exists(f"/vol/res/{cfg.get('base_name', 'base7b')}.json"): break
+                time.sleep(10)
             ref = torch.load("/vol/res/ref_%s.pt" % M.replace("/", "_")); nll, n, kl, _ = ppl_kl(m, ref)
         return dict(preds={k: v.tolist() for k, v in P.items()}, y={k: [r["a"] for r in rows] for k, rows in sets.items()}, ppl=float(np.exp(nll / n)), kl=kl / n)
     # ---------------- quantisation
@@ -149,12 +154,12 @@ def _impl(cfg):
             for r in wtr:
                 t_ = r["text"].strip()
                 if len(t_) < 400: continue
-                txt.append(t_); acc += len(t_) // 4
+                txt.append(t_); acc += len(t_) // 5
                 if acc >= gtok: break
         rng = np.random.RandomState(0); rng.shuffle(txt); ncal = cfg.get("ncal", 256); Lc = cfg.get("callen", 512); stream = []
         for s in txt: stream += tok.encode(s, add_special_tokens=False)[:2048]
         nev_s = cfg.get("nsens_eval", 24) if cfg.get("mode") == "sens" else 0
-        stream = torch.tensor(stream[:(ncal + nev_s) * Lc]).view(-1, Lc)[:ncal + nev_s]; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
+        n_ = min(len(stream) // Lc, ncal + nev_s); stream = torch.tensor(stream[:n_ * Lc]).view(-1, Lc); ncal = n_ - nev_s; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
             def __init__(s, m): super().__init__(); s.m = m; s.attention_type = getattr(m, 'attention_type', 'full_attention')
@@ -192,7 +197,8 @@ def _impl(cfg):
                 for gname, names, hookn in groups:
                     m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
                 def mk(gname):
-                    def hook(m, i, o): x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                    def hook(m, i, o):
+                        x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; torch.backends.cuda.matmul.allow_tf32 = True; Hs[gname] += (x.T @ x).to(Hs[gname].device); torch.backends.cuda.matmul.allow_tf32 = False
                     return hook
                 hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
                 with torch.no_grad():
@@ -216,7 +222,8 @@ def _impl(cfg):
             for gname, names, hookn in groups:
                 m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
             def mk(gname):
-                def hook(m, i, o): x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                def hook(m, i, o):
+                        x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; torch.backends.cuda.matmul.allow_tf32 = True; Hs[gname] += (x.T @ x).to(Hs[gname].device); torch.backends.cuda.matmul.allow_tf32 = False
                 return hook
             hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
             with torch.no_grad():
