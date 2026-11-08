@@ -153,7 +153,7 @@ def main(cfgs, vol=None, OUT="/data/out", DATA_DIR="/data/voice"):
             for b in blocks: b.valid = v
             lm.model(input_ids=ids, attention_mask=am)
         for b in blocks: b.rec = None; b.valid = None
-        return tuple(torch.stack([r[j] for r in rec]).cpu() for j in range(3))
+        return tuple(torch.stack([r[j].cpu() for r in rec]) for j in range(3))
     @torch.no_grad()
     def collect_hessians(rows, layers, kept, budget=30000):
         for l in layers: gd = blocks[l].gate.g.weight.device; blocks[l].hset = {e: [torch.zeros(HID, HID, device=gd), torch.zeros(FF, FF, device=gd), 0] for e in kept[l]}

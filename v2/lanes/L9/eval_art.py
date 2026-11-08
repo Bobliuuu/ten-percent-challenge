@@ -8,7 +8,7 @@ def wilson(k, n, z=1.96):
 if __name__ == "__main__":
     ART, DD, OUTJ = sys.argv[1:4]; ds = sys.argv[4] if len(sys.argv) > 4 else "skill7"; BASE = os.environ.get("L9_BASEDIR", "/data/out/res")
     m, tok = P.build_model(ART, os.environ.get("L9_GPUMEM", "120GiB")); res = {}
-    for sn in ("SEL", "REP"):
+    for sn in os.environ.get("L9_SETS", "SEL,REP").split(","):
         rows = [json.loads(l) for l in open(f"{DD}/{ds}_{sn.lower()}.jsonl")]
         order = sorted(range(len(rows)), key=lambda i: len(rows[i]["user"])); outs = [None] * len(rows)
         for s in range(0, len(order), 64):
@@ -21,4 +21,4 @@ if __name__ == "__main__":
             if y: c = cells[r["src"] + "|" + r["kind"]]; c[0] += 1; c[1] += int(x)
         res[sn] = dict(n=len(rows), acc=sum(corr) / len(rows), base_acc=nb / len(rows), n_bc=nb, kept_bc=kk, ret=kk / nb, ret_lo=wilson(kk, nb), cells={k: dict(n=v[0], ret=v[1] / v[0], lo=wilson(v[1], v[0])) for k, v in sorted(cells.items())}, min_cell=min(v[1] / v[0] for v in cells.values()), outs=outs)
         print(sn, {k: v for k, v in res[sn].items() if k not in ("cells", "outs")}, flush=True)
-    json.dump(res, open(OUTJ, "w"))
+    json.dump(dict(res, ids={sn: [json.loads(l)["id"] for l in open(f"{DD}/{ds}_{sn.lower()}.jsonl")] for sn in res}), open(OUTJ, "w"))

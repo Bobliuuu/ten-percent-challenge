@@ -1,0 +1,52 @@
+[
+ {
+  "name": "base",
+  "ds": "bank8",
+  "sets": [
+   "SEL"
+  ],
+  "ncal": 2000
+ },
+ {
+  "name": "b8_k88_b2",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "bank8",
+  "sets": [
+   "SEL"
+  ]
+ },
+ {
+  "name": "b8_k64_b2",
+  "keep": 64,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "bank8",
+  "sets": [
+   "SEL"
+  ]
+ },
+ {
+  "name": "b8_k48_b2",
+  "keep": 48,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "bank8",
+  "sets": [
+   "SEL"
+  ]
+ }
+]
