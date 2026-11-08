@@ -1,10 +1,10 @@
 # E0: ambiguity-floor audit (DEV per-item rows only, Mac/CPU, no locked file opened)
 
 Code: `analyze.py` (reproduces everything; `python3 analyze.py` ~2 s). Raw numbers: `tables.json`.
-Concept (rival `PROTOCOL.md`, "Ambiguity sets a floor"): faithfulness = kept / base-correct is capped by base-correct items that flip under *any* compression. Their dev floor: ~0.8% (about 11 of ~1,340 base-correct items).
+Concept ("ambiguity sets a floor"): faithfulness = kept / base-correct is capped by base-correct items that flip under *any* compression. A floor of ~0.8% (about 11 of ~1,340 base-correct items) is typical for a clean 7-way router.
 
 ## 0. Bottom line
-1. The ambiguity floor itself is NOT our binding problem. Items that fail at all three budgets (1.57, 1.79, 1.96 bpw) are 0.6-1.4% of base-correct at 32B for the candidate tasks, about the rival's 0.8%. So a 98% pass is not ruled out by ambiguity; it is ruled out by quantization noise: single-config flips at 10% are 4-7% (32B) and 9-12% (14B), and 80-90% of them do not repeat in a second config (section 2).
+1. The ambiguity floor itself is NOT our binding problem. Items that fail at all three budgets (1.57, 1.79, 1.96 bpw) are 0.6-1.4% of base-correct at 32B for the candidate tasks, about the 0.8% typical of a clean router. So a 98% pass is not ruled out by ambiguity; it is ruled out by quantization noise: single-config flips at 10% are 4-7% (32B) and 9-12% (14B), and 80-90% of them do not repeat in a second config (section 2).
 2. Most fragile items are not at the label boundary only: 22% of 32B base-correct items have margin <10 logits and carry 63% of the 10% flips; margin <4 items (6% of INJ, 3.5% of NEWS) flip 21-28% of the time (section 3).
 3. Per-task ceilings at 10% from our data (32B dev, single draw): NEWS 0.961, INJ 0.957, TOOLSEL 0.928. 72B real generation 0.94-0.95. Rule 2 needs ~0.985 true retention in EVERY cell to pass with ~95% probability (0.98 gives ~50%). Estimated pass probabilities are 1-4% for the best (section 5).
 4. Exam sizing: at the 95% per-cell lower-bound target, a cell needs 75 to 3,400 base-correct items depending on its true retention (section 6). Our planned cells (330-800 items, base accuracy 0.5-0.99) are enough only if the true cell retention is >= ~0.99; at 0.98 the INJ S2 cells (360 items, base acc 0.71-0.81 => 255-290 base-correct) are too small.
