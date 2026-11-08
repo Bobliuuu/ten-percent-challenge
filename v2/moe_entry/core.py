@@ -1,4 +1,5 @@
-import os, json, time, math, glob, collections
+import os, json, time, math, glob, collections, shutil
+import packfmt
 import torch, torch.nn as nn, torch.nn.functional as F
 MODEL = "Qwen/Qwen3-30B-A3B-Instruct-2507"; FP16_BYTES = 61_064_245_248
 NL, NE, TOPK, HID, FF = 48, 128, 8, 2048, 768
@@ -8,6 +9,19 @@ def wilson(k, n, z=1.96):
     if n == 0: return (0.0, 0.0)
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); r = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))
     return ((c - r) / d, (c + r) / d)
+
+def rtn_codes(w, bits, g, mse=True):
+    """RTN returning (dq, q uint8 [..,in], scale fp16 [..,in/g], zero uint8 [..,in/g])"""
+    sh = w.shape; wg = w.float().reshape(*sh[:-1], sh[-1] // g, g); mx = wg.amax(-1, keepdim=True); mn = wg.amin(-1, keepdim=True); qm = 2 ** bits - 1
+    def q(mn_, mx_):
+        sc = ((mx_ - mn_) / qm).clamp(min=1e-8).half().float(); z = (-mn_ / sc).round().clamp(0, qm); qq = (wg / sc + z).round().clamp(0, qm); return qq, sc, z, (qq - z) * sc
+    best = q(mn, mx); berr = ((best[3] - wg) ** 2).sum(-1, keepdim=True)
+    if mse:
+        for r in (0.95, 0.9, 0.85, 0.8, 0.75, 0.7, 0.65):
+            c = q(mn * r, mx * r); err = ((c[3] - wg) ** 2).sum(-1, keepdim=True); m = err < berr
+            best = tuple(torch.where(m, a, b) for a, b in zip(c, best)); berr = torch.where(m, err, berr)
+    qq, sc, z, dq = best
+    return dq.reshape(sh), qq.reshape(sh).to(torch.uint8), sc.squeeze(-1).half(), z.squeeze(-1).to(torch.uint8)
 
 def rtn(w, bits, g, mse=False):
     """asymmetric per-group RTN along last dim; fp16 scale, integer zero-point. returns dequantised float tensor"""
@@ -35,21 +49,22 @@ def rot_matrix(dim, blk, seed, dev):
     for s0 in range(0, dim, blk): Q[s0:s0 + blk, s0:s0 + blk] = B
     return (sg[:, None] * Q).to(dev)   # Q = D * blockdiag(H); orthogonal
 @torch.no_grad()
-def gptq(W, H, bits, g, damp=0.01):
+def gptq(W, H, bits, g, damp=0.01, codes=False):
     """W [o,i] float, H [i,i] float (sum x x^T). asym per-group (g along i) with fp16 scale + int zero, groups fixed when reached. returns dequantised W"""
     W = W.float().clone(); H = H.float().clone(); i_ = W.shape[1]; qm = 2 ** bits - 1
     dead = torch.diag(H) == 0; H[dead, dead] = 1; W[:, dead] = 0
     H += damp * torch.mean(torch.diag(H)) * torch.eye(i_, device=W.device)
     try: Hi = torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)), upper=True)
-    except Exception: return rtn(W, bits, g, True)
-    Q = torch.zeros_like(W)
+    except Exception: return rtn_codes(W, bits, g, True) if codes else rtn(W, bits, g, True)
+    Q = torch.zeros_like(W); QI = torch.zeros(W.shape, dtype=torch.uint8, device=W.device); SC = []; ZZ = []
     for b0 in range(0, i_, g):
         W1 = W[:, b0:b0 + g].clone(); Hi1 = Hi[b0:b0 + g, b0:b0 + g]; E = torch.zeros_like(W1)
-        mn = W1.amin(1, keepdim=True); mx = W1.amax(1, keepdim=True); sc = ((mx - mn) / qm).clamp(min=1e-8).half().float(); z = (-mn / sc).round().clamp(0, qm)
+        mn = W1.amin(1, keepdim=True); mx = W1.amax(1, keepdim=True); sc = ((mx - mn) / qm).clamp(min=1e-8).half().float(); z = (-mn / sc).round().clamp(0, qm); SC.append(sc.half()); ZZ.append(z.to(torch.uint8))
         for j in range(W1.shape[1]):
-            w = W1[:, j:j + 1]; q = ((w / sc + z).round().clamp(0, qm) - z) * sc; Q[:, b0 + j:b0 + j + 1] = q
+            w = W1[:, j:j + 1]; qi = (w / sc + z).round().clamp(0, qm); q = (qi - z) * sc; Q[:, b0 + j:b0 + j + 1] = q; QI[:, b0 + j:b0 + j + 1] = qi.to(torch.uint8)
             err = (w - q) / Hi1[j, j]; W1[:, j:] -= err @ Hi1[j:j + 1, j:]; E[:, j:j + 1] = err
         W[:, b0 + g:] -= E @ Hi[b0:b0 + g, b0 + g:]
+    if codes: return Q, QI, torch.cat(SC, 1), torch.cat(ZZ, 1)
     return Q
 
 def bpw(bits, g): return 16.0 if not bits else bits + (16 + bits) / g
@@ -156,6 +171,7 @@ def main(cfgs, vol):
         for l in layers: blocks[l].hset = None; blocks[l].valid = None
         return out
     # ---- apply config
+    PK = [None]
     def keep_lists(cfg, mass0):
         mass = {"mass": mass0, "reap": reap / cnt.clamp(min=1), "massreap": (mass0 / mass0.sum(1, keepdim=True)) * (reap / cnt.clamp(min=1) / (reap / cnt.clamp(min=1)).mean(1, keepdim=True))}[cfg.get("score", "mass")]
         if cfg.get("kept_counts"): return [sorted(torch.topk(mass[l], cfg["kept_counts"][l]).indices.tolist()) for l in range(NL)]
@@ -186,24 +202,40 @@ def main(cfgs, vol):
         tot = sum(d.values()); return dict(parts={k: int(v) for k, v in d.items()}, total=int(tot), ratio=tot / FP16_BYTES)
     @torch.no_grad()
     def apply(cfg, kept):
+        if cfg.get("pack"):
+            ad = f"/r/res/art_{DS}_{cfg['name']}"; os.makedirs(ad, exist_ok=True); PK[0] = packfmt.Writer(ad + "/weights.bin")
+            for l, lay in enumerate(lm.model.layers):
+                for nm_, t_ in (("input_layernorm", lay.input_layernorm.weight), ("post_attention_layernorm", lay.post_attention_layernorm.weight), ("q_norm", lay.self_attn.q_norm.weight), ("k_norm", lay.self_attn.k_norm.weight), ("router", gates[l].g.weight.data[kept[l]])):
+                    PK[0].add_fp16(f"L{l}.{nm_}", t_)
+            PK[0].add_fp16("final_norm", lm.model.norm.weight)
+        else: PK[0] = None
         mse = cfg.get("quant", "rtn") == "rtnmse"; eb, eg = cfg.get("eb"), cfg.get("eg", 128)
         for l, lay in enumerate(lm.model.layers):
             ki = kept[l]; ex = lay.mlp.experts
             for nm, mod in (("gate", "gate_proj"), ("up", "up_proj"), ("down", "down_proj")):
                 w = O[l][nm][ki].to(dev)
-                if eb and cfg.get("quant") != "gptq": w = rtn(w, eb, eg, mse)
+                if eb and cfg.get("quant") != "gptq":
+                    if PK[0] is not None:
+                        w, q_, s_, z_ = rtn_codes(w, eb, eg, mse)
+                        for j, e in enumerate(ki): PK[0].add_q(f"L{l}.E{e}.{nm}", q_[j], s_[j], z_[j], eb, eg)
+                    else: w = rtn(w, eb, eg, mse)
                 for j, e in enumerate(ki): getattr(ex[e], mod).weight.data.copy_(w[j].to(torch.bfloat16))
                 del w
             m = torch.zeros(NE, device=dev); m[[e for e in range(NE) if e not in set(ki)]] = float("-inf"); gates[l].mask = m if len(ki) < NE else None
             for n_, w0 in O[l]["attn"].items():
                 w = w0.to(dev)
-                if cfg.get("attn_b"): w = rtn(w, cfg["attn_b"], cfg.get("attn_g", 128), mse)
+                if cfg.get("attn_b"):
+                    if PK[0] is not None: w, q_, s_, z_ = rtn_codes(w, cfg["attn_b"], cfg.get("attn_g", 128), mse); PK[0].add_q(f"L{l}.{n_}", q_, s_, z_, cfg["attn_b"], cfg.get("attn_g", 128))
+                    else: w = rtn(w, cfg["attn_b"], cfg.get("attn_g", 128), mse)
                 getattr(lay.self_attn, n_).weight.data.copy_(w.to(torch.bfloat16))
-        for tgt, src, b in ((lm.model.embed_tokens, OE, cfg.get("emb_b")), (lm.lm_head, OH, cfg.get("head_b"))):
+        for tgt, src, b, nm_ in ((lm.model.embed_tokens, OE, cfg.get("emb_b"), "embed"), (lm.lm_head, OH, cfg.get("head_b"), "head")):
+            parts = []
             for s in range(0, src.shape[0], 20000):
                 w = src[s:s + 20000].to(dev)
-                if b: w = rtn(w, b, 128, False)
+                if b:
+                    w, q_, s_, z_ = rtn_codes(w, b, 128, False); parts.append((q_.cpu(), s_.cpu(), z_.cpu()))
                 tgt.weight.data[s:s + 20000].copy_(w.to(torch.bfloat16))
+            if PK[0] is not None and b: PK[0].add_q(nm_, torch.cat([p[0] for p in parts]), torch.cat([p[1] for p in parts]), torch.cat([p[2] for p in parts]), b, 128)
     @torch.no_grad()
     def gptq_all(cfg, kept):
         calrows = getset("cal")[:cfg.get("nh", 1000)]; eb, eg = cfg["eb"], cfg.get("eg", 128); blk = cfg.get("hblk", 256); fb = 0
@@ -215,10 +247,14 @@ def main(cfgs, vol):
                 for e in kept[l]:
                     Hin, Hdn, n = Hs[l][e]
                     gw = O[l]["gate"][e].to(dev).float(); uw = O[l]["up"][e].to(dev).float(); dw = O[l]["down"][e].to(dev).float()
-                    if n < cfg.get("nmin", 32): fb += 1; qg, qu, qd = rtn(gw, eb, eg, True), rtn(uw, eb, eg, True), rtn(dw, eb, eg, True)
+                    if n < cfg.get("nmin", 32):
+                        fb += 1; qg, a1, a2, a3 = rtn_codes(gw, eb, eg, True); qu, b1, b2, b3 = rtn_codes(uw, eb, eg, True); qd, c1, c2, c3 = rtn_codes(dw, eb, eg, True)
+                        if PK[0] is not None: PK[0].add_q(f"L{l}.E{e}.gate", a1, a2, a3, eb, eg); PK[0].add_q(f"L{l}.E{e}.up", b1, b2, b3, eb, eg); PK[0].add_q(f"L{l}.E{e}.down", c1, c2, c3, eb, eg)
                     else:
-                        Hi_ = Qi.T @ Hin @ Qi; Hd_ = Qd.T @ Hdn @ Qd; gu = torch.cat([gw, uw], 0) @ Qi; q = gptq(gu, Hi_, eb, eg, cfg.get("damp", 0.01)) @ Qi.T; qg, qu = q[:FF], q[FF:]
-                        qd = gptq(dw @ Qd, Hd_, eb, eg, cfg.get("damp", 0.01)) @ Qd.T
+                        Hi_ = Qi.T @ Hin @ Qi; Hd_ = Qd.T @ Hdn @ Qd; gu = torch.cat([gw, uw], 0) @ Qi; q, qq_, ss_, zz_ = gptq(gu, Hi_, eb, eg, cfg.get("damp", 0.01), codes=True); q = q @ Qi.T; qg, qu = q[:FF], q[FF:]
+                        qd, qd_q, qd_s, qd_z = gptq(dw @ Qd, Hd_, eb, eg, cfg.get("damp", 0.01), codes=True); qd = qd @ Qd.T
+                        if PK[0] is not None:
+                            PK[0].add_q(f"L{l}.E{e}.gate", qq_[:FF], ss_[:FF], zz_[:FF], eb, eg); PK[0].add_q(f"L{l}.E{e}.up", qq_[FF:], ss_[FF:], zz_[FF:], eb, eg); PK[0].add_q(f"L{l}.E{e}.down", qd_q, qd_s, qd_z, eb, eg)
                     ex[e].gate_proj.weight.data.copy_(qg.to(torch.bfloat16)); ex[e].up_proj.weight.data.copy_(qu.to(torch.bfloat16)); ex[e].down_proj.weight.data.copy_(qd.to(torch.bfloat16))
                 Hs[l] = None
             del Hs; torch.cuda.empty_cache()
@@ -234,7 +270,13 @@ def main(cfgs, vol):
         if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
         apply(cfg, kept)
         if cfg.get('quant') == 'gptq': gptq_all(cfg, kept)
-        res = dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept], sets={})
+        tot = 0
+        if PK[0] is not None:
+            ad = f"/r/res/art_{DS}_{name}"; PK[0].idx["_meta"] = dict(kept=kept, had=cfg.get("had", True) if cfg.get("quant") == "gptq" else False, hblk=cfg.get("hblk", 256), eb=cfg.get("eb"), eg=cfg.get("eg", 128)); PK[0].close(ad + "/index.json")
+            for f_ in ["config.json", "generation_config.json", "tokenizer.json", "vocab.json", "merges.txt", "tokenizer_config.json"]:
+                if os.path.exists(os.path.join(snap, f_)): shutil.copy(os.path.join(snap, f_), ad + "/" + f_)
+            tot = sum(os.path.getsize(os.path.join(ad, f_)) for f_ in os.listdir(ad)); log("ARTIFACT bytes", tot, tot / FP16_BYTES)
+        res = dict(name=name, cfg=cfg, bytes=by, artifact=(dict(bytes=tot, ratio=tot / FP16_BYTES) if cfg.get('pack') else None), kept_per_layer=[len(k) for k in kept], sets={})
         for sn in cfg.get("sets", ["SEL"]):
             rows = getset(sn)
             if cfg.get("sub"): rows = rows[::cfg["sub"]]
