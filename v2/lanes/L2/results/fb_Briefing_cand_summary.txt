@@ -1,0 +1,5 @@
+('empty', None) 1 teach mean 0.000 min 0.000 | neigh mean 1.000 min 1.000 | min_cell mean 1.000 min 1.000
+('real', 12) 3 teach mean 0.592 min 0.534 | neigh mean 0.998 min 0.997 | min_cell mean 0.983 min 0.974
+('real', 25) 3 teach mean 0.730 min 0.655 | neigh mean 0.997 min 0.997 | min_cell mean 0.974 min 0.974
+('shuffled', 12) 3 teach mean 0.000 min 0.000 | neigh mean 0.999 min 0.997 | min_cell mean 0.990 min 0.971
+('shuffled', 25) 3 teach mean 0.000 min 0.000 | neigh mean 0.997 min 0.997 | min_cell mean 0.978 min 0.974

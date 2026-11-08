@@ -8,7 +8,7 @@ from transformers import AutoTokenizer, AutoModelForImageTextToText
 mdir, outp = sys.argv[1], sys.argv[2]
 LAYERS = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else "62,63").split(",")]; LAM = float(sys.argv[4]) if len(sys.argv) > 4 else 1.0
 M = float(sys.argv[5]) if len(sys.argv) > 5 else 8.0; F = float(sys.argv[6]) if len(sys.argv) > 6 else 1.0; DRAWS = int(sys.argv[7]) if len(sys.argv) > 7 else 4
-NEW = os.environ["NEWLAB"]; D = "/home/ubuntu/work/fbs7"; rd = lambda n: [json.loads(l) for l in open(f"{D}/{n}.jsonl")]
+NEW = os.environ["NEWLAB"]; D = os.environ.get("FBDIR", "/home/ubuntu/work/fbs7"); rd = lambda n: [json.loads(l) for l in open(f"{D}/{n}.jsonl")]
 ann, teach, neigh_pool, cal = rd("ann_" + NEW), rd("teach_" + NEW), rd("neigh"), rd("cal")
 tok = AutoTokenizer.from_pretrained(mdir); tok.padding_side = "left"
 model = AutoModelForImageTextToText.from_pretrained(mdir, dtype=torch.bfloat16, device_map={"": 0}).eval()
@@ -122,7 +122,7 @@ for n in tuple(int(x) for x in os.environ.get('NS', '5,12,25').split(',')):
     for d in range(DRAWS):
         rng = random.Random(1000 * n + d); sel = rng.sample(ANN, min(n, len(ANN)))
         for arm in ("real", "shuffled"):
-            labels = [NEW] * len(sel) if arm == "real" else [rng.choice(["Alarm", "Weather", "Calendar", "Lists", "Transport"]) for _ in sel]
+            labels = [NEW] * len(sel) if arm == "real" else [rng.choice(os.environ.get("SHUF", "Alarm,Weather,Calendar,Lists,Transport").split(",")) for _ in sel]
             t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}"); restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0); print(r, flush=True); res["runs"].append(r)
         json.dump(res, open(outp, "w"))
 json.dump(res, open(outp, "w")); print("FB_DONE")
