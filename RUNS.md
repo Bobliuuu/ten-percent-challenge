@@ -362,3 +362,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T16:02Z vast id 59731894 tenpct-l13b destroyed after 0.24 h (~$0.10)
 - 2026-11-08 modal tenpct-l13 job b (14B BANK8 subset arms) spawned detached; vast l13a/l13b abandoned (ssh timeouts), instances destroyed
 - 2026-11-08T16:03Z vast id 59733634 label tenpct-L12C GPU RTX PRO 6000 WS 96GB $1.401/h (+5% guard) started
+- 2026-11-08 modal tenpct-l13 job a2 (SKILL7 arms in reverse order) spawned detached
