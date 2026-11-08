@@ -170,11 +170,17 @@ def main(cfgs, vol):
         cand = sorted(((frac[l, e].item(), l, e) for l in range(NL) for e in range(NE) if e not in keep[l]), reverse=True)[:rem]
         for _, l, e in cand: keep[l].add(e)
         return [sorted(x) for x in keep]
+    def ebmap(cfg, kept):
+        eb = cfg.get("eb"); hb = cfg.get("hi_b"); out = []
+        for l in range(NL):
+            if not hb: out.append({e: eb for e in kept[l]}); continue
+            r = sorted(kept[l], key=lambda e: -float(mass[l, e])); nh = int(round(cfg.get("hi_frac", 0.25) * len(r))); out.append({e: (hb if i < nh else eb) for i, e in enumerate(r)})
+        return out
     def bytes_of(cfg, kept):
         eb, eg = cfg.get("eb"), cfg.get("eg", 128); ab, gb = cfg.get("attn_b"), cfg.get("attn_g", 128)
         nk = sum(len(k) for k in kept); epar = 3 * HID * FF
         d = {}
-        d["experts"] = nk * epar * bpw(eb, eg) / 8
+        d["experts"] = sum(epar * bpw(b_, eg) / 8 for m_ in ebmap(cfg, kept) for b_ in m_.values()) if cfg.get("hi_b") else nk * epar * bpw(eb, eg) / 8
         d["router"] = nk * HID * 2
         d["keep_index"] = nk if nk < NL * NE else 0
         ap = HID * 4096 + 2 * HID * 512 + 4096 * HID
@@ -212,8 +218,9 @@ def main(cfgs, vol):
             for l in layers:
                 Qi = rot_matrix(HID, min(blk, HID), 1000 + l, dev) if cfg.get("had", True) else torch.eye(HID, device=dev); Qd = rot_matrix(FF, min(blk, FF), 2000 + l, dev) if cfg.get("had", True) else torch.eye(FF, device=dev)
                 ex = lm.model.layers[l].mlp.experts
+                EBM = ebmap(cfg, kept)[l]
                 for e in kept[l]:
-                    Hin, Hdn, n = Hs[l][e]
+                    eb = EBM[e]; Hin, Hdn, n = Hs[l][e]
                     gw = O[l]["gate"][e].to(dev).float(); uw = O[l]["up"][e].to(dev).float(); dw = O[l]["down"][e].to(dev).float()
                     if n < cfg.get("nmin", 32): fb += 1; qg, qu, qd = rtn(gw, eb, eg, True), rtn(uw, eb, eg, True), rtn(dw, eb, eg, True)
                     else:
