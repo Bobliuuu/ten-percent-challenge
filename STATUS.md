@@ -194,6 +194,9 @@ Ambiguity audit ([peer branch `rival-e0`](https://github.com/Bobliuuu/ten-percen
 | Falcon-E-3B (C16), BitNet-2B (C15) | 13.8% lossless; 9.453% real but base at .267 on tool calls | size or R8 | same |
 | Ternary-Bonsai-2-27B plus scale log-quant, vocab truncation, 5 trits/byte (C27) | byte plan targets <=9.9% from 10.67%; **RESULTS section empty** at last pull | in flight, no numbers | [NATIVE_SURVEY2](v2/NATIVE_SURVEY2.md) |
 
+### 4.7b Lane L1 (Bonsai-8B, 2026-11-08): new feedback mechanism + easy task
+The Bonsai feedback is no longer an lm_head-row edit: `v2/bonsai/ship/feedback.py` now does a closed-form, column-sparse fp16 edit of the existing MLP `down_proj` of the last 6 layers (1024 columns each, 50.3 MB), generating the new label through the model's own forward pass (no head, no row edit). On the canonical easy task SKILL7 (voice-skill routing) with new skill `Recipe`: base .896, teach .876 (base 0), cross-source teach .867, neighbours .999, shuffled .002 / wrong .000 / empty 0 (10 draws, real generation), total 7.44% (7.13% base tree). NEWS stays secondary and does not meet 98% neighbours with a useful teach rate. Package, 9-rule table, byte accounting and the old-label annotation policy: `v2/lanes/L1/REPORT.md`. Weakest rules: base identity (gray), closed-form-edit legality (gray), and the per-kind locked exam for SKILL7 cannot reach 300/kind with the current hash bucket.
+
 ### 4.8 Feedback mechanisms
 | mechanism | what | result | rule status | where |
 |---|---|---|---|---|
