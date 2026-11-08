@@ -1,0 +1,167 @@
+{
+ "NEWS4C": {
+  "labels": [
+   "Business",
+   "Entertainment",
+   "Politics",
+   "Sports"
+  ],
+  "prompt": "Which newsroom desk should this news story go to?\nAnswer with exactly one word from: Business, Entertainment, Politics, Sports.\n\nStory: {X}",
+  "src": {
+   "huffpost": {
+    "pool_scanned": {
+     "Business": 5989,
+     "Entertainment": 17358,
+     "Politics": 35585,
+     "Sports": 5077
+    },
+    "dev_kept": {
+     "Business": 40,
+     "Entertainment": 40,
+     "Politics": 40,
+     "Sports": 40
+    }
+   },
+   "bbc_2004": {
+    "pool_scanned": {
+     "Business": 282,
+     "Entertainment": 205,
+     "Politics": 236,
+     "Sports": 274
+    },
+    "dev_kept": {
+     "Business": 40,
+     "Entertainment": 40,
+     "Politics": 40,
+     "Sports": 40
+    }
+   }
+  }
+ },
+ "SENT2C": {
+  "labels": [
+   "Positive",
+   "Negative"
+  ],
+  "prompt": "What is the sentiment of this text?\nAnswer with exactly one word from: Positive, Negative.\n\nText: {X}",
+  "src": {
+   "yelp_restaurants": {
+    "pool_scanned": {
+     "Positive": 14389,
+     "Negative": 15604
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   },
+   "imdb_movies": {
+    "pool_scanned": {
+     "Positive": 12470,
+     "Negative": 12431
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   },
+   "tweets": {
+    "pool_scanned": {
+     "Positive": 17841,
+     "Negative": 7092
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   }
+  }
+ },
+ "TOX2C": {
+  "labels": [
+   "Toxic",
+   "Fine"
+  ],
+  "prompt": "You moderate an online community.\nToxic = the message clearly insults, demeans, threatens or harasses someone, or is hateful or very vulgar.\nFine = everything else.\nAnswer with exactly one word from: Toxic, Fine.\n\nMessage: {X}",
+  "src": {
+   "civil_comments": {
+    "pool_scanned": {
+     "Toxic": 2579,
+     "Fine": 113371
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Fine": 80
+    }
+   },
+   "davidson_offensive": {
+    "pool_scanned": {
+     "Toxic": 19122,
+     "Fine": 2994
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Fine": 80
+    }
+   }
+  }
+ },
+ "PHISH2C": {
+  "labels": [
+   "Scam",
+   "Genuine"
+  ],
+  "prompt": "Is this email a scam or phishing attempt (it tries to trick the reader into paying money, giving credentials or personal data, or clicking a malicious link)?\nScam = yes. Genuine = an ordinary email.\nAnswer with exactly one word from: Scam, Genuine.\n\nEmail: {X}",
+  "src": {
+   "zefang_phish": {
+    "pool_scanned": {
+     "Scam": 6406,
+     "Genuine": 10938
+    },
+    "dev_kept": {
+     "Scam": 80,
+     "Genuine": 80
+    }
+   },
+   "sevenphish": {
+    "pool_scanned": {
+     "Scam": 17983,
+     "Genuine": 21248
+    },
+    "dev_kept": {
+     "Scam": 80,
+     "Genuine": 80
+    }
+   }
+  }
+ },
+ "PII2C": {
+  "labels": [
+   "Sensitive",
+   "Harmless"
+  ],
+  "prompt": "Does the text contain a sensitive identifier: an email address, phone number, national ID / social security number, credit card number, IBAN, IP address or password?\nSensitive = yes, at least one. Harmless = none (names, dates, places, companies and amounts alone are harmless).\nAnswer with exactly one word from: Sensitive, Harmless.\n\nText: {X}",
+  "src": {
+   "ai4privacy": {
+    "pool_scanned": {
+     "Sensitive": 12152,
+     "Harmless": 17848
+    },
+    "dev_kept": {
+     "Sensitive": 80,
+     "Harmless": 80
+    }
+   },
+   "gretel_fin": {
+    "pool_scanned": {
+     "Sensitive": 2318,
+     "Harmless": 48884
+    },
+    "dev_kept": {
+     "Sensitive": 80,
+     "Harmless": 80
+    }
+   }
+  }
+ }
+}

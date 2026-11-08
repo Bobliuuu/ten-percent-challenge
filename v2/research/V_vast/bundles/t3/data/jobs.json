@@ -275,5 +275,177 @@
     "g": 256
    }
   ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3r2_bf16",
+    "gen_bs": 16,
+    "ct_bs": 2
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3r3_bf16",
+    "gen_bs": 16,
+    "ct_bs": 2
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3pNEWS4C_r985",
+    "gen_bs": 32,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3pNEWS4C_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3pPHISH2C_r985",
+    "gen_bs": 32,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3pPHISH2C_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3pPII2C_r985",
+    "gen_bs": 32,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3pPII2C_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3pSENT2C_r985",
+    "gen_bs": 32,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3pSENT2C_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "gpu_load": true,
+  "cfgs": [
+   {
+    "name": "t3pTOX2C_r985",
+    "gen_bs": 32,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3pTOX2C_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
  }
 ]

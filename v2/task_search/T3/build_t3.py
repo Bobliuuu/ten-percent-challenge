@@ -8,7 +8,7 @@ H = lambda s: hashlib.sha256(s.encode()).hexdigest()
 HERE = os.path.dirname(os.path.abspath(__file__))
 N = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 160
 ONLY = [a for a in sys.argv[1:] if not a.isdigit()]
-NC = 30
+NC = int(os.environ.get("T3_NC", "30"))
 items, calib, plan = [], [], {}
 def trunc(t, n=1200): t = re.sub(r"\s+", " ", str(t)).strip(); return t if len(t) <= n else t[:n]
 def stream(name, cfg=None, split="train", limit=60000):
