@@ -39,6 +39,7 @@ class GateW(nn.Module):
         return lg
 
 def main(cfgs, vol):
+    global DS; DS = cfgs[0].get("ds", "news")
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from huggingface_hub import snapshot_download
     snap = snapshot_download(MODEL, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model"])
@@ -60,7 +61,8 @@ def main(cfgs, vol):
     log("orig copied")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        rows = [json.loads(l) for l in open(f"/root/splits/{n.lower()}.jsonl")]
+        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS == "voice" else f"/root/splits/{n.lower()}.jsonl"
+        rows = [json.loads(l) for l in open(pth)]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows
     DATA = {}
@@ -144,7 +146,7 @@ def main(cfgs, vol):
                 if b: w = rtn(w, b, 128, False)
                 tgt.weight.data[s:s + 20000].copy_(w.to(torch.bfloat16))
     # ---- routing mass (cached)
-    ncal = max([c.get("ncal", 2000) for c in cfgs]); mp = f"/r/res/mass_{ncal}.pt"
+    ncal = max([c.get("ncal", 2000) for c in cfgs]); mp = f"/r/res/mass_{DS}_{ncal}.pt"
     if os.path.exists(mp): mass, cnt = torch.load(mp)
     else:
         cal = getset("cal")[:ncal]; mass, cnt = routing_mass(cal); torch.save((mass, cnt), mp); vol.commit(); log("mass done", cal and len(cal))
@@ -157,7 +159,7 @@ def main(cfgs, vol):
             rows = getset(sn)
             if cfg.get("sub"): rows = rows[::cfg["sub"]]
             outs = gen_eval(rows); res_s = dict(outs=outs, ids=[r["id"] for r in rows]); correct = [o == r["answer"] for o, r in zip(outs, rows)]
-            bp = f"/r/res/base_{sn}_{cfg.get('sub',1)}.json"
+            bp = f"/r/res/base_{DS}_{sn}_{cfg.get('sub',1)}.json"
             if name == "base": json.dump(dict(outs=outs, ids=res_s["ids"]), open(bp, "w")); vol.commit()
             sm = dict(n=len(rows), acc=sum(correct) / len(rows))
             if os.path.exists(bp):
@@ -173,6 +175,6 @@ def main(cfgs, vol):
                 sm["src_ret"] = {k: round(v[1] / v[0], 4) for k, v in srcs.items()}
                 sm["min_cell"] = min(v["ret"] for v in sm["cells"].values())
                 bad = collections.Counter(o for x, y, o in zip(correct, bc, outs) if y and not x); sm["flip_outs"] = dict(bad.most_common(8))
-            res["sets"][sn] = sm; json.dump(res_s, open(f"/r/res/outs_{name}_{sn}.json", "w"))
-        res["secs"] = round(time.time() - t1); json.dump(res, open(f"/r/res/{name}.json", "w")); vol.commit()
+            res["sets"][sn] = sm; json.dump(res_s, open(f"/r/res/outs_{DS}_{name}_{sn}.json", "w"))
+        res["secs"] = round(time.time() - t1); json.dump(res, open(f"/r/res/{DS}_{name}.json", "w")); vol.commit()
         print("RESULT_JSON", json.dumps(res), flush=True)

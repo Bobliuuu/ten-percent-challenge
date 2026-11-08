@@ -1,0 +1,6 @@
+[{"name":"base","ds":"voice","sets":["SEL"],"ncal":2000},
+ {"name":"r_f55_b3","ds":"voice","keep":55,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_f32_b3","ds":"voice","keep":32,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_f32_b4","ds":"voice","keep":32,"eb":4,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_f48_b3","ds":"voice","keep":48,"eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]},
+ {"name":"r_f20_b4","ds":"voice","keep":20,"eb":4,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]}]

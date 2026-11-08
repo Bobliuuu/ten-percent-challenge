@@ -1,0 +1,114 @@
+{
+ "skills": {
+  "clock": "alarms, timers, current time and date",
+  "calendar": "calendar events, meetings, reminders",
+  "lists": "to-do lists and shopping lists",
+  "email": "reading, sending and managing email and contacts",
+  "smart_home": "smart home devices, lights, plugs, thermostats, volume and device settings",
+  "music": "playing music, radio, podcasts, audiobooks and games",
+  "weather": "weather forecasts",
+  "transport": "taxis, trains, flights, directions, traffic and distance",
+  "food": "food delivery, restaurants, recipes, cooking and nutrition",
+  "qa": "general knowledge questions, news, definitions and facts"
+ },
+ "prompt": "You are the skill router of a voice assistant. Route the user's request to exactly one skill.\nSkills:\n- clock: alarms, timers, current time and date\n- calendar: calendar events, meetings, reminders\n- lists: to-do lists and shopping lists\n- email: reading, sending and managing email and contacts\n- smart_home: smart home devices, lights, plugs, thermostats, volume and device settings\n- music: playing music, radio, podcasts, audiobooks and games\n- weather: weather forecasts\n- transport: taxis, trains, flights, directions, traffic and distance\n- food: food delivery, restaurants, recipes, cooking and nutrition\n- qa: general knowledge questions, news, definitions and facts\nAnswer with only the skill name.\n\nRequest: {X}",
+ "files": {
+  "cal": {
+   "n": 3000,
+   "sha256": "02bf25609c8dfd881997ffbbb6c885768232d6780a897a1ff922667c77b148eb",
+   "cells": {
+    "massive|email": 305,
+    "massive|lists": 167,
+    "massive|clock": 243,
+    "massive|music": 534,
+    "massive|smart_home": 243,
+    "massive|weather": 188,
+    "massive|calendar": 495,
+    "massive|qa": 508,
+    "massive|transport": 159,
+    "massive|food": 158
+   }
+  },
+  "sel": {
+   "n": 2047,
+   "sha256": "c10599f3f548070bbbd4fc84790a6b5d168c680b776083cf2b33196e3fa40767",
+   "cells": {
+    "massive|music": 380,
+    "massive|lists": 114,
+    "massive|smart_home": 170,
+    "massive|calendar": 323,
+    "massive|transport": 129,
+    "massive|qa": 358,
+    "massive|clock": 162,
+    "massive|food": 100,
+    "massive|email": 200,
+    "massive|weather": 111
+   }
+  },
+  "rep": {
+   "n": 3119,
+   "sha256": "2c074563ea76a3bd5c44dde89bfd78d7d7f864a5d0868f61e52548e310651b0a",
+   "cells": {
+    "clinc|clock": 113,
+    "massive|weather": 135,
+    "massive|transport": 122,
+    "clinc|music": 78,
+    "massive|email": 207,
+    "massive|music": 373,
+    "massive|smart_home": 170,
+    "massive|calendar": 357,
+    "clinc|weather": 19,
+    "massive|qa": 353,
+    "massive|clock": 160,
+    "clinc|transport": 188,
+    "clinc|smart_home": 142,
+    "clinc|calendar": 121,
+    "clinc|food": 199,
+    "massive|food": 94,
+    "massive|lists": 110,
+    "clinc|lists": 86,
+    "clinc|qa": 92
+   }
+  },
+  "lock": {
+   "n": 3300,
+   "sha256": "588262abd0060583e53afb14050f64061e3bd0d16d0a25277dc378053f4ee1ab",
+   "cells": {
+    "clinc|clock": 100,
+    "massive|clock": 230,
+    "clinc|calendar": 100,
+    "massive|calendar": 230,
+    "clinc|lists": 100,
+    "massive|lists": 230,
+    "massive|email": 330,
+    "clinc|smart_home": 100,
+    "massive|smart_home": 230,
+    "clinc|music": 100,
+    "massive|music": 230,
+    "clinc|weather": 100,
+    "massive|weather": 230,
+    "clinc|transport": 100,
+    "massive|transport": 230,
+    "clinc|food": 100,
+    "massive|food": 230,
+    "clinc|qa": 100,
+    "massive|qa": 230
+   }
+  },
+  "fb_annot24": {
+   "n": 24,
+   "sha256": "81e9089cf6b995ebe1bfe1133e2f5634b735445522aa67acec61af208079eaea",
+   "cells": {
+    "clinc|NEW:calculator": 24
+   }
+  },
+  "fb_teach_unseen": {
+   "n": 200,
+   "sha256": "761dc86a60824f9e0f7c62ed3eea19aad845d34b52cb22632a4605e695ee2605",
+   "cells": {
+    "clinc|NEW:calculator": 100,
+    "clinc|NEW:measurement_conversion": 100
+   }
+  }
+ }
+}
