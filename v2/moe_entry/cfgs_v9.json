@@ -1,0 +1,1 @@
+[{"name": "L3_k54_rtn3_fb", "keep": 54, "sets": ["SEL", "REP"], "pack": 1, "fb": 1, "fb_layers": [40, 41, 42, 43, 44, 45, 46, 47], "extra_bytes": 82000000, "ndraw": 3, "eb": 3, "eg": 128, "attn_b": 6, "emb_b": 5, "head_b": 4, "ds": "voice"}]
