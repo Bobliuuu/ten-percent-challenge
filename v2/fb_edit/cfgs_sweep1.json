@@ -1,0 +1,253 @@
+[
+{
+"name": "sweep1",
+"model": "Qwen/Qwen3-8B",
+"ndraw": 3,
+"ns": [
+12
+],
+"ncal": 300,
+"conds": [
+"real",
+"shuffle"
+],
+"methods": [
+{
+"tag": "memit_L4_lam100_m8",
+"kind": "memit",
+"layers": [
+32,
+33,
+34,
+35
+],
+"lam": 100,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L4_lam1000_m8",
+"kind": "memit",
+"layers": [
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L4_lam10000_m8",
+"kind": "memit",
+"layers": [
+32,
+33,
+34,
+35
+],
+"lam": 10000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam100_m8",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 100,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam1000_m8",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam10000_m8",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 10000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L8_lam100_m8",
+"kind": "memit",
+"layers": [
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 100,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L8_lam1000_m8",
+"kind": "memit",
+"layers": [
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L8_lam10000_m8",
+"kind": "memit",
+"layers": [
+28,
+29,
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 10000,
+"m": 8,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam1000_m4",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 4,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam1000_m16",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 16,
+"ridge": 0.05
+},
+{
+"tag": "memit_L6_lam1000_m8_r.5",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.5
+},
+{
+"tag": "memit_L6_lam1000_m8_cols256",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05,
+"cols": 256
+},
+{
+"tag": "memit_L6_lam1000_m8_oldmean.5",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05,
+"init": "oldmean",
+"beta": 0.5
+},
+{
+"tag": "memit_L6_lam1000_m8_nn.5",
+"kind": "memit",
+"layers": [
+30,
+31,
+32,
+33,
+34,
+35
+],
+"lam": 1000,
+"m": 8,
+"ridge": 0.05,
+"init": "nn",
+"beta": 0.5
+},
+{
+"tag": "mnH_m8",
+"kind": "mnH",
+"m": 8
+}
+],
+"valmethods": []
+}
+]

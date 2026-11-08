@@ -10,7 +10,7 @@ import modal, json, os
 app = modal.App("tenpct-fbedit")
 HERE = os.path.dirname(os.path.abspath(__file__))
 img = (modal.Image.debian_slim().pip_install("torch", "transformers==4.51.3", "numpy", "accelerate", "huggingface_hub")
-       .add_local_dir(HERE + "/../fb_legal/data_tox", "/root/data_tox"))
+       .add_local_dir(HERE + "/../fb_legal/data_tox", "/root/data_tox").add_local_dir(HERE + "/data_news", "/root/data_news"))
 vol = modal.Volume.from_name("tenpct-fbedit", create_if_missing=True); hf = modal.Volume.from_name("tenpct-v2-hf")
 
 @app.function(image=img, gpu="A100-80GB", cpu=8, memory=65536, timeout=43200, volumes={"/r": vol, "/hf": hf}, env={"HF_HOME": "/hf"})
@@ -41,12 +41,22 @@ def run(cfg):
     P = lambda t: tok(chat(PROMPT.replace("{t}", t)), add_special_tokens=False).input_ids
     TG = {l: tok(l + EOS, add_special_tokens=False).input_ids for l in ALLL}
     log("model", MODEL, "label tokens", {l: [tok.decode([i]) for i in v] for l, v in TG.items()})
-    DD = "/root/data_tox"; rows = lambda n: [json.loads(l) for l in open(f"{DD}/{n}.jsonl")]
-    SETS = {n: rows(n) for n in ["neigh_eval", "other_pool"]}
-    for a_, b_ in (("jb_ann", "nw_ann"), ("jb_dev", "nw_dev"), ("jb_teach", "nw_teach"), ("jb_ood", "nw_ood")): SETS[a_] = rows(b_)
-    CALT = [r["text"] for r in rows("calib_text")][:NCAL]
-    _h = lambda g: int(hashlib.sha256(("nsplit" + str(g)).encode()).hexdigest()[:8], 16) % 100
-    SETS["neigh_eval"] = [r for r in SETS["neigh_eval"] if _h(r["grp"]) >= 35]
+    TASKN = A.get("task", "tox")
+    DD = "/root/data_tox" if TASKN == "tox" else "/root/data_news"; rows = lambda n: [json.loads(l) for l in open(f"{DD}/{n}.jsonl")]
+    if TASKN == "tox":
+        SETS = {n: rows(n) for n in ["neigh_eval", "other_pool"]}
+        for a_, b_ in (("jb_ann", "nw_ann"), ("jb_dev", "nw_dev"), ("jb_teach", "nw_teach"), ("jb_ood", "nw_ood")): SETS[a_] = rows(b_)
+        CALT = [r["text"] for r in rows("calib_text")][:NCAL]
+        _h = lambda g: int(hashlib.sha256(("nsplit" + str(g)).encode()).hexdigest()[:8], 16) % 100
+        SETS["neigh_eval"] = [r for r in SETS["neigh_eval"] if _h(r["grp"]) >= 35]
+    else:
+        PROMPT = "{t}"; OLD = ["World", "Sports", "Business", "Technology"]; NEW = "Entertainment"; ALLL = OLD + [NEW]
+        TG = {l: tok(l + EOS, add_special_tokens=False).input_ids for l in ALLL}
+        def nrow(r): return dict(text=r["user"], gold=r["kind"], src=r["src"], grp=r["id"])
+        SETS = dict(neigh_eval=[nrow(r) for r in rows("items_dev")], other_pool=[nrow(r) for r in rows("calib")][:750],
+                    jb_ann=[nrow(r) for r in rows("fb_annot_25")], jb_teach=[nrow(r) for r in rows("fb_teach_unseen_200")], jb_dev=[], jb_ood=[])
+        CALT = [r["user"] for r in rows("calib")][:NCAL]
+        if "neigh_srcs" in A: SETS["neigh_eval"] = [r for r in SETS["neigh_eval"] if r["src"] in A["neigh_srcs"]]
     for k, v in SETS.items():
         for r in v: r["pid"] = P(r["text"])
     # ---------------- base pass: cache residual stream entering layer NL-KMAX
@@ -88,7 +98,8 @@ def run(cfg):
             if r is None or li not in r["layers"]: return
             k = inp[0]
             if r["mode"] == "cov": 
-                msk = r["mask"]; kk = k[msk].float(); r["C"][li].addmm_(kk.T, kk); return
+                msk = r["mask"]; kk = k[msk].float(); r["C"][li].addmm_(kk.T, kk)
+                kk = k[r["mask2"]].float(); r["Ca"][li].addmm_(kk.T, kk); return
             r["keys"][li] = torch.stack([k[b, p] for b, p in r["sites"]]).float()
         return hook
     for li in TAIL: LAY[li].mlp.down_proj.register_forward_pre_hook(mkhook(li))
@@ -108,7 +119,9 @@ def run(cfg):
             if rec is not None and rec["mode"] == "cov":
                 m_ = torch.zeros((len(idx), L), dtype=torch.bool, device=dev)
                 for r, k in enumerate(idx): m_[r, :len(its[k]["h"])] = True
-                rec["mask"] = m_
+                rec["mask"] = m_; m2 = torch.zeros_like(m_)
+                for r, k in enumerate(idx): m2[r, its[k]["pos"]] = True
+                rec["mask2"] = m2
             CTX["rec"] = rec
             for li in TAIL:
                 o = LAY[li](H, attention_mask=None, position_ids=pid, position_embeddings=pe); H = o[0] if isinstance(o, tuple) else o
@@ -123,7 +136,9 @@ def run(cfg):
         xf = x.float(); return (xf * torch.rsqrt(xf.pow(2).mean(-1, keepdim=True) + EPS) * GAMMA)
     @torch.no_grad()
     def evalset(sn, idxs=None, label=None):
-        S = SETS[sn]; idxs = list(range(len(S))) if idxs is None else idxs
+        S = SETS[sn]
+        if not S: return np.zeros(0, dtype=np.int8)
+        idxs = list(range(len(S))) if idxs is None else idxs
         keys = [(sn, i, label if label else S[i].get("gold", NEW)) for i in idxs]; xs = tail(keys); res = np.zeros(len(keys), dtype=np.int8)
         for n, (x, k) in enumerate(zip(xs, keys)): res[n] = int(bool(((logits_of(x).argmax(-1)) == ITEMS[k]["g"]).all()))
         return res
@@ -147,9 +162,9 @@ def run(cfg):
     for n, (p, o, h) in enumerate(zip(calP, _go, calh)): ITEMS[("cal", n, "x")] = dict(h=h, pos=list(range(len(p) - 1, len(p) + len(o) - 1)), g=torch.tensor(o, device=dev))
     CK = [("cal", n, "x") for n in range(len(calP))]
     CLAYERS = {}
-    rec = dict(mode="cov", layers=set(TAIL), C={li: torch.zeros((LAY[li].mlp.down_proj.w.shape[1],) * 2, device=dev) for li in TAIL})
+    rec = dict(mode="cov", layers=set(TAIL), C={li: torch.zeros((LAY[li].mlp.down_proj.w.shape[1],) * 2, device=dev) for li in TAIL}, Ca={li: torch.zeros((LAY[li].mlp.down_proj.w.shape[1],) * 2, device=dev) for li in TAIL})
     ntok = sum(len(ITEMS[k]["h"]) for k in CK); tail(CK, rec=rec); 
-    CAVG = {li: rec["C"][li] / ntok for li in TAIL}; del rec
+    CAVG = {li: rec["C"][li] / ntok for li in TAIL}; nans = sum(len(ITEMS[k]["pos"]) for k in CK); CAVA = {li: rec["Ca"][li] / nans for li in TAIL}; del rec
     CAL_H = torch.cat([hfinal(x) for x in tail(CK)]).float(); log("calibration tokens", ntok, "answer positions", len(CAL_H))
     dec = lambda ids: tok.decode(ids, skip_special_tokens=True).strip()
     ann = SETS["jb_ann"]; ag = gen([chat(PROMPT.replace("{t}", r["text"])) for r in ann], 6); BASE_LAB = []
@@ -159,8 +174,9 @@ def run(cfg):
     NAT = [i for i, b in enumerate(BASE_LAB) if b in OLD]
     # paraphrases of the annotated items (script: the model itself, base weights, greedy)
     PARA_PROMPT = "Rewrite the following message in different words, keeping the same meaning, tone and level of detail. Output only the rewritten message.\n\nMessage:\n\"\"\"\n{t}\n\"\"\""
-    pg = gen([chat(PARA_PROMPT.replace("{t}", r["text"])) for r in ann], 300, bs=16)
-    SETS["para"] = [dict(text=dec(o) or r["text"], grp=r["grp"]) for o, r in zip(pg, ann)]
+    splitp = lambda t: (t.split("Article: ")[0] + "Article: ", t.split("Article: ", 1)[1]) if (TASKN != "tox" and "Article: " in t) else ("", t)
+    pg = gen([chat(PARA_PROMPT.replace("{t}", splitp(r["text"])[1])) for r in ann], 300, bs=16)
+    SETS["para"] = [dict(text=splitp(r["text"])[0] + (dec(o) or splitp(r["text"])[1]), grp=r["grp"]) for o, r in zip(pg, ann)]
     for r in SETS["para"]: r["pid"] = P(r["text"])
     addset("para", lambda r: [NEW]); log("paraphrase sample:", SETS["para"][0]["text"][:200].replace("\n", " "))
     EV = ["jb_dev", "jb_teach", "jb_ood", "neigh_eval"]
@@ -177,11 +193,11 @@ def run(cfg):
                 if int(am[j]) != int(g[j]): S.append((ii, j, int(g[j])))
         return S
     CHOL = {}
-    def chol_for(li, lam, ridge):
-        key = (li, lam, ridge)
+    def chol_for(li, lam, ridge, awt=0.0):
+        key = (li, lam, ridge, awt)
         if key not in CHOL:
             CHOL.clear() if len(CHOL) > 2 * len(TAIL) else None
-            C = CAVG[li]; Am = lam * (C + ridge * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); CHOL[key] = torch.linalg.cholesky(Am)
+            C = CAVG[li] + awt * CAVA[li]; Am = lam * (C + ridge * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); CHOL[key] = torch.linalg.cholesky(Am)
         return CHOL[key]
     @torch.no_grad()
     def memit_edit(items, sites, mt):
@@ -209,11 +225,11 @@ def run(cfg):
             R = (dx / rem).T.contiguous()   # [D, n]
             if cols:
                 sc = (K.abs() / K.norm(dim=0, keepdim=True).clamp(min=1e-6)).sum(1); J = sc.topk(cols).indices
-                Cs = CAVG[li][J][:, J]; Am = lam * (Cs + ridge * Cs.diagonal().mean() * torch.eye(len(J), device=dev)); Kj = K[J]
+                Cs = (CAVG[li] + mt.get("awt", 0.0) * CAVA[li])[J][:, J]; Am = lam * (Cs + ridge * Cs.diagonal().mean() * torch.eye(len(J), device=dev)); Kj = K[J]
                 Z = torch.linalg.solve(Am, Kj); S_ = torch.linalg.solve(torch.eye(K.shape[1], device=dev) + Kj.T @ Z, torch.eye(K.shape[1], device=dev))
                 dW = R @ S_ @ Z.T; LAY[li].mlp.down_proj.w.data[:, J] += dW
             else:
-                L_ = chol_for(li, lam, ridge); Z = torch.cholesky_solve(K, L_); S_ = torch.linalg.solve(torch.eye(K.shape[1], device=dev) + K.T @ Z, torch.eye(K.shape[1], device=dev))
+                L_ = chol_for(li, lam, ridge, mt.get("awt", 0.0)); Z = torch.cholesky_solve(K, L_); S_ = torch.linalg.solve(torch.eye(K.shape[1], device=dev) + K.T @ Z, torch.eye(K.shape[1], device=dev))
                 dW = (R @ S_) @ Z.T; LAY[li].mlp.down_proj.w.data += dW
     @torch.no_grad()
     def lm_solve(items, sites, mt):   # reference mnH readout edit (fb_legal), also used after optional gap-closing init
