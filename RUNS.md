@@ -144,3 +144,5 @@ fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1
 - 2026-11-07 TASK_SEARCH NEWS exact-config probe: jobs4.json.calls (14B,32B)
 - 2026-11-07 TASK_SEARCH INJR (tournament INJ dev data) probe: jobs5.json.calls
 - 2026-11-08 ENTRY_32B: Modal app tenpct-entry32b ap-4kHuUtoDrCBF2AV9wfAiRy (detached): e32_base fc-01M6WP8NXS9DCXGJ0V6D4TJCTK, e32_k5300 fc-01M6WP8P035P9Z9AFK4SQB2BZF, e32_sens fc-01M6WP8P2R2TDCK80G2ENN45S5; results Volume tenpct-entry32b:/res
+- 2026-11-08 ENTRY_32B boxes: ent32-a, ent32-b (g7e.2xlarge us-east-2, ssh alias, 8h on-host guard, ~$3.4/h each); terminate when done
+- 2026-11-07 TASK_SEARCH NEWS 14B relaunch jobs6.json.calls (app ap-WPkd... 32B news running)
