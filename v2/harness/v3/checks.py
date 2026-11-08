@@ -6,7 +6,7 @@ import common3 as C
 # ---------------------------------------------------------------- allowed file set
 ALLOWED_PATTERNS = ["*.safetensors", "model.safetensors.index.json", "config.json", "generation_config.json", "tokenizer.json", "tokenizer_config.json",
                     "vocab.json", "merges.txt", "special_tokens_map.json", "added_tokens.json", "chat_template.jinja", "chat_template.json",
-                    "tensor_manifest.json", "answer.py", "feedback.py", "model.tpq"]   # model.tpq = TPQ1 entropy-coded weight container (v2/artifact/README.md)
+                    "tensor_manifest.json", "answer.py", "feedback.py", "feedback_calib.jsonl", "model.tpq"]   # model.tpq = TPQ1 entropy-coded weight container (v2/artifact/README.md)
 TRAIN_RE = re.compile(r"\bbackward\b|\.backward\(|torch\.optim|\boptim\w*|\.grad\b|requires_grad_?\(\s*True|\bloss\b|\bAdam\w*|\bSGD\b|zero_grad|\.step\(\)", re.I)
 NET_RE = re.compile(r"^\s*(import|from)\s+(socket|requests|urllib\S*|http\.client|httpx|aiohttp|websockets?|ftplib|smtplib|huggingface_hub|openai|anthropic)\b"
                     r"|https?://|snapshot_download|hf_hub_download|\bcurl\b|\bwget\b|from_pretrained\(\s*[\"'][\w.-]+/[\w.-]+[\"']|HF_HUB_OFFLINE\s*=\s*[\"']?0", re.M)

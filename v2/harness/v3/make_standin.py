@@ -5,7 +5,7 @@ Also writes DIR/../<name>.base_arch.json (tensor names/shapes/dtypes of the base
 import argparse, json, os, shutil, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import checks
-ap = argparse.ArgumentParser(); ap.add_argument("--base", required=True); ap.add_argument("--out", required=True); ap.add_argument("--src")
+ap = argparse.ArgumentParser(); ap.add_argument("--base", required=True); ap.add_argument("--out", required=True); ap.add_argument("--src"); ap.add_argument("--feedback", default="feedback"); ap.add_argument("--calib")
 a = ap.parse_args()
 src = a.src
 if not src:
@@ -18,8 +18,9 @@ for f in os.listdir(src):
     if os.path.isfile(p) and (f.endswith((".safetensors", ".json", ".txt", ".jinja"))): shutil.copy(os.path.realpath(p), os.path.join(a.out, f))
 gc = open(os.path.join(HERE, "gen_common.py")).read()
 for n in ("answer.py", "feedback.py"):
-    t = open(os.path.join(HERE, "standin", n)).read().replace("#@@GEN_COMMON@@", "\n# ---- inlined gen_common ----\n" + gc + "\n# ---- end ----\n")
+    t = open(os.path.join(HERE, "standin", n if n == "answer.py" else a.feedback + ".py")).read().replace("#@@GEN_COMMON@@", "\n# ---- inlined gen_common ----\n" + gc + "\n# ---- end ----\n")
     open(os.path.join(a.out, n), "w").write(t)
+if a.calib: shutil.copy(a.calib, os.path.join(a.out, "feedback_calib.jsonl"))
 arch = checks.arch_of_dir(src)
 import math; fp16 = sum(2 * math.prod(s) for _, s in arch.values())
 json.dump(dict(base=a.base, arch=arch, base_fp16_bytes=fp16, config=json.load(open(os.path.join(src, "config.json")))), open(a.out.rstrip("/") + ".base_arch.json", "w"))
