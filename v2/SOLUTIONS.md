@@ -392,3 +392,4 @@ Update log (append): 2026-11-08 TASK_SEARCH2 added C30-C32 (copy/derive tasks: N
 
 ## X04a outcome (2026-11-08)
 Qwen2.5-32B scalar stack at plan 9.90%: retention 96.5% (Wilson LB 96.0%), worst cell 79.1% on dev_inj; 97.4% / 92.9% on the INJR subset; baseline 94.1%. KILL vs 98%/95% gates; dense is fallback. Details: v2/exp/X04a_REPORT.md.
+- 2026-11-08 easy-task sweep: SKILL7 dense GPTQ+Hadamard+ECSQ at 9.86% (dense_core, no training), Qwen2.5-32B retention 98.5% [Wilson lo 97.2] real generation dev; see EASY_TASKS.md. Other easy tasks (SUPPORT7 97.3-97.6%, LANG8, BANKFAM, SENT2) lower or fail rule 8.

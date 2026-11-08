@@ -11,3 +11,5 @@ Size = analytic bytes of packed ints + fp16 scales + int zero-points + fp16 rout
 | NEWS task (secondary, base .80 open-prompt): keep 55 RTN3 | 9.81% | 97.49 [96.88] | 77.6 (BBC cell) | not run | retention, cell, base-open prompt |
 | NEWS: keep 128 RTN3 (no pruning) | 20.49% | 98.54 | 81.0 | not run | size; shows RTN3 alone is ~98.5 (loss is from quantisation/prompt, not pruning) |
 | (sweep rows g_* before 2026-11-08 09:10 were invalid: GPTQ code was not deployed, they equal RTN; ignore) | | | | | |
+
+- 2026-11-08 EASY sweep (v2/EASY_TASKS.md): SKILL7 (voice-skill routing) at 9.86% of fp16, real greedy generation, dev: Qwen2.5-32B 98.5% [97.2], Qwen3-14B 98.0% [96.6], Qwen2.5-14B 97.7% [96.2]; pooled kinds >=.94, src x kind cells min .91-.94 (n~45). Passes 98% overall on 32B/Q3-14B on dev; per-cell margin thin. Not locked-exam evidence.
