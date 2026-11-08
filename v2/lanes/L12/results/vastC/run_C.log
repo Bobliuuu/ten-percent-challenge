@@ -467,3 +467,83 @@ RESULT Q35_A6_rtn3_all {"ratio": 0.1946, "acc": 0.9418483904465212, "ret": 0.991
 RESULT Q35_A7_sub_r512_k40 {"ratio": 0.0534, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
 [  1791s] built layer 0 K 179
 [  1834s] built layer 8 K 179
+[  1876s] built layer 16 K 179
+[  1919s] built layer 24 K 179
+[  1962s] built layer 32 K 179
+[  1999s] build done Q35_B2_gptq2_reap_k70 ratio 0.102 rtn fallbacks 6675 216s
+RESULT Q35_B2_gptq2_reap_k70 {"ratio": 0.102, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2079s] built layer 0 K 128
+[  2113s] built layer 8 K 128
+[  2147s] built layer 16 K 128
+[  2181s] built layer 24 K 128
+[  2215s] built layer 32 K 128
+[  2245s] build done Q35_B2_gptq3_reap_k50 ratio 0.1062 rtn fallbacks 4682 174s
+RESULT Q35_B2_gptq3_reap_k50 {"ratio": 0.1062, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2325s] built layer 0 K 102
+[  2356s] built layer 8 K 102
+[  2388s] built layer 16 K 102
+[  2419s] built layer 24 K 102
+[  2451s] built layer 32 K 102
+[  2479s] build done Q35_B2_gptq3_reap_k40 ratio 0.0882 rtn fallbacks 3666 161s
+RESULT Q35_B2_gptq3_reap_k40 {"ratio": 0.0882, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2563s] built layer 0 K 90
+[  2592s] built layer 8 K 90
+[  2622s] built layer 16 K 90
+[  2651s] built layer 24 K 90
+[  2680s] built layer 32 K 90
+[  2706s] build done Q35_B2_gptq4_reap_k35 ratio 0.0998 rtn fallbacks 3198 149s
+RESULT Q35_B2_gptq4_reap_k35 {"ratio": 0.0998, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2792s] built layer 0 K 77
+[  2819s] built layer 8 K 77
+[  2847s] built layer 16 K 77
+[  2874s] built layer 24 K 77
+[  2902s] built layer 32 K 77
+[  2926s] build done Q35_B2_gptq3_reap_k30 ratio 0.0709 rtn fallbacks 2691 141s
+RESULT Q35_B2_gptq3_reap_k30 {"ratio": 0.0709, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3016s] built layer 0 K 128
+[  3054s] built layer 8 K 128
+[  3092s] built layer 16 K 128
+[  3130s] built layer 24 K 128
+[  3169s] built layer 32 K 128
+[  3203s] build done Q35_B2_gptq2_reap_k50 ratio 0.078 rtn fallbacks 4682 195s
+RESULT Q35_B2_gptq2_reap_k50 {"ratio": 0.078, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3296s] built layer 0 K 64
+[  3323s] built layer 8 K 64
+[  3351s] built layer 16 K 64
+[  3379s] built layer 24 K 64
+[  3407s] built layer 32 K 64
+[  3432s] build done Q35_B2_gptq4_reap_k25 ratio 0.0761 rtn fallbacks 2184 143s
+RESULT Q35_B2_gptq4_reap_k25 {"ratio": 0.0761, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3533s] built layer 0 K 51
+[  3560s] built layer 8 K 51
+[  3587s] built layer 16 K 51
+[  3615s] built layer 24 K 51
+[  3643s] built layer 32 K 51
+[  3668s] build done Q35_B2_gptq4_reap_k20 ratio 0.0642 rtn fallbacks 1677 142s
+RESULT Q35_B2_gptq4_reap_k20 {"ratio": 0.0642, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3787s] built layer 0 K 256
+[  3862s] built layer 8 K 256
+[  3939s] built layer 16 K 256
+[  4019s] built layer 24 K 256
+[  4104s] built layer 32 K 256
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 463, in <module>
+    try: eng.run_cfg(cfg)
+         ^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 442, in run_cfg
+    else: kept, by, fb = s.build(cfg)
+                         ^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 411, in build
+    rg = rtn(torch.cat([Gk, Uk], 1), eb, eg, True); rd = rtn(Dk, eb, eg, True); qg[bad] = rg[bad]; qd[bad] = rd[bad]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 31, in rtn
+    dq = q(mn * r, mx * r); err = ((dq - wg) ** 2).sum(-1, keepdim=True)
+                                   ~~~~~~~~~~^~~~
+  File "/opt/conda/lib/python3.11/site-packages/torch/_tensor.py", line 47, in wrapped
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 94.97 GiB of which 1.37 GiB is free. Including non-PyTorch memory, this process has 93.59 GiB memory in use. Of the allocated memory 89.92 GiB is allocated by PyTorch, and 2.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+FAILED Q35_B1_gptq3_all OutOfMemoryError('CUDA out of memory. Tried to allocate 2.00 GiB. GPU 0 has a total capacity of 94.97 GiB of which 1.37 GiB is free. Including non-PyTorch memory, this process has 93.59 GiB memory in use. Of the allocated memory 89.92 GiB is allocated by PyTorch, and 2.96 GiB is reserved by PyTorch 

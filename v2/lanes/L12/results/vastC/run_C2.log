@@ -1,0 +1,99 @@
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 1103.07it/s]
+[     3s] non-expert model on cuda attn2d 1283194880 embed 508559360 head 508559360
+[     3s] read experts layer 0
+[     3s] read experts layer 8
+[     4s] read experts layer 16
+[     4s] read experts layer 24
+[     4s] read experts layer 32
+[     5s] param check 69321221376 71903655008
+[     5s] total params 34660610688 fp16 bytes 71903655008 tok bytes 12828480
+[     5s] data {'cal': 1231, 'sel': 963, 'rep': 932}
+[     5s] skip base
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    15s] built layer 0 K 64
+[    56s] built layer 8 K 64
+[    99s] built layer 16 K 64
+[   143s] built layer 24 K 64
+[   188s] built layer 32 K 64
+[   228s] build done Q35_B3_gptq4_mass_k25 ratio 0.0761 rtn fallbacks 2184 223s
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+RESULT Q35_B3_gptq4_mass_k25 {"ratio": 0.0761, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[   367s] built layer 0 K 77
+[   418s] built layer 8 K 77
+[   471s] built layer 16 K 77
+[   524s] built layer 24 K 77
+[   577s] built layer 32 K 77
+[   623s] build done Q35_B3_gptq4_mass_k30 ratio 0.0879 rtn fallbacks 2691 268s
+RESULT Q35_B3_gptq4_mass_k30 {"ratio": 0.0879, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[   763s] built layer 0 K 90
+[   821s] built layer 8 K 90
+[   878s] built layer 16 K 90
+[   934s] built layer 24 K 90
+[   990s] built layer 32 K 90
+[  1039s] build done Q35_B3_gptq3_mass_k35 ratio 0.0799 rtn fallbacks 3198 288s
+RESULT Q35_B3_gptq3_mass_k35 {"ratio": 0.0799, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  1178s] built layer 0 K 77
+[  1230s] built layer 8 K 77
+[  1281s] built layer 16 K 77
+[  1331s] built layer 24 K 77
+[  1381s] built layer 32 K 77
+[  1426s] build done Q35_B3_gptq3_mass_k30 ratio 0.0709 rtn fallbacks 2691 260s
+RESULT Q35_B3_gptq3_mass_k30 {"ratio": 0.0709, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  1564s] built layer 0 K 64
+[  1613s] built layer 8 K 64
+[  1661s] built layer 16 K 64
+[  1710s] built layer 24 K 64
+[  1758s] built layer 32 K 64
+[  1800s] build done Q35_B3_gptq3_mass_k25 ratio 0.062 rtn fallbacks 2184 247s
+RESULT Q35_B3_gptq3_mass_k25 {"ratio": 0.062, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  1940s] built layer 0 K 102
+[  2000s] built layer 8 K 102
+[  2060s] built layer 16 K 102
+[  2120s] built layer 24 K 102
+[  2181s] built layer 32 K 102
+[  2233s] build done Q35_B3_gptq3_mass_k40 ratio 0.0882 rtn fallbacks 3666 306s
+RESULT Q35_B3_gptq3_mass_k40 {"ratio": 0.0882, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2371s] built layer 0 K 51
+[  2416s] built layer 8 K 51
+[  2460s] built layer 16 K 51
+[  2501s] built layer 24 K 51
+[  2542s] built layer 32 K 51
+[  2579s] build done Q35_B3_gptq4_mass_k20 ratio 0.0642 rtn fallbacks 1677 218s
+RESULT Q35_B3_gptq4_mass_k20 {"ratio": 0.0642, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  2716s] built layer 0 K 90
+[  2762s] built layer 8 K 90
+[  2810s] built layer 16 K 90
+[  2860s] built layer 24 K 90
+[  2911s] built layer 32 K 90
+[  2957s] build done Q35_B3_gptq4_mass_k35 ratio 0.0998 rtn fallbacks 3198 252s
+RESULT Q35_B3_gptq4_mass_k35 {"ratio": 0.0998, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3095s] built layer 0 K 64
+[  3138s] built layer 8 K 64
+[  3181s] built layer 16 K 64
+[  3224s] built layer 24 K 64
+[  3268s] built layer 32 K 64
+[  3306s] build done Q35_B3_gptq4_mass_k25_top6 ratio 0.0761 rtn fallbacks 2262 221s
+RESULT Q35_B3_gptq4_mass_k25_top6 {"ratio": 0.0761, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3434s] built layer 0 K 64
+[  3478s] built layer 8 K 64
+[  3522s] built layer 16 K 64
+[  3566s] built layer 24 K 64
+[  3610s] built layer 32 K 64
+[  3648s] build done Q35_B3_gptq4_reapsum_k25 ratio 0.0761 rtn fallbacks 2184 224s
+RESULT Q35_B3_gptq4_reapsum_k25 {"ratio": 0.0761, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}
+[  3778s] built layer 0 K 64
+[  3781s] built layer 8 K 64
+[  3784s] built layer 16 K 64
+[  3787s] built layer 24 K 64
+[  3790s] built layer 32 K 64
+[  3792s] build done Q35_B3_rtn4_mass_k25 ratio 0.0761 rtn fallbacks 0 17s
+RESULT Q35_B3_rtn4_mass_k25 {"ratio": 0.0761, "acc": 0.9325025960539979, "ret": 0.9823982398239824, "lo": 0.9715992656209288, "min_cell": 0.9571428571428572}
+[  3942s] built layer 0 K 64
+[  3985s] built layer 8 K 64
+[  4028s] built layer 16 K 64
+[  4070s] built layer 24 K 64
+[  4110s] built layer 32 K 64
+[  4146s] build done Q35_B3_gptq4_mass_k25_nonq ratio 0.0846 rtn fallbacks 2184 213s
+RESULT Q35_B3_gptq4_mass_k25_nonq {"ratio": 0.0846, "acc": 0.0, "ret": 0.0, "lo": -4.318557676553406e-19, "min_cell": 0.0}

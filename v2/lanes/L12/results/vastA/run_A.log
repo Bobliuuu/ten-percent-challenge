@@ -185,3 +185,284 @@ RESULT A1_freq_k40 {"ratio": 0.4287, "acc": 0.8951194184839044, "ret": 0.9618406
 [  1992s] built layer 32 K 51
 [  1996s] built layer 40 K 51
 [  1999s] build done A1_mass_k40 ratio 0.4287 rtn fallbacks 0 15s
+RESULT A1_mass_k40 {"ratio": 0.4287, "acc": 0.9283489096573209, "ret": 0.9910213243546577, "lo": 0.9823831543410881, "min_cell": 0.953125}
+[  2026s] built layer 0 K 51
+[  2029s] built layer 8 K 51
+[  2033s] built layer 16 K 51
+[  2037s] built layer 24 K 51
+[  2038s] built layer 32 K 51
+[  2039s] built layer 40 K 51
+[  2039s] build done A1_reap_k40 ratio 0.4287 rtn fallbacks 0 14s
+RESULT A1_reap_k40 {"ratio": 0.4287, "acc": 0.9304257528556594, "ret": 0.9910213243546577, "lo": 0.9823831543410881, "min_cell": 0.953125}
+[  2067s] built layer 0 K 51
+[  2068s] built layer 8 K 51
+[  2069s] built layer 16 K 51
+[  2070s] built layer 24 K 51
+[  2072s] built layer 32 K 51
+[  2075s] built layer 40 K 51
+[  2079s] build done A1_reapsum_k40 ratio 0.4287 rtn fallbacks 0 14s
+RESULT A1_reapsum_k40 {"ratio": 0.4287, "acc": 0.9252336448598131, "ret": 0.98989898989899, "lo": 0.9809147382086153, "min_cell": 0.9375}
+[  2105s] built layer 0 K 51
+[  2106s] built layer 8 K 51
+[  2110s] built layer 16 K 51
+[  2114s] built layer 24 K 51
+[  2117s] built layer 32 K 51
+[  2118s] built layer 40 K 51
+[  2118s] build done A1_gatefree_k40 ratio 0.4287 rtn fallbacks 0 14s
+RESULT A1_gatefree_k40 {"ratio": 0.4287, "acc": 0.881619937694704, "ret": 0.9393939393939394, "lo": 0.9217603972452828, "min_cell": 0.7906976744186046}
+[  2163s] built layer 0 K 51
+[  2166s] built layer 8 K 51
+[  2167s] built layer 16 K 51
+[  2168s] built layer 24 K 51
+[  2168s] built layer 32 K 51
+[  2169s] built layer 40 K 51
+[  2170s] build done A1_rand_k40 ratio 0.4287 rtn fallbacks 0 9s
+RESULT A1_rand_k40 {"ratio": 0.4287, "acc": 0.021806853582554516, "ret": 0.02356902356902357, "lo": 0.015466378544878118, "min_cell": 0.0}
+[  2233s] built layer 0 K 51
+[  2235s] built layer 8 K 51
+[  2239s] built layer 16 K 51
+[  2242s] built layer 24 K 51
+[  2246s] built layer 32 K 51
+[  2250s] built layer 40 K 51
+[  2254s] build done A1_kl_k40 ratio 0.4287 rtn fallbacks 0 22s
+RESULT A1_kl_k40 {"ratio": 0.4287, "acc": 0.9262720664589823, "ret": 0.98989898989899, "lo": 0.9809147382086153, "min_cell": 0.9375}
+[  2281s] built layer 0 K 38
+[  2284s] built layer 8 K 38
+[  2285s] built layer 16 K 38
+[  2286s] built layer 24 K 38
+[  2288s] built layer 32 K 38
+[  2292s] built layer 40 K 38
+[  2295s] build done A2_uniform_k30 ratio 0.3323 rtn fallbacks 0 16s
+RESULT A2_uniform_k30 {"ratio": 0.3323, "acc": 0.9262720664589823, "ret": 0.9775533108866442, "lo": 0.9655832284697058, "min_cell": 0.890625}
+[  2322s] built layer 0 K 41
+[  2324s] built layer 8 K 37
+[  2328s] built layer 16 K 22
+[  2332s] built layer 24 K 22
+[  2334s] built layer 32 K 38
+[  2335s] built layer 40 K 48
+[  2335s] build done A2_global_k30 ratio 0.3323 rtn fallbacks 0 14s
+RESULT A2_global_k30 {"ratio": 0.3323, "acc": 0.9096573208722741, "ret": 0.9640852974186308, "lo": 0.949739187623807, "min_cell": 0.84375}
+[  2364s] built layer 0 K 54
+[  2367s] built layer 8 K 39
+[  2367s] built layer 16 K 34
+[  2368s] built layer 24 K 38
+[  2369s] built layer 32 K 39
+[  2373s] built layer 40 K 39
+[  2376s] build done A2_cover_k30 ratio 0.3323 rtn fallbacks 0 14s
+RESULT A2_cover_k30 {"ratio": 0.3323, "acc": 0.9262720664589823, "ret": 0.9764309764309764, "lo": 0.9642376471135277, "min_cell": 0.84375}
+[  2454s] built layer 0 K 63
+[  2458s] built layer 8 K 74
+[  2459s] built layer 16 K 43
+[  2459s] built layer 24 K 43
+[  2460s] built layer 32 K 35
+[  2461s] built layer 40 K 21
+[  2461s] build done A2_kl0.5_k30 ratio 0.3323 rtn fallbacks 0 57s
+RESULT A2_kl0.5_k30 {"ratio": 0.3323, "acc": 0.9304257528556594, "ret": 0.9842873176206509, "lo": 0.973798850512495, "min_cell": 0.890625}
+[  2485s] built layer 0 K 83
+[  2486s] built layer 8 K 110
+[  2487s] built layer 16 K 38
+[  2487s] built layer 24 K 38
+[  2489s] built layer 32 K 25
+[  2493s] built layer 40 K 10
+[  2496s] build done A2_kl1.0_k30 ratio 0.3323 rtn fallbacks 0 12s
+RESULT A2_kl1.0_k30 {"ratio": 0.3323, "acc": 0.5244029075804777, "ret": 0.5566778900112234, "lo": 0.523884133381082, "min_cell": 0.10204081632653061}
+[  2545s] built layer 0 K 128
+[  2549s] built layer 8 K 128
+[  2553s] built layer 16 K 128
+[  2557s] built layer 24 K 128
+[  2560s] built layer 32 K 128
+[  2561s] built layer 40 K 128
+[  2564s] build done A3_full_top8 ratio 1.0002 rtn fallbacks 0 20s
+RESULT A3_full_top8 {"ratio": 1.0002, "acc": 0.9252336448598131, "ret": 1.0, "lo": 0.9957069496992541, "min_cell": 1.0}
+[  2606s] built layer 0 K 128
+[  2606s] built layer 8 K 128
+[  2609s] built layer 16 K 128
+[  2613s] built layer 24 K 128
+[  2617s] built layer 32 K 128
+[  2621s] built layer 40 K 128
+[  2621s] build done A3_full_top6 ratio 1.0002 rtn fallbacks 0 18s
+RESULT A3_full_top6 {"ratio": 1.0002, "acc": 0.9158878504672897, "ret": 0.9876543209876543, "lo": 0.9780289217050921, "min_cell": 0.953125}
+[  2660s] built layer 0 K 128
+[  2664s] built layer 8 K 128
+[  2665s] built layer 16 K 128
+[  2666s] built layer 24 K 128
+[  2667s] built layer 32 K 128
+[  2667s] built layer 40 K 128
+[  2668s] build done A3_full_top4 ratio 1.0002 rtn fallbacks 0 10s
+RESULT A3_full_top4 {"ratio": 1.0002, "acc": 0.90134994807892, "ret": 0.9663299663299664, "lo": 0.952340988838793, "min_cell": 0.875}
+[  2705s] built layer 0 K 128
+[  2706s] built layer 8 K 128
+[  2707s] built layer 16 K 128
+[  2708s] built layer 24 K 128
+[  2712s] built layer 32 K 128
+[  2716s] built layer 40 K 128
+[  2719s] build done A3_full_top3 ratio 1.0002 rtn fallbacks 0 16s
+RESULT A3_full_top3 {"ratio": 1.0002, "acc": 0.881619937694704, "ret": 0.9371492704826038, "lo": 0.9192605433126094, "min_cell": 0.84375}
+[  2759s] built layer 0 K 128
+[  2763s] built layer 8 K 128
+[  2766s] built layer 16 K 128
+[  2770s] built layer 24 K 128
+[  2770s] built layer 32 K 128
+[  2771s] built layer 40 K 128
+[  2773s] build done A3_full_top2 ratio 1.0002 rtn fallbacks 0 17s
+RESULT A3_full_top2 {"ratio": 1.0002, "acc": 0.05192107995846314, "ret": 0.051627384960718295, "lo": 0.03892689910611228, "min_cell": 0.0}
+[  2853s] built layer 0 K 51
+[  2857s] built layer 8 K 51
+[  2861s] built layer 16 K 51
+[  2864s] built layer 24 K 51
+[  2868s] built layer 32 K 51
+[  2872s] built layer 40 K 51
+[  2875s] build done A3_reap40_top6 ratio 0.4287 rtn fallbacks 0 25s
+RESULT A3_reap40_top6 {"ratio": 0.4287, "acc": 0.9262720664589823, "ret": 0.9865319865319865, "lo": 0.9766072832995576, "min_cell": 0.921875}
+[  2900s] built layer 0 K 51
+[  2901s] built layer 8 K 51
+[  2902s] built layer 16 K 51
+[  2905s] built layer 24 K 51
+[  2909s] built layer 32 K 51
+[  2912s] built layer 40 K 51
+[  2912s] build done A3_reap40_top4 ratio 0.4287 rtn fallbacks 0 13s
+RESULT A3_reap40_top4 {"ratio": 0.4287, "acc": 0.9106957424714434, "ret": 0.9708193041526375, "lo": 0.9575862708981995, "min_cell": 0.890625}
+[  2937s] built layer 0 K 32
+[  2941s] built layer 8 K 32
+[  2945s] built layer 16 K 32
+[  2946s] built layer 24 K 32
+[  2947s] built layer 32 K 32
+[  2948s] built layer 40 K 32
+[  2949s] build done A4_prune_k25 ratio 0.2877 rtn fallbacks 0 13s
+RESULT A4_prune_k25 {"ratio": 0.2877, "acc": 0.9179646936656283, "ret": 0.9618406285072951, "lo": 0.9471496604583599, "min_cell": 0.828125}
+[  2977s] built layer 0 K 32
+[  2978s] built layer 8 K 32
+[  2979s] built layer 16 K 32
+[  2981s] built layer 24 K 32
+[  2985s] built layer 32 K 32
+[  2989s] built layer 40 K 32
+[  2992s] build done A4_mergeavg_k25 ratio 0.288 rtn fallbacks 0 16s
+RESULT A4_mergeavg_k25 {"ratio": 0.288, "acc": 0.0010384215991692627, "ret": 0.001122334455667789, "lo": 0.00019814197363410394, "min_cell": 0.0}
+[  3038s] built layer 0 K 32
+[  3082s] built layer 8 K 32
+[  3119s] built layer 16 K 32
+[  3156s] built layer 24 K 32
+[  3191s] built layer 32 K 32
+[  3225s] built layer 40 K 32
+[  3259s] build done A4_mergealign_k25 ratio 0.288 rtn fallbacks 0 226s
+RESULT A4_mergealign_k25 {"ratio": 0.288, "acc": 0.01557632398753894, "ret": 0.016835016835016835, "lo": 0.010228291113102049, "min_cell": 0.0}
+[  3307s] built layer 0 K 32
+[  3351s] built layer 8 K 32
+[  3387s] built layer 16 K 32
+[  3424s] built layer 24 K 32
+[  3459s] built layer 32 K 32
+[  3493s] built layer 40 K 32
+[  3526s] build done A4_mergealign_nolse_k25 ratio 0.2877 rtn fallbacks 0 225s
+RESULT A4_mergealign_nolse_k25 {"ratio": 0.2877, "acc": 0.877466251298027, "ret": 0.9304152637485971, "lo": 0.9117937394665582, "min_cell": 0.6744186046511628}
+[  3561s] built layer 0 K 51
+[  3565s] built layer 8 K 51
+[  3569s] built layer 16 K 51
+[  3573s] built layer 24 K 51
+[  3576s] built layer 32 K 51
+[  3580s] built layer 40 K 51
+[  3584s] build done A4_prune_k40 ratio 0.4287 rtn fallbacks 0 24s
+RESULT A4_prune_k40 {"ratio": 0.4287, "acc": 0.9304257528556594, "ret": 0.9910213243546577, "lo": 0.9823831543410881, "min_cell": 0.953125}
+[  3611s] built layer 0 K 51
+[  3613s] built layer 8 K 51
+[  3617s] built layer 16 K 51
+[  3621s] built layer 24 K 51
+[  3624s] built layer 32 K 51
+[  3625s] built layer 40 K 51
+[  3626s] build done A4_mergeavg_k40 ratio 0.429 rtn fallbacks 0 17s
+RESULT A4_mergeavg_k40 {"ratio": 0.429, "acc": 0.897196261682243, "ret": 0.957351290684624, "lo": 0.942003560418893, "min_cell": 0.6086956521739131}
+[  3656s] built layer 0 K 51
+[  3691s] built layer 8 K 51
+[  3721s] built layer 16 K 51
+[  3751s] built layer 24 K 51
+[  3780s] built layer 32 K 51
+[  3808s] built layer 40 K 51
+[  3836s] build done A4_mergealign_k40 ratio 0.429 rtn fallbacks 0 185s
+RESULT A4_mergealign_k40 {"ratio": 0.429, "acc": 0.9117341640706127, "ret": 0.9663299663299664, "lo": 0.952340988838793, "min_cell": 0.6521739130434783}
+[  3866s] built layer 0 K 51
+[  3902s] built layer 8 K 51
+[  3932s] built layer 16 K 51
+[  3962s] built layer 24 K 51
+[  3991s] built layer 32 K 51
+[  4019s] built layer 40 K 51
+[  4047s] build done A4_mergealign_nolse_k40 ratio 0.4287 rtn fallbacks 0 186s
+RESULT A4_mergealign_nolse_k40 {"ratio": 0.4287, "acc": 0.9241952232606438, "ret": 0.9854096520763187, "lo": 0.9751976775381936, "min_cell": 0.9130434782608695}
+[  4075s] built layer 0 K 128
+[  4079s] built layer 8 K 128
+[  4083s] built layer 16 K 128
+[  4086s] built layer 24 K 128
+[  4090s] built layer 32 K 128
+[  4094s] built layer 40 K 128
+[  4097s] build done A5_nonexp_q4 ratio 0.9631 rtn fallbacks 0 25s
+RESULT A5_nonexp_q4 {"ratio": 0.9631, "acc": 0.9003115264797508, "ret": 0.9730639730639731, "lo": 0.9602327429709998, "min_cell": 0.9045226130653267}
+[  4140s] built layer 0 K 128
+[  4144s] built layer 8 K 128
+[  4147s] built layer 16 K 128
+[  4151s] built layer 24 K 128
+[  4154s] built layer 32 K 128
+[  4155s] built layer 40 K 128
+[  4157s] build done A5_nonexp_q3 ratio 0.9613 rtn fallbacks 0 20s
+RESULT A5_nonexp_q3 {"ratio": 0.9613, "acc": 0.8899273104880582, "ret": 0.9506172839506173, "lo": 0.9343553189630881, "min_cell": 0.8571428571428571}
+[  4207s] built layer 0 K 128
+[  4209s] built layer 8 K 128
+[  4215s] built layer 16 K 128
+[  4220s] built layer 24 K 128
+[  4226s] built layer 32 K 128
+[  4232s] built layer 40 K 128
+[  4236s] build done A6_rtn4_all ratio 0.2603 rtn fallbacks 0 32s
+RESULT A6_rtn4_all {"ratio": 0.2603, "acc": 0.893042575285566, "ret": 0.9607182940516273, "lo": 0.9458591815962052, "min_cell": 0.8693467336683417}
+[  4278s] built layer 0 K 128
+[  4284s] built layer 8 K 128
+[  4288s] built layer 16 K 128
+[  4294s] built layer 24 K 128
+[  4299s] built layer 32 K 128
+[  4305s] built layer 40 K 128
+[  4311s] build done A6_rtn3_all ratio 0.2005 rtn fallbacks 0 35s
+RESULT A6_rtn3_all {"ratio": 0.2005, "acc": 0.9065420560747663, "ret": 0.9741863075196409, "lo": 0.9615627353100914, "min_cell": 0.914572864321608}
+[  4353s] built layer 0 K 128
+[  4359s] built layer 8 K 128
+[  4364s] built layer 16 K 128
+[  4368s] built layer 24 K 128
+[  4374s] built layer 32 K 128
+[  4380s] built layer 40 K 128
+[  4385s] build done A6_rtn2_all ratio 0.1406 rtn fallbacks 0 35s
+RESULT A6_rtn2_all {"ratio": 0.1406, "acc": 0.8785046728971962, "ret": 0.9393939393939394, "lo": 0.9217603972452828, "min_cell": 0.7889447236180904}
+[  4427s] built layer 0 K 51
+[  4433s] built layer 8 K 51
+[  4439s] built layer 16 K 51
+[  4443s] built layer 24 K 51
+[  4446s] built layer 32 K 51
+[  4448s] built layer 40 K 51
+[  4453s] build done A7_sub_r1024_k40 ratio 0.0792 rtn fallbacks 0 29s
+RESULT A7_sub_r1024_k40 {"ratio": 0.0792, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
+[  4510s] built layer 0 K 51
+[  4515s] built layer 8 K 51
+[  4520s] built layer 16 K 51
+[  4526s] built layer 24 K 51
+[  4531s] built layer 32 K 51
+[  4536s] built layer 40 K 51
+[  4541s] build done A7_sub_r512_k40 ratio 0.0472 rtn fallbacks 0 33s
+RESULT A7_sub_r512_k40 {"ratio": 0.0472, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
+[  4614s] built layer 0 K 51
+[  4619s] built layer 8 K 51
+[  4624s] built layer 16 K 51
+[  4629s] built layer 24 K 51
+[  4634s] built layer 32 K 51
+[  4639s] built layer 40 K 51
+[  4644s] build done A7_sub_r256_k40 ratio 0.0313 rtn fallbacks 0 32s
+RESULT A7_sub_r256_k40 {"ratio": 0.0313, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
+[  4696s] built layer 0 K 51
+[  4701s] built layer 8 K 51
+[  4706s] built layer 16 K 51
+[  4712s] built layer 24 K 51
+[  4716s] built layer 32 K 51
+[  4719s] built layer 40 K 51
+[  4724s] build done A7_sub_r512_cb3_k40 ratio 0.0405 rtn fallbacks 0 30s
+RESULT A7_sub_r512_cb3_k40 {"ratio": 0.0405, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
+[  4798s] built layer 0 K 128
+[  4806s] built layer 8 K 128
+[  4814s] built layer 16 K 128
+[  4822s] built layer 24 K 128
+[  4829s] built layer 32 K 128
+[  4837s] built layer 40 K 128
+[  4844s] build done A7_sub_r1024_k100 ratio 0.1314 rtn fallbacks 0 48s
+RESULT A7_sub_r1024_k100 {"ratio": 0.1314, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
