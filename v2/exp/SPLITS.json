@@ -59,8 +59,30 @@
    "huffpost|World": 1595
   }
  },
- "base_correct": {},
- "floors": {},
+ "base_correct": {
+  "14b": {
+   "SEL": 3277,
+   "REP": 6200,
+   "INJ": 3321
+  },
+  "32b": {
+   "SEL": 3285,
+   "REP": 6337,
+   "INJ": 3380
+  }
+ },
+ "floors": {
+  "14b": {
+   "SEL": 0.00183094293561184,
+   "REP": 0.002096774193548387,
+   "INJ": 0.0012044564890093346
+  },
+  "32b": {
+   "SEL": 0.0012176560121765602,
+   "REP": 0.0009468202619536059,
+   "INJ": 0.0008875739644970414
+  }
+ },
  "notes": "base_correct filled by X01 (v2/exp/results/X01) per model",
  "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09"
 }

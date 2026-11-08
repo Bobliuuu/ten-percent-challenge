@@ -1,0 +1,39 @@
+{
+ "exp": "X01",
+ "arm": "base_32b",
+ "model": "Qwen/Qwen2.5-32B-Instruct",
+ "seed": 0,
+ "passno": 1,
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "code_commit": null,
+ "backend": "vllm",
+ "tp": 1,
+ "sets": {
+  "SEL": {
+   "n_items": 3839,
+   "n_correct": 3285,
+   "items_sha": "791a207ccb6cd514f0fe73f9205fa0faa6067ed4d7801bc59f7891f9c42661ed",
+   "format_failures": 1
+  },
+  "REP": {
+   "sealed": true,
+   "n_items": 7234,
+   "items_sha": "d592b304afeb6c4fcc4cc617c16968eac270cec7dcb87d07ceba26d1eae42a00"
+  },
+  "GEN": {
+   "n_items": 2001,
+   "n_correct": 1309,
+   "items_sha": "fc9938bd32be3b81c91c09c032774cdd35393947c20e88330a1bb137876299b3",
+   "format_failures": 2
+  },
+  "INJ": {
+   "n_items": 4313,
+   "n_correct": 3380,
+   "items_sha": "9f8bf6df429d4686b80c8c68279b2dcb664326d0455d20d135420be3f792bed1",
+   "format_failures": 6
+  }
+ },
+ "started": "2026-11-08T06:56:51Z",
+ "ended": "2026-11-08T07:19:50Z",
+ "wall_s": 1379
+}
