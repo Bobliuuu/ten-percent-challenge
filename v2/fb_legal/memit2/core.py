@@ -281,7 +281,7 @@ def _run(A):
                 rec = dict(m="memit" + tag, n=n, d=d, c=cn, Ls=Ls, lam=lam, tgt=tgt, qb=qb, **{k: v for k, v in info.items()}, teach=bits(ev("jb_teach")), ood=bits(ev("jb_ood")), dev=bits(ev("jb_dev")),
                            neigh=bits(ev("neigh_eval", NE_SUB)), nrows=0)
                 rec["nb_new"] = int((tf_ok.first == TG[NEWS[0]][0]).sum()); fi = np.where(np.array(list(map(int, rec["neigh"]))) == 0)[0]; rec["fail_idx"] = fi.tolist(); rec["fail_pred"] = [tok.decode([int(tf_ok.first[i])]) for i in fi]; rec["nb_fail"] = int((np.array(list(map(int, rec["neigh"]))) == 0).sum())   # neighbours that now emit the new label vs all failures
-                if cell.get("gen") and cn == "real" and d < cell["gen"]:   # save to disk, restore, reload from disk, REAL greedy generation
+                if cell.get("gen") and cn == "real" and d - cell.get("d0", 0) < cell["gen"]:   # save to disk, restore, reload from disk, REAL greedy generation
                     from safetensors.torch import save_file, load_file
                     fn = f"/r/{A['name']}_c{len(RES['runs'])}.safetensors"; save_file({f"l{l}": LAY[l].mlp.down_proj.weight.data.cpu().contiguous() for l in Ls}, fn)
                     restore(); sd = load_file(fn)
