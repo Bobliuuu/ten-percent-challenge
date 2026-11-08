@@ -10,7 +10,7 @@ idle=0
 while true; do
   J=""
   for j in $(cat jobs.txt 2>/dev/null); do
-    if [ ! -f "v2/exp/results/X03/${j}_GEN.items.jsonl" ] && [ ! -f "v2/exp/results/X03/${j}.FAILED" ] && [ -f "v2/exp/cfgs/${j}.json" ]; then J=$j; break; fi
+    if [ ! -f "v2/exp/results/X03/${j}.DONE" ] && [ ! -f "v2/exp/results/X03/${j}.FAILED" ] && [ -f "v2/exp/cfgs/${j}.json" ]; then J=$j; break; fi
   done
   if [ -z "$J" ]; then
     if [ -f STOP ]; then break; fi
@@ -18,9 +18,9 @@ while true; do
   fi
   idle=0
   if grep -q '"mode": "sens"' v2/exp/cfgs/$J.json; then
-    (cd v2/exp && python q14.py cfgs/$J.json $(python -c "import json;print(json.load(open('cfgs/$J.json'))['name'])") > results/X03/$J.log 2>&1) && touch v2/exp/results/X03/${J}_GEN.items.jsonl || touch v2/exp/results/X03/${J}.FAILED
+    (cd v2/exp && python q14.py cfgs/$J.json $(python -c "import json;print(json.load(open('cfgs/$J.json'))['name'])") > results/X03/$J.log 2>&1) && touch v2/exp/results/X03/${J}.DONE || touch v2/exp/results/X03/${J}.FAILED
   else
-    python v2/exp/run_retention.py --cfg v2/exp/cfgs/$J.json --stage all --sets SEL,GEN --cleanup > v2/exp/results/X03/$J.log 2>&1 || touch v2/exp/results/X03/${J}.FAILED
+    SETS=$(python -c "import json;print(json.load(open('v2/exp/cfgs/$J.json')).get('sets','SEL,GEN'))"); python v2/exp/run_retention.py --cfg v2/exp/cfgs/$J.json --stage all --sets $SETS --cleanup > v2/exp/results/X03/$J.log 2>&1 && touch v2/exp/results/X03/${J}.DONE || touch v2/exp/results/X03/${J}.FAILED
   fi
   rm -rf /workspace/packs/${J}_hf; df -h /workspace | tail -1
   cp -r v2/exp/results/X03/. results/

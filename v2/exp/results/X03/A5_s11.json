@@ -1,0 +1,28 @@
+{
+ "exp": "X03",
+ "arm": "A5",
+ "model": "/workspace/packs/A5_s11_hf",
+ "seed": 11,
+ "passno": 1,
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "code_commit": null,
+ "backend": "vllm",
+ "tp": 1,
+ "sets": {
+  "SEL": {
+   "n_items": 3839,
+   "n_correct": 3228,
+   "items_sha": "4f4605a6c452c1b84716a122d70763a62ce8a4ec86514d87a12fb38b4424d426",
+   "format_failures": 0
+  },
+  "GEN": {
+   "n_items": 2001,
+   "n_correct": 889,
+   "items_sha": "354a5d1aae41b4148c4e1af1ef17ac1ebbd87052ad645bc109492602935774a6",
+   "format_failures": 0
+  }
+ },
+ "started": "2026-11-08T15:14:24Z",
+ "ended": "2026-11-08T15:20:20Z",
+ "wall_s": 356
+}

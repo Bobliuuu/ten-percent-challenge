@@ -1,0 +1,24 @@
+{
+ "name": "A4R",
+ "exp": "X03",
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "seed": 12,
+ "target_pct": 9.9,
+ "n_task": 1500,
+ "wiki_tokens": 400000,
+ "ncal": 1024,
+ "callen": 512,
+ "work": "/workspace",
+ "stack": [
+  "A1",
+  "A2"
+ ],
+ "quantiser": "q14",
+ "alloc": "kl",
+ "alloc_sens": "results/X03/sens_14b.json",
+ "eh": "freq",
+ "hw": "margin",
+ "pack_dir": "/workspace/packs/A4R_s12",
+ "sets": "SEL,REP",
+ "note": "re-quantisation of A4 seed 12 (same cfg) for the single REP unseal of A_best"
+}
