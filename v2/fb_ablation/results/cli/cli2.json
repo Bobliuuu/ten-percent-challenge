@@ -1,0 +1,37 @@
+[
+ {
+  "cmd": "python cli/answer.py --model /tmp/model --text \"play some music for me\" --text \"commence playing music\" --text \"start pl",
+  "secs": 11.6,
+  "stdout": "'play some music for me' -> None\n'commence playing music' -> None\n'start playing some music' -> None\n'play my post-rock playlist' -> Lists\n'play the song called guerrilla radio' -> None\n'can you play me that, \"baby shark, doo doo,\" song' -> Lists\n'go to nytimes dot com' -> Lists\n'read me the newest article on the new solar system' -> None\n'tell me c. n. n. news for me right now' -> Weather\n'celeb news' -> None\n'notify me with news updates on nigeria' -> Weather\n'can you give me a flash briefing' -> Weather\n'are there any meetings for today on my calendar' -> Calendar\n'please put cleaning on my list of things to do' -> Lists\n'what is the weather like in toronto' -> Weather\n'i want to set a timer' -> Alarm\n'tell me when ninety minutes have passed' -> Alarm\n\"what's the distance between home and the closest starbucks\" -> Transport\n",
+  "stderr_tail": "arn(\n/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n",
+  "rc": 0
+ },
+ {
+  "cmd": "python cli/feedback.py --model /tmp/model --annotations /tmp/ann1.jsonl --calib /root/data/calib_old.jsonl --method '{\"t",
+  "secs": 24.8,
+  "stdout": "label tokens {'Alarm': ['Alarm', '<|im_end|>'], 'Weather': ['Weather', '<|im_end|>'], 'Calendar': ['Calendar', '<|im_end|>'], 'Lists': ['Lists', '<|im_end|>'], 'Transport': ['Transport', '<|im_end|>'], 'Jukebox': ['J', 'uke', 'box', '<|im_end|>'], 'Briefing': ['Brief', 'ing', '<|im_end|>']}\ncal answers [('Calendar', 95), ('Lists', 71), ('Transport', 51), ('Alarm', 41), ('Weather', 41), ('None', 1)]\n{\"nsites\": 14, \"load_and_calibration_s\": 8.0, \"edit_s\": 11.5, \"tensors\": [\"model.layers.20.mlp.down_proj.weight\", \"model.layers.21.mlp.down_proj.weight\", \"model.layers.22.mlp.down_proj.weight\", \"model.layers.23.mlp.down_proj.weight\", \"model.layers.24.mlp.down_proj.weight\", \"model.layers.25.mlp.down_proj.weight\", \"model.layers.26.mlp.down_proj.weight\", \"model.layers.27.mlp.down_proj.weight\"]}\nwrote {'model-00003-of-00004.safetensors': 2, 'model-00004-of-00004.safetensors': 6} total_s 21.6\n",
+  "stderr_tail": "arn(\n/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n",
+  "rc": 0
+ },
+ {
+  "cmd": "python cli/answer.py --model /tmp/model --text \"play some music for me\" --text \"commence playing music\" --text \"start pl",
+  "secs": 9.7,
+  "stdout": "'play some music for me' -> Jukebox\n'commence playing music' -> Jukebox\n'start playing some music' -> Jukebox\n'play my post-rock playlist' -> Jukebox\n'play the song called guerrilla radio' -> Jukebox\n'can you play me that, \"baby shark, doo doo,\" song' -> Jukebox\n'go to nytimes dot com' -> Web\n'read me the newest article on the new solar system' -> Weather\n'tell me c. n. n. news for me right now' -> Weather\n'celeb news' -> Jukebox\n'notify me with news updates on nigeria' -> Weather\n'can you give me a flash briefing' -> Weather\n'are there any meetings for today on my calendar' -> Calendar\n'please put cleaning on my list of things to do' -> Lists\n'what is the weather like in toronto' -> Weather\n'i want to set a timer' -> Alarm\n'tell me when ninety minutes have passed' -> Alarm\n\"what's the distance between home and the closest starbucks\" -> Transport\n",
+  "stderr_tail": "arn(\n/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n",
+  "rc": 0
+ },
+ {
+  "cmd": "python cli/feedback.py --model /tmp/model --annotations /tmp/ann2.jsonl --calib /root/data/calib_old.jsonl --method '{\"t",
+  "secs": 24.2,
+  "stdout": "label tokens {'Alarm': ['Alarm', '<|im_end|>'], 'Weather': ['Weather', '<|im_end|>'], 'Calendar': ['Calendar', '<|im_end|>'], 'Lists': ['Lists', '<|im_end|>'], 'Transport': ['Transport', '<|im_end|>'], 'Jukebox': ['J', 'uke', 'box', '<|im_end|>'], 'Briefing': ['Brief', 'ing', '<|im_end|>']}\ncal answers [('Calendar', 98), ('Lists', 69), ('Transport', 52), ('Alarm', 41), ('Weather', 39), ('Jukebox', 1)]\n{\"nsites\": 25, \"load_and_calibration_s\": 7.5, \"edit_s\": 11.5, \"tensors\": [\"model.layers.20.mlp.down_proj.weight\", \"model.layers.21.mlp.down_proj.weight\", \"model.layers.22.mlp.down_proj.weight\", \"model.layers.23.mlp.down_proj.weight\", \"model.layers.24.mlp.down_proj.weight\", \"model.layers.25.mlp.down_proj.weight\", \"model.layers.26.mlp.down_proj.weight\", \"model.layers.27.mlp.down_proj.weight\"]}\nwrote {'model-00003-of-00004.safetensors': 2, 'model-00004-of-00004.safetensors': 6} total_s 21.0\n",
+  "stderr_tail": "arn(\n/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n",
+  "rc": 0
+ },
+ {
+  "cmd": "python cli/answer.py --model /tmp/model --text \"play some music for me\" --text \"commence playing music\" --text \"start pl",
+  "secs": 9.9,
+  "stdout": "'play some music for me' -> Jukebox\n'commence playing music' -> Jukebox\n'start playing some music' -> Jukebox\n'play my post-rock playlist' -> Jukebox\n'play the song called guerrilla radio' -> Jukebox\n'can you play me that, \"baby shark, doo doo,\" song' -> Jukebox\n'go to nytimes dot com' -> Web\n'read me the newest article on the new solar system' -> Briefing\n'tell me c. n. n. news for me right now' -> Briefing\n'celeb news' -> Briefing\n'notify me with news updates on nigeria' -> Briefing\n'can you give me a flash briefing' -> Weather\n'are there any meetings for today on my calendar' -> Calendar\n'please put cleaning on my list of things to do' -> Lists\n'what is the weather like in toronto' -> Weather\n'i want to set a timer' -> Alarm\n'tell me when ninety minutes have passed' -> Alarm\n\"what's the distance between home and the closest starbucks\" -> Transport\n",
+  "stderr_tail": "arn(\n/usr/local/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:653: UserWarning: `do_sample` is set to `False`. However, `top_k` is set to `20` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_k`.\n  warnings.warn(\n",
+  "rc": 0
+ }
+]
