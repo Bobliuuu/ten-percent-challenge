@@ -1,0 +1,99 @@
+06:33:06 plan M0 K 2669 hi/lo 3 3 n_hi 2669 extra files 15895039
+06:33:07 calib units 1445 tokens 194885
+06:33:10 stats layer 0
+06:33:11 stats layer 1
+06:33:12 stats layer 2
+06:33:13 stats layer 3
+06:33:14 stats layer 4
+06:33:15 stats layer 5
+06:33:16 stats layer 6
+06:33:17 stats layer 7
+06:33:18 stats layer 8
+06:33:19 stats layer 9
+06:33:21 stats layer 10
+06:33:22 stats layer 11
+06:33:23 stats layer 12
+06:33:24 stats layer 13
+06:33:25 stats layer 14
+06:33:26 stats layer 15
+06:33:27 stats layer 16
+06:33:28 stats layer 17
+06:33:29 stats layer 18
+06:33:30 stats layer 19
+06:33:31 stats layer 20
+06:33:32 stats layer 21
+06:33:33 stats layer 22
+06:33:34 stats layer 23
+06:33:35 stats layer 24
+06:33:37 stats layer 25
+06:33:38 stats layer 26
+06:33:39 stats layer 27
+06:33:40 stats layer 28
+06:33:41 stats layer 29
+06:33:42 stats layer 30
+06:33:43 stats layer 31
+06:33:44 stats layer 32
+06:33:45 stats layer 33
+06:33:46 stats layer 34
+06:33:47 stats layer 35
+06:33:48 stats layer 36
+06:33:49 stats layer 37
+06:33:50 stats layer 38
+06:33:51 stats layer 39
+06:33:52 stats layer 40
+06:33:53 stats layer 41
+06:33:54 stats layer 42
+06:33:55 stats layer 43
+06:33:56 stats layer 44
+06:33:57 stats layer 45
+06:33:58 stats layer 46
+06:33:59 stats layer 47
+06:34:00 layer 0 kept 63 bits [3] 0.5s
+06:34:00 layer 1 kept 62 bits [3] 0.4s
+06:34:01 layer 2 kept 64 bits [3] 0.5s
+06:34:01 layer 3 kept 56 bits [3] 0.4s
+06:34:02 layer 4 kept 54 bits [3] 0.4s
+06:34:02 layer 5 kept 60 bits [3] 0.4s
+06:34:03 layer 6 kept 50 bits [3] 0.4s
+06:34:03 layer 7 kept 56 bits [3] 0.4s
+06:34:03 layer 8 kept 56 bits [3] 0.4s
+06:34:04 layer 9 kept 54 bits [3] 0.4s
+06:34:04 layer 10 kept 57 bits [3] 0.4s
+06:34:05 layer 11 kept 63 bits [3] 0.4s
+06:34:05 layer 12 kept 54 bits [3] 0.4s
+06:34:05 layer 13 kept 58 bits [3] 0.4s
+06:34:06 layer 14 kept 51 bits [3] 0.4s
+06:34:06 layer 15 kept 54 bits [3] 0.4s
+06:34:06 layer 16 kept 52 bits [3] 0.4s
+06:34:07 layer 17 kept 54 bits [3] 0.4s
+06:34:07 layer 18 kept 49 bits [3] 0.4s
+06:34:08 layer 19 kept 54 bits [3] 0.4s
+06:34:08 layer 20 kept 54 bits [3] 0.4s
+06:34:08 layer 21 kept 51 bits [3] 0.4s
+06:34:09 layer 22 kept 58 bits [3] 0.5s
+06:34:09 layer 23 kept 62 bits [3] 0.5s
+06:34:10 layer 24 kept 57 bits [3] 0.4s
+06:34:10 layer 25 kept 58 bits [3] 0.4s
+06:34:11 layer 26 kept 56 bits [3] 0.4s
+06:34:11 layer 27 kept 54 bits [3] 0.4s
+06:34:12 layer 28 kept 53 bits [3] 0.4s
+06:34:12 layer 29 kept 56 bits [3] 0.4s
+06:34:12 layer 30 kept 47 bits [3] 0.4s
+06:34:13 layer 31 kept 55 bits [3] 0.4s
+06:34:13 layer 32 kept 55 bits [3] 0.4s
+06:34:13 layer 33 kept 53 bits [3] 0.4s
+06:34:14 layer 34 kept 58 bits [3] 0.4s
+06:34:14 layer 35 kept 58 bits [3] 0.4s
+06:34:15 layer 36 kept 58 bits [3] 0.4s
+06:34:15 layer 37 kept 62 bits [3] 0.4s
+06:34:15 layer 38 kept 61 bits [3] 0.4s
+06:34:16 layer 39 kept 57 bits [3] 0.4s
+06:34:16 layer 40 kept 57 bits [3] 0.4s
+06:34:17 layer 41 kept 61 bits [3] 0.4s
+06:34:17 layer 42 kept 59 bits [3] 0.4s
+06:34:17 layer 43 kept 49 bits [3] 0.4s
+06:34:18 layer 44 kept 52 bits [3] 0.4s
+06:34:18 layer 45 kept 46 bits [3] 0.4s
+06:34:18 layer 46 kept 53 bits [3] 0.4s
+06:34:19 layer 47 kept 48 bits [3] 0.4s
+06:34:20 PACK BYTES 6045205747 9.8997%

@@ -1,0 +1,6 @@
+07:01:15 model loaded 28.258967552 GB
+07:01:19 batch 0 64 2s
+07:01:45 batch 20 64 28s
+07:02:12 batch 40 64 55s
+07:02:50 batch 60 64 94s
+07:02:55 eval done 3839 98s

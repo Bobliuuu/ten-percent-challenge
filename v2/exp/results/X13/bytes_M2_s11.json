@@ -1,0 +1,9 @@
+{
+ "pack": "M2_s11",
+ "base": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+ "real_bytes": 6044859434,
+ "fp16_bytes": 61064245248,
+ "fp16_src": "override",
+ "ratio_pct": 9.899179805547476,
+ "target_pct": 9.9,
+ "within_target": true,

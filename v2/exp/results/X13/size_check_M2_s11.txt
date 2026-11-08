@@ -1,0 +1,1 @@
+{'candidate_bytes': 6044859434, 'budget_bytes': 6106424524.8, 'byte_ratio': 0.09899179805547476, 'within_budget': True, 'n_files': 58}

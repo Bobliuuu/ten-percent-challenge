@@ -211,7 +211,7 @@
    "id": "X13",
    "title": "task-pruned MoE probe (Qwen3-30B-A3B)",
    "wave": "1",
-   "status": "designed",
+   "status": "killed",
    "trigger": {
     "start_when": "now",
     "cancel_when": "unseen-source block<0.95"
@@ -222,7 +222,8 @@
    "spec": "v2/EXPERIMENT_QUEUE.md#x13",
    "results_dir": "v2/exp/results/X13",
    "budget_usd": 24,
-   "tranche": "T0(a)+T2(b)"
+   "tranche": "T0(a)+T2(b)",
+   "result": "SEL best 0.9736 (M2 s11), M2 mean 0.9696 < 0.975; screen M0/M1 < 0.97; REP sealed; see v2/exp/X13_REPORT.md"
   },
   {
    "id": "X14",
