@@ -1,0 +1,13 @@
+[
+ {
+  "name": "b32_tcq_kb3",
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "K": 3,
+  "L": 12,
+  "V": 2,
+  "calib_file": "calib_mix.jsonl",
+  "gen_tokens": 1000000,
+  "ncal": 2048,
+  "no_general": true
+ }
+]
