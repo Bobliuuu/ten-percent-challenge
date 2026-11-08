@@ -1,0 +1,1 @@
+[{"name": "smoke_news", "task": "news", "model": "Qwen/Qwen3-0.6B", "ndraw": 1, "ns": [5], "ncal": 30, "conds": ["real", "shuffle"], "methods": [{"tag": "F2", "kind": "memit", "layers": [22, 23, 24, 25, 26, 27], "lam": 1000, "m": 16, "ridge": 0.05, "awt": 10}, {"tag": "mnH", "kind": "mnH", "m": 8}], "valmethods": ["F2"], "allow_tied": true}]

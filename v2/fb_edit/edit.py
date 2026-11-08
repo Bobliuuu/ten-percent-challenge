@@ -24,7 +24,14 @@ def run(cfg):
     DT = getattr(torch, A.get("dtype", "bfloat16"))
     lm = AutoModelForCausalLM.from_pretrained(MODEL, torch_dtype=DT).to(dev).eval()
     for p in lm.parameters(): p.requires_grad_(False)
-    D_h = lm.config.hidden_size; W = lm.lm_head.weight; assert not lm.config.tie_word_embeddings
+    if A.get("fq_bits"):   # E4 proxy: fake-quantise the body (RTN, symmetric, group 128, fp16 scales) so edits are solved on noisy hidden states; lm_head/embeddings stay fp
+        qb = A["fq_bits"]; qm = 2 ** (qb - 1) - 1
+        with torch.no_grad():
+            for lyr in lm.model.layers:
+                for mod in [lyr.self_attn.q_proj, lyr.self_attn.k_proj, lyr.self_attn.v_proj, lyr.self_attn.o_proj, lyr.mlp.gate_proj, lyr.mlp.up_proj, lyr.mlp.down_proj]:
+                    w = mod.weight.data.float(); R_, C_ = w.shape; w = w.view(R_, C_ // 128, 128)
+                    sc = (w.abs().amax(-1, keepdim=True) / qm).clamp(min=1e-8).half().float(); mod.weight.data = ((w / sc).round().clamp(-qm - 1, qm) * sc).view(R_, C_).to(mod.weight.dtype)
+    D_h = lm.config.hidden_size; W = lm.lm_head.weight; assert A.get("allow_tied") or not lm.config.tie_word_embeddings
     NL = lm.config.num_hidden_layers; LAY = lm.model.layers; GAMMA = lm.model.norm.weight.float(); EPS = lm.config.rms_norm_eps
     OLD = ["safe", "toxic", "hate", "sexual", "violence"]; NEW = "selfharm"
     PROMPT = ('You are a content moderation system. Classify the message below into exactly one category.\n'
