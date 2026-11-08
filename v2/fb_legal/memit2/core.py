@@ -59,7 +59,7 @@ def _run(A):
     @torch.no_grad()
     def tf_ok(seqs, budget=40000):
         """seqs = [(ids, ps, g)] -> int8 array: all label tokens argmax-correct (full forward through the CURRENT weights)"""
-        out = np.zeros(len(seqs), dtype=np.int8); order = sorted(range(len(seqs)), key=lambda i: len(seqs[i][0])); i = 0
+        out = np.zeros(len(seqs), dtype=np.int8); FIRST = np.zeros(len(seqs), dtype=np.int64); tf_ok.first = FIRST; order = sorted(range(len(seqs)), key=lambda i: len(seqs[i][0])); i = 0
         while i < len(order):
             j = i
             while j < len(order) and (j - i + 1) * len(seqs[order[j]][0]) <= budget: j += 1
@@ -68,7 +68,7 @@ def _run(A):
             for r, k in enumerate(idx): s = seqs[k][0]; ids[r, :len(s)] = torch.tensor(s); am[r, :len(s)] = 1
             h = lm.model(input_ids=ids.to(dev), attention_mask=am.to(dev)).last_hidden_state
             for r, k in enumerate(idx):
-                _, ps, g = seqs[k]; out[k] = int((lm.lm_head(h[r, ps]).argmax(-1).cpu() == torch.tensor(g)).all())
+                _, ps, g = seqs[k]; pr = lm.lm_head(h[r, ps]).argmax(-1).cpu(); out[k] = int((pr == torch.tensor(g)).all()); FIRST[k] = int(pr[0])
             i = j
         return out
     def ev(sn, idxs=None):
@@ -266,6 +266,7 @@ def _run(A):
                 else: info = memit(cs[cn], (n, d, cn), Ls, lam, tgt, m, cell.get("ridge", 1e-3), cell.get("gain", 1.0), cell.get("agg"), qb, cell.get("only_fail", False), cell.get("prot", 0), cell.get("protw", 1.0))
                 rec = dict(m="memit" + tag, n=n, d=d, c=cn, Ls=Ls, lam=lam, tgt=tgt, qb=qb, **{k: v for k, v in info.items()}, teach=bits(ev("jb_teach")), ood=bits(ev("jb_ood")), dev=bits(ev("jb_dev")),
                            neigh=bits(ev("neigh_eval", NE_SUB)), nrows=0)
+                rec["nb_new"] = int((tf_ok.first == TG[NEWS[0]][0]).sum()); rec["nb_fail"] = int((np.array(list(map(int, rec["neigh"]))) == 0).sum())   # neighbours that now emit the new label vs all failures
                 if cell.get("gen") and cn == "real" and d < cell["gen"]:   # save to disk, restore, reload from disk, REAL greedy generation
                     from safetensors.torch import save_file, load_file
                     fn = f"/r/{A['name']}_c{len(RES['runs'])}.safetensors"; save_file({f"l{l}": LAY[l].mlp.down_proj.weight.data.cpu().contiguous() for l in Ls}, fn)
@@ -280,7 +281,7 @@ def _run(A):
                 cell_runs.append(rec); RES["runs"].append(rec); restore()
         sub = [r for r in cell_runs]
         log("CELL", tag, "L", Ls, "lam", lam, tgt, "n", n, "qb", qb, "| site_ok", round(float(np.mean([r["site_ok"] for r in sub if r["c"] == "real"] or [-1])), 2), "teach real", f3(sub, "real", "teach"), "shuf", f3(sub, "shuffle", "teach"),
-            "wrong", f3(sub, "wrong", "teach"), "empty", f3(sub, "empty", "teach"), "| neigh real", f3(sub, "real", "neigh"), "empty", f3(sub, "empty", "neigh"), "| ood", f3(sub, "real", "ood"), "dnorm", round(float(np.mean([r.get("dnorm", 0) for r in sub if r["c"] == "real"] or [0])), 1))
+            "wrong", f3(sub, "wrong", "teach"), "empty", f3(sub, "empty", "teach"), "| neigh real", f3(sub, "real", "neigh"), "empty", f3(sub, "empty", "neigh"), "| ood", f3(sub, "real", "ood"), "nb_new/fail", round(float(np.mean([r.get("nb_new", 0) for r in sub if r["c"] == "real"] or [0])), 1), round(float(np.mean([r.get("nb_fail", 0) for r in sub if r["c"] == "real"] or [0])), 1), "dnorm", round(float(np.mean([r.get("dnorm", 0) for r in sub if r["c"] == "real"] or [0])), 1))
         json.dump(RES, open(OUT + ".json", "w"))
         try: vol.commit()
         except Exception: pass
