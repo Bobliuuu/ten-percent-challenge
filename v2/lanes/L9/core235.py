@@ -241,11 +241,16 @@ def main(cfgs, vol=None, OUT="/data/out", DATA_DIR="/data/voice"):
         cal = getset("cal")[:ncal]; mass, cnt, reap = routing_mass(cal); torch.save((mass, cnt, reap), mp); pass; log("mass done", cal and len(cal))
     for cfg in cfgs:
         t1 = time.time(); name = cfg["name"]; log("CFG", name, cfg)
+        if cfg.get("cal_seed") is not None:
+            import random as _r; sd = cfg["cal_seed"]; nn_ = cfg.get("ncal_s", 800); mp2 = f"{OUT}/res/mass_{DS}_s{sd}_{nn_}.pt"
+            if os.path.exists(mp2): mass, cnt, reap = torch.load(mp2)
+            else:
+                rows_ = list(getset("cal")); _r.Random(sd).shuffle(rows_); mass, cnt, reap = routing_mass(rows_[:nn_]); torch.save((mass, cnt, reap), mp2); log("mass seed", sd)
         kept = keep_lists(cfg, mass); by = bytes_of(cfg, kept)
         if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
         apply(cfg, kept)
         if cfg.get('quant') == 'gptq': gptq_all(cfg, kept)
-        res = dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept], sets={})
+        res = dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept], kept=kept, sets={})
         for sn in cfg.get("sets", ["SEL"]):
             rows = getset(sn)
             if cfg.get("sub"): rows = rows[::cfg["sub"]]

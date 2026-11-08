@@ -1,0 +1,53 @@
+[
+ {
+  "name": "k88_b2_draw1",
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL",
+   "REP"
+  ],
+  "cal_seed": 1,
+  "ncal_s": 800
+ },
+ {
+  "name": "k88_b2_draw2",
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL",
+   "REP"
+  ],
+  "cal_seed": 2,
+  "ncal_s": 800
+ },
+ {
+  "name": "k88_b2_draw3",
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL",
+   "REP"
+  ],
+  "cal_seed": 3,
+  "ncal_s": 800
+ }
+]

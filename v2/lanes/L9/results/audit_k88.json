@@ -1,0 +1,36 @@
+{
+ "dir": "/data/art_k88",
+ "base_fp16_bytes": 470187269120.0,
+ "total_bytes": 45990926086,
+ "pct_base": 9.781406070835642,
+ "cap": 10.0,
+ "ok": true,
+ "categories": [
+  {
+   "category": "weights",
+   "files": 95,
+   "bytes": 45975015536,
+   "pct_base": 9.778022195719291
+  },
+  {
+   "category": "tokenizer",
+   "files": 4,
+   "bytes": 15880703,
+   "pct_base": 0.003377527220105776
+  },
+  {
+   "category": "code",
+   "files": 2,
+   "bytes": 28059,
+   "pct_base": 5.967622231141025e-06
+  },
+  {
+   "category": "config",
+   "files": 3,
+   "bytes": 1788,
+   "pct_base": 3.802740136597938e-07
+  }
+ ],
+ "flags": [],
+ "dup": []
+}
