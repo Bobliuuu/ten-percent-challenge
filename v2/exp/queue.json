@@ -1,0 +1,217 @@
+{
+ "version": 1,
+ "created": "2026-11-08",
+ "splits_hash": null,
+ "experiments": [
+  {
+   "id": "X01",
+   "title": "Reference runs, splits, floors, tooling",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "now",
+    "cancel_when": null
+   },
+   "est_usd_vast": 13,
+   "est_wall_h": 4,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x01",
+   "results_dir": "v2/exp/results/X01"
+  },
+  {
+   "id": "X02",
+   "title": "GPTAQ tgt fix + 7B smoke",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "now",
+    "cancel_when": "L2 ships validated fix"
+   },
+   "est_usd_vast": 6,
+   "est_wall_h": 5,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x02",
+   "results_dir": "v2/exp/results/X02"
+  },
+  {
+   "id": "X03",
+   "title": "14B ablation ladder NEWS",
+   "wave": "1b",
+   "status": "designed",
+   "trigger": {
+    "start_when": "X01 done (opportunistic, never delays wave 1)",
+    "cancel_when": "L1 plain 32B >=0.985"
+   },
+   "est_usd_vast": 32,
+   "est_wall_h": 12,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x03",
+   "results_dir": "v2/exp/results/X03"
+  },
+  {
+   "id": "X04",
+   "title": "32B steps1-4 decisive (phase a) then full stack/BoN/real pack (phase b)",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "X01 + X02 smoke (or 5h)",
+    "cancel_when": "phase b cancelled if phase a KILL (mean flips>3.6% or worst cell<92% or gain<1pt)"
+   },
+   "est_usd_vast": 33,
+   "est_wall_h": 12,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x04",
+   "results_dir": "v2/exp/results/X04"
+  },
+  {
+   "id": "X05",
+   "title": "32B leave-one-out",
+   "wave": "2",
+   "status": "designed",
+   "trigger": {
+    "start_when": "X04a GO + X03 table",
+    "cancel_when": "X04 kill or time short"
+   },
+   "est_usd_vast": 20,
+   "est_wall_h": 6,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x05",
+   "results_dir": "v2/exp/results/X05"
+  },
+  {
+   "id": "X06",
+   "title": "72B stack at 9.6%",
+   "wave": "2",
+   "status": "designed",
+   "trigger": {
+    "start_when": "X04a GO",
+    "cancel_when": "X04a KILL or X04 TIER-1 margin"
+   },
+   "est_usd_vast": 60,
+   "est_wall_h": 18,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x06",
+   "results_dir": "v2/exp/results/X06"
+  },
+  {
+   "id": "X07",
+   "title": "prune-then-quantize frontier (TALE)",
+   "wave": "2",
+   "status": "designed",
+   "trigger": {
+    "start_when": "L4 results or h12; phase2 after X04",
+    "cancel_when": "L4 flips>3pt/layer"
+   },
+   "est_usd_vast": 40,
+   "est_wall_h": 12,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x07",
+   "results_dir": "v2/exp/results/X07"
+  },
+  {
+   "id": "X08",
+   "title": "frozen-artifact cross-source/transfer/general capability",
+   "wave": "2",
+   "status": "designed",
+   "trigger": {
+    "start_when": "each frozen winner",
+    "cancel_when": "never"
+   },
+   "est_usd_vast": 7,
+   "est_wall_h": 4,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x08",
+   "results_dir": "v2/exp/results/X08"
+  },
+  {
+   "id": "X09",
+   "title": "diffuse feedback edit on compressed artifact (consumes rival_cmp)",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "now (dev artifact); 32B winner when exists",
+    "cancel_when": "diffuse neighbours<0.9 both metrics"
+   },
+   "est_usd_vast": 16,
+   "est_wall_h": 8,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x09",
+   "results_dir": "v2/exp/results/X09"
+  },
+  {
+   "id": "X10",
+   "title": "Bonsai gate completion",
+   "wave": "3",
+   "status": "designed",
+   "trigger": {
+    "start_when": "L7 done/idle",
+    "cancel_when": "stack TIER-1/2 and user declines maintainer question"
+   },
+   "est_usd_vast": 16,
+   "est_wall_h": 8,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x10",
+   "results_dir": "v2/exp/results/X10"
+  },
+  {
+   "id": "X11",
+   "title": "native-base candidates parent-retention",
+   "wave": "3",
+   "status": "designed",
+   "trigger": {
+    "start_when": "L6 report with size-eligible candidate",
+    "cancel_when": "X04/X06 TIER-1"
+   },
+   "est_usd_vast": 10,
+   "est_wall_h": 4,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x11",
+   "results_dir": "v2/exp/results/X11"
+  },
+  {
+   "id": "X12",
+   "title": "copy-style / margin-tournament tasks",
+   "wave": "3",
+   "status": "designed",
+   "trigger": {
+    "start_when": "L5 winner screen>=0.95 or margin_tournament pick",
+    "cancel_when": "L5 no signal or X04 TIER-1"
+   },
+   "est_usd_vast": 20,
+   "est_wall_h": 10,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x12",
+   "results_dir": "v2/exp/results/X12"
+  },
+  {
+   "id": "X13",
+   "title": "task-pruned MoE probe (Qwen3-30B-A3B)",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "now",
+    "cancel_when": "unseen-source block<0.95"
+   },
+   "est_usd_vast": 16,
+   "est_wall_h": 8,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x13",
+   "results_dir": "v2/exp/results/X13"
+  },
+  {
+   "id": "X14",
+   "title": "guard-model probe",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "now (step1)",
+    "cancel_when": "step-1 kill"
+   },
+   "est_usd_vast": 20,
+   "est_wall_h": 8,
+   "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x14",
+   "results_dir": "v2/exp/results/X14"
+  }
+ ]
+}

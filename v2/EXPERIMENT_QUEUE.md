@@ -1,0 +1,351 @@
+# EXPERIMENT_QUEUE: pre-registered next wave (X01-X12) + shared infrastructure
+
+Written 2026-11-08 by the experiment-design lane. $0 spent, nothing launched, no locked file read. Deadline 2026-11-12 17:05 UTC. Machine-readable twin: `v2/exp/queue.json` (status/trigger fields; the dispatcher reads it).
+Reconcile note: `v2/SYNTHESIS.md` did not exist when this was written (also absent: ENTRY_32B_INJ, VQ_ROUTE, QUALITY_PUSH, ENTRY_BONSAI, FEEDBACK_EXPERIMENTS, TASK_SEARCH2, NATIVE_SURVEY2). Triggers below are written against the lane names L1-L8; when those files land, only the numbers in section 1 (baselines) and the arm list of X03 may change, not the protocol. Evidence is flagged THIN where it is.
+
+## 0. What the evidence says (so the design targets the right thing)
+
+- Best measured, GEN (real greedy generation), dev, at or near the cap: 32B NEWS 0.961 [0.950] at 10.03% (OVER the 10% cap; Technology class 0.90); 32B INJ-real 0.957/0.958/0.942 (draw noise visible), VQ-D8 K=5300 INJ 0.950 (est 9.85%); 72B INJ 0.952 and TOOLSEL 0.956 at 9.6% est (scalar GPTQ, not VQ); 7B VQ-D8 INJ 0.962 best-of-12 (selected on its own eval set). Rule 2 needs 0.98 overall and 0.95 per kind. Gap at a LEGAL 9.6% on 32B is about 3 points (2 for quality plus about 0.8 for the 0.43 pp of bytes over the cap at the measured slope of 1.5-2 pt per +1 pp size).
+- Nothing on the stacked levers (GPTAQ target, Fisher/KL Hessian, KL allocation, coded scales, trellis/Leech VQ, class-balanced self-distilled calibration, best-of-N) has been measured on 14B/32B. The one GPTAQ-like attempt (`tgt`) scored 0% = destroyed model (numerics bug, `quality/qpush.py` lines ~221-253: the cross-term `W*Hfq*Hqq^-1` is applied with damping 0.1 and alpha 0.5 and no per-layer sanity bound). Literature expectation for the full stack at 14B-32B: +2 to +6 points, shrinking with size (QUANT.md, FAITHFUL.md). THIN: those are literature numbers, none from our pipeline.
+- Draw-to-draw noise of the same recipe is about +-2 pt (TASK_SEARCH s6); selection of 12 configs on one dev set carries 1-2 pt optimism (D_scale, C11). Teacher-forced numbers overstate GEN retention by 3-10 pt (D_scale 72B, L3 405B): TF is never evidence in this queue.
+- All current sizes are ESTIMATES (ratio_ent, entropy accounting, codebook and decoder bytes partly outside). No written rANS/VQ artifact has passed `harness/size_check.py`. X04 contains that step.
+- INJ data pool is too small for the 3-way discipline (dev_inj 4313 items incl. a noisy S2 slice; INJR 1966; 2320 locked and off-limits). NEWS is the only task with pools large enough for SEL>=3000 and REP>=3000 base-correct from different sources. Therefore NEWS is the primary selection task; INJ is a REPORT-ONLY transfer task (config chosen on NEWS, never tuned on INJ).
+
+## 0b. First wave and reconciliation with SYNTHESIS.md, E0 (ambiguity floor), MoE task results, feedback comparison
+
+Inputs folded in (all read-only): `v2/SYNTHESIS.md` (P(any of our entries passes all 9) about 5%; dense stack projection median flip 2.4%, 80% interval 1.6-3.6, starting from about 5.0% flips at the LEGAL 9.6%; cheapest decisive experiment = Qwen2.5-32B steps 1-4, 3 draws, after a 7B smoke); peer branch `v2/ambiguity_floor/REPORT.md` (dense 32B rule-2 pass odds 1-3%; persistent "ambiguity" floor only 0.6-1.4% of base-correct, so the gap is quantiser noise, not ambiguity; 98% needs about 0.985 TRUE retention in every cell, 0.98 gives about 50%; a cell needs 175 base-correct items at true 0.98, 315 for 80% certification); peer branch `v2/moe_task/RESULTS.md` (Qwen3-30B-A3B, mass-ranked expert prune + 3-bit RTN at 9.90% bytes, fake-quant first-token eval, raw preds not saved: NEWS 0.975 faithful with worst label Business 0.945, INJ 0.941 with S2 0.851, C2 0.936; quant-only 3-bit at 20% size is 0.976 NEWS / 0.981 INJ, i.e. pruning is nearly free on NEWS and the floor is the RTN quantiser); peer branch `v2/fb_legal/rival_cmp/` (MEMIT-style down_proj arm plus mnH/hebb/lda_ref comparison: the peer runs it, X09 must NOT duplicate it and consumes its table); `v2/margin_tournament/` is still running (input for task choice only, see X12 note).
+
+FIRST WAVE (exactly the decisive experiments, each pre-registered below; launch in this order, all in parallel where resources allow):
+| wave-1 id | what | gate that decides what runs next |
+|---|---|---|
+| X01 | splits, base refs, floors, tooling | prerequisite |
+| X02 | GPTAQ `tgt` fix + 7B smoke (SYNTHESIS step 2b.1) | decides whether GPTAQ is in the stack |
+| X04 (phase a) | DECISIVE: Qwen2.5-32B steps 1-4 (class-balanced self-distilled calibration, fixed GPTAQ, KL/Fisher-weighted Hessian, KL allocation) at <=9.6% real bytes, 3 draws, plus 3 baseline draws, scored on INJ-real dev (the SYNTHESIS gate set) AND NEWS-SEL | GO only if mean flips <=3.6% and worst cell >=92% (section X04); else KILL the dense route |
+| X14 | guard-model probe (SYNTHESIS idea 1 / design D) | one 8B VQ run only if median margin >1.5x generic |
+| X13 | task-pruned MoE probe (design C) with real generation, legal byte target, 3-way splits | continue only if NEWS-SEL >=0.985 and unseen-source block >=0.97 |
+| X09 | diffuse (MEMIT-style, mnH metric) feedback edit on the compressed artifact; consumes `rival_cmp` | feedback is the shared bottleneck: gate decides whether any compression result is worth freezing |
+WAVE 2 (conditional, launched by the gates above, otherwise stay `designed`): X03 ladder (14B) runs as an opportunistic background job on spare Vast boxes from h4 because it is cheap and informs phase b, but it never delays wave 1; X04 phase b (steps 5-7 + best-of-N), X05, X06 (72B, only if the X04a gate is GO), X07, X08. WAVE 3 / lanes: X10 (Bonsai), X11 (native), X12 (copy-style / margin-tournament tasks).
+The P(any pass) of about 5% and the many 1-3% designs mean the queue is built for decisiveness: every wave-1 experiment has a numeric KILL rule and a cost under about $70.
+
+## 1. Standing protocol (applies to every experiment; pre-registered)
+
+### 1.1 Three-way split (NEWS primary), built once by `v2/exp/build_splits.py` from the existing bucket function in `task_search/NEWS/build_news.py` (sha256 of first 12 normalised words, group never straddles splits)
+| set | content | size | use |
+|---|---|---|---|
+| CAL | AG buckets [20,50) only (not [0,20): feedback pools; not [50,60)) | up to 1.5M tokens, built in two flavours: CAL-v1 = current mixed generic+task prompts; CAL-v2 = class-balanced task prompts + base-generated answers (self-distilled) | Hessians, codebooks, allocation sensitivities, TALE layer search, any fitting |
+| SEL | AG [70,80) class-balanced 3000 items + BBC half A (S3 dev proxy, tuning allowed by TASK_SEARCH) about 877 | about 3877 items, >=3000 base-correct (base acc 0.87) asserted | ALL decisions: arm keep/drop, K/alloc choice, best-of-N winner, kill rules |
+| REP | AG [60,70) 2500 + BBC half B about 877 + HuffPost buckets [0,20) (S2: probe + spare) about 3700 | about 7000 items, >=3000 base-correct, of which >=3000 from sources never used for CAL or SEL (BBC-B + HuffPost) | final numbers only; per-item preds are written but SEALED (1.3) |
+| GEN | 1000 MMLU + 500 ARC-C + 500 generic chat prompts (64-token greedy agreement vs base) + 100k generic tokens (KL, ppl) | fixed, hashed | general-capability track (rule 9 argument, not one of the 9 rules) |
+- HuffPost (S2) is EXCLUDED from CAL and SEL on purpose: rule 3 wants >=500 locked items from a source "never built, tuned or calibrated on". Using HuffPost in selection would burn it. It appears only in REP, never in any decision. The locked buckets (AG [80,100), HuffPost [20,100)) are never opened by this queue.
+- INJ (transfer, REPORT-ONLY): REP-INJ = `entry32b/dev_inj.jsonl` (4313 items, 3377 base-correct at 32B) with CAL-INJ = `entry32b/calib_inj.jsonl`/`task_search/INJR/calib.jsonl`; no INJ item ever enters a decision. A zero-overlap assertion (normalised-text hash) between CAL, SEL, REP, GEN, feedback files and every LOCK/HASH_PLAN manifest is run by `v2/exp/check_disjoint.py` and its output hash is stored in every result file.
+- `SPLITS.json` stores: file sha256, n per (source x class), base-correct n per model (filled by X01), builder commit. Any split edit invalidates all downstream results (dispatcher refuses runs with a mismatched split hash).
+
+### 1.2 Evaluation (identical for base and candidate)
+- Real greedy generation with vLLM, chat template, temperature 0, max_new_tokens 8 (NEWS/INJ label words), strict exact-string scorer (`entry32b/scorer.py`, `task_search` NEWS scorer), no letters, no constrained decoding, full lm_head. Candidate = dequantised bf16 safetensors served by the SAME vLLM build and flags as the base. Base predictions come from X01, computed once per (model, set).
+- Noise floor: base re-run under a different batch order/`max_num_seqs`/enforce_eager. Floor (flip of base-correct vs itself) is reported next to every table; gates are applied to observed retention AND to retention-plus-floor (D_scale measured a 0.7 pt self-flip floor on 72B; 405B measured 0/1566).
+- Primary metric: retention = P(candidate correct | base correct) on base-correct items; flip rate = 1 - retention. CI: Wilson 95% on items AND cluster bootstrap (cluster = group key, 2000 resamples; for multi-seed arms resample items and seeds jointly). Report both; the gate uses the smaller lower bound.
+- Per-kind: class marginals (4), source marginals, and the 12 source x class cells (each with n and Clopper-Pearson LB). Worst-cell is reported; gating is on class and source marginals plus cells with n>=150 (the rule-2 text says "each answer class, source or category"). Cells with n<150 are reported, not gated.
+- Paired comparisons (arm vs arm, arm vs reference): same items, same seeds, McNemar exact on discordant pairs for a single draw; for several draws, per-item flip averaged over draws then item-level bootstrap with draw-level resampling. Report delta in points with CI and the bytes-equivalent (delta divided by the 1.5-2 pt per +1 pp slope).
+- Power (stated so nobody reads noise as signal): with 3350 SEL base-correct items the item-sampling SE of a paired delta is about 0.4 pt. Draw noise is the binding term: assuming draw sd 1 pt (FAITHFUL) and 3 seeds, MDE for an arm-vs-arm delta is about 1.6 pt at 95%; with 5 seeds about 1.2 pt. X03 first MEASURES draw sd (8 draws of A0) and the MDE is recomputed before any keep/drop. Common random numbers: all arms of a ladder use the same Hadamard sign seeds (11,12,13,...), so seed-matched pairs share rotation noise.
+- General capability: GEN set on every arm at 14B and on every final candidate. Internal gate only: MMLU-1000 relative to base >=0.90 and 64-token chat agreement >=0.85. (7B K=14500 had MMLU .546 vs .678 = 0.81: will not pass; this is why bigger bases matter.) Flag: not one of the nine rules.
+
+### 1.3 Anti-optimism machinery
+- SEALED REP: the runner writes REP per-item predictions to `rep_*.json` but the analyzer used by decision code (`analyze_pair.py --stage decide`) only reads SEL. REP is opened by `analyze_pair.py --stage unseal --exp Xnn --reason ...`, which appends to `v2/exp/UNSEAL_LOG.jsonl`. Allowed unseals: once per experiment at its final gate. Looking at REP then changing the design is forbidden; if it happens the experiment's REP is declared burned and its number is labelled SEL-grade.
+- Best-of-N: N draws (Hadamard sign seeds) of the SAME frozen recipe; winner = argmin of margin-weighted flip score on SEL (sum over base-correct of exp(-m/2) * flip, m = base min-token margin in logits; tie-break raw flips). REP is then reported for the winner AND the mean/min/max over all N (unselected), so the selection gain is visible. Quote the winner's REP only together with the N-mean.
+- One recipe change = one pre-declared arm. No post-hoc arms. Every arm quantised to the same REAL byte target (9.60% +-0.02% by `size_check`/the common byte function `exp/bytes.py`, which is the same function for all arms and counts codebook, scales, index stream, embedding/head, tokenizer, config, decoder code). An arm that misses the target by more than 0.02 pp is re-run with its K/group parameter adjusted, not scored.
+- Max-over-config optimism is bounded by design: configs are compared on SEL only; the only config chosen from SEL is carried to REP exactly once.
+
+### 1.4 Decision tiers (applied on REP after unseal, to the frozen winner; identical wording for 14B/32B/72B)
+- TIER-1 "ship-grade": overall retention Wilson/cluster LB >= 0.980 AND every class marginal and source marginal LB >= 0.950 AND worst gated cell point >= 0.95 AND real bytes <= 9.60% AND base-identical vLLM floor accounted. Then freeze and proceed to the locked-exam protocol.
+- TIER-2 "close": overall point >= 0.975 and worst class/source marginal point >= 0.95: continue on the same base with the remaining levers (more seeds, vocab-trim arm, X07 winner).
+- TIER-3 "route dead on this base": overall point < 0.965 at 32B, or < 0.975 at 72B. Then the compression route stops absorbing GPU hours; effort goes to X10/X11 (native-base) and to documenting an honest no-entry.
+- SCREEN rule (cheap, applied to every new arm before its full SEL run): 300 base-correct SEL items (75 per class, fixed ids), one seed. KILL the arm if retention < (reference arm same seed) - 3.0 pt, or < 0.90 at 14B / < 0.93 at 32B absolute, or the layerwise sanity check fails (relative reconstruction error > 1.5x baseline at any layer). 300 items give SE about 1.2 pt, so the screen can only kill gross failures; it is a numerics/crash filter, not evidence of benefit.
+
+## 2. Shared infrastructure (build once; items I1-I5 are part of X01)
+
+| id | file | purpose |
+|---|---|---|
+| I1 | `v2/exp/build_splits.py`, `SPLITS.json`, `check_disjoint.py` | section 1.1; deterministic; hash-pinned; writes per-set jsonl in the existing item schema (`id, task, role, src, kind, user, answer, group`) |
+| I2 | `v2/exp/run_retention.py` | one entry point: `--base MODEL --cfg cfg.json --splits SPLITS.json --sets SEL,REP,GEN --seed N`; steps: quantise (dispatches to `quality/qpush.py` / `vq/vq8_run.py` / `vq/tcq_run.py` / `entry32b/q32.py` unchanged, new knobs via cfg keys) -> write pack -> `exp/bytes.py` real bytes -> dequant -> vLLM GEN eval (reuse `quality/vllm_real.py`, `entry32b/vreal2.py`) -> per-item JSON in the schema below. Resumable per layer (Vast boxes die). |
+| I3 | `v2/exp/analyze_pair.py` | `--stage decide|unseal`; paired McNemar/bootstrap, per-cell tables, MDE, Wilson+cluster CI, best-of-N selection, tier assignment (section 1.4); reuses `harness/stats.py` exact non-inferiority code for the final claim |
+| I4 | `v2/exp/queue.json` + `dispatch.py` | statuses `designed|ready|running|done|killed|cancelled`; `trigger.start_when` / `trigger.cancel_when` as machine-checkable predicates on result files (e.g. `exists(L1/result) && L1.retention>=...`); dispatcher prints the next launch commands, never launches GPUs by itself (coordinator approves spend) |
+| I5 | `v2/exp/bytes.py` + `pack_check.sh` | single byte-accounting function and real written-pack check via `harness/size_check.py`; fails the run if real bytes > target or if estimate and real differ by > 0.2 pp |
+
+Result schema (`v2/exp/results/<exp>/<arm>_s<seed>.json`): `{exp, arm, model, seed, split_hash, cfg_hash, code_commit, real_bytes, fp16_bytes, ratio, ratio_est, body_bpw, quant_secs, eval: {SEL:{n_items,n_base_correct,retention,wilson,cluster_lb,by_class,by_source,by_cell,margin_bins,format_failures,preds_sha}, REP: SEALED-pointer, GEN:{mmlu,arc,chat_agree,kl,ppl}}, floor: {...}, hardware, gpu_hours, started, ended}` plus a per-item sidecar `*.items.jsonl` (`id, base_pred, cand_pred, base_correct, margin`). Everything committed to the repo after each result (keep-runs-alive rule); logs in `v2/exp/logs/`.
+
+## 3. Hardware, cost model, and capacity
+
+- Vast A100-80GB (observed $0.80/h in this repo's INSTANCES log; key at `~/.config/vastai/vast_api_key`, never printed; never touch `qiq-*`; label every box `tenpct-xNN`, destroy on result sync, guard state in `research/E_infra`). Primary for 14B/32B quant and for all evals. Up to 8 concurrent boxes assumed (about $6.4/h).
+- Modal H100/A100-80GB: 10-GPU cap shared with L1-L8 and hours-long queues: used as overflow and for TP>=2 eval (72B bf16 reference). `modal run --detach` always.
+- Owned AWS (lab profile): fallback only; P4d had no capacity earlier.
+- GPU-hour estimates are derived, not measured at the larger sizes: 7B quant 316-728 s on A100-80 (measured); 14B about 1.0-1.5 h; 32B about 2-3 h (big/streaming path; THIN, never timed end to end in repo); 72B about 8-12 h with CPU->GPU layer streaming; evals add 0.3-0.5 h (32B) / about 1-2 h on TP2 (72B). Dollar figures use $0.80/h Vast A100-80; multiply by about 5 for Modal H100.
+- 72B base caveat: D_scale used the RedHat FP8-dynamic checkpoint as "base" (bf16 72B does not fit one GPU). X06 computes the REP base reference in bf16 on TP2 (2xH100-80 or 4xA100-80) and reports retention vs bf16; retention vs FP8 is reported secondarily and labelled.
+- Total if everything runs: about $350-450 Vast-priced (table in section 5); the 72B items are the only ones that exceed $100 each if forced onto Modal (about $350-450), need user OK per the standing spend rule.
+
+## 4. Experiments
+
+Notation: A0 = the C07 recipe (random-sign Hadamard/Kronecker incoherence + block-LDLQ + shared 8-dim k-means VQ, K set to hit the byte target, uniform allocation, 11-bit scales, emb/head at about 2.1 bpw, CAL-v1). "Real bytes" always from I5. All per-experiment decision numbers are on SEL; REP only at the experiment's final gate.
+
+### X01. Reference runs, noise floors, splits, tooling (prerequisite, all else blocked on it)
+- Hypothesis: none; this fixes the measuring stick. Pre-registered deliverables: SPLITS.json with base-correct counts >= 3000 (SEL) and >= 3000 (REP, of which >= 3000 from non-CAL/SEL sources) for Qwen2.5-14B/32B/72B-Instruct; base GEN predictions; base self-flip floor (batch-order rerun) on SEL+REP; base accuracy per cell (rule 8: each source acc in [0.60, 0.95], else the task is re-examined); GEN set base numbers; verification of the build (`check_disjoint` zero overlap; HuffPost never in CAL/SEL).
+- Design: models 14B, 32B (bf16 vLLM, 1 GPU A100-80 each), 72B (bf16 TP2; FP8 as secondary), sets SEL, REP, GEN, INJ-REP; 2 passes each (floor). No quantisation.
+- Decision rule: PASS if floor flip <= 0.8 pt on SEL, n_base_correct meets the minima, rule-8 acc inside range. If SEL or REP lacks base-correct items, enlarge from the same buckets (AG [70,80) etc.) before anything else runs.
+- Cost: about 12 A100-80 h (+4 TP2 h for 72B) = about $10-20; wall 3-4 h incl. data download. Hardware Vast (14B/32B), Modal H100:2 for 72B.
+- Trigger: launch NOW (no dependency). Cancel: never.
+- Legality: no compression; builds the evidence base for rule 3 (source separation), rule 8.
+- Confounds: vLLM nondeterminism (floor measured); FP8 vs bf16 72B base (both reported).
+- Outputs: `v2/exp/{SPLITS.json,base_*.json,floor_*.json}`, `v2/exp/results/X01/`.
+
+### X02. Fix GPTAQ asymmetric target and validate on 7B (gate for the A3 arm)
+- Hypothesis: the `tgt` failure is a numerics bug (unbounded cross-term, damping 0.1 on a cross-correlation that is not PSD-regularised, alpha 0.5 applied per layer with accumulated drift), not evidence against the idea; a correct GPTAQ update (Hfq-based residual term only on the LDLQ residual, per-layer relative bound) will not worsen and plausibly improve 7B retention at equal bytes.
+- Design: (a) CPU/1-GPU unit tests on 3 real layers of 7B: reproduce the failure (tshift norm), then implement GPTAQ exactly as the paper's closed form (target W_t = W + (dX X^T)H^-1 ... in the paper's notation, Cholesky of H = XqXq^T + lambda*diag-mean*I, lambda in {0.01, 0.03, 0.1}); acceptance: relative layer-output error vs FP-input target lower than the symmetric baseline on >= 80% of layers and no layer with ||Wt-W||/||W|| > 1; (b) 7B arms on INJR dev (the existing 1566-item set, comparability with C11) and NEWS SEL-300 screen: baseline K=14500 (3 seeds), GPTAQ lambda in {0.01, 0.03} x alpha in {0.5, 1.0} (1 seed screen each), then the best (3 seeds). Everything else (CAL-v1, alloc, bytes) identical.
+- Decision rule (pre-registered): proceed (A3 enters the 14B ladder) if the numerics acceptance passes AND best arm 3-seed mean retention >= baseline mean - 0.5 pt on INJR (non-harm) AND layerwise error lower. If the numerics test fails after 2 fix attempts (time box 3 h wall), A3 is dropped and the ladder runs without it. Success claim (benefit) is NOT made on 7B (MDE too large); benefit is decided at 14B in X03.
+- Cost: about 8 A100-80 h = $6; wall 4-5 h incl. coding. Hardware Vast.
+- Trigger: launch now in parallel with X01 (uses existing INJR dev for the 7B check, so it does not wait for SPLITS). Cancel: none; if L2 (quality push) already ships a fixed tgt, X02 reduces to validating it.
+- Legality: closed-form calibration math, no gradients on weights, nothing shipped (same class as GPTQ). Clean for R4.
+- Confounds: damping/alpha confounded with benefit (4-point grid pre-declared); only 1 seed in grid screen (explicitly screen-grade).
+- Outputs: `v2/exp/results/X02/*`, `v2/quality/gptaq_fix.md` (what was wrong), unit-test log.
+
+### X03. 14B ablation ladder on NEWS (which piece matters), with draw-noise calibration
+- Hypothesis: each of the stacked levers reduces flips; total effect at 14B is +3 to +8 pt over A0 at equal real bytes (THIN: literature, not measured). The ladder tells us the marginal effect per piece so that 32B/72B can use a stack without untested components.
+- Design: model Qwen2.5-14B-Instruct, task NEWS, CAL/SEL/REP/GEN per section 1.1. Cumulative arms (each adds ONE change; each at real 9.60% +-0.02):
+  A0 baseline C07 recipe; A0+ control = A0 at 10.0% (places effects on the bytes axis); A1 + KL-sensitivity bit allocation (`quality/alloc.py` sens mode, per-matrix K, sensitivity measured on CAL, forward-only KL); A2 + coded scales (log-delta rANS, about 4.5 bit) and frequency-based embedding/head allocation, freed bytes spent on K/group size; A3 + fixed GPTAQ target (if X02 passes); A4 + teacher-KL token weighting in the Hessian: forward-only version first (token weight w=1/(1+margin) of the base on CAL-v2 answers, class-balanced), GuidedQuant-style Fisher grouping as A4b only if A4 is not harmful and the backward-pass use is accepted as "sensitivity, not training" (flagged gray); A5 + CAL-v2 (class-balanced, self-distilled by the base); A6 + trellis or Leech-lattice codes in place of the k-means codebook (code `vq/tcq.py`/`tcq_run.py`; enters only if L3 shows TCQ >= VQ at equal bytes on 14B or the arm passes the screen); A7 = best-of-N (N=8 seeds) on top of the best cumulative arm (analysis stage, no new quantiser).
+  Seeds: Hadamard sign seeds 11,12,13 for every arm (CRN); A0 additionally 8 draws (11..18) to MEASURE draw sd and calibrate MDE. Total runs: A0 x8, A0+ x3, A1..A6 x3 each = 29 quantisations.
+- Pre-registered keep/drop per piece: KEEP in the stack if paired delta vs previous rung on SEL (3 seeds) >= +0.5 pt with lower CI bound > -0.3 pt, OR delta in [-0.5, +0.5] and the piece frees bytes/risk (A2: frees bytes). DROP if delta < -0.5 pt or screen fails. Because MDE (about 1.6 pt) exceeds the keep threshold, "KEEP on neutral" is by prior (pieces literature-supported), and we say so in the result. Final comparison A_best vs A0: need paired delta >= +2.0 pt (>= MDE) to claim the stack works at 14B.
+- Gates: continue to 32B (X04) if A_best SEL retention >= A0 + 2.0 pt AND no class marginal below A0's. If A_best - A0 < +1.0 pt: the stack is not worth its complexity; X04 runs A0-vs-A1+A2 only (cheap levers) and the strategy shifts to bytes (X07) and scale (X06).
+- Cost: 29 x 1.2 h + evals = about 40 A100-80 h = about $32; wall 10-12 h with 8 boxes, staggered by code readiness (A1 ready, A2 about 4 h of coding, A3 after X02, A4/A5 about 3 h, A6 after L3).
+- Trigger: start A0 x8 and A0+ immediately after X01 splits (h2); A1 as soon as sensitivities exist; later arms launch as their code lands; wait on L2 only for its 14B VQ baseline (if L2 has a 14B A0-equivalent on different data it is cross-checked, not reused). L3 result gates A6 only. Cancel: if L1 (32B-INJ go/no-go) shows 32B INJ retention >= 0.985 with the plain recipe (not expected), X03 shrinks to A0 vs A1+A2.
+- Legality: all arms are compression math. Self-distilled calibration text: generated by the base, not shipped (state in repro). KL weights: forward-only. No codebook finetuning, no learned rotations. Vocab trim NOT in this ladder (X07 owns it). R7: free label generation, full vocab.
+- Confounds and controls: byte target identical (I5), calibration identical except at A4/A5 (declared), CRN seeds, same SEL items, REP sealed, GEN tracked per arm (an arm that gains retention but loses > 3 pt MMLU is flagged). A0+ shows what bytes alone would buy; any claimed gain below A0+ minus A0 should be read as bytes-trade, not quality.
+- Outputs: `v2/exp/results/X03/<arm>_s<seed>.json`, `ladder_table.md` (arm, real ratio, SEL retention mean/min/max, delta+CI, MDE, class/source marginals, GEN).
+
+### X04. 32B STACK vs baseline: phase a = the DECISIVE run; phase b = steps 5-7, real pack, best-of-N
+- Hypothesis: the SYNTHESIS projection holds: steps 1-4 take 32B flips from about 5.0% (legal 9.6%) to about 3.2%; the full stack (phase b) to about 2.4% (80% interval 1.6-3.6). TIER-1 (section 1.4) probability about 5-8% (THIN; E0 says the rule-2 pass needs about 0.985 true retention in every cell).
+- Phase a design (about 6 A100-80 h per draw x 6 draws; the cheapest decisive experiment): model Qwen2.5-32B-Instruct. Arms at real <=9.60% (I5): B0 = baseline C07 recipe (3 draws, seeds 11-13); S4 = steps 1-4 = A5 (CAL-v2 class-balanced self-distilled) + A3 (fixed GPTAQ, from X02) + A4 (forward-only KL/margin-weighted Hessian; Fisher-backward A4b only if the coordinator accepts gradient-as-sensitivity) + A1 (KL-sensitivity allocation incl. emb/head by generic frequency), 3 draws seeds 11-13. If X02 fails, S4 = A5 + A4 + A1 and the label says so. Scored by REAL generation on (i) INJ-real dev 1566 items (the SYNTHESIS gate set; comparable to C03/C04/C11; note it has been reused for many selections, so it is gate-grade only, not evidence of generalisation) and (ii) NEWS-SEL (disciplined set). 7B smoke (X02) precedes it but does not block B0 draws.
+- Phase a decision rule (pre-registered, from SYNTHESIS 2b, applied to the S4 mean over 3 draws): GO if mean flip rate <=3.6% AND worst source x class cell retention >=92%, on INJ-real dev AND on NEWS-SEL (cells with n>=150). Split verdict (one set passes): proceed to phase b only on that task and flag it. KILL the dense route if both fail, or if S4 mean - B0 mean < 1.0 pt (steps not helping); in that case cancel X05, X06, X07 phase 2, and the 72B spend. Report B0's flip rate too: if B0 at the legal 9.6% is already <=3.6%, the SYNTHESIS baseline (5.0%) was wrong; say so.
+- Phase b design (only after GO): add A2 (coded scales + emb/head re-spent as body bits), A6 (trellis, if L3 admits), 8 seeds for best-of-N on SEL (margin-weighted score, section 1.3), the winner re-packed as a REAL written artifact (index stream + codebook/scales + decoder), `size_check`, reload bit-equal dequant check, SEL re-run on the reloaded weights; REP unsealed once for the winner and the N-mean; tiers per section 1.4; also INJ-REP, GEN. Interim kill inside phase b: after 3 seeds if mean SEL retention < S4 mean + 0.3 pt, skip the other 5 seeds.
+- Cost: phase a 6 draws x ~3-6 h = 18-36 A100-80 h = about $15-30 Vast (SYNTHESIS estimates $40-70 incl. 7B smoke and Modal-class pricing); phase b +8 draws +pack = about $25. Wall: phase a 8-10 h with 6 boxes (32B quant timing THIN).
+- Trigger: B0 and S4 start the moment X01 splits/base refs exist and the X02 smoke reports (S4 may launch without GPTAQ if X02 is still pending after 5 h). Cancel phase b: phase a KILL. L1 (32B-INJ go/no-go) is cross-checked against B0 on INJ-real dev (if it reports a different B0 flip rate by >1.5 pt, investigate the harness before reading anything). L3 supplies A6 evidence for phase b.
+- Legality: R1 real bytes by size_check, decoder code counted; R2/R3 per tiers; R4 clean (calibration math; seed selection documented as hyperparameter search on a disjoint set); R7 label word; R8 base acc in range; R9 NEWS benchmark-shaped (GRAY), INJ more commercial-class.
+- Confounds: selection optimism (REP sealed, N-mean reported), bytes (real, identical), reuse of INJ-real dev (gate-grade), calibration shared between B0 and S4 except the declared step.
+- Outputs: `v2/exp/results/X04/*`, `winner_pack/` manifest + size_check JSON, `X04_REPORT.md`.
+
+### X05. 32B leave-one-out (LOO) and seed extension (learn which piece matters at the target scale)
+- Hypothesis: pieces that look neutral at 14B (MDE) matter or hurt at 32B; LOO on the three largest-effect pieces from X03 isolates them.
+- Design: S minus piece p for p in top-3 of X03 by |delta| (2 seeds each, seeds 11,12 matched to S), plus 2 more B0 seeds (14,15) so B0 has 5. Paired against S seeds 11,12. Metric as section 1.2; decision uses SEL only.
+- Decision rule: a piece is "necessary" if S minus p loses >= 1.0 pt (paired CI lower > 0); "harmful" if S minus p gains >= 1.0 pt (then X06 uses S minus p). No REP unseal needed (informational; use SEL).
+- Cost: 8 draws x 3 h = 24 A100-80 h = $20; wall 6 h. Hardware Vast.
+- Trigger: start when X04 S-seeds 11,12 are done and the X03 table exists. Cancel if X04 interim kill fired (stack not helping) or if time is short (this experiment is the first to drop: informational for the proof write-up, not required).
+- Legality: same as X04. Confounds: 2 seeds is below MDE, so only >= 1 pt effects with consistent sign across both seeds are acted on.
+- Outputs: `v2/exp/results/X05/*`, `loo_table.md`.
+
+### X06. 72B at 9.6%: stack with per-class gates (the only base size where the literature points at 98%)
+- Hypothesis: Qwen2.5-72B with the X04 stack at real <=9.60% reaches NEWS REP retention >= 0.98 overall with class/source marginals >= 0.95; previous scalar GPTQ at 72B gave 0.952 (INJ) and 0.956 (TOOLSEL) at 9.6% est, VQ was never run at 72B (`quality/cfgs_72.json` is written, not run). Probability: TIER-1 about 10-15% (THIN: pure extrapolation; scale gain 32B->72B was +0.4 pt for scalar GPTQ at the same bytes in TASK_SEARCH vs D_scale, i.e. scale alone did not help scalar).
+- Design: model Qwen2.5-72B-Instruct; task NEWS (primary) + INJ-REP (report-only) + TOOLSEL dev (1063 items, report-only, name-only caveat R7). Arms: C0 = A0 recipe at 9.60% real (1 draw), P = stack (as frozen from X04 incl. S-minus-harmful pieces) 3 draws (seeds 11,12,13). Base reference bf16 TP2 from X01. Best-of-3 on SEL; winner re-packed with size_check. Memory-lean quantisation path (CPU->GPU layer streaming as in `big.py`, size "huge" in the runners).
+- Decision rule: tiers per section 1.4 with the 72B threshold (TIER-3 if REP point < 0.975); SCREEN: 300 SEL items after draw 1; kill the remaining 2 draws if screen retention < 0.95 (the 32B stack is expected to be at least 0.955; below that the 72B stack is clearly not working). A single draw can only be read at +-1.0 pt; do not claim TIER-1 from < 3 draws.
+- Cost: 4 quantisations x 10 h = 40 A100-80 h + eval (TP2) about 8 h => about $50-70 Vast; Modal H100 equivalent about $300-450 (needs user OK if on Modal). Wall: 14-18 h with 4 boxes in parallel.
+- Trigger: C0 can start with X04 B0 (h2) as it needs no stack (speculative baseline); P starts when the X04 interim check (S seeds 11-13 SEL vs B0, about h28) is non-negative, using S-core if S-full not yet validated, plus a second P wave when X05 says "harmful" pieces exist. Cancel P if X04 interim kill fired (stack not helping at 32B) AND C0 shows < 0.955 (then 72B is just bits-limited; save the money). Cancel everything on 72B if X04 returns TIER-1 with margin (> 0.99): 72B would only be needed if 32B fails.
+- Legality: as X04; R1 size at 72B is dominated by embedding/head 3.4% (coded scales and head allocation matter more; vocab trim stays out). R4 clean.
+- Confounds: FP8-vs-bf16 base (both reported); few draws; byte parity; calibration parity with X04.
+- Outputs: `v2/exp/results/X06/*`, `X06_REPORT.md`.
+
+### X07. Prune-then-quantize frontier: TALE agreement-targeted layer removal + requantise at freed bytes
+- Hypothesis: removing k late layers chosen to maximise base-agreement frees about 1.5% of fp16 per layer at 32B, and requantising at the freed bit budget beats spending those bytes on bits only if the layer-removal flip cost is below the bytes-equivalent gain (+1 to +2 pt per +1 pp). PRUNING.md E1/E2 estimate a net +0.5 to +1.5 pt; THIN (never run for these tasks; v2/prune n=6 mid layers collapsed, so the search is restricted to the last third).
+- Design (two phases). Phase 1 (14B screen): TALE greedy single-layer removal over the last 16 layers of 14B using CAL-derived agreement items only (base-correct AG [20,50) items + base-generated answers; NOT SEL/REP), k in {0,2,4,6} with (a) TALE-chosen, (b) tail-forced, (c) BI-ranked layers; each requantised with the X03 stack-minus-pending at the freed bit budget (target fixed at 9.60% real incl. extra bits); 2 seeds. Phase 2 (32B confirm, only if phase 1 passes): k in {0, best_k} x 3 seeds, paired with X04 S (same stack, same seeds), plus optional pre-registered vocab-trim arm V (token id < 65536 + specials, label-free, decided before any label look; reported with OOD cost on a 200-item non-English/code probe; treated as GRAY and excluded from any TIER-1 claim unless the user opts in).
+- Decision rule: phase 1 proceeds to 32B if for some k >= 2 the TALE arm's SEL retention >= no-prune matched-bytes arm + 1.0 pt (paired, 2 seeds, same sign both) AND S3/S2 class and source marginals not worse (select with S1 only, report others: per PRUNE_LEGAL, reject if layer set differs by source). Otherwise KILL: pruning does not pay at our operating point; document the frontier.
+- Cost: 14B: 3 variants x 3 k x 2 seeds + 2 = 20 runs x 1.2 h = 24 h; TALE search about 2 h; 32B confirm 6-8 runs x 3 h = 18-24 h; total about 50 A100-80 h = $40. Wall 12 h (phase 1 6 h).
+- Trigger: needs L4 (structured pruning lane) first results (their tsp_core harness and layer scores): launch phase 1 when L4 reports or at h12 whichever first; phase 2 after X04 S exists. Cancel: if L4 shows layer removal flips > 3 pt per layer on label tasks at 14B, or if X03 shows bytes slope > 3 pt per +1 pp (bytes are cheap; pruning then is moot).
+- Legality: PRUNE_LEGAL rows 1 (layer drop: LEGAL), 5 (vocab trim: GRAY, pre-registered rule only). R4 clean; R9: selection source-agnostic, tested on a different source.
+- Confounds: layer search overfit to S1 (select on CAL-agreement items only, report SEL/REP); noise (2 seeds, so only >= 1 pt same-sign effects); bytes parity enforced by I5.
+- Outputs: `v2/exp/results/X07/*`, `frontier.md` (retention vs real bytes for k and bpw).
+
+### X08. Frozen-artifact validation: cross-source proxy of the maintainer's check, task transfer, general capability
+- Hypothesis: a recipe selected on NEWS-SEL transfers: INJ-REP retention for the frozen X04 (or X06) winner is within 1.5 pt of NEWS-REP retention, and a never-used source holds the same retention (maintainer's different-distribution data proxy).
+- Design: no new quantisation. Take the frozen winner(s) from X04/X06 (exact bytes, hash recorded) and run: (a) NEWS-REP split by source (AG, BBC-B, HuffPost) = the "calibrated on AG, evaluated on never-used sources" proxy; (b) INJ-REP (4313 items; report-only); (c) TOOLSEL dev (1063; report-only; R7 gray); (d) a NEW never-touched source for NEWS topics (a hash-pinned third corpus chosen now: e.g. a news-headline corpus with World/Sports/Business/Tech mapped labels from a different publisher; selection of the corpus recorded BEFORE the run; if no clean third corpus is found in 2 h, skip and say so); (e) GEN set + a 200-item non-English/code probe for rule-9 narrative; (f) floors.
+- Decision rule: PASS if retention on the never-used sources (BBC-B + HuffPost + third corpus) >= overall REP retention - 1.0 pt and class/source marginals as in tiers; INJ-REP overall >= 0.97 (report-only, informs "commercial-class" argument, not gating). FAIL on OOD drop > 2.0 pt => the winner is calibration-overfit; do not freeze.
+- Cost: evals only, about 8 A100-80 h = $7; wall 3-4 h (+ 72B TP2 eval).
+- Trigger: runs on each of X04 and X06 winners as soon as they exist (after their unseal). Cancel: never (cheap).
+- Legality: no fitting; datasets' licences recorded (AG/BBC research-only: flagged for the proof; HuffPost CC-BY-4.0).
+- Outputs: `v2/exp/results/X08/*`, `maintainer_proxy.md`.
+
+### X09. Diffuse feedback edit on the compressed artifact (wave 1; consumes the peer feedback comparison)
+- Hypothesis: a DIFFUSE closed-form edit (SYNTHESIS idea 9 / EDITING E1: several late-layer `down_proj` updates solved in the mnH calibration-Hessian metric with old-label and continuation-token (EOS) protection) teaches a new label (`Entertainment` on NEWS) end to end, with real minus shuffled >= 0.10 and neighbours >= 98%, where the earlier `memit_down` failed (neighbours 0.57-0.94) because it lacked that metric. It addresses the maintainer's "same head, kept inside the model file" objection only if the answer comes from the whole forward pass; whether that is accepted is unruled (GRAY). Prior P(works) about 0.2 (SYNTHESIS).
+- Non-duplication: the peer lane runs the MEMIT-style down_proj arm and the mnH/hebb/lda_ref comparison in `v2/fb_legal/rival_cmp/` (configs `cfg_q3_tox/inj/route`, `cfg_q25_*`); our E-series agent (L8) runs E1-E5. X09 does NOT re-run those. It (a) reads their tables, (b) adds only what is missing: the mnH-metric diffuse arm with old-label protection, the run on the COMPRESSED 32B/14B artifact (E4 of EDITING: hidden-state noise from a 1.6 bpw body), and the NEWS+Entertainment protocol. Before coding, the agent must diff its plan against `rival_cmp` and L8 outputs and cut overlaps.
+- Design: artifact = X03 A_best at 14B (early read, from about h24) then the X04 winner (32B); dequantised weights edited, edited slices stored fp16 in the same tensors, extra bytes <= 0.3 MB counted, final size_check <= 9.60%. Data: `task_search/NEWS/fb_annot_25.jsonl` (base errors; extend only from buckets < 20), teach `fb_teach_unseen_200.jsonl` (hash-lock before anything), neighbours >= 400 base-correct NEWS items from AG [50,60) (disjoint from CAL/SEL/REP). Arms real/shuffled/empty x n in {5,12,25} x 10 annotation draws, harness `v3/feedback_protocol.py`, REAL greedy generation of the multi-token new word; the prompt does not enumerate the new label and the parser accepts free text (SYNTHESIS feedback-objection table); mechanisms: diffuse-mnH (new), plus mnH lm_head as the within-experiment reference only.
+- Decision rule: PASS if teach gain >= +0.15 with CI > 0, real - shuffled >= 0.10, empty change exactly zero bytes and zero behaviour change, neighbour retention >= 0.98 with every class >= 0.95, no collapsed draw (min neighbour >= 0.90). KILL a mechanism if teach < 0.10 or neighbours < 0.95. SYNTHESIS G-F bar (teach >= +0.3, real - shuffled >= +0.25) is reported as the "strong" tier; passing only the weak tier means feedback is still the bottleneck.
+- Cost: about 20 A100-80 h = $16; wall 8 h. Trigger: start now on a 14B/8B dev artifact; X04 winner arm when it exists. Also WATCH the maintainer's verdict on the rival's issue (#4 in the intel file): if accepted, raise priority; if rejected on "classifier", the row-edit arms are dropped and only the diffuse arm continues. Cancel if `rival_cmp` shows diffuse down_proj neighbours < 0.9 for both metrics (then no diffuse mechanism exists; escalate).
+- Legality: R4/R5/R6 GRAY, no prompt feedback, no side memory, zero annotations touch no byte.
+- Confounds: teach set contamination (hash lock), neighbour definition, saturation across n, 1-in-10 collapse from continuation rows (protected explicitly).
+- Outputs: `v2/exp/results/X09/*`, `feedback_table.md`.
+
+### X10. Bonsai gate completion (G2 probe, feedback carrier, base-identity conditions)
+- Hypothesis: Bonsai-8B 1-bit lossless repack (7.13% real, identity 2000/2000 on dev) is viable only if (i) a label task has base accuracy in [0.60, 0.92] on >= 2 classes with locked-item feasibility, and (ii) a closed-form feedback edit stored as fp16 patch rows teaches selectively; (iii) the maintainer accepts base-identity (not testable here, NEXT_PLAN G0).
+- Design: G2: Bonsai-8B on 300 dev items each of TOX, INJ, SENT, NEWS, T1 (reuse `bonsai/task_probe.py`, `probe_items.jsonl`), real generation. G3: `fb_legal/cfgs8.json` `bonsai_fp16patch` run + mnH/E1/E5 variants, real/shuffled/empty, 10 draws, 25 annotations, >= 25 teach, >= 400 neighbours, carriers fp16 patch rows vs re-binarised. Also parent-retention of Bonsai vs Qwen3-8B per kind is already known (88.9%): not re-run.
+- Decision rule: G2 PASS if acc in [0.60, 0.92] on the candidate task with >= 2 classes. G3 PASS if gain >= +0.15 CI>0, real - shuffled >= 0.10, neighbours >= 0.98, and the edit survives the fp16 patch. KILL the route if either fails by 11-09 evening (NEXT_PLAN schedule). Even if all pass the route stays gated by the maintainer's reading; this experiment only decides whether it is worth asking.
+- Cost: about $10-20 (NEXT_PLAN: $5-15 G3 + $2 G2); wall 6-8 h. Hardware Vast or Modal A100.
+- Trigger: L7 (Bonsai entry build-out) completion or report; run now if L7 is idle. Cancel: if the user declines to post the maintainer question AND X04/X06 give TIER-1/2 (Bonsai becomes moot).
+- Legality: C19 conditional on rule 9 reading; feedback carrier GRAY (F01).
+- Outputs: `v2/exp/results/X10/*`.
+
+### X11. Native-base candidates from L6 (parent-retention probe)
+- Hypothesis: a natively low-bit release whose forward pass IS the shipped model and whose retention vs its parent is >= 97% on a real task would pass R2 under both base readings (NEXT_PLAN D2). Size gap: Ternary-Bonsai-2-27B lossless 11.05% needs -1.05 pp, Falcon-E 13.8%, Bonsai-ternary-8B 10.19%.
+- Design (to be concretised from `v2/NATIVE_SURVEY2.md` when L6 reports): for each candidate with true lossless size <= 9.8% after entropy coding without any lossy step: run candidate and parent on NEWS-SEL (base-correct of the parent), INJ dev, T1 dev; paired retention vs parent per kind. Candidates not meeting the size condition are not run.
+- Decision rule: continue only if lossless size <= 9.8% AND retention vs parent >= 0.97 overall with every kind >= 0.95 on SEL; else KILL. Evidence on this route is THIN (parent retention for Bonsai 8B 0.889 / ternary 0.910).
+- Cost: $8-15 per candidate (NEXT_PLAN D2: 3 h). Trigger: L6 report with a candidate meeting the size condition. Cancel: any TIER-1 in X04/X06 (then native routes are second-best) or L6 reports no candidate.
+- Legality: R9 gray (no entrant compression), size baseline reading per issue #1.
+- Outputs: `v2/exp/results/X11/*`.
+
+### X12. Copy-style tasks (conditional on L5 / TASK_SEARCH2)
+- Hypothesis: tasks whose answer is a span copied from the input (extraction, PII redaction, entity tagging; the maintainer's PII example) have larger, more robust margins under quantisation than label tasks because the copy circuit is local (L5's premise). UNTESTED here.
+- Design (instantiated from L5's winner): task plugin for `build_splits.py` (CAL/SEL/REP with sources separated, REP >= 3000 base-correct from >= 2 sources, per-kind >= 300), then A0 vs S (stack from X04) at 14B (3 seeds each) and, if screen passes, 32B (3 seeds). Metric: exact-match or span-F1 against base output per item (real generation of the redacted/extracted text); retention = P(candidate output equals base output | base output matches gold).
+- Decision rule: proceed to 32B if 14B A0 retention on SEL >= 0.97 (already near the gate) or S-A0 >= +2.0 pt; TIER rules unchanged; KILL if 14B S retention < 0.93.
+- Cost: build 3 h CPU + 14B 6 runs x 1.2 h + 32B 6 x 3 h = about 25 A100-80 h = $20. Trigger: L5 reports a task with 7B/14B retention >= 0.95 at 9.6% (screen) AND data pools allow the split; start immediately. Cancel: L5 reports no signal, or X04 is TIER-1 (then switching task only if rule 7/9 requires it).
+- Legality: R7 real output (span text); R9 PII redaction is a named commercial example in issue #1 (positive). Outputs: `v2/exp/results/X12/*`.
+
+### X13. Task-pruned MoE probe (design C): Qwen3-30B-A3B, real generation, legal bytes, disciplined splits
+- Hypothesis: expert pruning by routing mass on unlabeled task+neutral calibration text costs little on a broad-but-short-label task, so the floor is the expert quantiser; replacing 3-bit RTN by GPTQ (or VQ) experts at 9.6% gets NEWS REP faithful >= 0.985. Evidence (peer `moe_task`, THIN): NEWS mass-3-bit 0.975 at 9.90% (OVER the cap by 0.3 pp; fake-quant first-token eval; raw preds unsaved), quant-only 3-bit 0.976 at 20%, INJ mass 0.941 (S2 0.851), C2 0.936, REAP and task-only calibration clearly worse (0.81-0.88). The rival's claim (99.36% on 2910 locked items at 9.892%) is unverified here.
+- Design: base Qwen3-30B-A3B-Instruct-2507 (fp16 61,064,245,248 B; cap 6.106 GB; target 9.60% = 5.86 GB), NEWS CAL/SEL/REP (+INJ-REP report-only; rule 9 narrowness addressed by a broad menu: 4 topics and both sources). Arms (real bytes per I5, seeds 11-13 for calibration-subsample/rounding noise): M0 = peer recipe (mass rank, variable per-layer, 3-bit RTN) re-run at 9.60% with REAL generation; M1 = M0 with GPTQ experts (Hessians from routed calibration tokens); M2 = M1 with ~2.5-bit mixed allocation and more experts kept; M3 = M0 without pruning at the same bytes (quant-only at 2 bits, the matched control) to show pruning gain vs bits. Calibration: unlabeled task text + 300 other-task + wikitext (the peer found broadened calibration matters); CAL buckets only. Prune selection from CAL, scored on SEL, REP sealed.
+- Decision rule: SCREEN at 300 SEL items; continue if M0 or M1 >= 0.97. Final: tiers per section 1.4 with the NEWS REP; plus the MoE-specific unseen-source check (BBC-B + HuffPost >= 0.97). KILL if best arm SEL retention < 0.975 after M1/M2 or the unseen-source block < 0.95 (calibration overfit => fails the maintainer's different-distribution check).
+- Cost: peer measured about 45 min A100-80 per job (~$3 incl. dev eval); 12 jobs + real-generation evals = about 15 A100-80 h = $12-20; wall 6-8 h. Hardware Vast A100-80GB (60 GB model fits one 80-96 GB GPU) or Modal.
+- Trigger: launch now (independent of dense lanes); needs X01 splits for the final read, a smoke can start immediately on existing NEWS dev items. Cancel: none (cheap), but deprioritised if the rival's issue is rejected for its feedback and ours cannot differ (feedback factor shared).
+- Legality: PRUNE_LEGAL expert row (legal with disclosed neutral calibration; routing-mass selection is label-free); R9 narrowness MEDIUM (pruned experts may not cover the maintainer's distribution; X08-style cross-source read is mandatory); R1 real bytes (router, norms, tokenizer counted).
+- Confounds: fake-quant vs real dequant (use real decode), first-token vs full generation (use full), Business/Technology class floor, base MoE weaker than dense 32B (retention vs OWN base).
+- Outputs: `v2/exp/results/X13/*`, `X13_REPORT.md`.
+
+### X14. Released guard/classifier model as the start (design D probe)
+- Hypothesis: a model released already tuned for a label job (Qwen3Guard-Gen-8B, Llama-Guard-3-8B, gpt-oss-safeguard if sized acceptably) has larger decision margins than generic instruct models, so the quantisation-noise wall (noise std 7-13 logits vs median margin 10-12) bites less; flips at 9.6% could be <=3% where the generic 8B gives 9-12%. UNMEASURED (SYNTHESIS idea 1, P about 0.15).
+- Design: step 1 (about $5): 300 dev items of the model's native label task (content safety: Aegis/BeaverTails/TOX dev, label = the model's own verdict word), real generation, base accuracy (R8 band 0.60-0.92 on >=2 classes), margin histogram (base min-token margin), compare with generic Qwen3-8B on the same items. Step 2 (only if median margin >1.5x generic AND R8 ok; about $10-20): one VQ run at real 9.60% with the current best recipe (A0 and S4-without-GPTAQ if X02 pending), 3 seeds, scored on a 3-way split built by an I1 plugin for that task (pools: BeaverTails 330k, Aegis; sources separated). Untied emb+head are 14-19% of bytes at 8B (CODING): include their allocation in the byte target.
+- Decision rule: KILL after step 1 if median margin <= 1.5x generic or acc outside R8 band; KILL after step 2 if mean flips >3% at 9.6% (SYNTHESIS G-D) or worst class < 0.92. Also record license and whether the model's own prompt/system format is the "real output".
+- Cost: $15-25; wall 6-8 h. Trigger: launch step 1 now. Cancel: none (cheapest information in the queue). Legality: "any model is fine" (a public fine-tuned base is read as acceptable by SYNTHESIS; user decision #4 in its section 5); R9 LOW-MEDIUM; narrowness check: safety is a broad commercial task.
+- Confounds: margin comparison depends on item matching (same items for both models); different tokenizers; guard models can emit verbose templates (strict scorer on the verdict word).
+- Outputs: `v2/exp/results/X14/*`.
+
+## 5. Cost and compute summary (estimates; Vast A100-80 at about $0.80/h; Modal about x5)
+
+| exp | A100-80 h | $ Vast | wall | boxes | needs user OK |
+|---|---|---|---|---|---|
+| X01 | 16 | 13 | 3-4 h | 3 | no |
+| X02 | 8 | 6 | 4-5 h | 2 | no |
+| X03 | 40 | 32 | 10-12 h | 8 | no |
+| X04 | 41 | 33 | 10-12 h | 6 | no |
+| X05 | 24 | 20 | 6 h | 4 | no |
+| X06 | 48 | 40-70 | 14-18 h | 4 (+TP2 eval) | yes if > $100 (Modal) |
+| X07 | 50 | 40 | 12 h | 6 | no |
+| X08 | 8 | 7 | 4 h | 2 | no |
+| X09 | 20 | 16 | 8 h | 2 | no |
+| X10 | 20 | 16 | 8 h | 2 | no |
+| X11 | 12 | 10 | 4 h | 2 | no |
+| X12 | 25 | 20 | 10 h | 3 | no |
+| X13 | 15 | 12-20 | 6-8 h | 2 | no |
+| X14 | 25 | 20 | 6-8 h | 2 | no |
+| total | about 350 | about $285-320 (Vast); wave 1 alone (X01, X02, X04a, X09, X13, X14) about $95-130 | | | |
+Safety margin x1.5 for failed/restarted Vast boxes: about $400. All numbers THIN for 32B/72B timing; X03/X04 first runs re-estimate and `queue.json` is updated.
+
+## 6. Rule-by-rule legality of the stack (maintainer wording in quotes)
+
+| rule | status for X03-X08 | note |
+|---|---|---|
+| R1 size | PASS once X04 pack passes `size_check` <= 9.60% real (all earlier numbers are estimates) | "On-disk bytes of everything you ship"; decoder code and codebook counted |
+| R2 faithful | measured on REP with tiers | "at least 98% ... at least 95% within every kind"; floors reported |
+| R3 unseen | PASS by construction: CAL/SEL/REP disjoint by bucket; HuffPost unused until REP; lock buckets untouched | need final locked exam >= 2000 later (NEWS plan 3200 items) |
+| R4 no new trained parts | PASS: closed-form calibration math, no heads/adapters/side memory; Fisher via backward pass is sensitivity only (A4b flagged); best-of-N = seed selection | "can't train the weights means compression techniques are fine but no retraining" |
+| R5/R6 feedback | only in X09/X10; GRAY | maintainer rejected centroid/row edits that never run the new class; X09 runs the new label end to end |
+| R7 real job | PASS for label-word generation; TOOLSEL name-only is gray | no letters, no constrained decoding |
+| R8 base | PASS for NEWS (acc 0.87), checked per source in X01 | INJ benign cells near ceiling (gray) |
+| R9 spirit | GRAY: NEWS is benchmark-shaped; INJ/PII more commercial-class | X08 reports INJ transfer; "agentic/tool use, PII redaction, AI vs Human detectors" are the maintainer's named classes |
+| maintainer check | X08 cross-source proxy; feedback behaviour in X09 | no side memory ships |
+
+## 7. Dependencies, triggers, cancel conditions (summary; machine form in `queue.json`)
+
+| exp | start_when | cancel_when |
+|---|---|---|
+| X01 | now | never |
+| X02 | now (parallel with X01) | L2 ships a validated fixed `tgt` (then validate only) |
+| X03 | X01 splits+base refs done (about h2); later arms as code lands; A6 after L3 | L1 reports 32B plain >= 0.985 (shrink to A0 vs A1+A2) |
+| X04a | X01 splits + X02 smoke (or 5 h) | none |
+| X04b | X04a GO (mean flips <=3.6%, worst cell >=92%) | X04a KILL |
+| X13 | now | unseen-source block < 0.95 |
+| X14 | now (step 1); step 2 on margin >1.5x | step-1 kill |
+| X05 | X04 S seeds 11,12 + X03 table | X04 interim kill, or time short |
+| X06 | only after X04a GO (C0 baseline may start earlier at coordinator's choice) | X04a KILL; or X04 TIER-1 with margin |
+| X07 | L4 first results or h12; phase 2 after X04 S | L4 flips > 3 pt/layer; bytes slope > 3 pt/pp |
+| X08 | each frozen winner from X04/X06 | never |
+| X09 | now (14B/8B dev artifact); 32B winner when exists; reads `rival_cmp` + L8 | diffuse neighbours < 0.9 in both metrics (escalate) |
+| X10 | L7 done/idle | stack TIER-1/2 and user declines maintainer question |
+| X11 | L6 report with a candidate meeting the size condition | X04/X06 TIER-1, or no candidate |
+| X12 | L5 winner with 7B/14B screen >= 0.95 and adequate pools | L5 no signal, or X04 TIER-1 |
+
+Global go/no-go gates: G-A (h4) X01+X02 OK -> ladder proceeds. G-B (about h20) X03: stack gain >= +2.0 pt at 14B -> S-full; <+1.0 -> S-core. G-C (about h30) X04 interim: S >= B0 + 1.0 pt on SEL -> continue best-of-N and launch 72B P; else 72B only if C0 >= 0.955 and user accepts. G-D (about h44) X04 REP unseal + X08: TIER-1 -> freeze and start locked-exam protocol; TIER-2 -> second wave (more seeds, X07 winner, 72B); TIER-3 -> stop compression route. G-E (about h60) FREEZE: whatever is best is frozen; after this only final-proof tasks (stage runs, controls, write-up) run. G-F (about h72) last chance: no new quantisation after this (locked-exam protocol needs about 20 h).
+
+## 8. Four-day schedule (T0 = launch moment; assume T0 about 2026-11-08 20:00Z so the deadline is about T0+93 h)
+
+### First 24 hours, hour by hour
+| h | actions (coordinator launches; Vast = A100-80 boxes) | notes |
+|---|---|---|
+| 0 | Launch builder agent for I1-I5 (X01 prompt). Launch X02 coder agent. Start 14B/32B base-reference prep on Vast (3 boxes) as soon as I1 emits item files; meanwhile use existing `NEWS/items_dev.jsonl` for smoke. | no GPU work blocks on human decisions |
+| 1 | Splits built and hashed; check_disjoint green. Base 14B + 32B GEN on SEL/REP/GEN start (2 boxes); 72B TP2 reference queued on Modal (H100:2). X02 unit tests on CPU reproduce `tgt` failure. | |
+| 2 | Base refs done 14B/32B; floors. SPLITS.json base-correct counts filled; rule-8 per-source check. X03: launch A0 draws 11-18 (8 boxes -> uses all Vast) | G-A pending |
+| 3 | A0 draws running. X02 7B baseline seeds + GPTAQ grid running on 2 more boxes (cap 8: stagger). X04 B0 seed 11-13 queued behind A0 wave | |
+| 4 | X02 numerics acceptance result: G-A decision. A0+ x3 launch. A1 sensitivity sweep (14B, 1 box). Coding: A2 coded scales + emb/head alloc (agent), A4/A5 (agent) | |
+| 5 | A0 draws done -> draw sd and MDE computed, SEL tables for A0; A1 sensitivity plan emitted. X04 B0 x3 start (32B, 3 boxes) | |
+| 6 | A1 x3 launch; X04 B0 running; X07 prerequisites (L4 layer scores) read | |
+| 7 | A2 code lands -> screens; A5 CAL-v2 self-distilled generation (base on 14B/32B, 2 boxes, 1M tokens) | |
+| 8 | A2 x3, A3 x3 (if X02 passed) launch; S-core 32B speculative launch (A1+A2+A5 once screens pass) | |
+| 9 | A1 results (SEL decide stage); B0 32B partial | |
+| 10 | A4 code lands -> screen; A5 x3 launch | |
+| 11-12 | A2/A3 results; A4 x3 launch; X07 phase-1 TALE search (1 box) | |
+| 13-14 | A5 results; X04 B0 SEL table (first 32B baseline reading); X01 72B bf16 reference done; X06 C0 launch (72B baseline, 1 draw) | |
+| 15-16 | A4 results; L3 trellis status read -> A6 decision; X07 phase-1 quant runs (6-8 boxes by availability) | |
+| 17-18 | A6 x3 (if admitted); ladder table v1; S-core 32B seeds finishing | |
+| 19-20 | X03 gate G-B: stack choice S-full or S-core frozen; launch X04 S seeds 11-18 (32B) | |
+| 21-22 | X04 S seeds running; X05 prerequisites; X09 mechanism choice from L8 | |
+| 23-24 | X03 A7 best-of-N analysis; ladder REP unseal for the best arm only (once); report committed | |
+
+### Days 2-4
+- Day 1.0-1.7 (h24-h40): X04 S seeds finish (h30 interim G-C); X06 P launch (72B stack, 3 draws, h28-h42); X05 LOO (h30-h38); X07 phase 1 results (h30) -> phase 2 confirm queued; X09 first read on 14B A_best artifact (h26-h34).
+- Day 2 (h40-h56): X04 winner packed + size_check (h36-h40); REP unseal (G-D, h44); X08 on X04 winner (h44-h48); X09 on X04 winner (h44-h54); X06 results (h44-h50); decide TIER.
+- Day 3 (h56-h72): FREEZE (G-E h60) of best artifact (32B or 72B or fallback); second wave if TIER-2: extra seeds/X07 phase 2/72B P2 (must start by h60); X10/X11 conclusions reported; locked-exam protocol for the frozen artifact begins (harness v3: lock manifest hash, stage-1 exam, controls). Last quantisation start G-F at h72.
+- Day 4 (h72-h93): locked exam stage 1 and 2, controls, size_check on the shipped tree, proof write-up with anticipated objections; file only if every gate passed (DECISION.md rule: do not file a failing entry as a pass). Buffer: 4 h before the deadline.
+- CRITICAL PATH: I1 splits (h1) -> base refs (h2) -> code readiness of A2/A4/A5 (h10) -> ladder gate (h20) -> 32B stack seeds (h30) -> real pack + REP unseal (h44) -> freeze (h60) -> locked exam (h72-h93). The 72B branch (C0 h14 -> P h28-h44) runs beside it and can only reach a freeze if started by h28. Any slip of > 6 h in code readiness pushes P past G-F: then use S-core/known-safe pieces speculatively (this is why X04 S-core starts at h8 without waiting).
+- Parallelism: Vast 8 boxes continuously (about 310 A100-h over 60 h = average 5 boxes); Modal used for the 72B TP2 eval and overflow within whatever slots L1-L8 free (assume 2-4 until lanes finish).
+
+## 9. Agent prompts (paste PREAMBLE + the block). Each is self-contained given the repo.
+
+PREAMBLE: You are an agent in the 10% challenge repo (~/ten-percent; deadline 2026-11-12 17:05 UTC). Read `GOAL_README.md`, `v2/EXPERIMENT_QUEUE.md` sections 1-3 (protocol, infra, hardware) and your experiment entry in section 4; follow it as pre-registered, do not change decision rules after seeing data. Rules: never read or score any locked/LOCK file or REP before the unseal step; never print keys; Vast key at `~/.config/vastai/vast_api_key`, never touch instances named `qiq-*`, label yours `tenpct-<exp>`, destroy when synced; use Modal only with `modal run --detach`; all code/results/logs committed and pushed right after each result (stage by path, run `~/.claude/skills/github-workflow/scan_leaks.sh staged` first, no IPs/keys); update your entry status in `v2/exp/queue.json`; save agent traces locally; stop idle compute and report what is running. Conventional commits. Report: numbers with CIs, deviations from the pre-registration, and which decision rule fired.
+
+X01 prompt: Build `v2/exp/` infrastructure I1-I5 and run experiment X01. Deliverables in order: (1) `build_splits.py` implementing section 1.1 using the bucket function in `v2/task_search/NEWS/build_news.py`; `SPLITS.json` with hashes; `check_disjoint.py` asserting zero normalised-text overlap among CAL/SEL/REP/GEN/feedback files and all LOCK/HASH_PLAN manifests (read manifests only, never locked items); (2) `bytes.py`, `run_retention.py` (reuse `v2/quality/qpush.py`, `v2/vq/*`, `v2/entry32b/{q32,vreal2,scorer}.py`, `v2/quality/vllm_real.py`; resumable per layer), `analyze_pair.py` (reuse `v2/harness/stats.py`), `dispatch.py`, result schema from section 2; unit tests on a 0.5B model. (3) Run base GEN on SEL, REP, GEN, INJ-REP for Qwen2.5-14B/32B/72B-Instruct (72B bf16 TP2; FP8 also), two passes each for the floor, fill base-correct counts and per-cell tables; check the X01 decision rule. Hardware: Vast A100-80GB for 14B/32B, Modal H100:2 detached for 72B. Commit after each file.
+
+X02 prompt: Run X02 (fix the GPTAQ `tgt` path in `v2/quality/qpush.py`). Reproduce the failure on 3 real 7B layers (log `tshift`), derive the correct closed-form asymmetric target (GPTAQ, arXiv 2504.02692) with a PSD-regularised Cholesky of the quantised-input Hessian and a per-layer relative-norm bound, implement it as `cfg.gptaq=true` with `lambda` and `alpha` knobs, pass the numerics acceptance in section X02, then run the 7B grid (baseline K=14500 x3 seeds 11-13, GPTAQ lambda {0.01,0.03} x alpha {0.5,1.0} 1 seed screen, best x3) on the INJR dev set (`v2/task_search/INJR/items_dev.jsonl`, comparability with C11) with real generation. Apply the decision rule verbatim. Write `v2/quality/gptaq_fix.md`. Vast A100-80GB.
+
+X03 prompt: Run the 14B ablation ladder X03 on NEWS with the splits from X01. Implement each arm as a cfg flag in `run_retention.py` (A1 `quality/alloc.py` sens mode; A2 log-delta coded scales + frequency-based embedding/head allocation, round-trip verified with a real decoder; A3 GPTAQ from X02; A4 forward-only margin-weighted Hessian; A5 CAL-v2 class-balanced self-distilled calibration generated by the base from CAL buckets only; A6 trellis/Leech from `v2/vq/tcq.py` if L3 evidence admits it). Every arm real 9.60% +-0.02% via `exp/bytes.py`. Seeds 11,12,13 (A0 also 11-18). Run screens (300 SEL items) then full SEL; analyze with `analyze_pair.py --stage decide`; recompute MDE after the 8 A0 draws BEFORE any keep/drop; apply keep/drop and gate rules from X03. Do not unseal REP except once for A_best at the end. Output `ladder_table.md`. Vast A100-80GB, up to 8 boxes.
+
+X04 prompt: Run X04. PHASE A (decisive, start now): Qwen2.5-32B-Instruct, B0 = baseline C07 recipe at real 9.60% seeds 11-13; S4 = steps 1-4 (CAL-v2 class-balanced self-distilled calibration from CAL buckets, fixed GPTAQ from X02 if it passed, forward-only margin/KL-weighted Hessian, KL-sensitivity allocation incl. emb/head by generic frequency) seeds 11-13, same bytes; score by real generation on INJ-real dev (`v2/task_search/INJR/items_dev.jsonl`, 1566 items) and NEWS-SEL; apply the GO/KILL rule verbatim (GO only if S4 mean flips <=3.6% and worst source x class cell >=92%, S4-B0 >= 1.0 pt). Commit results immediately. PHASE B only after GO: add coded scales, trellis if admitted, 8 seeds, margin-weighted winner on SEL, REAL pack + `harness/size_check.py`, bit-equal reload check, unseal REP once, tier per section 1.4. Vast A100-80GB.
+
+X05 prompt: Run X05 (32B leave-one-out). Take the top-3 pieces by |delta| from `v2/exp/results/X03/ladder_table.md`; for each, quantise S minus that piece with seeds 11,12 (same CAL/bytes), plus B0 seeds 14,15; analyze paired vs S seeds 11,12 on SEL only; classify pieces necessary/harmful per X05 rule; write `loo_table.md`. No REP unseal. Drop this job first if hours are short.
+
+X06 prompt: Run X06 (72B at 9.6%). C0 = A0 recipe real 9.60% (1 draw, seed 11) and P = frozen stack from X04/X05 (seeds 11-13) using the CPU-streaming quantiser (`quality/qpush.py` huge path / `research/D_scale/dense_stream.py`), bf16 TP2 base reference from X01. Screen after draw 1 (kill rule), best-of-3 on SEL, real pack + size_check for the winner, unseal REP once, tier per section 1.4 (72B thresholds), plus INJ-REP and TOOLSEL dev (report-only). Use Vast multi-GPU or Modal `--detach`; ask the coordinator before spending > $100 on Modal.
+
+X07 prompt: Run X07 (prune-then-quantize frontier). Phase 1 at 14B: TALE greedy layer removal over the last 16 layers using ONLY CAL-derived base-agreement items (not SEL/REP), arms TALE/tail-forced/BI-ranked for k in {0,2,4,6}, requantise at the freed bytes with the current best stack at real 9.60%, 2 seeds; apply the proceed rule. Phase 2 (only if it fires) at 32B paired with X04 S seeds. Vocab-trim arm V uses the pre-registered label-free rule (token id < 65536 + specials) and is excluded from tier claims; measure OOD cost on a non-English/code probe. Use `v2/prune/tsp_core.py` and `v2/PRUNE_LEGAL.md` as the legal boundary. Output `frontier.md`.
+
+X08 prompt: Run X08 on each frozen winner (X04, X06). No quantisation. Evaluate NEWS-REP by source, INJ-REP (`v2/entry32b/dev_inj.jsonl`), TOOLSEL dev, GEN, a non-English/code probe, and (if a clean third news corpus is chosen and hash-pinned in `v2/exp/X08_corpus.md` BEFORE running) the third corpus; floors; apply the X08 decision rule; write `maintainer_proxy.md`. Record licences.
+
+X09 prompt: Run X09 (diffuse feedback edit on a compressed artifact). FIRST read `v2/fb_legal/rival_cmp/` (peer lane: MEMIT-style down_proj arm + mnH/hebb/lda_ref comparison; fetch with git) and the L8 outputs, write a one-paragraph diff of what is already covered and do NOT duplicate it. Then implement the mnH-metric diffuse edit (several late down_proj, old-label and EOS/continuation protection in the metric) and run the NEWS+Entertainment protocol of section X09 on the 14B/8B dev artifact, later the X04 winner: arms real/shuffled/empty x n {5,12,25} x 10 draws, real generation, free-text parser, hash-locked teach set, neighbours from AG [50,60). Apply pass/kill rules verbatim; report strong-tier (teach >= 0.3) separately. Do not post anything on GitHub.
+
+X13 prompt: Run X13 (task-pruned MoE probe). Start from the peer recipe in `v2/moe_task/` (fetch the branch; mass-ranked expert prune, broadened calibration, per-layer variable counts), rebuild it with REAL decode and REAL generation at a legal 9.60% byte target, arms M0 (RTN3), M1 (GPTAQ/GPTQ experts), M2 (2.5-bit mix with more experts), M3 (no pruning, matched bytes), seeds 11-13, NEWS CAL/SEL/REP from X01 (INJ-REP report-only). Save per-item predictions (the peer did not). Apply the screen/kill rules verbatim, check the unseen-source block, run `size_check` on the best arm.
+
+X14 prompt: Run X14 (guard-model probe). Step 1: Qwen3Guard-Gen-8B and Llama-Guard-3-8B (and generic Qwen3-8B as the control) on the same 300 dev safety items (TOX/BTSAFE dev pools, never locked ones), real generation, accuracy per class, base min-token margin histogram; apply the step-1 kill rule. Step 2 only if it passes: one VQ run at real 9.60% (A0, 3 seeds) on a 3-way split plugin for that task; kill if mean flips >3% or worst class <0.92. Record licences.
+
+X10 prompt: Run X10 (Bonsai gate completion): G2 base-accuracy probe on TOX/INJ/SENT/NEWS/T1 (300 items each, `v2/bonsai/task_probe.py`), G3 fp16-patch-row feedback carrier with mnH/E1/E5 (`v2/fb_legal/cfgs8.json bonsai_fp16patch`), real/shuffled/empty, 10 draws, >= 25 teach, >= 400 neighbours. Apply the decision rules; do NOT post anything to GitHub; report whether the route is worth asking the maintainer about.
+
+X11 prompt: Run X11 for candidates in `v2/NATIVE_SURVEY2.md` whose lossless entropy-coded size is <= 9.8% (compute it with a real coder, no lossy step). For each, run candidate and parent on NEWS-SEL (parent-base-correct items), INJ dev, T1 dev with real generation; per-kind paired retention vs the parent; apply the KILL/continue rule. Do not run candidates failing the size condition.
+
+X12 prompt: Run X12 on the copy-style task L5 recommends (`v2/TASK_SEARCH2.md`): write the split builder plugin (CAL/SEL/REP, >= 2 sources, per-kind >= 300, REP >= 3000 base-correct, HuffPost-style source separation), hash it, then run A0 vs the X04 stack at 14B (3 seeds), and at 32B if the proceed rule fires; real generation of the span output; retention = candidate output equals base output on items where base matches gold. Apply the decision rule; report per kind.
+
+## 10. Where the evidence is thin (read before trusting any number here)
+1. Every size in the repo except the filed C2 artifact is an estimate; X04 is the first real-pack test for the VQ route.
+2. The stacked-lever gains are literature numbers (+2 to +6 pt at 14B-32B), not ours; the only pieces measured in-repo are K size (VQ vs scalar +20 pt at 7B), scalar-vs-bytes slope, and noise.
+3. 32B/72B quantisation timings were never measured end to end for this pipeline.
+4. Draw sd (about 1 pt) is an assumption until X03 measures it; MDE statements depend on it.
+5. NEWS Technology class sits at 0.86-0.94 in every dev draw at 32B; the per-class gate may bind on Technology even if overall passes (class-balanced CAL-v2 and A4 are aimed at it, untested).
+6. Rule-4/5/6 acceptability of any feedback edit and rule-9 acceptability of NEWS are maintainer judgments no experiment here can settle.
+7. P(any TIER-1) overall is low (my estimate about 10-15% combined for X04/X06); the queue is built so a negative result is decisive and cheap rather than so a positive one is likely.
