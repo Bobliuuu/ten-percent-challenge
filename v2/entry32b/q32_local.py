@@ -131,7 +131,7 @@ def _impl(cfg):
             return idx
         def decode(idx, C, sigma, rin, rout):
             Wq = (C[idx].reshape(idx.shape[0], -1)) * sigma; Wq = rout.inv(Wq.T.contiguous()).T.contiguous(); return rin.inv(Wq)
-        SEEDP = (str(cfg["seed"]) + ":") if cfg.get("seed") else ""
+        SEEDP = ((str(cfg["seed"]) + ":") if cfg.get("seed") else "").encode()
         # calibration stream
         cc = [json.loads(l) for l in open(HERE + "/" + cfg.get("calib_file", "calib_inj.jsonl"))]
         def chat(u): return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
