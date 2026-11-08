@@ -40,6 +40,9 @@ Base `Qwen/Qwen3-30B-A3B-Instruct-2507`, fp16 = 61,064,245,248 B. Tasks: SKILL7 
 ## Versus rival entry #4 (9.892%, retention 99.36%, per-cell >= 98.56, teach .649/.547 cross-source, shuffled .292)
 Size 9.896% (not below 9.892); retention 99.32 (about equal, lower bound 98.92); per-cell minimum 96.7-97.9 (below the 98.5 target); teach 79.9% overall and 83-87% on never-used sources with shuffled 0% and empty 0% (beats the rival's 64.9 / 29); feedback does not touch lm_head and ships no statistics file; BANK6 feedback does not meet the bar.
 
+## Shipped-command checks (packed artifact, `runtime.load`, not the in-memory simulation)
+`eval_art.py` on the first 400 SKILL7 DEV items: base .9475, packed artifact .950, retention 99.74% (378/379). `feedback.py` with 12 Recipe annotations (m=32) wrote `edit_o_proj.pt` (134,217,728 B) and `answer.py` then emitted `Recipe` for 57/60 teach texts (before: 0/60; before-feedback outputs were Lists 35, None 14, Cooking 6, Weather 2) and 60/60 correct on 60 DEV items; `feedback.py` on an empty file removes the edit. (Dev-grade smoke tests; the exam numbers above come from the harness run.)
+
 ## Weakest rule
 SKILL7: rule 4 (closed-form o_proj fit is an unruled weight edit; calibration prompts shipped) and the per-cell 98.5 target. BANK6: rule 5 (teach 16%).
 
