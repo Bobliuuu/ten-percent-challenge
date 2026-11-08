@@ -175,3 +175,20 @@ fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1
 - 2026-11-08T06:43Z vast id 59675358 tenpct-x14 destroyed after 0.26 h (~$0.11)
 - 2026-11-08T06:44Z vast id 59676882 label tenpct-x01-32b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
 - 2026-11-08T06:44Z vast id 59676883 label tenpct-x01-14b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677078 label tenpct-prune32n GPU A100 SXM4 80GB $1.122/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677079 label tenpct-prune32i GPU A100 SXM4 80GB $1.175/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677095 label tenpct-x01-32b GPU A100 SXM4 80GB $1.175/h (+5% guard) started
+- 2026-11-08T07:12Z vast id 59676883 tenpct-x01-14b destroyed after 0.46 h (~$0.28)
+- 2026-11-08T07:40Z vast id 59675262 tenpct-x13 destroyed after ~2 h (~$2.5)
+- 2026-11-08T07:37Z vast id 59677095 tenpct-x01-32b destroyed after 0.83 h (~$0.98)
+- 2026-11-08T08:13Z vast id 59685794 label tenpct-x03smoke GPU RTX 3090 24GB $0.166/h (+5% guard) started
+- 2026-11-08T08:22Z vast id 59686694 label tenpct-x03smoke GPU RTX 3090 24GB $0.167/h (+5% guard) started
+- 2026-11-08T08:38Z vast id 59686694 tenpct-x03smoke destroyed after 0.21 h (~$0.03)
+- 2026-11-08T08:38Z vast id 59688096 label tenpct-x03a GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T08:47Z vast id 59688747 label tenpct-x03b GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T08:49Z vast id 59688096 tenpct-x03a destroyed after 0.17 h (~$0.09)
+- 2026-11-08T08:52Z vast id 59689208 label tenpct-x03b GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T08:52Z vast id 59689209 label tenpct-x03a GPU RTX A6000 48GB $0.535/h (+5% guard) started
+
+## v2/quality (Modal app tenpct-quality, volume tenpct-quality:/res), 2026-11-07/08
+Launched via `python v2/quality/qpush.py v2/quality/cfgs_*.json` (detached spawn); see v2/QUALITY_PUSH.md for the run list and results.

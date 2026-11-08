@@ -1,0 +1,13 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-EyD7xrgM252fLuRwpKEVX2
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/quality/qpush.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/quality
+├── ✓ Created Function run.
+├── ✓ Created Function run_big.
+└── ✓ Created Function run_huge.
+('vq8_alloc170_g1M', 'fc-01M6WJ9MZ3387D5B1AFSZEG2GH')
+('vq8_k13p5_g1M', 'fc-01M6WJ9N2HRSC5DPACC3DGPTPF')
+[modal-client] 2026-11-07T22:12:51-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-EyD7xrgM252fLuRwpKEVX2
