@@ -246,11 +246,11 @@ def _impl(cfg):
                 Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
                 Hr = rin.fwd(Hraw)
                 if tgt:
-                    Hq = Hraw.double(); Hq.diagonal().add_(cfg.get("damp", 0.01) * float(torch.mean(torch.diag(Hq)))); Lc = torch.linalg.cholesky(Hq); del Hq; Hfq = (Hfs[gname].to(dev) / nsm[gname]).double()
+                    Hq = Hraw.double(); Hq.diagonal().add_(cfg.get("tgt_damp", 0.1) * float(torch.mean(torch.diag(Hq)))); Lc = torch.linalg.cholesky(Hq); del Hq; Hfq = (Hfs[gname].to(dev) / nsm[gname]).double()
                 Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
                 for n in names:
                     m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
-                    if tgt: Wt = torch.cholesky_solve((W.double() @ Hfq).T.contiguous(), Lc).T.contiguous().float(); st["tshift"] = st.get("tshift", 0.0) + float((Wt - W).norm() / W.norm()); W = Wt; del Wt
+                    if tgt: Wt = torch.cholesky_solve((W.double() @ Hfq).T.contiguous(), Lc).T.contiguous().float(); print("tshift", li, n, float((Wt - W).norm() / W.norm()), flush=True); W = W + cfg.get("tgt_alpha", 0.5) * (Wt - W); del Wt
                     Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()) * cfg.get("smult", 1.0)
                     K = Kof(li, n); C = get_cb(K); idx = ldlq(Wr / sigma, Hr, C, damp=cfg.get("damp", 0.01))
                     Q = C[idx].reshape(od, -1) * sigma; Eq = Wr - Q; st["num"] += float(((Eq @ Hr) * Eq).sum()); st["den"] += float(((Wr @ Hr) * Wr).sum())
