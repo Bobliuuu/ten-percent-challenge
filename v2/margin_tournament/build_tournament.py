@@ -17,7 +17,7 @@ def stream(a, c, s, n, flt=None):
         yield r; k += 1
         if k >= n: break
 def trunc(t, n=700): t = " ".join(str(t).split()); return t if len(t) <= n else t[:n] + " ..."
-items = []; MAN = {}
+items = []; calib = []; MAN = {}
 def add(task, role, src, rows, instr, labels, target=1600, nsrc=2):
     """rows: (rid, label, payload). payload substituted into instr {X}."""
     cap = int(max(20, target // (nsrc * len(labels)))); by = collections.defaultdict(list); exam = collections.Counter()
@@ -28,6 +28,8 @@ def add(task, role, src, rows, instr, labels, target=1600, nsrc=2):
     n = collections.Counter()
     for lab, v in by.items():
         v.sort()
+        for h, rid, l, pl in v[cap:cap + max(2, 300 // (nsrc * len(labels)))]:
+            calib.append(dict(id=f"{task}|{src}|cal|{rid}", task=task, role=role, src=src, kind=l, user=instr.replace("{X}", pl).replace("{M}", ", ".join(labels)), answer=l))
         for h, rid, l, pl in v[:cap]:
             items.append(dict(id=f"{task}|{src}|{rid}", task=task, role=role, src=src, kind=l, user=instr.replace("{X}", pl).replace("{M}", ", ".join(labels)), answer=l)); n[l] += 1
     MAN.setdefault(task, {})[src] = dict(dev=dict(n), exam_bucket_count=dict(exam), cap_per_cell=cap)
@@ -118,11 +120,14 @@ def support():
 tryb(support)
 
 # ---- reused (existing dev rows from earlier lanes)
-def reuse(tasks, path):
+def reuse(tasks, path, cpath):
     for l in open(path):
         x = json.loads(l)
         if x["task"] in tasks: items.append(x)
-reuse({"TOX", "TOOLSEL", "LANGID"}, TS + "items2.jsonl"); reuse({"NEWS"}, TS + "NEWS/items_dev.jsonl")
+    for l in open(cpath):
+        x = json.loads(l)
+        if x["task"] in tasks: calib.append(x)
+reuse({"TOX", "TOOLSEL", "LANGID"}, TS + "items2.jsonl", TS + "calib2.jsonl"); reuse({"NEWS"}, TS + "NEWS/items_dev.jsonl", TS + "NEWS/calib.jsonl")
 inj = os.environ.get("INJ_DATA")
 if inj:
     sys.path.insert(0, HERE + "/../tournament/INJ"); from prompt import user_message
@@ -130,10 +135,13 @@ if inj:
     mk = lambda rows, role, src: [dict(id=f"INJR|{r['id']}", task="INJR", role=role, src=src, kind=r['kind'], user=user_message(r['text']), answer="Injection" if r['gold'].startswith('inj') else "Benign") for r in rows]
     key = lambda r: hashlib.sha256(("injr" + r['id']).encode()).hexdigest()
     a = rd('audit_S2.jsonl'); i_ = [r for r in a if r['gold'].startswith('inj')]; b_ = [r for r in a if not r['gold'].startswith('inj')]
+    calib += mk(sorted(rd('calib_S1.jsonl'), key=key)[:300], 'S1', 'promptshield')
     items += mk(rd('dev_S1.jsonl'), 'S1', 'promptshield') + mk(rd('dev_S3.jsonl'), 'S3', 'deepset_gandalf') + mk(sorted(i_, key=key)[:200] + sorted(b_, key=key)[:200], 'S2audit', 'jailbreakhub_audit')
 for t in sorted(set(i["task"] for i in items)):
     MAN.setdefault(t, {}); MAN[t]["_total_dev"] = sum(1 for i in items if i["task"] == t)
 with open(OUT + "/items_tour.jsonl", "w") as f:
     for it in items: f.write(json.dumps(it) + "\n")
+with open(OUT + "/calib_tour.jsonl", "w") as f:
+    for it in calib: f.write(json.dumps(it) + "\n")
 json.dump(MAN, open(HERE + "/manifest.json", "w"), indent=1)
 print("TOTAL", len(items), collections.Counter(i["task"] for i in items))
