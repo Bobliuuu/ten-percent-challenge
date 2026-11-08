@@ -319,3 +319,7 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T14:56Z vast id 59725949 label tenpct-t3-q3-14b GPU RTX PRO 6000 WS $1.336/h started
 - 2026-11-08T14:56Z vast id 59725948 label tenpct-t3-14b GPU RTX PRO 6000 WS $1.336/h started
 - 2026-11-08 L10 results: Llama-3.2-11B-Vision text path @9.872% of fp16(11B) body 2.10 bpw: SKILL7 retention 98.7% [97.4 Wilson], worst kind Alarm 95.5% (n=89); BANKFAM 95.6% worst Payment 79.5% (dev, real greedy gen). Files v2/lanes/L10/results/. Relaunched omni7/omni3 (fc-01M6XSZPKTYTJDVP07R2X0D2BE, fc-01M6XSZPQ1DT3QJS6XSQQRHYTY; first attempt had a stop-token bug, discarded) and llama save_deq job fc-01M6XTNSH1DQXT8H4MF6HBGF8A.
+- 2026-11-08 fork B: L5 HB_s7 (32B target 0.0975, packed + saved) on rep2 (vast 59720133)
+- 2026-11-08T15:0xZ modal app ap-3Jj5qz1zXkB5naXSRZTm7X tenpct-near-miss-e (lane e native low-bit probes BitNet-2B + Falcon-E-3B, 2x A10G; Vast was at its instance cap)
+- 2026-11-08T15:04Z vast id 59725539 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.20)
+- 2026-11-08T15:08Z L12 Modal app tenpct-l12 (deployed, spawn): tag A fc-01M6XV2B7T4C6BBBDN5GPSH171 (cfgsA), tag B fc-01M6XV2DH5CE88KTB0KMX2CE2C (cfgsB); cmd: python3 v2/lanes/L12/launch_modal.py <tag> cfgs; results volume tenpct-l12 /r/<tag>. (Vast boxes failed on torchvision import; cap reached.)

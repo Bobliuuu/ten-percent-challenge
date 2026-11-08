@@ -1,5 +1,5 @@
-Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Fetching 24 files:   4%|▍         | 1/24 [00:00<00:03,  5.82it/s]Fetching 24 files:   8%|▊         | 2/24 [00:00<00:03,  6.70it/s]Fetching 24 files:  21%|██        | 5/24 [00:18<01:23,  4.41s/it]Fetching 24 files:  25%|██▌       | 6/24 [00:26<01:35,  5.28s/it]Fetching 24 files:  29%|██▉       | 7/24 [00:30<01:22,  4.84s/it]Fetching 24 files:  33%|███▎      | 8/24 [00:33<01:09,  4.36s/it]Fetching 24 files:  38%|███▊      | 9/24 [00:40<01:16,  5.13s/it]Fetching 24 files:  42%|████▏     | 10/24 [00:42<00:58,  4.19s/it]Fetching 24 files:  46%|████▌     | 11/24 [00:48<01:02,  4.77s/it]Fetching 24 files:  54%|█████▍    | 13/24 [00:53<00:42,  3.89s/it]Fetching 24 files:  58%|█████▊    | 14/24 [00:54<00:30,  3.02s/it]Fetching 24 files:  62%|██████▎   | 15/24 [00:59<00:32,  3.64s/it]Fetching 24 files:  67%|██████▋   | 16/24 [00:59<00:21,  2.71s/it]Fetching 24 files:  71%|███████   | 17/24 [01:00<00:14,  2.04s/it]Fetching 24 files:  75%|███████▌  | 18/24 [01:07<00:21,  3.65s/it]Fetching 24 files:  79%|███████▉  | 19/24 [01:20<00:31,  6.31s/it]Fetching 24 files:  83%|████████▎ | 20/24 [01:24<00:22,  5.56s/it]Fetching 24 files:  88%|████████▊ | 21/24 [01:29<00:16,  5.42s/it]Fetching 24 files:  92%|█████████▏| 22/24 [01:32<00:09,  4.55s/it]Fetching 24 files:  96%|█████████▌| 23/24 [01:33<00:03,  3.57s/it]Fetching 24 files: 100%|██████████| 24/24 [01:37<00:00,  3.80s/it]Fetching 24 files: 100%|██████████| 24/24 [01:37<00:00,  4.07s/it]
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files:   4%|▍         | 1/24 [00:00<00:02,  8.75it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  21%|██        | 5/24 [00:11<00:45,  2.40s/it]Fetching 24 files:  25%|██▌       | 6/24 [00:17<00:57,  3.19s/it]Fetching 24 files:  33%|███▎      | 8/24 [00:24<00:54,  3.40s/it]Fetching 24 files:  38%|███▊      | 9/24 [00:25<00:41,  2.78s/it]Fetching 24 files:  42%|████▏     | 10/24 [00:26<00:33,  2.41s/it]Fetching 24 files:  46%|████▌     | 11/24 [00:28<00:29,  2.29s/it]Fetching 24 files:  50%|█████     | 12/24 [00:37<00:49,  4.12s/it]Fetching 24 files:  54%|█████▍    | 13/24 [00:38<00:35,  3.22s/it]Fetching 24 files:  58%|█████▊    | 14/24 [00:38<00:23,  2.38s/it]Fetching 24 files:  62%|██████▎   | 15/24 [00:42<00:25,  2.83s/it]Fetching 24 files:  67%|██████▋   | 16/24 [00:42<00:16,  2.04s/it]Fetching 24 files:  71%|███████   | 17/24 [00:42<00:10,  1.52s/it]Fetching 24 files:  75%|███████▌  | 18/24 [00:43<00:08,  1.38s/it]Fetching 24 files:  79%|███████▉  | 19/24 [00:48<00:12,  2.41s/it]Fetching 24 files:  88%|████████▊ | 21/24 [00:50<00:05,  1.79s/it]Fetching 24 files:  92%|█████████▏| 22/24 [00:51<00:02,  1.37s/it]Fetching 24 files:  96%|█████████▌| 23/24 [00:51<00:01,  1.16s/it]Fetching 24 files: 100%|██████████| 24/24 [00:51<00:00,  2.15s/it]
 Traceback (most recent call last):
   File "/opt/conda/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 2613, in __getattr__
     module = self._get_module(self._class_to_module[name])
@@ -18,72 +18,45 @@ Traceback (most recent call last):
   File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
   File "<frozen importlib._bootstrap_external>", line 940, in exec_module
   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
-  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py", line 28, in <module>
-    from ...activations import ACT2FN
-  File "/opt/conda/lib/python3.11/site-packages/transformers/activations.py", line 22, in <module>
-    from .integrations.hub_kernels import use_kernel_forward_from_hub
-  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/hub_kernels.py", line 40, in <module>
-    from .flash_attention import flash_attention_forward
-  File "/opt/conda/lib/python3.11/site-packages/transformers/integrations/flash_attention.py", line 3, in <module>
-    from ..generation.continuous_batching import PagedAttentionCache
-  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/continuous_batching/__init__.py", line 14, in <module>
-    from .cache import PagedAttentionCache
-  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/continuous_batching/cache.py", line 70, in <module>
-    class PagedAttentionCache:
-  File "/opt/conda/lib/python3.11/site-packages/transformers/generation/continuous_batching/cache.py", line 392, in PagedAttentionCache
-    @torch.compiler.disable  # does not play well with the views of the cache tensor
-     ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/compiler/__init__.py", line 247, in disable
-    import torch._dynamo
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/__init__.py", line 13, in <module>
-    from . import config, convert_frame, eval_frame, resume_execution
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/convert_frame.py", line 53, in <module>
-    from torch._dynamo.symbolic_convert import TensorifyState
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/symbolic_convert.py", line 58, in <module>
-    from . import (
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/trace_rules.py", line 56, in <module>
-    from .variables import (
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/__init__.py", line 19, in <module>
-    from .base import VariableTracker
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/base.py", line 642, in <module>
-    from . import builder
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/builder.py", line 93, in <module>
-    from ..side_effects import SideEffects
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/side_effects.py", line 44, in <module>
-    from .codegen import PyCodegen
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/codegen.py", line 54, in <module>
-    from .variables.torch_function import TensorWithTFOverrideVariable
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/torch_function.py", line 193, in <module>
-    populate_builtin_to_tensor_fn_map()
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/torch_function.py", line 168, in populate_builtin_to_tensor_fn_map
-    setup_fn(op)
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/torch_function.py", line 160, in <lambda>
-    (lambda o: o(inp0), un_ops),
-               ^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/variables/torch_function.py", line 152, in __torch_function__
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_device.py", line 103, in __torch_function__
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/_prims_common/wrappers.py", line 309, in _fn
-    result = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/_prims_common/wrappers.py", line 476, in _fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 50, in inner
-    disable_fn = torch._dynamo.disable(fn, recursive, wrapping=False)
-                 ^^^^^^^^^^^^^^^^^^^^^
-AttributeError: partially initialized module 'torch._dynamo' has no attribute 'disable' (most likely due to a circular import)
+  File "/opt/conda/lib/python3.11/site-packages/transformers/models/qwen3_moe/modeling_qwen3_moe.py", line 34, in <module>
+    from ...modeling_layers import (
+  File "/opt/conda/lib/python3.11/site-packages/transformers/modeling_layers.py", line 37, in <module>
+    from .modeling_utils import LoadStateDictConfig, PreTrainedModel, _get_resolved_checkpoint_files
+  File "/opt/conda/lib/python3.11/site-packages/transformers/modeling_utils.py", line 84, in <module>
+    from .loss.loss_utils import LOSS_MAPPING
+  File "/opt/conda/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 21, in <module>
+    from .loss_d_fine import DFineForObjectDetectionLoss
+  File "/opt/conda/lib/python3.11/site-packages/transformers/loss/loss_d_fine.py", line 21, in <module>
+    from .loss_for_object_detection import box_iou
+  File "/opt/conda/lib/python3.11/site-packages/transformers/loss/loss_for_object_detection.py", line 31, in <module>
+    from transformers.image_transforms import center_to_corners_format
+  File "/opt/conda/lib/python3.11/site-packages/transformers/image_transforms.py", line 22, in <module>
+    from .image_utils import (
+  File "/opt/conda/lib/python3.11/site-packages/transformers/image_utils.py", line 58, in <module>
+    from torchvision.transforms import InterpolationMode
+  File "/opt/conda/lib/python3.11/site-packages/torchvision/__init__.py", line 10, in <module>
+    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils  # usort:skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torchvision/_meta_registrations.py", line 163, in <module>
+    @torch.library.register_fake("torchvision::nms")
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/library.py", line 1073, in register
+    use_lib._register_fake(
+  File "/opt/conda/lib/python3.11/site-packages/torch/library.py", line 203, in _register_fake
+    handle = entry.fake_impl.register(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_library/fake_impl.py", line 50, in register
+    if torch._C._dispatch_has_kernel_for_dispatch_key(self.qualname, "Meta"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: operator torchvision::nms does not exist
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/workspace/bundle/l12_core.py", line 443, in <module>
+  File "/workspace/bundle/l12_core.py", line 446, in <module>
     cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/bundle/l12_core.py", line 118, in __init__
+  File "/workspace/bundle/l12_core.py", line 121, in __init__
     with torch.device("meta"): lm = AutoModelForCausalLM.from_config(s.cfgm, dtype=dtype, attn_implementation="sdpa")
                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/conda/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 209, in from_config
