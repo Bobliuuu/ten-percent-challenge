@@ -41,7 +41,7 @@
    "id": "X03",
    "title": "14B ablation ladder NEWS",
    "wave": "1b",
-   "status": "designed",
+   "status": "done",
    "trigger": {
     "start_when": "X01 done (opportunistic, never delays wave 1)",
     "cancel_when": "L1 plain 32B >=0.985"

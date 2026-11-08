@@ -1,0 +1,27 @@
+{
+ "exp": "X03",
+ "arm": "A4R",
+ "model": "/workspace/packs/A4R_s12_hf",
+ "seed": 12,
+ "passno": 1,
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "code_commit": null,
+ "backend": "vllm",
+ "tp": 1,
+ "sets": {
+  "SEL": {
+   "n_items": 3839,
+   "n_correct": 3348,
+   "items_sha": "bc4c7fab84be1f687690963e185cda1f5a20f4bd97b9a22b42eff8ee9ac2ca4a",
+   "format_failures": 0
+  },
+  "REP": {
+   "sealed": true,
+   "n_items": 7234,
+   "items_sha": "ceb45856cb7685c7fd5fc1154d0269ac90ce74dc81b288e5af9ccdfb9774c027"
+  }
+ },
+ "started": "2026-11-08T16:06:14Z",
+ "ended": "2026-11-08T16:14:28Z",
+ "wall_s": 494
+}

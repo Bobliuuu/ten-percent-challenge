@@ -1,0 +1,81 @@
+{
+ "name": "A4R",
+ "cfg": {
+  "name": "A4R",
+  "exp": "X03",
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "seed": 12,
+  "target_pct": 9.9,
+  "n_task": 1500,
+  "wiki_tokens": 400000,
+  "ncal": 1024,
+  "callen": 512,
+  "work": "/workspace",
+  "stack": [
+   "A1",
+   "A2"
+  ],
+  "quantiser": "q14",
+  "alloc": "kl",
+  "alloc_sens": "results/X03/sens_14b.json",
+  "eh": "freq",
+  "hw": "margin",
+  "pack_dir": "/workspace/packs/A4R_s12",
+  "sets": "SEL,REP",
+  "note": "re-quantisation of A4 seed 12 (same cfg) for the single REP unseal of A_best"
+ },
+ "base_params": 14770033664,
+ "eh_tiers": {
+  "1": 117704,
+  "2": 26360,
+  "3": 8000
+ },
+ "planned_bytes": 2922421247,
+ "planned_ratio_pct": 9.893075782633504,
+ "K_min": 1024,
+ "K_max": 16384,
+ "K_mean_bits": 12.906239047966366,
+ "bytes_report": {
+  "pack": "A4R_s12",
+  "base": "Qwen/Qwen2.5-14B-Instruct",
+  "real_bytes": 2922421248,
+  "fp16_bytes": 29540067328,
+  "fp16_src": "override",
+  "ratio_pct": 9.893075786018736,
+  "target_pct": 9.9,
+  "within_target": true,
+  "n_files": 17,
+  "largest": [
+   [
+    "qbody.bin",
+    2652989440
+   ],
+   [
+    "emb.bin",
+    127373774
+   ],
+   [
+    "head.bin",
+    127317926
+   ],
+   [
+    "tokenizer.json",
+    11421896
+   ],
+   [
+    "other.safetensors",
+    1706896
+   ]
+  ],
+  "ok": true
+ },
+ "real_bytes": 2922421248,
+ "ratio_pct": 9.893075786018736,
+ "rel_proxy_err": 0.009010910617230616,
+ "quant_secs": 1881.5452845096588,
+ "eh_bytes": {
+  "emb": 127373774,
+  "head": 127317926
+ },
+ "nbody": 13212057600
+}
