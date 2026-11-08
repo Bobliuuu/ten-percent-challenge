@@ -333,3 +333,6 @@ These are conflicts in the committed documents. They were **not** resolved here 
 | Naming rule vs older notes | [`PLAN.md` section E](PLAN.md) and [`v2/SCOUT_LOG.md`](v2/SCOUT_LOG.md) mention an early competing repo by account name | RULES: never name other entrants | not repeated here; owners of those files may want to anonymize |
 
 Companion documents not repeated here: [`v2/PRUNE_LEGAL.md`](v2/PRUNE_LEGAL.md), [`v2/NATIVE_SURVEY2.md`](v2/NATIVE_SURVEY2.md), [`v2/research/E_infra`](v2/research/E_infra), [`AGENTS.md`](AGENTS.md). Peer-session material: [`PLAN.md` section F](PLAN.md) (another session's ablation findings, linked and not edited here) and the peer branches `rival-e0`, `rival-moe`, `rival-fbcmp`, `margin-tournament` on the same repository.
+
+
+**X04a RESULT (2026-11-08): KILL vs RULES.md gates.** 32B steps 1-4: S4 retention 96.5% (LB 96.0%) dev_inj, worst cell 79.1%; INJR subset 97.4%, worst 92.9%. Baseline B0 94.1%. See [v2/exp/X04a_REPORT.md](v2/exp/X04a_REPORT.md). Dense route = fallback (L5).

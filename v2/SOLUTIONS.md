@@ -388,3 +388,7 @@ Copy this block, fill every field, keep honest status codes, append under sectio
 
 Update log (append): 2026-11-08 TASK_SEARCH2 added C30-C32 (copy/derive tasks: NO-GO, best 97.9% at 12.5%); 2026-11-08 registry created; entries C01-C25, F01-F07 from repo state at commit eefb8f6 plus untracked `v2/bonsai/` (probe only, no result).
 - 2026-11-08 Bonsai lane: C19b added (ENTRY_BONSAI.md): fp16-patch mnH teaches on a 1-bit lm_head (NEWS+Entertainment, TOX+selfharm), shipped pack lacked chat_template (fixed), harness label-mode dev run done; open: neighbour retention 96.4% on the hardest 400, old-label annotations damage rows.
+
+
+## X04a outcome (2026-11-08)
+Qwen2.5-32B scalar stack at plan 9.90%: retention 96.5% (Wilson LB 96.0%), worst cell 79.1% on dev_inj; 97.4% / 92.9% on the INJR subset; baseline 94.1%. KILL vs 98%/95% gates; dense is fallback. Details: v2/exp/X04a_REPORT.md.
