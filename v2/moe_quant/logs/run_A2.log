@@ -1,0 +1,18 @@
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 106184.91it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:06,  2.32it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:00<00:06,  2.27it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:05,  2.27it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:01<00:05,  2.26it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:02<00:04,  2.23it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:02<00:04,  2.22it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:03<00:04,  2.23it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:03<00:03,  2.23it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:04<00:03,  2.20it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:04<00:02,  2.20it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:04<00:02,  2.21it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:05<00:01,  2.22it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:05<00:01,  2.22it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:06<00:00,  2.22it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:06<00:00,  2.21it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:06<00:00,  2.87it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:06<00:00,  2.33it/s]
+[    11s] copy orig to cpu
+[    19s] orig copied
+[    19s] CFG gptq_b3 {'name': 'gptq_b3', 'm': 'gptq', 'eb': 3, 'eg': 128, 'keep': 55, 'nom_bpw': 3.148, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL']}
+[    35s] hessians 0 5
+[    40s] layers done 5 bpw so far 3.1484375
+[    45s] hessians 6 11
+[    49s] layers done 11 bpw so far 3.1484375
+[    54s] hessians 12 17
+[    58s] layers done 17 bpw so far 3.1484375
+[    63s] hessians 18 23
+[    67s] layers done 23 bpw so far 3.1484375
+[    72s] hessians 24 29
+[    76s] layers done 29 bpw so far 3.1484375
+[    81s] hessians 30 35
+[    85s] layers done 35 bpw so far 3.1484887941919193

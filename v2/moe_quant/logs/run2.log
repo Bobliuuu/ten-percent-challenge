@@ -1,0 +1,160 @@
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 128890.26it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:05,  2.87it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:00<00:04,  2.81it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:04,  2.79it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:01<00:04,  2.78it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:01<00:03,  2.78it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:02<00:03,  2.77it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:02<00:03,  2.77it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:02<00:02,  2.77it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:03<00:02,  2.77it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:03<00:02,  2.77it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:03<00:01,  2.77it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:04<00:01,  2.77it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:04<00:01,  2.77it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:05<00:00,  2.75it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:05<00:00,  2.75it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:05<00:00,  2.91it/s]
+[    10s] copy orig to cpu
+[    18s] orig copied
+[    18s] CFG base {'name': 'base', 'ds': 'skill7', 'sets': ['SEL'], 'ncal': 2000}
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+RESULT_JSON {"name": "base", "cfg": {"name": "base", "ds": "skill7", "sets": ["SEL"], "ncal": 2000}, "qinfo": {}, "bytes": {"parts": {"experts": 57982058496, "router": 25165824, "keep_index": 0, "attn": 1811939328, "embed": 622329856, "head": 622329856, "norms": 421888, "tokenizer_config": 15881905}, "total": 61080127153, "ratio": 1.0002600851764483}, "kept_per_layer": [128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128], "sets": {"SEL": {"n": 1802, "acc": 0.939511653718091, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1693, "ret": 1.0, "ret_lo": 0.9977360291025396, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 1.0, "lo": 0.9706393073762474}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 1.0, "lo": 0.9671212992632762}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 1.0, "lo": 0.9885952328928493}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 1.0, "lo": 0.9607365374237543}, "massive|News": {"n": 117, "ret": 1.0, "lo": 0.9682096231761248}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 1.0, "lo": 0.9779017220274088}}, "src_ret": {"clinc150": 1.0, "massive": 1.0}, "min_cell": 1.0, "flip_outs": {}}}, "secs": 19}
+[    37s] CFG vq4_had_b1.5 {'name': 'vq4_had_b1.5', 'm': 'vq_had', 'eb': 1.5, 'eg': 128, 'keep': 116, 'nom_bpw': 1.51, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'D': 4}
+[    49s] hessians 0 5
+[    62s] layers done 5 bpw so far 1.5208395498770255
+[    68s] hessians 6 11
+[    80s] layers done 11 bpw so far 1.534488604900024
+[    86s] hessians 12 17
+[    97s] layers done 17 bpw so far 1.5414328609643566
+[   104s] hessians 18 23
+[   115s] layers done 23 bpw so far 1.5458927495573977
+[   121s] hessians 24 29
+[   133s] layers done 29 bpw so far 1.5471319400792225
+[   139s] hessians 30 35
+[   150s] layers done 35 bpw so far 1.5482573884758557
+[   157s] hessians 36 41
+[   168s] layers done 41 bpw so far 1.5488560312400224
+[   175s] hessians 42 47
+[   185s] layers done 47 bpw so far 1.5502927738740222
+[   185s] quant done, rtn fallbacks 1120
+RESULT_JSON {"name": "vq4_had_b1.5", "cfg": {"name": "vq4_had_b1.5", "m": "vq_had", "eb": 1.5, "eg": 128, "keep": 116, "nom_bpw": 1.51, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "D": 4}, "qinfo": {"expert_bits": 40731028480.0, "expert_bpw": 1.5502927738740222, "n_fallback": 1120, "proxy_relerr_gu": 0.0037324217356163665, "proxy_relerr_dn": 0.012936532717301615}, "bytes": {"parts": {"experts": 5091378560, "router": 22806528, "keep_index": 5568, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6191955185, "ratio": 0.10140066678712943}, "kept_per_layer": [116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116, 116], "sets": {"SEL": {"n": 1802, "acc": 0.9339622641509434, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1676, "ret": 0.9899586532782044, "ret_lo": 0.9839774935192115, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 1.0, "lo": 0.9706393073762474}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 0.9911504424778761, "lo": 0.9515679439394749}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.96996996996997, "lo": 0.9456119363207781}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 0.9680851063829787, "lo": 0.9103253583802694}, "massive|News": {"n": 117, "ret": 0.9914529914529915, "lo": 0.9531693460245405}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 0.9982, "massive": 0.986}, "min_cell": 0.9680851063829787, "flip_outs": {"Alarm": 10, "Lists": 5, "Weather": 2}}}, "secs": 161}
+[   198s] CFG ecsq_had_b1.0 {'name': 'ecsq_had_b1.0', 'm': 'ecsq_had', 'eb': 1.0, 'eg': 256, 'keep': 128, 'nom_bpw': 1.0, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL']}
+[   212s] hessians 0 5
+[   223s] layers done 5 bpw so far 1.085791960509633
+[   230s] hessians 6 11
+[   240s] layers done 11 bpw so far 1.0962099857197036
+[   246s] hessians 12 17
+[   256s] layers done 17 bpw so far 1.1006430193893675
+[   262s] hessians 18 23
+[   272s] layers done 23 bpw so far 1.1036341345047713
+[   278s] hessians 24 29
+[   288s] layers done 29 bpw so far 1.1040969690611961
+[   294s] hessians 30 35
+[   305s] layers done 35 bpw so far 1.104747512241026
+[   311s] hessians 36 41
+[   321s] layers done 41 bpw so far 1.1047767807063207
+[   328s] hessians 42 47
+[   337s] layers done 47 bpw so far 1.1059190891389845
+[   337s] quant done, rtn fallbacks 1672
+RESULT_JSON {"name": "ecsq_had_b1.0", "cfg": {"name": "ecsq_had_b1.0", "m": "ecsq_had", "eb": 1.0, "eg": 256, "keep": 128, "nom_bpw": 1.0, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"]}, "qinfo": {"expert_bits": 32061732659.14982, "expert_bpw": 1.1059190891389845, "n_fallback": 1672, "proxy_relerr_gu": 0.01223900659401393, "proxy_relerr_dn": 0.034765909475506555}, "bytes": {"parts": {"experts": 4007716582, "router": 25165824, "keep_index": 0, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 5110646935, "ratio": 0.08369295181237642}, "kept_per_layer": [128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128], "sets": {"SEL": {"n": 1802, "acc": 0.890677025527192, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1586, "ret": 0.9367985823981099, "ret_lo": 0.9241898361703977, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 0.937007874015748, "lo": 0.8806153420598262}, "clinc150|Lists": {"n": 123, "ret": 0.983739837398374, "lo": 0.9426484258328016}, "clinc150|Music": {"n": 111, "ret": 0.990990990990991, "lo": 0.9507254595746947}, "clinc150|Transport": {"n": 113, "ret": 0.9469026548672567, "lo": 0.8889774080762061}, "clinc150|Weather": {"n": 24, "ret": 0.9583333333333334, "lo": 0.7975777375115778}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.8738738738738738, "lo": 0.8339000489015805}, "massive|Lists": {"n": 140, "ret": 0.9857142857142858, "lo": 0.9494108358295452}, "massive|Music": {"n": 94, "ret": 0.9468085106382979, "lo": 0.8814619333292169}, "massive|News": {"n": 117, "ret": 0.8034188034188035, "lo": 0.7222613341736048}, "massive|Transport": {"n": 169, "ret": 0.9526627218934911, "lo": 0.9093821731173414}, "massive|Weather": {"n": 170, "ret": 0.9470588235294117, "lo": 0.9024582501969899}}, "src_ret": {"clinc150": 0.9674, "massive": 0.922}, "min_cell": 0.8034188034188035, "flip_outs": {"Alarm": 60, "Lists": 23, "Music": 9, "Calendar": 5, "Weather": 5, "Transport": 3, "Sports": 1, "News": 1}}}, "secs": 152}
+[   350s] CFG vq8_had_b1.0 {'name': 'vq8_had_b1.0', 'm': 'vq_had', 'eb': 1.0, 'eg': 128, 'keep': 128, 'nom_bpw': 1.01, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'D': 8}
+[   364s] hessians 0 5
+[   373s] layers done 5 bpw so far 1.0416723180700231
+[   380s] hessians 6 11
+[   388s] layers done 11 bpw so far 1.0551810661951702
+[   394s] hessians 12 17
+[   402s] layers done 17 bpw so far 1.0610945342499534
+[   409s] hessians 18 23
+[   416s] layers done 23 bpw so far 1.0652719382886533
+[   423s] hessians 24 29
+[   431s] layers done 29 bpw so far 1.066411230299208
+[   437s] hessians 30 35
+[   445s] layers done 35 bpw so far 1.0672250103067469
+[   452s] hessians 36 41
+[   460s] layers done 41 bpw so far 1.0679922885995694
+[   466s] hessians 42 47
+[   474s] layers done 47 bpw so far 1.0691373933244634
+[   474s] quant done, rtn fallbacks 1699
+RESULT_JSON {"name": "vq8_had_b1.0", "cfg": {"name": "vq8_had_b1.0", "m": "vq_had", "eb": 1.0, "eg": 128, "keep": 128, "nom_bpw": 1.01, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "D": 8}, "qinfo": {"expert_bits": 30995393440.0, "expert_bpw": 1.0691373933244634, "n_fallback": 1699, "proxy_relerr_gu": 0.01610368788945225, "proxy_relerr_dn": 0.040486044162568055}, "bytes": {"parts": {"experts": 3874424180, "router": 25165824, "keep_index": 0, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 4977354533, "ratio": 0.08151012941837713}, "kept_per_layer": [128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128], "sets": {"SEL": {"n": 1802, "acc": 0.9367369589345172, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1671, "ret": 0.987005316007088, "ret_lo": 0.980402482911756, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 0.984251968503937, "lo": 0.9443972558906893}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 0.9911504424778761, "lo": 0.9515679439394749}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.975975975975976, "lo": 0.9533175614062356}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 0.9680851063829787, "lo": 0.9103253583802694}, "massive|News": {"n": 117, "ret": 0.9658119658119658, "lo": 0.915380881223806}, "massive|Transport": {"n": 169, "ret": 0.9940828402366864, "lo": 0.967247842726743}, "massive|Weather": {"n": 170, "ret": 0.9823529411764705, "lo": 0.9494068768545011}}, "src_ret": {"clinc150": 0.9946, "massive": 0.9833}, "min_cell": 0.9658119658119658, "flip_outs": {"Lists": 11, "Alarm": 6, "Weather": 3, "Transport": 2}}}, "secs": 136}
+[   486s] CFG e8_had_b1.375 {'name': 'e8_had_b1.375', 'm': 'vq_had', 'eb': 1.375, 'eg': 128, 'keep': 126, 'nom_bpw': 1.385, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'D': 8, 'cb': 'e8'}
+[   499s] hessians 0 5
+[   511s] layers done 5 bpw so far 1.4133655294679601
+[   517s] hessians 6 11
+[   527s] layers done 11 bpw so far 1.4269233627364188
+[   534s] hessians 12 17
+[   543s] layers done 17 bpw so far 1.4324346770731906
+[   550s] hessians 18 23
+[   559s] layers done 23 bpw so far 1.4363477102522988
+[   566s] hessians 24 29
+[   576s] layers done 29 bpw so far 1.4374389504909795
+[   582s] hessians 30 35
+[   592s] layers done 35 bpw so far 1.4385522359870075
+[   598s] hessians 36 41
+[   608s] layers done 41 bpw so far 1.438969521215363
+[   615s] hessians 42 47
+[   624s] layers done 47 bpw so far 1.440233186859723
+[   624s] quant done, rtn fallbacks 1578
+RESULT_JSON {"name": "e8_had_b1.375", "cfg": {"name": "e8_had_b1.375", "m": "vq_had", "eb": 1.375, "eg": 128, "keep": 126, "nom_bpw": 1.385, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "D": 8, "cb": "e8"}, "qinfo": {"expert_bits": 41101438656.0, "expert_bpw": 1.440233186859723, "n_fallback": 1578, "proxy_relerr_gu": 0.00742002345699196, "proxy_relerr_dn": 0.02080039929219142}, "bytes": {"parts": {"experts": 5137679832, "router": 24772608, "keep_index": 6048, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6240223017, "ratio": 0.10219111022590396}, "kept_per_layer": [126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126], "sets": {"SEL": {"n": 1802, "acc": 0.9422863485016648, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1681, "ret": 0.9929119905493208, "ret_lo": 0.9876513417824552, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 0.9921259842519685, "lo": 0.9567449252236082}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 0.9911504424778761, "lo": 0.9515679439394749}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.984984984984985, "lo": 0.965337716684179}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 0.9787234042553191, "lo": 0.9257083451044751}, "massive|News": {"n": 117, "ret": 0.9914529914529915, "lo": 0.9531693460245405}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 0.9964, "massive": 0.9912}, "min_cell": 0.9787234042553191, "flip_outs": {"Lists": 8, "Alarm": 3, "Weather": 1}}}, "secs": 150}
+[   637s] CFG ecsq_had_b2_g128 {'name': 'ecsq_had_b2_g128', 'm': 'ecsq_had', 'eb': 2, 'eg': 128, 'keep': 87, 'nom_bpw': 2.0, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL']}
+[   647s] hessians 0 5
+[   654s] layers done 5 bpw so far 2.0077994788149525
+[   660s] hessians 6 11
+[   667s] layers done 11 bpw so far 2.008408010099953
+[   673s] hessians 12 17
+[   679s] layers done 17 bpw so far 2.008145630133427
+[   685s] hessians 18 23
+[   692s] layers done 23 bpw so far 2.009638985176247
+[   698s] hessians 24 29
+[   705s] layers done 29 bpw so far 2.0091986346340476
+[   711s] hessians 30 35
+[   718s] layers done 35 bpw so far 2.009459037890413
+[   724s] hessians 36 41
+[   731s] layers done 41 bpw so far 2.0094206412274214
+[   737s] hessians 42 47
+[   744s] layers done 47 bpw so far 2.009598471289319
+[   744s] quant done, rtn fallbacks 37
+RESULT_JSON {"name": "ecsq_had_b2_g128", "cfg": {"name": "ecsq_had_b2_g128", "m": "ecsq_had", "eb": 2, "eg": 128, "keep": 87, "nom_bpw": 2.0, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"]}, "qinfo": {"expert_bits": 39598816726.84354, "expert_bpw": 2.009598471289319, "n_fallback": 37, "proxy_relerr_gu": 0.0013050587549514603, "proxy_relerr_dn": 0.005289420621314396}, "bytes": {"parts": {"experts": 4949852090, "router": 17104896, "keep_index": 4176, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6044725691, "ratio": 0.09898960785399995}, "kept_per_layer": [87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87], "sets": {"SEL": {"n": 1802, "acc": 0.93007769145394, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1673, "ret": 0.9881866509155346, "ret_lo": 0.981823018599525, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 1.0, "lo": 0.9706393073762474}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 1.0, "lo": 0.9671212992632762}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.9579579579579579, "lo": 0.9306760396810103}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 0.9893617021276596, "lo": 0.9421756818388972}, "massive|News": {"n": 117, "ret": 0.9743589743589743, "lo": 0.9273157446740541}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 1.0, "massive": 0.9825}, "min_cell": 0.9579579579579579, "flip_outs": {"Alarm": 12, "Lists": 7, "Weather": 1}}}, "secs": 119}
+[   756s] CFG ecsq_had_b2.5 {'name': 'ecsq_had_b2.5', 'm': 'ecsq_had', 'eb': 2.5, 'eg': 256, 'keep': 70, 'nom_bpw': 2.5, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL']}
+[   764s] hessians 0 5
+[   771s] layers done 5 bpw so far 2.50544996537207
+[   777s] hessians 6 11
+[   784s] layers done 11 bpw so far 2.50601587294214
+[   789s] hessians 12 17
+[   797s] layers done 17 bpw so far 2.505668203432246
+[   802s] hessians 18 23
+[   809s] layers done 23 bpw so far 2.505578734820269
+[   814s] hessians 24 29
+[   822s] layers done 29 bpw so far 2.5054239390563255
+[   827s] hessians 30 35
+[   834s] layers done 35 bpw so far 2.505509511481889
+[   840s] hessians 36 41
+[   847s] layers done 41 bpw so far 2.5054675172149046
+[   852s] hessians 42 47
+[   859s] layers done 47 bpw so far 2.5055897410618626
+[   859s] quant done, rtn fallbacks 4
+RESULT_JSON {"name": "ecsq_had_b2.5", "cfg": {"name": "ecsq_had_b2.5", "m": "ecsq_had", "eb": 2.5, "eg": 256, "keep": 70, "nom_bpw": 2.5, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"]}, "qinfo": {"expert_bits": 39724795177.0541, "expert_bpw": 2.5055897410618626, "n_fallback": 4, "proxy_relerr_gu": 0.0005447601279229275, "proxy_relerr_dn": 0.002190904903121312}, "bytes": {"parts": {"experts": 4965599397, "router": 13762560, "keep_index": 3360, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6057129846, "ratio": 0.09919274071758687}, "kept_per_layer": [70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70], "sets": {"SEL": {"n": 1802, "acc": 0.93007769145394, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1673, "ret": 0.9881866509155346, "ret_lo": 0.981823018599525, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 0.9921259842519685, "lo": 0.9567449252236082}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 1.0, "lo": 0.9671212992632762}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.963963963963964, "lo": 0.938077142673353}, "massive|Lists": {"n": 140, "ret": 0.9928571428571429, "lo": 0.9606506328243919}, "massive|Music": {"n": 94, "ret": 0.9787234042553191, "lo": 0.9257083451044751}, "massive|News": {"n": 117, "ret": 0.9829059829059829, "lo": 0.9398087235860804}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 0.9982, "massive": 0.9833}, "min_cell": 0.963963963963964, "flip_outs": {"Alarm": 10, "Lists": 7, "Weather": 2, "Calendar": 1}}}, "secs": 115}
+[   870s] CFG ecsq_had_b3_k80 {'name': 'ecsq_had_b3_k80', 'm': 'ecsq_had', 'eb': 3, 'eg': 256, 'keep': 80, 'nom_bpw': 3.0, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL']}
+[   881s] hessians 0 5
+[   888s] layers done 5 bpw so far 3.003802693133476
+[   894s] hessians 6 11
+[   901s] layers done 11 bpw so far 3.003322085225959
+[   907s] hessians 12 17
+[   915s] layers done 17 bpw so far 3.0032570940902774
+[   921s] hessians 18 23
+[   928s] layers done 23 bpw so far 3.003534354104234
+[   934s] hessians 24 29
+[   941s] layers done 29 bpw so far 3.003550244483283
+[   947s] hessians 30 35
+[   955s] layers done 35 bpw so far 3.003509949862542
+[   961s] hessians 36 41
+[   968s] layers done 41 bpw so far 3.003535383815089
+[   974s] hessians 42 47
+[   982s] layers done 47 bpw so far 3.003655642771317
+[   982s] quant done, rtn fallbacks 14
+RESULT_JSON {"name": "ecsq_had_b3_k80", "cfg": {"name": "ecsq_had_b3_k80", "m": "ecsq_had", "eb": 3, "eg": 256, "keep": 80, "nom_bpw": 3.0, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"]}, "qinfo": {"expert_bits": 54424417869.06468, "expert_bpw": 3.003655642771317, "n_fallback": 14, "proxy_relerr_gu": 0.0002426778216886305, "proxy_relerr_dn": 0.0010133810495365954}, "bytes": {"parts": {"experts": 6803052233, "router": 15728640, "keep_index": 3840, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 7896549242, "ratio": 0.12931543180350094}, "kept_per_layer": [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80], "sets": {"SEL": {"n": 1802, "acc": 0.9328523862375139, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1680, "ret": 0.9923213230950975, "ret_lo": 0.9869063558779708, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 0.9921259842519685, "lo": 0.9567449252236082}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 1.0, "lo": 0.9671212992632762}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.96996996996997, "lo": 0.9456119363207781}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 1.0, "lo": 0.9607365374237543}, "massive|News": {"n": 117, "ret": 1.0, "lo": 0.9682096231761248}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 0.9982, "massive": 0.9895}, "min_cell": 0.96996996996997, "flip_outs": {"Alarm": 9, "Lists": 4}}}, "secs": 123}
+[   993s] CFG vq4_had_b2.5 {'name': 'vq4_had_b2.5', 'm': 'vq_had', 'eb': 2.5, 'eg': 128, 'keep': 69, 'nom_bpw': 2.51, 'ds': 'skill7', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'D': 4}
+[  1003s] hessians 0 5
+[  1012s] layers done 5 bpw so far 2.500610630037448
+[  1017s] hessians 6 11
+[  1026s] layers done 11 bpw so far 2.500610630037448
+[  1031s] hessians 12 17
+[  1040s] layers done 17 bpw so far 2.5004093472529747
+[  1045s] hessians 18 23
+[  1054s] layers done 23 bpw so far 2.500308705860738
+[  1059s] hessians 24 29
+[  1068s] layers done 29 bpw so far 2.500248321025396
+[  1073s] hessians 30 35
+[  1082s] layers done 35 bpw so far 2.500208064468501
+[  1087s] hessians 36 41
+[  1096s] layers done 41 bpw so far 2.500179309785005
+[  1102s] hessians 42 47
+[  1110s] layers done 47 bpw so far 2.50023322481656
+[  1110s] quant done, rtn fallbacks 3
+RESULT_JSON {"name": "vq4_had_b2.5", "cfg": {"name": "vq4_had_b2.5", "m": "vq_had", "eb": 2.5, "eg": 128, "keep": 69, "nom_bpw": 2.51, "ds": "skill7", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "D": 4}, "qinfo": {"expert_bits": 39073586592.0, "expert_bpw": 2.50023322481656, "n_fallback": 3, "proxy_relerr_gu": 0.0006224222239931502, "proxy_relerr_dn": 0.0024767111887437445}, "bytes": {"parts": {"experts": 4884198324, "router": 13565952, "keep_index": 3312, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 5975532117, "ratio": 0.09785648037950183}, "kept_per_layer": [69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69], "sets": {"SEL": {"n": 1802, "acc": 0.9306326304106548, "base_acc": 0.939511653718091, "n_bc": 1693, "kept_bc": 1672, "ret": 0.9875959834613113, "ret_lo": 0.9811113182401752, "cells": {"clinc150|Alarm": {"n": 54, "ret": 1.0, "lo": 0.9335841332189981}, "clinc150|Calendar": {"n": 127, "ret": 1.0, "lo": 0.9706393073762474}, "clinc150|Lists": {"n": 123, "ret": 1.0, "lo": 0.9697134063272616}, "clinc150|Music": {"n": 111, "ret": 1.0, "lo": 0.9665487070887205}, "clinc150|Transport": {"n": 113, "ret": 0.9911504424778761, "lo": 0.9515679439394749}, "clinc150|Weather": {"n": 24, "ret": 1.0, "lo": 0.8620194241710247}, "massive|Alarm": {"n": 118, "ret": 1.0, "lo": 0.9684705387979146}, "massive|Calendar": {"n": 333, "ret": 0.9579579579579579, "lo": 0.9306760396810103}, "massive|Lists": {"n": 140, "ret": 1.0, "lo": 0.9732928443510084}, "massive|Music": {"n": 94, "ret": 0.9787234042553191, "lo": 0.9257083451044751}, "massive|News": {"n": 117, "ret": 0.9829059829059829, "lo": 0.9398087235860804}, "massive|Transport": {"n": 169, "ret": 1.0, "lo": 0.9777738692536981}, "massive|Weather": {"n": 170, "ret": 0.9882352941176471, "lo": 0.9581244601805285}}, "src_ret": {"clinc150": 0.9982, "massive": 0.9825}, "min_cell": 0.9579579579579579, "flip_outs": {"Alarm": 13, "Lists": 6, "Weather": 2}}}, "secs": 128}

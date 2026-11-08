@@ -1,0 +1,85 @@
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 174762.67it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/16 [00:00<?, ?it/s]Loading checkpoint shards:   6%|▋         | 1/16 [00:00<00:05,  2.84it/s]Loading checkpoint shards:  12%|█▎        | 2/16 [00:00<00:05,  2.76it/s]Loading checkpoint shards:  19%|█▉        | 3/16 [00:01<00:04,  2.75it/s]Loading checkpoint shards:  25%|██▌       | 4/16 [00:01<00:04,  2.74it/s]Loading checkpoint shards:  31%|███▏      | 5/16 [00:01<00:04,  2.74it/s]Loading checkpoint shards:  38%|███▊      | 6/16 [00:02<00:03,  2.72it/s]Loading checkpoint shards:  44%|████▍     | 7/16 [00:02<00:03,  2.73it/s]Loading checkpoint shards:  50%|█████     | 8/16 [00:02<00:02,  2.73it/s]Loading checkpoint shards:  56%|█████▋    | 9/16 [00:03<00:02,  2.74it/s]Loading checkpoint shards:  62%|██████▎   | 10/16 [00:03<00:02,  2.75it/s]Loading checkpoint shards:  69%|██████▉   | 11/16 [00:04<00:01,  2.75it/s]Loading checkpoint shards:  75%|███████▌  | 12/16 [00:04<00:01,  2.76it/s]Loading checkpoint shards:  81%|████████▏ | 13/16 [00:04<00:01,  2.75it/s]Loading checkpoint shards:  88%|████████▊ | 14/16 [00:05<00:00,  2.75it/s]Loading checkpoint shards:  94%|█████████▍| 15/16 [00:05<00:00,  2.76it/s]Loading checkpoint shards: 100%|██████████| 16/16 [00:05<00:00,  2.89it/s]
+[    10s] copy orig to cpu
+[    18s] orig copied
+[    46s] mass done 960
+[    46s] CFG base {'name': 'base', 'ds': 'bank8', 'sets': ['SEL'], 'ncal': 2000, 'max_new': 8}
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+RESULT_JSON {"name": "base", "cfg": {"name": "base", "ds": "bank8", "sets": ["SEL"], "ncal": 2000, "max_new": 8}, "qinfo": {}, "bytes": {"parts": {"experts": 57982058496, "router": 25165824, "keep_index": 0, "attn": 1811939328, "embed": 622329856, "head": 622329856, "norms": 421888, "tokenizer_config": 15881905}, "total": 61080127153, "ratio": 1.0002600851764483}, "kept_per_layer": [128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128], "sets": {"SEL": {"n": 1600, "acc": 0.95125, "base_acc": 0.95125, "n_bc": 1522, "kept_bc": 1522, "ret": 1.0, "ret_lo": 0.9974823074688749, "cells": {"bank|account_identity": {"n": 198, "ret": 1.0, "lo": 0.9809672535295003}, "bank|card_delivery": {"n": 199, "ret": 1.0, "lo": 0.9810610841168677}, "bank|card_payments": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|card_virtual_wallet": {"n": 190, "ret": 1.0, "lo": 0.980181756650791}, "bank|cash": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|incoming_topups": {"n": 171, "ret": 1.0, "lo": 0.978028112302793}, "bank|info_and_fx": {"n": 184, "ret": 1.0, "lo": 0.9795487261607653}, "bank|transfers": {"n": 186, "ret": 1.0, "lo": 0.979764182349917}}, "src_ret": {"bank": 1.0}, "min_cell": 1.0, "flip_outs": {}}}, "secs": 57}
+[   103s] CFG b8_vq4_had_b3 {'name': 'b8_vq4_had_b3', 'm': 'vq_had', 'eb': 3, 'eg': 128, 'keep': 58, 'nom_bpw': 3.01, 'ds': 'bank8', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'D': 4, 'max_new': 8}
+[   131s] hessians 0 5
+[   147s] layers done 5 bpw so far 3.0000067816840277
+[   172s] hessians 6 11
+[   187s] layers done 11 bpw so far 3.0000067816840277
+[   212s] hessians 12 17
+[   228s] layers done 17 bpw so far 3.0000067816840277
+[   253s] hessians 18 23
+[   268s] layers done 23 bpw so far 3.0000067816840277
+[   293s] hessians 24 29
+[   308s] layers done 29 bpw so far 3.0000067816840277
+[   333s] hessians 30 35
+[   349s] layers done 35 bpw so far 3.0000067816840277
+[   374s] hessians 36 41
+[   389s] layers done 41 bpw so far 3.0000067816840277
+[   414s] hessians 42 47
+[   429s] layers done 47 bpw so far 3.0000067816840277
+[   429s] quant done, rtn fallbacks 0
+RESULT_JSON {"name": "b8_vq4_had_b3", "cfg": {"name": "b8_vq4_had_b3", "m": "vq_had", "eb": 3, "eg": 128, "keep": 58, "nom_bpw": 3.01, "ds": "bank8", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "D": 4, "max_new": 8}, "qinfo": {"expert_bits": 39409769472.0, "expert_bpw": 3.0000067816840277, "n_fallback": 0, "proxy_relerr_gu": 0.0011501796201021837, "proxy_relerr_dn": 0.0037355684319967017}, "bytes": {"parts": {"experts": 4926221184, "router": 11403264, "keep_index": 2784, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6015391761, "ratio": 0.09850922969029931}, "kept_per_layer": [58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58, 58], "sets": {"SEL": {"n": 1600, "acc": 0.946875, "base_acc": 0.95125, "n_bc": 1522, "kept_bc": 1510, "ret": 0.9921156373193167, "ret_lo": 0.9862691471221763, "cells": {"bank|account_identity": {"n": 198, "ret": 0.9949494949494949, "lo": 0.9719505656258638}, "bank|card_delivery": {"n": 199, "ret": 1.0, "lo": 0.9810610841168677}, "bank|card_payments": {"n": 197, "ret": 0.9949238578680203, "lo": 0.971810995601377}, "bank|card_virtual_wallet": {"n": 190, "ret": 0.9736842105263158, "lo": 0.9398848416107961}, "bank|cash": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|incoming_topups": {"n": 171, "ret": 1.0, "lo": 0.978028112302793}, "bank|info_and_fx": {"n": 184, "ret": 0.9891304347826086, "lo": 0.9612400316909088}, "bank|transfers": {"n": 186, "ret": 0.9838709677419355, "lo": 0.953659015789476}}, "src_ret": {"bank": 0.9921}, "min_cell": 0.9736842105263158, "flip_outs": {"card_payments": 6, "incoming_topups": 2, "cash": 1, "account_identity": 1, "info_and_fx": 1, "transfers": 1}}}, "secs": 371}
+[   474s] CFG b8_ecsq_had_b2 {'name': 'b8_ecsq_had_b2', 'm': 'ecsq_had', 'eb': 2, 'eg': 256, 'keep': 87, 'nom_bpw': 2.0, 'ds': 'bank8', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'max_new': 8}
+[   506s] hessians 0 5
+[   514s] layers done 5 bpw so far 2.012180402326127
+[   541s] hessians 6 11
+[   549s] layers done 11 bpw so far 2.0123106223159777
+[   576s] hessians 12 17
+[   584s] layers done 17 bpw so far 2.011916523847834
+[   611s] hessians 18 23
+[   619s] layers done 23 bpw so far 2.0124585711298097
+[   646s] hessians 24 29
+[   654s] layers done 29 bpw so far 2.0121929505050953
+[   682s] hessians 30 35
+[   690s] layers done 35 bpw so far 2.0120798975950436
+[   717s] hessians 36 41
+[   725s] layers done 41 bpw so far 2.012116995892347
+[   752s] hessians 42 47
+[   760s] layers done 47 bpw so far 2.0122198605262493
+[   760s] quant done, rtn fallbacks 10
+RESULT_JSON {"name": "b8_ecsq_had_b2", "cfg": {"name": "b8_ecsq_had_b2", "m": "ecsq_had", "eb": 2, "eg": 256, "keep": 87, "nom_bpw": 2.0, "ds": "bank8", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "max_new": 8}, "qinfo": {"expert_bits": 39650470782.83827, "expert_bpw": 2.0122198605262493, "n_fallback": 10, "proxy_relerr_gu": 0.004063264352225815, "proxy_relerr_dn": 0.012925130002258811}, "bytes": {"parts": {"experts": 4956308847, "router": 17104896, "keep_index": 4176, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6051182448, "ratio": 0.09909534496699918}, "kept_per_layer": [87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87], "sets": {"SEL": {"n": 1600, "acc": 0.955, "base_acc": 0.95125, "n_bc": 1522, "kept_bc": 1517, "ret": 0.9967148488830486, "ret_lo": 0.9923325380865825, "cells": {"bank|account_identity": {"n": 198, "ret": 1.0, "lo": 0.9809672535295003}, "bank|card_delivery": {"n": 199, "ret": 1.0, "lo": 0.9810610841168677}, "bank|card_payments": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|card_virtual_wallet": {"n": 190, "ret": 0.9842105263157894, "lo": 0.9546126771112601}, "bank|cash": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|incoming_topups": {"n": 171, "ret": 0.9941520467836257, "lo": 0.9676222147415612}, "bank|info_and_fx": {"n": 184, "ret": 0.9945652173913043, "lo": 0.9698614503605403}, "bank|transfers": {"n": 186, "ret": 1.0, "lo": 0.979764182349917}}, "src_ret": {"bank": 0.9967}, "min_cell": 0.9842105263157894, "flip_outs": {"card_payments": 3, "account_identity": 1, "transfers": 1}}}, "secs": 334}
+[   808s] CFG b8_gptq_b2 {'name': 'b8_gptq_b2', 'm': 'gptq', 'eb': 2, 'eg': 128, 'keep': 81, 'nom_bpw': 2.141, 'ds': 'bank8', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'max_new': 8}
+[   840s] hessians 0 5
+[   845s] layers done 5 bpw so far 2.140625
+[   872s] hessians 6 11
+[   877s] layers done 11 bpw so far 2.1408500514403292
+[   904s] hessians 12 17
+[   909s] layers done 17 bpw so far 2.140775034293553
+[   936s] hessians 18 23
+[   941s] layers done 23 bpw so far 2.1409063143004117
+[   968s] hessians 24 29
+[   973s] layers done 29 bpw so far 2.1408500514403292
+[  1000s] hessians 30 35
+[  1005s] layers done 35 bpw so far 2.140812542866941
+[  1032s] hessians 36 41
+[  1037s] layers done 41 bpw so far 2.1407857510288064
+[  1064s] hessians 42 47
+[  1069s] layers done 47 bpw so far 2.140765657150206
+[  1069s] quant done, rtn fallbacks 5
+RESULT_JSON {"name": "b8_gptq_b2", "cfg": {"name": "b8_gptq_b2", "m": "gptq", "eb": 2, "eg": 128, "keep": 81, "nom_bpw": 2.141, "ds": "bank8", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "max_new": 8}, "qinfo": {"expert_bits": 39274242048.0, "expert_bpw": 2.140765657150206, "n_fallback": 5, "proxy_relerr_gu": 0.01649636575166369, "proxy_relerr_dn": 0.05117485279333778}, "bytes": {"parts": {"experts": 4909280256, "router": 15925248, "keep_index": 3888, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6002973921, "ratio": 0.09830587271848105}, "kept_per_layer": [81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81], "sets": {"SEL": {"n": 1600, "acc": 0.956875, "base_acc": 0.95125, "n_bc": 1522, "kept_bc": 1515, "ret": 0.9954007884362681, "ret_lo": 0.9905366418218087, "cells": {"bank|account_identity": {"n": 198, "ret": 1.0, "lo": 0.9809672535295003}, "bank|card_delivery": {"n": 199, "ret": 1.0, "lo": 0.9810610841168677}, "bank|card_payments": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|card_virtual_wallet": {"n": 190, "ret": 0.9842105263157894, "lo": 0.9546126771112601}, "bank|cash": {"n": 197, "ret": 1.0, "lo": 0.9808724885681054}, "bank|incoming_topups": {"n": 171, "ret": 1.0, "lo": 0.978028112302793}, "bank|info_and_fx": {"n": 184, "ret": 1.0, "lo": 0.9795487261607653}, "bank|transfers": {"n": 186, "ret": 0.978494623655914, "lo": 0.946017696021671}}, "src_ret": {"bank": 0.9954}, "min_cell": 0.978494623655914, "flip_outs": {"incoming_topups": 3, "card_delivery": 2, "card_payments": 2}}}, "secs": 309}
+[  1117s] CFG b8_nf_had_b3 {'name': 'b8_nf_had_b3', 'm': 'nf_had', 'eb': 3, 'eg': 128, 'keep': 56, 'nom_bpw': 3.125, 'ds': 'bank8', 'quant': 'gptq', 'attn_b': 6, 'emb_b': 5, 'head_b': 4, 'sets': ['SEL'], 'max_new': 8}
+[  1146s] hessians 0 5
+[  1152s] layers done 5 bpw so far 3.125
+[  1177s] hessians 6 11
+[  1183s] layers done 11 bpw so far 3.125
+[  1208s] hessians 12 17
+[  1214s] layers done 17 bpw so far 3.125
+[  1239s] hessians 18 23
+[  1245s] layers done 23 bpw so far 3.125
+[  1270s] hessians 24 29
+[  1276s] layers done 29 bpw so far 3.125
+[  1301s] hessians 30 35
+[  1307s] layers done 35 bpw so far 3.125
+[  1332s] hessians 36 41
+[  1338s] layers done 41 bpw so far 3.125
+[  1363s] hessians 42 47
+[  1369s] layers done 47 bpw so far 3.125
+[  1369s] quant done, rtn fallbacks 0
+RESULT_JSON {"name": "b8_nf_had_b3", "cfg": {"name": "b8_nf_had_b3", "m": "nf_had", "eb": 3, "eg": 128, "keep": 56, "nom_bpw": 3.125, "ds": "bank8", "quant": "gptq", "attn_b": 6, "emb_b": 5, "head_b": 4, "sets": ["SEL"], "max_new": 8}, "qinfo": {"expert_bits": 39636172800.0, "expert_bpw": 3.125, "n_fallback": 0, "proxy_relerr_gu": 0.0018181609578581022, "proxy_relerr_dn": 0.005773082215758525}, "bytes": {"parts": {"experts": 4954521600, "router": 11010048, "keep_index": 2688, "attn": 698941440, "embed": 200859392, "head": 161659904, "norms": 421888, "tokenizer_config": 15881905}, "total": 6043298865, "ratio": 0.09896624187290569}, "kept_per_layer": [56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56], "sets": {"SEL": {"n": 1600, "acc": 0.90125, "base_acc": 0.95125, "n_bc": 1522, "kept_bc": 1428, "ret": 0.938239159001314, "ret_lo": 0.9250069699071264, "cells": {"bank|account_identity": {"n": 198, "ret": 0.9747474747474747, "lo": 0.9422568193468797}, "bank|card_delivery": {"n": 199, "ret": 0.9597989949748744, "lo": 0.9226904289011894}, "bank|card_payments": {"n": 197, "ret": 0.9695431472081218, "lo": 0.9351556067097213}, "bank|card_virtual_wallet": {"n": 190, "ret": 0.9578947368421052, "lo": 0.9191271872442407}, "bank|cash": {"n": 197, "ret": 0.9187817258883249, "lo": 0.8721515987392192}, "bank|incoming_topups": {"n": 171, "ret": 0.9298245614035088, "lo": 0.8813564799894384}, "bank|info_and_fx": {"n": 184, "ret": 0.8586956521739131, "lo": 0.8010079208223049}, "bank|transfers": {"n": 186, "ret": 0.9301075268817204, "lo": 0.8841047203586956}}, "src_ret": {"bank": 0.9382}, "min_cell": 0.8586956521739131, "flip_outs": {"Category: info_and_fx": 17, "Category: cash": 16, "Category: incoming_topups": 11, "Category: transfers": 10, "Category: card_delivery": 7, "card_payments": 7, "Category: card_payments": 6, "incoming_topups": 5}}}, "secs": 301}

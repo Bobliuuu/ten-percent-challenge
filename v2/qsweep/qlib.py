@@ -545,7 +545,7 @@ def m_lowrank(base, rank=32, iters=3, lr_bits=4, lr_g=32, whiten=True):
             Ew = E @ Lc if whiten else E
             U_, S_, Vh = torch.linalg.svd(Ew, full_matrices=False); r = rank
             L_ = U_[:, :r] * S_[:r].sqrt(); R_ = S_[:r].sqrt()[:, None] * Vh[:r]
-            if whiten: R_ = torch.linalg.solve_triangular(Lc.T, R_, upper=True, left=False)
+            if whiten: R_ = torch.linalg.solve_triangular(Lc, R_, upper=False, left=False)
             def rq(M):
                 if lr_bits >= 16: return M.half().float()
                 n = 2 ** lr_bits - 1; Mg = M.reshape(-1, lr_g); mn, mx = Mg.min(1, keepdim=True).values, Mg.max(1, keepdim=True).values; sc = (mx - mn).clamp(min=1e-8) / n
