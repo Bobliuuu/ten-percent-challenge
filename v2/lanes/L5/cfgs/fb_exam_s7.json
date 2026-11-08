@@ -13,8 +13,27 @@
   "wrong"
  ],
  "ncal": 300,
- "primary": "o_prot_c1536_m32 (fixed a priori from FEEDBACK_ABLATION finding 5/9, before any exam item was scored)",
+ "primary": "o_prot_c1024_m32 (fixed before any exam/neighbour item was scored: fits <=9.9% total with the 9.797% packed body; c1536 is the 9.99% secondary row)",
  "methods": [
+  {
+   "tag": "o_prot_c1024_m32",
+   "carrier": "o",
+   "solver": "prot",
+   "m": 32,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "cols": 1024
+  },
   {
    "tag": "o_prot_c1536_m32",
    "carrier": "o",
