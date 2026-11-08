@@ -70,9 +70,7 @@ def _impl(cfg):
         P = {k: mc_preds(m, rows) for k, rows in sets.items()}
         if tag == "base": nll, n, _, ref = ppl_kl(m); torch.save(ref, "/vol/res/ref_%s.pt" % M.replace("/", "_")); kl = 0.0
         else:
-            for _w in range(int(cfg.get("wait_base", 60))):
-                try: vol.reload()
-                except Exception as e_: pass
+            for _w in range(int(cfg.get("wait_base", 0))):
                 if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")): break
                 time.sleep(10)
             if os.path.exists("/vol/res/ref_%s.pt" % M.replace("/", "_")): ref = torch.load("/vol/res/ref_%s.pt" % M.replace("/", "_")); nll, n, kl, _ = ppl_kl(m, ref)
