@@ -112,6 +112,7 @@ def main(job):
         STAT["on"] = False
         return torch.stack([m.float().cpu() for m in mass]), torch.stack([c.float().cpu() for c in cnt])
     def norm(s):
+        if gptoss: s = s.split("assistant")[0]   # quantised gpt-oss often fails to emit <|return|> after the label and continues "assistantanalysis..."; score the label before it
         return s.strip().lower().split("\n")[0].strip(" .,:;\"'`*") if s.strip() else ""
     @torch.no_grad()
     def gen_eval(rows, max_new=8):
@@ -143,7 +144,7 @@ def main(job):
         try: vol.commit()
         except Exception: pass
     res = dict(arch=arch, conc=conc_res, cfgs=[], base={}); os.makedirs("/r/res", exist_ok=True)
-    def save(): json.dump(res, open(f"/r/res/{tag}_v2.json", "w")); _commit()
+    def save(): json.dump(res, open(f"/r/res/{tag}{job.get('suffix', '')}_v2.json", "w")); _commit()
     save()
     # ---- stage 2: base generation per task
     BC = {}

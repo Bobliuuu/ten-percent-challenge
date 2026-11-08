@@ -30,6 +30,8 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 {chr(10).join(rt)}
 
 {T}
+Not ranked / not trusted: Qwen3.5-122B-A10B (256 experts, 48 layers, 244 GB bf16; routing concentration measured: 90% of SKILL7 mass in 29% of experts, 41% for BANK8) returned 0.0 retention even at keep-100% 3-bit while base is .968/.978 (35B sibling is fine), so the quantise/prune probe failed on this model (harness issue, run OOM'd after 3 configs; raw rows in results/invalid/). Hunyuan-A13B and Mixtral-8x7B were not run (time; Hunyuan needs custom code under transformers 5). gpt-oss: the first run scored SKILL7 at 1-13% because quantised gpt-oss often fails to emit its end token after a correct label and continues "assistantanalysis..."; a re-score run (label before "assistant") is reported in the _r2 rows when present.
+
 Reading: concentration = fraction of experts (layer mean) needed to cover 90/95/99% of the task's routing mass; the lower, the more prunable. Fine-grained models with many experts (Qwen3.5-35B-A3B 256, Qwen3-30B-A3B 128) concentrate most (90% of mass in 27-34% of experts) and survive keeping 30-50%; 64-expert models (OLMoE, DS-V2-Lite, ERNIE) need 56-63%+ and collapse below keep 50%. Cross-task overlap (other task's mass inside this task's top-50%) is 0.73-0.94, so a SKILL7-pruned model keeps most of BANK8's routing mass but BANK8 needs more experts than SKILL7 (more labels, finer boundaries).
 """
 open('SECTION.md','w').write(sec)
