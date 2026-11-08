@@ -33,7 +33,7 @@ def fb_edit(eng, ann, targets, nlay=4, lam=1.0, margin=2.0, requant=None, ncal=3
     caps = {}
     for l in range(TL0, NL):
         blk = eng.blocks[l]; blk.capture = dict(mask=flat, rec=[]); h = eng.run_layer(l, h); caps[l] = blk.capture["rec"]; blk.capture = None
-    xf = h[ar, last].float(); gam = lm.model.norm.weight.float(); eps = lm.model.norm.variance_epsilon
+    xf = h[ar, last].float(); gam = lm.model.norm.weight.float(); eps = getattr(lm.model.norm, "variance_epsilon", getattr(lm.model.norm, "eps", 1e-6))
     W = lm.lm_head.weight.float(); logits = ((xf * torch.rsqrt(xf.pow(2).mean(-1, keepdim=True) + eps)) * gam) @ W.T
     rms = xf.pow(2).mean(-1).add(eps).sqrt(); dx = torch.zeros_like(xf); gaps = []
     for i in range(n):

@@ -1,0 +1,9 @@
+EXAM {"overall": {"n": 2655, "kept": 2633, "ret": 0.991713747645951, "wilson_lo": 0.9874850850729712}, "gate_overall_98": true, "gate_kind_95": true, "base_acc": 0.9675655976676385}
+FB empty {"teach_acc": 0.0, "teach_top": [["Music", 77], ["News", 33], ["Lists", 27], ["Weather", 14]], "neigh_ret": {"n": 351, "kept": 343, "ret": 0.9772079772079773, "wilson_lo": 0.9556764249166583}, "exam_ret": {"n": 2655, "kept": 2633, "ret": 0.991713747645951, "wilson_lo": 0.9874850850729712}, "exam_kind_min": 0.9724770642201835, "new_label_leak_on_exam": 0, "info": {}}
+Traceback (most recent call last):
+  File "/workspace/bundle/run_final.py", line 33, in <module>
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  File "/workspace/bundle/l12_fb.py", line 36, in fb_edit
+  File "/opt/conda/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1965, in __getattr__
+    raise AttributeError(
+AttributeError: 'Qwen3_5MoeRMSNorm' object has no attribute 'variance_epsilon'

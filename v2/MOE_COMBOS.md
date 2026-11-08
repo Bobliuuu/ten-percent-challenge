@@ -26,6 +26,9 @@ Models: Qwen3-30B-A3B-Instruct-2507 (128 experts, base .925) and Qwen3.5-35B-A3B
 Takeaways: (1) with a task-specific score, pruning is nearly free; random is catastrophic; frequency is a bad proxy on the coarse model. (2) Fine-grained Qwen3.5 tolerates both pruning and low-bit RTN far better than Qwen3-30B. (3) Top-k 8 to 6 is free on Qwen3.5. (4) Data-free shared-subspace SVD of experts does not work (adapter-like, flagged). (5) Neuron-aligned merging is worse than pruning.
 
 ## Caveats
-- Numbers are simulated quantisation (fake-quant), analytic bytes; no packed exporter measured. REP/SEL are L12's own sets (0 overlap with the locked exam); locked-exam score in `v2/lanes/L12/results/final/` if present.
+- Numbers are simulated quantisation (fake-quant), analytic bytes; no packed exporter measured. REP/SEL are L12's own sets (0 overlap with the locked exam); locked-exam score below.
 - Qwen3.5 GPTQ configs returned 0.000 for every cell; treat as a defect in l12_core's GPTQ path for Qwen3.5 fused-expert layout, unresolved.
 - Min-cell metrics are small-n tails; the pass rules (95% Wilson per kind) are stricter than these retentions imply.
+
+## Locked shared exam (SKILL7, run once, best config Q35_B3_rtn4_mass_k25, 7.61% of fp16)
+Real greedy generation, `v2/exam/loader.py` (manifest verified), n=2655: base acc .9676, retention **.9917** (Wilson lo .9875); gate overall >= .98 PASS, gate per-kind >= .95 PASS (min kind .972). Outputs: `v2/lanes/L12/results/final/`. This is the compression side only; feedback (new-label injection) was not scored on Qwen3.5 in the first run (the edit crashed on the Qwen3.5 norm attribute, since patched); see below if the rerun finished. Bytes are analytic and the model is fake-quant, not a packed export.
