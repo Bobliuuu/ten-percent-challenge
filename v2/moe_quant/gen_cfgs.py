@@ -23,7 +23,7 @@ def cfg(name, m, b, g=128, **kw):
     bpw = nominal(m, b, g); k = kw.pop("keep", None) or keep_for(bpw)
     return dict(name=name, m=m, eb=b, eg=g, keep=k, nom_bpw=round(bpw, 3), **common, **kw)
 if __name__ == "__main__":
-    out = []
+    out = [dict(name="base", ds="skill7", sets=["SEL"], ncal=2000)]
     # A. method sweep at 3-bit-class and 2-bit-class, keep chosen to hit 9.9%
     for b in (3, 2):
         out += [cfg(f"gptq_had_b{b}", "gptq_had", b), cfg(f"gptq_b{b}", "gptq", b), cfg(f"awq_gptq_b{b}", "awq_gptq", b), cfg(f"nf_had_b{b}", "nf_had", b),

@@ -1,5 +1,13 @@
 [
 {
+"name": "base",
+"ds": "skill7",
+"sets": [
+"SEL"
+],
+"ncal": 2000
+},
+{
 "name": "gptq_had_b3",
 "m": "gptq_had",
 "eb": 3,
