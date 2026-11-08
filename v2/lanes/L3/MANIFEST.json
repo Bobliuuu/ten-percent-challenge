@@ -1,0 +1,58 @@
+{
+ "skill7x": {
+  "artifact_files": {
+   "weights_bin": 5891576512,
+   "index_json": 1014145,
+   "tokenizer_json": 11422654,
+   "vocab_json": 2776833,
+   "merges_txt": 1671839,
+   "tokenizer_config": 9377,
+   "config_json": 963,
+   "generation_config": 239
+  },
+  "code_files": {
+   "answer.py": 415,
+   "feedback.py": 4619,
+   "runtime.py": 4247,
+   "packfmt.py": 2232,
+   "qlib.py": 36960
+  },
+  "aux_files": {
+   "task.json": 234,
+   "calib_prompts.jsonl": 20451
+  },
+  "feedback_edit_override_o_proj_fp16_8_layers": 134217728,
+  "total_bytes": 6042759448,
+  "fp16_bytes": 61064245248,
+  "ratio": 0.0989574082748188,
+  "note": "artifact is the packed file measured on disk (5,908,472,562 B for both tasks, identical layout); edit_o_proj.pt is counted in full (134,217,728 B) although it replaces tensors that remain in weights.bin (a repack would save 51.8 MB)"
+ },
+ "bank6x": {
+  "artifact_files": {
+   "weights_bin": 5891576512,
+   "index_json": 1014145,
+   "tokenizer_json": 11422654,
+   "vocab_json": 2776833,
+   "merges_txt": 1671839,
+   "tokenizer_config": 9377,
+   "config_json": 963,
+   "generation_config": 239
+  },
+  "code_files": {
+   "answer.py": 415,
+   "feedback.py": 4619,
+   "runtime.py": 4247,
+   "packfmt.py": 2232,
+   "qlib.py": 36960
+  },
+  "aux_files": {
+   "task.json": 236,
+   "calib_prompts.jsonl": 26342
+  },
+  "feedback_edit_override_o_proj_fp16_8_layers": 134217728,
+  "total_bytes": 6042765341,
+  "fp16_bytes": 61064245248,
+  "ratio": 0.09895750477973712,
+  "note": "artifact is the packed file measured on disk (5,908,472,562 B for both tasks, identical layout); edit_o_proj.pt is counted in full (134,217,728 B) although it replaces tensors that remain in weights.bin (a repack would save 51.8 MB)"
+ }
+}
