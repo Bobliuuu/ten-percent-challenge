@@ -77,7 +77,7 @@ class Live:
 
 class MyMoE(nn.Module):
     def __init__(s, H, E, topk):
-        super().__init__(); s.gate = nn.Linear(H, E, bias=False); s.E = E; s.topk = topk; s.live = Live(); s.rec = None; s.valid = None; s.hess = None; s.samp = None; s.capture = None
+        super().__init__(); s.gate = nn.Linear(H, E, bias=False); s.E = E; s.topk = topk; s.shared_expert = None; s.shared_expert_gate = None; s.live = Live(); s.rec = None; s.valid = None; s.hess = None; s.samp = None; s.capture = None
     def forward(s, hs):
         B, T, D = hs.shape; x = hs.reshape(-1, D); lv = s.live
         p = F.softmax(s.gate(x).float(), -1)
@@ -103,6 +103,7 @@ class MyMoE(nn.Module):
         if s.samp is not None and valid is not None:
             vi = valid.nonzero().flatten()
             if len(vi): s.samp.append(x[vi[torch.randperm(len(vi), device=x.device)[:s.samp_n]]].float().cpu())
+        if s.shared_expert is not None: out = out + torch.sigmoid(s.shared_expert_gate(x)) * s.shared_expert(x)
         return out.view(B, T, D)
 
 # ---------------------------------------------------------------- engine
@@ -118,44 +119,52 @@ class Engine:
         s.tok = AutoTokenizer.from_pretrained(s.snap); s.tok.padding_side = "left"
         s.idx = json.load(open(s.snap + "/model.safetensors.index.json"))["weight_map"]; s._fh = {}
         s._sf = safetensors
-        with torch.device("meta"): lm = AutoModelForCausalLM.from_config(s.cfgm, dtype=dtype, attn_implementation="sdpa")
+        s.q35 = hasattr(s.cfgm, "text_config")
+        with torch.device("meta"): lm = AutoModelForCausalLM.from_config(tc if s.q35 else s.cfgm, dtype=dtype, attn_implementation="sdpa")
         s.lm = lm; s.blocks = []
         for l, lay in enumerate(lm.model.layers):
             with torch.device("meta"): b = MyMoE(s.HID, s.E, s.TOPK)
+            if getattr(lay.mlp, "shared_expert", None) is not None: b.shared_expert = lay.mlp.shared_expert; b.shared_expert_gate = lay.mlp.shared_expert_gate
             lay.mlp = b; s.blocks.append(b)
         lm.to_empty(device=dev)
         with torch.device(dev): rot = type(lm.model.rotary_emb)(config=tc)
         lm.model.rotary_emb = rot
-        s.nonexp_numel = 0; s.attn2d = 0; s.small = 0
+        s.nonexp_numel = 0; s.attn2d = 0; s.small = 0; s.shared_n = 0
         sd = {k: v for k, v in lm.named_parameters()}
         for k, p in sd.items():
-            if ".mlp." in k and "gate.weight" not in k: continue
             t = s.T(k); p.data.copy_(t.to(dev, dtype))
-            if ".self_attn." in k and k.endswith("_proj.weight"): s.attn2d += p.numel()
+            if (".self_attn." in k or ".linear_attn." in k) and k.endswith(".weight") and p.dim() == 2: s.attn2d += p.numel()
+            elif ".shared_expert." in k and p.dim() == 2: s.shared_n += p.numel()
             elif "embed_tokens" in k or "lm_head" in k or k.endswith("mlp.gate.weight"): pass
             else: s.small += p.numel()
         s.embed_n = lm.model.embed_tokens.weight.numel(); s.head_n = lm.lm_head.weight.numel()
-        s.orig_attn = {k: s.T(k) for k in sd if ".self_attn." in k and k.endswith("_proj.weight")}   # cpu originals for requant
+        s.orig_attn = {k: s.T(k) for k, p in sd.items() if (".self_attn." in k or ".linear_attn." in k) and k.endswith(".weight") and p.dim() == 2}   # cpu originals for requant
+        s.orig_shared = {k: s.T(k) for k, p in sd.items() if ".shared_expert." in k and p.dim() == 2}
         s.orig_emb = lm.model.embed_tokens.weight.data.clone().cpu(); s.orig_head = lm.lm_head.weight.data.clone().cpu()
         log("non-expert model on", dev, "attn2d", s.attn2d, "embed", s.embed_n, "head", s.head_n)
         # stacked expert originals on CPU
         s.OG = []; s.OU = []; s.OD = []
         for l in range(s.NL):
-            g = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.gate_proj.weight") for e in range(s.E)]).to(dtype)
-            u = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.up_proj.weight") for e in range(s.E)]).to(dtype)
-            d = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.down_proj.weight") for e in range(s.E)]).to(dtype)
+            if s.q35:
+                gu = s.T(f"model.layers.{l}.mlp.experts.gate_up_proj").to(dtype); g = gu[:, :s.FF].contiguous(); u = gu[:, s.FF:].contiguous(); d = s.T(f"model.layers.{l}.mlp.experts.down_proj").to(dtype); del gu
+            else:
+                g = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.gate_proj.weight") for e in range(s.E)]).to(dtype)
+                u = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.up_proj.weight") for e in range(s.E)]).to(dtype)
+                d = torch.stack([s.T(f"model.layers.{l}.mlp.experts.{e}.down_proj.weight") for e in range(s.E)]).to(dtype)
             s.OG.append(g); s.OU.append(u); s.OD.append(d)
             if l % 8 == 0: log("read experts layer", l)
         s.orig_gate = [b.gate.weight.data.clone() for b in s.blocks]
         s.expert_params = s.NL * s.E * 3 * s.FF * s.HID
         s.total_params = s.expert_params + s.nonexp_params()
         s.fp16_bytes = int(json.load(open(s.snap + "/model.safetensors.index.json"))["metadata"]["total_size"]); log("param check", s.total_params * 2, s.fp16_bytes)
+        s.fp16_text = s.total_params * 2 if s.q35 else s.fp16_bytes
         s.tokb = sum(os.path.getsize(os.path.join(s.snap, f)) for f in ["tokenizer.json", "tokenizer_config.json", "config.json", "generation_config.json"] if os.path.exists(os.path.join(s.snap, f)))
         log("total params", s.total_params, "fp16 bytes", s.fp16_bytes, "tok bytes", s.tokb)
         s.load_data(data_dir)
         s.attn_state = None; s.stats = None
-    def nonexp_params(s): return s.attn2d + s.small + s.embed_n + s.head_n + s.NL * s.E * s.HID   # gate rows counted as non-expert
+    def nonexp_params(s): return s.attn2d + s.small + s.shared_n + s.embed_n + s.head_n + s.NL * s.E * s.HID   # gate rows counted as non-expert
     def T(s, key):
+        if getattr(s, "q35", False) and key.startswith("model."): key = "model.language_model." + key[6:]
         f = s.idx[key]
         if f not in s._fh: s._fh[f] = s._sf.safe_open(os.path.join(s.snap, f), "pt", device="cpu")
         return s._fh[f].get_tensor(key)
@@ -203,12 +212,15 @@ class Engine:
         for b in s.blocks: b.live = Live()
         torch.cuda.empty_cache()
     def restore_nonexpert(s):
-        for k, t in s.orig_attn.items(): dict(s.lm.named_parameters())[k].data.copy_(t.to(s.dev, s.dtype))
+        PP = dict(s.lm.named_parameters())
+        for k, t in list(s.orig_attn.items()) + list(s.orig_shared.items()): PP[k].data.copy_(t.to(s.dev, s.dtype))
         s.lm.model.embed_tokens.weight.data.copy_(s.orig_emb.to(s.dev)); s.lm.lm_head.weight.data.copy_(s.orig_head.to(s.dev))
     def quant_nonexpert(s, cfg):
         s.restore_nonexpert(); P = dict(s.lm.named_parameters())
         if cfg.get("attn_b"):
             for k in s.orig_attn: P[k].data.copy_(rtn(P[k].data, cfg["attn_b"], cfg.get("attn_g", 128), True).to(s.dtype))
+        if cfg.get("shared_b"):
+            for k in s.orig_shared: P[k].data.copy_(rtn(P[k].data, cfg["shared_b"], 128, True).to(s.dtype))
         for tgt, b in ((s.lm.model.embed_tokens, cfg.get("emb_b")), (s.lm.lm_head, cfg.get("head_b"))):
             if b:
                 for s0 in range(0, tgt.weight.shape[0], 20000): tgt.weight.data[s0:s0 + 20000] = rtn(tgt.weight.data[s0:s0 + 20000], b, 128, False).to(s.dtype)
@@ -403,8 +415,8 @@ class Engine:
         # non-expert bytes
         nbytes["attn"] = s.attn2d * bpw(cfg.get("attn_b"), cfg.get("attn_g", 128)) / 8
         nbytes["embed"] = s.embed_n * bpw(cfg.get("emb_b"), 128) / 8; nbytes["head"] = s.head_n * bpw(cfg.get("head_b"), 128) / 8
-        nbytes["norms_misc"] = s.small * 2; nbytes["tokenizer_config"] = s.tokb; nbytes["code_meta"] = cfg.get("code_bytes", 60000)
-        tot = sum(nbytes.values()); by = dict(parts={k: int(v) for k, v in nbytes.items()}, total=int(tot), ratio=tot / s.fp16_bytes)
+        nbytes["shared_expert"] = s.shared_n * bpw(cfg.get("shared_b"), 128) / 8; nbytes["norms_misc"] = s.small * 2; nbytes["tokenizer_config"] = s.tokb; nbytes["code_meta"] = cfg.get("code_bytes", 60000)
+        tot = sum(nbytes.values()); by = dict(parts={k: int(v) for k, v in nbytes.items()}, total=int(tot), ratio=tot / s.fp16_bytes, ratio_text_only=tot / s.fp16_text, fp16_bytes=s.fp16_bytes, fp16_text_bytes=s.fp16_text)
         torch.cuda.empty_cache(); log("build done", cfg.get("name"), "ratio", round(by["ratio"], 4), "rtn fallbacks", fb, f"{time.time()-t1:.0f}s")
         return kept, by, fb
     # ------------------------------------------------ eval
