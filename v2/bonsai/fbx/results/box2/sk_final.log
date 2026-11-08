@@ -3,3 +3,68 @@
 [    73s] base preds 2711
 [    73s] neigh base-correct 611 sel 294 rep 317 old errors 95 ann pool 59 old teach 36 ent base said Counter({'Transport': 17, 'Lists': 11, 'Music': 5, 'Recipes': 3, 'None of the listed skills can handle the request to find a recipe for': 3, 'News': 2, 'Calendar': 2, 'None of the listed skills can handle the request to provide a recipe for': 1, 'None of the listed skills can handle a recipe request.': 1})
 [   146s] skill_L6_c1024 real n 25 d 0 {'teach_rep': 0.844, 'teach_bbc': 0.791, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 31s
+[   204s] skill_L6_c1024 shuffled n 25 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 33s
+[   274s] skill_L6_c1024 wrong n 25 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.991} bytes 50343936 edit 32s
+[   343s] skill_L6_c1024 mixed n 25 d 0 {'teach_rep': 0.689, 'teach_bbc': 0.446, 'neigh_rep': 0.997} bytes 50343936 edit 33s
+[   405s] skill_L6_c1024 real n 25 d 1 {'teach_rep': 0.889, 'teach_bbc': 0.912, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 33s
+[   464s] skill_L6_c1024 shuffled n 25 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 33s
+[   518s] skill_L6_c1024 wrong n 25 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.994} bytes 50343936 edit 32s
+[   578s] skill_L6_c1024 mixed n 25 d 1 {'teach_rep': 0.756, 'teach_bbc': 0.468, 'neigh_rep': 0.997} bytes 50343936 edit 33s
+[   640s] skill_L6_c1024 real n 25 d 2 {'teach_rep': 0.889, 'teach_bbc': 0.908, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 32s
+[   700s] skill_L6_c1024 shuffled n 25 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.002} bytes 50343936 edit 33s
+[   757s] skill_L6_c1024 wrong n 25 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 33s
+[   812s] skill_L6_c1024 mixed n 25 d 2 {'teach_rep': 0.711, 'teach_bbc': 0.417, 'neigh_rep': 0.997} bytes 50343936 edit 32s
+[   875s] skill_L6_c1024 real n 25 d 3 {'teach_rep': 0.889, 'teach_bbc': 0.822, 'neigh_rep': 1.0, 'neigh_sel': 0.997} bytes 50343936 edit 33s
+[   938s] skill_L6_c1024 shuffled n 25 d 3 {'teach_rep': 0.022, 'teach_bbc': 0.038} bytes 50343936 edit 33s
+[   979s] skill_L6_c1024 wrong n 25 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 30s
+[  1006s] skill_L6_c1024 mixed n 25 d 3 {'teach_rep': 0.756, 'teach_bbc': 0.408, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  1037s] skill_L6_c1024 real n 25 d 4 {'teach_rep': 0.889, 'teach_bbc': 0.849, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 16s
+[  1067s] skill_L6_c1024 shuffled n 25 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.005} bytes 50343936 edit 16s
+[  1096s] skill_L6_c1024 wrong n 25 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 1.0} bytes 50343936 edit 16s
+[  1125s] skill_L6_c1024 mixed n 25 d 4 {'teach_rep': 0.511, 'teach_bbc': 0.356, 'neigh_rep': 1.0} bytes 50343936 edit 16s
+[  1160s] skill_L6_c1024 real n 25 d 5 {'teach_rep': 0.844, 'teach_bbc': 0.885, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 16s
+[  1190s] skill_L6_c1024 shuffled n 25 d 5 {'teach_rep': 0.0, 'teach_bbc': 0.005} bytes 50343936 edit 16s
+[  1222s] skill_L6_c1024 wrong n 25 d 5 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.994} bytes 50343936 edit 16s
+[  1254s] skill_L6_c1024 mixed n 25 d 5 {'teach_rep': 0.667, 'teach_bbc': 0.374, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1285s] skill_L6_c1024 real n 25 d 6 {'teach_rep': 0.889, 'teach_bbc': 0.912, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 16s
+[  1313s] skill_L6_c1024 shuffled n 25 d 6 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 16s
+[  1341s] skill_L6_c1024 wrong n 25 d 6 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1368s] skill_L6_c1024 mixed n 25 d 6 {'teach_rep': 0.778, 'teach_bbc': 0.446, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1399s] skill_L6_c1024 real n 25 d 7 {'teach_rep': 0.889, 'teach_bbc': 0.802, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 16s
+[  1428s] skill_L6_c1024 shuffled n 25 d 7 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 16s
+[  1458s] skill_L6_c1024 wrong n 25 d 7 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1486s] skill_L6_c1024 mixed n 25 d 7 {'teach_rep': 0.667, 'teach_bbc': 0.401, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1517s] skill_L6_c1024 real n 25 d 8 {'teach_rep': 0.889, 'teach_bbc': 0.896, 'neigh_rep': 1.0, 'neigh_sel': 0.997} bytes 50343936 edit 16s
+[  1547s] skill_L6_c1024 shuffled n 25 d 8 {'teach_rep': 0.0, 'teach_bbc': 0.02} bytes 50343936 edit 17s
+[  1576s] skill_L6_c1024 wrong n 25 d 8 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1603s] skill_L6_c1024 mixed n 25 d 8 {'teach_rep': 0.556, 'teach_bbc': 0.419, 'neigh_rep': 1.0} bytes 50343936 edit 17s
+[  1636s] skill_L6_c1024 real n 25 d 9 {'teach_rep': 0.844, 'teach_bbc': 0.894, 'neigh_rep': 1.0, 'neigh_sel': 0.997} bytes 50343936 edit 17s
+[  1667s] skill_L6_c1024 shuffled n 25 d 9 {'teach_rep': 0.0, 'teach_bbc': 0.056} bytes 50343936 edit 17s
+[  1694s] skill_L6_c1024 wrong n 25 d 9 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.997} bytes 50343936 edit 16s
+[  1723s] skill_L6_c1024 mixed n 25 d 9 {'teach_rep': 0.644, 'teach_bbc': 0.441, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  1751s] skill_L6_c1024 real n 12 d 0 {'teach_rep': 0.889, 'teach_bbc': 0.827, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 14s
+[  1777s] skill_L6_c1024 shuffled n 12 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 14s
+[  1810s] skill_L6_c1024 real n 12 d 1 {'teach_rep': 0.8, 'teach_bbc': 0.649, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 14s
+[  1835s] skill_L6_c1024 shuffled n 12 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 14s
+[  1863s] skill_L6_c1024 real n 12 d 2 {'teach_rep': 0.867, 'teach_bbc': 0.815, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 14s
+[  1890s] skill_L6_c1024 shuffled n 12 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 14s
+[  1924s] skill_L6_c1024 real n 12 d 3 {'teach_rep': 0.844, 'teach_bbc': 0.766, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 14s
+[  1951s] skill_L6_c1024 shuffled n 12 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 14s
+[  1984s] skill_L6_c1024 real n 12 d 4 {'teach_rep': 0.844, 'teach_bbc': 0.732, 'neigh_rep': 0.997, 'neigh_sel': 1.0} bytes 50343936 edit 14s
+[  2011s] skill_L6_c1024 shuffled n 12 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 14s
+[  2040s] skill_L6_c1024 real n 5 d 0 {'teach_rep': 0.756, 'teach_bbc': 0.536, 'neigh_rep': 0.997, 'neigh_sel': 0.997} bytes 50343936 edit 12s
+[  2064s] skill_L6_c1024 shuffled n 5 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 12s
+[  2095s] skill_L6_c1024 real n 5 d 1 {'teach_rep': 0.778, 'teach_bbc': 0.635, 'neigh_rep': 0.997, 'neigh_sel': 1.0} bytes 50343936 edit 12s
+[  2120s] skill_L6_c1024 shuffled n 5 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 12s
+[  2152s] skill_L6_c1024 real n 5 d 2 {'teach_rep': 0.756, 'teach_bbc': 0.581, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 12s
+[  2176s] skill_L6_c1024 shuffled n 5 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 12s
+[  2208s] skill_L6_c1024 real n 5 d 3 {'teach_rep': 0.756, 'teach_bbc': 0.559, 'neigh_rep': 1.0, 'neigh_sel': 1.0} bytes 50343936 edit 12s
+[  2231s] skill_L6_c1024 shuffled n 5 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 12s
+[  2259s] skill_L6_c1024 real n 5 d 4 {'teach_rep': 0.8, 'teach_bbc': 0.52, 'neigh_rep': 1.0, 'neigh_sel': 0.997} bytes 50343936 edit 12s
+[  2283s] skill_L6_c1024 shuffled n 5 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 edit 12s
+[  2327s] skill_L6_c1024 annB n 25 d 0 {'teach_rep': 0.844, 'teach_bbc': 0.957, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  2356s] skill_L6_c1024 annB n 25 d 1 {'teach_rep': 0.844, 'teach_bbc': 0.957, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  2385s] skill_L6_c1024 annB n 25 d 2 {'teach_rep': 0.844, 'teach_bbc': 0.966, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  2414s] skill_L6_c1024 annB n 25 d 3 {'teach_rep': 0.844, 'teach_bbc': 0.964, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  2442s] skill_L6_c1024 annB n 25 d 4 {'teach_rep': 0.844, 'teach_bbc': 0.966, 'neigh_rep': 0.997} bytes 50343936 edit 17s
+[  2442s] DONE

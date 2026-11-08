@@ -1,0 +1,24 @@
+[
+ {
+  "name": "fb_llama_sweep",
+  "art": "/hf/l10_deq_llama",
+  "mode": "sweep",
+  "cfgs": [
+   {
+    "tag": "L6c256",
+    "layers": 6,
+    "cols": 256
+   },
+   {
+    "tag": "L8c256",
+    "layers": 8,
+    "cols": 256
+   },
+   {
+    "tag": "L6c512",
+    "layers": 6,
+    "cols": 512
+   }
+  ]
+ }
+]

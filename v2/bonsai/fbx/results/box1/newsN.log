@@ -1,0 +1,33 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    48s] loaded
+[    48s] base preds 3994
+[    48s] neigh base-correct 1237 sel 650 rep 587 old errors 383 ann pool 252 old teach 131 ent base said Counter({'World': 54, 'Technology': 16, 'Sports': 3, 'Travel': 1, 'Business': 1})
+[   117s] n_a100_c1024 real n 25 d 0 {'teach_sel': 0.46, 'neigh_sel': 0.989, 'neigh_sel_hp': 1.0} bytes 50343936 edit 27s
+[   150s] n_a100_c1024 shuffled n 25 d 0 {'teach_sel': 0.1} bytes 50343936 edit 32s
+[   201s] n_a100_c1024 real n 25 d 1 {'teach_sel': 0.52, 'neigh_sel': 0.991, 'neigh_sel_hp': 1.0} bytes 50343936 edit 24s
+[   226s] n_a100_c1024 shuffled n 25 d 1 {'teach_sel': 0.1} bytes 50343936 edit 24s
+[   284s] n_a100_m12_c1024 real n 25 d 0 {'teach_sel': 0.4, 'neigh_sel': 0.991, 'neigh_sel_hp': 1.0} bytes 50343936 edit 28s
+[   321s] n_a100_m12_c1024 shuffled n 25 d 0 {'teach_sel': 0.08} bytes 50343936 edit 36s
+[   370s] n_a100_m12_c1024 real n 25 d 1 {'teach_sel': 0.46, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 50343936 edit 24s
+[   397s] n_a100_m12_c1024 shuffled n 25 d 1 {'teach_sel': 0.1} bytes 50343936 edit 26s
+[   450s] n_a100_lam3000_c1024 real n 25 d 0 {'teach_sel': 0.3, 'neigh_sel': 0.998, 'neigh_sel_hp': 1.0} bytes 50343936 edit 28s
+[   475s] n_a100_lam3000_c1024 shuffled n 25 d 0 {'teach_sel': 0.02} bytes 50343936 edit 24s
+[   529s] n_a100_lam3000_c1024 real n 25 d 1 {'teach_sel': 0.32, 'neigh_sel': 0.998, 'neigh_sel_hp': 1.0} bytes 50343936 edit 25s
+[   553s] n_a100_lam3000_c1024 shuffled n 25 d 1 {'teach_sel': 0.02} bytes 50343936 edit 23s
+[   606s] n_a100_L8_c1024 real n 25 d 0 {'teach_sel': 0.56, 'neigh_sel': 0.986, 'neigh_sel_hp': 0.994} bytes 67125248 edit 30s
+[   637s] n_a100_L8_c1024 shuffled n 25 d 0 {'teach_sel': 0.12} bytes 67125248 edit 30s
+[   691s] n_a100_L8_c1024 real n 25 d 1 {'teach_sel': 0.6, 'neigh_sel': 0.985, 'neigh_sel_hp': 1.0} bytes 67125248 edit 30s
+[   722s] n_a100_L8_c1024 shuffled n 25 d 1 {'teach_sel': 0.12} bytes 67125248 edit 30s
+[   768s] n_a200_c1024 real n 25 d 0 {'teach_sel': 0.38, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 50343936 edit 23s
+[   792s] n_a200_c1024 shuffled n 25 d 0 {'teach_sel': 0.02} bytes 50343936 edit 23s
+[   839s] n_a200_c1024 real n 25 d 1 {'teach_sel': 0.38, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 50343936 edit 23s
+[   863s] n_a200_c1024 shuffled n 25 d 1 {'teach_sel': 0.02} bytes 50343936 edit 23s
+[   909s] n_a100_c512 real n 25 d 0 {'teach_sel': 0.38, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 25171968 edit 23s
+[   933s] n_a100_c512 shuffled n 25 d 0 {'teach_sel': 0.02} bytes 25171968 edit 23s
+[   980s] n_a100_c512 real n 25 d 1 {'teach_sel': 0.38, 'neigh_sel': 0.994, 'neigh_sel_hp': 1.0} bytes 25171968 edit 23s
+[  1004s] n_a100_c512 shuffled n 25 d 1 {'teach_sel': 0.02} bytes 25171968 edit 23s
+[  1051s] n_a100_m24_c1024 real n 25 d 0 {'teach_sel': 0.7, 'neigh_sel': 0.982, 'neigh_sel_hp': 0.988} bytes 50343936 edit 23s
+[  1075s] n_a100_m24_c1024 shuffled n 25 d 0 {'teach_sel': 0.14} bytes 50343936 edit 23s
+[  1122s] n_a100_m24_c1024 real n 25 d 1 {'teach_sel': 0.72, 'neigh_sel': 0.983, 'neigh_sel_hp': 1.0} bytes 50343936 edit 23s
+[  1146s] n_a100_m24_c1024 shuffled n 25 d 1 {'teach_sel': 0.16} bytes 50343936 edit 23s
+[  1146s] DONE

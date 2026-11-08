@@ -20,3 +20,5 @@
 [  1221s] lam3000 shuffled n 25 d 1 {'teach_sel': 0.48} bytes 100687872 edit 46s
 [  1317s] lam10000 real n 25 d 0 {'teach_sel': 0.56, 'neigh_sel': 0.988, 'neigh_sel_hp': 0.994} bytes 100687872 edit 47s
 [  1366s] lam10000 shuffled n 25 d 0 {'teach_sel': 0.16} bytes 100687872 edit 47s
+[  1463s] lam10000 real n 25 d 1 {'teach_sel': 0.62, 'neigh_sel': 0.983, 'neigh_sel_hp': 1.0} bytes 100687872 edit 47s
+[  1512s] lam10000 shuffled n 25 d 1 {'teach_sel': 0.16} bytes 100687872 edit 47s

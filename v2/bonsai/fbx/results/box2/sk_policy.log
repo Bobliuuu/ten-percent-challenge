@@ -3,3 +3,23 @@
 [    73s] base preds 2711
 [    73s] neigh base-correct 611 sel 294 rep 317 old errors 95 ann pool 59 old teach 36 ent base said Counter({'Transport': 17, 'Lists': 11, 'Music': 5, 'Recipes': 3, 'None of the listed skills can handle the request to find a recipe for': 3, 'News': 2, 'Calendar': 2, 'None of the listed skills can handle the request to provide a recipe for': 1, 'None of the listed skills can handle a recipe request.': 1})
 [   120s] skill_L6_c1024 ent25 n 25 d 0 {'teach_rep': 0.889, 'neigh_rep': 1.0, 'old_teach': 0.028} bytes 50343936 edit 32s
+[   163s] skill_L6_c1024 mix13_12 n 25 d 0 {'teach_rep': 0.844, 'neigh_rep': 1.0, 'old_teach': 0.222} bytes 50343936 edit 32s
+[   204s] skill_L6_c1024 mix20_5 n 25 d 0 {'teach_rep': 0.889, 'neigh_rep': 0.997, 'old_teach': 0.056} bytes 50343936 edit 32s
+[   249s] skill_L6_c1024 old25 n 25 d 0 {'teach_rep': 0.0, 'neigh_rep': 0.994, 'old_teach': 0.417} bytes 50343936 edit 32s
+[   291s] skill_L6_c1024 ent25 n 25 d 1 {'teach_rep': 0.889, 'neigh_rep': 0.997, 'old_teach': 0.028} bytes 50343936 edit 31s
+[   334s] skill_L6_c1024 mix13_12 n 25 d 1 {'teach_rep': 0.844, 'neigh_rep': 0.991, 'old_teach': 0.194} bytes 50343936 edit 31s
+[   379s] skill_L6_c1024 mix20_5 n 25 d 1 {'teach_rep': 0.844, 'neigh_rep': 0.997, 'old_teach': 0.028} bytes 50343936 edit 32s
+[   425s] skill_L6_c1024 old25 n 25 d 1 {'teach_rep': 0.0, 'neigh_rep': 0.997, 'old_teach': 0.361} bytes 50343936 edit 33s
+[   465s] skill_L6_c1024 ent25 n 25 d 2 {'teach_rep': 0.889, 'neigh_rep': 1.0, 'old_teach': 0.056} bytes 50343936 edit 31s
+[   510s] skill_L6_c1024 mix13_12 n 25 d 2 {'teach_rep': 0.844, 'neigh_rep': 0.991, 'old_teach': 0.111} bytes 50343936 edit 33s
+[   555s] skill_L6_c1024 mix20_5 n 25 d 2 {'teach_rep': 0.844, 'neigh_rep': 1.0, 'old_teach': 0.111} bytes 50343936 edit 33s
+[   599s] skill_L6_c1024 old25 n 25 d 2 {'teach_rep': 0.0, 'neigh_rep': 0.997, 'old_teach': 0.389} bytes 50343936 edit 32s
+[   644s] skill_L6_c1024 ent25 n 25 d 3 {'teach_rep': 0.844, 'neigh_rep': 0.997, 'old_teach': 0.028} bytes 50343936 edit 33s
+[   689s] skill_L6_c1024 mix13_12 n 25 d 3 {'teach_rep': 0.844, 'neigh_rep': 0.997, 'old_teach': 0.167} bytes 50343936 edit 33s
+[   733s] skill_L6_c1024 mix20_5 n 25 d 3 {'teach_rep': 0.889, 'neigh_rep': 0.994, 'old_teach': 0.111} bytes 50343936 edit 32s
+[   777s] skill_L6_c1024 old25 n 25 d 3 {'teach_rep': 0.0, 'neigh_rep': 0.994, 'old_teach': 0.389} bytes 50343936 edit 32s
+[   821s] skill_L6_c1024 ent25 n 25 d 4 {'teach_rep': 0.889, 'neigh_rep': 0.997, 'old_teach': 0.0} bytes 50343936 edit 33s
+[   865s] skill_L6_c1024 mix13_12 n 25 d 4 {'teach_rep': 0.889, 'neigh_rep': 0.994, 'old_teach': 0.222} bytes 50343936 edit 34s
+[   909s] skill_L6_c1024 mix20_5 n 25 d 4 {'teach_rep': 0.867, 'neigh_rep': 0.997, 'old_teach': 0.028} bytes 50343936 edit 33s
+[   951s] skill_L6_c1024 old25 n 25 d 4 {'teach_rep': 0.0, 'neigh_rep': 0.994, 'old_teach': 0.333} bytes 50343936 edit 29s
+[   964s] DONE
