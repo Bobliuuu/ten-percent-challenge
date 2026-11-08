@@ -248,3 +248,5 @@ Launched via `python v2/quality/qpush.py v2/quality/cfgs_*.json` (detached spawn
 
 ## 2026-11-08 model census probe launch
 Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) + 2 big (jobs_census_big.json.calls); command: python3 v2/model_census/modal_census.py <jobs>
+- 2026-11-08T14:14Z vast id 59721274 label tenpct-fbx GPU L40 $0.456/h started (bonsai fb experiments)
+- 2026-11-08 vast 59720587 tenpct-cdwidth destroyed unused (never reached running; lane dropped, ~$0.1)
