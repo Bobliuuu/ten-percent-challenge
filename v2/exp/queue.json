@@ -16,7 +16,9 @@
    "est_wall_h": 4,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x01",
-   "results_dir": "v2/exp/results/X01"
+   "results_dir": "v2/exp/results/X01",
+   "budget_usd": 13,
+   "tranche": "T0"
   },
   {
    "id": "X02",
@@ -31,7 +33,9 @@
    "est_wall_h": 5,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x02",
-   "results_dir": "v2/exp/results/X02"
+   "results_dir": "v2/exp/results/X02",
+   "budget_usd": 6,
+   "tranche": "T0"
   },
   {
    "id": "X03",
@@ -46,7 +50,9 @@
    "est_wall_h": 12,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x03",
-   "results_dir": "v2/exp/results/X03"
+   "results_dir": "v2/exp/results/X03",
+   "budget_usd": 13,
+   "tranche": "T0"
   },
   {
    "id": "X04",
@@ -61,7 +67,9 @@
    "est_wall_h": 12,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x04",
-   "results_dir": "v2/exp/results/X04"
+   "results_dir": "v2/exp/results/X04",
+   "budget_usd": 63,
+   "tranche": "T0(a)+T1(b)"
   },
   {
    "id": "X05",
@@ -76,7 +84,9 @@
    "est_wall_h": 6,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x05",
-   "results_dir": "v2/exp/results/X05"
+   "results_dir": "v2/exp/results/X05",
+   "budget_usd": 12,
+   "tranche": "T1"
   },
   {
    "id": "X06",
@@ -91,7 +101,9 @@
    "est_wall_h": 18,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x06",
-   "results_dir": "v2/exp/results/X06"
+   "results_dir": "v2/exp/results/X06",
+   "budget_usd": 55,
+   "tranche": "T2"
   },
   {
    "id": "X07",
@@ -106,7 +118,9 @@
    "est_wall_h": 12,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x07",
-   "results_dir": "v2/exp/results/X07"
+   "results_dir": "v2/exp/results/X07",
+   "budget_usd": 27,
+   "tranche": "T1"
   },
   {
    "id": "X08",
@@ -121,7 +135,9 @@
    "est_wall_h": 4,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x08",
-   "results_dir": "v2/exp/results/X08"
+   "results_dir": "v2/exp/results/X08",
+   "budget_usd": 7,
+   "tranche": "T1"
   },
   {
    "id": "X09",
@@ -136,37 +152,43 @@
    "est_wall_h": 8,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x09",
-   "results_dir": "v2/exp/results/X09"
+   "results_dir": "v2/exp/results/X09",
+   "budget_usd": 22,
+   "tranche": "T0(dev)+T1(32B)"
   },
   {
    "id": "X10",
    "title": "Bonsai gate completion",
    "wave": "3",
-   "status": "designed",
+   "status": "parked",
    "trigger": {
-    "start_when": "L7 done/idle",
+    "start_when": "maintainer answer or explicit user acceptance",
     "cancel_when": "stack TIER-1/2 and user declines maintainer question"
    },
    "est_usd_vast": 16,
    "est_wall_h": 8,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x10",
-   "results_dir": "v2/exp/results/X10"
+   "results_dir": "v2/exp/results/X10",
+   "budget_usd": 0,
+   "tranche": "PARKED"
   },
   {
    "id": "X11",
    "title": "native-base candidates parent-retention",
    "wave": "3",
-   "status": "designed",
+   "status": "parked",
    "trigger": {
-    "start_when": "L6 report with size-eligible candidate",
+    "start_when": "maintainer answer or explicit user acceptance",
     "cancel_when": "X04/X06 TIER-1"
    },
    "est_usd_vast": 10,
    "est_wall_h": 4,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x11",
-   "results_dir": "v2/exp/results/X11"
+   "results_dir": "v2/exp/results/X11",
+   "budget_usd": 0,
+   "tranche": "PARKED"
   },
   {
    "id": "X12",
@@ -181,7 +203,9 @@
    "est_wall_h": 10,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x12",
-   "results_dir": "v2/exp/results/X12"
+   "results_dir": "v2/exp/results/X12",
+   "budget_usd": 8,
+   "tranche": "T2"
   },
   {
    "id": "X13",
@@ -196,7 +220,9 @@
    "est_wall_h": 8,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x13",
-   "results_dir": "v2/exp/results/X13"
+   "results_dir": "v2/exp/results/X13",
+   "budget_usd": 24,
+   "tranche": "T0(a)+T2(b)"
   },
   {
    "id": "X14",
@@ -211,7 +237,37 @@
    "est_wall_h": 8,
    "hardware": "Vast A100-80GB primary; Modal overflow/TP2",
    "spec": "v2/EXPERIMENT_QUEUE.md#x14",
-   "results_dir": "v2/exp/results/X14"
+   "results_dir": "v2/exp/results/X14",
+   "budget_usd": 15,
+   "tranche": "T0(1)+T2(2)"
+  },
+  {
+   "id": "X15",
+   "title": "seal NEWS locked-exam manifest (CPU, hashes only)",
+   "wave": "1",
+   "status": "designed",
+   "trigger": {
+    "start_when": "X01 done (final prompt fixed)",
+    "cancel_when": "never"
+   },
+   "est_usd_vast": 0,
+   "budget_usd": 0,
+   "tranche": "T0",
+   "est_wall_h": 1,
+   "hardware": "CPU",
+   "spec": "v2/EXPERIMENT_QUEUE.md#x15",
+   "results_dir": "v2/exp/results/X15"
   }
- ]
+ ],
+ "budget": {
+  "total_usd": 330,
+  "T0": 110,
+  "T1": 90,
+  "T2": 85,
+  "FINAL_reserve": 30,
+  "unallocated": 15,
+  "rules": "release T1 on X04a GO; T2 lines on their own gates; if X04a KILL, freed funds go to X13>X14>X12 capped $90/lane"
+ },
+ "rules_ref": "v2/RULES.md section 6",
+ "byte_target_pct": 9.9
 }
