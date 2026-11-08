@@ -5,7 +5,7 @@ def run(model, tag, max_len=6144):
     os.environ["HF_HOME"] = "/home/ubuntu/work/hf"
     from huggingface_hub import snapshot_download
     from vllm import LLM, SamplingParams
-    src = snapshot_download(model, allow_patch=None) if False else snapshot_download(model)
+    src = model if os.path.isdir(model) else snapshot_download(model)
     t1 = [json.loads(l) for l in open(D+"/probe_items.jsonl")]
     TOXP = open(D+"/tox_prompt.txt").read(); INJP = open(D+"/inj_prompt.txt").read()
     cls = []
