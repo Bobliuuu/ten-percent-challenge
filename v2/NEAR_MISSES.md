@@ -127,3 +127,25 @@ Recipe: keep 102/256 experts per layer by routing mass on SKILL7 cal, RTN 3-bit 
 | SKILL7 k90 e3 | 8.81% | SEL 99.24 [98.71] (exam not scored) | News 98.4 | not run | |
 | BANK6 k102 e3 | same | 97.37 [96.58] (n=2018) | Identity 91.7, Card 94.4 | Security: teach .13-.52, neighbours damaged 76-96% | FAILS retention 98/95 gates (near miss) |
 | BANK6 SEL sweep: k90 e3 96.78, k76 e4 96.14, k160 e2 95.82, k128 e2 94.53 | | | | | none beats k102 e3 (97.43 [95.01]) |
+
+## L4 rival-#3 lane (Qwen3-30B-A3B-Instruct-2507; own tasks bank8 = Banking77 in 8 families + held-out new family `security`; clin9 = CLINC150 in 9 domains + held-out `kitchen`; BM25 top-8 labelled examples in the prompt like rival #3)
+Dev = our `sel` split (bank8 n=1600, base .9519, 1523 base-correct; clin9 n=1800, base .9861), NOT the locked exam. Retention = P(correct | base correct), real greedy generation, label parsed with the answer-command parser (an optional leading `Category:` is stripped for BOTH base and candidate; without that normalisation k80 RTN scored 75.3% on bank8 because it prefixed `Category:` on 25% of outputs). Size = analytic bytes (packed ints + fp16 scales/zeros + fp16 router + tokenizer; attn6 emb5 head4 RTN); NOT a packed file yet. Per-cell n ~ 150-200 so cell Wilson lo is wide. Rival #3 reference: 96/128 experts, ~2.2 bpw, 10.4839%, locked exam 1000 only, no retention figure (accuracy 95.80 vs 96.00).
+| task | method | size | retention [Wilson lo] | min cell | feedback | rule gaps |
+|---|---|---|---|---|---|---|
+| bank8 | k96 RTN-MSE b2 g128 (rival #3 layout: 96/128, ~2.1 bpw) | 11.32% | 98.49 [97.74] | 94.6 | not run | size > 10% (analog of rival's 10.48%) |
+| bank8 | k80 RTN-MSE b2 | 9.73% | 98.29 [97.51] | 93.5 | not run | min cell < 95 |
+| bank8 | k80 GPTQ+Hadamard b2 | 9.73% | 98.95 [98.30] | 95.8 | see fb rows | per-cell Wilson lo 91.9 |
+| bank8 | k64 GPTQ+Hadamard b2 | 8.14% | 99.28 [98.71] | 97.9 | see fb rows | none on dev (Wilson lo cell 94.7) |
+| bank8 | k64 mixed bits (25% of experts by mass at 4b, rest 2b) | 9.63% | 99.47 [98.97] | 97.4 | - | best retention, bigger |
+| bank8 | k48 GPTQ b3 | 8.79% | 99.08 [98.46] | 97.8 | - | - |
+| bank8 | k56 GPTQ b3, attn4 | 9.58% | 97.96 [97.13] | 91.8 | - | attn4 + 3b: worse than k64 b2 (more experts at fewer bits wins) |
+| bank8 | k72 global allocation GPTQ b2 attn4 | 8.56% | 98.88 [98.22] | 94.7 | - | min cell |
+| clin9 | k96 RTN-MSE b2 (rival layout) | 11.32% | 99.10 [98.54] | 97.4 | - | size > 10% |
+| clin9 | k80 RTN-MSE b2 | 9.73% | 98.93 [98.33] | 97.4 | - | - |
+| clin9 | k80 GPTQ+Hadamard b2 | 9.73% | 99.72 [99.34] | 98.5 | see fb rows | none on dev |
+| clin9 | k72 mixed (25% at 3b, rest 2b) | 9.78% | 99.77 [99.42] | 99.0 | - | none on dev |
+| clin9 | k64 GPTQ b2 | 8.14% | 99.44 [98.97] | 97.5 | - | - |
+| clin9 | k64 mixed 2/4b | 9.63% | 99.55 [99.11] | 99.0 | - | - |
+| clin9 | k56 GPTQ b3 attn4 | 9.58% | 99.49 [99.04] | 98.5 | - | - |
+| clin9 | k56 mixed 2/4b (50% at 4b) | 9.96% | 99.49 [99.04] | 98.5 | - | size > 9.9 |
+Reading: at the SAME 2-bit budget, fewer experts at the same bits beat more experts at fewer bits (k64/k80 b2 > k56 b3). RTN-MSE b2 loses 0.6-0.7 pt vs GPTQ+Hadamard b2. Keeping all 96 experts at 2 bits costs 11.3%, over the gate; the task-pruned 64-80 expert models are 8.1-9.7% and retain 98.9-99.8% on dev. Quant-sweep lane's 87/128 2.0 bpw ECSQ recipe (above) is the comparable best at 9.91%.
