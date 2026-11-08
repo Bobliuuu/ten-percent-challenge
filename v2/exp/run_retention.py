@@ -157,28 +157,46 @@ def git_head():
     except Exception: return None
 
 # ---------------------------------------------------------------- quantiser dispatch (candidates)
-RUNNERS = {"qpush": "quality/qpush.py", "vq8": "vq/vq8_run.py", "tcq": "vq/tcq_run.py", "q32": "entry32b/q32.py"}
+RUNNERS = {"qpush": "quality/qpush.py", "vq8": "vq/vq8_run.py", "tcq": "vq/tcq_run.py", "q32": "entry32b/q32.py", "q14": "exp/q14.py"}
+# X03 ladder arms = cfg flags interpreted by exp/q14.py (cumulative; a rung is only inherited if KEPT, see ladder.py):
+#   A0   : base recipe (C07): Hadamard/QR incoherence + block-LDLQ + shared D=8 k-means VQ, uniform K, fp16 group-128 emb/head scales, CAL-v1
+#   A0+  : A0 at target_pct=10.00
+#   A1   : alloc="kl"   (quality/alloc.py KL-sensitivity K per (layer, group); sensitivities in results/X03/sens_14b.json)
+#   A2   : eh="freq"    (frequency-tiered emb/head, rANS log-delta coded scales, full vocab); freed bytes go to K by the byte solver
+#   A3   : tgt=true     (GPTAQ) PENDING: X02 fix failed non-harm -> q14 refuses to run it
+#   A4   : hw="margin"  (forward-only margin-weighted Hessian, answer positions weight 24/(1+base margin))
+#   A5   : cal="v2"     (class-balanced self-distilled CAL-v2)
+#   A6   : codebook="tcq" (not admitted)
 def stage_quant(a):
-    cfg = json.load(open(a.cfg)); q = cfg.get("quantiser", "q32"); pack = cfg["pack_dir"]
+    cfg = json.load(open(a.cfg)); q = cfg.get("quantiser", "q14"); pack = cfg["pack_dir"]
     if os.path.exists(pack + "/.QUANT_DONE"): print("pack exists, skip quantise"); return
+    if q == "q14":
+        import q14; r = q14._impl(cfg); return
     mod = os.path.splitext(os.path.basename(RUNNERS[q]))[0]; d = os.path.join(V2, os.path.dirname(RUNNERS[q]))
-    # box path: the quantiser's own _impl runs on this machine (Vast box); per-layer resume is the quantiser's responsibility.
     cmd = [sys.executable, V2 + "/vq/box_run.py", mod, a.cfg, cfg["name"]]
     print("QUANT CMD:", " ".join(cmd), "(cwd", d + ")"); subprocess.check_call(cmd, cwd=d)
     open(pack + "/.QUANT_DONE", "w").write(time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()))
     import bytes as B; r = B.account(pack, cfg["model"], target=cfg.get("target_pct", 9.90), est_ratio=cfg.get("est_ratio")); json.dump(r, open(pack + "/BYTES.json", "w"), indent=1)
     assert r["ok"], f"byte target missed: {r['ratio_pct']:.3f}% (re-run with adjusted K, do not score)"
+def stage_decode(a, cfg):
+    """real decoder: pack dir -> bf16 HF dir (decode_pack.py is the SHIPPED decoder inside the pack)"""
+    out = cfg["pack_dir"].rstrip("/") + "_hf"
+    if not os.path.exists(out + "/.DECODED"):
+        subprocess.check_call([sys.executable, cfg["pack_dir"] + "/decode_pack.py", cfg["pack_dir"], out]); open(out + "/.DECODED", "w").write("ok")
+    return out
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model"); ap.add_argument("--exp", default="X01"); ap.add_argument("--arm", default="base"); ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--sets", default="SEL,REP,GEN,INJ"); ap.add_argument("--pass", dest="passno", type=int, default=1); ap.add_argument("--tp", type=int, default=1)
     ap.add_argument("--backend", default="vllm"); ap.add_argument("--limit", type=int); ap.add_argument("--util", type=float, default=0.85)
-    ap.add_argument("--cfg"); ap.add_argument("--stage", default="eval", choices=["quant", "eval", "all"])
+    ap.add_argument("--cleanup", action="store_true"); ap.add_argument("--cfg"); ap.add_argument("--stage", default="eval", choices=["quant", "eval", "all"])
     a = ap.parse_args()
     if a.cfg:
         cfg = json.load(open(a.cfg)); a.exp, a.arm, a.seed = cfg.get("exp", a.exp), cfg["name"], cfg.get("seed", a.seed)
         if a.stage in ("quant", "all"): stage_quant(a)
-        if a.stage in ("eval", "all"): a.model = cfg["pack_dir"]; stage_eval(a)
+        if a.stage in ("eval", "all"):
+            a.model = stage_decode(a, cfg); stage_eval(a)
+            if a.cleanup: import shutil; shutil.rmtree(a.model, ignore_errors=True)
     else: stage_eval(a)
 if __name__ == "__main__": main()

@@ -91,9 +91,10 @@ def cmd_base(a):
     out = f"{HERE}/results/{a.exp}/base_summary_{a.tag}.json"; json.dump(res, open(out, "w"), indent=1); print(json.dumps(res, indent=1)); print("->", out)
 
 def load_arm(exp, tag, st): return items(exp, tag, st)
+def load_base(a, st): return items(a.base_exp or a.exp, a.base, st)
 def cmd_decide(a, st="SEL"):
     assert st != "REP" or a.unsealed, "REP is sealed; use --stage unseal"
-    base = load_arm(a.exp, a.base, st); out = dict(exp=a.exp, set=st, base=a.base, arms={})
+    base = load_base(a, st); out = dict(exp=a.exp, set=st, base=a.base, arms={})
     scores = {}
     for c in a.cands.split(","):
         cand = load_arm(a.exp, c, st); r, _ = retention(base, cand); r["tier_eval"] = tier(r); r["flip_score"] = flip_score(base, cand); scores[c] = r["flip_score"]; out["arms"][c] = r
@@ -110,7 +111,7 @@ def cmd_unseal(a):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("stage", choices=["base", "decide", "unseal"]); ap.add_argument("--exp", default="X01"); ap.add_argument("--tag"); ap.add_argument("--arm")
-    ap.add_argument("--sets", default="SEL,REP,GEN,INJ"); ap.add_argument("--base"); ap.add_argument("--cands"); ap.add_argument("--floor-tag"); ap.add_argument("--reason")
+    ap.add_argument("--sets", default="SEL,REP,GEN,INJ"); ap.add_argument("--base"); ap.add_argument("--cands"); ap.add_argument("--floor-tag"); ap.add_argument("--base-exp"); ap.add_argument("--reason")
     ap.add_argument("--include-rep-counts", action="store_true"); a = ap.parse_args(); a.unsealed = False
     if a.stage == "unseal": assert a.reason, "--reason required"
     {"base": cmd_base, "decide": cmd_decide, "unseal": cmd_unseal}[a.stage](a)
