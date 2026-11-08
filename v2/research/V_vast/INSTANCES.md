@@ -120,3 +120,24 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - vast id 59721274 label tenpct-fbx GPU L40 $0.456/h started (bonsai fb experiments)
 - 2026-11-08T14:16Z vast id 59721403 label tenpct-rival3_bank GPU RTX 6000D 84GB $0.948/h (+5% guard) started
 - 2026-11-08T14:16Z vast id 59721406 label tenpct-rival3_clin GPU A100 SXM4 80GB $1.121/h (+5% guard) started
+- 2026-11-08T14:26Z vast id 59722574 label tenpct-rival3_clin1 GPU A100 SXM4 80GB $1.319/h (+5% guard) started
+- 2026-11-08T14:26Z vast id 59722601 label tenpct-ne_b GPU RTX 3090 24GB $0.176/h (+5% guard) started
+- id 59721406 tenpct-rival3_clin destroyed after 0.17 h (~$0.19)
+- id 59721403 tenpct-rival3_bank destroyed after 0.18 h (~$0.17)
+- id 59716954 tenpct-x03n12 destroyed after 1.00 h (~$0.60)
+- 2026-11-08T14:27Z vast id 59722748 label tenpct-L12A GPU RTX PRO 6000 WS 96GB $1.335/h (+5% guard) started
+- 2026-11-08T14:27Z vast id 59722752 label tenpct-L12B GPU RTX PRO 6000 WS 96GB $1.403/h (+5% guard) started
+- id 59722574 tenpct-rival3_clin1 destroyed after 0.07 h (~$0.09)
+- id 59717440 tenpct-x03n13 destroyed after 0.97 h (~$0.58)
+- 2026-11-08T14:31Z vast id 59723157 label tenpct-l13a GPU RTX A6000 45GB $0.403/h (+5% guard) started
+- 2026-11-08T14:31Z vast id 59723199 label tenpct-l13b GPU RTX 4090 48GB $0.472/h (+5% guard) started
+- 2026-11-08T14:31Z vast id 59723262 label tenpct-l13s GPU RTX A4000 16GB $0.109/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723282 label tenpct-x03p11 GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723286 label tenpct-x03p12 GPU RTX A6000 48GB $0.564/h (+5% guard) started
+- 2026-11-08T14:32Z vast id 59723285 label tenpct-x03p13 GPU RTX A6000 48GB $0.564/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723459 label tenpct-t3-q3-14b GPU A40 45GB $0.269/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723460 label tenpct-t3-32b GPU A100 PCIE 80GB $0.937/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723462 label tenpct-t3-14b GPU A40 45GB $0.269/h (+5% guard) started
+- 2026-11-08T14:33Z vast id 59723461 label tenpct-t3-7b GPU A40 45GB $0.269/h (+5% guard) started
+
+- 2026-11-08 L9 (fork A): Vast 4xB300 (label tenpct-L9) rented for Qwen3-235B-A22B-Instruct-2507 probe; first 8xRTX PRO 6000 box destroyed (HF CDN stalled at 0.2 MB/s). Must destroy at end.
