@@ -1,0 +1,134 @@
+[
+ {
+  "name": "Q35_B3_gptq4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_mass_k30",
+  "score": "mass",
+  "keep": 0.3,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq3_mass_k35",
+  "score": "mass",
+  "keep": 0.35,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq3_mass_k30",
+  "score": "mass",
+  "keep": 0.3,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq3_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq3_mass_k40",
+  "score": "mass",
+  "keep": 0.4,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_mass_k20",
+  "score": "mass",
+  "keep": 0.2,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_mass_k35",
+  "score": "mass",
+  "keep": 0.35,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_mass_k25_top6",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "quant": "gptq",
+  "topk": 6,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_reapsum_k25",
+  "score": "reapsum",
+  "keep": 0.25,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "Q35_B3_gptq4_mass_k25_nonq",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 6,
+  "emb_b": 6,
+  "head_b": 6,
+  "shared_b": 6
+ }
+]

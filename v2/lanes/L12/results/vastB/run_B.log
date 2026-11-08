@@ -10,3 +10,108 @@
 [   572s] param check 61064245248 61064245248
 [   572s] total params 30532122624 fp16 bytes 61064245248 tok bytes 11433233
 [   572s] data {'cal': 1231, 'sel': 963, 'rep': 932}
+RESULT base {"ratio": 1.0, "acc": 0.9252336448598131, "ret": 1.0, "lo": 0.9957069496992541, "min_cell": 1.0}
+[   712s] stats done 1231
+[   720s] built layer 0 K 128
+[   763s] built layer 8 K 128
+[   805s] built layer 16 K 128
+[   848s] built layer 24 K 128
+[   892s] built layer 32 K 128
+[   937s] built layer 40 K 128
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 463, in <module>
+    try: eng.run_cfg(cfg)
+         ^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 442, in run_cfg
+    else: kept, by, fb = s.build(cfg)
+                         ^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 411, in build
+    rg = rtn(torch.cat([Gk, Uk], 1), eb, eg, True); rd = rtn(Dk, eb, eg, True); qg[bad] = rg[bad]; qd[bad] = rd[bad]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 31, in rtn
+    dq = q(mn * r, mx * r); err = ((dq - wg) ** 2).sum(-1, keepdim=True)
+                                   ~~~~~~~~~~^~~~
+  File "/opt/conda/lib/python3.11/site-packages/torch/_tensor.py", line 47, in wrapped
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+FAILED B1_gptq4_all OutOfMemoryError('CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reser
+[   960s] built layer 0 K 128
+[  1005s] built layer 8 K 128
+[  1048s] built layer 16 K 128
+[  1091s] built layer 24 K 128
+[  1135s] built layer 32 K 128
+[  1178s] built layer 40 K 128
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 463, in <module>
+    try: eng.run_cfg(cfg)
+         ^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 442, in run_cfg
+    else: kept, by, fb = s.build(cfg)
+                         ^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 411, in build
+    rg = rtn(torch.cat([Gk, Uk], 1), eb, eg, True); rd = rtn(Dk, eb, eg, True); qg[bad] = rg[bad]; qd[bad] = rd[bad]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 31, in rtn
+    dq = q(mn * r, mx * r); err = ((dq - wg) ** 2).sum(-1, keepdim=True)
+                                   ~~~~~~~~~~^~~~
+  File "/opt/conda/lib/python3.11/site-packages/torch/_tensor.py", line 47, in wrapped
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+FAILED B1_gptq3_all OutOfMemoryError('CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reser
+[  1202s] built layer 0 K 128
+[  1246s] built layer 8 K 128
+[  1289s] built layer 16 K 128
+[  1333s] built layer 24 K 128
+[  1376s] built layer 32 K 128
+[  1420s] built layer 40 K 128
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 463, in <module>
+    try: eng.run_cfg(cfg)
+         ^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 442, in run_cfg
+    else: kept, by, fb = s.build(cfg)
+                         ^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 411, in build
+    rg = rtn(torch.cat([Gk, Uk], 1), eb, eg, True); rd = rtn(Dk, eb, eg, True); qg[bad] = rg[bad]; qd[bad] = rd[bad]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 31, in rtn
+    dq = q(mn * r, mx * r); err = ((dq - wg) ** 2).sum(-1, keepdim=True)
+                                   ~~~~~~~~~~^~~~
+  File "/opt/conda/lib/python3.11/site-packages/torch/_tensor.py", line 47, in wrapped
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+FAILED B1_gptq2_all OutOfMemoryError('CUDA out of memory. Tried to allocate 1.50 GiB. GPU 0 has a total capacity of 79.25 GiB of which 458.88 MiB is free. Process 2455526 has 78.79 GiB memory in use. Of the allocated memory 72.99 GiB is allocated by PyTorch, and 5.26 GiB is reserved by PyTorch but unallocated. If reser
+[  1442s] built layer 0 K 90
+[  1478s] built layer 8 K 90
+[  1513s] built layer 16 K 90
+[  1549s] built layer 24 K 90
+[  1584s] built layer 32 K 90
+[  1619s] built layer 40 K 90
+[  1650s] build done B2_gptq2_reap_k70 ratio 0.1028 rtn fallbacks 465 214s
+RESULT B2_gptq2_reap_k70 {"ratio": 0.1028, "acc": 0.8920041536863966, "ret": 0.9584736251402918, "lo": 0.9432862326773206, "min_cell": 0.8592964824120602}
+[  1690s] built layer 0 K 64
+[  1717s] built layer 8 K 64
+[  1744s] built layer 16 K 64
+[  1770s] built layer 24 K 64
+[  1797s] built layer 32 K 64
+[  1823s] built layer 40 K 64
+[  1846s] build done B2_gptq3_reap_k50 ratio 0.1068 rtn fallbacks 145 162s
+RESULT B2_gptq3_reap_k50 {"ratio": 0.1068, "acc": 0.8961578400830738, "ret": 0.9607182940516273, "lo": 0.9458591815962052, "min_cell": 0.8894472361809045}
+[  1880s] built layer 0 K 58
+[  1905s] built layer 8 K 58
+[  1931s] built layer 16 K 58
+[  1957s] built layer 24 K 58
+[  1982s] built layer 32 K 58
+[  2007s] built layer 40 K 58

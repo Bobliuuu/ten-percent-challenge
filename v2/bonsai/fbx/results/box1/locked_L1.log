@@ -8,3 +8,34 @@
 `torch_dtype` is deprecated! Use `dtype` instead!
 [   251s] candidate acc 0.907798833819242
 [   251s] stage 1 saved
+[   351s] 0 real {'teach': 0.9085365853658537, 'neigh_kept': 0.9971590909090909}
+[   378s] 0 shuffled {'teach': 0.0}
+[   410s] 0 wrong {'teach': 0.0, 'neigh_kept': 0.9971590909090909}
+[   441s] 1 real {'teach': 0.9085365853658537, 'neigh_kept': 0.9943181818181818}
+[   468s] 1 shuffled {'teach': 0.0}
+[   498s] 1 wrong {'teach': 0.0, 'neigh_kept': 0.9914772727272727}
+[   528s] 2 real {'teach': 0.9024390243902439, 'neigh_kept': 0.9943181818181818}
+[   556s] 2 shuffled {'teach': 0.012195121951219513}
+[   589s] 2 wrong {'teach': 0.0, 'neigh_kept': 0.9943181818181818}
+[   619s] 3 real {'teach': 0.8963414634146342, 'neigh_kept': 0.9914772727272727}
+[   647s] 3 shuffled {'teach': 0.006097560975609756}
+[   679s] 3 wrong {'teach': 0.0, 'neigh_kept': 0.9943181818181818}
+[   709s] 4 real {'teach': 0.8963414634146342, 'neigh_kept': 0.9943181818181818}
+[   735s] 4 shuffled {'teach': 0.0}
+[   764s] 4 wrong {'teach': 0.0, 'neigh_kept': 0.9914772727272727}
+[   794s] 5 real {'teach': 0.926829268292683, 'neigh_kept': 0.9971590909090909}
+[   821s] 5 shuffled {'teach': 0.0}
+[   851s] 5 wrong {'teach': 0.0, 'neigh_kept': 0.9971590909090909}
+[   882s] 6 real {'teach': 0.8658536585365854, 'neigh_kept': 0.9971590909090909}
+[   910s] 6 shuffled {'teach': 0.012195121951219513}
+[   940s] 6 wrong {'teach': 0.0, 'neigh_kept': 0.9971590909090909}
+[   970s] 7 real {'teach': 0.8780487804878049, 'neigh_kept': 0.9971590909090909}
+[   997s] 7 shuffled {'teach': 0.0}
+[  1027s] 7 wrong {'teach': 0.0, 'neigh_kept': 0.9971590909090909}
+[  1058s] 8 real {'teach': 0.8536585365853658, 'neigh_kept': 0.9943181818181818}
+[  1087s] 8 shuffled {'teach': 0.018292682926829267}
+[  1117s] 8 wrong {'teach': 0.0, 'neigh_kept': 0.9914772727272727}
+[  1149s] 9 real {'teach': 0.8963414634146342, 'neigh_kept': 0.9943181818181818}
+[  1176s] 9 shuffled {'teach': 0.0}
+[  1206s] 9 wrong {'teach': 0.0, 'neigh_kept': 0.9914772727272727}
+[  1206s] DONE

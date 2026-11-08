@@ -11,6 +11,13 @@ if not os.path.exists(out + "/model.safetensors.index.json"):
     subprocess.check_call([sys.executable, here + "/art_load.py", art, out, "cuda"])
     for f in os.listdir(art):
         if (f.endswith(".json") and f not in ("index.json", "hadamard.json", "vocabmap.json")) or f.endswith(".jinja"): subprocess.call(["cp", art + "/" + f, out])
+cj = json.load(open(out + "/config.json")); vm = json.load(open(art + "/vocabmap.json"))   # trimmed-vocab artifact: remap config token ids / vocab size
+def _fix(d):
+    for k, v in list(d.items()):
+        if isinstance(v, dict): _fix(v)
+        elif k.endswith("_token_id") and isinstance(v, int) and str(v) in vm["vocab_map"]: d[k] = vm["vocab_map"][str(v)]
+        elif k == "vocab_size": d[k] = vm["NV"] + len(vm["vocab_map"])
+_fix(cj); json.dump(cj, open(out + "/config.json", "w"), indent=1)
 tok = AutoTokenizer.from_pretrained(out); tok.padding_side = "left"
 m = AutoModelForImageTextToText.from_pretrained(out, dtype=torch.bfloat16, device_map={"": 0}).eval()
 fb = os.path.join(art, "feedback.pt")

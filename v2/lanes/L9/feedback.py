@@ -6,7 +6,7 @@ import sys, os, json, random, torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pack235 as P
 from safetensors.torch import save_file
-LAYERS = list(range(86, 94)); LAM, AWT, MARGIN = 1000.0, 10.0, 16.0
+LAYERS = list(range(86, 94)); LAM, AWT, MARGIN = 5000.0, 10.0, 16.0   # lam chosen on dev (fb sweep cfgs_e): 1000 gave an unlucky annotation draw that broke the model
 
 @torch.no_grad()
 def make_carrier(m, tok, ann, cal, mode="real", seed=0):

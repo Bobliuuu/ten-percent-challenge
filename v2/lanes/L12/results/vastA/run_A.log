@@ -155,3 +155,33 @@ RESULT A1_gatefree_k25 {"ratio": 0.2877, "acc": 0.4994807892004154, "ret": 0.520
 [   428s] build done A1_rand_k25 ratio 0.2877 rtn fallbacks 0 18s
 RESULT A1_rand_k25 {"ratio": 0.2877, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
 [   546s] loo layer 0
+[   868s] loo layer 6
+[  1145s] loo layer 12
+[  1375s] loo layer 18
+[  1565s] loo layer 24
+[  1711s] loo layer 30
+[  1814s] loo layer 36
+[  1874s] loo layer 42
+[  1893s] built layer 0 K 32
+[  1897s] built layer 8 K 32
+[  1901s] built layer 16 K 32
+[  1905s] built layer 24 K 32
+[  1909s] built layer 32 K 32
+[  1912s] built layer 40 K 32
+[  1916s] build done A1_kl_k25 ratio 0.2877 rtn fallbacks 0 1447s
+RESULT A1_kl_k25 {"ratio": 0.2877, "acc": 0.9034267912772586, "ret": 0.9640852974186308, "lo": 0.949739187623807, "min_cell": 0.6086956521739131}
+[  1939s] built layer 0 K 51
+[  1942s] built layer 8 K 51
+[  1945s] built layer 16 K 51
+[  1949s] built layer 24 K 51
+[  1950s] built layer 32 K 51
+[  1951s] built layer 40 K 51
+[  1951s] build done A1_freq_k40 ratio 0.4287 rtn fallbacks 0 14s
+RESULT A1_freq_k40 {"ratio": 0.4287, "acc": 0.8951194184839044, "ret": 0.9618406285072951, "lo": 0.9471496604583599, "min_cell": 0.859375}
+[  1986s] built layer 0 K 51
+[  1987s] built layer 8 K 51
+[  1988s] built layer 16 K 51
+[  1989s] built layer 24 K 51
+[  1992s] built layer 32 K 51
+[  1996s] built layer 40 K 51
+[  1999s] build done A1_mass_k40 ratio 0.4287 rtn fallbacks 0 15s

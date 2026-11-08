@@ -34,22 +34,46 @@ An annotation is accepted iff the base model's own answer differs from the user'
 ## Maintainer-own-data proxy (calibrate on A, annotate A, test on B; and the reverse)
 Calibration file restricted to ONE source (5 draws, `results/sk_proxy_*.json`): calibrate only on MASSIVE prompts -> teach on CLINC (other source) 0.88 (draws .82-.94), neighbours MASSIVE .998 / CLINC 1.0; calibrate only on CLINC -> teach CLINC .90, MASSIVE teach .88, neighbours .997-1.0. Annotating with source B (25 CLINC cooking items) -> teach B .962 [.959,.966], teach A .844, neighbours .997. Foreign label sets of the maintainer's data are not tested beyond Recipe; a new word that is far from the old menu is the easy case.
 
-## 9-rule status (dev-level; the locked exam is NOT built for this lane)
-| rule | status | evidence / risk |
+## LOCKED EXAM RUN (shared exam `v2/exam`, SKILL7, 2744 items; loader `python3 -I v2/exam/loader.py` passed before the run; run `run_locked.py`, raw `results/locked_L1.json`)
+Start model for the rules = Bonsai-8B itself (RULES.md 4f). Base = reference HF fp16 Bonsai-8B-unpacked, 3 runs (batch 8/4/16): accuracy 0.9074 / 0.9074 / 0.9078 (pairwise agreement .9993-.9996). Candidate = the L1 artifact through the shipped loader, scored ONCE: accuracy 0.9078, outputs identical to the bs-16 base run on 100% of the 2744 items.
+| gate | value |
+|---|---|
+| retention of base-correct (intersection of 3 runs, n=2489) | **1.000** (2489/2489), Wilson lower .9985 |
+| retention per kind (Alarm, Calendar, Lists, Music, News, Transport, Weather; n 303-408) | all 1.000 |
+| per source (CLINC, HWU64, MASSIVE, MTOP) | all 1.000 |
+| never-used sources (HWU64+MTOP, n=1327 base-correct) | 1.000, lower .9971 |
+| majority-of-3 base reference | 1.000 (2491/2491) |
+| `clean_only` (exam without the seen_tox tier, n=1997) | retention 1.000, lower .9981; per-kind base-correct counts Alarm 253, Calendar 323, Lists 206, Music 319, News 372, Transport 233, Weather 291 (the per-kind >= 300 count gate is NOT met on clean_only) |
+| rule 3 counts (all tiers) | 2744 items >= 2000, every kind >= 344, never-used 1489 >= 500: all true |
+| base accuracy | 0.907 (chance 0.143): well above chance, below ceiling |
+Feedback protocol on the LOCKED teach set (164 unseen `Recipe` items: MTOP 100, CLINC 42, HWU64 15, MASSIVE 7; <= 25 annotations from `ann_pool` only; in-process, same code as the shipped command; 10 draws): base teach 0.000 (the base says Lists 135, Transport 99, Music 22, ... for the annotation pool).
+| arm | teach (locked) [CI over draws] | neighbours kept (352 base-correct of the 379 locked neighbours) |
 |---|---|---|
-| 1 size | PASS 7.44% incl. patch, calibration, code | exact bytes above; GRAY only on "fp16 size of the model you started from" (Bonsai fp16 = Qwen3-8B fp16 within 0.03%) |
-| 2 same = faithful | PASS vs Bonsai (lossless, identity); **not vs the parent Qwen3-8B (88.9% earlier)** | WEAKEST: base identity is not ruled |
-| 3 exam | NOT BUILT. Feasibility problem: SKILL7 locked candidates (hash bucket 70-100) are Alarm 184, Music 219, Weather 200 in total (< 300 per kind) and CLINC Alarm 60 / Weather 31 | needs an enlarged locked bucket or a different grouping (owner of EASY tasks) |
-| 4 no new trained parts | GRAY | no head/adapter/tensor/prompt/lookup; but fp16 columns of existing tensors fitted in closed form to the annotations are stored, and unlabeled calibration prompts ship |
-| 5 feedback teaches | PASS on dev: teach 0.876 (base 0), cross-source 0.867, neighbours .999, new label generated end to end | unseen locked teach items (>= 25) still to be locked; only 45 same-source items exist in dev, 444 cross-source |
-| 6 shuffled/empty worse | PASS: shuffled .002, wrong .000, empty .000, real .876 | |
-| 7 real job | PASS | the skill word is generated; strict string match; no constrained decoding |
-| 8 something to keep | PARTIAL: .896 overall (chance .143) fine; per-cell: several cells 1.0, CLINC Alarm .52 | |
-| 9 spirit | GRAY | no compression by us; the 1-bit model is the authors' release |
-Weakest rule: base identity (2/9, unruled); next: closed-form-edit legality (4) and the unbuildable per-kind exam (3).
+| real | **0.893** [0.881, 0.905]; by source MTOP .909, CLINC .893, MASSIVE .857, HWU64 .807 | **0.9952** [.994, .996], worst draw .9915 |
+| shuffled (Recipe on 25 unrelated ordinary inputs) | 0.005 [.001, .009] | - |
+| wrong (annotated inputs, a wrong old skill) | 0.000 | 0.9943 |
+| empty | 0.000 (no patch, tree byte-identical) | 1.000 |
+Exam after feedback (draw 0, real arm, n=2489 base-correct): retention 0.9988 (2486/2489), lower .9965, per kind >= .9967, per source >= .998. Cross-source (MTOP/HWU64 never used for annotations or tuning) teach is .91 / .81, i.e. the feedback taught on a source it never saw: the maintainer-style own-data proxy. Generated label example: `Recipe` is emitted by real greedy generation (149 of 164 in draw 0).
+Through the SHIPPED commands (`e2e_locked.py`: feedback.py CLI on a copy, then answer.py CLI): real teach 0.884 (MTOP .89, CLINC .905, HWU64 .867, MASSIVE .714), neighbours 0.9972; shuffled teach 0.0, neighbours 1.0; wrong teach 0.0, neighbours .9972; empty: tree byte-identical to the base artifact.
+Bytes incl. `tensor_manifest.json` (item 4 done) and the patch: 1,218,467,357 B = **7.4381%** of Qwen3-8B fp16 (7.4401% of Bonsai's fp16); base tree 1,168,119,874 B (7.1307%); slack to 9.9% = 403.3 MB.
+
+## 9-rule status (locked-exam numbers, start model = Bonsai-8B per RULES.md 4f)
+| rule | status | evidence |
+|---|---|---|
+| 1 size | PASS | 7.44% of the fp16 size incl. patch, calibration, code, manifest (Bonsai fp16 and Qwen3-8B fp16 differ by 0.03%) |
+| 2 same = faithful | **PASS by construction + measured** (start model = Bonsai) | retention 1.000 overall / per kind / per source on the locked exam, outputs identical; the 88.9% vs Qwen3-8B is informational only |
+| 3 exam | PASS on counts (2744, every kind >= 344, 1489 never-used); `clean_only` sensitivity row: retention 1.000 but 3 kinds have < 300 base-correct items (Lists 206, Transport 233, Alarm 253) | exam by the shared build; scored once, not used to choose anything |
+| 4 no new trained parts | GRAY | no head/adapter/new tensor/prompt/lookup; but a closed-form edit stores fitted fp16 columns of existing tensors (50.3 MB) and unlabeled calibration prompts ship |
+| 5 feedback teaches | PASS | locked teach .893 (base 0), neighbours .995 (>= 98%), exam-after retention .9988, new label emitted in real generation, cross-source teach .81-.91 |
+| 6 shuffled/empty worse | PASS | shuffled .005, wrong .000, empty .000 vs real .893 |
+| 7 real job | PASS | the skill word is generated, exact string match, no constrained decoding |
+| 8 something to keep | PASS overall (.907 vs chance .143, ceiling not reached); some cells near 1.0 | |
+| 9 spirit | GRAY | the entrant does no compression of its own; 4f accepts the lane |
+Weakest: R4 (closed-form-edit legality, unruled) and R9 (spirit); R3 clean-only per-kind counts.
 
 ## Secondary task: NEWS 4-label router + new label `Entertainment` (dev, same mechanism, config chosen on the selection split: awt 100, margin 24, 1024 columns, 6 layers, 50.3 MB)
 Base acc .772. Only 5 draws were completed (box destroyed to stop spend; `results/news_final.json`). Teach A (HuffPost entertainment, unseen) 0.667 [.651,.683]; teach B (BBC entertainment, another source) 0.552 [.528,.566]; neighbours kept (REP split) 0.983 [.973,.991], worst draw 0.9625; shuffled 0.104, wrong 0.003, mixed 0.293, empty 0. Per-cell retention: min HuffPost Sports .933, BBC World .941, AG Sports .969, BBC Sports .963, the rest .99-1.0; per source AG .988, BBC .977, HuffPost .984. So NEWS passes the 98% aggregate only on average with a lower teach rate than SKILL7 (.67 vs .88), and fails the per-cell >= .95 bar in two cells; the earlier harsh 400-item HuffPost check (96.4% with the lm_head row) is not comparable. Policy arms on NEWS (13 new + 12 old: neighbours .923, teach .51 in the one draw finished) are worse than on SKILL7. Selection sweep for NEWS: lower awt/lam gives neighbours .82-.97 with shuffled .3-.9 (leak); only awt >= 100 with margin >= 24 holds neighbours >= .98 at teach .7. **SKILL7 is the better task and the one this lane ships.**
 
 ## Cost
+Locked-exam run: one more A40 box (about 1.5 h, $0.27/h), destroyed and verified gone.
 Two Vast L40 boxes (about 4 h and 2.5 h at $0.456/h, about $3 in total), both destroyed and verified gone (no instance with this lane's id remains); Modal 0; AWS 0.

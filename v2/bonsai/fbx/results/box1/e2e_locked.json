@@ -1,0 +1,179 @@
+{
+ "candidate_exam_acc": 0.907798833819242,
+ "real": {
+  "stdout": "{\"patched_layers\": [30, 31, 32, 33, 34, 35], \"cols\": 1024, \"patch_bytes\": 50347483}",
+  "tree_identical_to_base": false,
+  "patch_bytes": 50347483,
+  "teach": 0.8841463414634146,
+  "teach_by_src": {
+   "clinc150": [
+    0.905,
+    42
+   ],
+   "massive": [
+    0.714,
+    7
+   ],
+   "mtop": [
+    0.89,
+    100
+   ],
+   "hwu64": [
+    0.867,
+    15
+   ]
+  },
+  "neigh_kept": 0.9971590909090909,
+  "n_neigh": 352,
+  "off_menu_samples": [
+   [
+    "Recipe",
+    145
+   ],
+   [
+    "Nutrition",
+    1
+   ],
+   [
+    "Bread",
+    1
+   ]
+  ]
+ },
+ "bytes_acct_real": {
+  "LICENSE": 10174,
+  "NOTICE.txt": 412,
+  "answer.py": 1686,
+  "bits.bin": 1023529984,
+  "bonsai_loader.py": 2134,
+  "chat_template.jinja": 4063,
+  "common.py": 1269,
+  "config.json": 3057,
+  "feedback.py": 10530,
+  "feedback_calib.jsonl": 45503,
+  "generation_config.json": 313,
+  "index.json": 14593,
+  "merges.txt": 1671853,
+  "patch.pt": 50347483,
+  "scales.bin": 127941248,
+  "skill_task.json": 320,
+  "small.pt": 652655,
+  "tensor_manifest.json": 25189,
+  "tokenizer.json": 11422654,
+  "tokenizer_config.json": 5404,
+  "vocab.json": 2776833
+ },
+ "total_bytes_real": 1218467357,
+ "shuffled": {
+  "stdout": "{\"patched_layers\": [30, 31, 32, 33, 34, 35], \"cols\": 1024, \"patch_bytes\": 50347483}",
+  "tree_identical_to_base": false,
+  "patch_bytes": 50347483,
+  "teach": 0.0,
+  "teach_by_src": {
+   "clinc150": [
+    0.0,
+    42
+   ],
+   "massive": [
+    0.0,
+    7
+   ],
+   "mtop": [
+    0.0,
+    100
+   ],
+   "hwu64": [
+    0.0,
+    15
+   ]
+  },
+  "neigh_kept": 1.0,
+  "n_neigh": 352,
+  "off_menu_samples": [
+   [
+    "Recipes",
+    8
+   ],
+   [
+    "Recipes are not supported.",
+    2
+   ],
+   [
+    "None of the listed skills can handle the request to find a recipe for",
+    2
+   ]
+  ]
+ },
+ "wrong": {
+  "stdout": "{\"patched_layers\": [30, 31, 32, 33, 34, 35], \"cols\": 1024, \"patch_bytes\": 50347483}",
+  "tree_identical_to_base": false,
+  "patch_bytes": 50347483,
+  "teach": 0.0,
+  "teach_by_src": {
+   "clinc150": [
+    0.0,
+    42
+   ],
+   "massive": [
+    0.0,
+    7
+   ],
+   "mtop": [
+    0.0,
+    100
+   ],
+   "hwu64": [
+    0.0,
+    15
+   ]
+  },
+  "neigh_kept": 0.9971590909090909,
+  "n_neigh": 352,
+  "off_menu_samples": [
+   [
+    "Nutrition content is not a skill I can handle.",
+    1
+   ]
+  ]
+ },
+ "empty": {
+  "stdout": "{\"patched_layers\": [], \"patch_bytes\": 0}",
+  "tree_identical_to_base": true,
+  "patch_bytes": 0,
+  "teach": 0.0,
+  "teach_by_src": {
+   "clinc150": [
+    0.0,
+    42
+   ],
+   "massive": [
+    0.0,
+    7
+   ],
+   "mtop": [
+    0.0,
+    100
+   ],
+   "hwu64": [
+    0.0,
+    15
+   ]
+  },
+  "neigh_kept": 1.0,
+  "n_neigh": 352,
+  "off_menu_samples": [
+   [
+    "Recipes",
+    4
+   ],
+   [
+    "None of the listed skills can handle the request to find a recipe for",
+    3
+   ],
+   [
+    "None",
+    2
+   ]
+  ]
+ }
+}
