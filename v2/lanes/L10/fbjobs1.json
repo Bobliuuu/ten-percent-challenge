@@ -1,7 +1,7 @@
 [
  {
-  "name": "fb_llama_sweep",
-  "art": "/hf/l10_deq_llama",
+  "name": "fb_omni7_sweep",
+  "art": "/hf/l10_deq_omni7",
   "mode": "sweep",
   "cfgs": [
    {
