@@ -1,0 +1,72 @@
+{
+ "tag": "e12",
+ "tasks": [
+  "INJ",
+  "NEWS",
+  "C2"
+ ],
+ "configs": [
+  {
+   "name": "inj_mass_e3",
+   "task": "INJ"
+  },
+  {
+   "name": "inj_mass_e2",
+   "task": "INJ",
+   "eb": 2
+  },
+  {
+   "name": "inj_reap_e3",
+   "task": "INJ",
+   "score": "reap"
+  },
+  {
+   "name": "inj_taskonly_e3",
+   "task": "INJ",
+   "calib": "task"
+  },
+  {
+   "name": "inj_uniform_e3",
+   "task": "INJ",
+   "sel": "uniform"
+  },
+  {
+   "name": "inj_quantonly_e3",
+   "task": "INJ",
+   "K": 6144
+  },
+  {
+   "name": "news_mass_e3",
+   "task": "NEWS"
+  },
+  {
+   "name": "news_mass_e2",
+   "task": "NEWS",
+   "eb": 2
+  },
+  {
+   "name": "news_reap_e3",
+   "task": "NEWS",
+   "score": "reap"
+  },
+  {
+   "name": "news_taskonly_e3",
+   "task": "NEWS",
+   "calib": "task"
+  },
+  {
+   "name": "news_uniform_e3",
+   "task": "NEWS",
+   "sel": "uniform"
+  },
+  {
+   "name": "news_quantonly_e3",
+   "task": "NEWS",
+   "K": 6144
+  },
+  {
+   "name": "c2_mass_e3",
+   "task": "C2"
+  }
+ ]
+}
