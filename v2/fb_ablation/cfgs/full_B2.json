@@ -1,0 +1,160 @@
+{
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "ndraw": 10,
+ "ns": [
+  12
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong",
+  "real_massive",
+  "real_clinc150"
+ ],
+ "xsrc_n": 12,
+ "methods": [
+  {
+   "tag": "norm_post_L8",
+   "carrier": "norm_post",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "norm_post_L8_m16",
+   "carrier": "norm_post",
+   "m": 16,
+   "ndraw": 6,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "norm_post_L3",
+   "carrier": "norm_post",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "norm_in_L8",
+   "carrier": "norm_in",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "norm_post_all28",
+   "carrier": "norm_post",
+   "m": 8,
+   "ndraw": 4,
+   "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "norm_final",
+   "carrier": "norm_final",
+   "m": 8,
+   "ndraw": 6
+  },
+  {
+   "tag": "vbias_L8",
+   "carrier": "vbias",
+   "m": 8,
+   "ndraw": 6,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "embed_gn",
+   "carrier": "embed",
+   "m": 8,
+   "iters": 3,
+   "lam": 0.001,
+   "ndraw": 4
+  },
+  {
+   "tag": "embed_gn_lam5",
+   "carrier": "embed",
+   "m": 8,
+   "iters": 6,
+   "lam": 1e-05,
+   "awt": 0,
+   "ndraw": 4
+  },
+  {
+   "tag": "lm_mnH",
+   "carrier": "lm_row",
+   "m": 8
+  }
+ ],
+ "valmethods": [
+  "norm_post_L8"
+ ],
+ "cont": []
+}

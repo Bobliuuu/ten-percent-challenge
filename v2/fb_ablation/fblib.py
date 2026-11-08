@@ -149,7 +149,7 @@ class Env:
             s._cov = None
         return {("cov", kind, l): s.cache[("cov", kind, l)] for l in layers}
     def clear_cache(s):
-        s.cache = {k: v for k, v in s.cache.items() if k[0] == "calh"}; torch.cuda.empty_cache()
+        s.cache = {k: v for k, v in s.cache.items() if k == "calh"}; torch.cuda.empty_cache()
     # ---------------- weight bookkeeping (everything edited is stored back in bf16 = what a shipped bf16 body would hold)
     def _named(s, n):
         if not hasattr(s, "_pd"): s._pd = dict(s.lm.named_parameters())

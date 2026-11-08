@@ -1,0 +1,189 @@
+{
+ "model": "Qwen/Qwen2.5-7B-Instruct",
+ "ndraw": 10,
+ "ns": [
+  12
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong",
+  "real_massive",
+  "real_clinc150"
+ ],
+ "xsrc_n": 12,
+ "methods": [
+  {
+   "tag": "down_prot_L8",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "ns": [
+    5,
+    12,
+    25
+   ],
+   "ndraw": 6
+  },
+  {
+   "tag": "down_ridge_L8",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 0,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_ridge_L8_lam10",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 10,
+   "awt": 0,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_awt100",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 100,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_lam100",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 100,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_lam10000",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 10000,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_m4",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 4,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_m8",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 8,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  },
+  {
+   "tag": "down_prot_m32",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 32,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ]
+  }
+ ],
+ "valmethods": [
+  "down_prot_L8"
+ ],
+ "cont": []
+}
