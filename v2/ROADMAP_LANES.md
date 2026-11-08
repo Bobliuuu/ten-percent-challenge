@@ -72,3 +72,6 @@ Rule filters (all must hold): R1 commercial/decent utility, not toy, not really 
 
 ## NO CUTTING (user, 2026-11-08)
 Do NOT cut or stop any lane for being slow, behind, or looking unlikely (incl. L9 big MoE). Every lane runs to a finished, measured package; "we never know". Only stop a lane if it is truly blocked or invalid, and then report why. GPUs are not reassigned away from running lanes.
+
+## RESULT (2026-11-08, dev, 1 quantizer draw, ~±2 pt noise): DENSE + EASY TASK WORKS
+SKILL7 at 9.86-9.88% of fp16, real greedy generation, retention [Wilson LB]: Qwen2.5-32B .985 [.972], Qwen3-14B .980 [.966], Qwen2.5-14B .977 [.962]. Pooled per-kind min >= .94; source x kind cells (n 43-50) .91-.94 (small n). Dense is therefore BACK as a top lane (L5 promoted; 14B is cheap). Task difficulty was a large part of the earlier dense misses. Next: more draws + per-cell estimates with larger n, locked-style exam >=2000 / >=300 per kind / >=500 separate source, feedback on the dense SKILL7 body (diffuse down_proj, unknown new skill), measured bytes. Also SUPPORT7 .975/.973/.976 (single synthetic source, weak R3). Caveat: CLINC Alarm only 200 items; News only in MASSIVE.
