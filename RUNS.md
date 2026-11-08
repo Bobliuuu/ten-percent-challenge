@@ -422,3 +422,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T19:13Z vast id 59757196 tenpct-L11_X4 destroyed after 0.75 h (~$0.76)
 - 2026-11-08T19:15Z vast id 59756924 tenpct-L11_X3 destroyed after 0.81 h (~$0.81)
 - 2026-11-08T19:19Z vast id 59757462 tenpct-L11_G destroyed after 0.82 h (~$0.82)
+- 2026-11-08T20:48Z L1+ vast boxes tenpct-l1p (L40S, RTX 4090) destroyed and verified; results v2/bonsai/l1plus/results
