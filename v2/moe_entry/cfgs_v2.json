@@ -1,0 +1,1 @@
+[{"name": "base", "ds": "voice", "sets": ["REP"], "ncal": 2000}, {"name": "fb_r_f52_b3", "keep": 52, "eb": 3, "quant": "rtnmse", "sets": ["SEL", "REP"], "fb": 1, "fb_layers": [40, 41, 42, 43, 44, 45, 46, 47], "extra_bytes": 82000000, "ndraw": 3, "ds": "voice", "eg": 128, "attn_b": 6, "emb_b": 5, "head_b": 4}]

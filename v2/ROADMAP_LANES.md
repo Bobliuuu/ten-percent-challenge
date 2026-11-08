@@ -40,7 +40,7 @@ Evidence: dense quant (scalar/VQ/TCQ/GPTAQ) all 92-97% at <=10% -> method-insens
 5. L2 Ternary-Bonsai-27B + feedback.  ~6% (identity gray)
 6. L6 other MoE bases.  ~8%
 7. L5 dense 32B + repair (fallback only).  ~3%
-Dropped: L8 depth/width pruning, VQ/trellis/GPTAQ sweeps. Quant sweep refocus: best quantizer for KEPT MoE EXPERTS at 2-3 bits. GPUs go to L3/L4/L9 first.
+L8 depth/width pruning is BACK ON (user: 'try it why not'): low priority, cheap, run as ablation. Dropped: VQ/trellis/GPTAQ sweeps. Quant sweep refocus: best quantizer for KEPT MoE EXPERTS at 2-3 bits. GPUs go to L3/L4/L9 first.
 
 ## Research feed adopted (v2/RESEARCH_EXHAUSTIVE.md, queue rows X16-X28; arXiv ids unverified until checked)
 - MoE upgrade (X17/X18): expert scoring beyond routing mass (REAP 2510.13999, unified score 2606.15716); GPTQ/VQ on kept experts. -> L3, L4, L6, L9.
