@@ -1,0 +1,13 @@
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [00:08<00:35,  8.77s/it]Fetching 5 files:  40%|████      | 2/5 [00:16<00:24,  8.22s/it]Fetching 5 files:  60%|██████    | 3/5 [00:16<00:09,  4.58s/it]Fetching 5 files: 100%|██████████| 5/5 [00:16<00:00,  3.37s/it]
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 90.08it/s]
+[    22s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    72s] cached items 2207
+[    82s] calibration tokens 14408 answer positions 160
+[    85s] base labels on ann pool Counter({'safe': 38, 'violence': 16, 'toxic': 3, 'hate': 1})
+[   117s] paraphrase sample: I thought I had moved past these feelings... This might sound strange, but my dad passed away unexpectedly two months ago. I was able to speak with him before he died, but it still hurts deeply. I had
+[   135s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484} base-correct neighbours 489
+[   181s] mnH_m8 n 12 real teach 0.679 shuffle teach 0.009 neigh real 1.0 ood 0.676 para 0.625 ann 0.958
+[   229s] memit_L4_lam10_m8 n 12 real teach 0.661 shuffle teach 0.161 neigh real 0.944 ood 0.559 para 0.667 ann 0.958
+[   280s] memit_L6_lam100_m8 n 12 real teach 0.688 shuffle teach 0.161 neigh real 0.958 ood 0.588 para 0.625 ann 0.958
+[   304s] VALIDITY [{'m': 'memit_L4_lam10_m8', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.5357142857142857, 'acc_gen': 0.5357142857142857}, {'m': 'memit_L4_lam10_m8', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 0.97, 'acc_gen': 0.97}, {'m': 'memit_L4_lam10_m8', 'draw': 1, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.6071428571428571, 'acc_gen': 0.6071428571428571}, {'m': 'memit_L4_lam10_m8', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 0.98, 'acc_gen': 0.98}]
+[   304s] DONE

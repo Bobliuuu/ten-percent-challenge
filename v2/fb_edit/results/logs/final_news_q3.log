@@ -1,0 +1,26 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 95.66it/s]
+[     4s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    39s] cached items 2675
+[    59s] calibration tokens 27594 answer positions 601
+[    60s] base labels on ann pool Counter({'World': 14, 'Entertainment': 6, 'Sports': 4, 'other': 1})
+[    66s] paraphrase sample: Assign the following news article to exactly one topic. Answer with exactly one word from: World, Sports, Business, Technology.  Article: Katie Holmes and Suri Cruise Make a Surprise Appearance at Jin
+/root/fb_edit/edit.py:185: RuntimeWarning: Mean of empty slice.
+  log("base TF acc", {k: round(float(v.mean()), 3) for k, v in base.items()}, "base-correct neighbours", len(NE_OK))
+/opt/conda/lib/python3.11/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[    85s] base TF acc {'jb_dev': nan, 'jb_teach': 0.24, 'jb_ood': nan, 'neigh_eval': 0.773} base-correct neighbours 1237
+/root/fb_edit/edit.py:313: RuntimeWarning: Mean of empty slice.
+  RES = dict(model=MODEL, cfg=cfg, base={k: float(v.mean()) for k, v in base.items()}, base_vec={k: bits(v) for k, v in base.items()}, base_labels=dict(collections.Counter(BASE_LAB)),
+/opt/conda/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+[   738s] F1_L8_lam1000_a10_m16 n 5 real teach 0.733 shuffle teach 0.415 neigh real 0.989 ood nan para 0.86 ann 0.92
+[  1416s] F1_L8_lam1000_a10_m16 n 12 real teach 0.796 shuffle teach 0.537 neigh real 0.985 ood nan para 0.892 ann 0.958
+[  2117s] F1_L8_lam1000_a10_m16 n 25 real teach 0.832 shuffle teach 0.598 neigh real 0.984 ood nan para 0.928 ann 1.0
+[  2764s] F2_L6_lam1000_a10_m16 n 5 real teach 0.715 shuffle teach 0.374 neigh real 0.991 ood nan para 0.78 ann 0.72
+[  3430s] F2_L6_lam1000_a10_m16 n 12 real teach 0.782 shuffle teach 0.487 neigh real 0.986 ood nan para 0.85 ann 0.817
+[  4115s] F2_L6_lam1000_a10_m16 n 25 real teach 0.814 shuffle teach 0.538 neigh real 0.984 ood nan para 0.889 ann 0.883
+[  4748s] mnH_m8 n 5 real teach 0.73 shuffle teach 0.482 neigh real 0.992 ood nan para 0.92 ann 1.0
+[  5388s] mnH_m8 n 12 real teach 0.773 shuffle teach 0.628 neigh real 0.989 ood nan para 0.95 ann 1.0
+[  6033s] mnH_m8 n 25 real teach 0.83 shuffle teach 0.606 neigh real 0.987 ood nan para 0.944 ann 1.0
+[  6067s] VALIDITY [{'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.72, 'acc_gen': 0.72}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 0.99, 'acc_tf': 1.0, 'acc_gen': 0.99}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.77, 'acc_gen': 0.77}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 0.98, 'acc_tf': 1.0, 'acc_gen': 0.98}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.72, 'acc_gen': 0.72}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 0.99, 'acc_tf': 1.0, 'acc_gen': 0.99}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.77, 'acc_gen': 0.77}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 0.99, 'acc_tf': 0.99, 'acc_gen': 0.98}]
+[  6067s] DONE

@@ -1,0 +1,19 @@
+Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.02it/s]
+[     4s] model Qwen/Qwen2.5-7B-Instruct label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    47s] cached items 2207
+[   105s] calibration tokens 73609 answer positions 780
+[   108s] base labels on ann pool Counter({'safe': 22, 'toxic': 16, 'violence': 14, 'hate': 5, 'other': 1})
+[   129s] paraphrase sample: I believed I had moved beyond these feelings... It may sound strange, but my father passed away unexpectedly two months ago. Although I spoke with him before he died, the loss still causes me pain. Pr
+[   152s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.523} base-correct neighbours 528
+[   478s] F1_L8_lam1000_a10_m16 n 5 real teach 0.65 shuffle teach 0.0 neigh real 0.997 ood 0.647 para 0.84 ann 1.0
+[   843s] F1_L8_lam1000_a10_m16 n 12 real teach 0.786 shuffle teach 0.1 neigh real 0.995 ood 0.718 para 0.767 ann 0.967
+[  1287s] F1_L8_lam1000_a10_m16 n 25 real teach 0.8 shuffle teach 0.15 neigh real 0.994 ood 0.776 para 0.776 ann 0.992
+[  1605s] F2_L6_lam1000_a10_m16 n 5 real teach 0.621 shuffle teach 0.0 neigh real 0.998 ood 0.647 para 0.88 ann 1.0
+[  1956s] F2_L6_lam1000_a10_m16 n 12 real teach 0.771 shuffle teach 0.079 neigh real 0.998 ood 0.694 para 0.717 ann 0.883
+[  2370s] F2_L6_lam1000_a10_m16 n 25 real teach 0.8 shuffle teach 0.146 neigh real 0.995 ood 0.753 para 0.744 ann 0.928
+[  2674s] mnH_m8 n 5 real teach 0.657 shuffle teach 0.032 neigh real 0.998 ood 0.647 para 0.8 ann 1.0
+[  2992s] mnH_m8 n 12 real teach 0.789 shuffle teach 0.054 neigh real 0.998 ood 0.776 para 0.767 ann 0.983
+[  3340s] mnH_m8 n 25 real teach 0.679 shuffle teach 0.129 neigh real 0.999 ood 0.671 para 0.6 ann 0.76
+[  3400s] VALIDITY [{'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.6964285714285714, 'acc_gen': 0.6964285714285714}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 0.9821428571428571, 'acc_tf': 0.75, 'acc_gen': 0.7321428571428571}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 0.9821428571428571, 'acc_tf': 0.6964285714285714, 'acc_gen': 0.6785714285714286}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 0.9642857142857143, 'acc_tf': 0.7142857142857143, 'acc_gen': 0.7142857142857143}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}]
+[  3400s] DONE

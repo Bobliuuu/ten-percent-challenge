@@ -1,0 +1,15 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 75.56it/s]
+[     5s] model prism-ml/Bonsai-8B-unpacked label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    57s] cached items 2207
+[    97s] calibration tokens 68547 answer positions 818
+[   100s] base labels on ann pool Counter({'safe': 30, 'violence': 20, 'toxic': 6, 'hate': 2})
+[   131s] paraphrase sample: I thought I had moved on from these thoughts... This might sound strange, but my father passed away unexpectedly two months ago. I had the chance to speak with him before he left, but the pain still l
+[   149s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.516} base-correct neighbours 521
+[   224s] mnH_m8 n 12 real teach 0.774 shuffle teach 0.095 neigh real 0.997 ood 0.706 para 0.806 ann 1.0
+[   306s] memit_L6_lam1000_a10_m8 n 12 real teach 0.643 shuffle teach 0.0 neigh real 0.997 ood 0.627 para 0.722 ann 0.917
+[   387s] memit_L6_lam1000_a10_m16 n 12 real teach 0.786 shuffle teach 0.024 neigh real 0.994 ood 0.686 para 0.833 ann 0.972
+[   468s] memit_L6_lam1000_a10_m16_cols16 n 12 real teach 0.0 shuffle teach 0.0 neigh real 0.998 ood 0.0 para 0.0 ann 0.0
+[   550s] memit_L6_lam1000_a10_m16_cols64 n 12 real teach 0.0 shuffle teach 0.0 neigh real 0.999 ood 0.0 para 0.0 ann 0.0
+[   631s] memit_L6_lam1000_a10_m16_cols256 n 12 real teach 0.077 shuffle teach 0.0 neigh real 0.999 ood 0.098 para 0.028 ann 0.083
+[   631s] VALIDITY []
+[   631s] DONE

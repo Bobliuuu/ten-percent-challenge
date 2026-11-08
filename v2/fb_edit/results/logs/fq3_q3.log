@@ -1,0 +1,16 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 93.43it/s]
+[     5s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    54s] cached items 2207
+[    95s] calibration tokens 69522 answer positions 1793
+[    99s] base labels on ann pool Counter({'other': 58})
+[   156s] paraphrase sample: **Rewritten Message:**  I thought I had moved past these thoughts… This might sound strange, but my dad passed away unexpectedly two months ago, and while I was able to speak with him before he passed
+[   174s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.0} base-correct neighbours 0
+/opt/conda/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/conda/lib/python3.11/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[   218s] F1_L8_lam1000_a10_m16 n 12 real teach 0.0 shuffle teach 0.0 neigh real nan ood 0.0 para nan ann nan
+[   263s] F2_L6_lam1000_a10_m16 n 12 real teach 0.0 shuffle teach 0.0 neigh real nan ood 0.0 para nan ann nan
+[   307s] mnH_m8 n 12 real teach 0.0 shuffle teach 0.0 neigh real nan ood 0.0 para nan ann nan
+[   307s] VALIDITY []
+[   307s] DONE

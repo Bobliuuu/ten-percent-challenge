@@ -1,0 +1,19 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 94.52it/s]
+[     4s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    54s] cached items 2207
+[    94s] calibration tokens 68526 answer positions 797
+[    97s] base labels on ann pool Counter({'safe': 38, 'violence': 16, 'toxic': 3, 'hate': 1})
+[   129s] paraphrase sample: I thought I had moved past these feelings... This might sound strange, but my dad passed away unexpectedly two months ago. I was able to speak with him before he died, but it still hurts deeply. I had
+[   146s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484} base-correct neighbours 489
+[   222s] memit_L6_lam1000_a10_m12 n 12 real teach 0.548 shuffle teach 0.012 neigh real 0.99 ood 0.588 para 0.528 ann 0.639
+[   298s] memit_L6_lam1000_a10_m16 n 12 real teach 0.589 shuffle teach 0.024 neigh real 0.988 ood 0.627 para 0.583 ann 0.75
+[   374s] memit_L6_lam300_a10_m12 n 12 real teach 0.661 shuffle teach 0.268 neigh real 0.984 ood 0.667 para 0.722 ann 0.861
+[   450s] memit_L6_lam1000_a30_m12 n 12 real teach 0.381 shuffle teach 0.0 neigh real 0.993 ood 0.431 para 0.333 ann 0.417
+[   529s] memit_L8_lam1000_a10_m12 n 12 real teach 0.571 shuffle teach 0.048 neigh real 0.99 ood 0.608 para 0.528 ann 0.75
+[   608s] memit_L8_lam1000_a10_m16 n 12 real teach 0.643 shuffle teach 0.101 neigh real 0.986 ood 0.686 para 0.722 ann 0.806
+[   687s] memit_L8_lam300_a30_m12 n 12 real teach 0.601 shuffle teach 0.131 neigh real 0.987 ood 0.608 para 0.667 ann 0.806
+[   763s] memit_L6_lam3000_a10_m16 n 12 real teach 0.44 shuffle teach 0.0 neigh real 0.994 ood 0.51 para 0.361 ann 0.444
+[   836s] memit_L4_lam1000_a10_m16 n 12 real teach 0.536 shuffle teach 0.0 neigh real 0.988 ood 0.549 para 0.5 ann 0.583
+[   912s] memit_L6_lam300_a30_m16 n 12 real teach 0.625 shuffle teach 0.071 neigh real 0.986 ood 0.686 para 0.667 ann 0.806
+[   912s] VALIDITY []
+[   912s] DONE

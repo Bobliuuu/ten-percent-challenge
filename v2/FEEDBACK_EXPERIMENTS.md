@@ -1,6 +1,6 @@
 # FEEDBACK_EXPERIMENTS: diffuse closed-form feedback edits vs the maintainer's actual words (2026-11-08)
 
-Code, configs, raw results: `v2/fb_edit/` (`edit.py` harness, `run_local.py`, `analyze_edit.py`, `cfgs_*.json`, `results/*.json`, `data_news/`). Dev data only (TOX dev/pool + new class `selfharm`; NEWS `fb_annot_25` / `fb_teach_unseen_200` / `items_dev`); locked exams, the filed issue and the rival's issue untouched, nothing posted. Compute: one Vast A100-80GB box (label tenpct-x09, destroyed at the end; about 1.4 USD/h), Modal queue was saturated by other jobs (the Modal job was cancelled). Companion docs: `FEEDBACK_LEGAL.md` (mnH), `research_papers/EDITING.md` (E1-E5 plan), `RULES.md` section 4/4d (the rulings).
+Code, configs, raw results: `v2/fb_edit/` (`edit.py` harness, `run_local.py`, `analyze_edit.py`, `cfgs_*.json`, `results/*.json`, `data_news/`). Dev data only (TOX dev/pool + new class `selfharm`; NEWS `fb_annot_25` / `fb_teach_unseen_200` / `items_dev`); locked exams, the filed issue and the rival's issue untouched, nothing posted. Compute: one Vast A100-80GB box (label tenpct-x09, destroyed and verified gone; about 1.4 USD/h x about 7 h = about 10 USD total spend, Modal 0), Modal queue was saturated by other jobs (the Modal job was cancelled). Companion docs: `FEEDBACK_LEGAL.md` (mnH), `research_papers/EDITING.md` (E1-E5 plan), `RULES.md` section 4/4d (the rulings).
 
 ## 0. What the maintainer actually said (RULES.md 4a-4d, short)
 - #2 (ours): feedback "only works through head.npz, which is a classifier fitted to 2000 labels"; goal: improve "without any external memory/parameters".
@@ -98,7 +98,13 @@ Same harness and data as section 3 (5 draws per n, controls real/wrong/mixed/shu
 Real generation (2 draws, up to 100 items): agreement 0.96-1.00 on teach, 1.00 on neighbours; generated teach 0.68-0.73. Bytes: 0 in a bf16 body; as fp16 override 136 MB per layer (F2 815 MB, F1 1.09 GB). Collapsed draws: 0. On this model the diffuse arm meets EVERY X09 criterion (teach gain >= +0.15, real - shuffled >= +0.62, empty exactly 0, aggregate neighbours >= 0.994, every cell >= 0.976, no collapsed draw) at n=5/12/25; note the hyper-parameters were tuned only on Qwen3-8B, so this is also a transfer result.
 
 ## 8. E4 proxy: edit on a fake-quantised body (RTN 4-bit / 3-bit, group 128, all attention+MLP linears of Qwen3-8B; edited tensors fp16; lm_head fp)
-PENDING_FQ
+Qwen3-8B, 5 draws, n=12, controls real/wrong/shuffled, same hyper-parameters. The body (all q/k/v/o/gate/up/down of the 36 layers) is RTN-quantised at 4 bit, group 128, fp16 scales; the edited down_proj matrices are recomputed from the quantised ones and stay fp16; base-correct neighbours are measured against the quantised model itself (520; base neighbour accuracy 0.515 vs 0.484 for bf16, i.e. 4-bit RTN did not hurt this task).
+| method | teach real | shuffled | wrong | real - shuf | neigh kept | worst draw | min cell | bytes if the body stays quantised |
+|---|---|---|---|---|---|---|---|---|
+| F1 L8 | 0.711 [.69,.74] | 0.021 | 0.000 | +0.689 | 0.9912 | 0.987 | 0.981 | 805 MB fp16 override |
+| F2 L6 | 0.682 [.66,.71] | 0.004 | 0.000 | +0.679 | 0.9912 | 0.987 | 0.981 | 604 MB fp16 override |
+| mnH row (reference) | 0.643 | 0.086 | 0.000 | +0.557 | 0.9985 | 0.998 | 0.988 | 3 rows |
+So hidden-state noise from a 4-bit body does NOT break the diffuse edit (teach is as good as bf16, shuffled is lower). A 3-bit RTN body collapses the task entirely (0 of the neighbours base-correct), so that run is uninformative; no GPTQ/VQ-grade body at 1.6-3 bpw was tested.
 E4 proper (the real 32B 1.6 bpw compressed body) was NOT run: no compressed 32B artifact exists yet (X03/X04 are the producers) and the dense-override byte cost (about 283 MB per 32B layer) is the binding constraint, not the numerics.
 
 ## 9. Legality read, mechanism by mechanism (against the maintainer's words and tests (a)-(d))
@@ -113,7 +119,19 @@ E4 proper (the real 32B 1.6 bpw compressed body) was NOT run: no compressed 32B 
 | Gap-closing prior (E3) | YES | n/a | n/a | neighbours 0.77 | Fails on behaviour | DEAD |
 | Feedback in the requantisation (F03) | YES | YES | n/a | cannot teach | Cleanest but cannot install a label | NOT A MECHANISM |
 
-Plain statement: no mechanism clears all of (a)-(d) AND is unambiguously outside the maintainer's wording. The diffuse edit is the only one that satisfies (b) in a defensible way and passes (a), (c), (d) behaviourally on Qwen3-8B TOX, but (i) it is closed-form weight fitting to the annotations ("no retraining of the weights" is unruled for that), (ii) it leaks 8% onto the nearest neighbour class (fails the per-class >= 0.95 bar as tuned), and (iii) it is proven only on bf16 and on fp16-view Bonsai, not on a real compressed 32B body. Everything that is a few-row output edit is caught by his #3 sentence. If the maintainer's verdict on entrant #4 (open, no comment yet) comes back "classifier", the row arms are dead and only this diffuse arm remains; if he rules that any closed-form weight edit is "retraining", every mechanism here is caught and the honest outcome is NO-SHIPPABLE-FEEDBACK.
+Plain statement: no mechanism clears all of (a)-(d) AND is unambiguously outside the maintainer's wording. The diffuse edit is the only one that satisfies (b) in a defensible way and passes (a), (c), (d) behaviourally on Qwen3-8B TOX, but (i) it is closed-form weight fitting to the annotations ("no retraining of the weights" is unruled for that), (ii) on Qwen3-8B it leaks 8% onto the nearest neighbour class (fails the per-class >= 0.95 bar as tuned; Qwen2.5-7B and the 4-bit Qwen3-8B body pass it), and (iii) it is proven only on bf16 and on fp16-view Bonsai, not on a real compressed 32B body. Everything that is a few-row output edit is caught by his #3 sentence. If the maintainer's verdict on entrant #4 (open, no comment yet) comes back "classifier", the row arms are dead and only this diffuse arm remains; if he rules that any closed-form weight edit is "retraining", every mechanism here is caught and the honest outcome is NO-SHIPPABLE-FEEDBACK.
 
 ## 10. Pass / kill (X09 rules, applied verbatim)
-PENDING_RULES
+Applied verbatim to the diffuse arm (F1/F2), per model/data set. "Gain" is over base; base teach = 0 except NEWS (0.24).
+| criterion | Qwen3-8B TOX (10 draws) | Qwen2.5-7B TOX (5 draws) | Qwen3-8B NEWS+Entertainment (10 draws) | Qwen3-8B 4-bit body (5 draws) |
+|---|---|---|---|---|
+| teach gain >= +0.15, CI > 0 | PASS (+0.43..+0.77) | PASS (+0.62..+0.80) | PASS (+0.47..+0.59) | PASS (+0.68..+0.71) |
+| real - shuffled >= 0.10 | PASS (+0.43..+0.62) | PASS (+0.62..+0.69) | PASS (+0.24..+0.34) | PASS (+0.68..+0.69) |
+| empty = zero bytes, zero behaviour change | PASS (the update is a pure function of the annotations; empty draws the identity) | PASS | PASS | PASS |
+| aggregate neighbours >= 0.98 | PASS (0.9816-0.9928) | PASS (0.9939-0.9981) | PASS (0.9840-0.9906) | PASS (0.9912) |
+| every class/cell >= 0.95 | FAIL (min cell 0.916-0.950: `S1dev|violence`, at n=25 also `S3dev|safe`) | PASS (0.976-0.992) | FAIL (`HuffPost|Technology` 0.926-0.932, `HuffPost|Sports` 0.951) | PASS (0.981) |
+| no collapsed draw (min neighbour >= 0.90) | PASS (worst draw 0.975) | PASS (0.992) | PASS (0.982) | PASS (0.987) |
+| generation agreement, new class emitted in real greedy decoding | 0.98-1.00 | 0.96-1.00 | 0.98-1.00 | not run |
+| strong tier (teach >= 0.3 and real - shuf >= 0.25) | YES | YES | YES except F1 n=25 (+0.235) | YES |
+KILL rules: teach < 0.10 or neighbours < 0.95: not triggered by the diffuse arm anywhere (E3 priors, E2 scales, E5 sparse columns and the no-protection MEMIT ARE killed, section 3.1/4/5). The cancellation rule in X09 ("diffuse neighbours < 0.9 for both metrics") is not met either: diffuse neighbours are 0.98-0.998.
+Verdict: NOT NO-SHIPPABLE-FEEDBACK on behaviour. A closed-form diffuse edit of existing down_proj tensors teaches an unseen label end to end (real greedy generation, original prompt, answer path unchanged), with shuffled/wrong/empty clearly worse on TOX (and wrong-label clearly worse on NEWS), and neighbours kept at 98-99.8% in aggregate on three of four settings that matter and with every cell >= 0.95 on Qwen2.5-7B and on the 4-bit body. What is NOT established: (1) legality (closed-form weight fitting is unruled; the maintainer's answer on entrant #4, the only comparable case, is still pending); (2) a real compressed artifact at the 9.6% size (dense fp16 override of 6-8 down_proj tensors is 0.6-1.1 GB at 7-8B, which a 10% budget cannot absorb on top of a compressed body; the Bonsai column-sparse fp16 carrier of 50-100 MB works there but only under the unruled Bonsai base reading); (3) the cross-source teach arm and the 32B body. If the maintainer rules "closed-form weight edit = retraining of the weights" the honest outcome flips to NO-SHIPPABLE-FEEDBACK for every mechanism here.

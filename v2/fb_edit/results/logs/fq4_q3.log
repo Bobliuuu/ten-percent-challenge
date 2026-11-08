@@ -1,0 +1,12 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 92.31it/s]
+[     5s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    54s] cached items 2207
+[    94s] calibration tokens 68497 answer positions 768
+[    97s] base labels on ann pool Counter({'safe': 39, 'violence': 18, 'toxic': 1})
+[   128s] paraphrase sample: I thought I had moved past these feelings... This might sound strange, but my father passed away suddenly two months ago. I was able to speak with him before he died, but it still hurts. I had been st
+[   145s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.515} base-correct neighbours 520
+[   348s] F1_L8_lam1000_a10_m16 n 12 real teach 0.711 shuffle teach 0.021 neigh real 0.991 ood 0.659 para 0.667 ann 0.85
+[   543s] F2_L6_lam1000_a10_m16 n 12 real teach 0.682 shuffle teach 0.004 neigh real 0.991 ood 0.635 para 0.667 ann 0.783
+[   720s] mnH_m8 n 12 real teach 0.643 shuffle teach 0.086 neigh real 0.998 ood 0.659 para 0.717 ann 0.967
+[   720s] VALIDITY []
+[   721s] DONE

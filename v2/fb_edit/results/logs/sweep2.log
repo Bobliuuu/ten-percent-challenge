@@ -1,0 +1,22 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 95.07it/s]
+[     4s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    54s] cached items 2207
+[    93s] calibration tokens 68526 answer positions 797
+[    96s] base labels on ann pool Counter({'safe': 38, 'violence': 16, 'toxic': 3, 'hate': 1})
+[   128s] paraphrase sample: I thought I had moved past these feelings... This might sound strange, but my dad passed away unexpectedly two months ago. I was able to speak with him before he died, but it still hurts deeply. I had
+[   145s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484} base-correct neighbours 489
+[   221s] memit_L6_lam10_a1_m8 n 12 real teach 0.607 shuffle teach 0.292 neigh real 0.984 ood 0.549 para 0.694 ann 0.972
+[   297s] memit_L6_lam100_a1_m8 n 12 real teach 0.631 shuffle teach 0.298 neigh real 0.982 ood 0.569 para 0.722 ann 0.972
+[   373s] memit_L6_lam1000_a1_m8 n 12 real teach 0.577 shuffle teach 0.19 neigh real 0.982 ood 0.529 para 0.694 ann 0.861
+[   449s] memit_L6_lam10_a10_m8 n 12 real teach 0.607 shuffle teach 0.393 neigh real 0.984 ood 0.569 para 0.694 ann 0.972
+[   526s] memit_L6_lam100_a10_m8 n 12 real teach 0.595 shuffle teach 0.357 neigh real 0.986 ood 0.529 para 0.694 ann 0.944
+[   601s] memit_L6_lam1000_a10_m8 n 12 real teach 0.44 shuffle teach 0.0 neigh real 0.991 ood 0.451 para 0.417 ann 0.5
+[   678s] memit_L6_lam10_a100_m8 n 12 real teach 0.589 shuffle teach 0.405 neigh real 0.986 ood 0.529 para 0.667 ann 0.972
+[   754s] memit_L6_lam100_a100_m8 n 12 real teach 0.464 shuffle teach 0.018 neigh real 0.99 ood 0.431 para 0.472 ann 0.611
+[   830s] memit_L6_lam1000_a100_m8 n 12 real teach 0.06 shuffle teach 0.0 neigh real 0.996 ood 0.078 para 0.139 ann 0.083
+[   903s] memit_L4_lam100_a10_m8 n 12 real teach 0.548 shuffle teach 0.119 neigh real 0.984 ood 0.51 para 0.667 ann 0.889
+[   981s] memit_L8_lam100_a10_m8 n 12 real teach 0.619 shuffle teach 0.31 neigh real 0.984 ood 0.549 para 0.722 ann 0.972
+[  1057s] memit_L6_lam100_a10_m4 n 12 real teach 0.387 shuffle teach 0.256 neigh real 0.984 ood 0.431 para 0.611 ann 0.833
+[  1133s] memit_L6_lam100_a10_m16 n 12 real teach 0.732 shuffle teach 0.452 neigh real 0.982 ood 0.745 para 0.75 ann 0.972
+[  1133s] VALIDITY []
+[  1133s] DONE

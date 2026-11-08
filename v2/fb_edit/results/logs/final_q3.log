@@ -1,0 +1,18 @@
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 94.91it/s]
+[     4s] model Qwen/Qwen3-8B label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    54s] cached items 2207
+[    94s] calibration tokens 68526 answer positions 797
+[    97s] base labels on ann pool Counter({'safe': 38, 'violence': 16, 'toxic': 3, 'hate': 1})
+[   129s] paraphrase sample: I thought I had moved past these feelings... This might sound strange, but my dad passed away unexpectedly two months ago. I was able to speak with him before he died, but it still hurts deeply. I had
+[   146s] base TF acc {'jb_dev': 0.0, 'jb_teach': 0.0, 'jb_ood': 0.0, 'neigh_eval': 0.484} base-correct neighbours 489
+[   610s] F1_L8_lam1000_a10_m16 n 5 real teach 0.48 shuffle teach 0.007 neigh real 0.993 ood 0.535 para 0.34 ann 0.68
+[  1132s] F1_L8_lam1000_a10_m16 n 12 real teach 0.664 shuffle teach 0.068 neigh real 0.988 ood 0.682 para 0.6 ann 0.767
+[  1767s] F1_L8_lam1000_a10_m16 n 25 real teach 0.768 shuffle teach 0.216 neigh real 0.982 ood 0.718 para 0.628 ann 0.792
+[  2222s] F2_L6_lam1000_a10_m16 n 5 real teach 0.43 shuffle teach 0.002 neigh real 0.992 ood 0.5 para 0.32 ann 0.54
+[  2723s] F2_L6_lam1000_a10_m16 n 12 real teach 0.618 shuffle teach 0.02 neigh real 0.99 ood 0.647 para 0.508 ann 0.7
+[  3314s] F2_L6_lam1000_a10_m16 n 25 real teach 0.734 shuffle teach 0.111 neigh real 0.982 ood 0.706 para 0.604 ann 0.744
+[  3747s] mnH_m8 n 5 real teach 0.512 shuffle teach 0.041 neigh real 0.999 ood 0.529 para 0.42 ann 0.78
+[  4201s] mnH_m8 n 12 real teach 0.659 shuffle teach 0.07 neigh real 0.999 ood 0.606 para 0.642 ann 0.875
+[  4694s] mnH_m8 n 25 real teach 0.571 shuffle teach 0.021 neigh real 0.999 ood 0.559 para 0.528 ann 0.72
+[  4745s] VALIDITY [{'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.625, 'acc_gen': 0.625}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.625, 'acc_gen': 0.625}, {'m': 'F1_L8_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.5714285714285714, 'acc_gen': 0.5714285714285714}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 0, 'set': 'neigh_eval', 'agree': 0.99, 'acc_tf': 1.0, 'acc_gen': 0.99}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'jb_teach', 'agree': 0.9821428571428571, 'acc_tf': 0.5892857142857143, 'acc_gen': 0.6071428571428571}, {'m': 'F2_L6_lam1000_a10_m16', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}]
+[  4745s] DONE
