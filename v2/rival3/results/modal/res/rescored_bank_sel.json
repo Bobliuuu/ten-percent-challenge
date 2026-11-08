@@ -1,5 +1,47 @@
 [
  {
+  "name": "k56_gptq_b3a4",
+  "size": 0.09583670223438442,
+  "acc": 0.94125,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.979645436638214,
+  "ret_lo": 0.9712534390027439,
+  "min_cell": 0.9184782608695652,
+  "min_cell_lo": 0.8698629515670594,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 0.985,
+   "card_virtual_wallet": 0.974,
+   "cash": 1.0,
+   "incoming_topups": 0.977,
+   "info_and_fx": 0.918,
+   "transfers": 0.984
+  }
+ },
+ {
+  "name": "k64_gptq_b2",
+  "size": 0.08137385661313398,
+  "acc": 0.95375,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9927774130006566,
+  "ret_lo": 0.987112824135702,
+  "min_cell": 0.9789473684210527,
+  "min_cell_lo": 0.9471274961448701,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 1.0,
+   "card_virtual_wallet": 0.979,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.984,
+   "transfers": 0.989
+  }
+ },
+ {
   "name": "k80_gptq_b2",
   "size": 0.09730490018943794,
   "acc": 0.948125,

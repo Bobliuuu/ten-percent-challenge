@@ -1,0 +1,50 @@
+[
+{
+"name": "k48_gptq_b2",
+"ds": "bank",
+"keep": 48,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k40_gptq_b2",
+"ds": "bank",
+"keep": 40,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k32_gptq_b2",
+"ds": "bank",
+"keep": 32,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+}
+]

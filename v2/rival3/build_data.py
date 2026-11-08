@@ -114,6 +114,15 @@ def load_clin2():
     miss = [n for n in names.values() if n not in i2d and n != "oos"]; assert not miss, miss
     d = pd.concat([pd.read_parquet(f"{R}/clinc_oos/plus/{s}-00000-of-00001.parquet") for s in ("train", "validation", "test")])
     return [dict(id=f"C{k}", text=t_, kind=i2d[names[l]], intent=names[l]) for k, (t_, l) in enumerate(zip(d.text, d.intent)) if names[l] != "oos"]
+def task_items(t):
+    if t == "bank": items, desc, _ = load_bank(); return items, BDESC, sorted(BFAM), "You route banking customer messages into one of these support queues:"
+    ci = load_clin2(); return ci, CDESC, sorted(k for k in CL if k != "kitchen"), "You are the intent router of a voice assistant. Pick the skill domain that should handle the user's request:"
+def pool_items(t, items):
+    new = "security" if t == "bank" else "kitchen"; olds = [r for r in items if r["kind"] != new]; by = collections.defaultdict(list)
+    for r in olds: by[r["kind"]].append(r)
+    pool = []
+    for k, rs in by.items(): rs.sort(key=lambda r: H("split" + r["id"])); pool += rs[300 + 70 + 120 + 200 + 40:]
+    return pool
 if __name__ == "__main__":
     items, desc, newk = load_bank()
     build("bank", items, list(BFAM), dict(kind="security"), BDESC, "You route banking customer messages into one of these support queues:", 300)

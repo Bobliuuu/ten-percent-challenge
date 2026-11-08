@@ -1,0 +1,106 @@
+[
+ {
+  "name": "fb_lam5000",
+  "fb_layers": [
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93
+  ],
+  "lam": 5000.0,
+  "m": 16.0,
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL"
+  ],
+  "fb": true,
+  "new": "Home",
+  "awt": 10.0,
+  "ndraw": 2,
+  "n_new": 12,
+  "nerr_pool": 1500
+ },
+ {
+  "name": "fb_L16_lam1000",
+  "fb_layers": [
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93
+  ],
+  "lam": 1000.0,
+  "m": 16.0,
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL"
+  ],
+  "fb": true,
+  "new": "Home",
+  "awt": 10.0,
+  "ndraw": 2,
+  "n_new": 12,
+  "nerr_pool": 1500
+ },
+ {
+  "name": "fb_lam5000_m24",
+  "fb_layers": [
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93
+  ],
+  "lam": 5000.0,
+  "m": 24.0,
+  "ds": "skill7",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "sets": [
+   "SEL"
+  ],
+  "fb": true,
+  "new": "Home",
+  "awt": 10.0,
+  "ndraw": 2,
+  "n_new": 12,
+  "nerr_pool": 1500
+ }
+]
