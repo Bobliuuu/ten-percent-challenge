@@ -1,0 +1,265 @@
+{
+ "PIITYPE": {
+  "ai4privacy": {
+   "dev": {
+    "USERNAME": 72,
+    "DATE": 72,
+    "NAME": 72,
+    "EMAIL": 72,
+    "PASSWORD": 72,
+    "ADDRESS": 72,
+    "PASSPORT": 72,
+    "SSN": 72,
+    "PHONE": 72,
+    "DRIVERLICENSE": 72,
+    "IP": 72
+   },
+   "exam_bucket_count": {
+    "SSN": 1922,
+    "ADDRESS": 1533,
+    "PHONE": 1477,
+    "USERNAME": 2172,
+    "DRIVERLICENSE": 1733,
+    "IP": 1620,
+    "EMAIL": 2009,
+    "NAME": 4414,
+    "PASSPORT": 1794,
+    "PASSWORD": 1137,
+    "DATE": 1323
+   },
+   "cap_per_cell": 72
+  },
+  "gretel_fin": {
+   "dev": {
+    "DATE": 72,
+    "ADDRESS": 72,
+    "NAME": 72,
+    "DRIVERLICENSE": 72,
+    "PHONE": 72,
+    "EMAIL": 72,
+    "PASSWORD": 59,
+    "USERNAME": 65,
+    "IP": 72,
+    "PASSPORT": 72,
+    "SSN": 72
+   },
+   "exam_bucket_count": {
+    "NAME": 1210,
+    "DATE": 1488,
+    "PHONE": 134,
+    "ADDRESS": 567,
+    "IP": 51,
+    "DRIVERLICENSE": 20,
+    "EMAIL": 246,
+    "PASSPORT": 22,
+    "PASSWORD": 10,
+    "USERNAME": 14,
+    "SSN": 13
+   },
+   "cap_per_cell": 72
+  },
+  "_total_dev": 1564
+ },
+ "AIHUM": {
+  "mage": {
+   "dev": {
+    "Human": 400,
+    "AI": 400
+   },
+   "exam_bucket_count": {
+    "Human": 1237,
+    "AI": 5931
+   },
+   "cap_per_cell": 400
+  },
+  "raid_abstracts": {
+   "dev": {
+    "Human": 400,
+    "AI": 400
+   },
+   "exam_bucket_count": {
+    "Human": 362,
+    "AI": 1931
+   },
+   "cap_per_cell": 400
+  },
+  "_total_dev": 1600
+ },
+ "VOICE7": {
+  "massive_en": {
+   "dev": {
+    "home": 114,
+    "calendar": 114,
+    "news": 114,
+    "weather": 114,
+    "transport": 114,
+    "email": 114,
+    "lists": 114
+   },
+   "exam_bucket_count": {
+    "home": 141,
+    "weather": 126,
+    "news": 95,
+    "calendar": 315,
+    "email": 211,
+    "lists": 102,
+    "transport": 115
+   },
+   "cap_per_cell": 114
+  },
+  "clinc150": {
+   "dev": {
+    "transport": 114,
+    "lists": 114,
+    "calendar": 114,
+    "home": 114,
+    "weather": 114
+   },
+   "exam_bucket_count": {
+    "transport": 221,
+    "lists": 109,
+    "calendar": 197,
+    "home": 24,
+    "weather": 24
+   },
+   "cap_per_cell": 114
+  },
+  "_total_dev": 1368
+ },
+ "SPAM": {
+  "sms_spam": {
+   "dev": {
+    "Legit": 400,
+    "Spam": 400
+   },
+   "exam_bucket_count": {
+    "Legit": 960,
+    "Spam": 146
+   },
+   "cap_per_cell": 400
+  },
+  "enron_spam": {
+   "dev": {
+    "Spam": 400,
+    "Legit": 400
+   },
+   "exam_bucket_count": {
+    "Spam": 2069,
+    "Legit": 1951
+   },
+   "cap_per_cell": 400
+  },
+  "_total_dev": 1600
+ },
+ "CODELANG": {
+  "codesearchnet": {
+   "dev": {
+    "Python": 133,
+    "Java": 133,
+    "JavaScript": 133,
+    "PHP": 133,
+    "Ruby": 133,
+    "Go": 133
+   },
+   "exam_bucket_count": {
+    "Python": 216,
+    "Java": 256,
+    "JavaScript": 231,
+    "PHP": 232,
+    "Ruby": 237,
+    "Go": 251
+   },
+   "cap_per_cell": 133
+  },
+  "multipl_e": {
+   "dev": {
+    "Java": 66,
+    "JavaScript": 66,
+    "PHP": 66,
+    "Ruby": 66,
+    "Go": 66
+   },
+   "exam_bucket_count": {
+    "Java": 42,
+    "JavaScript": 34,
+    "PHP": 33,
+    "Ruby": 35,
+    "Go": 24
+   },
+   "cap_per_cell": 66
+  },
+  "_total_dev": 1128
+ },
+ "SUPPORT": {
+  "tickets_en": {
+   "dev": {
+    "Returns": 80,
+    "Billing": 80,
+    "Sales": 80,
+    "Technical": 80,
+    "Outage": 80,
+    "Product": 80,
+    "IT": 80,
+    "CustomerService": 80,
+    "General": 80,
+    "HR": 80
+   },
+   "exam_bucket_count": {
+    "Technical": 1685,
+    "HR": 115,
+    "Billing": 582,
+    "Product": 1034,
+    "CustomerService": 895,
+    "IT": 663,
+    "General": 81,
+    "Outage": 206,
+    "Sales": 172,
+    "Returns": 281
+   },
+   "cap_per_cell": 80
+  },
+  "tickets_de": {
+   "dev": {
+    "Technical": 80,
+    "Outage": 80,
+    "Product": 80,
+    "IT": 80,
+    "Returns": 80,
+    "Sales": 80,
+    "CustomerService": 80,
+    "Billing": 80,
+    "General": 80,
+    "HR": 80
+   },
+   "exam_bucket_count": {
+    "Technical": 1193,
+    "Sales": 122,
+    "Billing": 403,
+    "IT": 457,
+    "CustomerService": 620,
+    "Outage": 173,
+    "Product": 687,
+    "HR": 73,
+    "Returns": 189,
+    "General": 52
+   },
+   "cap_per_cell": 80
+  },
+  "_total_dev": 1600
+ },
+ "INJR": {
+  "_total_dev": 1966
+ },
+ "LANGID": {
+  "_total_dev": 606
+ },
+ "NEWS": {
+  "_total_dev": 1600
+ },
+ "TOOLSEL": {
+  "_total_dev": 600
+ },
+ "TOX": {
+  "_total_dev": 600
+ }
+}
