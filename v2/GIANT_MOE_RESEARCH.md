@@ -1,0 +1,49 @@
+# GIANT_MOE_RESEARCH: can a giant MoE hold >=98% / >=95% per class at 10% of fp16? (2026-11-08, $0, web + own data)
+
+## Verdict: NO-GO on the $70-110 Qwen3-235B own-quantizer probe. P(pass 0.98 overall AND 0.95 every class on real INJ) ~ 4% (plausible range 2-8%).
+Expected value: 0.04 x (value of a pass) vs ~$90 plus 1-2 days of engineering with 4 days to the deadline (2026-11-12). Break-even needs a pass to be worth >= ~$2,200 of compute-equivalent, and a pass would still face unchecked rules (judges must host a 235B-class artifact; reasoning-free label output; 10% accounting of a runtime). If anything is run, run the under-$10 control in section 6, not the 235B.
+
+## 1. What the budget forces (recap, v2/GIANT_MOE.md)
+10% of fp16 = 1.6 bits/param over ALL params. With non-expert tensors at 4.5-8 bits, routed experts get 1.37-1.55 b all-in for DeepSeek-V3/R1, Kimi-K2, Qwen3-235B, Coder-480B (GLM-4.5 1.2-1.4, Scout dead). This is the same operating point as our 405B dense run.
+
+## 2. Published measurements (all verified by page fetch unless flagged)
+Only public numbers at 1.5-2 bits for MoE are perplexity, not top-1 agreement. No source found with "Same top p"/KLD for any <=2-bit quant of Qwen3-235B, DeepSeek, Kimi-K2 or GLM-4.5 (ubergarm pages give PPL only; the IQ1 KLD is a chart image; Unsloth gives none for R1).
+
+| model, quant | all-in bpw | size | % of bf16 | PPL vs baseline | source |
+|---|---|---|---|---|---|
+| DeepSeek-R1-0528 IQ1_S_R4 (ik_llama) | 1.664 | 130.2 GiB | 10.4% of 1342 GB (computed) | 4.8805 vs Q8_0 3.2130 (+52%) | huggingface.co/ubergarm/DeepSeek-R1-0528-GGUF |
+| same, IQ2_K_R4 | 2.799 | 220 GiB | 17.6% | 3.5069 (+9.2%) | same |
+| same, IQ3_K_R4 | 3.847 | 301 GiB | 24.1% | 3.2730 (+1.9%) | same |
+| Kimi-K2-Thinking smol-IQ1_KT | 1.832 | 218.9 GiB | 11.5% of ~2.05 TB (computed) | 3.5931 vs Q4_X 2.0818 (+73%) | huggingface.co/ubergarm/Kimi-K2-Thinking-GGUF |
+| same, smol-IQ2_KS | 2.261 | 270.1 GiB | 14.2% | 2.9361 (+41%) | same |
+| same, IQ2_KL | 2.920 | 348.9 GiB | 18.4% | 2.3735 (+14%) | same |
+| Qwen3-235B-A22B-Instruct-2507 IQ2_KL | 2.991 | 81.9 GiB | 18.7% | 4.7912 vs bf16 4.3079 (+11.2%) | huggingface.co/ubergarm/Qwen3-235B-A22B-Instruct-2507-GGUF |
+| same, IQ3_K | 3.897 | 106.6 GiB | 24% | 4.4561 (+3.4%) | same |
+| Qwen3-235B-A22B (original) mix-IQ3_K | ~3.9 | 107 GiB | 24% | KLD 0.0146, same-top-p 93.46% (vs Q8_0) | gist ubergarm/0f9663fd... |
+| same, unsloth UD-Q3_K_XL | n/a | 97 GiB | 21% | KLD 0.0291, same-top-p 90.69% | same |
+| Qwen3-30B-A3B UD-IQ2_M | ~2.8 | 10.1 GiB | 17.7% of 56.9 GiB | KLD 0.0666, same-top-p 87.03% (vs bf16) | same gist |
+| Qwen3-30B-A3B IQ2_M bartowski | ~2.7 | 9.7 GiB | 17.0% | KLD 0.0691, same-top-p 86.30% | same |
+| DeepSeek-R1 UD-IQ1_S (orig Unsloth) | ~1.58 nominal | 131 GB | 9.8% of 1342 GB (nominal; current HF listing files are larger, see GIANT_MOE.md) | PPL 3.2524 vs Q5_K_M proxy 3.0508 (+6.6%), own text file, one user, FLAG: different corpus/imatrix than ubergarm, not comparable to the +52% row | HF unsloth/DeepSeek-R1-GGUF discussion 21 |
+
+Reading: (a) at 10.4-11.5% of bf16 a giant MoE is still a working LM (PPL +52% R1, +73% Kimi) while dense Gemma-3-27B at 11.2% (Unsloth IQ1_S, 6.06 GB) has KLD 0.97 and MMLU 41.9 vs 71.6 bf16; at 13.5% (IQ2_XXS) KLD 0.52, MMLU 59.2. (unsloth.ai/docs/basics/dynamic-3.0-ggufs, dense-model KLD, flagged: dense 27B is a different family.) So MoE is genuinely more compressible than dense per byte, roughly worth +2-3 points of budget (a 10.4% MoE ~ a 13.5% dense). (b) PPL +50% is not a 98% regime: even IQ2_K_R4 at 2.8 bpw is +9%, and our own dense data show 2.4 bpw => 94.8% retention at 32B. (c) Community reports a harder cliff for Qwen3-235B than DeepSeek below ~2.7 bpw on FFN (HF ubergarm Qwen3-235B-2507 discussion 4; anecdotal, one user, unverified). (d) A vendor claim (Unsloth R1 blog: 1.58-bit 131GB scores 69.2% vs 91.7% for 2-bit on a Flappy Bird test; blog returned 403 to us, seen only via search snippet, UNVERIFIED) is consistent with a 20+ point task loss at 1.58 bit.
+
+Academic: MC-MoE (arXiv 2410.06270, Mixtral 8x7B, fp16 71.29 zero-shot avg): PMQ 2.54 b 67.50, 2.05 b 63.25, 1.57 b 54.49 (-16.8%); MMLU 70.6 -> 61.2 / 49.8 / 33.4; Mixtral 8x22B 76.33 -> 72.08 (2.54 b) -> 59.29 (1.57 b). Uniform GPTQ 2 b 42.67. So best-in-class mixed-precision expert quant at 1.57 bits loses 17-22% task accuracy. MoQE (2310.02410): 2-bit experts OK only with QAT and on a model trained for it, -79.6% size (i.e. ~20% of fp16, not 10%). REAP (2510.13999): MC accuracy under 50% pruning drops 0.78 -> 0.643 (Kimi-K2), 0.75 -> 0.692 (Coder-480B), 0.721 -> 0.503 (30B-A3B); pruning hurts classification more than code, and our own L2 235B 50% prune + 3 b INJ was .896. MoEQuant/EAQuant (2505.03804, 2506.13329): rarely-routed experts get too little calibration, router is fragile; their regimes are W4/W3/W2A4 with no 1.5-bit weight-only result. QuantMoE-Bench (2406.08155): no 1-2 bit numbers retrievable. No paper reports label-classification or exact-match item retention for 1.5-bit MoE experts (question 3: none found; flag as absence of evidence from the searches done).
+
+## 3. Calibration to our label metric
+No top-1 agreement or KLD was ever measured on our dense runs (D_scale REPORT states KL absent), so a clean agreement->retention map cannot be built from our data; I do not invent one. What we do have, at ~1.5 bpw / 10%: 32B dense INJ-real retention 0.957 (non-monotone noise +-2 pts), 405B dense 0.902 (class 78%), noise std 7-13 logits vs base margin ~10-12 (TASK_SEARCH item 3), and size did not help (72B no better than 32B). Public same-top-p: 90.7-93.5% at 3.9 bpw KLD 0.015-0.03 and 87% at ~2.8 bpw KLD 0.067 (30B); by extrapolation a 1.5-bit MoE sits around KLD 0.3-0.6, which for generic text means roughly 60-70% top-1 agreement (extrapolated, UNVERIFIED; llama.cpp PR 6936 Llama-3-8B iq1_S KLD 2.25 same-top-p 46.3% anchors the low end). Label tokens survive far better than generic text (margins ~10 logits), hence 0.90-0.96 rather than 0.6.
+Model: required flip rate on base-correct <= 2% overall and <= 5% per class. Dense 32B: ~4.3%; 405B: 9.8% (injection class 21.7%). Giving MoE a generous 1.5-2x lower flip rate than dense at equal bytes (the PPL evidence above) predicts ~2.5-3.5% flips if the MoE behaves like the 32B point and ~5-6.5% if it behaves like the 405B point, and the per-class (injection) flip rate is several times the overall one. Our own quantizer (Hadamard+GPTQ+ECSQ) may beat IQ1_S_R4 (a scalar-codebook format), but 4-5% less byte budget than IQ1_S_R4 plus per-expert Hessian starvation (~4k tokens/expert at 128x512 calibration) push the other way. Easy-data teacher-forced retention (235B RTN3 INJ .989, 405B 99.7%) has already been shown not to transfer (405B real 0.902); 235B RTN3 is ~2.3 b effective (15%) and tool-call retention there is only 0.957 [.92,.98].
+Estimate: median retention 0.955 overall (80% interval 0.92-0.975), injection-class median ~0.90. P(overall >= 0.98) ~ 6%; P(also every class >= 0.95) ~ 4%.
+
+## 4. Probe economics
+Own-quantizer Qwen3-235B: ~$70-110 + 1-2 days (GIANT_MOE.md section 5). DeepSeek-R1 IQ1_S_R4 route: base fp8 needs 8xH200, ~$130 and it is 10.44%, not <=10%, and a reasoning model. No public Qwen3-235B quant is below 18.7% (IQ2_KL 81.9 GiB; Unsloth smallest 85.7 GB per GIANT_MOE.md), so no existing file can be tested at the operating point.
+
+## 5. Cheapest informative experiment, if any
+No experiment on a giant model is worth it. The one open scientific question (does MoE redundancy beat dense at equal bits on OUR metric) can be answered at the same architecture family for under ~$10: public GGUFs Qwen3-30B-A3B (MoE, 128 experts) vs Qwen3-32B (dense) at IQ1_S/IQ2_XXS (~12-15% of bf16), llama.cpp on one 24-48 GB GPU, ~300 INJ-real dev items, base = Q8_0 or bf16 on the same box (30B-A3B bf16 61 GB fits one 80 GB card). Compare retention-on-base-correct for MoE vs dense at matched % of bf16. Pass criterion to unlock a 235B probe: MoE retention >= 0.985 overall and >= 0.97 on injection at <=14% of bf16 (we need margin because 10% is further down). Cost ~$3-8 on Vast/Modal single GPU, 2-3 h. Sizes of those GGUFs were not verified here. Prior own data point (v2/moe): Qwen3-30B-A3B, 70% experts at 2 b GPTQ at 10%: MMLU -7.5 pt, 1-bit collapses (0.45), which already predicts a fail. Recommendation: skip even this unless the owner wants closure; all evidence says the answer is "better than dense, nowhere near 98/95".
+
+## 6. Strongest evidence (numbers)
+1. Same operating point already measured: 405B dense at 1.53 bpw real INJ 90.2% [88.5,91.6], injection class 78%, easy 99.7%; 32B 0.957 at 10%; scale did not help (72B no better than 32B).
+2. Best published training-free mixed-precision MoE quant at 1.57 bits (MC-MoE, Mixtral 8x7B): -16.8% zero-shot avg, MMLU 70.6 -> 33.4; at 2.54 b still -3.8%. The giant-MoE community quants at 10.4-11.5% have PPL +52% (R1 IQ1_S_R4) and +73% (Kimi-K2 smol-IQ1_KT); even 2.8 bpw R1 is +9%.
+3. Label/MC tasks are the most expert-sensitive: REAP 50% prune MC 0.78 -> 0.64 (Kimi-K2); our own 235B RTN3 (15%, ~2.3 b effective) is 0.957 on tool calls and 50% prune + 3 b gives INJ .896. Positive: MoE is more compressible than dense per byte (R1 at 10.4% still coherent; dense Gemma-27B at 11.2% KLD 0.97, MMLU 41.9), worth about +3 points of budget, not the ~+10 needed.
+
+## 7. Unverified / caveats
+Unsloth Dynamic page content (fetched via summarizer) describes models I could not independently confirm and gives internal inconsistencies; only the Gemma-3 27B KLD/MMLU tables were used. Unsloth R1 blog not fetched (403). PPL ratios across different baselines (Q8_0 vs Q5_K_M vs bf16) are not comparable. Sizes as % of bf16 computed against 2 B/param (R1 1342 GB, Kimi ~2.05 TB, Qwen3-235B 470 GB; 437.99 GiB bf16 GGUF from the ubergarm page). The top-1/KLD extrapolation to 1.5 bits is mine, not measured.

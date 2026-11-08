@@ -308,3 +308,4 @@ Copy this block, fill every field, keep honest status codes, append under sectio
 ```
 
 Update log (append): 2026-11-08 registry created; entries C01-C25, F01-F07 from repo state at commit eefb8f6 plus untracked `v2/bonsai/` (probe only, no result).
+| GIANT_MOE research | Qwen3-235B own quantizer, experts ~1.5 b (literature + community PPL/KLD, no GPU) | needs 10.0 | MoE ~+3 pts of budget better than dense but 1.57 b MC-MoE -17% task acc, R1 IQ1_S_R4 10.4% PPL +52%, Kimi 11.5% PPL +73%; calibrated P(0.98 overall and 0.95/class) ~4% | NO-GO for $70-110 probe; optional <$10 Qwen3-30B-A3B vs 32B GGUF control | v2/GIANT_MOE_RESEARCH.md |
