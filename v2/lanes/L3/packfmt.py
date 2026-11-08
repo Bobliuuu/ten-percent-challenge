@@ -16,11 +16,16 @@ class Writer:
     def add_q(s, name, q, sc, z, bits, g):
         q = q.cpu().numpy(); sc = sc.cpu().numpy().astype(np.float16); z = z.cpu().numpy()
         s.idx[name] = dict(kind="q", shape=list(q.shape), bits=bits, g=g, q=s._w(pack_bits(q, bits)), s=s._w(sc.tobytes()), z=s._w(pack_bits(z, bits)))
+    def add_vq(s, name, idx, sig, shape, seed):
+        s.idx[name] = dict(kind="vq", shape=shape, seed=seed, i=s._w(idx.numpy().astype(np.uint8).tobytes()), sg=s._w(sig.numpy().astype(np.float16).tobytes()))
     def add_fp16(s, name, t): t = t.cpu().to(torch.float16).numpy(); s.idx[name] = dict(kind="f16", shape=list(t.shape), d=s._w(t.tobytes()))
     def close(s, path): s.f.close(); json.dump(s.idx, open(path, "w"))
 
-def read_tensor(mm, e):
-    """returns float32 torch tensor (dequantised for kind q; NOT rotated back)"""
+def read_tensor(mm, e, cb=None):
+    """returns float32 torch tensor (dequantised for kind q / vq; NOT rotated back)"""
+    if e["kind"] == "vq":
+        i = torch.from_numpy(np.frombuffer(mm[e["i"][0]:e["i"][0] + e["i"][1]], dtype=np.uint8).copy()).long(); sg = float(np.frombuffer(mm[e["sg"][0]:e["sg"][0] + e["sg"][1]], dtype=np.float16)[0])
+        return (cb[i].reshape(e["shape"]) * sg)
     if e["kind"] == "f16": o, n = e["d"]; return torch.from_numpy(np.frombuffer(mm[o:o + n], dtype=np.float16).reshape(e["shape"]).copy()).float()
     sh = e["shape"]; bits = e["bits"]; g = e["g"]; N = int(np.prod(sh))
     q = unpack_bits(mm[e["q"][0]:e["q"][0] + e["q"][1]], bits, N).reshape(sh)
