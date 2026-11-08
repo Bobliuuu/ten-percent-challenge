@@ -304,3 +304,8 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08 L10 relaunch: llama (text path fixed, dir l10_llama11b) fc-01M6XS73MP9P4213XKN5EY10PB; omni7s (r985 + save dequantised dir for feedback test) fc-01M6XSR5GT9P1D5FBCJQ1DZAZF. Same app tenpct-l10.
 - 2026-11-08 L11 feedback ablation: Modal app tenpct-fbabl (deployed), spawned A1 fc-01M6XSTF91NG7FZSWKCWMCQKEW, A2 fc-01M6XSTFZR316Q88S573DFCC62, B1 fc-01M6XSTGQFAXDS5GEE0S60A87Y, B2 fc-01M6XSTHFQS3T70TF7BR3ET05Z, plus C (q4 body), D (continual); results on volume tenpct-fbabl:/NAME/res.json (v2/fb_ablation/cfgs). Vast was at instance cap; smoke run on Vast (box destroyed) in v2/fb_ablation/results/smoke.
 - 2026-11-08 L11 arms E (Qwen3-14B q4 body) fc-01M6XSX1CQRJJRYK8A6F3Q4BFK, F (Qwen3-14B bf16) fc-01M6XSX22NZP6K0X8AVA47WK3D on tenpct-fbabl
+- 2026-11-08T14:45Z vast id 59723617 tenpct-t3-q3-14b destroyed after 0.18 h (~$0.18)
+- 2026-11-08T14:46Z vast id 59723618 tenpct-t3-14b destroyed after 0.18 h (~$0.24)
+- 2026-11-08T14:46Z vast id 59723460 tenpct-t3-32b destroyed after 0.17 h (~$0.16)
+- 2026-11-08T14:48Z vast id 59723852 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.22)
+- 2026-11-08 L5 fork A: reusing vast 59720130 (rep1) for SKILL7 32B + Qwen3-14B draws; account at instance limit (cannot rent more)
