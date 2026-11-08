@@ -33,3 +33,8 @@ Conclusion so far: SKILL7 is the only multi-source task near the 93-98% target a
 Others built: SUPPORT7 (Bitext ticket queues, templated/synthetic), TICKETQ (helpdesk queues, noisy labels), SENT3 / SENT2 (tweet_eval + Amazon reviews), LANG8 (language ID, probably too easy, single source), QTOPIC6 (Yahoo Answers + 20NG). Prompts and label sets in `task_search/EASY/PLAN.json`.
 
 Use the dev items for configuration only; build your own locked exam from hash bucket [70,100) (`easy-split-v1|task|normalised text`), never from [0,70).
+
+## How to finish (runs in flight, Modal detached)
+- Apps `ap-1ijOLCu4ciOBrFYZBkR0fJ` (batch 1: Qwen2.5-14B/32B, Qwen3-14B at 9.85%, files `ct_<model>_e_r985.json`) and `ap-Af7mjo8pozdtrnn25aLxp0` (batch 2: `ct_<model>_f_r985.json`) write to Modal volume `tenpct-tasksearch:/dense/`.
+- Pull: `modal volume get tenpct-tasksearch dense/ct_<model>_<e|f>_r985.json task_search/results/easy/ --force`; then `python3 task_search/analyze_easy.py task_search/results/easy` gives per-task retention + Wilson lower bound + worst (src x kind) and worst pooled kind cells.
+- Rule-8 filter: base .94-.98. Currently SKILL7 (.95-.97) is the only built task in that window with two real sources; BANK6 .90, SPAM3 .90-.95, SKILL10 .93-.94 are close; LANG8 too easy (.997), others too hard.
