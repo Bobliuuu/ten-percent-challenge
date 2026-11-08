@@ -256,10 +256,28 @@ def main(cfgs, vol):
     if os.path.exists(mp): mass, cnt, reap = torch.load(mp)
     else:
         cal = getset("cal")[:ncal]; mass, cnt, reap = routing_mass(cal); torch.save((mass, cnt, reap), mp); vol.commit(); log("mass done", cal and len(cal))
-    for cfg in cfgs:
+    def run_cfg(cfg):
         t1 = time.time(); name = cfg["name"]; log("CFG", name, cfg)
+        if cfg.get("proxy"):
+            import qlib as Q_p, proxy_methods, traceback as tb_
+            P = cfg["proxy"]; lays = P["layers"]; nex = P.get("nexp", 4); kp = {l: sorted(torch.topk(mass[l], nex).indices.tolist()) for l in lays}
+            Hs = collect_hessians(getset("cal")[:cfg.get("nh", 1000)], lays, kp); M_ = proxy_methods.methods(); out = {}
+            only = P.get("only")
+            for mn, fn in M_.items():
+                if only and not any(o in mn for o in only): continue
+                t_ = time.time(); er = []; bt = []; err_ = None
+                try:
+                    for l in lays:
+                        for e in kp[l]:
+                            Hin, Hdn, n_ = Hs[l][e]; gu = torch.cat([O[l]["gate"][e], O[l]["up"][e]], 0).to(dev).float(); dw = O[l]["down"][e].to(dev).float()
+                            for Wm, Hm in ((gu, Hin.float()), (dw, Hdn.float())):
+                                Wh, info = fn(Wm, Hm); er.append(Q_p.relerr(Wm, Wh, Hm)); bt.append(info["bits"] / Wm.numel()); gray = info.get("gray", [])
+                except Exception as ex_: err_ = repr(ex_)[:200]; tb_.print_exc()
+                out[mn] = dict(relerr=sum(er) / max(len(er), 1), bpw=sum(bt) / max(len(bt), 1), n=len(er), secs=round(time.time() - t_), err=err_)
+                log("PROXY", mn, out[mn])
+            json.dump(out, open(f"/r/res/proxy_{DS}_{name}.json", "w")); print("RESULT_JSON_PROXY", json.dumps(out), flush=True); return
         kept = keep_lists(cfg, mass); by = bytes_of(cfg, kept)
-        if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
+        if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); return
         apply(cfg, kept)
         qi = {}
         if cfg.get('quant') == 'gptq': qi = gptq_all(cfg, kept, mass)
@@ -290,3 +308,7 @@ def main(cfgs, vol):
         print("RESULT_JSON", json.dumps(res), flush=True)
         if cfg.get("fb"):
             import fb; fb.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
+    import traceback
+    for cfg in cfgs:
+        try: run_cfg(cfg)
+        except Exception as ex_: traceback.print_exc(); log("CFG FAILED", cfg.get("name"), repr(ex_)[:300]); torch.cuda.empty_cache()
