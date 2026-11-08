@@ -7,18 +7,23 @@ import torch, numpy as np
 import bonsai_loader as BL, common, feedback as FB
 from transformers import AutoTokenizer
 ap = argparse.ArgumentParser(); ap.add_argument("--art", required=True); ap.add_argument("--extra", required=True); ap.add_argument("--out", required=True); ap.add_argument("--mode", default="sweep")
-ap.add_argument("--cfgs"); ap.add_argument("--ndraw", type=int, default=10); ap.add_argument("--ndraw-aux", type=int, default=5); a = ap.parse_args()
+ap.add_argument("--task", default="news"); ap.add_argument("--calib"); ap.add_argument("--cfgs"); ap.add_argument("--ndraw", type=int, default=10); ap.add_argument("--ndraw-aux", type=int, default=5); a = ap.parse_args()
 T0 = time.time(); log = lambda *x: print(f"[{time.time()-T0:6.0f}s]", *x, flush=True)
-DEV = HERE + "/../../fb_edit/data_news/"; OLD = ["World", "Sports", "Business", "Technology"]; NEW = "Entertainment"
+DEV = HERE + "/../../fb_edit/data_news/"
 H = lambda s: int(hashlib.sha256(s.encode()).hexdigest()[:8], 16)
 rd = lambda p: [json.loads(l) for l in open(p) if l.strip()]
 def norm(r, src=None): return dict(id=r["id"], text=r["user"], kind=r["kind"], src=r.get("src") or src)
-items = [norm(r) for r in rd(DEV + "items_dev.jsonl")]
-ent = sorted([norm(r) for f in ("fb_annot_25", "fb_teach_unseen_200") for r in rd(DEV + f + ".jsonl")], key=lambda r: H("fbx-ent|" + r["id"]))
-E_ANN, E_TSEL, E_TREP = ent[:100], ent[100:150], ent[150:225]
-bbc = sorted([norm(r) for r in rd(a.extra + "/bbc_ent.jsonl")], key=lambda r: H("fbx-bbc|" + r["id"])); B_ANN, B_TEACH = bbc[:40], bbc[40:]
-old = [norm(r) for f in ("old_ag", "old_hp") for r in rd(a.extra + "/" + f + ".jsonl")]
-calib = [json.loads(l)["query"] for l in open(a.art + "/feedback_calib.jsonl")]
+if a.task == "news":
+    items = [norm(r) for r in rd(DEV + "items_dev.jsonl")]
+    ent = sorted([norm(r) for f in ("fb_annot_25", "fb_teach_unseen_200") for r in rd(DEV + f + ".jsonl")], key=lambda r: H("fbx-ent|" + r["id"]))
+    bbc = sorted([norm(r) for r in rd(a.extra + "/bbc_ent.jsonl")], key=lambda r: H("fbx-bbc|" + r["id"])); old = [norm(r) for f in ("old_ag", "old_hp") for r in rd(a.extra + "/" + f + ".jsonl")]
+    OLD = ["World", "Sports", "Business", "Technology"]; NEW = "Entertainment"; SRC2 = "huffpost"; CALF = a.art + "/feedback_calib.jsonl"
+else:   # SKILL7: new skill Recipe; source A = MASSIVE cooking, source B = CLINC150 cooking intents
+    items = [norm(r) for r in rd(HERE + "/../../task_search/EASY/items_dev.jsonl") if r["task"] == "SKILL7"]
+    ent = sorted([norm(r) for r in rd(a.extra + "/skill_new_a.jsonl")], key=lambda r: H("fbx-ent|" + r["id"])); bbc = sorted([norm(r) for r in rd(a.extra + "/skill_new_b.jsonl")], key=lambda r: H("fbx-bbc|" + r["id"]))
+    old = [norm(r) for r in rd(a.extra + "/skill_old.jsonl")]; OLD = ["Alarm", "Weather", "Music", "Calendar", "Lists", "News", "Transport"]; NEW = "Recipe"; SRC2 = "clinc150"; CALF = a.extra + "/skill_calib.jsonl"
+NE = len(ent); E_ANN, E_TSEL, E_TREP = ent[:100], ent[100:150], ent[150:300]; B_ANN, B_TEACH = bbc[:40], bbc[40:]
+calib = [json.loads(l)["query"] for l in open(a.calib or CALF)]
 m, _ = BL.load(a.art, patch=None); tok = AutoTokenizer.from_pretrained(a.art); log("loaded")
 def gen(rows): return common.generate(m, tok, [r["text"] for r in rows])
 bp = a.out + ".basepreds.json"
@@ -67,7 +72,7 @@ if a.mode == "sweep":
             cs = conds(25, d)
             for arm in ("real", "shuffled"):
                 rows, lab = cs[arm]; P, sv, secs = run_arm(rows, lab, c)
-                ev = evalsets(dict(teach_sel=(E_TSEL, NEW), **({"neigh_sel": (N_SEL, None), "neigh_sel_hp": ([r for r in N_SEL if r["src"] == "huffpost"], None)} if arm == "real" else {})))
+                ev = evalsets(dict(teach_sel=(E_TSEL, NEW), **({"neigh_sel": (N_SEL, None), "neigh_sel_hp": ([r for r in N_SEL if r["src"] == SRC2], None)} if arm == "real" else {})))
                 (FB.undo(m, sv) if sv is not None else None); finish(tag, arm, 25, d, c, P, sv, secs, ev)
 elif a.mode == "final":
     c = cfgs[0]; tag = c.get("tag", "final"); c = {k: v for k, v in c.items() if k != "tag"}
