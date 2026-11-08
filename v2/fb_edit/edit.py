@@ -197,7 +197,13 @@ def run(cfg):
         key = (li, lam, ridge, awt)
         if key not in CHOL:
             CHOL.clear() if len(CHOL) > 2 * len(TAIL) else None
-            C = CAVG[li] + awt * CAVA[li]; Am = lam * (C + ridge * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); CHOL[key] = torch.linalg.cholesky(Am)
+            C = CAVG[li] + awt * CAVA[li]; Am = lam * (C + ridge * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); 
+            Am = torch.nan_to_num(Am, nan=0.0, posinf=0.0, neginf=0.0); jit = 0.0
+            for _ in range(8):
+                Lc, info = torch.linalg.cholesky_ex(Am + jit * Am.diagonal().mean() * torch.eye(Am.shape[0], device=dev))
+                if int(info) == 0: break
+                jit = max(jit * 10, 1e-4)
+            CHOL[key] = Lc
         return CHOL[key]
     @torch.no_grad()
     def memit_edit(items, sites, mt):
