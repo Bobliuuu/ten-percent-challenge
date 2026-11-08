@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PHISH2 zefang_phish pool {'Phishing': 6460, 'Legitimate': 10958}
+PHISH2 sevenphish pool {'Phishing': 17986, 'Legitimate': 21255}
+TOX2 civil_comments pool {'Toxic': 8337, 'Safe': 86114}
+TOX2 toxic_chat pool {'Toxic': 372, 'Safe': 4602}
+HATE2 tweet_eval_hate pool {'Hate': 3780, 'Fine': 5205}
+HATE2 davidson pool {'Hate': 1430, 'Fine': 4163}
+OFFEN2 tweet_eval_off pool {'Offensive': 3934, 'Clean': 7947}
+OFFEN2 davidson pool {'Offensive': 20619, 'Clean': 4163}
+NLI3 snli pool {'Entailment': 13303, 'Neutral': 13302, 'Contradiction': 13308}
+NLI3 anli pool {'Entailment': 5369, 'Neutral': 7052, 'Contradiction': 4521}
+NLI3 mnli pool {'Entailment': 13524, 'Neutral': 12122, 'Contradiction': 14352}
+ENTAIL2 rte pool {'Yes': 1249, 'No': 1239}
+ENTAIL2 scitail pool {'Yes': 7465, 'No': 12512}
+PARA2 qqp pool {'Yes': 14875, 'No': 25124}
+PARA2 mrpc pool {'Yes': 2474, 'No': 1194}
+BOOLQ boolq pool {'Yes': 5874, 'No': 3553}
+ANSWERABLE squad2 pool {'Answerable': 28770, 'Unanswerable': 11208}
+PSAFE aegis2 pool {'Unsafe': 11617, 'Safe': 11394}
+PSAFE toxic_chat pool {'Unsafe': 372, 'Safe': 4602}
+PSAFE beavertails_prompt pool {'Unsafe': 8346, 'Safe': 6841}
+Repo card metadata block was not found. Setting CardData to empty.
+SARC2 headlines pool {'Sarcastic': 13552, 'Sincere': 14951}
+SARC2 tweet_irony pool {'Sarcastic': 1445, 'Sincere': 1417}
+CODELANG codesearchnet pool {'Python': 3000, 'Java': 3000, 'JavaScript': 3000, 'Go': 3000, 'PHP': 3000, 'Ruby': 3000}
+CODELANG codexglue_c2t pool {'Python': 2000, 'Java': 2000, 'JavaScript': 2000, 'Go': 2000, 'PHP': 2000, 'Ruby': 1400}
+DEFECT devign pool {'Vulnerable': 9084, 'Safe': 10798}
+Repo card metadata block was not found. Setting CardData to empty.
+RCT5 pubmed_rct pool {'Background': 0, 'Objective': 0, 'Methods': 0, 'Results': 0, 'Conclusions': 0}
+Repo card metadata block was not found. Setting CardData to empty.
+RCT5 csabstruct pool {'Background': 1942, 'Objective': 1590, 'Methods': 6661, 'Results': 6702, 'Conclusions': 3056}
+FINSENT twitterfin pool {'Bullish': 1922, 'Bearish': 1442, 'Neutral': 6173}
+Ignoring part of dataset_info from the dataset card: The `splits` field in YAML is malformed or missing the name/num_examples/num_bytes fields
+FINSENT finnews pool {'Bullish': 0, 'Bearish': 0, 'Neutral': 0}
+PIIFLAG ai4privacy pool {'Yes': 12152, 'No': 17848}

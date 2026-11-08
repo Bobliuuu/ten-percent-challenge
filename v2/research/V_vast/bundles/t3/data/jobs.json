@@ -1,0 +1,79 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 48,
+    "ct_bs": 8
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 48,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "gpu_load": false,
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 12,
+    "ct_bs": 2
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 12,
+    "ct_bs": 2,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 48,
+    "ct_bs": 8
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 48,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen3-14B",
+  "cfgs": [
+   {
+    "name": "t3_bf16",
+    "gen_bs": 48,
+    "ct_bs": 8
+   },
+   {
+    "name": "t3_r985",
+    "gen_bs": 48,
+    "ct_bs": 8,
+    "target_ratio": 0.0985,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ }
+]

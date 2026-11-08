@@ -1,0 +1,638 @@
+{
+ "PHISH2": {
+  "labels": [
+   "Phishing",
+   "Legitimate"
+  ],
+  "prompt": "You are an email security filter. Decide whether this email is a phishing attempt or a legitimate email.\nAnswer with exactly one word from: Phishing, Legitimate.\n\nEmail: {X}",
+  "src": {
+   "zefang_phish": {
+    "pool_scanned": {
+     "Phishing": 6460,
+     "Legitimate": 10958
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   },
+   "sevenphish": {
+    "pool_scanned": {
+     "Phishing": 17986,
+     "Legitimate": 21255
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   }
+  }
+ },
+ "TOX2": {
+  "labels": [
+   "Toxic",
+   "Safe"
+  ],
+  "prompt": "You are a content moderation filter. Is this user message toxic (insulting, hateful, threatening or profane)?\nAnswer with exactly one word from: Toxic, Safe.\n\nMessage: {X}",
+  "src": {
+   "civil_comments": {
+    "pool_scanned": {
+     "Toxic": 8337,
+     "Safe": 86114
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Safe": 80
+    }
+   },
+   "toxic_chat": {
+    "pool_scanned": {
+     "Toxic": 372,
+     "Safe": 4602
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Safe": 80
+    }
+   }
+  }
+ },
+ "HATE2": {
+  "labels": [
+   "Hate",
+   "Fine"
+  ],
+  "prompt": "You are a trust-and-safety classifier. Does this post contain hate speech targeting a group of people?\nAnswer with exactly one word from: Hate, Fine.\n\nPost: {X}",
+  "src": {
+   "tweet_eval_hate": {
+    "pool_scanned": {
+     "Hate": 3780,
+     "Fine": 5205
+    },
+    "dev_kept": {
+     "Hate": 80,
+     "Fine": 80
+    }
+   },
+   "davidson": {
+    "pool_scanned": {
+     "Hate": 1430,
+     "Fine": 4163
+    },
+    "dev_kept": {
+     "Hate": 80,
+     "Fine": 80
+    }
+   }
+  }
+ },
+ "OFFEN2": {
+  "labels": [
+   "Offensive",
+   "Clean"
+  ],
+  "prompt": "Is this social media post offensive (profanity, insults, slurs)?\nAnswer with exactly one word from: Offensive, Clean.\n\nPost: {X}",
+  "src": {
+   "tweet_eval_off": {
+    "pool_scanned": {
+     "Offensive": 3934,
+     "Clean": 7947
+    },
+    "dev_kept": {
+     "Offensive": 80,
+     "Clean": 80
+    }
+   },
+   "davidson": {
+    "pool_scanned": {
+     "Offensive": 20619,
+     "Clean": 4163
+    },
+    "dev_kept": {
+     "Offensive": 80,
+     "Clean": 80
+    }
+   }
+  }
+ },
+ "NLI3": {
+  "labels": [
+   "Entailment",
+   "Neutral",
+   "Contradiction"
+  ],
+  "prompt": "{X}",
+  "src": {
+   "snli": {
+    "pool_scanned": {
+     "Entailment": 13303,
+     "Neutral": 13302,
+     "Contradiction": 13308
+    },
+    "dev_kept": {
+     "Entailment": 53,
+     "Neutral": 53,
+     "Contradiction": 53
+    }
+   },
+   "anli": {
+    "pool_scanned": {
+     "Entailment": 5369,
+     "Neutral": 7052,
+     "Contradiction": 4521
+    },
+    "dev_kept": {
+     "Entailment": 53,
+     "Neutral": 53,
+     "Contradiction": 53
+    }
+   },
+   "mnli": {
+    "pool_scanned": {
+     "Entailment": 13524,
+     "Neutral": 12122,
+     "Contradiction": 14352
+    },
+    "dev_kept": {
+     "Entailment": 53,
+     "Neutral": 53,
+     "Contradiction": 53
+    }
+   }
+  }
+ },
+ "ENTAIL2": {
+  "labels": [
+   "Yes",
+   "No"
+  ],
+  "prompt": "{X}",
+  "src": {
+   "rte": {
+    "pool_scanned": {
+     "Yes": 1249,
+     "No": 1239
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   },
+   "scitail": {
+    "pool_scanned": {
+     "Yes": 7465,
+     "No": 12512
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   }
+  }
+ },
+ "PARA2": {
+  "labels": [
+   "Yes",
+   "No"
+  ],
+  "prompt": "{X}",
+  "src": {
+   "qqp": {
+    "pool_scanned": {
+     "Yes": 14875,
+     "No": 25124
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   },
+   "mrpc": {
+    "pool_scanned": {
+     "Yes": 2474,
+     "No": 1194
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   }
+  }
+ },
+ "BOOLQ": {
+  "labels": [
+   "Yes",
+   "No"
+  ],
+  "prompt": "{X}",
+  "src": {
+   "boolq": {
+    "pool_scanned": {
+     "Yes": 5874,
+     "No": 3553
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   }
+  }
+ },
+ "ANSWERABLE": {
+  "labels": [
+   "Answerable",
+   "Unanswerable"
+  ],
+  "prompt": "{X}",
+  "src": {
+   "squad2": {
+    "pool_scanned": {
+     "Answerable": 28770,
+     "Unanswerable": 11208
+    },
+    "dev_kept": {
+     "Answerable": 80,
+     "Unanswerable": 80
+    }
+   }
+  }
+ },
+ "PSAFE": {
+  "labels": [
+   "Unsafe",
+   "Safe"
+  ],
+  "prompt": "You are a safety guardrail for an AI assistant. Is this user request unsafe (asks for violence, crime, hate, self-harm, sexual content involving minors, privacy violation, or other harm)?\nAnswer with exactly one word from: Unsafe, Safe.\n\nRequest: {X}",
+  "src": {
+   "aegis2": {
+    "pool_scanned": {
+     "Unsafe": 11617,
+     "Safe": 11394
+    },
+    "dev_kept": {
+     "Unsafe": 80,
+     "Safe": 80
+    }
+   },
+   "toxic_chat": {
+    "pool_scanned": {
+     "Unsafe": 372,
+     "Safe": 4602
+    },
+    "dev_kept": {
+     "Unsafe": 80,
+     "Safe": 80
+    }
+   },
+   "beavertails_prompt": {
+    "pool_scanned": {
+     "Unsafe": 8346,
+     "Safe": 6841
+    },
+    "dev_kept": {
+     "Unsafe": 80,
+     "Safe": 80
+    }
+   }
+  }
+ },
+ "SARC2": {
+  "labels": [
+   "Sarcastic",
+   "Sincere"
+  ],
+  "prompt": "Is this text sarcastic or ironic?\nAnswer with exactly one word from: Sarcastic, Sincere.\n\nText: {X}",
+  "src": {
+   "headlines": {
+    "pool_scanned": {
+     "Sarcastic": 13552,
+     "Sincere": 14951
+    },
+    "dev_kept": {
+     "Sarcastic": 80,
+     "Sincere": 80
+    }
+   },
+   "tweet_irony": {
+    "pool_scanned": {
+     "Sarcastic": 1445,
+     "Sincere": 1417
+    },
+    "dev_kept": {
+     "Sarcastic": 80,
+     "Sincere": 80
+    }
+   }
+  }
+ },
+ "CODELANG": {
+  "labels": [
+   "Python",
+   "Java",
+   "JavaScript",
+   "Go",
+   "PHP",
+   "Ruby"
+  ],
+  "prompt": "Identify the programming language of this code snippet.\nAnswer with exactly one word from: Python, Java, JavaScript, Go, PHP, Ruby.\n\nCode: {X}",
+  "src": {
+   "codesearchnet": {
+    "pool_scanned": {
+     "Python": 3000,
+     "Java": 3000,
+     "JavaScript": 3000,
+     "Go": 3000,
+     "PHP": 3000,
+     "Ruby": 3000
+    },
+    "dev_kept": {
+     "Python": 26,
+     "Java": 26,
+     "JavaScript": 26,
+     "Go": 26,
+     "PHP": 26,
+     "Ruby": 26
+    }
+   },
+   "codexglue_c2t": {
+    "pool_scanned": {
+     "Python": 2000,
+     "Java": 2000,
+     "JavaScript": 2000,
+     "Go": 2000,
+     "PHP": 2000,
+     "Ruby": 1400
+    },
+    "dev_kept": {
+     "Python": 26,
+     "Java": 26,
+     "JavaScript": 26,
+     "Go": 26,
+     "PHP": 26,
+     "Ruby": 26
+    }
+   }
+  }
+ },
+ "DEFECT": {
+  "labels": [
+   "Vulnerable",
+   "Safe"
+  ],
+  "prompt": "Does this C function contain a security vulnerability?\nAnswer with exactly one word from: Vulnerable, Safe.\n\nCode: {X}",
+  "src": {
+   "devign": {
+    "pool_scanned": {
+     "Vulnerable": 9084,
+     "Safe": 10798
+    },
+    "dev_kept": {
+     "Vulnerable": 80,
+     "Safe": 80
+    }
+   }
+  }
+ },
+ "RCT5": {
+  "labels": [
+   "Background",
+   "Objective",
+   "Methods",
+   "Results",
+   "Conclusions"
+  ],
+  "prompt": "This sentence comes from the abstract of a medical research paper. Which section does it belong to?\nAnswer with exactly one word from: Background, Objective, Methods, Results, Conclusions.\n\nSentence: {X}",
+  "src": {
+   "pubmed_rct": {
+    "pool_scanned": {
+     "Background": 0,
+     "Objective": 0,
+     "Methods": 0,
+     "Results": 0,
+     "Conclusions": 0
+    },
+    "dev_kept": {
+     "Background": 0,
+     "Objective": 0,
+     "Methods": 0,
+     "Results": 0,
+     "Conclusions": 0
+    }
+   },
+   "csabstruct": {
+    "pool_scanned": {
+     "Background": 1942,
+     "Objective": 1590,
+     "Methods": 6661,
+     "Results": 6702,
+     "Conclusions": 3056
+    },
+    "dev_kept": {
+     "Background": 32,
+     "Objective": 32,
+     "Methods": 32,
+     "Results": 32,
+     "Conclusions": 32
+    }
+   }
+  }
+ },
+ "FINSENT": {
+  "labels": [
+   "Bullish",
+   "Bearish",
+   "Neutral"
+  ],
+  "prompt": "Classify the sentiment of this financial headline for an investor.\nAnswer with exactly one word from: Bullish, Bearish, Neutral.\n\nHeadline: {X}",
+  "src": {
+   "twitterfin": {
+    "pool_scanned": {
+     "Bullish": 1922,
+     "Bearish": 1442,
+     "Neutral": 6173
+    },
+    "dev_kept": {
+     "Bullish": 53,
+     "Bearish": 53,
+     "Neutral": 53
+    }
+   },
+   "finnews": {
+    "pool_scanned": {
+     "Bullish": 0,
+     "Bearish": 0,
+     "Neutral": 0
+    },
+    "dev_kept": {
+     "Bullish": 0,
+     "Bearish": 0,
+     "Neutral": 0
+    }
+   }
+  }
+ },
+ "PIIFLAG": {
+  "labels": [
+   "Yes",
+   "No"
+  ],
+  "prompt": "Does this text contain personally identifiable information such as an email address, phone number, ID number, card number, IP address or password?\nAnswer with exactly one word from: Yes, No.\n\nText: {X}",
+  "src": {
+   "ai4privacy": {
+    "pool_scanned": {
+     "Yes": 12152,
+     "No": 17848
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   },
+   "gretel_fin": {
+    "pool_scanned": {
+     "Yes": 3100,
+     "No": 48102
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   }
+  }
+ },
+ "ADE": {
+  "labels": [
+   "Yes",
+   "No"
+  ],
+  "prompt": "Does this medical text report an adverse drug event (a side effect caused by a drug)?\nAnswer with exactly one word from: Yes, No.\n\nText: {X}",
+  "src": {
+   "ade_corpus": {
+    "pool_scanned": {
+     "Yes": 4271,
+     "No": 16625
+    },
+    "dev_kept": {
+     "Yes": 80,
+     "No": 80
+    }
+   }
+  }
+ },
+ "FAKENEWS": {
+  "labels": [
+   "Fake",
+   "Real"
+  ],
+  "prompt": "Is this news article fake news or real news?\nAnswer with exactly one word from: Fake, Real.\n\nArticle: {X}",
+  "src": {
+   "gonzaloa": {
+    "pool_scanned": {
+     "Fake": 9190,
+     "Real": 10805
+    },
+    "dev_kept": {
+     "Fake": 80,
+     "Real": 80
+    }
+   }
+  }
+ },
+ "DBPEDIA6": {
+  "labels": [
+   "Company",
+   "Artist",
+   "Athlete",
+   "Politician",
+   "Film",
+   "Book"
+  ],
+  "prompt": "What kind of entity does this Wikipedia abstract describe?\nAnswer with exactly one word from: Company, Artist, Athlete, Politician, Film, Book.\n\nAbstract: {X}",
+  "src": {
+   "dbpedia14": {
+    "pool_scanned": {
+     "Company": 39996,
+     "Artist": 0,
+     "Athlete": 0,
+     "Politician": 0,
+     "Film": 0,
+     "Book": 0
+    },
+    "dev_kept": {
+     "Company": 26,
+     "Artist": 0,
+     "Athlete": 0,
+     "Politician": 0,
+     "Film": 0,
+     "Book": 0
+    }
+   }
+  }
+ },
+ "TICKETTYPE": {
+  "labels": [
+   "Incident",
+   "Request",
+   "Problem",
+   "Change"
+  ],
+  "prompt": "Classify this customer support ticket by type.\nAnswer with exactly one word from: Incident, Request, Problem, Change.\n\nTicket: {X}",
+  "src": {
+   "tobi_tickets": {
+    "pool_scanned": {
+     "Incident": 6571,
+     "Request": 4665,
+     "Problem": 3397,
+     "Change": 1705
+    },
+    "dev_kept": {
+     "Incident": 40,
+     "Request": 40,
+     "Problem": 40,
+     "Change": 40
+    }
+   }
+  }
+ },
+ "TICKETPRIO": {
+  "labels": [
+   "High",
+   "Medium",
+   "Low"
+  ],
+  "prompt": "Classify the priority of this customer support ticket.\nAnswer with exactly one word from: High, Medium, Low.\n\nTicket: {X}",
+  "src": {
+   "tobi_tickets": {
+    "pool_scanned": {
+     "High": 6346,
+     "Medium": 6618,
+     "Low": 3374
+    },
+    "dev_kept": {
+     "High": 53,
+     "Medium": 53,
+     "Low": 53
+    }
+   }
+  }
+ },
+ "UNFAIR": {
+  "labels": [
+   "Unfair",
+   "Fair"
+  ],
+  "prompt": "You are a consumer-law reviewer. Is this clause from a terms-of-service agreement potentially unfair to the consumer?\nAnswer with exactly one word from: Unfair, Fair.\n\nClause: {X}",
+  "src": {
+   "lexglue_unfairtos": {
+    "pool_scanned": {
+     "Unfair": 619,
+     "Fair": 4808
+    },
+    "dev_kept": {
+     "Unfair": 80,
+     "Fair": 80
+    }
+   }
+  }
+ }
+}
