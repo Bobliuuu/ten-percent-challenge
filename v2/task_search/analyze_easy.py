@@ -4,9 +4,9 @@ def wl(k, n, z=1.96):
     if n == 0: return 0
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); r = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return (c - r) / d
 out = []
-for bf in sorted(glob.glob(sys.argv[1] + "/ct_*_e_bf16.json")):
-    tag = os.path.basename(bf)[3:-len("_e_bf16.json")]; B = {r["id"]: r for r in json.load(open(bf))["rows"]}
-    for qf in sorted(glob.glob(sys.argv[1] + f"/ct_{tag}_e_r*.json")):
+for bf in sorted(glob.glob(sys.argv[1] + "/ct_*_e_bf16.json") + glob.glob(sys.argv[1] + "/ct_*_f_bf16.json")):
+    pre = "e" if "_e_bf16" in bf else "f"; tag = os.path.basename(bf)[3:-len("_e_bf16.json")]; B = {r["id"]: r for r in json.load(open(bf))["rows"]}
+    for qf in sorted(glob.glob(sys.argv[1] + f"/ct_{tag}_{pre}_r*.json")):
         d = json.load(open(qf)); Q = {r["id"]: r for r in d["rows"]}; name = os.path.basename(qf)
         out.append(f"\n### {tag}  {name}  ratio={d['ratio']*100:.3f}%  body_bpw={d['body_bpw']:.2f}")
         out.append("| task | n | base acc | base-correct | retention (Wilson lo) | worst src x kind (n) | worst pooled kind (n) |\n|---|---|---|---|---|---|---|")
