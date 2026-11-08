@@ -19,11 +19,14 @@ def load_texts(tok):
         r = json.loads(l); cal.append(("tox", r, r["gold"]))
     for l in open(D + "/c_inj.jsonl"):
         r = json.loads(l); cal.append(("inj", r, "Injection" if r["gold"] != "benign" else "Benign"))
+    for l in open(D + "/c_easy.jsonl"):
+        r = json.loads(l); cal.append(("easy", r, r["answer"]))
     return cal, TOXP, INJP
 def render(tok, k, r, TOXP, INJP):
     def tpl(msgs, tools=None):
         try: return tok.apply_chat_template(msgs, tools=tools, add_generation_prompt=True, tokenize=False, enable_thinking=False)
         except TypeError: return tok.apply_chat_template(msgs, tools=tools, add_generation_prompt=True, tokenize=False)
+    if k == "easy": return tpl([{"role": "user", "content": r["user"]}])
     if k == "t1": return tpl([{"role": "user", "content": r["query"]}], [{"type": "function", "function": t} for t in r["tools"]])
     return tpl([{"role": "user", "content": (TOXP if k == "tox" else INJP).replace("{t}", r["text"])}])
 def sensitivity(model, path, tok, cal, TOXP, INJP, ncal=160, seed=0):
@@ -59,6 +62,28 @@ def sensitivity(model, path, tok, cal, TOXP, INJP, ncal=160, seed=0):
     loss = [nll(l) - base for l in range(L)]
     del m; torch.cuda.empty_cache()
     return dict(base_nll=base, bi=biv, loss=loss, n_seq=len(seqs))
+def width_stats(path, tok, cal, TOXP, INJP, ncal=160, seed=0):
+    """Wanda/FLAP-style structural scores from calibration activations (no gradients). ffn[L,I]: rms(act_i)*||Wdown[:,i]||; grp[L,NKV]: head-output energy per KV group."""
+    from transformers import AutoModelForCausalLM
+    m = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16).cuda().eval(); C = m.config
+    L, I, NH, NKV = C.num_hidden_layers, C.intermediate_size, C.num_attention_heads, C.num_key_value_heads; HD = C.hidden_size // NH; GS = NH // NKV
+    rnd = random.Random(seed + 1); sub = list(cal); rnd.shuffle(sub); sub = sub[:ncal]
+    fa = torch.zeros(L, I, device="cuda"); ha = torch.zeros(L, NH, device="cuda"); cnt = [0]
+    def mk(l, kind):
+        def hook(mod, args):
+            x = args[0].float()[0]
+            if kind == "f": fa[l] += x.pow(2).sum(0)
+            else: ha[l] += x.view(-1, NH, HD).pow(2).sum((0, 2))
+        return hook
+    hs = []
+    for l, lay in enumerate(m.model.layers): hs += [lay.mlp.down_proj.register_forward_pre_hook(mk(l, "f")), lay.self_attn.o_proj.register_forward_pre_hook(mk(l, "h"))]
+    with torch.no_grad():
+        for k, r, ans in sub:
+            p = render(tok, k, r, TOXP, INJP) + (ans or ""); ids = tok(p, add_special_tokens=False, return_tensors="pt")["input_ids"][:, -1500:].cuda(); cnt[0] += ids.shape[1]; m(ids)
+    ffn = torch.stack([(fa[l] / cnt[0]).sqrt() * lay.mlp.down_proj.weight.float().norm(dim=0) for l, lay in enumerate(m.model.layers)]).cpu()
+    hn = torch.stack([(ha[l] / cnt[0]).sqrt() * torch.stack([lay.self_attn.o_proj.weight[:, h * HD:(h + 1) * HD].float().norm() for h in range(NH)]) for l, lay in enumerate(m.model.layers)])
+    grp = hn.view(L, NKV, GS).pow(2).sum(-1).sqrt().cpu()
+    del m; torch.cuda.empty_cache(); return dict(ffn=ffn, grp=grp)
 def keep_vocab(tok, cal, TOXP, INJP, V):
     seen = set()
     for k, r, ans in cal:
@@ -67,7 +92,11 @@ def keep_vocab(tok, cal, TOXP, INJP, V):
     seen.update(tok(" \n\t0123456789", add_special_tokens=False)["input_ids"])
     for i in range(256):  # all single-byte tokens incl. byte-level chars
         pass
-    from transformers.models.gpt2.tokenization_gpt2 import bytes_to_unicode
+    def bytes_to_unicode():
+        bs = list(range(ord("!"), ord("~") + 1)) + list(range(ord("\xa1"), ord("\xac") + 1)) + list(range(ord("\xae"), ord("\xff") + 1)); cs = bs[:]; n = 0
+        for b in range(256):
+            if b not in bs: bs.append(b); cs.append(256 + n); n += 1
+        return dict(zip(bs, [chr(c) for c in cs]))
     b2u = bytes_to_unicode(); vocab = tok.get_vocab()
     for u in b2u.values():
         if u in vocab: seen.add(vocab[u])
@@ -85,7 +114,7 @@ def quant_rtn(w, bits, g):
         else:
             m = e < best; best = torch.where(m, e, best); bestd = torch.where(m, d, bestd)
     return bestd.reshape(o, i).to(w.dtype)
-def build(path, cfg, sens, keep, outdir, tok):
+def build(path, cfg, sens, keep, outdir, tok, ws=None):
     """write fake-quant model dir. returns byte accounting."""
     from safetensors import safe_open
     from safetensors.torch import save_file
@@ -98,6 +127,16 @@ def build(path, cfg, sens, keep, outdir, tok):
     os.makedirs(outdir, exist_ok=True); out = {}; byt = dict(body_q=0, body_fp16=0, embed=0, head=0, scales=0)
     V = conf["vocab_size"]; d = conf["hidden_size"]; kt = torch.tensor(keep).cuda() if vtrim else None
     base_params = 0
+    NH, NKV, I = conf["num_attention_heads"], conf["num_key_value_heads"], conf["intermediate_size"]; HD = d // NH; GS = NH // NKV
+    pf, pg = cfg.get("ffn", 0.0), cfg.get("grp", 0.0); kfn = int(round(I * (1 - pf) / 128)) * 128 if pf else I
+    FI = {l: torch.sort(torch.topk(ws["ffn"][l], kfn).indices).values for l in range(L)} if pf else {}
+    GK = {}
+    if pg:
+        ng = int(round(NKV * pg))
+        for l in range(L): GK[l] = torch.sort(torch.topk(ws["grp"][l], NKV - ng).indices).values
+    def rows_idx(l, kind):
+        g = GK[l]; step = HD * GS if kind == "q" else HD
+        return (g[:, None] * step + torch.arange(step)[None]).flatten()
     for f in sorted(glob.glob(path + "/*.safetensors")):
         with safe_open(f, "pt") as sf:
             for name in sf.keys():
@@ -106,8 +145,24 @@ def build(path, cfg, sens, keep, outdir, tok):
                 if m:
                     l = int(m.group(1))
                     if l in dropped: continue
-                    nn_ = f"model.layers.{remap[l]}.{m.group(2)}"
-                    if w.ndim == 2 and bits < 16:
+                    nn_ = f"model.layers.{remap[l]}.{m.group(2)}"; sub_ = m.group(2); ridx = cidx = None
+                    if pf and sub_ in ("mlp.gate_proj.weight", "mlp.up_proj.weight"): ridx = FI[l]
+                    if pf and sub_ == "mlp.down_proj.weight": cidx = FI[l]
+                    if pg:
+                        kd = {"self_attn.q_proj": "q", "self_attn.k_proj": "k", "self_attn.v_proj": "k"}.get(sub_.rsplit(".", 1)[0])
+                        if kd: ridx = rows_idx(l, kd)
+                        if sub_ == "self_attn.o_proj.weight": cidx = rows_idx(l, "q")
+                    if ridx is not None or cidx is not None:
+                        wc = w.cuda(); full = torch.zeros_like(wc)
+                        if w.ndim == 1: cw = wc[ridx.cuda()]; byt["body_fp16"] += cw.numel() * 2; full[ridx.cuda()] = cw
+                        else:
+                            ri = ridx.cuda() if ridx is not None else torch.arange(w.shape[0], device="cuda"); ci = cidx.cuda() if cidx is not None else torch.arange(w.shape[1], device="cuda")
+                            cw = wc[ri][:, ci]
+                            if bits < 16: cw = quant_rtn(cw, bits, g); byt["body_q"] += cw.numel() * bits / 8; byt["scales"] += cw.numel() / g * (2 + bits / 8)
+                            else: byt["body_fp16"] += cw.numel() * 2
+                            full[ri[:, None], ci[None, :]] = cw
+                        out[nn_] = full.cpu()
+                    elif w.ndim == 2 and bits < 16:
                         out[nn_] = quant_rtn(w.cuda(), bits, g).cpu(); byt["body_q"] += w.numel() * bits / 8; byt["scales"] += w.numel() / g * (2 + bits / 8)
                     else:
                         out[nn_] = w; byt["body_fp16" if w.ndim == 2 else "body_fp16"] += w.numel() * 2
