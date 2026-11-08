@@ -5,3 +5,9 @@
 [   147s] news_a100_m24_c1024 ent25 n 25 d 0 {'teach_rep': 0.68, 'neigh_rep': 0.963, 'old_teach': 0.046} bytes 50343936 edit 47s
 [   240s] news_a100_m24_c1024 mix13_12 n 25 d 0 {'teach_rep': 0.507, 'neigh_rep': 0.923, 'old_teach': 0.038} bytes 50343936 edit 48s
 [   332s] news_a100_m24_c1024 mix20_5 n 25 d 0 {'teach_rep': 0.613, 'neigh_rep': 0.99, 'old_teach': 0.168} bytes 50343936 edit 48s
+[   424s] news_a100_m24_c1024 old25 n 25 d 0 {'teach_rep': 0.0, 'neigh_rep': 0.986, 'old_teach': 0.282} bytes 50343936 edit 48s
+[   517s] news_a100_m24_c1024 ent25 n 25 d 1 {'teach_rep': 0.653, 'neigh_rep': 0.976, 'old_teach': 0.023} bytes 50343936 edit 48s
+[   609s] news_a100_m24_c1024 mix13_12 n 25 d 1 {'teach_rep': 0.52, 'neigh_rep': 0.988, 'old_teach': 0.153} bytes 50343936 edit 47s
+[   702s] news_a100_m24_c1024 mix20_5 n 25 d 1 {'teach_rep': 0.613, 'neigh_rep': 0.993, 'old_teach': 0.176} bytes 50343936 edit 48s
+[   794s] news_a100_m24_c1024 old25 n 25 d 1 {'teach_rep': 0.013, 'neigh_rep': 0.991, 'old_teach': 0.237} bytes 50343936 edit 48s
+[   887s] news_a100_m24_c1024 ent25 n 25 d 2 {'teach_rep': 0.68, 'neigh_rep': 0.986, 'old_teach': 0.038} bytes 50343936 edit 48s

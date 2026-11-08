@@ -4,3 +4,21 @@
 [    48s] neigh base-correct 1237 sel 650 rep 587 old errors 383 ann pool 252 old teach 131 ent base said Counter({'World': 54, 'Technology': 16, 'Sports': 3, 'Travel': 1, 'Business': 1})
 [   219s] news_a100_m24_c1024 real n 25 d 0 {'teach_rep': 0.64, 'teach_bbc': 0.505, 'neigh_rep': 0.991, 'neigh_sel': 0.982} bytes 50343936 edit 47s
 [   304s] news_a100_m24_c1024 shuffled n 25 d 0 {'teach_rep': 0.08, 'teach_bbc': 0.027} bytes 50343936 edit 47s
+[   424s] news_a100_m24_c1024 wrong n 25 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.993} bytes 50343936 edit 47s
+[   546s] news_a100_m24_c1024 mixed n 25 d 0 {'teach_rep': 0.2, 'teach_bbc': 0.076, 'neigh_rep': 0.993} bytes 50343936 edit 48s
+[   709s] news_a100_m24_c1024 real n 25 d 1 {'teach_rep': 0.667, 'teach_bbc': 0.559, 'neigh_rep': 0.983, 'neigh_sel': 0.983} bytes 50343936 edit 47s
+[   795s] news_a100_m24_c1024 shuffled n 25 d 1 {'teach_rep': 0.08, 'teach_bbc': 0.021} bytes 50343936 edit 48s
+[   909s] news_a100_m24_c1024 wrong n 25 d 1 {'teach_rep': 0.013, 'teach_bbc': 0.003, 'neigh_rep': 0.973} bytes 50343936 edit 47s
+[   968s] news_a100_m24_c1024 mixed n 25 d 1 {'teach_rep': 0.213, 'teach_bbc': 0.125, 'neigh_rep': 0.983} bytes 50343936 edit 23s
+[  1048s] news_a100_m24_c1024 real n 25 d 2 {'teach_rep': 0.693, 'teach_bbc': 0.562, 'neigh_rep': 0.988, 'neigh_sel': 0.989} bytes 50343936 edit 23s
+[  1089s] news_a100_m24_c1024 shuffled n 25 d 2 {'teach_rep': 0.12, 'teach_bbc': 0.027} bytes 50343936 edit 23s
+[  1147s] news_a100_m24_c1024 wrong n 25 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.003, 'neigh_rep': 0.986} bytes 50343936 edit 23s
+[  1206s] news_a100_m24_c1024 mixed n 25 d 2 {'teach_rep': 0.36, 'teach_bbc': 0.17, 'neigh_rep': 0.99} bytes 50343936 edit 23s
+[  1285s] news_a100_m24_c1024 real n 25 d 3 {'teach_rep': 0.667, 'teach_bbc': 0.568, 'neigh_rep': 0.963, 'neigh_sel': 0.966} bytes 50343936 edit 23s
+[  1327s] news_a100_m24_c1024 shuffled n 25 d 3 {'teach_rep': 0.12, 'teach_bbc': 0.043} bytes 50343936 edit 23s
+[  1385s] news_a100_m24_c1024 wrong n 25 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.003, 'neigh_rep': 0.961} bytes 50343936 edit 23s
+[  1444s] news_a100_m24_c1024 mixed n 25 d 3 {'teach_rep': 0.4, 'teach_bbc': 0.24, 'neigh_rep': 0.954} bytes 50343936 edit 23s
+[  1524s] news_a100_m24_c1024 real n 25 d 4 {'teach_rep': 0.667, 'teach_bbc': 0.565, 'neigh_rep': 0.991, 'neigh_sel': 0.989} bytes 50343936 edit 23s
+[  1565s] news_a100_m24_c1024 shuffled n 25 d 4 {'teach_rep': 0.12, 'teach_bbc': 0.043} bytes 50343936 edit 23s
+[  1623s] news_a100_m24_c1024 wrong n 25 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0, 'neigh_rep': 0.983} bytes 50343936 edit 23s
+[  1682s] news_a100_m24_c1024 mixed n 25 d 4 {'teach_rep': 0.253, 'teach_bbc': 0.158, 'neigh_rep': 0.988} bytes 50343936 edit 23s

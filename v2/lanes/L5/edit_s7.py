@@ -70,7 +70,7 @@ def run(cfg):
     # ---------------- base pass: cache residual stream entering layer NL-KMAX
     TL0 = NL - KMAX; TAIL = list(range(TL0, NL))
     @torch.no_grad()
-    def base_hidden(seqs, budget=60000):
+    def base_hidden(seqs, budget=6000):
         out = [None] * len(seqs); order = sorted(range(len(seqs)), key=lambda i: len(seqs[i])); i = 0
         while i < len(order):
             j = i
@@ -112,7 +112,7 @@ def run(cfg):
         return hook
     for li in TAIL: LAY[li].mlp.down_proj.register_forward_pre_hook(mkhook(li))
     @torch.no_grad()
-    def tail(keys, budget=48000, rec=None, return_logits=False, pos_override=None):
+    def tail(keys, budget=16000, rec=None, return_logits=False, pos_override=None):
         """keys: list of ITEMS keys. returns list of final residual x [npos,D] at label positions (or logits argmax if return_logits)."""
         its = [ITEMS[k] for k in keys]; out = [None] * len(its); order = sorted(range(len(its)), key=lambda i: len(its[i]["h"])); i = 0
         while i < len(order):

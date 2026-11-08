@@ -48,5 +48,8 @@ Calibration file restricted to ONE source (5 draws, `results/sk_proxy_*.json`): 
 | 9 spirit | GRAY | no compression by us; the 1-bit model is the authors' release |
 Weakest rule: base identity (2/9, unruled); next: closed-form-edit legality (4) and the unbuildable per-kind exam (3).
 
+## Secondary task: NEWS 4-label router + new label `Entertainment` (dev, same mechanism, config chosen on the selection split: awt 100, margin 24, 1024 columns, 6 layers, 50.3 MB)
+Base acc .772. Only 5 draws were completed (box destroyed to stop spend; `results/news_final.json`). Teach A (HuffPost entertainment, unseen) 0.667 [.651,.683]; teach B (BBC entertainment, another source) 0.552 [.528,.566]; neighbours kept (REP split) 0.983 [.973,.991], worst draw 0.9625; shuffled 0.104, wrong 0.003, mixed 0.293, empty 0. Per-cell retention: min HuffPost Sports .933, BBC World .941, AG Sports .969, BBC Sports .963, the rest .99-1.0; per source AG .988, BBC .977, HuffPost .984. So NEWS passes the 98% aggregate only on average with a lower teach rate than SKILL7 (.67 vs .88), and fails the per-cell >= .95 bar in two cells; the earlier harsh 400-item HuffPost check (96.4% with the lm_head row) is not comparable. Policy arms on NEWS (13 new + 12 old: neighbours .923, teach .51 in the one draw finished) are worse than on SKILL7. Selection sweep for NEWS: lower awt/lam gives neighbours .82-.97 with shuffled .3-.9 (leak); only awt >= 100 with margin >= 24 holds neighbours >= .98 at teach .7. **SKILL7 is the better task and the one this lane ships.**
+
 ## Cost
-Vast L40 boxes (2, about 3 h each at $0.456/h = under $3 plus a third of box 1 still running for NEWS), all destroyed at the end (see STATUS.md); Modal 0.
+Two Vast L40 boxes (about 4 h and 2.5 h at $0.456/h, about $3 in total), both destroyed and verified gone (no instance with this lane's id remains); Modal 0; AWS 0.

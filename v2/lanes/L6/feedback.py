@@ -76,18 +76,25 @@ def final_pre_norm(it):
     h = lm.model.norm.register_forward_pre_hook(lambda m, i: cap.__setitem__("x", i[0][0, -1].float())); o = lm(**ids, use_cache=False); h.remove()
     return cap["x"], o.logits[0, -1].float()
 @torch.no_grad()
+def apply_layer(l, dW):
+    m = mods[l]
+    if dW is None: m.__dict__.pop("forward", None)
+    else:
+        Wf = (W0[l].float() + dW).half().float(); m.forward = (lambda x, Wf=Wf: F.linear(x.float(), Wf).to(x.dtype))
+@torch.no_grad()
 def make_delta(ann, targets):
-    K, extra = keys_last(ann); n = len(ann); R = torch.zeros(lm.config.hidden_size, n, device="cuda")
-    for i, (it, lab) in enumerate(zip(ann, targets)):
-        x, lg = final_pre_norm(it); rms = x.pow(2).mean().sqrt(); t = tid(lab); lg2 = lg.clone(); lg2[t] = -1e9; c = int(lg2.argmax())
-        gap = float(lg[c] - lg[t]); u = gam * (Wout[t] - Wout[c]); R[:, i] = rms * (max(gap, 0) + A.margin) * u / (u @ u)
-    R = R / len(EL); d = {}; fac = {}
-    for l in EL:
-        Rl = R / torch.stack(G[l])[None, :].clamp(min=0.02)       # the shared expert output is scaled by sigmoid(shared_expert_gate) in this model
+    """sequential closed-form: layer l (in order) delivers 1/(layers left) of the CURRENT remaining final-residual change (gap+margin), keys re-measured with earlier edits applied"""
+    d = {}; fac = {}; n = len(ann)
+    for idx, l in enumerate(EL):
+        R = torch.zeros(lm.config.hidden_size, n, device="cuda"); gl = []
+        K, _ = keys_last(ann); gl = torch.stack(G[l])
+        for i, (it, lab) in enumerate(zip(ann, targets)):
+            x, lg = final_pre_norm(it); rms = x.pow(2).mean().sqrt(); t = tid(lab); lg2 = lg.clone(); lg2[t] = -1e9; c = int(lg2.argmax())
+            gap = float(lg[c] - lg[t]); u = gam * (Wout[t] - Wout[c]); R[:, i] = rms * (max(gap, 0) + A.margin) * u / (u @ u) / (len(EL) - idx)
+        Rl = R / gl[None, :].clamp(min=0.02)       # shared expert output is scaled by sigmoid(shared_expert_gate)
         Kl = K[l]; KK = Kl @ Kl.T; M = A.lam * (KK.trace() / C[l].trace()) * C[l] + KK; M = M + 1e-4 * M.diagonal().mean() * torch.eye(M.shape[0], device="cuda")
-        Bm = torch.linalg.solve(M, Kl).T            # n x d_ff
-        d[l] = Rl @ Bm
-        fac[l] = (Rl.half().cpu().numpy(), Bm.half().cpu().numpy())
+        Bm = torch.linalg.solve(M, Kl).T
+        d[l] = Rl @ Bm; fac[l] = (Rl.half().cpu().numpy(), Bm.half().cpu().numpy()); apply_layer(l, d[l])
     return d, fac
 # data split: annotations / teach / neighbours
 newitems = [x for x in dev if x["kind"] == A.new]; neigh_all = [x for x in dev if x["kind"] != A.new]
@@ -101,8 +108,9 @@ for d in range(A.draws):
     for cond in ("empty", "real", "shuffle"):
         if cond == "empty": set_delta(None)
         else:
+            set_delta(None)
             tg = [A.new] * len(ann) if cond == "real" else [rng.choice(OLD) for _ in ann]     # shuffled: labels decoupled from the requests (random old skills)
-            dl, fac = make_delta(ann, tg); set_delta(dl)
+            dl, fac = make_delta(ann, tg)
             if cond == "real" and d == 0 and A.save: np.savez_compressed(A.save, **{f"A{l}": fac[l][0] for l in EL}, **{f"B{l}": fac[l][1] for l in EL}); row["feedback_bytes"] = os.path.getsize(A.save if A.save.endswith('.npz') else A.save + '.npz')
         to = gen(teach); no = gen(neigh); tr = gen(ann)
         row[cond] = dict(train_ann=float(np.mean([o.lower() == A.new.lower() for o in tr])), teach=float(np.mean([o.lower() == A.new.lower() for o in to])), neigh_kept=float(np.mean([o.lower() == x["answer"].lower() for o, x in zip(no, neigh)])),
