@@ -1,0 +1,1 @@
+[{"name":"e32_k5300_t3","model":"Qwen/Qwen2.5-32B-Instruct","D":8,"K":5300,"gen_tokens":300000,"task_rep":3,"ncal":1024,"no_general":true,"vllm_util":0.85}]

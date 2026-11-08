@@ -2,7 +2,7 @@
 Quantiser: random-sign + Kronecker/Hadamard incoherence on both sides, sequential block-LDLQ (Hessian from quantised-prefix activations),
 D-dim Gaussian k-means codebook shared by all layers (D=1 => scalar Lloyd-Max = GPTQ-like baseline; D=8 => QuIP#-style VQ without fine-tuning).
 No gradients/optimizers anywhere. Dev data only.  launch: python qpush.py cfgs.json  (spawns detached; results on Modal volume tenpct-quality:/res)"""
-import json, sys, os
+import json, sys, os, collections
 class _V:
     def commit(self): pass
     def reload(self): pass
@@ -131,10 +131,26 @@ def _impl(cfg):
             return idx
         def decode(idx, C, sigma, rin, rout):
             Wq = (C[idx].reshape(idx.shape[0], -1)) * sigma; Wq = rout.inv(Wq.T.contiguous()).T.contiguous(); return rin.inv(Wq)
+        SEEDP = (str(cfg["seed"]) + ":") if cfg.get("seed") else ""
         # calibration stream
         cc = [json.loads(l) for l in open(HERE + "/" + cfg.get("calib_file", "calib_inj.jsonl"))]
         def chat(u): return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
-        txt = [chat(c["user"]) + c["answer"] + "<|im_end|>\n" for c in cc]
+        if cfg.get("balance"):
+            ci_ = [c for c in cc if c["answer"] == "Injection"]; cb_ = [c for c in cc if c["answer"] == "Benign"]; nb_ = min(len(ci_), len(cb_)); cc = ci_[:nb_] + cb_[:nb_]
+        if cfg.get("selfdist"):   # answers = the BASE model's own greedy generation (fp weights, before any quantisation); not shipped
+            tok.padding_side = "left"; outs = []
+            for b0_ in range(0, len(cc), 8):
+                bt = [chat(c["user"]) for c in cc[b0_:b0_ + 8]]; enc_ = tok(bt, return_tensors="pt", padding=True, truncation=True, max_length=1500).to(dev)
+                with torch.no_grad(): g_ = model.generate(**enc_, max_new_tokens=4, do_sample=False)
+                outs += [tok.decode(x[enc_["input_ids"].shape[1]:], skip_special_tokens=True).strip() for x in g_]
+            for c, o_ in zip(cc, outs): c["answer"] = o_
+            print("selfdist answers", collections.Counter(outs).most_common(4), flush=True)
+        AW = float(cfg.get("ans_w", 1.0)); seqs = []
+        for c in cc:
+            p_ = tok.encode(chat(c["user"]), add_special_tokens=False)[:1900]; a_ = tok.encode(c["answer"] + "<|im_end|>\n", add_special_tokens=False)
+            seqs.append((p_ + a_, [1.0] * (len(p_) - 1) + [AW] * (len(a_) + 1)))
+        seqs = seqs * cfg.get("task_rep", 1)
+        txt = []
         if cfg.get("calib") == "mix":
             t1 = [json.loads(l) for l in open(HERE + "/calib_t1.jsonl")][:len(cc) // 2]
             for r in t1:
@@ -145,7 +161,7 @@ def _impl(cfg):
                     ans = "".join("<tool_call>\n" + json.dumps({"name": g["name"], "arguments": g["arguments"]}) + "\n</tool_call>" for g in gold) if gold else "No tool applies."
                     txt.append(s + ans + "<|im_end|>\n")
                 except Exception as e: pass
-        txt = txt * cfg.get("task_rep", 1); gtok = cfg.get("gen_tokens", 0)
+        gtok = cfg.get("gen_tokens", 0)
         if gtok:
             from datasets import load_dataset
             wtr = load_dataset("wikitext", "wikitext-103-raw-v1", split="train", streaming=True); acc = 0
@@ -154,10 +170,11 @@ def _impl(cfg):
                 if len(t_) < 400: continue
                 txt.append(t_); acc += len(t_) // 5
                 if acc >= gtok: break
-        rng = np.random.RandomState(0); rng.shuffle(txt); ncal = cfg.get("ncal", 256); Lc = cfg.get("callen", 512); stream = []
-        for s in txt: stream += tok.encode(s, add_special_tokens=False)[:2048]
+        for t_ in txt: e_ = tok.encode(t_, add_special_tokens=False)[:2048]; seqs.append((e_, [1.0] * len(e_)))
+        rng = np.random.RandomState(0); perm_ = rng.permutation(len(seqs)); ncal = cfg.get("ncal", 256); Lc = cfg.get("callen", 512); stream = []; wlist = []
+        for pi_ in perm_: stream += seqs[pi_][0]; wlist += seqs[pi_][1]
         nev_s = cfg.get("nsens_eval", 24) if cfg.get("mode") == "sens" else 0
-        n_ = min(len(stream) // Lc, ncal + nev_s); stream = torch.tensor(stream[:n_ * Lc]).view(-1, Lc); ncal = n_ - nev_s; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
+        n_ = min(len(stream) // Lc, ncal + nev_s); stream = torch.tensor(stream[:n_ * Lc]).view(-1, Lc); WTS = torch.tensor(wlist[:n_ * Lc]).view(-1, Lc).float(); cw = {"w": None}; ncal = n_ - nev_s; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
             def __init__(s, m): super().__init__(); s.m = m; s.attention_type = getattr(m, 'attention_type', 'full_attention')
@@ -203,10 +220,10 @@ def _impl(cfg):
                     for j, x in enumerate(cur): o = l(x, **kw); cur[j] = o[0] if isinstance(o, tuple) else o
                 for h_ in hds: h_.remove()
                 for gname, names, hookn in groups:
-                    Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
+                    Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(SEEDP + f"{li}.{gname}.in".encode()))
                     Hr = rin.fwd(Hraw); Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw; olds = {}
                     for n in names:
-                        m = l.get_submodule(n); wdev = m.weight.device; olds[n] = m.weight.data.clone(); W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
+                        m = l.get_submodule(n); wdev = m.weight.device; olds[n] = m.weight.data.clone(); W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(SEEDP + f"{li}.{n}.out".encode()))
                         Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()); idx = ldlq(Wr / sigma, Hr, C)
                         m.weight.data = decode(idx, C, sigma, rin, rout).to(torch.bfloat16).to(wdev)
                     k_ = klnow(); sres[f"L{li}.{gname}"] = dict(kl=k_, n=sum(int(l.get_submodule(n).weight.numel()) for n in names))
@@ -227,26 +244,28 @@ def _impl(cfg):
                     x = i[0].reshape(-1, i[0].shape[-1]).float(); torch.backends.cuda.matmul.allow_tf32 = True
                     if flag["f"]: Hf[gname] += (x.T @ store[gname].to(x.device)).to(Hf[gname].device)
                     else:
-                        nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                        wv = cw["w"].to(x.device).reshape(-1, 1) if cw["w"] is not None else None
+                        if wv is None: nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                        else: nsm[gname] += float(wv.sum()); Hs[gname] += (x.T @ (x * wv)).to(Hs[gname].device)
                         if tgt: store[gname] = x
                     torch.backends.cuda.matmul.allow_tf32 = False
                 return hook
             hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
             with torch.no_grad():
                 for j, x in enumerate(cur):
-                    flag["f"] = False; l(x, **kw)
+                    flag["f"] = False; cw["w"] = WTS[j]; l(x, **kw)
                     if tgt: flag["f"] = True; o = l(cur_fp[j], **kw); cur_fp[j] = o[0] if isinstance(o, tuple) else o
             for h_ in hds: h_.remove()
             if tgt: store.clear()
             Hs = {k: v.cpu() for k, v in Hs.items()}; Hfs = {k: v.cpu() for k, v in Hf.items()}; torch.cuda.empty_cache()
             for gname, names, hookn in groups:
-                Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
+                Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(SEEDP + f"{li}.{gname}.in".encode()))
                 Hr = rin.fwd(Hraw)
                 if tgt:
                     Hq = Hraw.double(); Hq.diagonal().add_(cfg.get("damp", 0.01) * float(torch.mean(torch.diag(Hq)))); Lc = torch.linalg.cholesky(Hq); del Hq; Hfq = (Hfs[gname].to(dev) / nsm[gname]).double()
                 Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
                 for n in names:
-                    m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
+                    m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(SEEDP + f"{li}.{n}.out".encode()))
                     if tgt: Wt = torch.cholesky_solve((W.double() @ Hfq).T.contiguous(), Lc).T.contiguous().float(); st["tshift"] = st.get("tshift", 0.0) + float((Wt - W).norm() / W.norm()); W = Wt; del Wt
                     Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()) * cfg.get("smult", 1.0)
                     K = Kof(li, n); C = get_cb(K); idx = ldlq(Wr / sigma, Hr, C, damp=cfg.get("damp", 0.01))
