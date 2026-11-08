@@ -188,3 +188,15 @@ fp16 470.19 GB, 10% = 47.02 GB. Recipe: routing-mass expert prune (per layer), g
 | COMM4 (StackExchange + Reddit titles) | Q2.5-14B | .875 | .750 [.696] | Astronomy .21 | class collapse |
 | PHISH2C (Scam/Genuine) | Q2.5-14B | .931 | .508 [.452] | Genuine .06 | class flip |
 | 26 tasks in ONE mixture calibration | Q2.5-14B | - | PHISH2 .50, CODELANG .52, LANG20 .46 (class collapses); CODEPROSE .99 | | protocol (a): pessimistic, not used for ranking |
+
+## L10 denominator-bonus lane (start = Qwen2.5-Omni-7B, text path only; v2/lanes/L10/REPORT.md)
+10% of the WHOLE Omni fp16 (21.46 GB) spent on the 7.62B thinker text path = 2.25 bpw. dense_core (Hadamard + GPTQ + entropy-coded), SKILL7, real greedy generation, retention of base-correct [Wilson lo].
+| variant | size | SKILL7 retention [lo] | worst kind / cell | base acc | note |
+|---|---|---|---|---|---|
+| Omni-7B text path, DEV | 9.879% (+0.051% feedback = 9.930%) | 99.69 [98.89] (n 655) | 99.1 / 98.0 | .960 | PICK |
+| Omni-7B, SHARED LOCKED EXAM (2744, scored once) | 9.879% | **99.55 [99.21]** (2643/2655) | Lists 99.07 [97.31], News 98.78 [97.18] | .9676 | clean_only 99.63 [99.26]; never-used sources 99.59 [99.10]; feedback Recipe 0 -> 86.0% [79.8] on 164 teach, shuffled 0, neighbours 99.15 -> 99.15 |
+| Llama-3.2-11B-Vision text path (8.03B), DEV | 9.872% (2.10 bpw) | 98.73 [97.41] | Alarm 95.5 / 94.9 | .809 | weak base on routing |
+| same, emb/head 3-bit | 9.869% | 98.73 [97.41] | Calendar 95.7 / 90.2 | .809 | no gain |
+| Omni-3B text path (3.40B, 2.61 bpw), DEV | 9.875% | 98.90 [97.75] | Calendar 93.9 / 93.3 | .933 | fails per-kind 95 |
+| BANKFAM (fuzzy 7 families), Omni-7B DEV | 9.879% | 97.60 [95.84] | Payment 88.9 | .697 | ambiguous families, not presentable |
+Weakest rule: R9 spirit / R1 literal (denominator includes dropped audio/vision/talker modules, 3.12B params). Feedback legality R4 shared with other diffuse-edit lanes.

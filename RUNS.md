@@ -405,3 +405,6 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T18:10Z vast id 59753950 label tenpct-L11_X4 GPU A100 SXM4 80GB $1.122/h (+5% guard) started
 - 2026-11-08T18:10Z vast id 59751753 tenpct-L11_G destroyed after 0.18 h (~$0.25)
 - 2026-11-08 vast tenpct-l3a (H100 NVL ~$3.1/h, ~10 h) and 3 orphan duplicates from a retry loop destroyed + verified gone; Modal app tenpct-moe-entry has no running tasks
+- 2026-11-08T18:17Z vast id 59753247 tenpct-L11_X1 destroyed after 0.18 h (~$0.18)
+- 2026-11-08T18:18Z vast id 59753518 tenpct-L11_X2 destroyed after 0.18 h (~$0.19)
+- 2026-11-08 L10 exam result: Omni-7B text path SKILL7 shared exam retention 99.55% [99.21], feedback Recipe 0->86.0% [79.8] (shuffled 0); see v2/lanes/L10/REPORT.md. Modal l10 apps finished (no boxes launched, nothing to destroy).

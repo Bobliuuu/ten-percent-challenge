@@ -415,3 +415,17 @@ Qwen2.5-32B scalar stack at plan 9.90%: retention 96.5% (Wilson LB 96.0%), worst
 
 ### C34. L3 MoE: task-pruned Qwen3-30B-A3B + 2-bit VQ + o_proj feedback (added 2026-11-08, L3 agent; `v2/lanes/L3/`, `v2/moe_entry/`)
 85/128 experts per layer (routing mass), D4-K256 gaussian VQ + two-sided Hadamard + error feedback (2.0 bpw), attn6/emb5/head4, real packed file 9.676%, +fp16 o_proj feedback override => 9.896%. Locked shared exam (scored once): SKILL7 retention 99.32 [98.92], min kind 96.7, never-used sources 99.65; BANK6 99.24 [98.76], min kind 97.9. Feedback closed-form o_proj last 8 layers, 24 labels: SKILL7 teach 79.9% (shuffled 0, empty 0), BANK6 16%. 3-bit RTN/GPTQ at 55 experts reached only 98.0-98.7 (dev). Gaps: closed-form weight-edit legality, per-cell 98.5, BANK6 teach, clean-only tier below 300 for some kinds. REPORT: `v2/lanes/L3/REPORT.md`.
+
+### C40. L10 denominator bonus: Qwen2.5-Omni-7B text path + diffuse down_proj feedback (added 2026-11-08, `v2/lanes/L10/`)
+- **Base:** Qwen/Qwen2.5-Omni-7B, 10,732,225,440 params, 21,464,450,880 fp16 bytes (disk 22.36 GB). We ship only the thinker text path (7.62B, Qwen2 arch); vision/audio towers, talker, token2wav dropped.
+- **Task / answer format:** SKILL7 voice-skill routing, generated skill word, exact match; shared locked exam v2/exam (2744 items).
+- **Compression method:** dense_core.py block-Hadamard + GPTQ + entropy-coded scalar levels, per-matrix allocation, target 9.85%, emb/head 4-level; calibration = EASY SKILL7 calib only (disjoint from exam); no weight training.
+- **Feedback mechanism:** closed-form column-sparse down_proj edit, last 6 layers x 256 columns, 11.0 MB, from 25 annotated mistakes; new skill `Recipe` generated end to end.
+- **Size:** 2,131,462,551 B = 9.930% of 21.46 GB (quantised 9.879% + patch 0.051%); ACCOUNTING (no packed file written).
+- **Retention:** LOCKED shared exam, GEN, once: 2643/2655 = **99.55% [99.21]**; worst kind News 98.78% [97.18]; clean_only 99.63% [99.26]; never-used sources 99.59% [99.10]; base acc .9676. Dev 99.69% [98.89].
+- **General capability:** not measured.
+- **Rules:** R1 GRAY (literal pass against whole-model fp16; modules dropped) | R2 PASS | R3 PASS (532 seen_tox rows; clean_only reported) | R4 GRAY (diffuse edit unruled) | R5 PASS* (0 -> 86.0% [79.8] on 164 locked teach items; one draw; neighbours 99.15 unchanged) | R6 PASS (shuffled 0%, empty 0%) | R7 PASS | R8 PASS (base .9676) | R9 GRAY-LOW (denominator inflated by unused modules; disclosed). Weakest: R9/R1.
+- **Remaining work and cost:** write the packed entropy-coded file; repeat feedback with >1 draw and on own-data proxy; BANK6 variant; Llama-3.2-90B-Vision (2.01 bpw) / Qwen3-Omni-30B-A3B (1.85 bpw MoE) not run. ~1 day, ~$30.
+- **Blockers:** maintainer reading of "fp16 size of the model you started from"; feedback-edit legality.
+- **P(all 9 as written):** ~15% (V=2): every measured gate passes on the shared exam; the risk is entirely interpretive (R9/R1, R4).
+- **Cheapest next experiment:** packed-file write + 5-draw feedback on cross-source teach (~$5).
