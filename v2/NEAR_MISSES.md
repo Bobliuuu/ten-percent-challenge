@@ -65,3 +65,12 @@ Size = analytic bytes of packed ints + fp16 scales + int zero-points + fp16 rout
 | openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0% | 50.8 [46.9] | 0.16 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0% | 94.5 [91.8] | 0.80 travel | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 <!-- MOE-CENSUS-B END -->
+
+## L9 big MoE lane (Qwen3-235B-A22B-Instruct-2507, SKILL7 = MASSIVE+CLINC150 7 skills; SEL set 963 items; base acc .9263 (892 base-correct); DEV only, no locked file)
+fp16 reference = 2 x 235,093,634,560 = 470.19 GB; 10% = 47.0 GB. Recipe = moe_entry (routing-mass expert prune per layer on 2000... cal rows, grouped asymmetric RTN with MSE clip on kept experts, attention/embedding/head 4-bit g128), fake-quant in bf16, real greedy generation. Size = analytic packed bytes (ints + fp16 scale + int zp + fp16 router rows + keep index + tokenizer), NOT a real packed file. Code `v2/lanes/L9/core235.py`, raw `v2/lanes/L9/results/`.
+| method | size | retention [Wilson lo] | min cell | feedback | rule gaps |
+|---|---|---|---|---|---|
+| keep 88/128, RTN2 g128 mse, attn/emb/head 4b | 9.78% | 99.22 [98.39] (acc .9377) | 97.9 | not run | retention on REP pending; analytic size only; no feedback; no locked exam |
+| keep 60/128, RTN3 g128 mse, attn/emb/head 4b | 9.80% | 98.88 [97.95] | 96.5 | not run | same |
+| keep 48/128, RTN3 | 8.02% | 98.09 [96.97] | 95.6 | not run | retention < 98.5 lb, cell |
+| keep 40/128, RTN4 | 8.73% | 97.98 [96.83] | 91.3 | not run | retention, cell (Lists confusions) |

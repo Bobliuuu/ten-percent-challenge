@@ -1,0 +1,146 @@
+[
+ {
+  "name": "base",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ],
+  "ncal": 2000
+ },
+ {
+  "name": "k88_b2g128_mse",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k60_b3g128_mse",
+  "keep": 60,
+  "eb": 3,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k72_b2g128_mse",
+  "keep": 72,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k64_b2g128_mse",
+  "keep": 64,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k48_b2g128_mse",
+  "keep": 48,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k32_b2g128_mse",
+  "keep": 32,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k24_b2g128_mse",
+  "keep": 24,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k16_b2g128_mse",
+  "keep": 16,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ },
+ {
+  "name": "k88_b2_a3",
+  "keep": 88,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 3,
+  "emb_b": 3,
+  "head_b": 3,
+  "quant": "rtnmse",
+  "ds": "skill7",
+  "sets": [
+   "SEL",
+   "REP"
+  ]
+ }
+]
