@@ -216,7 +216,13 @@ def _run(A):
                 if float(mg.min()) >= m: break
         VSTAR[ck] = d; return d
     def cholA(l, lam, ridge):
-        C = COV[l].double(); Cn = lam * (C + ridge * C.diagonal().mean() * torch.eye(C.shape[0], device=dev, dtype=torch.float64)); return torch.linalg.cholesky(Cn)
+        C = (COV[l].double() + COV[l].double().T) / 2; r_ = ridge
+        for _ in range(8):
+            Cn = lam * (C + r_ * C.diagonal().mean() * torch.eye(C.shape[0], device=dev, dtype=torch.float64)); Lc, info = torch.linalg.cholesky_ex(Cn)
+            if int(info) == 0: break
+            r_ *= 10
+        if r_ != ridge: log("ridge raised", l, ridge, "->", r_)
+        return Lc
     def memit(items, key, Ls, lam, tgt, m, ridge, gain=1.0, agg=None, qbits=None, only_fail=False):
         """items = [(pid, label)]; edits layers Ls (consecutive); returns info"""
         restore(); Llast = Ls[-1]; need_cov(Ls)
