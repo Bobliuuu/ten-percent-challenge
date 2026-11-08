@@ -19,3 +19,8 @@ sensA 48 860
 sensA 56 999
 alloc body_bits/param 1.5536215521637045 target 1.5547254442404195
 passB 0 1149
+passB 8 1365
+passB 16 1586
+passB 24 1797
+passB 32 2008
+passB 40 2221
