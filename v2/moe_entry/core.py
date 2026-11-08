@@ -150,21 +150,39 @@ def main(cfgs, vol):
             txt = tok.batch_decode(g[:, L:], skip_special_tokens=True)
             for k, t in zip(idx, txt): outs[k] = t.strip()
         return outs
+    def prefix_len(rows):
+        a = rows[0]["ids"]; p = len(a)
+        for r in rows[1:200]:
+            b = r["ids"]; k = 0
+            while k < min(p, len(b)) and a[k] == b[k]: k += 1
+            p = k
+        return p
+    def vmask(am, ids_rows, skip, P, first_full):
+        """valid flat mask; if skip: positions of the shared prompt prefix are excluded (counted only for the first row of the first batch)"""
+        v = am.clone().float()
+        if skip:
+            L = am.shape[1]
+            for b, seq in enumerate(ids_rows):
+                if first_full and b == 0: continue
+                st = L - len(seq); v[b, st:st + P] = 0
+        return v.flatten()
     @torch.no_grad()
-    def routing_mass(rows, budget=40000):
+    def routing_mass(rows, budget=40000, skip=False):
+        P = prefix_len(rows) if skip else 0; first = [True]
         rec = [(torch.zeros(NE, device=dev), torch.zeros(NE, device=dev), torch.zeros(NE, device=dev)) for _ in range(NL)]
         for l, b in enumerate(blocks): b.rec = rec[l]
         for idx in batches(rows, budget):
-            ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
+            ids, am = pad([rows[k]["ids"] for k in idx]); v = vmask(am, [rows[k]["ids"] for k in idx], skip, P, first[0]); first[0] = False
             for b in blocks: b.valid = v
             lm.model(input_ids=ids, attention_mask=am)
         for b in blocks: b.rec = None; b.valid = None
         return tuple(torch.stack([r[j] for r in rec]).cpu() for j in range(3))
     @torch.no_grad()
-    def collect_hessians(rows, layers, kept, budget=30000):
+    def collect_hessians(rows, layers, kept, budget=30000, skip=False):
+        P = prefix_len(rows) if skip else 0; first = [True]
         for l in layers: blocks[l].hset = {e: [torch.zeros(HID, HID, device=dev), torch.zeros(FF, FF, device=dev), 0] for e in kept[l]}
         for idx in batches(rows, budget):
-            ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
+            ids, am = pad([rows[k]["ids"] for k in idx]); v = vmask(am, [rows[k]["ids"] for k in idx], skip, P, first[0]); first[0] = False
             for l in layers: blocks[l].valid = v
             lm.model(input_ids=ids, attention_mask=am, use_cache=False, logits_to_keep=1) if False else lm.model.forward(input_ids=ids, attention_mask=am, use_cache=False)
         out = {l: blocks[l].hset for l in layers}
@@ -240,7 +258,7 @@ def main(cfgs, vol):
     def gptq_all(cfg, kept):
         calrows = getset("cal")[:cfg.get("nh", 1000)]; eb, eg = cfg["eb"], cfg.get("eg", 128); blk = cfg.get("hblk", 256); fb = 0
         for g0 in range(0, NL, cfg.get("lgroup", 6)):
-            layers = list(range(g0, min(NL, g0 + cfg.get("lgroup", 6)))); Hs = collect_hessians(calrows, layers, kept); log("hessians", layers[0], layers[-1])
+            layers = list(range(g0, min(NL, g0 + cfg.get("lgroup", 6)))); Hs = collect_hessians(calrows, layers, kept, skip=cfg.get("skip", False)); log("hessians", layers[0], layers[-1])
             for l in layers:
                 Qi = rot_matrix(HID, min(blk, HID), 1000 + l, dev) if cfg.get("had", True) else torch.eye(HID, device=dev); Qd = rot_matrix(FF, min(blk, FF), 2000 + l, dev) if cfg.get("had", True) else torch.eye(FF, device=dev)
                 ex = lm.model.layers[l].mlp.experts
@@ -261,11 +279,18 @@ def main(cfgs, vol):
         log("gptq done, rtn fallbacks", fb)
     # ---- routing mass (cached)
     ncal = max([c.get("ncal", 2000) for c in cfgs]); mp = f"/r/res/mass_{DS}_{ncal}.pt"
-    if os.path.exists(mp): mass, cnt, reap = torch.load(mp)
-    else:
-        cal = getset("cal")[:ncal]; mass, cnt, reap = routing_mass(cal); torch.save((mass, cnt, reap), mp); vol.commit(); log("mass done", cal and len(cal))
+    MS = {}
+    def get_mass(skip):
+        if skip in MS: return MS[skip]
+        p_ = mp.replace(".pt", "_skip.pt") if skip else mp
+        if os.path.exists(p_): MS[skip] = torch.load(p_)
+        else:
+            cal = getset("cal")[:ncal]; MS[skip] = routing_mass(cal, skip=skip); torch.save(MS[skip], p_); vol.commit(); log("mass done", skip, len(cal))
+        return MS[skip]
+    mass, cnt, reap = get_mass(False)
     for cfg in cfgs:
         t1 = time.time(); name = cfg["name"]; log("CFG", name, cfg)
+        mass, cnt, reap = get_mass(bool(cfg.get('skip', False)))
         kept = keep_lists(cfg, mass); by = bytes_of(cfg, kept)
         if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
         apply(cfg, kept)
