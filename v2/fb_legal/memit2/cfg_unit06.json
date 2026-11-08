@@ -1,0 +1,4 @@
+[{"name":"unit06","model":"Qwen/Qwen3-0.6B","task":"tox","dtype":"float32","small":80,"ncal":40,"nsub":60,"vsteps":25,
+ "cells":[
+ {"tag":"u1","layers":[4,5,6],"lam":1500,"tgt":"adam","n":1,"ndraw":2,"conds":["real","empty","shuffle"]},
+ {"tag":"u1c","layers":[4,5,6],"lam":1500,"tgt":"closed","n":1,"ndraw":2,"conds":["real","empty"]}]}]
