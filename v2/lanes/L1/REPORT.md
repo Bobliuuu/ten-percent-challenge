@@ -174,3 +174,9 @@ The exam was scored once for the candidate (no exam-after-feedback run). The tas
 
 ## L1+ rule table delta (start model = Bonsai-8B per 4f)
 R4 stays GRAY (every carrier is a closed-form fit; `scale` is the least "new object" and +0 bytes if written in place; `lr` is the smallest and looks most like an adapter). R5 SKILL7 PASS (locked teach .905, neighbours .995, shuffled .002, new label from generation, own-data proxy .87-.93 on three hostile new skills). R5 on BANK6 PASS-on-the-letter, weaker. Open risks that L1+ exposed: new skill adjacent to an old one (Email vs Lists) can steal old items in continual mode (tail .86); teach ceiling is bounded by ambiguous items (about .945), not by edit strength.
+
+
+## Update: red-team fixes (2026-11-08)
+- Retention 1.000 vs the start model is true BY CONSTRUCTION (lossless bit-exact repack of Bonsai-8B-unpacked, identical outputs); it measures nothing about our own compression. Against Qwen3-8B fp16 the retention is 88.9%.
+- The SKILL7 `feedback_calib.jsonl` (182 unlabeled prompts, sha256 4d1c8d09...) is now in this folder; `v2/bonsai/fbx/setup_box.sh` copies it (it used to copy the NEWS calibration file). `build/pack1.py` is the pack step; `build/SHA256SUMS.build` lists reference hashes of a clean rebuild from the public snapshot.
+- Annotation schema is documented once for L1/L2/L9b in `v2/lanes/ANNOTATION_SCHEMA.md`.

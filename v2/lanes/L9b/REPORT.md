@@ -6,7 +6,7 @@ Start model Qwen/Qwen3.5-35B-A3B (35.95B params, 256 experts/layer, top-8, 40 Mo
 | item | bytes |
 |---|---|
 | body.bin (packed ints + scales + zeros + raw tensors) | 6,685,765,376 |
-| tokenizer.json + config + template + code + manifest | 20,133,949 |
+| tokenizer.json + config + template + code + manifest | 20,133,949 (code here = core.py, qpack.py, answer.py; `fbcore.py`, `feedback.py`, `annot.py`, `skill_task.json`, `feedback_cal.jsonl` are counted in the feedback line below, see MANIFEST) |
 | **TOTAL shipped** | **6,705,899,325** |
 | fp16 reference, text-only (2 x 34.66B, the model the pipeline loads) | 69,321,221,376 -> **9.6737%** (PASS cap 9.9%, slack 156.9 MB) |
 | fp16 reference, full checkpoint incl. vision tower (2 x 35.95B) | 71,903,645,408 -> 9.326% |
@@ -55,3 +55,9 @@ One GPU with >=40 GB (loader dequantises the packed body into a 31 GB bf16 text 
 
 ## 7. Provenance
 Runs: Vast H200 (one instance, destroyed and verified) via `vast_up.py` + queue runner; pack job `results/logs/run_job_pack2.log`; eval/fb JSON in `results/`. Routing-mass files `results/mass_*.pt` regenerate any artifact in minutes (pack is 8 s once the model is loaded). The artifact itself (6.7 GB) is not in git (not enough disk locally); it must be re-packed. Shared exam hashes: v2/exam/MANIFEST.json; my earlier private 2209-item exam (kinds < 300) was superseded and not scored.
+
+
+## Update: red-team fixes (2026-11-08)
+- Shipped `feedback_cal.jsonl` (the 300 calibration rows used by the measured feedback runs = first 300 rows of `data/skill7_cal.jsonl`, 101,819 B, disjoint from the exam by exact text) and added `fbcore.py`, `feedback.py`, `annot.py`, `skill_task.json`, `feedback_cal.jsonl` to `MANIFEST.json` byte accounting (total with feedback and code, see MANIFEST `total_with_feedback_and_code`).
+- `feedback.py` takes the shared annotation format `{text,label}` (`v2/lanes/ANNOTATION_SCHEMA.md`); `answer.py` takes `--task`. Old positional form kept.
+- The artifact itself is still not in the repo (destroyed box). `MANIFEST.json` lists per-file sha256 for everything that is in the repo; `body.bin` sha256 is NOT available (needs a rebuild on a GPU box; hash must then be recorded and, if it differs from 6,685,765,376 B or the measured outputs, the exam re-run). Calibration rows are labelled (`answer` column, used for the answer-token covariance); an unlabeled variant would be cleaner and has not been measured.
