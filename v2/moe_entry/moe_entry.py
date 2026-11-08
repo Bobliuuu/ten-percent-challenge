@@ -16,7 +16,7 @@ def prefetch():
     from huggingface_hub import snapshot_download
     p = snapshot_download(MODEL, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model"]); vol.commit(); print("PREFETCH_OK", p)
 
-@app.function(image=img, gpu="A100-80GB", cpu=8, memory=200000, timeout=43200, volumes={"/r": vol}, env={"HF_HOME": "/r/hf"})
+@app.function(image=img, gpu=["A100-80GB", "H100", "H200", "B200"], cpu=8, memory=150000, timeout=43200, volumes={"/r": vol}, env={"HF_HOME": "/r/hf"})
 def run(cfgs):
     import sys; sys.path.insert(0, "/root"); import core
     core.main(cfgs, vol)
