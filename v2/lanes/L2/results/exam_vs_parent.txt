@@ -1,0 +1,8 @@
+all n 2744 base_acc 0.9690 overall {'n': 2659, 'kept': 2641, 'ret': 0.9932, 'wilson_lo': 0.9893}
+  by_kind {'Alarm': 1.0, 'Calendar': 0.961, 'Lists': 1.0, 'Music': 0.993, 'News': 0.995, 'Transport': 1.0, 'Weather': 1.0}
+  by_src {'clinc150': (1.0, 532), 'hwu64': (0.99, 607), 'massive': (0.982, 678), 'mtop': (1.0, 842)}
+  never_used {'n': 1449, 'kept': 1443, 'ret': 0.9958592132505176, 'wilson_lo': 0.9909952009109904} gates True True {'total_ge_2000': True, 'per_kind_ge_300': True, 'never_used_ge_500': True} outputs differing 36
+clean_only n 2212 base_acc 0.9679 overall {'n': 2141, 'kept': 2123, 'ret': 0.9916, 'wilson_lo': 0.9867}
+  by_kind {'Alarm': 1.0, 'Calendar': 0.958, 'Lists': 1.0, 'Music': 0.991, 'News': 0.995, 'Transport': 1.0, 'Weather': 1.0}
+  by_src {'clinc150': (1.0, 293), 'hwu64': (0.99, 607), 'massive': (0.97, 399), 'mtop': (1.0, 842)}
+  never_used {'n': 1449, 'kept': 1443, 'ret': 0.9958592132505176, 'wilson_lo': 0.9909952009109904} gates True True {'total_ge_2000': True, 'per_kind_ge_300': False, 'never_used_ge_500': True} outputs differing 32

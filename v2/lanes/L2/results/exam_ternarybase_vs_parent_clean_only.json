@@ -1,0 +1,104 @@
+{
+ "overall": {
+  "n": 2141,
+  "kept": 2123,
+  "ret": 0.9915927136851939,
+  "wilson_lo": 0.9867490415221328
+ },
+ "by_kind": {
+  "Alarm": {
+   "n": 349,
+   "kept": 349,
+   "ret": 1.0,
+   "wilson_lo": 0.9891123949103505
+  },
+  "Calendar": {
+   "n": 311,
+   "kept": 298,
+   "ret": 0.9581993569131833,
+   "wilson_lo": 0.9298055735606253
+  },
+  "Lists": {
+   "n": 206,
+   "kept": 206,
+   "ret": 1.0,
+   "wilson_lo": 0.9816928578508741
+  },
+  "Music": {
+   "n": 326,
+   "kept": 323,
+   "ret": 0.99079754601227,
+   "wilson_lo": 0.9732970950592519
+  },
+  "News": {
+   "n": 375,
+   "kept": 373,
+   "ret": 0.9946666666666667,
+   "wilson_lo": 0.9807648938402584
+  },
+  "Transport": {
+   "n": 233,
+   "kept": 233,
+   "ret": 1.0,
+   "wilson_lo": 0.983779876508181
+  },
+  "Weather": {
+   "n": 341,
+   "kept": 341,
+   "ret": 1.0,
+   "wilson_lo": 0.9888598127372102
+  }
+ },
+ "by_src": {
+  "clinc150": {
+   "n": 293,
+   "kept": 293,
+   "ret": 1.0,
+   "wilson_lo": 0.9870584176880869
+  },
+  "hwu64": {
+   "n": 607,
+   "kept": 601,
+   "ret": 0.9901153212520593,
+   "wilson_lo": 0.9786037719596649
+  },
+  "massive": {
+   "n": 399,
+   "kept": 387,
+   "ret": 0.9699248120300752,
+   "wilson_lo": 0.9481732493393522
+  },
+  "mtop": {
+   "n": 842,
+   "kept": 842,
+   "ret": 1.0,
+   "wilson_lo": 0.9954582512848742
+  }
+ },
+ "base_acc": 0.9679023508137432,
+ "n_items": 2212,
+ "n_per_kind": {
+  "News": 379,
+  "Transport": 236,
+  "Lists": 223,
+  "Music": 335,
+  "Weather": 344,
+  "Calendar": 337,
+  "Alarm": 358
+ },
+ "never_used_source_items": 1489,
+ "never_used_retention": {
+  "n": 1449,
+  "kept": 1443,
+  "ret": 0.9958592132505176,
+  "wilson_lo": 0.9909952009109904
+ },
+ "gate_overall_98": true,
+ "gate_kind_95": true,
+ "rule3": {
+  "total_ge_2000": true,
+  "per_kind_ge_300": false,
+  "never_used_ge_500": true
+ },
+ "diff_outputs": 31
+}

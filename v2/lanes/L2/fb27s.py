@@ -125,13 +125,13 @@ for n in tuple(int(x) for x in os.environ.get('NS', '5,12,25').split(',')):
         for arm in ("real", "shuffled"):
             labels = [NEW] * len(sel) if arm == "real" else [rng.choice(os.environ.get("SHUF", "Alarm,Weather,Calendar,Lists,Transport").split(",")) for _ in sel]
             t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}")
-            if arm == "real" and n == max(int(x) for x in os.environ.get("NS", "5,12,25").split(",")) and d == 0 and os.environ.get("SAVE_FB"):
+            if arm == os.environ.get("ARM", "real") and n == max(int(x) for x in os.environ.get("NS", "5,12,25").split(",")) and d == 0 and os.environ.get("SAVE_FB"):
                 torch.save({f"model.language_model.layers.{L}.mlp.down_proj.weight": (U.float().cpu(), V.float().cpu()) for L, (U, V) in FACT.items()}, os.environ["SAVE_FB"]); restore()
                 for L, (U, V) in torch.load(os.environ["SAVE_FB"]).items(): pass
                 fb = torch.load(os.environ["SAVE_FB"])
                 for L in LAYERS:
                     U, V = fb[f"model.language_model.layers.{L}.mlp.down_proj.weight"]; P = LAY[L].mlp.down_proj.weight; SAVED[L] = P.data.clone(); P.data.copy_((P.data.float() + U.to(dev) @ V.to(dev).T).to(P.dtype))
-                rr = evaluate("fromfile-n%d-d0" % n); rr["arm"] = "fromfile"; print(rr, flush=True); res["runs"].append(rr)
+                rr = evaluate("fromfile-n%d-d0" % n); rr["arm"] = "fromfile_" + arm; print(rr, flush=True); res["runs"].append(rr)
             restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0); print(r, flush=True); res["runs"].append(r)
         json.dump(res, open(outp, "w"))
 json.dump(res, open(outp, "w")); print("FB_DONE")
