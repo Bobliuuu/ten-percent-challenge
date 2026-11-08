@@ -257,3 +257,5 @@ Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) 
 
 ## 2026-11-08 MoE census probes (fork B)
 Modal deployed app tenpct-moe-census (v2/model_census/moe/moe_probe.py), jobs v2/model_census/moe/jobs_small.json(.calls); launch: python3 v2/model_census/moe/launch.py jobs_small.json; results volume tenpct-moe-census:/res
+- 2026-11-08T14:50Z modal apps ap-eyM0KFgbSwVnxY5ww9DKe3 + ap-1C3k8AhLVDntUE7WkeYX7v tenpct-nm-b-depth (14B grid a/b, A100-80GB each, ~$2.5/h each; near_miss b_depth/L8)
+- 2026-11-08T14:19:31Z easy2 sweep: app ap-Af7mjo8pozdtrnn25aLxp0 (jobs_easy2.json); easy1 app ap-1ijOLCu4ciOBrFYZBkR0fJ

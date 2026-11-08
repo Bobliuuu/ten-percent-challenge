@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+OK  heegyu/news-category-dataset None ['link', 'headline', 'category', 'short_description', 'authors', 'date'] {'link': 'https://www.huffpost.com/entry/covid-boosters-uptake-us_n_632d719ee4b087fae6feaac9', 'headline': 'Over 4 Milli
+OK  ucberkeley-dlab/measuring-hate-speech None ['comment_id', 'annotator_id', 'platform', 'sentiment', 'respect', 'insult', 'humiliate', 'status'] {'comment_id': 47777, 'annotator_id': 10873, 'platform': 3, 'sentiment': 0.0, 'respect': 0.0, 'insult': 0.0, 'humiliate'
+Repo card metadata block was not found. Setting CardData to empty.
+OK  raquiba/Sarcasm_News_Headline None ['is_sarcastic', 'headline', 'article_link'] {'is_sarcastic': 1, 'headline': 'thirtysomething scientists unveil doomsday clock of hair loss', 'article_link': 'https:
+OK  zeroshot/twitter-financial-news-sentiment None ['text', 'label'] {'text': '$BYND - JPMorgan reels in expectations on Beyond Meat https://t.co/bd0xbFGjkT', 'label': 0}
+OK  gtfintechlab/fomc_communication None ['index', 'sentence', 'year', 'label', 'orig_index'] {'index': 122, 'sentence': 'Broad equity price indexes fell sharply over the intermeeting period on net.', 'year': 2011,
+OK  ccdv/arxiv-classification None ['text', 'label'] {'text': 'Constrained Submodular Maximization via a\nNon-symmetric Technique\n\narXiv:1611.03253v1 [cs.DS] 10 Nov 2016\n
+Ignoring part of dataset_info from the dataset card: The `splits` field in YAML is malformed or missing the name/num_examples/num_bytes fields
+OK  Jean-Baptiste/financial_news_sentiment None ['summary_detail', 'title', 'summary_detail_with_title', 'topic', 'labels', '__index_level_0__'] {'summary_detail': 'TORONTO, Oct.  05, 2022  (GLOBE NEWSWIRE) -- Wesdome Gold Mines Ltd. (TSX: WDO) (“Wesdome” or the “C
+OK  mteb/toxic_conversations_50k None ['text', 'label', 'label_text'] {'text': 'theres not enough going on around here for air service none want to waste there time on this town', 'label': 0
+OK  mteb/amazon_massive_scenario en ['id', 'label', 'label_text', 'text', 'lang'] {'id': '1', 'label': 'alarm', 'label_text': 'alarm', 'text': 'wake me up at nine am on friday', 'lang': 'en'}
+OK  cybersectony/PhishingEmailDetectionv2.0 None ['content', 'label'] {'content': 'https://www.galvnews.com', 'label': 2}
+OK  puyang2025/seven-phishing-email-datasets None ['text', 'subject', 'label', 'sender', 'receiver', 'date', 'urls', 'dataset_name'] {'text': "\n \n \n\n\nmeat helpful round An afterclang of Cowley's mouth chords closed, died on tdesire And Richie like 
+OK  kmack/Phishing_urls None ['text', 'label'] {'text': 'xenophongroup.com/montjoie/compgns.htm', 'label': 0}
+Repo card metadata block was not found. Setting CardData to empty.
+OK  drorrabin/phishing_emails-data None ['text', 'email_type'] {'text': 'Is the following email safe or phishing??\n\nDate: Thu, 07 Aug 2008 10:59:35 +0200\n\nSender: Daily Top 10 <av
+OK  facebook/anli None ['uid', 'premise', 'hypothesis', 'label', 'reason'] {'uid': '0fd0abfb-659e-4453-b196-c3a64d2d8267', 'premise': 'The Parma trolleybus system (Italian: "Rete filoviaria di Pa
+FAIL tasksource/sarcasm None DatasetNotFoundError Dataset 'tasksource/sarcasm' doesn't exist on the Hub or cannot be accessed.
+FAIL nampdn-ai/tiny-codes None DatasetNotFoundError Dataset 'nampdn-ai/tiny-codes' is a gated dataset on the Hub. You must be authenticated to
+FAIL Muennighoff/humanevalpack python DatasetNotFoundError Dataset 'Muennighoff/humanevalpack' doesn't exist on the Hub or cannot be accessed.
+OK  claudios/code_search_net python ['repository_name', 'func_path_in_repository', 'func_name', 'whole_func_string', 'language', 'func_code_string', 'func_documentation_string', 'func_code_url'] {'repository_name': 'proycon/pynlpl', 'func_path_in_repository': 'pynlpl/formats/folia.py', 'func_name': 'AbstractElemen
+OK  google/code_x_glue_cc_defect_detection None ['id', 'func', 'target', 'project', 'commit_id'] {'id': 0, 'func': 'static av_cold int vdadec_init(AVCodecContext *avctx)\n\n{\n\n    VDADecoderContext *ctx = avctx->pri

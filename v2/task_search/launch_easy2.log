@@ -1,0 +1,27 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Af7mjo8pozdtrnn25aLxp0
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/modal_run.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/task_search/../compress/dense/dense_data.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/calib_b2_mix.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/calib2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/items2_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/items2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/dense_core.py
+├── ✓ Created Function go_m.
+└── ✓ Created Function go_s.
+('Qwen/Qwen2.5-14B-Instruct', 'e2', 'fc-01M6XRD4D2E1QB981VDQG94HJN')
+('Qwen/Qwen2.5-32B-Instruct', 'e2', 'fc-01M6XRD4FPA7SK8XGNPM181NX0')
+('Qwen/Qwen3-14B', 'e2', 'fc-01M6XRD4JFADQN8WKM9NQHP0KH')
+[modal-client] 2026-11-08T09:18:51-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-Af7mjo8pozdtrnn25aLxp0

@@ -1,0 +1,215 @@
+{
+ "SKILLB": {
+  "labels": [
+   "Email",
+   "SmartHome",
+   "Cooking",
+   "Takeaway",
+   "Clock",
+   "Recommend",
+   "Social"
+  ],
+  "prompt": "You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: Email, SmartHome, Cooking, Takeaway, Clock, Recommend, Social.\n\nRequest: {X}",
+  "src": {
+   "massive": {
+    "pool": {
+     "SmartHome": 768,
+     "Clock": 393,
+     "Takeaway": 255,
+     "Recommend": 432,
+     "Social": 389,
+     "Email": 949,
+     "Cooking": 208
+    },
+    "locked_candidates_bucket70_100": {
+     "SmartHome": 243,
+     "Clock": 110,
+     "Takeaway": 72,
+     "Recommend": 120,
+     "Cooking": 56,
+     "Social": 114,
+     "Email": 280
+    },
+    "dev_kept": {
+     "Email": 58,
+     "SmartHome": 58,
+     "Cooking": 58,
+     "Takeaway": 58,
+     "Clock": 58,
+     "Recommend": 58,
+     "Social": 58
+    }
+   }
+  }
+ },
+ "SKILL10": {
+  "labels": [
+   "Alarm",
+   "Weather",
+   "Music",
+   "Calendar",
+   "Lists",
+   "News",
+   "Transport",
+   "Email",
+   "SmartHome",
+   "Cooking"
+  ],
+  "prompt": "You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport, Email, SmartHome, Cooking.\n\nRequest: {X}",
+  "src": {
+   "massive": {
+    "pool": {
+     "Alarm": 389,
+     "SmartHome": 768,
+     "Calendar": 1682,
+     "News": 501,
+     "Music": 331,
+     "Weather": 569,
+     "Transport": 568,
+     "Email": 949,
+     "Lists": 537,
+     "Cooking": 208
+    },
+    "locked_candidates_bucket70_100": {
+     "Alarm": 124,
+     "SmartHome": 230,
+     "Music": 95,
+     "Weather": 147,
+     "News": 133,
+     "Calendar": 509,
+     "Transport": 167,
+     "Email": 280,
+     "Cooking": 54,
+     "Lists": 163
+    },
+    "dev_kept": {
+     "Alarm": 40,
+     "Weather": 40,
+     "Music": 40,
+     "Calendar": 40,
+     "Lists": 40,
+     "News": 40,
+     "Transport": 40,
+     "Email": 40,
+     "SmartHome": 40,
+     "Cooking": 40
+    }
+   }
+  }
+ },
+ "BANK6": {
+  "labels": [
+   "Card",
+   "Transfer",
+   "TopUp",
+   "Cash",
+   "Identity",
+   "Exchange"
+  ],
+  "prompt": "You are the intent router of a bank's support chat. Decide which team the customer's message belongs to.\nAnswer with exactly one word from: Card, Transfer, TopUp, Cash, Identity, Exchange.\n\nMessage: {X}",
+  "src": {
+   "banking77": {
+    "pool": {
+     "Card": 1117,
+     "Exchange": 477,
+     "Cash": 758,
+     "TopUp": 1007,
+     "Transfer": 1125,
+     "Identity": 669
+    },
+    "locked_candidates_bucket70_100": {
+     "Card": 304,
+     "Exchange": 145,
+     "Cash": 219,
+     "TopUp": 296,
+     "Transfer": 330,
+     "Identity": 201
+    },
+    "dev_kept": {
+     "Card": 67,
+     "Transfer": 67,
+     "TopUp": 67,
+     "Cash": 67,
+     "Identity": 67,
+     "Exchange": 67
+    }
+   }
+  }
+ },
+ "DOMAIN6": {
+  "labels": [
+   "Banking",
+   "Travel",
+   "Dining",
+   "Auto",
+   "Work",
+   "Chitchat"
+  ],
+  "prompt": "You are the router of a voice assistant. Decide which domain handler should take the user's request.\nAnswer with exactly one word from: Banking, Travel, Dining, Auto, Work, Chitchat.\n\nRequest: {X}",
+  "src": {
+   "clinc150": {
+    "pool": {
+     "Banking": 1298,
+     "Chitchat": 996,
+     "Work": 1296,
+     "Travel": 1299,
+     "Auto": 1100,
+     "Dining": 1400
+    },
+    "locked_candidates_bucket70_100": {
+     "Banking": 407,
+     "Chitchat": 309,
+     "Work": 371,
+     "Travel": 364,
+     "Auto": 291,
+     "Dining": 441
+    },
+    "dev_kept": {
+     "Banking": 67,
+     "Travel": 67,
+     "Dining": 67,
+     "Auto": 67,
+     "Work": 67,
+     "Chitchat": 67
+    }
+   }
+  }
+ },
+ "SPAM3": {
+  "labels": [
+   "Spam",
+   "Ham"
+  ],
+  "prompt": "You are the spam filter of a messaging product. Decide whether the message is spam (unsolicited advertising, scams, phishing) or ham (a normal personal or work message).\nAnswer with exactly one word from: Spam, Ham.\n\nMessage: {X}",
+  "src": {
+   "enron_email": {
+    "pool": {
+     "Spam": 13821,
+     "Ham": 14701
+    },
+    "locked_candidates_bucket70_100": {
+     "Spam": 4160,
+     "Ham": 4444
+    },
+    "dev_kept": {
+     "Spam": 180,
+     "Ham": 180
+    }
+   },
+   "sms_spam": {
+    "pool": {
+     "Ham": 4501,
+     "Spam": 631
+    },
+    "locked_candidates_bucket70_100": {
+     "Ham": 1317,
+     "Spam": 178
+    },
+    "dev_kept": {
+     "Spam": 180,
+     "Ham": 180
+    }
+   }
+  }
+ }
+}

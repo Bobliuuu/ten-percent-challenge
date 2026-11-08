@@ -1,0 +1,71 @@
+[
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "e2",
+"size": "s",
+"gpu_load": true,
+"easy2": true,
+"cfgs": [
+{
+"name": "f_bf16",
+"gen_bs": 48,
+"ct_bs": 8
+},
+{
+"name": "f_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "e2",
+"size": "m",
+"gpu_load": false,
+"easy2": true,
+"cfgs": [
+{
+"name": "f_bf16",
+"gen_bs": 12,
+"ct_bs": 2
+},
+{
+"name": "f_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 12,
+"ct_bs": 2
+}
+]
+},
+{
+"model": "Qwen/Qwen3-14B",
+"tag": "e2",
+"size": "s",
+"gpu_load": true,
+"easy2": true,
+"cfgs": [
+{
+"name": "f_bf16",
+"gen_bs": 48,
+"ct_bs": 8
+},
+{
+"name": "f_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+}
+]
