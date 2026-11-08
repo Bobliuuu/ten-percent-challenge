@@ -255,3 +255,17 @@ Weakest rule: R9 spirit / R1 literal (denominator includes dropped audio/vision/
 | BANK6 (2237) | same recipe | 9.895% | 99.24 [98.76]; never-used (Bitext) 98.80 [97.41]; clean-only 99.21 | 98.49 (Cash) | .27/.25/.07 vs .03/.11/0 vs 0 | .654/.608/.967 (collapse in 2 draws) | R5 FAIL: neighbours collapse, teach low |
 | BANK6 | feedback retry lam3000 awt40 m12 | 9.895% | same model | | .12/.16/.02 vs .01/.04/0 vs 0 | .976/.959/.981 | neighbours fixed, teach ~.1 (R5 FAIL); Security confuses with Card/Identity |
 Reading: compression passes rule-2 point gates on both shared exams at 9.9% (SKILL7 98.9, BANK6 99.2; per-kind Wilson on SKILL7 News/Calendar below 95). Feedback by o_proj closed-form edit teaches Recipe to ~60% in generation with neighbours intact but controls are not clean; it fails on Security (a class that overlaps Card/Identity in the base menu). Not run: GPTQ-vs-LDLQ comparison, per-layer Lagrangian allocation, packed exporter.
+
+## L1+ Bonsai-8B feedback push (2026-11-08; SKILL7 dev/selection + locked TEACH/NEIGHBOUR only, BANK6 exam scored once; details lanes/L1/REPORT.md section L1+, raw v2/bonsai/l1plus/results/)
+| variant | bytes (patch) | teach | neighbours | shuffled | verdict |
+|---|---|---|---|---|---|
+| cols (L1 default), locked teach | 50.3 MB | .893 (HWU64 .807, MASSIVE .857) | .995 | .005 | baseline |
+| lr (same delta as rank-k fp16 factors) | **0.50 MB** | **.905** (HWU .822, MASSIVE .881) | .995 | .002 | win in bytes (7.13% total); looks like an adapter, R4 gray |
+| scale (only existing group scales of the 1-bit down_proj change) | 4.72 MB overlay (0 in place) | .904 | .994 (BANK6 .958 FAIL) | .001 | legality hedge (no new object); looser on neighbours |
+| diffuse 18 layers x 256 cols | 37.8 MB | .908 (MASSIVE .738) | **.998** | 0.000 | selective, same teach |
+| cols 128 / 256 cols x 6 layers | 6.3 / 12.6 MB | .733 / .842 (sel A; 128 cols + margin 24: .85) | .998 | 0 | smaller column patch, weaker; not locked-scored |
+| annotation augmentation `--aug 4` | 0.67 MB (lr) | n=5 .84 (vs .77) / B .95 | .998 | **.73-.80 LEAK** | NEAR MISS: shuffled control teaches the label; flag only |
+| margin 24 / lam 300 / lam 10 / lam 1 (strength) | - | .90 / .887 / .90 / .91 | .997 | 0 / .51 / .55 / .78 | no free strength: teach plateau .89-.91 = label noise (9/164 locked and 5/45 dev items fail in every draw); lam <= 300 leaks |
+| continual 3 skills (cols, 25 per round) | 50 -> 91 MB | Recipe .889 kept, Email .84, Takeaway .85 | .995 | - | no forgetting; but one Email draw stole Lists items: neighbours .863 (tail); awt 100 fixes it (.99) at Email .64 |
+| BANK6 + `Security` (lam 100) | 50 MB | .727 (Bitext cross-source .641) | .989 (worst .977) | .10 | exam retention 1.000 (n 1914); passes by the letter, weaker than SKILL7 |
+| hostile own-data proxy (hand-written, 7 styles): Translate / Banking / Email | 50 MB | .885 / .874 / .930 | old-proxy 1.000, dev .997 | .08 / 0 / .11 | works off-distribution; machine-written data |

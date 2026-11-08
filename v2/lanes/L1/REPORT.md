@@ -77,3 +77,100 @@ Base acc .772. Only 5 draws were completed (box destroyed to stop spend; `result
 ## Cost
 Locked-exam run: one more A40 box (about 1.5 h, $0.27/h), destroyed and verified gone.
 Two Vast L40 boxes (about 4 h and 2.5 h at $0.456/h, about $3 in total), both destroyed and verified gone (no instance with this lane's id remains); Modal 0; AWS 0.
+
+---
+
+# L1+ (2026-11-08): push the Bonsai entry (stronger feedback, own-data proxy, continual, carriers, BANK6, robustness, usability)
+
+Code: `v2/bonsai/ship/` (copied to this folder: `answer.py`, `feedback.py`, `common.py`, `bonsai_loader.py`, `README.md`), experiments `v2/bonsai/l1plus/` (`run_l1p.py`, `run_bank6.py`, `e2e_l1p.py`, `dnorm.py`, `cfgs_*.json`), raw results `v2/bonsai/l1plus/results/`. Hostile proxy data: `v2/bonsai/l1plus/proxy/`. Everything was built and chosen on DEV / SELECTION data (the same splits as L1: A = MASSIVE cooking, B = CLINC cooking, neighbours = base-correct dev items, sel half for choice, rep half for reporting). The sealed exam was NOT scored with any new candidate: the locked TEACH set and the locked NEIGHBOUR ids were used only for reporting (configs were fixed on dev before), the exam itself only for the BANK6 base x3 + candidate x1 run below (new task, authorised). Compute: 2 Vast boxes (L40S, RTX 4090 48 GB), about 9 h in total, about 7 USD; both destroyed and verified gone. A `lanes/L1` caveat first: the default flags still write a bit-identical patch to the sealed L1 code (`results/e2e_l1p.json`: `regression_patch_identical` true, max abs diff 0.0), so every L1 number above stands.
+
+## L1+.1 Feedback strength: what moves it and what does not (dev, selection split, 25 annotations, 2 draws, `results/sw*.json`)
+| lever | teach (sel A) | shuffled | neighbours | note |
+|---|---|---|---|---|
+| default (6 layers, 1024 cols, lam 1000, awt 10, margin 16) | .887 | 0.00 | .998 | L1 setting |
+| margin 24 / 32 / 48 | .90 / - / - | 0.00 / - / - | .997 | margin saturates: the failures are not weak edits |
+| lam 300 | .887 | .51 | .997 | weaker protection leaks into the shuffled control |
+| annotation augmentation (`--aug 2 / 4`: lowercase, "please", "hey", upper variants of each annotated text) | .887 / .912 | .41 / .68 | .997 | better generalisation, but the edit becomes less selective: shuffled-label control teaches Recipe |
+| 12 layers x 512 cols / 18 x 256 | .887 / .875 | 0.00 / 0.00 | .998 / 1.00 | diffuse, same teach |
+| scale carrier lam 100 / 10 / 1 | .887 / .90 / .912 | 0.00 / .55 / .78 | .997 / .998 / .993 | lam <= 10 leaks |
+Plateau: on dev A the ceiling is 0.889 (40/45) and it is label noise, not strength: the 5 items that fail in every draw are MASSIVE "cooking" rows that are not cooking ("freezing", "aroma", "pleasant", "weird things people want to know", "when is asparagus in season"); on the 40 clean items the real arm is about 1.0. On the LOCKED teach set the same reading holds (below): 9 of 164 items fail in every draw (e.g. "can i modify the apples for grapes", "What is the temperature for soft boil", "What should the internal temperature of fish be", "access recipe book please"): ambiguous or Weather/Lists-shaped; the ceiling for a clean selective edit is about 0.945, we get 0.905. **The 0.95 target is not reached by a selective edit**; the only knobs that go above it on some sets (aug) pay with the shuffled control. Honest status: teach 0.89 -> 0.905 (locked), HWU64 .807 -> .82, MASSIVE .857 -> .88 (lr carrier; scale .81, diffuse .74).
+
+## L1+.2 Fewer annotations (dev, 10-draw-equivalent protocol, `results/fin1.json`, `fin2.json`; A = same-source, B = CLINC other source)
+| carrier / setting | n | teach A | teach B | neighbours | shuffled (A / B) |
+|---|---|---|---|---|---|
+| cols (L1 default), 5 draws | 25 / 12 / 5 | .880 / .844 / .778 | .856 / .739 / .584 | .999 / 1.00 / .997 | .00 / .001 |
+| lr (same delta as rank-k factors) | 25 / 12 / 5 | .880 / .844 / .767 | .857 / .739 / .584 | .999 / 1.00 / .997 | .00 / .001 |
+| scale (existing group scales only) | 25 / 12 / 5 | .880 / .833 / .644 | .853 / .687 / .372 | .997 / .998 / 1.00 | .00 / .00 |
+| diffuse 18 layers x 256 cols | 25 / 12 | .871 / .867 | .859 / .849 | .999 / 1.00 | .00 / .00 |
+| lr + aug 4 | 25 / 12 / 5 | .880 / .856 / .844 | .949 / .860 / .747 | .998 / .997 / .997 | **.80 / .73** (leaks) |
+So n = 12 gives .84-.87 on A, n = 5 .77 on A (.58 on B) with the selective setting. Augmentation lifts n = 5 to .84 (A) / .75 (B) but at a shuffled-control leak of .7-.8: do not ship it as default; it is a flag (`--aug`).
+
+## L1+.3 Locked teach and neighbours for the new carriers (`results/locked.json`, 6 draws x 25 annotations from `ann_pool`; NOT the exam)
+| carrier | bytes | teach (164 locked) | MTOP / CLINC / MASSIVE / HWU64 | neighbours kept (352 base-correct) | shuffled |
+|---|---|---|---|---|---|
+| cols default (L1, 10 draws) | 50.3 MB | .893 | .909 / .893 / .857 / .807 | .9952 | .005 |
+| **lr** | **0.50 MB** | **.905** (draws .896-.921) | .923 / .897 / .881 / .822 | .9948 (worst .9915) | .002 |
+| scale | 4.72 MB | .904 (.890-.927) | .928 / .897 / .809 / .811 | .9938 (worst .9915) | .001 |
+| diffuse 18 x 256 | 37.8 MB | .908 (.890-.933) | .940 / .893 / .738 / .811 | **.9981** (worst .9972) | 0.000 |
+(An earlier run of this file used 25 near-neighbour keyword items (food/shopping) with the Recipe label as the "shuffled" arm: it taught Recipe (.66), which is correct behaviour for semantically related items; that file is kept as `results/locked_bad_shuffled_pool.json` and is NOT the control. The control here is the L1 one: ordinary selection items.)
+
+## L1+.4 Carrier variants (legality hedge, RULES 4d). Same 25 annotations, `results/dnorm.json`
+| carrier | what is stored | bytes | weights changed (of 8.2 B) | rel. norm of delta in touched blocks | max per-weight rel. change | teach (locked) | neighbours |
+|---|---|---|---|---|---|---|---|
+| cols (L1) | 1024 fp16 columns x 6 layers | 50.3 MB | 0.30% | 0.0072 | 4.4 | .893 | .995 |
+| **lr** | the same delta as rank-<=50 factors (A@B) | **0.50 MB** | 0.30% | 0.0072 | 4.4 | .905 | .995 |
+| **scale** | NEW per-128-group scales of the existing 1-bit down_proj (weight = sign x scale); no new tensor, could be written back into `scales.bin` in place (+0 B) | 4.72 MB as an overlay | 3.6% | 0.042 | 1.6 | .904 | .994 |
+| diffuse 18 layers x 256 cols | columns | 37.8 MB | 0.22% | 0.0032 | 2.1 | .908 | .998 |
+| cols 128 cols x 6 layers | columns | 6.3 MB | 0.04% | 0.0031 | 2.2 | .733 (sel A, 3 draws; margin 24: .85; 256 cols 12.6 MB: .84; shuffled 0.00, neighbours .997-.999; `swC.json`, not run on the locked set) | .998 |
+The `scale` carrier is the "delta of existing parameters" hedge: the edited object is a value the model already has (a group scale), the stored object is not a new tensor and the byte cost can be exactly zero. It is NOT smaller in effect (it touches every row of 6 down_proj matrices, relative norm 6x larger) and it is looser on neighbours (continual e2e .89-.97 vs cols .86-1.0 on the same annotations). `lr` is the cheapest (0.50 MB, 7.13% total) but literally a rank-k delta: by the wording of rule 4 it looks MORE like an adapter although it is merged into an existing tensor before use. No carrier changes the verdict of RULES 4d: each is a closed-form fit to the annotations; they only change how it looks. Totals incl. code, README, calibration, manifest: cols 7.438%, lr 7.134%, scale 7.160% (overlay), diffuse 7.361% of Qwen3-8B fp16 (`MANIFEST.json` key `l1plus`).
+
+## L1+.5 Maintainer own-data proxy (hand-written hostile data, never seen, `results/proxy.json`, 3 draws)
+Data (`v2/bonsai/l1plus/proxy/`, written by an agent without running any model, no dataset text copied): 315 old-skill utterances (7 skills x 45) in 7 styles (UK/Indian/Singlish/Aus phrasing, ASR-noise lowercase, typos/texting, 25-60-word LLM-style requests, indirect, Hinglish/Spanglish, keywords), plus three new skills never in the menu: `Translate`, `Banking`, `Email` (130 rows each, same styles). Base: old-skill accuracy .914 (5 off-menu), the new-skill rows are answered Transport/Calendar/News/Lists (teach 0). Annotation = 25 real mistakes from the first 40 rows of the new skill; teach = the other 90; old retention = base-correct old rows (half, used as unlabeled calibration in the `own_unlabeled` arm, other half as test; all 7 styles) plus the dev neighbours.
+| new skill | calibration | teach (hostile, unseen) | old-proxy retention (per style 7/7) | dev neighbours | shuffled |
+|---|---|---|---|---|---|
+| Translate | shipped | .885 | 1.000 (all 7 styles) | .997 | .078 |
+| Translate | the maintainer's own unlabeled prompts | .907 | 1.000 | .994 | |
+| Banking | shipped / own | .874 / .881 | 1.000 | .998 / .995 | .000 |
+| Email | shipped / own | .930 / .933 | 1.000 | .998 / 1.000 | .111 |
+| (scale carrier) Translate / Banking / Email | shipped | .874 / .830 / .933 | 1.000 (shuffled .987-.994) | .996 / .994 / .998 | .056 / .022 / .011 |
+So the system keeps working and keeps learning on a different distribution, locale, noise level and a different new skill with <= 25 annotations, old skills untouched. Limits: the proxy is machine-written (not real user data), the old-skill labels are the agent's, and a one-label new skill is the easy case (no old-label correction was tested on it).
+
+## L1+.6 Continual feedback (`results/cont.json`, 3 draws; Recipe -> Email -> Takeaway, MASSIVE dev scenarios, held-out teach sets; `--append`)
+| setting | after round 1 (Recipe) | round 2 (+Email) | round 3 (+Takeaway) | neighbours (rep) | bytes |
+|---|---|---|---|---|---|
+| cols, 25 per round | Recipe .859 | Recipe **.889**, Email .830 | Recipe **.889**, Email .837, Takeaway .852 | .997 / .999 / .995 | 50 / 74 / 91 MB (union of columns) |
+| cols, 8 per round (24 total) | .822 | .852, Email .738 | .867, .747, Takeaway .708 | .997 / .997 / .994 | 50 / 75 / 92 MB |
+| scale, 25 per round | .859 | .889, Email .812 | .889, .817, .826 | .997 / .995 / .995 | 4.7 MB (constant) |
+No forgetting of the first skill (it even rises: the later edits also fire for earlier-skill phrasing), no loss on the old menu (min draw .994). The second and third skill are learned at .81-.85 (25 per round) or .71-.75 (8 per round). **Tail risk (found by the shipped-command test):** with one unlucky annotation draw for `Email`, 26 of 204 `Lists` neighbours ("what are all my lists", "delete last entry") were answered `Email` (neighbours .863 after round 2, .77 after round 3 in `results/e2e_l1p.json`): a new skill whose words overlap an old one ("list the subject lines") steals it. Protection knob on exactly those two rounds (`results/dbg3.log`): awt 30 -> neighbours .951 / Email teach .88; awt 100 or lam 3000 -> .99 / .64; scale carrier .89; scale + awt 100 .995 / .46. So strong protection costs the new skill; the default is NOT safe for a new skill adjacent to an old one, and the three-draw numbers above underestimate that tail. Mitigation shipped as flags only (`--awt`, `--lam`).
+
+## L1+.7 Robustness (`results/robust.json`, patch from 25 annotations, 2 draws, dev; variants of the prompt that the patch never saw)
+| prompt variant | base acc on neighbours | patched neighbours | patched teach (Recipe, base 0 except where noted) | off-menu (patched, 80 non-menu banking inputs) |
+|---|---|---|---|---|
+| original | 1.000 | .997 | .867 | 3 (base 1) |
+| menu reordered | .980 | .977 | .767 | 3 |
+| paraphrased instruction | .987 | .980 | .822 | 4 |
+| markdown wrapper | .987 | .987 | .833 | 28 (base 21) |
+| lowercase text | 1.000 | .997 | .867 | 4 |
+| +600 chars of filler | .973 | .973 | .844 | 9 (base 7) |
+| +3000 chars of filler | .907 | .913 | .800 | 9 (base 7) |
+| no menu in the prompt | .487 | .507 | **.911** (base .20) | 80 (the model invents words: Bank, Balance; base 80) |
+The patched model is exactly as robust as the base on every variant (neighbour accuracy within +-0.02 of the base under the same variant), and the new label transfers to prompts the edit never saw (.77-.91). Long inputs degrade the BASE (0.907 at 3000 chars), not the patch. Off-menu rate on an old-menu prompt: 1-4 of 80 for non-menu inputs (3 vs base 1), 0 on in-menu neighbours.
+
+## L1+.8 Second task entry: BANK6 + new label `Security` (Bonsai-8B, shared BANK6 exam, `results/bank6_locked.json`, `run_bank6.py`)
+Candidate = the same lossless pack with a BANK6 task json and the BANK6 `cal` prompts as calibration (shipped code unchanged). Config chosen on dev (annotation pool split, `results/b6dev_*.json`, `bank6_dev_default.json`): cols, lam 100 (the L1 lam 1000 gave .46; lam 100 .80 with shuffled .004; margin 32 .89 but shuffled .23).
+| item | value |
+|---|---|
+| exam (2237 items, kinds 330-400, 600 Bitext never-used) | base HF fp16 run 3x (bs 8/4/16): accuracy .8556 / .8556 / .8556 (pairwise agreement 1.0); candidate once: .8556, outputs identical to the base on 100% |
+| retention of base-correct (n=1914) | **1.000** overall (Wilson lower .9980), every kind 1.000, banking77 1.000, never-used Bitext (n=474) 1.000 (lower .9920); `clean_only` (without `seen_l5dev` rows, n=1581) 1.000, but Exchange 142 / Identity 187 base-correct < 300 per kind |
+| rule 3 counts | 2237 >= 2000, every kind >= 330, 600 never-used >= 500 |
+| rule 8 | base .856, chance .167, below ceiling |
+| feedback: new label Security (200 locked teach: Banking77 100, Bitext 100), 10 draws x 25 annotations from `ann_pool` | real teach **.727** (Banking77 .814, Bitext cross-source .641), neighbours kept **.989** (709 base-correct, worst draw .977, Identity .985, Card .990), shuffled .101 (draws .01-.49), wrong .000, empty .000 |
+| other configs (locked teach/neighbours only, `results/b6fb_*.json`) | lam 30: teach .749 / neigh .986 / shuffled .26; 12 layers x 512, lam 100: .75 / .988 / .19; scale lam 100: .57 / .958 / 0.00 (fails neighbours) |
+| bytes | same pack: 7.44% with the 50 MB patch (lr: 7.13%) |
+The exam was scored once for the candidate (no exam-after-feedback run). The task generalises, but BANK6 is a weaker second entry than SKILL7: `Security` sits inside the old Card/Identity classes (pin blocked, lost phone), so teach is .73 not .90, the shuffled control leaks .10 (one draw .49), one draw is below 98% neighbours (.977) and the cross-source (Bitext, synthetic) teach is .64. By the rule text it passes (clear improvement over 0, neighbours >= .98 on average, controls far below), but it is the grayer proof.
+
+## L1+.9 Usability (shipped folder)
+`README.md` (this folder): files, one command to answer, one to give feedback, flags. New: `answer.py --feedback ann.jsonl [--save-patch]` (feedback applied in the same process; without `--save-patch` nothing is written), `feedback.py --append` (continual), `--carrier cols|lr|scale`, `--aug N`. Verified through the CLIs on dev (`results/e2e_l1p.json`): regression (new code, default flags == sealed L1 code, identical patch tensors), in-process feedback == feedback.py + answer.py outputs (identical on 249 items), `--save-patch` persists and reproduces, empty feedback removes the patch, the 3-round `--append` chain works end to end (rounds above), the scale carrier works through the CLI (teach .867, neighbours .966, 4.72 MB).
+
+## L1+ rule table delta (start model = Bonsai-8B per 4f)
+R4 stays GRAY (every carrier is a closed-form fit; `scale` is the least "new object" and +0 bytes if written in place; `lr` is the smallest and looks most like an adapter). R5 SKILL7 PASS (locked teach .905, neighbours .995, shuffled .002, new label from generation, own-data proxy .87-.93 on three hostile new skills). R5 on BANK6 PASS-on-the-letter, weaker. Open risks that L1+ exposed: new skill adjacent to an old one (Email vs Lists) can steal old items in continual mode (tail .86); teach ceiling is bounded by ambiguous items (about .945), not by edit strength.

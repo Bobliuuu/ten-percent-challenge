@@ -1,0 +1,21 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   257s] 0 real {'teach': 0.575, 'neigh_kept': 0.9633286318758815}
+[   410s] 0 shuffled {'teach': 0.0}
+[   578s] 1 real {'teach': 0.605, 'neigh_kept': 0.9534555712270804}
+[   733s] 1 shuffled {'teach': 0.0}
+[   902s] 2 real {'teach': 0.565, 'neigh_kept': 0.9520451339915373}
+[  1054s] 2 shuffled {'teach': 0.0}
+[  1223s] 3 real {'teach': 0.57, 'neigh_kept': 0.9534555712270804}
+[  1376s] 3 shuffled {'teach': 0.0}
+[  1544s] 4 real {'teach': 0.595, 'neigh_kept': 0.9590973201692524}
+[  1696s] 4 shuffled {'teach': 0.0}
+[  1828s] 5 real {'teach': 0.515, 'neigh_kept': 0.9576868829337094}
+[  1980s] 5 shuffled {'teach': 0.0}
+[  2152s] 6 real {'teach': 0.51, 'neigh_kept': 0.9633286318758815}
+[  2303s] 6 shuffled {'teach': 0.0}
+[  2471s] 7 real {'teach': 0.615, 'neigh_kept': 0.9675599435825106}
+[  2621s] 7 shuffled {'teach': 0.0}
+[  2790s] 8 real {'teach': 0.6, 'neigh_kept': 0.9520451339915373}
+[  2942s] 8 shuffled {'teach': 0.0}
+[  3110s] 9 real {'teach': 0.57, 'neigh_kept': 0.9633286318758815}
+[  3264s] 9 shuffled {'teach': 0.0}

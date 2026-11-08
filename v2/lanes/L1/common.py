@@ -13,3 +13,15 @@ def generate(m, tok, prompts, bs=16, mx=14):
         g = m.generate(**enc, max_new_tokens=mx, do_sample=False, pad_token_id=tok.pad_token_id)
         for j, i in enumerate(idx): out[i] = tok.decode(g[j, enc.input_ids.shape[1]:], skip_special_tokens=True).strip()
     return out
+
+def _norm_variants(t):
+    import re
+    return [re.sub(r"[^a-z0-9' ]", "", t.lower()).strip(), t.rstrip(" .?!") + " please", ("hey " + t[:1].lower() + t[1:]) if t else t, t.upper() if len(t) < 40 else t.lower()]
+def augment(ann, T, n):
+    """annotation augmentation (n extra surface variants per annotated text: lowercase/no punctuation, '... please', 'hey ...', upper/lower). Only for user mode (rows with text). n=0 -> identity."""
+    if not n or T is None: return list(ann)
+    out = list(ann)
+    for r in ann:
+        if "text" in r:
+            for v in _norm_variants(r["text"])[:n]: out.append({"text": v, "label": r["label"]})
+    return out

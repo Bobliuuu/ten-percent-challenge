@@ -1,0 +1,12 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   109s] base 0.8538011695906432 0.0
+[   228s] {'d': 0, 'arm': 'real', 'teach': 0.72, 'bytes': 50343936, 'pred': [('Security', 36), ('Card', 7), ('Cash', 3), ('Identity', 2)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   338s] {'d': 0, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 50343936, 'pred': [('Identity', 33), ('Card', 13), ('Cash', 4)]}
+[   455s] {'d': 1, 'arm': 'real', 'teach': 0.76, 'bytes': 50343936, 'pred': [('Security', 38), ('Card', 6), ('Cash', 3), ('Identity', 2)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   568s] {'d': 1, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 50343936, 'pred': [('Identity', 33), ('Card', 13), ('Cash', 4)]}
+[   688s] {'d': 2, 'arm': 'real', 'teach': 0.74, 'bytes': 50343936, 'pred': [('Security', 37), ('Card', 7), ('Cash', 4), ('Identity', 2)], 'neigh': 1.0, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 1.0, 'Exchange': 1.0}}
+[   801s] {'d': 2, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 50343936, 'pred': [('Identity', 37), ('Card', 9), ('Cash', 4)]}
+[   921s] {'d': 3, 'arm': 'real', 'teach': 0.72, 'bytes': 50343936, 'pred': [('Security', 36), ('Card', 9), ('Cash', 3), ('Identity', 2)], 'neigh': 1.0, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 1.0, 'Exchange': 1.0}}
+[  1034s] {'d': 3, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 50343936, 'pred': [('Identity', 32), ('Card', 14), ('Cash', 4)]}
+[  1154s] {'d': 4, 'arm': 'real', 'teach': 0.74, 'bytes': 50343936, 'pred': [('Security', 37), ('Card', 6), ('Cash', 4), ('Identity', 2)], 'neigh': 1.0, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 1.0, 'Exchange': 1.0}}
+[  1263s] {'d': 4, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 50343936, 'pred': [('Identity', 31), ('Card', 16), ('Cash', 3)]}

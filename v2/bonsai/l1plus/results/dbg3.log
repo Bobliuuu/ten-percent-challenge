@@ -1,0 +1,7 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+default neigh 0.863 email teach 0.929
+awt30 neigh 0.951 email teach 0.879
+awt100 neigh 0.99 email teach 0.636
+lam3000_awt30 neigh 0.99 email teach 0.636
+scale_lam100 neigh 0.892 email teach 0.879
+scale_lam100_awt100 neigh 0.995 email teach 0.464

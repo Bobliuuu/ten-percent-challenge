@@ -1,0 +1,12 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   113s] base 0.8538011695906432 0.0
+[   198s] {'d': 0, 'arm': 'real', 'teach': 0.88, 'bytes': 50343936, 'pred': [('Security', 44), ('Card', 4), ('Cash', 1), ('Identity', 1)], 'neigh': 0.9897260273972602, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 0.976, 'Identity': 0.982, 'Exchange': 1.0}}
+[   274s] {'d': 0, 'arm': 'shuffled', 'teach': 0.28, 'bytes': 50343936, 'pred': [('Identity', 22), ('Security', 14), ('Card', 10), ('Cash', 4)]}
+[   358s] {'d': 1, 'arm': 'real', 'teach': 0.92, 'bytes': 50343936, 'pred': [('Security', 46), ('Card', 4)], 'neigh': 0.9931506849315068, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   434s] {'d': 1, 'arm': 'shuffled', 'teach': 0.38, 'bytes': 50343936, 'pred': [('Security', 19), ('Identity', 17), ('Card', 10), ('Cash', 4)]}
+[   519s] {'d': 2, 'arm': 'real', 'teach': 0.92, 'bytes': 50343936, 'pred': [('Security', 46), ('Card', 3), ('Cash', 1)], 'neigh': 0.9897260273972602, 'neigh_by_kind': {'Card': 0.963, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   596s] {'d': 2, 'arm': 'shuffled', 'teach': 0.08, 'bytes': 50343936, 'pred': [('Identity', 32), ('Card', 9), ('Security', 4), ('Cash', 4)]}
+[   681s] {'d': 3, 'arm': 'real', 'teach': 0.9, 'bytes': 50343936, 'pred': [('Security', 45), ('Card', 3), ('Cash', 2)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   759s] {'d': 3, 'arm': 'shuffled', 'teach': 0.28, 'bytes': 50343936, 'pred': [('Identity', 18), ('Card', 15), ('Security', 14), ('Cash', 3)]}
+[   843s] {'d': 4, 'arm': 'real', 'teach': 0.82, 'bytes': 50343936, 'pred': [('Security', 41), ('Card', 4), ('Identity', 3), ('Cash', 2)], 'neigh': 0.9931506849315068, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   920s] {'d': 4, 'arm': 'shuffled', 'teach': 0.14, 'bytes': 50343936, 'pred': [('Identity', 28), ('Card', 13), ('Security', 7), ('Cash', 2)]}

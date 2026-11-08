@@ -1,0 +1,68 @@
+{
+ "new_cli": {
+  "patched_layers": [
+   30,
+   31,
+   32,
+   33,
+   34,
+   35
+  ],
+  "cols": 1024,
+  "patch_bytes": 50347483
+ },
+ "old_cli": {
+  "patched_layers": [
+   30,
+   31,
+   32,
+   33,
+   34,
+   35
+  ],
+  "cols": 1024,
+  "patch_bytes": 50347483
+ },
+ "regression_patch_identical": true,
+ "max_abs_diff": 0.0,
+ "cli_teach": 0.867,
+ "cli_neigh": 1.0,
+ "inproc_identical_to_cli": true,
+ "inproc_leaves_no_patch": true,
+ "inproc_save_patch_exists": true,
+ "persisted_identical_to_cli": true,
+ "continual": [
+  {
+   "round": 1,
+   "label": "Recipe",
+   "n": 8,
+   "patch_bytes": 50347483,
+   "neigh": 1.0,
+   "teach_Recipe": 0.844
+  },
+  {
+   "round": 2,
+   "label": "Email",
+   "n": 8,
+   "patch_bytes": 74126683,
+   "neigh": 0.863,
+   "teach_Recipe": 0.867,
+   "teach_Email": 0.93
+  },
+  {
+   "round": 3,
+   "label": "Takeaway",
+   "n": 9,
+   "patch_bytes": 91276699,
+   "neigh": 0.77,
+   "teach_Recipe": 0.822,
+   "teach_Email": 0.88,
+   "teach_Takeaway": 1.0
+  }
+ ],
+ "scale_cli": {
+  "patch_bytes": 4721085,
+  "teach": 0.867,
+  "neigh": 0.966
+ }
+}

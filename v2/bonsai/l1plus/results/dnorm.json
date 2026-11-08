@@ -1,0 +1,42 @@
+{
+ "cols_default": {
+  "layers_touched": 6,
+  "weights_changed": 24405648,
+  "frac_of_all_params": 0.00298,
+  "rel_fro_in_touched_blocks": 0.0072,
+  "max_rel_change_per_weight": 4.383,
+  "bytes": 50343936
+ },
+ "lr_default": {
+  "layers_touched": 6,
+  "weights_changed": 24411386,
+  "frac_of_all_params": 0.00298,
+  "rel_fro_in_touched_blocks": 0.0072,
+  "max_rel_change_per_weight": 4.379,
+  "bytes": 503808
+ },
+ "scale_lam100": {
+  "layers_touched": 6,
+  "weights_changed": 297605376,
+  "frac_of_all_params": 0.03634,
+  "rel_fro_in_touched_blocks": 0.0418,
+  "max_rel_change_per_weight": 1.641,
+  "bytes": 4718592
+ },
+ "cols_L18_c256": {
+  "layers_touched": 18,
+  "weights_changed": 18110671,
+  "frac_of_all_params": 0.00221,
+  "rel_fro_in_touched_blocks": 0.0032,
+  "max_rel_change_per_weight": 2.106,
+  "bytes": 37757952
+ },
+ "cols_L6_c128": {
+  "layers_touched": 6,
+  "weights_changed": 3029921,
+  "frac_of_all_params": 0.00037,
+  "rel_fro_in_touched_blocks": 0.0031,
+  "max_rel_change_per_weight": 2.162,
+  "bytes": 6292992
+ }
+}

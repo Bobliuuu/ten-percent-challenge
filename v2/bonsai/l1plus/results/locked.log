@@ -37,3 +37,6 @@
 [  1658s] cols_L18_c256 shuffled n 25 d 3 {'teach': 0.0} bytes 37757952 68s
 [  1725s] cols_L18_c256 real n 25 d 4 {'teach': 0.9024, 'neigh': 0.9972} bytes 37757952 67s
 [  1773s] cols_L18_c256 shuffled n 25 d 4 {'teach': 0.0} bytes 37757952 48s
+[  1841s] cols_L18_c256 real n 25 d 5 {'teach': 0.9329, 'neigh': 1.0} bytes 37757952 68s
+[  1915s] cols_L18_c256 shuffled n 25 d 5 {'teach': 0.0} bytes 37757952 74s
+[  1915s] DONE

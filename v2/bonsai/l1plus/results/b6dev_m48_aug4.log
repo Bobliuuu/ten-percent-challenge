@@ -1,0 +1,12 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   220s] base 0.8538011695906432 0.0
+[   341s] {'d': 0, 'arm': 'real', 'teach': 0.9, 'bytes': 50343936, 'pred': [('Security', 45), ('Card', 4), ('Cash', 1)], 'neigh': 0.9931506849315068, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   458s] {'d': 0, 'arm': 'shuffled', 'teach': 0.16, 'bytes': 50343936, 'pred': [('Identity', 28), ('Card', 10), ('Security', 8), ('Cash', 4)]}
+[   581s] {'d': 1, 'arm': 'real', 'teach': 0.92, 'bytes': 50343936, 'pred': [('Security', 46), ('Card', 4)], 'neigh': 0.9931506849315068, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   698s] {'d': 1, 'arm': 'shuffled', 'teach': 0.18, 'bytes': 50343936, 'pred': [('Identity', 20), ('Card', 17), ('Security', 9), ('Cash', 4)]}
+[   823s] {'d': 2, 'arm': 'real', 'teach': 0.94, 'bytes': 50343936, 'pred': [('Security', 47), ('Card', 2), ('Cash', 1)], 'neigh': 0.9863013698630136, 'neigh_by_kind': {'Card': 0.944, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   940s] {'d': 2, 'arm': 'shuffled', 'teach': 0.02, 'bytes': 50343936, 'pred': [('Identity', 37), ('Card', 8), ('Cash', 4), ('Security', 1)]}
+[  1065s] {'d': 3, 'arm': 'real', 'teach': 0.9, 'bytes': 50343936, 'pred': [('Security', 45), ('Card', 3), ('Cash', 2)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[  1175s] {'d': 3, 'arm': 'shuffled', 'teach': 0.14, 'bytes': 50343936, 'pred': [('Identity', 23), ('Card', 17), ('Security', 7), ('Cash', 3)]}
+[  1295s] {'d': 4, 'arm': 'real', 'teach': 0.88, 'bytes': 50343936, 'pred': [('Security', 44), ('Card', 4), ('Cash', 2)], 'neigh': 0.9931506849315068, 'neigh_by_kind': {'Card': 0.981, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[  1408s] {'d': 4, 'arm': 'shuffled', 'teach': 0.04, 'bytes': 50343936, 'pred': [('Identity', 27), ('Card', 19), ('Cash', 2), ('Security', 2)]}

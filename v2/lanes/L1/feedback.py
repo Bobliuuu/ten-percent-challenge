@@ -31,11 +31,11 @@ def _cap(layer_mod, store, key, pos=None, stop=False):
     return layer_mod.register_forward_pre_hook(hook)
 
 @torch.no_grad()
-def make_sites(m, tok, ann, T):
+def make_sites(m, tok, ann, T, aug=0):
     """annotated sequences + the answer positions where the ORIGINAL model's argmax differs from the annotated token. -> list of (ids, pos, tgt)"""
     dev = m.device; W = m.lm_head.weight; EOS = tok.convert_tokens_to_ids("<|im_end|>"); out = []
     lab = lambda r: r["label"] if "label" in r else r["gold"][0]["name"]
-    for r in ann:
+    for r in common.augment(ann, T, aug):
         p = tok(common.chat(tok, common.prompt_of(r, T)), add_special_tokens=False).input_ids; g = tok(lab(r), add_special_tokens=False).input_ids + [EOS]
         ids = p + g; pos = list(range(len(p) - 1, len(p) + len(g) - 1)); h = _fwd(m, torch.tensor([ids], device=dev))[0, pos]
         am = (h.to(W.dtype) @ W.T).argmax(-1).tolist(); keep = [j for j in range(len(g)) if am[j] != g[j]]
@@ -73,12 +73,13 @@ def _cal_cov(m, cal, li, J, bs=16):
     return C / max(n, 1), Ca / max(na, 1)
 
 @torch.no_grad()
-def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=DEF["lam"], awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None, cal=None):
+def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=DEF["lam"], awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None, cal=None, aug=0, carrier="cols", sites=None):
     """Edits the loaded model IN PLACE (fp16 columns) and returns the patch {"layers": [..], "cols": [int16 [r]], "vals": [fp16 [hidden, r]]}; None if nothing needs teaching.
     The model must be the ORIGINAL (unpatched) one."""
     dev = m.device; W = m.lm_head.weight.data; LY = m.model.layers; NL = len(LY); gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; D = m.config.hidden_size
-    sites = make_sites(m, tok, ann, T)
+    sites = sites if sites is not None else make_sites(m, tok, ann, T, aug)
     if not sites: return None
+    if carrier == "scale": return compute_patch_scale(m, tok, sites, calib_prompts, layers, lam, awt, margin, ridge, log, cal)
     cal = cal or calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "cols": [], "vals": [], "orig": []}
     for step, li in enumerate(LS):
         rem = len(LS) - step; Ks, Xs, Ts = [], [], []
@@ -93,17 +94,97 @@ def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF[
         J = ((K.abs() / K.norm(dim=0, keepdim=True).clamp(min=1e-6)).sum(1)).topk(cols).indices.sort().values
         C, Ca = _cal_cov(m, cal, li, J); Cs = C + awt * Ca; Am = lam * (Cs + ridge * Cs.diagonal().mean() * torch.eye(len(J), device=dev)); Kj = K[J]
         Z = torch.linalg.solve(Am, Kj); S = torch.linalg.inv(torch.eye(K.shape[1], device=dev) + Kj.T @ Z); dW = R @ S @ Z.T                      # [D, r]
-        wt = LY[li].mlp.down_proj.weight; out["orig"].append(wt.data[:, J].clone()); new = (wt.data[:, J].float() + dW).half(); wt.data[:, J] = new
-        out["layers"].append(li); out["cols"].append(J.short().cpu()); out["vals"].append(new.cpu())
+        wt = LY[li].mlp.down_proj.weight; out["orig"].append(wt.data[:, J].clone())
+        if carrier == "lr":      # same delta stored as rank-k fp16 factors (k <= number of sites): new = orig + A @ B
+            U, Sv, Vh = torch.linalg.svd(dW, full_matrices=False); k = min(int((Sv > 1e-6 * Sv[0]).sum()), K.shape[1]); A_ = (U[:, :k] * Sv[:k]).half(); B_ = Vh[:k].half(); new = (wt.data[:, J].float() + A_.float() @ B_.float()).half()
+            out.setdefault("A", []).append(A_.cpu()); out.setdefault("B", []).append(B_.cpu()); out.setdefault("kind", "lr")
+        else: new = (wt.data[:, J].float() + dW).half(); out["vals"].append(new.cpu())
+        wt.data[:, J] = new; out["layers"].append(li); out["cols"].append(J.short().cpu())
         if log: log(f"layer {li}: sites {K.shape[1]} mean gap {float(gap.mean()):.2f}")
     return out
 
+@torch.no_grad()
+def compute_patch_scale(m, tok, sites, calib_prompts, layers, lam, awt, margin, ridge, log=None, cal=None, rows_blk=64):
+    """CARRIER 'scale': the edit changes ONLY the existing per-128-group scales of the 1-bit down_proj of the last `layers` layers (weights stay sign * scale; no new tensor, no new bytes in
+    the pack: the patch.pt holds the replaced scale values, [4096, 96] fp16 per layer, and could equally be written back into scales.bin).
+    Output row i of down_proj changes by dy_i = sum_g ds[i,g] * a_i[g](k),  a_i[g](k) = sum_{j in group g} sign[i,j] k_j.  Same closed form as compute_patch, per row, on the 96 group features."""
+    dev = m.device; W = m.lm_head.weight.data; LY = m.model.layers; NL = len(LY); gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; D = m.config.hidden_size
+    cal = cal or calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "scales": [], "kind": "scale", "orig_w": []}
+    for step, li in enumerate(LS):
+        rem = len(LS) - step; Ks, Xs, Ts = [], [], []
+        for ids, pos, tgt in sites:
+            st = {}; h1 = _cap(LY[li].mlp.down_proj, st, "k", pos); h2 = m.model.norm.register_forward_pre_hook(lambda mod, inp: st.__setitem__("x", inp[0][0, pos]))
+            _fwd(m, torch.tensor([ids], device=dev)); h1.remove(); h2.remove(); Ks.append(st["k"].float()); Xs.append(st["x"].float()); Ts += tgt
+        Kt = torch.cat(Ks); X = torch.cat(Xs); T_ = torch.tensor(Ts, device=dev)                                    # Kt [n, F]
+        xn = X * torch.rsqrt(X.pow(2).mean(-1, keepdim=True) + eps) * gamma; lg = (xn.to(W.dtype) @ W.T).float()
+        zt = lg.gather(1, T_[:, None])[:, 0]; lg.scatter_(1, T_[:, None], -1e9); zc, ci = lg.max(1); gap = (zc - zt + margin).clamp(min=0)
+        u = gamma[None] * (W[T_].float() - W[ci].float()); rms = X.pow(2).mean(-1, keepdim=True).add(eps).sqrt()
+        R = (rms * gap[:, None] * u / u.pow(2).sum(-1, keepdim=True).clamp(min=1e-9) / rem)                          # [n, D]
+        # calibration activations of this layer under the CURRENT model (all tokens + answer-position mask)
+        F = Kt.shape[1]; G = F // 128; st = {}; h = _cap(LY[li].mlp.down_proj, st, "k", stop=True); KA = []; MA = []
+        order = sorted(range(len(cal)), key=lambda i: len(cal[i][0]))
+        try:
+            for s0 in range(0, len(order), 16):
+                idx = order[s0:s0 + 16]; L = max(len(cal[i][0]) for i in idx); ids = torch.zeros((len(idx), L), dtype=torch.long); am = torch.zeros((len(idx), L), dtype=torch.long); ma = torch.zeros((len(idx), L), dtype=torch.bool)
+                for b, i in enumerate(idx): q, ap = cal[i]; ids[b, :len(q)] = torch.tensor(q); am[b, :len(q)] = 1; ma[b, ap] = True
+                try: m.model(input_ids=ids.to(dev), attention_mask=am.to(dev))
+                except _Stop: pass
+                msk = am.bool().to(dev); KA.append(st["k"][msk]); MA.append(ma.to(dev)[msk])
+        finally: h.remove()
+        KA = torch.cat(KA); MA = torch.cat(MA); T0 = len(KA); wt = LY[li].mlp.down_proj.weight; w0 = wt.data.clone(); out["orig_w"].append(w0.cpu() if False else w0)
+        sgn = torch.sign(w0.float()); sgn[sgn == 0] = 1; scl = w0.float().abs().reshape(D, G, 128).amax(-1)                 # [D, G] existing scales
+        newscl = scl.clone(); Kg = Kt.reshape(len(Kt), G, 128); KAg = KA.reshape(T0, G, 128)
+        for r0 in range(0, D, rows_blk):
+            sb = sgn[r0:r0 + rows_blk].reshape(-1, G, 128)                                                         # [r, G, 128]
+            An = torch.einsum("ngc,rgc->rng", Kg, sb)                                                              # [r, n, G]  features at the annotated sites
+            Ac = torch.einsum("tgc,rgc->trg", KAg.float(), sb)                                                     # [T, r, G]
+            C = torch.einsum("trg,trh->rgh", Ac, Ac) / T0; Ca = torch.einsum("trg,trh->rgh", Ac[MA], Ac[MA]) / max(int(MA.sum()), 1)
+            Cs = C + awt * Ca; eye = torch.eye(G, device=dev)[None]; Am = lam * (Cs + ridge * Cs.diagonal(dim1=1, dim2=2).mean(-1)[:, None, None] * eye)
+            Z = torch.linalg.solve(Am, An.transpose(1, 2))                                                         # [r, G, n]
+            S_ = torch.linalg.inv(torch.eye(len(Kt), device=dev)[None] + An @ Z)                                    # [r, n, n]
+            dS = torch.einsum("rgn,rnm,mr->rg", Z, S_, R[:, r0:r0 + rows_blk])                                      # [r, G]
+            newscl[r0:r0 + rows_blk] += dS
+        newscl = newscl.half(); wt.data.copy_((sgn.reshape(D, G, 128) * newscl.float()[:, :, None]).reshape(D, F).half())
+        out["layers"].append(li); out["scales"].append(newscl.cpu())
+        if log: log(f"layer {li}: sites {len(Kt)} mean gap {float(gap.mean()):.2f} rel scale change {float(((newscl.float()-scl).norm()/scl.norm())):.4f}")
+        del KA, KAg, Ac
+    return out
+
+def merge_patch(old, new):
+    """continual feedback: later patch (computed on the already-patched model) overrides the earlier one where both touch the same columns/layer."""
+    if old is None: return new
+    if new is None: return old
+    assert old.get("kind", "cols") == new.get("kind", "cols")
+    kind = new.get("kind", "cols"); res = {"layers": [], "cols": [], "vals": []} if kind == "cols" else ({"layers": [], "scales": [], "kind": "scale"} if kind == "scale" else None)
+    assert res is not None, "merge only for the cols and scale carriers"
+    ls = sorted(set(old["layers"]) | set(new["layers"]))
+    for li in ls:
+        o = old["layers"].index(li) if li in old["layers"] else None; n = new["layers"].index(li) if li in new["layers"] else None; res["layers"].append(li)
+        if kind == "scale": res["scales"].append(new["scales"][n] if n is not None else old["scales"][o]); continue
+        d = {}
+        if o is not None:
+            for c, j in enumerate(old["cols"][o].tolist()): d[j] = old["vals"][o][:, c]
+        if n is not None:
+            for c, j in enumerate(new["cols"][n].tolist()): d[j] = new["vals"][n][:, c]
+        js = sorted(d); res["cols"].append(torch.tensor(js, dtype=torch.int16)); res["vals"].append(torch.stack([d[j] for j in js], 1))
+    return res
+
+def patch_bytes(P):
+    if P is None: return 0
+    return sum(t.numel() * t.element_size() for k in ("cols", "vals", "A", "B", "scales") for t in P.get(k, []))
+
 def undo(m, P):
     """exact undo of compute_patch's in-place edit (experiments only)"""
+    if P.get("kind") == "scale":
+        for li, o in zip(P["layers"], P["orig_w"]): m.model.layers[li].mlp.down_proj.weight.data.copy_(o)
+        return
     for li, c, o in zip(P["layers"], P["cols"], P["orig"]): m.model.layers[li].mlp.down_proj.weight.data[:, c.long().to(m.device)] = o
 
 def apply_patch(m, P, save=None):
     """overlay patch columns on the existing down_proj tensors; if save is a dict, the replaced original columns are stored there (for exact restore in experiments)."""
+    import bonsai_loader as _BL
+    if P.get("kind") in ("lr", "scale"):
+        _BL.apply_patch_dict(m, P); return
     for li, c, v in zip(P["layers"], P["cols"], P["vals"]):
         w = m.model.layers[li].mlp.down_proj.weight.data; c = c.long().to(w.device)
         if save is not None: save[li] = (c, w[:, c].clone())
@@ -117,16 +198,21 @@ def main():
     import argparse
     from transformers import AutoTokenizer
     a = argparse.ArgumentParser(); a.add_argument("--artifact", "--dir", dest="art", default=os.path.dirname(os.path.abspath(__file__))); a.add_argument("--task"); a.add_argument("--ann", "--annotations", dest="ann", required=True)
-    a.add_argument("--calib")
+    a.add_argument("--calib"); a.add_argument("--append", action="store_true", help="continual feedback: keep the existing patch.pt and add this round on top of the already-patched model (default: start from the original weights)")
+    a.add_argument("--carrier", default="cols", choices=["cols", "lr", "scale"]); a.add_argument("--aug", type=int, default=0)
     for k, v in DEF.items(): a.add_argument("--" + k, type=type(v), default=v)
     a = a.parse_args(); pf = a.art + "/patch.pt"; T = common.task(a.task) if a.task else None
     ann = [json.loads(l) for l in open(a.ann) if l.strip()]; assert len(ann) <= 25, "at most 25 annotated items"
-    if os.path.exists(pf): os.remove(pf)                       # always edit from the ORIGINAL weights
+    old = torch.load(pf) if (a.append and os.path.exists(pf)) else None
+    if os.path.exists(pf) and not a.append: os.remove(pf)      # default: always edit from the ORIGINAL weights
     if not ann: print(json.dumps({"patched_layers": [], "patch_bytes": 0})); return
-    m, _ = BL.load(a.art, patch=None); tok = AutoTokenizer.from_pretrained(a.art)
+    m, _ = BL.load(a.art, patch=pf if old is not None else None); tok = AutoTokenizer.from_pretrained(a.art)
     cp = a.calib or a.art + "/feedback_calib.jsonl"; cal = [common.prompt_of(json.loads(l), T) for l in open(cp) if l.strip()]
-    P = compute_patch(m, tok, ann, T, cal, a.layers, a.cols, a.lam, a.awt, a.margin, a.ridge)
-    if P is not None: P.pop("orig", None); torch.save(P, pf)
-    print(json.dumps({"patched_layers": P["layers"] if P else [], "cols": a.cols, "patch_bytes": os.path.getsize(pf) if P else 0}))
+    P = compute_patch(m, tok, ann, T, cal, a.layers, a.cols, a.lam, a.awt, a.margin, a.ridge, aug=a.aug, carrier=a.carrier)
+    if P is not None:
+        P.pop("orig", None); P.pop("orig_w", None)
+        if old is not None: P = merge_patch(old, P)
+        torch.save(P, pf)
+    print(json.dumps({"patched_layers": P["layers"] if P else [], "cols": a.cols, "patch_bytes": os.path.getsize(pf) if os.path.exists(pf) else 0}))
 
 if __name__ == "__main__": main()

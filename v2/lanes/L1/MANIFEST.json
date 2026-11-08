@@ -43,5 +43,37 @@
  "cap_9_9pct_bytes": 1621765601,
  "slack_to_9_9pct_bytes": 403298244,
  "notes": "includes tensor_manifest.json (25,189 B, safetensors headers of the base snapshot, v2/lanes/L1/tensor_manifest.json). Source of byte counts: results/e2e_locked.json (art dir after the shipped feedback.py on 25 annotations).",
- "base_tree_bytes_without_patch": 1168119874
+ "base_tree_bytes_without_patch": 1168119874,
+ "l1plus": {
+  "code_bytes": 25734,
+  "readme_bytes": 3964,
+  "base_tree_bytes_without_patch": 1168133633,
+  "carriers": {
+   "cols_default": {
+    "patch_bytes": 50347483,
+    "total_bytes": 1218481116,
+    "pct_qwen3_8b": 7.4382,
+    "pct_bonsai": 7.4402
+   },
+   "lr_default(~0.50MB,25 items)": {
+    "patch_bytes": 503808,
+    "total_bytes": 1168637441,
+    "pct_qwen3_8b": 7.1339,
+    "pct_bonsai": 7.1358
+   },
+   "scale(overlay)": {
+    "patch_bytes": 4718592,
+    "total_bytes": 1172852225,
+    "pct_qwen3_8b": 7.1596,
+    "pct_bonsai": 7.1615
+   },
+   "cols_L18_c256": {
+    "patch_bytes": 37757952,
+    "total_bytes": 1205891585,
+    "pct_qwen3_8b": 7.3613,
+    "pct_bonsai": 7.3633
+   }
+  },
+  "note": "L1+ code (answer/feedback/common/loader, README) replaces the sealed L1 code; default flags write a bit-identical patch to the sealed code (v2/bonsai/l1plus/results/e2e_l1p.json regression_patch_identical). patch bytes: results/{fin1,fin2,locked}.json"
+ }
 }

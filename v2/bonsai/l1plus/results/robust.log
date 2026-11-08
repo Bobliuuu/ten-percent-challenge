@@ -1,3 +1,36 @@
 `torch_dtype` is deprecated! Use `dtype` instead!
 [    24s] loaded
 [    24s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[   203s] cols_default var_orig n 25 d 0 {'neigh': 0.9933, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_menu_reordered n 25 d 0 {'neigh': 0.98, 'teach': 0.6889, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_paraphrased_instr n 25 d 0 {'neigh': 0.9867, 'teach': 0.8, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_no_menu n 25 d 0 {'neigh': 0.5067, 'teach': 0.9111, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_markdown_wrapper n 25 d 0 {'neigh': 0.9867, 'teach': 0.8222, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_lowercase_text n 25 d 0 {'neigh': 0.9933, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_long_600 n 25 d 0 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 24s
+[   203s] cols_default var_long_3000 n 25 d 0 {'neigh': 0.9133, 'teach': 0.7556, 'ood': 0.0} bytes 50343936 24s
+[   260s] cols_default var_orig n 25 d 1 {'neigh': 1.0, 'teach': 0.8889, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_menu_reordered n 25 d 1 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_paraphrased_instr n 25 d 1 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_no_menu n 25 d 1 {'neigh': 0.5067, 'teach': 0.9111, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_markdown_wrapper n 25 d 1 {'neigh': 0.9867, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_lowercase_text n 25 d 1 {'neigh': 1.0, 'teach': 0.8889, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_long_600 n 25 d 1 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 12s
+[   260s] cols_default var_long_3000 n 25 d 1 {'neigh': 0.9133, 'teach': 0.8444, 'ood': 0.0} bytes 50343936 12s
+[   328s] scale_lam100 var_orig n 25 d 0 {'neigh': 0.9933, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_menu_reordered n 25 d 0 {'neigh': 0.98, 'teach': 0.6667, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_paraphrased_instr n 25 d 0 {'neigh': 0.9733, 'teach': 0.8, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_no_menu n 25 d 0 {'neigh': 0.5067, 'teach': 0.8667, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_markdown_wrapper n 25 d 0 {'neigh': 0.9867, 'teach': 0.8222, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_lowercase_text n 25 d 0 {'neigh': 0.9933, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_long_600 n 25 d 0 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   328s] scale_lam100 var_long_3000 n 25 d 0 {'neigh': 0.9133, 'teach': 0.7778, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_orig n 25 d 1 {'neigh': 0.9933, 'teach': 0.8889, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_menu_reordered n 25 d 1 {'neigh': 0.98, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_paraphrased_instr n 25 d 1 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_no_menu n 25 d 1 {'neigh': 0.5, 'teach': 0.8667, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_markdown_wrapper n 25 d 1 {'neigh': 0.9867, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_lowercase_text n 25 d 1 {'neigh': 0.9933, 'teach': 0.8889, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_long_600 n 25 d 1 {'neigh': 0.9733, 'teach': 0.8444, 'ood': 0.0} bytes 4718592 21s
+[   394s] scale_lam100 var_long_3000 n 25 d 1 {'neigh': 0.9133, 'teach': 0.8, 'ood': 0.0} bytes 4718592 21s
+[   394s] DONE

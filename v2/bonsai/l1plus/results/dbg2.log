@@ -1,0 +1,14 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+base ok 611 204
+neigh after merged patch (2 rounds, 25+25 items): 0.8627450980392157
+[(('Lists', 'Email'), 26), (('Calendar', 'Email'), 1), (('Lists', 'List'), 1)]
+[('Calendar', 'Email', 'how many reminders are there for tomorrow'), ('Lists', 'Email', 'all food items with the prefix dry should be taken away from'), ('Lists', 'Email', 'delete last entry'), ('Lists', 'Email', 'delete shopping from my list'), ('Lists', 'Email', 'what are all my lists'), ('Lists', 'Email', 'please tell me what lists i have')]
+{"text": "all emails received between ten p. m. and seven am everyday is to be replied", "label": "Email"}
+{"text": "is there a way to pull up information about a contact", "label": "Email"}
+{"text": "please list the subject lines of last twenty received emails", "label": "Email"}
+{"text": "any recent mails", "label": "Email"}
+{"text": "email my sister about mom's birthday jane we should think about arranging the party at the park", "label": "Email"}
+{"text": "did joe leave any contact information in his email", "label": "Email"}
+{"text": "send a reply to this email", "label": "Email"}
+{"text": "please check my inbox and tell me if there are any new arrivals", "label": "Email"}
+

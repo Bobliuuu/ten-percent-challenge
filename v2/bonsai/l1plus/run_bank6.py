@@ -33,6 +33,18 @@ if mode == "dev":
             if arm == "real": n = gen_with(m, selk); rec["neigh"] = float(np.mean([o == r["kind"] for r, o in zip(selk, n)])); rec["neigh_by_kind"] = {k: round(float(np.mean([o == r["kind"] for r, o in zip(selk, n) if r["kind"] == k])), 3) for k in OLD}
             FB.undo(m, P); R["runs"].append(rec); json.dump(R, open(out, "w")); log(rec)
     R["done"] = True; json.dump(R, open(out, "w")); sys.exit()
+if mode == "fb":   # locked TEACH + NEIGHBOUR only (no exam scoring); neighbours base-correct = unpatched shipped model on the neighbour items
+    m, _ = BL.load(art, patch=None); teach = LD.load("BANK6", "teach"); ann_pool = LD.load("BANK6", "ann_pool"); sel = LD.load("BANK6", "sel")
+    ex = {r["id"]: r for r in LD.load("BANK6", "exam")}; na = [ex[i] for i in LD.load("BANK6", "neighbours")]; neigh = [r for r, o in zip(na, gen_with(m, na)) if o == r["kind"]]; R["n_neigh_base_correct"] = len(neigh)
+    cal = FB.calib_seqs(m, tok, calib); pb = dict(zip([r["id"] for r in ann_pool + sel[:300]], gen_with(m, ann_pool + sel[:300]))); sel_ok = [r for r in sel[:300] if pb[r["id"]] == r["kind"]]; R["draws"] = []
+    for d in range(10):
+        rr = random.Random(2500 + d); ix = rr.sample(ann_pool, 25); shuf = rr.sample(sel_ok, 25)
+        for name, rows in (("real", ix), ("shuffled", shuf)):
+            P = FB.compute_patch(m, tok, [dict(text=tx(r), label=NEW) for r in rows], TASK, calib, cal=cal, **CFG); t = gen_with(m, teach); tk = [int(o == NEW) for o in t]
+            rec = dict(d=d, arm=name, bytes=FB.patch_bytes(P), teach=float(np.mean(tk)), teach_by_src=bysrc(teach, tk))
+            if name == "real": n = gen_with(m, neigh); nk = [int(o == r["kind"]) for o, r in zip(n, neigh)]; rec.update(neigh_kept=float(np.mean(nk)), neigh_by_kind={k: round(float(np.mean([x for r, x in zip(neigh, nk) if r["kind"] == k])), 3) for k in {r["kind"] for r in neigh}})
+            FB.undo(m, P); R["draws"].append(rec); json.dump(R, open(out, "w")); log(d, name, {k: v for k, v in rec.items() if k in ("teach", "neigh_kept")})
+    R["done"] = True; json.dump(R, open(out, "w")); sys.exit()
 exam = LD.load("BANK6", "exam"); teach = LD.load("BANK6", "teach"); ann_pool = LD.load("BANK6", "ann_pool"); neigh_ids = set(LD.load("BANK6", "neighbours")); sel = LD.load("BANK6", "sel")
 R.update(n_exam=len(exam), n_teach=len(teach), n_ann_pool=len(ann_pool), n_neigh=len(neigh_ids))
 base_runs = []; mb = AutoModelForCausalLM.from_pretrained(snap, torch_dtype=torch.float16).cuda().eval()

@@ -1,0 +1,22 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    23s] loaded
+[    23s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[    59s] cols_c128 real n 25 d 0 {'teach_sel': 0.675, 'neigh_sel': 0.9966} bytes 6292992 25s
+[    87s] cols_c128 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 6292992 25s
+[   118s] cols_c128 real n 25 d 1 {'teach_sel': 0.725, 'neigh_sel': 1.0} bytes 6292992 24s
+[   145s] cols_c128 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 6292992 25s
+[   176s] cols_c128 real n 25 d 2 {'teach_sel': 0.8, 'neigh_sel': 0.9966} bytes 6292992 25s
+[   204s] cols_c128 shuffled n 25 d 2 {'teach_sel': 0.0} bytes 6292992 25s
+[   236s] cols_c256 real n 25 d 0 {'teach_sel': 0.775, 'neigh_sel': 0.9966} bytes 12585984 25s
+[   263s] cols_c256 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 12585984 24s
+[   294s] cols_c256 real n 25 d 1 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 12585984 25s
+[   321s] cols_c256 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 12585984 25s
+[   352s] cols_c256 real n 25 d 2 {'teach_sel': 0.875, 'neigh_sel': 0.9966} bytes 12585984 25s
+[   379s] cols_c256 shuffled n 25 d 2 {'teach_sel': 0.0} bytes 12585984 25s
+[   411s] cols_c128_m24 real n 25 d 0 {'teach_sel': 0.8, 'neigh_sel': 0.9966} bytes 6292992 25s
+[   439s] cols_c128_m24 shuffled n 25 d 0 {'teach_sel': 0.0} bytes 6292992 25s
+[   471s] cols_c128_m24 real n 25 d 1 {'teach_sel': 0.85, 'neigh_sel': 1.0} bytes 6292992 25s
+[   498s] cols_c128_m24 shuffled n 25 d 1 {'teach_sel': 0.0} bytes 6292992 25s
+[   528s] cols_c128_m24 real n 25 d 2 {'teach_sel': 0.9, 'neigh_sel': 1.0} bytes 6292992 24s
+[   556s] cols_c128_m24 shuffled n 25 d 2 {'teach_sel': 0.0} bytes 6292992 25s
+[   556s] DONE

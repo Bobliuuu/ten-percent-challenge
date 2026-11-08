@@ -1,0 +1,5 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   121s] base 0.8538011695906432 0.0
+[   226s] {'d': 0, 'arm': 'real', 'teach': 0.78, 'bytes': 83906560, 'pred': [('Security', 39), ('Card', 8), ('Cash', 3)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}
+[   345s] {'d': 0, 'arm': 'shuffled', 'teach': 0.0, 'bytes': 83906560, 'pred': [('Identity', 33), ('Card', 13), ('Cash', 4)]}
+[   472s] {'d': 1, 'arm': 'real', 'teach': 0.76, 'bytes': 83906560, 'pred': [('Security', 38), ('Card', 8), ('Cash', 3), ('Identity', 1)], 'neigh': 0.9965753424657534, 'neigh_by_kind': {'Card': 1.0, 'Transfer': 1.0, 'TopUp': 1.0, 'Cash': 1.0, 'Identity': 0.982, 'Exchange': 1.0}}

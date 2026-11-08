@@ -1,0 +1,41 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 92.84it/s]
+/opt/conda/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[    50s] base run bs 8 acc 0.8556101922217255
+[   123s] base run bs 4 acc 0.8556101922217255
+[   157s] base run bs 16 acc 0.8556101922217255
+`torch_dtype` is deprecated! Use `dtype` instead!
+[   274s] candidate acc 0.8556101922217255
+[   274s] stage 1 saved
+[   340s] 0 real {'teach': 0.75, 'neigh_kept': 0.9844851904090268}
+[   382s] 0 shuffled {'teach': 0.05}
+[   431s] 0 wrong {'teach': 0.0, 'neigh_kept': 0.9619181946403385}
+[   481s] 1 real {'teach': 0.775, 'neigh_kept': 0.9873060648801129}
+[   523s] 1 shuffled {'teach': 0.01}
+[   574s] 1 wrong {'teach': 0.0, 'neigh_kept': 0.9844851904090268}
+[   623s] 2 real {'teach': 0.71, 'neigh_kept': 0.9915373765867419}
+[   666s] 2 shuffled {'teach': 0.23}
+[   716s] 2 wrong {'teach': 0.0, 'neigh_kept': 0.9901269393511989}
+[   765s] 3 real {'teach': 0.75, 'neigh_kept': 0.9774330042313117}
+[   808s] 3 shuffled {'teach': 0.035}
+[   858s] 3 wrong {'teach': 0.0, 'neigh_kept': 0.9732016925246827}
+[   907s] 4 real {'teach': 0.735, 'neigh_kept': 0.9915373765867419}
+[   947s] 4 shuffled {'teach': 0.495}
+[   997s] 4 wrong {'teach': 0.0, 'neigh_kept': 0.9816643159379408}
+[  1045s] 5 real {'teach': 0.71, 'neigh_kept': 0.9929478138222849}
+[  1089s] 5 shuffled {'teach': 0.055}
+[  1188s] 5 wrong {'teach': 0.0, 'neigh_kept': 0.9887165021156559}
+[  1275s] 6 real {'teach': 0.735, 'neigh_kept': 0.9943582510578279}
+[  1316s] 6 shuffled {'teach': 0.075}
+[  1390s] 6 wrong {'teach': 0.0, 'neigh_kept': 0.9816643159379408}
+[  1461s] 7 real {'teach': 0.69, 'neigh_kept': 0.9887165021156559}
+[  1519s] 7 shuffled {'teach': 0.01}
+[  1602s] 7 wrong {'teach': 0.0, 'neigh_kept': 0.9873060648801129}
+[  1671s] 8 real {'teach': 0.725, 'neigh_kept': 0.9873060648801129}
+[  1735s] 8 shuffled {'teach': 0.015}
+[  1801s] 8 wrong {'teach': 0.0, 'neigh_kept': 0.9816643159379408}
+[  1875s] 9 real {'teach': 0.695, 'neigh_kept': 0.9929478138222849}
+[  1945s] 9 shuffled {'teach': 0.035}
+[  2019s] 9 wrong {'teach': 0.0, 'neigh_kept': 0.9858956276445698}
+[  2019s] DONE
