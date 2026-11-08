@@ -1,0 +1,20 @@
+{
+ "file": "exam.jsonl",
+ "sha256": "47e334877a7d240e24ac3a49da105aa8cda62a8acfdf6ee9a21923b32582bf20",
+ "n": 2209,
+ "per_kind": {
+  "Transport": 356,
+  "Calendar": 460,
+  "News": 219,
+  "Weather": 291,
+  "Music": 264,
+  "Lists": 363,
+  "Alarm": 256
+ },
+ "per_src": {
+  "clinc150": 650,
+  "massive": 1559
+ },
+ "bucket": "[70,100)",
+ "sealed": "2026-11-08, built before any base/compressed run on it"
+}
