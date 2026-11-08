@@ -1,0 +1,5 @@
+Using Python 3.12.3 environment at: /home/ubuntu/v2env
+Resolved 45 packages in 365ms
+Prepared 1 package in 15ms
+Installed 1 package in 3ms
+ + accelerate==1.15.0

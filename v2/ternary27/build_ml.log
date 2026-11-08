@@ -1,0 +1,44 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 3812.57 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 135808.31 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 5844.70 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 174326.85 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 7071.53 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 152055.68 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 7113.51 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 169398.38 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 7087.97 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 195411.11 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 6640.50 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 150982.87 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 7008.03 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 174995.99 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 6751.39 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 110655.97 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 7098.46 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 173864.37 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 6511.63 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 125038.87 examples/s]
+Generating train split:   0%|          | 0/8 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 8/8 [00:00<00:00, 6840.86 examples/s]
+Generating test split:   0%|          | 0/250 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 250/250 [00:00<00:00, 123028.98 examples/s]
+Generating en split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating en split: 100%|██████████| 5000/5000 [00:00<00:00, 1666390.15 examples/s]
+Generating ru split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating ru split: 100%|██████████| 5000/5000 [00:00<00:00, 1431991.81 examples/s]
+Generating uk split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating uk split: 100%|██████████| 5000/5000 [00:00<00:00, 1816659.74 examples/s]
+Generating de split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating de split: 100%|██████████| 5000/5000 [00:00<00:00, 1532781.76 examples/s]
+Generating es split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating es split: 100%|██████████| 5000/5000 [00:00<00:00, 1409850.08 examples/s]
+Generating am split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating am split: 100%|██████████| 5000/5000 [00:00<00:00, 1058419.30 examples/s]
+Generating zh split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating zh split: 100%|██████████| 5000/5000 [00:00<00:00, 2264253.94 examples/s]
+Generating ar split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating ar split: 100%|██████████| 5000/5000 [00:00<00:00, 1106326.23 examples/s]
+Generating hi split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating hi split: 100%|██████████| 5000/5000 [00:00<00:00, 1105393.21 examples/s]
+Generating it split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating it split: 100%|██████████| 5000/5000 [00:00<00:00, 1774240.27 examples/s]
+Generating fr split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating fr split: 100%|██████████| 5000/5000 [00:00<00:00, 2042813.17 examples/s]
+Generating he split:   0%|          | 0/2011 [00:00<?, ? examples/s]Generating he split: 100%|██████████| 2011/2011 [00:00<00:00, 1279542.68 examples/s]
+Generating hin split:   0%|          | 0/4363 [00:00<?, ? examples/s]Generating hin split: 100%|██████████| 4363/4363 [00:00<00:00, 1583571.16 examples/s]
+Generating tt split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating tt split: 100%|██████████| 5000/5000 [00:00<00:00, 2156011.10 examples/s]
+Generating ja split:   0%|          | 0/5000 [00:00<?, ? examples/s]Generating ja split: 100%|██████████| 5000/5000 [00:00<00:00, 2142793.50 examples/s]
+Generating train split:   0%|          | 0/120 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 120/120 [00:00<00:00, 58647.92 examples/s]
+Generating test split:   0%|          | 0/257 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 257/257 [00:00<00:00, 144883.89 examples/s]
+Generating validation split:   0%|          | 0/43 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 43/43 [00:00<00:00, 32085.94 examples/s]
+Generating prompt split:   0%|          | 0/7 [00:00<?, ? examples/s]Generating prompt split: 100%|██████████| 7/7 [00:00<00:00, 5300.62 examples/s]
+Generating test split:   0%|          | 0/164 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 164/164 [00:00<00:00, 100948.91 examples/s]
+Counter({('mltox', 'en'): 300, ('mltox', 'ru'): 300, ('mltox', 'uk'): 300, ('mltox', 'de'): 300, ('mltox', 'es'): 300, ('mltox', 'am'): 300, ('mltox', 'zh'): 300, ('mltox', 'ar'): 300, ('mltox', 'hi'): 300, ('mltox', 'it'): 300, ('mltox', 'fr'): 300, ('mltox', 'he'): 300, ('mltox', 'hin'): 300, ('mltox', 'tt'): 300, ('mltox', 'ja'): 300, ('code', 'mbpp'): 257, ('mgsm', 'en'): 250, ('mgsm', 'es'): 250, ('mgsm', 'fr'): 250, ('mgsm', 'de'): 250, ('mgsm', 'ru'): 250, ('mgsm', 'zh'): 250, ('mgsm', 'ja'): 250, ('mgsm', 'th'): 250, ('mgsm', 'sw'): 250, ('mgsm', 'bn'): 250, ('mgsm', 'te'): 250, ('code', 'humaneval'): 164})

@@ -1,0 +1,261 @@
+{
+ "code|humaneval": {
+  "n": 164,
+  "tok_base": 158.0,
+  "tok_trim": 158.0487804878049,
+  "inflation": 1.0003087372645878,
+  "uses_removed_frac": 0.03048780487804878
+ },
+ "code|mbpp": {
+  "n": 257,
+  "tok_base": 131.07782101167317,
+  "tok_trim": 131.2023346303502,
+  "inflation": 1.0009499213346396,
+  "uses_removed_frac": 0.038910505836575876
+ },
+ "inj|S1": {
+  "n": 1400,
+  "tok_base": 212.93571428571428,
+  "tok_trim": 213.18785714285715,
+  "inflation": 1.001184126664654,
+  "uses_removed_frac": 0.07357142857142857
+ },
+ "inj|S3": {
+  "n": 766,
+  "tok_base": 150.11749347258487,
+  "tok_trim": 151.93342036553526,
+  "inflation": 1.0120967040612228,
+  "uses_removed_frac": 0.3263707571801567
+ },
+ "mgsm|bn": {
+  "n": 250,
+  "tok_base": 137.94,
+  "tok_trim": 340.732,
+  "inflation": 2.470146440481369,
+  "uses_removed_frac": 1.0
+ },
+ "mgsm|de": {
+  "n": 250,
+  "tok_base": 93.932,
+  "tok_trim": 105.244,
+  "inflation": 1.1204275433292168,
+  "uses_removed_frac": 0.996
+ },
+ "mgsm|en": {
+  "n": 250,
+  "tok_base": 84.052,
+  "tok_trim": 84.144,
+  "inflation": 1.0010945605101604,
+  "uses_removed_frac": 0.052
+ },
+ "mgsm|es": {
+  "n": 250,
+  "tok_base": 92.824,
+  "tok_trim": 101.108,
+  "inflation": 1.0892441609928467,
+  "uses_removed_frac": 0.98
+ },
+ "mgsm|fr": {
+  "n": 250,
+  "tok_base": 95.276,
+  "tok_trim": 104.088,
+  "inflation": 1.0924891893026576,
+  "uses_removed_frac": 0.996
+ },
+ "mgsm|ja": {
+  "n": 250,
+  "tok_base": 90.016,
+  "tok_trim": 131.76,
+  "inflation": 1.4637397795947387,
+  "uses_removed_frac": 1.0
+ },
+ "mgsm|ru": {
+  "n": 250,
+  "tok_base": 95.636,
+  "tok_trim": 161.468,
+  "inflation": 1.6883600317871932,
+  "uses_removed_frac": 1.0
+ },
+ "mgsm|sw": {
+  "n": 250,
+  "tok_base": 122.84,
+  "tok_trim": 129.204,
+  "inflation": 1.0518072289156626,
+  "uses_removed_frac": 0.976
+ },
+ "mgsm|te": {
+  "n": 250,
+  "tok_base": 181.5,
+  "tok_trim": 471.904,
+  "inflation": 2.6000220385674933,
+  "uses_removed_frac": 1.0
+ },
+ "mgsm|th": {
+  "n": 250,
+  "tok_base": 90.124,
+  "tok_trim": 225.192,
+  "inflation": 2.4986906928232213,
+  "uses_removed_frac": 1.0
+ },
+ "mgsm|zh": {
+  "n": 250,
+  "tok_base": 81.22,
+  "tok_trim": 82.016,
+  "inflation": 1.009800541738488,
+  "uses_removed_frac": 0.432
+ },
+ "mltox|am": {
+  "n": 300,
+  "tok_base": 276.3666666666667,
+  "tok_trim": 357.4033333333333,
+  "inflation": 1.2932215655530093,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|ar": {
+  "n": 300,
+  "tok_base": 200.93333333333334,
+  "tok_trim": 235.26,
+  "inflation": 1.170836098208361,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|de": {
+  "n": 300,
+  "tok_base": 212.42,
+  "tok_trim": 221.00666666666666,
+  "inflation": 1.0404230612308947,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|en": {
+  "n": 300,
+  "tok_base": 182.80666666666667,
+  "tok_trim": 184.87666666666667,
+  "inflation": 1.0113234382407643,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|es": {
+  "n": 300,
+  "tok_base": 211.80333333333334,
+  "tok_trim": 219.54666666666665,
+  "inflation": 1.0365590720951827,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|fr": {
+  "n": 300,
+  "tok_base": 194.84,
+  "tok_trim": 199.46,
+  "inflation": 1.0237117634982549,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|he": {
+  "n": 300,
+  "tok_base": 195.48666666666668,
+  "tok_trim": 226.18,
+  "inflation": 1.1570098557446373,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|hi": {
+  "n": 300,
+  "tok_base": 226.67666666666668,
+  "tok_trim": 309.19666666666666,
+  "inflation": 1.3640427628192875,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|hin": {
+  "n": 300,
+  "tok_base": 208.21333333333334,
+  "tok_trim": 234.96666666666667,
+  "inflation": 1.1284900102459017,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|it": {
+  "n": 300,
+  "tok_base": 205.67,
+  "tok_trim": 213.19,
+  "inflation": 1.0365634268488355,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|ja": {
+  "n": 300,
+  "tok_base": 193.33666666666667,
+  "tok_trim": 212.41333333333333,
+  "inflation": 1.0986707125739212,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|ru": {
+  "n": 300,
+  "tok_base": 190.08666666666667,
+  "tok_trim": 210.89,
+  "inflation": 1.1094413074737839,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|tt": {
+  "n": 300,
+  "tok_base": 205.97,
+  "tok_trim": 229.91333333333333,
+  "inflation": 1.1162467025942289,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|uk": {
+  "n": 300,
+  "tok_base": 191.53666666666666,
+  "tok_trim": 209.93,
+  "inflation": 1.0960303510206924,
+  "uses_removed_frac": 1.0
+ },
+ "mltox|zh": {
+  "n": 300,
+  "tok_base": 179.76333333333332,
+  "tok_trim": 182.06666666666666,
+  "inflation": 1.012813143206809,
+  "uses_removed_frac": 1.0
+ },
+ "news|ag_news": {
+  "n": 5500,
+  "tok_base": 91.97872727272727,
+  "tok_trim": 92.19127272727273,
+  "inflation": 1.0023108109977998,
+  "uses_removed_frac": 0.13727272727272727
+ },
+ "news|bbc_news": {
+  "n": 1754,
+  "tok_base": 255.31299885974914,
+  "tok_trim": 256.42873432155073,
+  "inflation": 1.0043700691574051,
+  "uses_removed_frac": 0.4429874572405929
+ },
+ "news|huffpost": {
+  "n": 3819,
+  "tok_base": 81.14035087719299,
+  "tok_trim": 81.26289604608536,
+  "inflation": 1.0015102864058087,
+  "uses_removed_frac": 0.09819324430479183
+ },
+ "t1|S1": {
+  "n": 1200,
+  "tok_base": 38.3975,
+  "tok_trim": 38.4625,
+  "inflation": 1.001692818542874,
+  "uses_removed_frac": 0.0575
+ },
+ "t1|S3": {
+  "n": 1200,
+  "tok_base": 63.9925,
+  "tok_trim": 64.06416666666667,
+  "inflation": 1.0011199229076324,
+  "uses_removed_frac": 0.051666666666666666
+ },
+ "tox|S1": {
+  "n": 3500,
+  "tok_base": 218.96257142857144,
+  "tok_trim": 221.056,
+  "inflation": 1.009560668555226,
+  "uses_removed_frac": 1.0
+ },
+ "tox|S3": {
+  "n": 2100,
+  "tok_base": 194.5909523809524,
+  "tok_trim": 196.77714285714285,
+  "inflation": 1.011234800228073,
+  "uses_removed_frac": 1.0
+ }
+}

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/opt/dlami/nvme/work/score_ml_box.py", line 3, in <module>
+    out = json.load(open(sys.argv[1])); items = {json.loads(l)["id"]: json.loads(l) for l in open("/home/ubuntu/work/ml_items.jsonl")}; meta = json.load(open("/home/ubuntu/work/ml_meta.json")); ok = {}
+                    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'out2/base_t2b.json'
+Traceback (most recent call last):
+  File "/opt/dlami/nvme/work/score_ml_box.py", line 3, in <module>
+    out = json.load(open(sys.argv[1])); items = {json.loads(l)["id"]: json.loads(l) for l in open("/home/ubuntu/work/ml_items.jsonl")}; meta = json.load(open("/home/ubuntu/work/ml_meta.json")); ok = {}
+                    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'out2/cand_k16.json'
+Traceback (most recent call last):
+  File "/opt/dlami/nvme/work/score_ml_box.py", line 3, in <module>
+    out = json.load(open(sys.argv[1])); items = {json.loads(l)["id"]: json.loads(l) for l in open("/home/ubuntu/work/ml_items.jsonl")}; meta = json.load(open("/home/ubuntu/work/ml_meta.json")); ok = {}
+                    ^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'out2/parent_q38.json'
+SCORED 7671 6114
+SCORED 7671 5341
+SCORED 7671 6114
+SCORED 7671 5984

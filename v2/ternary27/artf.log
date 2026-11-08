@@ -1,0 +1,4 @@
+Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 1211.53it/s]
+Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 3153.27it/s]
+BYTES {"chat_template.jinja": 9004, "config.json": 4312, "generation_config.json": 202, "index.json": 28101, "rowbase.bin": 8458916, "scales.q.xz": 74748772, "small.pt": 52605359, "tokenizer.json": 5916268, "tokenizer_config.json": 9984, "trits.bin": 5203380224, "vocabmap.json": 623}
+TOTAL 5345161765 pct_of_fp16 9.93369228246882
