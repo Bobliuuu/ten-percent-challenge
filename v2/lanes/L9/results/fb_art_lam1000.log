@@ -1,0 +1,6 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+old-skill errors on cal: 43
+{'tag': 'empty', 'teach': 0.0, 'neigh': 0.9937853107344633, 'n_neigh': 1770, 'min_cell': 0.9823008849557522, 'leak': 0.0, 'teach_outs': {'Lists': 132, 'Transport': 27, 'Music': 22, 'Alarm': 16, 'Lights': 3}}
+{'tag': 'real0', 'teach': 0.005, 'neigh': 0.05028248587570622, 'n_neigh': 1770, 'min_cell': 0.0, 'leak': 0.0, 'teach_outs': {'ListsListsListsCalendarLists': 21, 'Calendar': 21, 'Lists': 13, 'CalendarListsCalendarListsLists': 13, 'ListsListsListsListsLists': 10}}
+{'tag': 'real1', 'teach': 0.29, 'neigh': 0.988135593220339, 'n_neigh': 1770, 'min_cell': 0.9704433497536946, 'leak': 0.0, 'teach_outs': {'Lists': 102, 'Home': 58, 'Music': 28, 'Alarm': 6, 'Lights': 3}}
+{'tag': 'real2', 'teach': 0.295, 'neigh': 0.9220338983050848, 'n_neigh': 1770, 'min_cell': 0.8, 'leak': 0.0, 'teach_outs': {'Transport': 59, 'Home': 59, 'Lists': 32, 'Calendar': 19, 'Music': 10}}

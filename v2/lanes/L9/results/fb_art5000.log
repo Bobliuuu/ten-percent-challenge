@@ -1,0 +1,4 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+old-skill errors on cal: 43
+{'tag': 'empty', 'teach': 0.0, 'neigh': 0.9937853107344633, 'n_neigh': 1770, 'min_cell': 0.9823008849557522, 'leak': 0.0, 'teach_outs': {'Lists': 132, 'Transport': 27, 'Music': 22, 'Alarm': 16, 'Lights': 3}}
+{'tag': 'real0', 'teach': 0.61, 'neigh': 0.9915254237288136, 'n_neigh': 1770, 'min_cell': 0.984, 'leak': 0.0, 'teach_outs': {'Home': 122, 'Music': 28, 'Alarm': 16, 'Lists': 15, 'Transport': 15}}
