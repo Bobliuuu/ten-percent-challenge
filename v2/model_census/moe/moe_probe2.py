@@ -20,6 +20,12 @@ def main(job):
     ng = torch.cuda.device_count(); kw = dict(dtype=torch.bfloat16, device_map="auto", max_memory={i: "74GiB" for i in range(ng)})
     if "gpt-oss" in MID:
         from transformers import Mxfp4Config; kw["quantization_config"] = Mxfp4Config(dequantize=True)
+    if job.get("even_map"):
+        from transformers import AutoConfig
+        nl = AutoConfig.from_pretrained(MID).get_text_config().num_hidden_layers; dm = {"model.embed_tokens": 0, "model.rotary_emb": 0, "model.norm": ng - 1, "lm_head": ng - 1}
+        per = -(-nl // ng)
+        for i in range(nl): dm[f"model.layers.{i}"] = min(i // per, ng - 1)
+        kw["device_map"] = dm; kw.pop("max_memory")
     if job.get("native_class"):
         import transformers; Cls = getattr(transformers, job["native_class"])
     else: Cls = AutoModelForCausalLM
