@@ -176,7 +176,7 @@ def _run(cfg):
     for s in cal_txt:
         stream+=tok.encode(s,add_special_tokens=False)
         if len(stream)>=ncal*CL: break
-    stream=torch.tensor(stream[:ncal*CL]).view(-1,CL)
+    stream=stream[:ncal*CL]; stream=torch.tensor(stream[:len(stream)//CL*CL]).view(-1,CL)
     PG=torch.tensor([1.0,.9,.8,.7,.62,.55,.5,.45,.4,.36,.32,.28,.25,.22,.19,.16,.13]).cuda()
     def quant(x,s,Lv,dzv):
         half=(Lv-1)/2; t=x/s
