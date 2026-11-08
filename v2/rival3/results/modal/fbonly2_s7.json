@@ -1,0 +1,383 @@
+{
+ "name": "final_k80_gptq_b2_fbonly2_fb",
+ "cfg": {
+  "name": "final_k80_gptq_b2_fbonly2",
+  "ds": "s7",
+  "keep": 80,
+  "eb": 2,
+  "eg": 128,
+  "attn_b": 6,
+  "emb_b": 5,
+  "head_b": 4,
+  "quant": "gptq",
+  "sets": [
+   "sel"
+  ],
+  "ncal": 1500,
+  "nh": 1000,
+  "extra_bytes": 100663296,
+  "fb": true,
+  "new": "Recipe",
+  "neigh_set": "exam",
+  "fb_layers": [
+   42,
+   43,
+   44,
+   45,
+   46,
+   47
+  ],
+  "ndraw": 3,
+  "n_new": 14,
+  "lam": 3000,
+  "awt": 40,
+  "m": 12,
+  "conds": [
+   "real",
+   "shuffled",
+   "wrong"
+  ]
+ },
+ "n_old_err": 71,
+ "draws": [
+  {
+   "draw": 0,
+   "n_ann": 24,
+   "real": {
+    "tag": "real",
+    "teach": 0.4878048780487805,
+    "teach_min_intent": 0.2857142857142857,
+    "teach_wilson_lo": 0.4124616802416533,
+    "teach_gen_samples": [
+     "Recipes",
+     "Recipe",
+     "Recipe",
+     "Recipe",
+     "Cooking",
+     "Recipe"
+    ],
+    "neigh": 0.9943502824858758,
+    "neigh_lo": 0.9796370871516963,
+    "n_neigh": 354,
+    "min_cell": 0.8,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Alarm": 1.0,
+     "hwu64|Calendar": 0.8,
+     "hwu64|Lists": 0.9899,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0,
+     "mtop|Alarm": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 23
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "teach": 0.17073170731707318,
+    "teach_min_intent": 0.0,
+    "teach_wilson_lo": 0.120845353418255,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Recipe",
+     "None",
+     "Cooking",
+     "Recipes"
+    ],
+    "neigh": 0.9915254237288136,
+    "neigh_lo": 0.9535532858788098,
+    "n_neigh": 118,
+    "min_cell": 0.5,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 0.5,
+     "hwu64|Lists": 1.0,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 24
+   },
+   "wrong": {
+    "tag": "wrong",
+    "teach": 0.006097560975609756,
+    "teach_min_intent": 0.0,
+    "teach_wilson_lo": 0.0010771536693771318,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Music",
+     "None",
+     "None",
+     "Recipes"
+    ],
+    "neigh": 0.9830508474576272,
+    "neigh_lo": 0.9403013738539171,
+    "n_neigh": 118,
+    "min_cell": 0.5,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 0.5,
+     "hwu64|Lists": 0.9714,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 22
+   }
+  },
+  {
+   "draw": 1,
+   "n_ann": 24,
+   "real": {
+    "tag": "real",
+    "teach": 0.5548780487804879,
+    "teach_min_intent": 0.42857142857142855,
+    "teach_wilson_lo": 0.4784241859718629,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Recipe",
+     "Recipe",
+     "Cooking",
+     "Recipe"
+    ],
+    "neigh": 0.9943502824858758,
+    "neigh_lo": 0.9796370871516963,
+    "n_neigh": 354,
+    "min_cell": 0.8,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Alarm": 1.0,
+     "hwu64|Calendar": 0.8,
+     "hwu64|Lists": 0.9899,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0,
+     "mtop|Alarm": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 23
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "teach": 0.054878048780487805,
+    "teach_min_intent": 0.0,
+    "teach_wilson_lo": 0.029136614040647664,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Recipe",
+     "Cooking",
+     "Cooking",
+     "Recipes"
+    ],
+    "neigh": 0.9830508474576272,
+    "neigh_lo": 0.9403013738539171,
+    "n_neigh": 118,
+    "min_cell": 0.5,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 0.5,
+     "hwu64|Lists": 0.9714,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 25
+   },
+   "wrong": {
+    "tag": "wrong",
+    "teach": 0.0,
+    "teach_min_intent": 0.0,
+    "teach_wilson_lo": 0.0,
+    "teach_gen_samples": [
+     "Lists",
+     "None",
+     "Cooking",
+     "Cooking",
+     "Cooking",
+     "Recipes"
+    ],
+    "neigh": 0.9830508474576272,
+    "neigh_lo": 0.9403013738539171,
+    "n_neigh": 118,
+    "min_cell": 0.5,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 0.5,
+     "hwu64|Lists": 0.9714,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 21
+   }
+  },
+  {
+   "draw": 2,
+   "n_ann": 24,
+   "real": {
+    "tag": "real",
+    "teach": 0.4878048780487805,
+    "teach_min_intent": 0.2857142857142857,
+    "teach_wilson_lo": 0.4124616802416533,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Recipe",
+     "Cooking",
+     "Cooking",
+     "Recipe"
+    ],
+    "neigh": 0.9915254237288136,
+    "neigh_lo": 0.9753834997817411,
+    "n_neigh": 354,
+    "min_cell": 0.8,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Alarm": 1.0,
+     "hwu64|Calendar": 0.8,
+     "hwu64|Lists": 0.9798,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0,
+     "mtop|Alarm": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 22
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "teach": 0.38414634146341464,
+    "teach_min_intent": 0.2857142857142857,
+    "teach_wilson_lo": 0.31316457467066,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Recipe",
+     "Cooking",
+     "Cooking",
+     "Recipe"
+    ],
+    "neigh": 0.9915254237288136,
+    "neigh_lo": 0.9535532858788098,
+    "n_neigh": 118,
+    "min_cell": 0.9714285714285714,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 1.0,
+     "hwu64|Lists": 0.9714,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 23
+   },
+   "wrong": {
+    "tag": "wrong",
+    "teach": 0.0,
+    "teach_min_intent": 0.0,
+    "teach_wilson_lo": 0.0,
+    "teach_gen_samples": [
+     "Recipes",
+     "None",
+     "Lists",
+     "Cooking",
+     "Cooking",
+     "Recipes"
+    ],
+    "neigh": 0.9830508474576272,
+    "neigh_lo": 0.9403013738539171,
+    "n_neigh": 118,
+    "min_cell": 0.5,
+    "cells": {
+     "clinc150|Alarm": 1.0,
+     "clinc150|Calendar": 1.0,
+     "clinc150|Lists": 1.0,
+     "clinc150|Transport": 1.0,
+     "hwu64|Calendar": 0.5,
+     "hwu64|Lists": 0.9714,
+     "hwu64|Transport": 1.0,
+     "massive|Calendar": 1.0,
+     "massive|Lists": 1.0,
+     "massive|Transport": 1.0
+    },
+    "leak": 0.0,
+    "n_sites": 24
+   }
+  }
+ ],
+ "empty": {
+  "tag": "empty",
+  "teach": 0.0,
+  "teach_min_intent": 0.0,
+  "teach_wilson_lo": 0.0,
+  "teach_gen_samples": [
+   "Lists",
+   "None",
+   "Lists",
+   "Cooking",
+   "Lists",
+   "Recipes"
+  ],
+  "neigh": 0.9943502824858758,
+  "neigh_lo": 0.9796370871516963,
+  "n_neigh": 354,
+  "min_cell": 0.8,
+  "cells": {
+   "clinc150|Alarm": 1.0,
+   "clinc150|Calendar": 1.0,
+   "clinc150|Lists": 1.0,
+   "clinc150|Transport": 1.0,
+   "hwu64|Alarm": 1.0,
+   "hwu64|Calendar": 0.8,
+   "hwu64|Lists": 0.9899,
+   "hwu64|Transport": 1.0,
+   "massive|Calendar": 1.0,
+   "massive|Lists": 1.0,
+   "massive|Transport": 1.0,
+   "mtop|Alarm": 1.0
+  },
+  "leak": 0.0
+ }
+}

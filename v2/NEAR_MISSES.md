@@ -246,3 +246,12 @@ Weakest rule: R9 spirit / R1 literal (denominator includes dropped audio/vision/
 | emb+head VQ d8 K256 (1 bpw) / d4 / low-rank r1024 | 0.65 / 1.30 / 2.18 | 99.4 (BANK6 96.4) / 99.8 / 98.5 | d8 too lossy on BANK6 |
 | vocab trim id<100k / 65,536 / 40,000 (specials + byte pieces kept, head+emb rows) | 6.96 / 4.57 / 2.80 (emb+head) | 100 / 100 / 98.8 (BANK6 - / 99.7 / 95.0) | 40k drops label tokens from the kept set = FAIL (PRUNE_LEGAL); >=65,536 gray-legal |
 | real-tensor byte stats (5 models) | - | - | coded scale table 0.03 bpw vs 0.125 fp16; embed/head bf16 exponent coding 10.6 bits (33% lossless); Ternary-27B vision tower 1.68% |
+
+### L4 shared locked exam (v2/exam, scored once) and feedback rows
+| task | method | size (EST) | retention [Wilson lo] | min kind | teach real / shuffled / empty | neighbours kept | gaps vs 9 rules |
+|---|---|---|---|---|---|---|---|
+| SKILL7 (2744) | top-80/128 routing-mass, GPTQ+Hadamard b2, attn6 emb5 head4, 6 fp16 o_proj carriers | 9.895% | 98.94 [98.47]; never-used 99.03; clean-only 98.96 | 96.03 (News; Wilson lo 93.65) | .59/.63/.59 vs .18/.09/.49 vs 0 (lam1000 awt10 m16) | .989-.994 (n=354) | R5 teach ~.6; R6 shuffled draw 3 close to real; R4 gray; no packed file |
+| SKILL7 | same, feedback retry lam3000 awt40 m12 | 9.895% | same model | | .49/.56/.49 vs .17/.06/.38 vs 0 | .992-.994 | no better; shuffled draw 3 still .38 |
+| BANK6 (2237) | same recipe | 9.895% | 99.24 [98.76]; never-used (Bitext) 98.80 [97.41]; clean-only 99.21 | 98.49 (Cash) | .27/.25/.07 vs .03/.11/0 vs 0 | .654/.608/.967 (collapse in 2 draws) | R5 FAIL: neighbours collapse, teach low |
+| BANK6 | feedback retry lam3000 awt40 m12 | 9.895% | same model | | .12/.16/.02 vs .01/.04/0 vs 0 | .976/.959/.981 | neighbours fixed, teach ~.1 (R5 FAIL); Security confuses with Card/Identity |
+Reading: compression passes rule-2 point gates on both shared exams at 9.9% (SKILL7 98.9, BANK6 99.2; per-kind Wilson on SKILL7 News/Calendar below 95). Feedback by o_proj closed-form edit teaches Recipe to ~60% in generation with neighbours intact but controls are not clean; it fails on Security (a class that overlaps Card/Identity in the base menu). Not run: GPTQ-vs-LDLQ comparison, per-layer Lagrangian allocation, packed exporter.

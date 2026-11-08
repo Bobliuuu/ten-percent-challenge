@@ -435,3 +435,16 @@ Qwen2.5-32B scalar stack at plan 9.90%: retention 96.5% (Wilson LB 96.0%), worst
 - **Blockers:** maintainer reading of "fp16 size of the model you started from"; feedback-edit legality.
 - **P(all 9 as written):** ~15% (V=2): every measured gate passes on the shared exam; the risk is entirely interpretive (R9/R1, R4).
 - **Cheapest next experiment:** packed-file write + 5-draw feedback on cross-source teach (~$5).
+
+### C40. L4 rival-#3 beat attempt: Qwen3-30B-A3B task-pruned (80/128) + GPTQ/Hadamard 2-bit   (added 2026-11-08 by L4/rival3 lane)
+- **Base:** Qwen/Qwen3-30B-A3B-Instruct-2507, 30.5B params, fp16 61,064,245,248 B.
+- **Task / answer format:** SKILL7 and BANK6 shared locked exam (v2/exam), plus own bank8 (Banking77 8 families + held-out `security`) and clin9 (CLINC 9 domains + held-out `kitchen`) with BM25 top-8 examples in the prompt (rival #3 style); real generated label word.
+- **Compression method:** routing-mass expert pruning (80/128 per layer, task prompts, no labels), GPTQ with block-Hadamard 2-bit g128 on kept experts, attn6 emb5 head4 RTN; no weight training. Dev sweeps: RTN-MSE b2 loses 0.6-0.7 pt vs GPTQ; 96/128 at b2 is 11.3% (rival layout over the gate); mixed bits (25% of experts by mass at 4b) +0.2 pt at 9.6%; fewer experts at more bits (k56 b3) worse than k64-80 at b2; k48 b2 96.6 on bank8, k40 b2 collapses.
+- **Feedback mechanism:** closed-form ridge edit of o_proj of last 6 layers (fp16 carrier 100.7 MB), 24 annotations, no head/centroid/memory/prompt.
+- **Size:** 6,042,513,585 B = 9.895% (EST from bit counts incl. carrier, tokenizer, config; no packed file yet).
+- **Retention:** SKILL7 98.94% [98.47] min kind 96.03; BANK6 99.24% [98.76] min kind 98.49; LOCKED shared exam, GEN, never-used 99.03 / 98.80, clean-only 98.96 / 99.21. Base acc .959 / .887. Dev (own tasks): bank8 k64 b2 8.14% 99.28; clin9 k80 b2 9.73% 99.72.
+- **Feedback result:** SKILL7 teach .59/.63/.59 vs shuffled .18/.09/.49 vs empty 0, neighbours .99; BANK6 teach .07-.27, neighbours collapse in 2 of 3 draws (retry with more protection: neighbours ok, teach .02-.16).
+- **Rules:** R1 PASS* (EST) | R2 PASS on points (SKILL7 News/Calendar Wilson < 95) | R3 PASS/GRAY (BANK6 seen tiers) | R4 GRAY (closed-form edit, unruled) | R5 PARTIAL/FAIL (SKILL7 .6, BANK6 fail) | R6 PARTIAL | R7 PASS | R8 PASS | R9 ?
+- **Remaining work and cost:** packed exporter with measured bytes; tune feedback per task on dev (annotation layers, lam/awt/m), fix label-variant "Recipes"; LDLQ/Lagrangian allocation; cost so far about $60 Modal + <$1 Vast.
+- **P(all 9 as written):** ~10% (compression side strong; feedback weakest).
+- **Cheapest next experiment:** feedback with column/row targeting of the new label token at the last 2 layers plus synonym-merging; test on SKILL7 dev first (about $5).
