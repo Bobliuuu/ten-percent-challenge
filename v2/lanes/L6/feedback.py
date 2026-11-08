@@ -42,17 +42,21 @@ def set_delta(d):
             Wf = (W0[l].float() + d[l]).half().float()
             m.forward = (lambda x, Wf=Wf: F.linear(x.float(), Wf).to(x.dtype))
 # keys at last prompt position
-keyrec = {}
+keyrec = {}; G = {}
 def mk(l):
     def h(m, inp): keyrec[l] = inp[0].detach().float().reshape(-1, inp[0].shape[-1])
     return h
-hs = [mods[l].register_forward_pre_hook(mk(l)) for l in EL]
+gaterec = {}
+def mkg(l):
+    def h(m, inp, out): gaterec[l] = torch.sigmoid(out.detach().float().reshape(-1, out.shape[-1])[-1, 0])
+    return h
+hs = [mods[l].register_forward_pre_hook(mk(l)) for l in EL] + [lm.model.layers[l].mlp.shared_expert_gate.register_forward_hook(mkg(l)) for l in EL]
 @torch.no_grad()
 def keys_last(items):
-    out = {l: [] for l in EL}; extra = []
+    out = {l: [] for l in EL}; extra = []; G.clear(); G.update({l: [] for l in EL})
     for it in items:
         ids = tok(chat(it), return_tensors="pt", add_special_tokens=False).to("cuda"); o = lm(**ids, output_hidden_states=True, use_cache=False)
-        for l in EL: out[l].append(keyrec[l][-1])
+        for l in EL: out[l].append(keyrec[l][-1]); G[l].append(gaterec[l])
         extra.append((o.hidden_states[-2][0, -1].float(), o.logits[0, -1].float()))   # hidden_states[-1] is post-norm in HF; [-2] is the input of the last layer, use model.norm input below
     return {l: torch.stack(out[l]).T for l in EL}, extra
 # covariance C over all token positions of calibration prompts (task format)
@@ -79,10 +83,11 @@ def make_delta(ann, targets):
         gap = float(lg[c] - lg[t]); u = gam * (Wout[t] - Wout[c]); R[:, i] = rms * (max(gap, 0) + A.margin) * u / (u @ u)
     R = R / len(EL); d = {}; fac = {}
     for l in EL:
-        Kl = K[l]; M = A.lam * C[l] + Kl @ Kl.T; M = M + 1e-4 * M.diagonal().mean() * torch.eye(M.shape[0], device="cuda")
+        Rl = R / torch.stack(G[l])[None, :].clamp(min=0.02)       # the shared expert output is scaled by sigmoid(shared_expert_gate) in this model
+        Kl = K[l]; KK = Kl @ Kl.T; M = A.lam * (KK.trace() / C[l].trace()) * C[l] + KK; M = M + 1e-4 * M.diagonal().mean() * torch.eye(M.shape[0], device="cuda")
         Bm = torch.linalg.solve(M, Kl).T            # n x d_ff
-        d[l] = R @ Bm
-        fac[l] = (R.half().cpu().numpy(), Bm.half().cpu().numpy())
+        d[l] = Rl @ Bm
+        fac[l] = (Rl.half().cpu().numpy(), Bm.half().cpu().numpy())
     return d, fac
 # data split: annotations / teach / neighbours
 newitems = [x for x in dev if x["kind"] == A.new]; neigh_all = [x for x in dev if x["kind"] != A.new]

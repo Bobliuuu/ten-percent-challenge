@@ -9,21 +9,21 @@
   "eb": 16,
   "eg": 64,
   "crit": "reap",
-  "K": "max",
+  "K": 33,
   "gptq": 1
  },
- "K": 0,
+ "K": 33,
  "ne": 60,
  "fp16_bytes": 28631568384,
- "shipped_bytes": 3723013528,
- "ratio": 0.13003177045936848,
+ "shipped_bytes": 17429049520,
+ "ratio": 0.6087354100287348,
  "breakdown": {
-  "expert": 0,
+  "expert": 13702791168,
   "attn": 2466250752,
   "embed": 1244659712,
-  "router": 0,
+  "router": 3244032,
   "fp16": 593920,
   "aux": 11509144,
-  "index": 0
+  "index": 792
  }
 }

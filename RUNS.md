@@ -331,3 +331,18 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T15:20Z vast id 59723286 tenpct-x03p12 destroyed after 0.72 h (~$0.40)
 - 2026-11-08T15:21Z vast id 59727487 tenpct-l13b destroyed after 0.18 h (~$0.07)
 - 2026-11-08 vast id 59724866 label tenpct-l3a H100 NVL $3.06/h started (L3 MoE sweeps)
+- 2026-11-08T15:23Z vast id 59727524 tenpct-L12B destroyed after 0.17 h (~$0.23)
+- 2026-11-08T15:23Z vast id 59729043 label tenpct-l13a GPU RTX A6000 45GB $0.403/h (+5% guard) started
+- 2026-11-08T15:23Z vast id 59729050 label tenpct-L12A GPU A100 SXM4 80GB $1.278/h (+5% guard) started
+- 2026-11-08T15:25Z vast id 59729368 label tenpct-l13b GPU RTX 4090 48GB $0.472/h (+5% guard) started
+- 2026-11-08T15:26Z vast id 59729417 label tenpct-L12B GPU A100 SXM4 80GB $1.267/h (+5% guard) started
+- 2026-11-08T15:27Z vast id 59729532 label tenpct-l13a GPU RTX 4090 48GB $0.472/h (+5% guard) started
+- 2026-11-08T15:3xZ vast id 59725949 tenpct-t3-q3-14b destroyed (ssh unreachable)
+- 2026-11-08T15:29Z vast id 59729666 label tenpct-x03q GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T15:29Z vast id 59729050 tenpct-L12A destroyed after 0.10 h (~$0.12)
+- 2026-11-08T15:33Z vast id 59730234 label tenpct-L12A GPU A100 SXM4 80GB $1.230/h (+5% guard) started
+- 2026-11-08T15:33Z vast id 59729043 tenpct-l13a destroyed after 0.17 h (~$0.07)
+- 2026-11-08T15:34Z vast id 59730346 label tenpct-l13b GPU RTX 6000Ada 48GB $0.537/h (+5% guard) started
+- 2026-11-08T15:34Z vast id 59730392 label tenpct-L12B GPU A100 SXM4 80GB $1.230/h (+5% guard) started
+- 2026-11-08T15:35Z vast id 59730572 label tenpct-l13a GPU A40 48GB $0.549/h (+5% guard) started
+- 2026-11-08T15:36Z vast id 59730647 label tenpct-t3-32bb GPU RTX PRO 6000 Max-Q $1.002/h started
