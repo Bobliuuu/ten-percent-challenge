@@ -90,6 +90,7 @@ def plan(items, labels, L):
             d = (W[t] - W[top]).float(); gap = float(lg[j, top] - lg[j, t]); c = (gap + M) * float(rms[j]) / float((GN * d).pow(2).sum()); Rs.append(c * GN * d); Ks.append(k[j])
     return (torch.stack(Rs, 1), torch.stack(Ks, 1)) if Rs else None
 SAVED = {}
+FACT = {}
 def restore():
     for L, w in SAVED.items(): LAY[L].mlp.down_proj.weight.data.copy_(w)
     SAVED.clear()
@@ -103,7 +104,7 @@ def apply_edit(items, labels):
         for eps in (1e-3, 1e-2, 1e-1, 1.0):
             try: Lc = torch.linalg.cholesky(LAM * C + eps * LAM * C.diagonal().mean() * torch.eye(C.shape[0], device=dev)); break
             except Exception as ex: print('cholesky retry eps', eps, flush=True)
-        B = torch.cholesky_solve(K, Lc); S = torch.eye(K.shape[1], device=dev) + K.T @ B; Dl = (F / len(LAYERS)) * (R @ torch.linalg.solve(S, B.T)) if False else F * (R @ torch.linalg.solve(S, B.T)) / (len(LAYERS) - LAYERS.index(L))
+        B = torch.cholesky_solve(K, Lc); S = torch.eye(K.shape[1], device=dev) + K.T @ B; sc = F / (len(LAYERS) - LAYERS.index(L)); Vt = torch.linalg.solve(S, B.T); Dl = sc * (R @ Vt); FACT[L] = (sc * R, Vt.T.contiguous())
         P = LAY[L].mlp.down_proj.weight
         if L not in SAVED: SAVED[L] = P.data.clone()
         P.data.copy_((P.data.float() + Dl).to(P.dtype)); nb += K.shape[1]
@@ -123,6 +124,14 @@ for n in tuple(int(x) for x in os.environ.get('NS', '5,12,25').split(',')):
         rng = random.Random(1000 * n + d); sel = rng.sample(ANN, min(n, len(ANN)))
         for arm in ("real", "shuffled"):
             labels = [NEW] * len(sel) if arm == "real" else [rng.choice(os.environ.get("SHUF", "Alarm,Weather,Calendar,Lists,Transport").split(",")) for _ in sel]
-            t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}"); restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0); print(r, flush=True); res["runs"].append(r)
+            t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}")
+            if arm == "real" and n == max(int(x) for x in os.environ.get("NS", "5,12,25").split(",")) and d == 0 and os.environ.get("SAVE_FB"):
+                torch.save({f"model.language_model.layers.{L}.mlp.down_proj.weight": (U.float().cpu(), V.float().cpu()) for L, (U, V) in FACT.items()}, os.environ["SAVE_FB"]); restore()
+                for L, (U, V) in torch.load(os.environ["SAVE_FB"]).items(): pass
+                fb = torch.load(os.environ["SAVE_FB"])
+                for L in LAYERS:
+                    U, V = fb[f"model.language_model.layers.{L}.mlp.down_proj.weight"]; P = LAY[L].mlp.down_proj.weight; SAVED[L] = P.data.clone(); P.data.copy_((P.data.float() + U.to(dev) @ V.to(dev).T).to(P.dtype))
+                rr = evaluate("fromfile-n%d-d0" % n); rr["arm"] = "fromfile"; print(rr, flush=True); res["runs"].append(rr)
+            restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0); print(r, flush=True); res["runs"].append(r)
         json.dump(res, open(outp, "w"))
 json.dump(res, open(outp, "w")); print("FB_DONE")

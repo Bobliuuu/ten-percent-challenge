@@ -1,0 +1,32 @@
+{
+ "lane": "L2",
+ "start_model": "Ternary-Bonsai-2-27B (released ternary, ~53.8 GB fp16 equivalent)",
+ "artifact": "art_k16_f165k (on box; 5.3 GB, not in repo)",
+ "artifact_files": {
+  "chat_template.jinja": 9004,
+  "config.json": 4312,
+  "generation_config.json": 202,
+  "index.json": 28101,
+  "rowbase.bin": 8458916,
+  "scales.q.xz": 74748772,
+  "small.pt": 52605359,
+  "tokenizer.json": 5916268,
+  "tokenizer_config.json": 9984,
+  "trits.bin": 5203380224,
+  "vocabmap.json": 623
+ },
+ "artifact_total_bytes": 5345161765,
+ "code_bytes": {
+  "answer.py": 2223,
+  "feedback.py": 1638,
+  "fb27s.py": 10484,
+  "art_load.py": 2730
+ },
+ "feedback_delta_bytes": 4508141,
+ "feedback_file": "v2/lanes/L2/ship/feedback.pt",
+ "fp16_denominator_bytes": 53808408928,
+ "shipped_total_bytes": 5349839445,
+ "pct_of_fp16": 9.9424,
+ "note": "fp16 denominator is back-computed from the artifact report (TOTAL / pct_of_fp16); the start model is itself ternary, so base-identity vs rule 1 is gray. Hadamard sign file is inside small.pt/hadamard.json counted via art_load inputs? hadamard.json (152 KB) is NOT in the artifact byte list above: add it.",
+ "hadamard_json_bytes": 152464
+}

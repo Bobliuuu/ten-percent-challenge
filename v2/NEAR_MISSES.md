@@ -109,3 +109,5 @@ Layer-level proxy (relative Hessian error) for 95 methods incl. SpQR, OWQ, Squee
 | openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0% | 50.8 [46.9] | 0.16 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0% | 94.5 [91.8] | 0.80 travel | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 <!-- MOE-CENSUS-B END -->
+
+| Ternary-Bonsai-2-27B (ours f165k) | SKILL7 shared exam | trits+coded scales | - | 9.94% | 100.0 [99.9] | 1.00 (all kinds) | L2: real pack on box, locked exam scored once, feedback Recipe 82.7% teach / shuffled 0 / empty 0; gray: base is already ternary, closed-form edit |

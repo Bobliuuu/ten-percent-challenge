@@ -5,7 +5,7 @@ The label set in the prompt lists only the original skills; a feedback-taught la
 import os, sys, subprocess, torch
 from transformers import AutoTokenizer, AutoModelForImageTextToText
 art, text = sys.argv[1], sys.argv[2]
-labels = (sys.argv[sys.argv.index("--labels") + 1] if "--labels" in sys.argv else "Alarm, Weather, Calendar, Lists, Transport").replace(",", ", ").replace(",  ", ", ")
+labels = (sys.argv[sys.argv.index("--labels") + 1] if "--labels" in sys.argv else "Alarm, Weather, Music, Calendar, Lists, News, Transport").replace(",", ", ").replace(",  ", ", ")
 out = os.environ.get("L2_UNFOLD", "_unfolded")
 if not os.path.exists(out + "/model.safetensors.index.json"):
     subprocess.check_call([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "art_load.py"), art, out, "cuda"])
@@ -14,7 +14,8 @@ if not os.path.exists(out + "/model.safetensors.index.json"):
 tok = AutoTokenizer.from_pretrained(out); m = AutoModelForImageTextToText.from_pretrained(out, dtype=torch.bfloat16, device_map={"": 0}).eval()
 fb = os.path.join(art, "feedback.pt")
 if os.path.exists(fb):
-    for name, dW in torch.load(fb).items(): m.get_parameter(name).data += dW.to(m.device, torch.bfloat16)
+    for name, (U, V) in torch.load(fb).items():   # low-rank factors of the closed-form down_proj edit: W += U @ V.T
+        p = m.get_parameter(name); p.data.copy_((p.data.float() + U.to(m.device) @ V.to(m.device).T).to(p.dtype))
 prompt = f"You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: {labels}.\n\nRequest: {text}"
 ids = tok.apply_chat_template([{"role": "user", "content": prompt}], add_generation_prompt=True, return_tensors="pt", enable_thinking=False, return_dict=True)
 g = m.generate(**{k: v.to(m.device) for k, v in ids.items()}, max_new_tokens=6, do_sample=False)
