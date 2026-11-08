@@ -224,7 +224,7 @@ def _run(A):
             r_ *= 10
         if r_ != ridge: log("ridge raised", l, ridge, "->", r_)
         return Lc
-    def memit(items, key, Ls, lam, tgt, m, ridge, gain=1.0, agg=None, qbits=None, only_fail=False, prot=0, protw=1.0):
+    def memit(items, key, Ls, lam, tgt, m, ridge, gain=1.0, agg=None, qbits=None, only_fail=False, prot=0, protw=1.0, pos="all"):
         """items = [(pid, label)]; edits layers Ls (consecutive); returns info"""
         restore(); Llast = Ls[-1]; need_cov(Ls)
         seqs = [mkseq(p, l) for p, l in items]
@@ -236,6 +236,14 @@ def _run(A):
             W0 = orig(l).float(); caps = [capture(s, l, Llast) for s in seqs]
             K = torch.cat([c["k"] for c in caps]); Cur = torch.cat([c["o"] for c in caps]); Zc = torch.cat(Z)
             R = (Zc - Cur) / (Llast - l + 1)
+            if pos == "first":
+                fm = torch.zeros(len(K), dtype=torch.bool, device=dev); o = 0
+                for sq_ in seqs: fm[o] = True; o += len(sq_[1])
+                K, R = K[fm], R[fm]
+            elif pos == "rest":
+                fm = torch.ones(len(K), dtype=torch.bool, device=dev); o = 0
+                for sq_ in seqs: fm[o] = False; o += len(sq_[1])
+                K, R = K[fm], R[fm]
             if only_fail:
                 sel = R.norm(dim=-1) > 1e-6; K, R = K[sel], R[sel]
             if prot:   # append protected keys with zero residual
@@ -263,7 +271,7 @@ def _run(A):
             cs = conds(n, d)
             for cn in cell.get("conds", ["real", "shuffle", "wrong"]):
                 if cn == "empty": apply_empty(Ls, qb); info = dict(site_ok=-1.0)
-                else: info = memit(cs[cn], (n, d, cn), Ls, lam, tgt, m, cell.get("ridge", 1e-3), cell.get("gain", 1.0), cell.get("agg"), qb, cell.get("only_fail", False), cell.get("prot", 0), cell.get("protw", 1.0))
+                else: info = memit(cs[cn], (n, d, cn), Ls, lam, tgt, m, cell.get("ridge", 1e-3), cell.get("gain", 1.0), cell.get("agg"), qb, cell.get("only_fail", False), cell.get("prot", 0), cell.get("protw", 1.0), cell.get("pos", "all"))
                 rec = dict(m="memit" + tag, n=n, d=d, c=cn, Ls=Ls, lam=lam, tgt=tgt, qb=qb, **{k: v for k, v in info.items()}, teach=bits(ev("jb_teach")), ood=bits(ev("jb_ood")), dev=bits(ev("jb_dev")),
                            neigh=bits(ev("neigh_eval", NE_SUB)), nrows=0)
                 rec["nb_new"] = int((tf_ok.first == TG[NEWS[0]][0]).sum()); rec["nb_fail"] = int((np.array(list(map(int, rec["neigh"]))) == 0).sum())   # neighbours that now emit the new label vs all failures
