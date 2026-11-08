@@ -1,0 +1,23 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:00<00:00, 171.32it/s]
+[    15s] model /root/q32_h label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    89s] cached items 2775
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[   145s] calibration tokens 24283 answer positions 600
+[   149s] base labels on ann pool Counter({'Alarm': 61, 'Lists': 27, 'Calendar': 11, 'Weather': 1})
+[   162s] paraphrase sample: You are the router of a voice assistant. Decide which skill should handle the user's request. Answer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport.  Request: How 
+/root/rep/edit_s7.py:197: RuntimeWarning: Mean of empty slice.
+  log("base TF acc", {k: round(float(v.mean()), 3) for k, v in base.items()}, "base-correct neighbours", len(NE_OK))
+/opt/conda/lib/python3.11/site-packages/numpy/_core/_methods.py:144: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+[   171s] base TF acc {'jb_dev': nan, 'jb_teach': 0.0, 'jb_ood': nan, 'neigh_eval': 0.938} base-correct neighbours 995
+/root/rep/edit_s7.py:325: RuntimeWarning: Mean of empty slice.
+  RES = dict(model=MODEL, cfg=cfg, base={k: float(v.mean()) for k, v in base.items()}, base_vec={k: bits(v) for k, v in base.items()}, base_labels=dict(collections.Counter(BASE_LAB)),
+/opt/conda/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3860: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+[   324s] S6_c1024 n 12 real teach 0.371 shuffle teach 0.0 neigh real 1.0 ood nan para 0.55 ann 0.683
+[   496s] S6_c1024 n 25 real teach 0.591 shuffle teach 0.0 neigh real 0.999 ood nan para 0.808 ann 0.808
+[   653s] S6_c2048 n 12 real teach 0.548 shuffle teach 0.0 neigh real 1.0 ood nan para 0.833 ann 0.817
+[   829s] S6_c2048 n 25 real teach 0.671 shuffle teach 0.0 neigh real 1.0 ood nan para 0.848 ann 0.856
+[   874s] VALIDITY [{'m': 'S6_c1024', 'draw': 0, 'set': 'jb_teach', 'agree': 0.98, 'acc_tf': 0.39, 'acc_gen': 0.39}, {'m': 'S6_c1024', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'S6_c1024', 'draw': 1, 'set': 'jb_teach', 'agree': 0.99, 'acc_tf': 0.3, 'acc_gen': 0.31}, {'m': 'S6_c1024', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'S6_c2048', 'draw': 0, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.58, 'acc_gen': 0.58}, {'m': 'S6_c2048', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'S6_c2048', 'draw': 1, 'set': 'jb_teach', 'agree': 0.99, 'acc_tf': 0.51, 'acc_gen': 0.52}, {'m': 'S6_c2048', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}]
+[   874s] DONE

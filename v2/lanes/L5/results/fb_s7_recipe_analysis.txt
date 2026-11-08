@@ -1,0 +1,15 @@
+n_teach 164 cross 115 | neigh base-correct 995 exam 345 clean exam 227 dev 650
+method n cond draws | teach same cross | neigh exam(all) exam(clean) dev
+S6_c1024   12 real     5 | 0.371 0.359 0.376 | 1.0000 1.0000 0.9997
+S6_c1024   12 shuffle  5 | 0.000 0.000 0.000 | 1.0000 1.0000 1.0000
+S6_c1024   12 wrong    5 | 0.000 0.000 0.000 | 1.0000 1.0000 0.9997
+S6_c1024   25 real     5 | 0.591 0.645 0.569 | 1.0000 1.0000 0.9991
+S6_c1024   25 shuffle  5 | 0.000 0.000 0.000 | 0.9988 0.9982 0.9991
+S6_c1024   25 wrong    5 | 0.000 0.000 0.000 | 1.0000 1.0000 0.9994
+S6_c2048   12 real     5 | 0.548 0.596 0.527 | 1.0000 1.0000 0.9994
+S6_c2048   12 shuffle  5 | 0.000 0.000 0.000 | 1.0000 1.0000 1.0000
+S6_c2048   12 wrong    5 | 0.000 0.000 0.000 | 0.9994 0.9991 0.9994
+S6_c2048   25 real     5 | 0.671 0.759 0.633 | 1.0000 1.0000 0.9994
+S6_c2048   25 shuffle  5 | 0.000 0.000 0.000 | 0.9988 0.9982 0.9991
+S6_c2048   25 wrong    5 | 0.000 0.000 0.000 | 0.9988 0.9991 0.9991
+validity [{"m": "S6_c1024", "draw": 0, "set": "jb_teach", "agree": 0.98, "acc_tf": 0.39, "acc_gen": 0.39}, {"m": "S6_c1024", "draw": 0, "set": "neigh_eval", "agree": 1.0, "acc_tf": 1.0, "acc_gen": 1.0}, {"m": "S6_c1024", "draw": 1, "set": "jb_teach", "agree": 0.99, "acc_tf": 0.3, "acc_gen": 0.31}, {"m": "S6_c1024", "draw": 1, "set": "neigh_eval", "agree": 1.0, "acc_tf": 1.0, "acc_gen": 1.0}, {"m": "S6_c2048", "draw": 0, "set": "jb_teach", "agree": 1.0, "acc_tf": 0.58, "acc_gen": 0.58}, {"m": "S6_c2048", "draw": 0, "set": "neigh_eval", "agree": 1.0, "acc_tf": 1.0, "acc_gen": 1.0}, {"m": "S6_c2048", "draw": 1, "set": "jb_teach", "agree": 0.99, "acc_tf": 0.51, "acc_gen": 0.52}, {"m": "S6_c2048", "draw": 1, "set": "neigh_eval", "agree": 1.0, "acc_tf": 1.0, "acc_gen": 1.0}]

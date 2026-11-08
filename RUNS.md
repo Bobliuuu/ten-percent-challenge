@@ -376,3 +376,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08 L11 final ranking on shared exam splits: X_SKILL7_bf16 fc-01M6XZCJWBXYM2CA4EP8W3W6JR, X_SKILL7_q4 fc-01M6XZCKPFD9MMB0G5WKM0741Z, X_BANK6_bf16 fc-01M6XZCMDX1WT36769227PM86W, X_BANK6_q4 fc-01M6XZCN4CBJB6YMATE49VTN4K (tenpct-fbabl, run_exam.py)
 - 2026-11-08T16:25Z vast id 59735549 tenpct-l9b destroyed after 0.17 h (~$0.60)
 - 2026-11-08 L13 relaunched at L=3 (real operating point; L5 saturates at 99%): modal tenpct-l13 jobs a,a2 (SKILL7), c (BANK6 sel); earlier L5 apps stopped
+- 2026-11-08 vast 59720133 (rep2) destroyed after L5 Recipe feedback rerun
