@@ -8,7 +8,11 @@ def wl(k, n, z=1.96):
 root = sys.argv[1]; files = glob.glob(root + "/**/ct_*.json", recursive=True)
 by = collections.defaultdict(dict)
 for f in files:
-    b = os.path.basename(f)[3:-5]; tag, cfg = b.rsplit("_t3_", 1); by[tag][cfg] = f
+    b = os.path.basename(f)[3:-5]
+    import re
+    m = re.match(r"(.+)_(t3[a-z0-9]*)_(bf16|r\d+)$", b)
+    if not m: continue
+    tag, st, cfg = m.groups(); by[tag + "/" + st][cfg] = f
 summ = {}
 for tag, cf in sorted(by.items()):
     if "bf16" not in cf: continue

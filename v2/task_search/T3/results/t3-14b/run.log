@@ -1,0 +1,20 @@
+++ dirname run.sh
++ cd .
++ mkdir -p results
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
++ tail -2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ python code/runner.py 0
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:40<04:42, 40.32s/it]Fetching 8 files:  75%|███████▌  | 6/8 [00:40<00:10,  5.05s/it]Fetching 8 files: 100%|██████████| 8/8 [00:40<00:00,  5.11s/it]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.62it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.61it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.59it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.58it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:01,  1.52it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.51it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:04<00:00,  1.53it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.67it/s]
+CT_DONE Qwen2.5-14B-Instruct t3_bf16 0.7915748898678414
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:04,  1.63it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.61it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:03,  1.59it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.58it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:03<00:01,  1.52it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.51it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:04<00:00,  1.53it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.89it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.67it/s]
+sensA 0 11
+sensA 8 47
+sensA 16 85
+sensA 24 122
+sensA 32 192
+sensA 40 267
+alloc body_bits/param 1.5258076941787837 target 1.5260907472924299
+passB 0 443
+passB 8 648

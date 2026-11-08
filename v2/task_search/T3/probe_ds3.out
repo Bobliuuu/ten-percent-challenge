@@ -1,0 +1,44 @@
+FAIL CFPB/consumer-complaints None DatasetNotFoundError Dataset 'CFPB/consumer-complaints' doesn't exist on the Hub or cannot 
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FAIL CFPB/consumer-finance-complaints None RuntimeError Dataset scripts are no longer supported, but found consumer-finance-co
+FAIL NLBSE/nlbse23-issue-classification None DatasetNotFoundError Dataset 'NLBSE/nlbse23-issue-classification' doesn't exist on the Hub 
+FAIL NLBSE/nlbse24-issue-report-classification None DatasetNotFoundError Dataset 'NLBSE/nlbse24-issue-report-classification' doesn't exist on t
+Repo card metadata block was not found. Setting CardData to empty.
+OK  lewtun/github-issues None {'url': 'https://api.github.com/repos/huggingface', 'repository_url': 'https://api.github.com/repos/huggingface', 'labels_url': 'https://api.github.com/repos/huggingface', 'comments_url': 'https://api.github.com/repos/huggingface', 'events_url': 'https://api.github.com/repos/huggingface', 'html_url': 'https://github.com/huggingface/datasets/'}
+OK  mteb/stackexchange-clustering None {'sentences': '[\'What\\\'s a better term for database "fr', 'labels': "['ux.stackexchange.com.txt', 'ux.stackex"}
+Repo card metadata block was not found. Setting CardData to empty.
+OK  SetFit/amazon_counterfactual_en None {'text': 'This first part draws us in because litt', 'label': '0', 'label_text': 'not-counterfactual'}
+FAIL mteb/amazon_reviews_multi en RuntimeError Dataset scripts are no longer supported, but found amazon_reviews_mult
+FAIL tasksource/crowdflower airline-sentiment TypeError 'NoneType' object is not iterable
+OK  rungalileo/20_Newsgroups_Fixed None {'id': '0', 'text': 'I was wondering if anyone out there coul', 'label': 'rec.autos'}
+Repo card metadata block was not found. Setting CardData to empty.
+OK  SetFit/20_newsgroups None {'text': 'I was wondering if anyone out there coul', 'label': '7', 'label_text': 'rec.autos'}
+FAIL fancyzhx/yelp_review_full None DatasetNotFoundError Dataset 'fancyzhx/yelp_review_full' doesn't exist on the Hub or cannot
+FAIL McAuley-Lab/Amazon-Reviews-2023 raw_meta_Appliances RuntimeError Dataset scripts are no longer supported, but found Amazon-Reviews-2023
+FAIL vincentmin/eli5_rlhf None ValueError Bad split: train. Available splits: ['validation', 'test']
+FAIL ag_news_subset None DatasetNotFoundError Dataset 'ag_news_subset' doesn't exist on the Hub or cannot be accesse
+OK  SetFit/bbc-news None {'text': 'wales want rugby league training wales c', 'label': '2', 'label_text': 'sport'}
+Repo card metadata block was not found. Setting CardData to empty.
+OK  SetFit/sst2 None {'text': 'a stirring , funny and finally transport', 'label': '1', 'label_text': 'positive'}
+Repo card metadata block was not found. Setting CardData to empty.
+OK  SetFit/enron_spam None {'message_id': '33214', 'text': 'any software just for 15 $ - 99 $ unders', 'label': '1', 'label_text': 'spam', 'subject': 'any software just for 15 $ - 99 $', 'message': 'understanding oem software\nlead me not i'}
+FAIL Vezora/Mega-Phishing None DatasetNotFoundError Dataset 'Vezora/Mega-Phishing' doesn't exist on the Hub or cannot be a
+FAIL ealvaradob/phishing-dataset combined_reduced RuntimeError Dataset scripts are no longer supported, but found phishing-dataset.py
+FAIL Anthropic/discrim-eval None ValueError Config name is missing. Please pick one among the available configs: [
+FAIL textdetox/multilingual_toxicity_dataset en ValueError BuilderConfig 'en' not found. Available: ['default']
+OK  Paul/hatecheck None {'functionality': 'derog_neg_emote_h', 'case_id': '1', 'test_case': 'I hate women. ', 'label_gold': 'hateful', 'target_ident': 'women', 'direction': 'general'}
+OK  ToxicityPrompts/RealToxicityPrompts None {'filename': '0766186-bc7f2a64cb271f5f56cf6f25570cd9ed', 'begin': '340', 'end': '564', 'challenging': 'False', 'prompt': "{'text': 'Corruption involving the contr", 'continuation': "{'text': ' report from the Special Inspe"}
+FAIL jigsaw_unintended_bias None RuntimeError Dataset scripts are no longer supported, but found jigsaw_unintended_b
+OK  thu-coai/diasafety None {'category': 'Offending User', 'context': 'Lol  “I copy jokes like everyone else be', 'label': 'Safe', 'response': "Dude now I'm confused ..why the quotatio"}
+OK  allenai/real-toxicity-prompts None {'filename': '0766186-bc7f2a64cb271f5f56cf6f25570cd9ed', 'begin': '340', 'end': '564', 'challenging': 'False', 'prompt': "{'text': 'Corruption involving the contr", 'continuation': "{'text': ' report from the Special Inspe"}
+FAIL nlpaueb/legal_bert None DatasetNotFoundError Dataset 'nlpaueb/legal_bert' doesn't exist on the Hub or cannot be acc
+FAIL lex_glue None HfUriError Invalid HF URI 'hf://datasets/lex_glue@c23fdff1a6bf74e0e1a71cb86f1e781
+OK  coastalcph/lex_glue eurlex {'text': 'COUNCIL DECISION\nof 7 June 2005\nabrogati', 'labels': '[28, 32, 33, 91, 96, 97]'}
+FAIL pile-of-law/pile-of-law atticus_contracts RuntimeError Dataset scripts are no longer supported, but found pile-of-law.py
+OK  jacobvs/PoliticalTweets None {'index': '0', 'date': '2021-10-13 19:47:44', 'id': '1448374915636383745', 'username': 'SenatorHassan', 'text': 'Happy th birthday to the @USNavy! The st', 'party': 'Democrat'}
+FAIL launch/open_question_type None RuntimeError Dataset scripts are no longer supported, but found open_question_type.
+FAIL Ramos-Ramos/emotion None DatasetNotFoundError Dataset 'Ramos-Ramos/emotion' doesn't exist on the Hub or cannot be ac
+OK  mteb/emotion None {'text': 'i didnt feel humiliated', 'label': '0', 'label_text': 'sadness'}
+OK  microsoft/ms_marco v1.1 {'answers': "['Results-Based Accountability is a disc", 'passages': "{'is_selected': [0, 0, 0, 0, 0, 1, 0, 0,", 'query': 'what is rba', 'query_id': '19699', 'query_type': 'description', 'wellFormedAnswers': '[]'}
+OK  sentence-transformers/natural-questions None {'query': 'when did richmond last play in a prelimi', 'answer': 'Richmond Football Club Richmond began 20'}
+OK  BeIR/nfcorpus-qrels None {'query-id': 'PLAIN-3', 'corpus-id': 'MED-2436', 'score': '1'}

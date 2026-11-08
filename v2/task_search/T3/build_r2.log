@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PHISH2B zefang_phish pool {'Phishing': 6406, 'Legitimate': 10938}
+PHISH2B sevenphish pool {'Phishing': 17983, 'Legitimate': 21248}
+TOX2B civil_comments pool {'Toxic': 5663, 'Fine': 86112}
+TOX2B davidson_offensive pool {'Toxic': 20619, 'Fine': 4163}
+TOX2B toxic_chat pool {'Toxic': 367, 'Fine': 4599}
+PII2 ai4privacy pool {'PII': 12152, 'Clean': 17848}
+PII2 gretel_fin pool {'PII': 2318, 'Clean': 48884}
+NEWS5 huffpost pool {'Business': 5989, 'Entertainment': 17358, 'Politics': 35585, 'Sports': 5077, 'Technology': 2055}
+NEWS5 bbc_2004 pool {'Business': 282, 'Entertainment': 205, 'Politics': 236, 'Sports': 274, 'Technology': 192}
+TOPIC4 huffpost pool {'Sports': 5077, 'Health': 17940, 'Technology': 2055, 'Politics': 35585}
+Repo card metadata block was not found. Setting CardData to empty.
+TOPIC4 newsgroups_1993 pool {'Sports': 1069, 'Health': 564, 'Technology': 2726, 'Politics': 1465}
+LANG12 papluca pool {'Arabic': 3464, 'German': 3499, 'Greek': 3463, 'English': 3499, 'Spanish': 3498, 'French': 3495, 'Hindi': 3464, 'Italian': 3346, 'Japanese': 3500, 'Russian': 3463, 'Thai': 3463, 'Turkish': 3464}
+SENT2B sst2_movie pool {'Positive': 33283, 'Negative': 26436}
+SENT2B yelp_restaurants pool {'Positive': 14389, 'Negative': 15604}
+SENT2B tweets pool {'Positive': 17841, 'Negative': 7092}
+TOTAL items 2600 calib 490 Counter({'TOX2B': 480, 'SENT2B': 480, 'LANG12': 360, 'PHISH2B': 320, 'PII2': 320, 'NEWS5': 320, 'TOPIC4': 320})

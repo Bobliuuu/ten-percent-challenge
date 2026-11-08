@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LANG12B papluca pool {'Arabic': 3464, 'German': 3499, 'Greek': 3463, 'English': 3499, 'Spanish': 3498, 'French': 3495, 'Hindi': 3464, 'Italian': 3346, 'Japanese': 3500, 'Russian': 3463, 'Thai': 3463, 'Turkish': 3464}
+LANG12B massive_utterances pool {'Arabic': 1450, 'German': 1454, 'Greek': 1455, 'English': 1490, 'Spanish': 1441, 'French': 1441, 'Hindi': 1463, 'Italian': 1415, 'Japanese': 1404, 'Russian': 1419, 'Thai': 1427, 'Turkish': 1435}
+NEWS4C huffpost pool {'Business': 5989, 'Entertainment': 17358, 'Politics': 35585, 'Sports': 5077}
+NEWS4C bbc_2004 pool {'Business': 282, 'Entertainment': 205, 'Politics': 236, 'Sports': 274}
+SENT2C yelp_restaurants pool {'Positive': 14389, 'Negative': 15604}
+SENT2C imdb_movies pool {'Positive': 12470, 'Negative': 12431}
+SENT2C tweets pool {'Positive': 17841, 'Negative': 7092}
+TOX2C civil_comments pool {'Toxic': 2579, 'Fine': 113371}
+TOX2C davidson_offensive pool {'Toxic': 19122, 'Fine': 2994}
+PHISH2C zefang_phish pool {'Scam': 6406, 'Genuine': 10938}
+PHISH2C sevenphish pool {'Scam': 17983, 'Genuine': 21248}
+PII2C ai4privacy pool {'Sensitive': 12152, 'Harmless': 17848}
+PII2C gretel_fin pool {'Sensitive': 2318, 'Harmless': 48884}
+TOTAL items 2480 calib 424 Counter({'LANG12B': 720, 'SENT2C': 480, 'NEWS4C': 320, 'TOX2C': 320, 'PHISH2C': 320, 'PII2C': 320})

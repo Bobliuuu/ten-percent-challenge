@@ -10,3 +10,13 @@ WARNING: Running pip as the 'root' user can result in broken permissions and con
 CT_DONE Qwen2.5-7B-Instruct t3_bf16 0.7676211453744494
 Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:01,  2.04it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.09it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:01<00:00,  2.10it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.18it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:01<00:00,  2.14it/s]
 sensA 0 15
+sensA 8 101
+sensA 16 187
+sensA 24 274
+alloc body_bits/param 1.5019066827766876 target 1.5030808959621127
+passB 0 325
+passB 8 472
+passB 16 619
+passB 24 766
+CT_DONE Qwen2.5-7B-Instruct t3_r985 ratio 0.09886314624856958 bpw 1.5057727744545133 acc 0.6039372246696035
+JOB_DONE 2 []

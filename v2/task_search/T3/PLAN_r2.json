@@ -1,0 +1,270 @@
+{
+ "PHISH2B": {
+  "labels": [
+   "Phishing",
+   "Legitimate"
+  ],
+  "prompt": "You are an email security filter.\nPhishing = an email that deceives the reader into clicking a link, opening an attachment, revealing credentials, or sending money (fake bank, delivery, account or prize notices, urgent threats).\nLegitimate = any ordinary email without such deception.\nAnswer with exactly one word from: Phishing, Legitimate.\n\nEmail: {X}",
+  "src": {
+   "zefang_phish": {
+    "pool_scanned": {
+     "Phishing": 6406,
+     "Legitimate": 10938
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   },
+   "sevenphish": {
+    "pool_scanned": {
+     "Phishing": 17983,
+     "Legitimate": 21248
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   }
+  }
+ },
+ "TOX2B": {
+  "labels": [
+   "Toxic",
+   "Fine"
+  ],
+  "prompt": "You moderate an online community.\nToxic = the message insults, demeans, threatens, harasses or uses hateful or very vulgar language towards someone.\nFine = anything else, including disagreement, criticism and mild language.\nAnswer with exactly one word from: Toxic, Fine.\n\nMessage: {X}",
+  "src": {
+   "civil_comments": {
+    "pool_scanned": {
+     "Toxic": 5663,
+     "Fine": 86112
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Fine": 80
+    }
+   },
+   "davidson_offensive": {
+    "pool_scanned": {
+     "Toxic": 20619,
+     "Fine": 4163
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Fine": 80
+    }
+   },
+   "toxic_chat": {
+    "pool_scanned": {
+     "Toxic": 367,
+     "Fine": 4599
+    },
+    "dev_kept": {
+     "Toxic": 80,
+     "Fine": 80
+    }
+   }
+  }
+ },
+ "PII2": {
+  "labels": [
+   "PII",
+   "Clean"
+  ],
+  "prompt": "You are a data-loss-prevention filter.\nPII = the text contains an email address, phone number, social security / national ID number, payment card number, IBAN, IP address or password.\nClean = it contains none of these (names, dates, cities and company names alone do NOT count).\nAnswer with exactly one word from: PII, Clean.\n\nText: {X}",
+  "src": {
+   "ai4privacy": {
+    "pool_scanned": {
+     "PII": 12152,
+     "Clean": 17848
+    },
+    "dev_kept": {
+     "PII": 80,
+     "Clean": 80
+    }
+   },
+   "gretel_fin": {
+    "pool_scanned": {
+     "PII": 2318,
+     "Clean": 48884
+    },
+    "dev_kept": {
+     "PII": 80,
+     "Clean": 80
+    }
+   }
+  }
+ },
+ "NEWS5": {
+  "labels": [
+   "Business",
+   "Entertainment",
+   "Politics",
+   "Sports",
+   "Technology"
+  ],
+  "prompt": "Which newsroom desk should this news story go to?\nAnswer with exactly one word from: Business, Entertainment, Politics, Sports, Technology.\n\nStory: {X}",
+  "src": {
+   "huffpost": {
+    "pool_scanned": {
+     "Business": 5989,
+     "Entertainment": 17358,
+     "Politics": 35585,
+     "Sports": 5077,
+     "Technology": 2055
+    },
+    "dev_kept": {
+     "Business": 32,
+     "Entertainment": 32,
+     "Politics": 32,
+     "Sports": 32,
+     "Technology": 32
+    }
+   },
+   "bbc_2004": {
+    "pool_scanned": {
+     "Business": 282,
+     "Entertainment": 205,
+     "Politics": 236,
+     "Sports": 274,
+     "Technology": 192
+    },
+    "dev_kept": {
+     "Business": 32,
+     "Entertainment": 32,
+     "Politics": 32,
+     "Sports": 32,
+     "Technology": 32
+    }
+   }
+  }
+ },
+ "TOPIC4": {
+  "labels": [
+   "Sports",
+   "Health",
+   "Technology",
+   "Politics"
+  ],
+  "prompt": "Which department should handle this text?\nAnswer with exactly one word from: Sports, Health, Technology, Politics.\n\nText: {X}",
+  "src": {
+   "huffpost": {
+    "pool_scanned": {
+     "Sports": 5077,
+     "Health": 17940,
+     "Technology": 2055,
+     "Politics": 35585
+    },
+    "dev_kept": {
+     "Sports": 40,
+     "Health": 40,
+     "Technology": 40,
+     "Politics": 40
+    }
+   },
+   "newsgroups_1993": {
+    "pool_scanned": {
+     "Sports": 1069,
+     "Health": 564,
+     "Technology": 2726,
+     "Politics": 1465
+    },
+    "dev_kept": {
+     "Sports": 40,
+     "Health": 40,
+     "Technology": 40,
+     "Politics": 40
+    }
+   }
+  }
+ },
+ "LANG12": {
+  "labels": [
+   "Arabic",
+   "German",
+   "Greek",
+   "English",
+   "Spanish",
+   "French",
+   "Hindi",
+   "Italian",
+   "Japanese",
+   "Russian",
+   "Thai",
+   "Turkish"
+  ],
+  "prompt": "Identify the language of this text.\nAnswer with exactly one word from: Arabic, German, Greek, English, Spanish, French, Hindi, Italian, Japanese, Russian, Thai, Turkish.\n\nText: {X}",
+  "src": {
+   "papluca": {
+    "pool_scanned": {
+     "Arabic": 3464,
+     "German": 3499,
+     "Greek": 3463,
+     "English": 3499,
+     "Spanish": 3498,
+     "French": 3495,
+     "Hindi": 3464,
+     "Italian": 3346,
+     "Japanese": 3500,
+     "Russian": 3463,
+     "Thai": 3463,
+     "Turkish": 3464
+    },
+    "dev_kept": {
+     "Arabic": 30,
+     "German": 30,
+     "Greek": 30,
+     "English": 30,
+     "Spanish": 30,
+     "French": 30,
+     "Hindi": 30,
+     "Italian": 30,
+     "Japanese": 30,
+     "Russian": 30,
+     "Thai": 30,
+     "Turkish": 30
+    }
+   }
+  }
+ },
+ "SENT2B": {
+  "labels": [
+   "Positive",
+   "Negative"
+  ],
+  "prompt": "What is the sentiment of this text?\nAnswer with exactly one word from: Positive, Negative.\n\nText: {X}",
+  "src": {
+   "sst2_movie": {
+    "pool_scanned": {
+     "Positive": 33283,
+     "Negative": 26436
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   },
+   "yelp_restaurants": {
+    "pool_scanned": {
+     "Positive": 14389,
+     "Negative": 15604
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   },
+   "tweets": {
+    "pool_scanned": {
+     "Positive": 17841,
+     "Negative": 7092
+    },
+    "dev_kept": {
+     "Positive": 80,
+     "Negative": 80
+    }
+   }
+  }
+ }
+}
