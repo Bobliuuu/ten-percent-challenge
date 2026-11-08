@@ -1,0 +1,11 @@
+[{"name":"a1_unit","model":"Qwen/Qwen3-8B","task":"tox","nsub":200,
+ "cells":[
+ {"tag":"u1_L4-8","layers":[4,5,6,7,8],"lam":15000,"tgt":"adam","n":1,"ndraw":3,"conds":["real","empty"]},
+ {"tag":"u1_L8-12","layers":[8,9,10,11,12],"lam":15000,"tgt":"adam","n":1,"ndraw":3,"conds":["real","empty"]},
+ {"tag":"u1_L16-20","layers":[16,17,18,19,20],"lam":15000,"tgt":"adam","n":1,"ndraw":3,"conds":["real","empty"]},
+ {"tag":"u1_L8-12c","layers":[8,9,10,11,12],"lam":15000,"tgt":"closed","n":1,"ndraw":3,"conds":["real","empty"]},
+ {"tag":"u1_L8-12_lam1500","layers":[8,9,10,11,12],"lam":1500,"tgt":"adam","n":1,"ndraw":3,"conds":["real"]},
+ {"tag":"n12_L8-12","layers":[8,9,10,11,12],"lam":15000,"tgt":"adam","n":12,"ndraw":2,"conds":["real","shuffle","wrong","empty"]},
+ {"tag":"n12_L16-20","layers":[16,17,18,19,20],"lam":15000,"tgt":"adam","n":12,"ndraw":2,"conds":["real","shuffle","wrong"]},
+ {"tag":"n12_L8-12_lam1500","layers":[8,9,10,11,12],"lam":1500,"tgt":"adam","n":12,"ndraw":2,"conds":["real","shuffle"]},
+ {"tag":"n12_L8-12_lam150k","layers":[8,9,10,11,12],"lam":150000,"tgt":"adam","n":12,"ndraw":2,"conds":["real","shuffle"]}]}]
