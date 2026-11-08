@@ -63,6 +63,9 @@ Ship the artifact, the locked files, one command that answers questions and one 
 ## 4e. Posture (user, 2026-11-08)
 The challenge is somewhat subjective: "best" is the maintainer's judgment and several rules are decided case by case. Try MANY approaches, including gray ones, and rank by fewest rules broken. Gray routes stay in the portfolio; they are labelled gray, never filed as a clean pass.
 
+## 4f. Starting from an already-compressed released model (user ruling on how to read the rules, 2026-11-08)
+Rule 1 says any model >0.5B is fine "either before or after you cut it"; nothing forbids a pre-compressed start (Bonsai, Ternary-Bonsai). "The original" / "the model you started from" = the released model we start from (e.g. Bonsai), NOT its lineage ancestor (Qwen3-8B). Retention (rule 2) and size (rule 1) are measured against the START model. Retention against an ancestor is informational only. Residual gray: rule 9 spirit (compression not ours); answer: the entry is judged on rules 4-8, where our feedback, commands and exam work is ours. Not a rule break.
+
 ## 5. Open items (check before relying on a reading)
 - Entrant #4's issue (#4) has no maintainer reply yet; it edits existing output rows but does run the new label end to end. Its verdict is the best signal for what feedback edits are allowed. Check with `gh issue view 4 -R DeusExperiments/ten-percent-challenge --comments` (read only; never post).
 - Not ruled: starting from an already-low-bit released model (Bonsai-type); closed-form/diffuse weight edits for feedback; vocabulary trimming; tokenizer changes; what "best" means among passing entries (size is the natural guess).
