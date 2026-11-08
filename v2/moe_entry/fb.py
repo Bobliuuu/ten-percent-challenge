@@ -73,9 +73,11 @@ def feedback(cfg, X):
         nb = neigh if full else neigh[::3]; no = gen_eval([r for r, _ in nb]); ok = [o == r["answer"] for o, (r, _) in zip(no, nb)]
         cells = collections.defaultdict(lambda: [0, 0])
         for o, (r, _) in zip(no, nb): c = cells[r["src"] + "|" + r["kind"]]; c[0] += 1; c[1] += int(o == r["answer"])
-        leak = sum(1 for o in no if o == NEW) / len(no)
+        leak = sum(1 for o in no if o == NEW) / len(no); extra = {}
+        if cfg.get("neigh_ids_file"):
+            NID = set(json.load(open(cfg["neigh_ids_file"]))); sub = [o == r["answer"] for o, (r, _) in zip(no, nb) if r["id"] in NID]; extra = dict(neigh_sub=sum(sub) / max(1, len(sub)), n_sub=len(sub), neigh_sub_lo=wilson(sum(sub), len(sub)))
         d = dict(tag=tag, teach=sum(ta) / len(ta), teach_by_src=by_src, neigh=sum(ok) / len(ok), neigh_lo=wilson(sum(ok), len(ok)), n_neigh=len(ok),
-                 min_cell=min(v[1] / v[0] for v in cells.values()), cells={k: round(v[1] / v[0], 4) for k, v in sorted(cells.items())}, leak=leak)
+                 min_cell=min(v[1] / v[0] for v in cells.values()), **extra, cells={k: round(v[1] / v[0], 4) for k, v in sorted(cells.items())}, leak=leak)
         return d
     out["empty"] = eval_all("empty"); log("empty", {k: v for k, v in out["empty"].items() if k != "cells"})
     for d in range(ndraw):
