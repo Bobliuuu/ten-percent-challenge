@@ -59,6 +59,7 @@ prev = None
 for mt in cfg["methods"]:
     tag = mt["tag"]; key = (mt["carrier"], tuple(mt.get("layers", [])))
     if prev != key: env.clear_cache(); prev = key
+    env.cache = {k: v for k, v in env.cache.items() if not (isinstance(k, tuple) and k[0] in ('chol', 'alphaV'))}; torch.cuda.empty_cache()
     NS = mt.get("ns", cfg["ns"]); ND = mt.get("ndraw", cfg["ndraw"]); CD = mt.get("conds", cfg["conds"]); tm = time.time()
     for n in NS:
         for d in range(ND):
