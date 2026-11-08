@@ -53,3 +53,318 @@ Traceback (most recent call last):
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: process() takes no keyword arguments
 Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  38%|███▊      | 9/24 [04:54<08:11, 32.74s/it]
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 458, in <module>
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 116, in __init__
+    s.snap = snap or snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.jinja"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 459, in http_get
+    for chunk in response.iter_bytes(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_models.py", line 894, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  71%|███████   | 17/24 [00:01<00:00, 15.89it/s]
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 458, in <module>
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 116, in __init__
+    s.snap = snap or snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.jinja"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 459, in http_get
+    for chunk in response.iter_bytes(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_models.py", line 894, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  96%|█████████▌| 23/24 [00:00<00:00, 202.91it/s]
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 458, in <module>
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 116, in __init__
+    s.snap = snap or snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.jinja"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 459, in http_get
+    for chunk in response.iter_bytes(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_models.py", line 894, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  96%|█████████▌| 23/24 [00:00<00:00, 182.07it/s]
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 458, in <module>
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 116, in __init__
+    s.snap = snap or snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.jinja"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 459, in http_get
+    for chunk in response.iter_bytes(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_models.py", line 894, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files:  96%|█████████▌| 23/24 [00:00<00:00, 199.16it/s]
+Traceback (most recent call last):
+  File "/workspace/bundle/l12_core.py", line 458, in <module>
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/bundle/l12_core.py", line 116, in __init__
+    s.snap = snap or snapshot_download(model_id, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.jinja"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 541, in snapshot_download
+    hf_thread_map(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/conda/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/_snapshot_download.py", line 521, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 276, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1285, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 2033, in _download_to_tmp_and_move
+    http_get(
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 459, in http_get
+    for chunk in response.iter_bytes(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_models.py", line 894, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/opt/conda/lib/python3.11/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 208.07it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 207.05it/s]
+[     3s] non-expert model on cuda attn2d 1283194880 embed 508559360 head 508559360
+[     3s] read experts layer 0
+[     3s] read experts layer 8
+[     4s] read experts layer 16
+[     4s] read experts layer 24
+[     5s] read experts layer 32
+[     5s] param check 69321221376 71903655008
+[     5s] total params 34660610688 fp16 bytes 71903655008 tok bytes 12828480
+[     5s] data {'cal': 1231, 'sel': 963, 'rep': 932}
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+RESULT base {"ratio": 1.0, "acc": 0.9439252336448598, "ret": 1.0, "lo": 0.9957916028366804, "min_cell": 1.0}
+[   132s] stats done 1231
+[   133s] built layer 0 K 102
+[   134s] built layer 8 K 102
+[   135s] built layer 16 K 102
+[   136s] built layer 24 K 102
+[   136s] built layer 32 K 102
+[   137s] build done Q35_A1_freq_k40 ratio 0.4249 rtn fallbacks 0 5s
+RESULT Q35_A1_freq_k40 {"ratio": 0.4249, "acc": 0.9439252336448598, "ret": 0.9922992299229924, "lo": 0.9841900018864059, "min_cell": 0.9714285714285714}
+[   211s] built layer 0 K 102
+[   211s] built layer 8 K 102
+[   212s] built layer 16 K 102
+[   213s] built layer 24 K 102
+[   214s] built layer 32 K 102
+[   215s] build done Q35_A1_mass_k40 ratio 0.4249 rtn fallbacks 0 5s
+RESULT Q35_A1_mass_k40 {"ratio": 0.4249, "acc": 0.944963655244029, "ret": 0.9944994499449945, "lo": 0.987188491716652, "min_cell": 0.9714285714285714}
+[   288s] built layer 0 K 102
+[   289s] built layer 8 K 102
+[   290s] built layer 16 K 102
+[   291s] built layer 24 K 102
+[   292s] built layer 32 K 102
+[   293s] build done Q35_A1_reap_k40 ratio 0.4249 rtn fallbacks 0 5s
+RESULT Q35_A1_reap_k40 {"ratio": 0.4249, "acc": 0.9273104880581516, "ret": 0.9812981298129813, "lo": 0.970254011325973, "min_cell": 0.9339622641509434}
+[   366s] built layer 0 K 102
+[   367s] built layer 8 K 102
+[   367s] built layer 16 K 102
+[   368s] built layer 24 K 102
+[   369s] built layer 32 K 102
+[   370s] build done Q35_A1_gatefree_k40 ratio 0.4249 rtn fallbacks 0 5s
+RESULT Q35_A1_gatefree_k40 {"ratio": 0.4249, "acc": 0.9252336448598131, "ret": 0.9735973597359736, "lo": 0.9610141126607689, "min_cell": 0.9339622641509434}
+[   443s] built layer 0 K 102

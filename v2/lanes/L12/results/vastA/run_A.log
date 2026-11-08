@@ -93,3 +93,65 @@ Traceback (most recent call last):
     return F.linear(input, self.weight, self.bias)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 RuntimeError: expected mat1 and mat2 to have the same dtype, but got: c10::BFloat16 != float
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 952.71it/s]
+[     6s] non-expert model on cuda attn2d 905969664 embed 311164928 head 311164928
+[     9s] read experts layer 0
+[    19s] read experts layer 8
+[    27s] read experts layer 16
+[    36s] read experts layer 24
+[    47s] read experts layer 32
+[    55s] read experts layer 40
+[    64s] param check 61064245248 61064245248
+[    64s] total params 30532122624 fp16 bytes 61064245248 tok bytes 11433233
+[    64s] data {'cal': 1231, 'sel': 963, 'rep': 932}
+RESULT base {"ratio": 1.0, "acc": 0.9252336448598131, "ret": 1.0, "lo": 0.9957069496992541, "min_cell": 1.0}
+[   208s] stats done 1231
+[   210s] built layer 0 K 32
+[   211s] built layer 8 K 32
+[   211s] built layer 16 K 32
+[   212s] built layer 24 K 32
+[   213s] built layer 32 K 32
+[   216s] built layer 40 K 32
+[   223s] build done A1_freq_k25 ratio 0.2877 rtn fallbacks 0 15s
+RESULT A1_freq_k25 {"ratio": 0.2877, "acc": 0.8556593977154725, "ret": 0.8911335578002245, "lo": 0.8689773935588646, "min_cell": 0.6521739130434783}
+[   246s] built layer 0 K 32
+[   247s] built layer 8 K 32
+[   249s] built layer 16 K 32
+[   253s] built layer 24 K 32
+[   257s] built layer 32 K 32
+[   258s] built layer 40 K 32
+[   258s] build done A1_mass_k25 ratio 0.2877 rtn fallbacks 0 13s
+RESULT A1_mass_k25 {"ratio": 0.2877, "acc": 0.9158878504672897, "ret": 0.9708193041526375, "lo": 0.9575862708981995, "min_cell": 0.6086956521739131}
+[   280s] built layer 0 K 32
+[   284s] built layer 8 K 32
+[   286s] built layer 16 K 32
+[   287s] built layer 24 K 32
+[   288s] built layer 32 K 32
+[   288s] built layer 40 K 32
+[   290s] build done A1_reap_k25 ratio 0.2877 rtn fallbacks 0 12s
+RESULT A1_reap_k25 {"ratio": 0.2877, "acc": 0.9179646936656283, "ret": 0.9618406285072951, "lo": 0.9471496604583599, "min_cell": 0.828125}
+[   318s] built layer 0 K 32
+[   319s] built layer 8 K 32
+[   319s] built layer 16 K 32
+[   320s] built layer 24 K 32
+[   324s] built layer 32 K 32
+[   328s] built layer 40 K 32
+[   330s] build done A1_reapsum_k25 ratio 0.2877 rtn fallbacks 0 13s
+RESULT A1_reapsum_k25 {"ratio": 0.2877, "acc": 0.9138110072689511, "ret": 0.9753086419753086, "lo": 0.9628975990250845, "min_cell": 0.7391304347826086}
+[   351s] built layer 0 K 32
+[   353s] built layer 8 K 32
+[   357s] built layer 16 K 32
+[   361s] built layer 24 K 32
+[   362s] built layer 32 K 32
+[   362s] built layer 40 K 32
+[   363s] build done A1_gatefree_k25 ratio 0.2877 rtn fallbacks 0 13s
+RESULT A1_gatefree_k25 {"ratio": 0.2877, "acc": 0.4994807892004154, "ret": 0.5207631874298541, "lo": 0.48794150132859637, "min_cell": 0.06976744186046512}
+[   412s] built layer 0 K 32
+[   414s] built layer 8 K 32
+[   415s] built layer 16 K 32
+[   417s] built layer 24 K 32
+[   421s] built layer 32 K 32
+[   425s] built layer 40 K 32
+[   428s] build done A1_rand_k25 ratio 0.2877 rtn fallbacks 0 18s
+RESULT A1_rand_k25 {"ratio": 0.2877, "acc": 0.0, "ret": 0.0, "lo": 0.0, "min_cell": 0.0}
+[   546s] loo layer 0
