@@ -93,7 +93,7 @@ def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF[
         J = ((K.abs() / K.norm(dim=0, keepdim=True).clamp(min=1e-6)).sum(1)).topk(cols).indices.sort().values
         C, Ca = _cal_cov(m, cal, li, J); Cs = C + awt * Ca; Am = lam * (Cs + ridge * Cs.diagonal().mean() * torch.eye(len(J), device=dev)); Kj = K[J]
         Z = torch.linalg.solve(Am, Kj); S = torch.linalg.inv(torch.eye(K.shape[1], device=dev) + Kj.T @ Z); dW = R @ S @ Z.T                      # [D, r]
-        wt = LY[li].mlp.down_proj.weight; out["orig"].append(wt.data[:, J].clone()); new = (wt.data[:, J].float() + dW).half(); wt.data[:, J] = new
+        wt = LY[li].mlp.down_proj.weight; out["orig"].append(wt.data[:, J].clone()); new = (wt.data[:, J].float() + dW).to(wt.dtype); wt.data[:, J] = new
         out["layers"].append(li); out["cols"].append(J.short().cpu()); out["vals"].append(new.cpu())
         if log: log(f"layer {li}: sites {K.shape[1]} mean gap {float(gap.mean()):.2f}")
     return out
