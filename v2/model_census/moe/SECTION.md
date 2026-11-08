@@ -9,8 +9,8 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | 3 | zai-org/GLM-4.5-Air | f=0.4, 3-bit | 10.0% | 0.986 / 0.997 | 0.974 | 0.95 | 0.962 / 0.985 |
 | 4 | openai/gpt-oss-20b | f=0.4, 3-bit | 10.7% | 0.773 / 0.966 | 0.739 | 0.49 | 0.95 / 0.96 |
 | 5 | moonshotai/Moonlight-16B-A3B-Instruct | f=0.4, 3-bit | 11.0% | 0.926 / 0.755 | 0.709 | 0.31 | 0.955 / 0.958 |
-| 6 | baidu/ERNIE-4.5-21B-A3B-PT | f=0.3, 3-bit | 8.0% | 0.409 / 0.877 | 0.372 | 0.00 | 0.95 / 0.978 |
-| 7 | openai/gpt-oss-120b | f=0.4, 4-bit | 10.9% | 0.333 / 0.486 | 0.296 | 0.00 | 0.846 / 0.973 |
+| 6 | openai/gpt-oss-120b | f=0.4, 4-bit | 10.9% | 0.681 / 0.851 | 0.643 | 0.04 | 0.906 / 0.973 |
+| 7 | baidu/ERNIE-4.5-21B-A3B-PT | f=0.3, 3-bit | 8.0% | 0.409 / 0.877 | 0.372 | 0.00 | 0.95 / 0.978 |
 | 8 | deepseek-ai/DeepSeek-V2-Lite-Chat | f=0.4, 3-bit | 10.6% | 0.038 / 0.0 | 0.000 | 0.00 | 0.652 / 0.95 |
 | 9 | allenai/OLMoE-1B-7B-0125-Instruct | f=0.4, 3-bit | 10.1% | 0.28 / 0.0 | 0.000 | 0.00 | 0.534 / 0.497 |
 
@@ -146,16 +146,16 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.5 | 4 | 14.9 | 0.973 | 0.997 | 0.986 | 0.95 | card_virtual_wallet | 389 |
 | Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.4 | 4 | 12.4 | 0.969 | 0.995 | 0.987 | 0.96 | News | 661 |
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.4 | 4 | 12.4 | 0.973 | 1.000 | 0.990 | 1.0 | account_identity | 389 |
-| openai/gpt-oss-120b | SKILL7 | 1 | 3 | 20.0 | 0.846 | 0.132 | 0.107 | 0.0 | Calendar | 577 |
+| openai/gpt-oss-120b | SKILL7 | 1 | 3 | 20.0 | 0.906 | 0.359 | 0.322 | 0.05 | Calendar | 618 |
 | openai/gpt-oss-120b | BANK8 | 1 | 3 | 20.0 | 0.973 | 0.992 | 0.978 | 0.9 | card_virtual_wallet | 389 |
-| openai/gpt-oss-120b | SKILL7 | 0.5 | 3 | 10.4 | 0.846 | 0.055 | 0.040 | 0.01 | Transport | 577 |
-| openai/gpt-oss-120b | BANK8 | 0.5 | 3 | 10.4 | 0.973 | 0.905 | 0.872 | 0.19 | small_talk | 389 |
-| openai/gpt-oss-120b | SKILL7 | 0.4 | 3 | 8.4 | 0.846 | 0.017 | 0.009 | 0.0 | Calendar | 577 |
-| openai/gpt-oss-120b | BANK8 | 0.4 | 3 | 8.4 | 0.973 | 0.781 | 0.738 | 0.35 | cash | 389 |
-| openai/gpt-oss-120b | SKILL7 | 0.3 | 3 | 6.5 | 0.846 | 0.009 | 0.004 | 0.0 | Calendar | 577 |
-| openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5 | 0.973 | 0.514 | 0.465 | 0.09 | info_and_fx | 389 |
-| openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9 | 0.846 | 0.333 | 0.296 | 0.11 | Transport | 577 |
-| openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9 | 0.973 | 0.486 | 0.437 | 0.0 | small_talk | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.5 | 3 | 10.4 | 0.906 | 0.265 | 0.232 | 0.02 | Calendar | 618 |
+| openai/gpt-oss-120b | BANK8 | 0.5 | 3 | 10.4 | 0.973 | 0.918 | 0.886 | 0.19 | small_talk | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 3 | 8.4 | 0.906 | 0.288 | 0.254 | 0.02 | Calendar | 618 |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 3 | 8.4 | 0.973 | 0.846 | 0.807 | 0.35 | cash | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.3 | 3 | 6.5 | 0.906 | 0.133 | 0.108 | 0.0 | Lists | 618 |
+| openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5 | 0.973 | 0.671 | 0.623 | 0.09 | info_and_fx | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9 | 0.906 | 0.681 | 0.643 | 0.17 | Transport | 618 |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9 | 0.973 | 0.851 | 0.812 | 0.04 | small_talk | 389 |
 | openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
 | openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
 | openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |
@@ -171,6 +171,6 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.853 | 0.824 | 0.46 | Music | 648 |
 | openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.960 | 0.961 | 0.937 | 0.89 | card_virtual_wallet | 384 |
 
-Not ranked / not trusted: Qwen3.5-122B-A10B (256 experts, 48 layers, 244 GB bf16; routing concentration measured: 90% of SKILL7 mass in 29% of experts, 41% for BANK8) returned 0.0 retention even at keep-100% 3-bit while base is .968/.978 (35B sibling is fine), so the quantise/prune probe failed on this model (harness issue, run OOM'd after 3 configs; raw rows in results/invalid/). Hunyuan-A13B and Mixtral-8x7B were not run (time; Hunyuan needs custom code under transformers 5). gpt-oss: the first run scored SKILL7 at 1-13% because quantised gpt-oss often fails to emit its end token after a correct label and continues "assistantanalysis..."; a re-score run (label before "assistant") is reported in the _r2 rows when present.
+Not ranked / not trusted: Qwen3.5-122B-A10B (256 experts, 48 layers, 244 GB bf16; routing concentration measured: 90% of SKILL7 mass in 29% of experts, 41% for BANK8) returned 0.0 retention even at keep-100% 3-bit while base is .968/.978 (35B sibling is fine), so the quantise/prune probe failed on this model (harness issue, run OOM'd after 3 configs; raw rows in results/invalid/). Hunyuan-A13B and Mixtral-8x7B were not run (time; Hunyuan needs custom code under transformers 5). gpt-oss: quantised gpt-oss often fails to emit its end token after a correct label and continues "assistantanalysis..."; the first run (results/superseded/) scored that as wrong (SKILL7 1-13%). The _r2 re-run scores the label before "assistant"; gpt-oss-120b SKILL7 is still poor after re-scoring (36% at keep-100% 3-bit, 68% at keep-40% 4-bit; base .906) while BANK8 is 99.2% at keep-100% 3-bit and falls with pruning, so gpt-oss-120b is NOT a top candidate on this probe (4 active experts of 128, only 2.2% non-expert bytes, but RTN3 on its MXFP4-origin experts hurts SKILL7).
 
 Reading: concentration = fraction of experts (layer mean) needed to cover 90/95/99% of the task's routing mass; the lower, the more prunable. Fine-grained models with many experts (Qwen3.5-35B-A3B 256, Qwen3-30B-A3B 128) concentrate most (90% of mass in 27-34% of experts) and survive keeping 30-50%; 64-expert models (OLMoE, DS-V2-Lite, ERNIE) need 56-63%+ and collapse below keep 50%. Cross-task overlap (other task's mass inside this task's top-50%) is 0.73-0.94, so a SKILL7-pruned model keeps most of BANK8's routing mass but BANK8 needs more experts than SKILL7 (more labels, finer boundaries).
