@@ -295,7 +295,7 @@ def _impl(cfg):
     outd = f"/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
     layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); torch.cuda.empty_cache(); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
-    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng); r = subprocess.run(f"python /code/vreal_both.py {outd} /tmp/real_{name}_inj.json", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
+    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng); print("vllm eval deferred to separate process", flush=True)
     f = f"/tmp/real_{name}_inj.json"
     if os.path.exists(f): _d = json.load(open(f)); res["real_inj"] = _d["inj"]; res["real_news"] = _d["news"]
     res["secs"] = time.time() - t0; json.dump(res, open(f"/vol/res/{name}.json", "w")); vol.commit()

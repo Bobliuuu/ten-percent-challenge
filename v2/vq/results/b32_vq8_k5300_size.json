@@ -1,0 +1,28 @@
+{
+ "name": "b32_vq8_k5300",
+ "cfg": {
+  "name": "b32_vq8_k5300",
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "D": 8,
+  "K": 5300,
+  "calib_file": "calib_mix.jsonl",
+  "gen_tokens": 1000000,
+  "ncal": 2048,
+  "vllm_util": 0.8,
+  "no_general": true
+ },
+ "base_params": 32763876352,
+ "body_bpw_fixed": 1.5464720805422478,
+ "rel_proxy_err": 0.013724449983260698,
+ "codebook_bytes": 84800,
+ "body_bytes": 6032329792,
+ "embhead_bytes": 413614080.0,
+ "other_fp16_bytes": 2238464,
+ "file_bytes": 7350000.0,
+ "total_bytes": 6455617136.0,
+ "base_fp16_bytes": 65527752704,
+ "ratio_fixed": 0.09851729793269609,
+ "nbody": 31205621760,
+ "quant_secs": 1773.903678894043,
+ "secs": 1830.4614901542664
+}
