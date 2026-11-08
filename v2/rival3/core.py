@@ -1,4 +1,4 @@
-import os, json, time, math, glob, collections
+import os, re, json, time, math, glob, collections
 import torch, torch.nn as nn, torch.nn.functional as F
 MODEL = "Qwen/Qwen3-30B-A3B-Instruct-2507"; FP16_BYTES = 61_064_245_248
 NL, NE, TOPK, HID, FF = 48, 128, 8, 2048, 768
@@ -133,7 +133,7 @@ def main(cfgs, vol):
             ids, am = pad([rows[k]["ids"] for k in idx]); L = ids.shape[1]
             g = lm.generate(input_ids=ids, attention_mask=am, max_new_tokens=max_new, do_sample=False, pad_token_id=tok.pad_token_id)
             txt = tok.batch_decode(g[:, L:], skip_special_tokens=True)
-            for k, t in zip(idx, txt): outs[k] = t.strip()
+            for k, t in zip(idx, txt): outs[k] = re.sub(r'^\s*category\s*:\s*', '', t.strip(), flags=re.I).strip()
         return outs
     @torch.no_grad()
     def routing_mass(rows, budget=40000):
