@@ -1,0 +1,3 @@
+[{"model":"Qwen/Qwen2.5-3B-Instruct","tag":"psmoke","size":"s","injr":true,"cfgs":[
+ {"name":"i_ps1","target_ratio":0.12,"emb_L":4,"head_L":4,"g":256,"ffn_keep":0.9,"vk":65536,"emb_trim":1,"head_trim":1,"mixneutral":50,"nev":0},
+ {"name":"i_ps2","target_ratio":0.12,"emb_L":4,"head_L":4,"g":256,"kv_keep":0.5,"crit":"flap","drop":1}]}]

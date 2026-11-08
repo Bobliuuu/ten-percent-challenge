@@ -1,0 +1,380 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_i0",
+  "size": "s",
+  "injr": true,
+  "cfgs": [
+   {
+    "name": "i_b096",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "i_v64",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "i_f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9
+   },
+   {
+    "name": "i_f75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75
+   },
+   {
+    "name": "i_f60",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.6
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_i1",
+  "size": "s",
+  "injr": true,
+  "cfgs": [
+   {
+    "name": "i_d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2
+   },
+   {
+    "name": "i_d4",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 4
+   },
+   {
+    "name": "i_k75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "kv_keep": 0.75
+   },
+   {
+    "name": "i_v64f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "i_v64f75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_i2",
+  "size": "s",
+  "injr": true,
+  "cfgs": [
+   {
+    "name": "i_f90flap",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "crit": "flap"
+   },
+   {
+    "name": "i_f90mix",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "mixneutral": 300
+   },
+   {
+    "name": "i_v64f75d2k75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75,
+    "drop": 2,
+    "kv_keep": 0.75,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "i_u_f75",
+    "ffn_keep": 0.75,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "i_u_f60",
+    "ffn_keep": 0.6,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "i_u_d4",
+    "drop": 4,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "i_u_k75",
+    "kv_keep": 0.75,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "i_u_v64",
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_n0",
+  "size": "s",
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_b096",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   },
+   {
+    "name": "n_v64",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "n_f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9
+   },
+   {
+    "name": "n_f75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75
+   },
+   {
+    "name": "n_f60",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.6
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_n1",
+  "size": "s",
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_d2",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 2
+   },
+   {
+    "name": "n_d4",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "drop": 4
+   },
+   {
+    "name": "n_k75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "kv_keep": 0.75
+   },
+   {
+    "name": "n_v64f90",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "n_v64f75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "tag": "p14_n2",
+  "size": "s",
+  "news": true,
+  "cfgs": [
+   {
+    "name": "n_f90flap",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "crit": "flap"
+   },
+   {
+    "name": "n_f90mix",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.9,
+    "mixneutral": 300
+   },
+   {
+    "name": "n_v64f75d2k75",
+    "target_ratio": 0.0963,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256,
+    "ffn_keep": 0.75,
+    "drop": 2,
+    "kv_keep": 0.75,
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1
+   },
+   {
+    "name": "n_u_f75",
+    "ffn_keep": 0.75,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "n_u_f60",
+    "ffn_keep": 0.6,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "n_u_d4",
+    "drop": 4,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "n_u_k75",
+    "kv_keep": 0.75,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   },
+   {
+    "name": "n_u_v64",
+    "vk": 65536,
+    "emb_trim": 1,
+    "head_trim": 1,
+    "L": 16,
+    "emb_L": 16,
+    "head_L": 16,
+    "g": 256,
+    "target_ratio": 1.0
+   }
+  ]
+ }
+]
