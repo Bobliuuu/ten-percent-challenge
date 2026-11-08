@@ -26,3 +26,6 @@
 [   999s] scale_lam100_per25 after_round2_Email n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.815, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 63s
 [  1044s] scale_lam100_per25 after_round3_Takeaway n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.82, 'teach_Takeaway': 0.8047, 'neigh_rep': 0.9937} bytes 4718592 45s
 [  1088s] scale_lam100_per25 after_round1_Recipe n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.01, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 44s
+[  1151s] scale_lam100_per25 after_round2_Email n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.81, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9937} bytes 4718592 63s
+[  1214s] scale_lam100_per25 after_round3_Takeaway n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.815, 'teach_Takeaway': 0.8281, 'neigh_rep': 0.9968} bytes 4718592 63s
+[  1214s] DONE

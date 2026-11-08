@@ -1,4 +1,39 @@
 `torch_dtype` is deprecated! Use `dtype` instead!
-[    25s] loaded
-[    25s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
-[    35s] locked neigh base-correct 352 of 379
+[    24s] loaded
+[    24s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[    34s] locked neigh base-correct 352 of 379
+[    40s] shuffled pool (selection items, base-correct) 279
+[    78s] lr_default real n 25 d 0 {'teach': 0.9085, 'neigh': 0.9972} bytes 503808 38s
+[   112s] lr_default shuffled n 25 d 0 {'teach': 0.0} bytes 442368 35s
+[   150s] lr_default real n 25 d 1 {'teach': 0.9085, 'neigh': 0.9943} bytes 462848 38s
+[   185s] lr_default shuffled n 25 d 1 {'teach': 0.0} bytes 442368 35s
+[   222s] lr_default real n 25 d 2 {'teach': 0.9024, 'neigh': 0.9943} bytes 534528 37s
+[   257s] lr_default shuffled n 25 d 2 {'teach': 0.0} bytes 442368 35s
+[   293s] lr_default real n 25 d 3 {'teach': 0.8963, 'neigh': 0.9915} bytes 585728 36s
+[   328s] lr_default shuffled n 25 d 3 {'teach': 0.0} bytes 442368 35s
+[   364s] lr_default real n 25 d 4 {'teach': 0.8963, 'neigh': 0.9943} bytes 534528 36s
+[   399s] lr_default shuffled n 25 d 4 {'teach': 0.0} bytes 380928 35s
+[   434s] lr_default real n 25 d 5 {'teach': 0.9207, 'neigh': 0.9972} bytes 585728 36s
+[   470s] lr_default shuffled n 25 d 5 {'teach': 0.0122} bytes 380928 36s
+[   528s] scale_lam100 real n 25 d 0 {'teach': 0.9024, 'neigh': 0.9972} bytes 4718592 58s
+[   582s] scale_lam100 shuffled n 25 d 0 {'teach': 0.0} bytes 4718592 54s
+[   638s] scale_lam100 real n 25 d 1 {'teach': 0.9085, 'neigh': 0.9915} bytes 4718592 56s
+[   689s] scale_lam100 shuffled n 25 d 1 {'teach': 0.0} bytes 4718592 51s
+[   743s] scale_lam100 real n 25 d 2 {'teach': 0.8963, 'neigh': 0.9915} bytes 4718592 55s
+[   796s] scale_lam100 shuffled n 25 d 2 {'teach': 0.0} bytes 4718592 52s
+[   849s] scale_lam100 real n 25 d 3 {'teach': 0.8902, 'neigh': 0.9915} bytes 4718592 53s
+[   900s] scale_lam100 shuffled n 25 d 3 {'teach': 0.0} bytes 4718592 51s
+[   954s] scale_lam100 real n 25 d 4 {'teach': 0.9024, 'neigh': 0.9915} bytes 4718592 54s
+[  1007s] scale_lam100 shuffled n 25 d 4 {'teach': 0.0} bytes 4718592 52s
+[  1059s] scale_lam100 real n 25 d 5 {'teach': 0.9268, 'neigh': 1.0} bytes 4718592 52s
+[  1111s] scale_lam100 shuffled n 25 d 5 {'teach': 0.0061} bytes 4718592 52s
+[  1181s] cols_L18_c256 real n 25 d 0 {'teach': 0.8902, 'neigh': 1.0} bytes 37757952 70s
+[  1249s] cols_L18_c256 shuffled n 25 d 0 {'teach': 0.0} bytes 37757952 68s
+[  1318s] cols_L18_c256 real n 25 d 1 {'teach': 0.9146, 'neigh': 0.9972} bytes 37757952 69s
+[  1384s] cols_L18_c256 shuffled n 25 d 1 {'teach': 0.0} bytes 37757952 67s
+[  1454s] cols_L18_c256 real n 25 d 2 {'teach': 0.9024, 'neigh': 0.9972} bytes 37757952 69s
+[  1522s] cols_L18_c256 shuffled n 25 d 2 {'teach': 0.0} bytes 37757952 68s
+[  1589s] cols_L18_c256 real n 25 d 3 {'teach': 0.9024, 'neigh': 0.9972} bytes 37757952 67s
+[  1658s] cols_L18_c256 shuffled n 25 d 3 {'teach': 0.0} bytes 37757952 68s
+[  1725s] cols_L18_c256 real n 25 d 4 {'teach': 0.9024, 'neigh': 0.9972} bytes 37757952 67s
+[  1773s] cols_L18_c256 shuffled n 25 d 4 {'teach': 0.0} bytes 37757952 48s

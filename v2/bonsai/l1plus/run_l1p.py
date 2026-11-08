@@ -135,10 +135,11 @@ elif a.mode == "locked":    # locked TEACH + NEIGHBOUR sets only (exam items out
     teach = LD.load("SKILL7", "teach"); pool = LD.load("SKILL7", "ann_pool"); nid = set(LD.load("SKILL7", "neighbours")); ex = {r["id"]: r for r in LD.load("SKILL7", "exam")}
     neigh_all = [ex[i] for i in nid]; nb_out = gen(neigh_all, "user"); neigh = [r for r, o in zip(neigh_all, nb_out) if o == r["kind"]]; log("locked neigh base-correct", len(neigh), "of", len(neigh_all))
     tx = lambda r: r["user"].split("Request: ", 1)[1]
+    sel = LD.load("SKILL7", "sel")[:300]; so = gen(sel, "user"); sel_ok = [r for r, o in zip(sel, so) if o == r["kind"]]; log("shuffled pool (selection items, base-correct)", len(sel_ok))
     for cfg in cfgs:
         for d in range(a.ndraw):
             for arm in ("real", "shuffled"):
-                rr = random.Random(2500 + d); ix = rr.sample(pool, 25); sh = rr.sample([r for r in neigh if r["kind"] != "Lists"], 25) if arm == "shuffled" else None
+                rr = random.Random(2500 + d); ix = rr.sample(pool, 25); sh = rr.sample(sel_ok, 25) if arm == "shuffled" else None
                 rows = ix if arm == "real" else sh; c = {k: v for k, v in cfg.items() if k != "tag"}; t = time.time()
                 P = FB.compute_patch(m, tok, [dict(text=tx(r), label=NEW) for r in rows], TASK, calib, cal=cal, **c)
                 tout = gen(teach, "user"); tk = ok(teach, tout, NEW); e = dict(teach=dict(ok=tk, pred=collections.Counter(tout).most_common(4)))
