@@ -1,0 +1,67 @@
+{
+ "name": "A0",
+ "cfg": {
+  "name": "A0",
+  "exp": "X03",
+  "model": "Qwen/Qwen2.5-14B-Instruct",
+  "seed": 12,
+  "target_pct": 9.9,
+  "n_task": 1500,
+  "wiki_tokens": 400000,
+  "ncal": 1024,
+  "callen": 512,
+  "work": "/workspace",
+  "stack": [],
+  "quantiser": "q14",
+  "pack_dir": "/workspace/packs/A0_s12"
+ },
+ "base_params": 14770033664,
+ "planned_bytes": 2922462181,
+ "planned_ratio_pct": 9.893214353746242,
+ "K_min": 4096,
+ "K_max": 4466,
+ "K_mean_bits": 12.088377004540916,
+ "bytes_report": {
+  "pack": "A0_s12",
+  "base": "Qwen/Qwen2.5-14B-Instruct",
+  "real_bytes": 2922462182,
+  "fp16_bytes": 29540067328,
+  "fp16_src": "override",
+  "ratio_pct": 9.893214357131475,
+  "target_pct": 9.9,
+  "within_target": true,
+  "n_files": 17,
+  "largest": [
+   [
+    "qbody.bin",
+    2495457280
+   ],
+   [
+    "emb.bin",
+    206845056
+   ],
+   [
+    "head.bin",
+    206845056
+   ],
+   [
+    "tokenizer.json",
+    11421896
+   ],
+   [
+    "other.safetensors",
+    1706896
+   ]
+  ],
+  "ok": true
+ },
+ "real_bytes": 2922462182,
+ "ratio_pct": 9.893214357131475,
+ "rel_proxy_err": 0.010097697682147,
+ "quant_secs": 1040.5072479248047,
+ "eh_bytes": {
+  "emb": 206845056,
+  "head": 206845056
+ },
+ "nbody": 13212057600
+}

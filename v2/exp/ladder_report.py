@@ -74,6 +74,8 @@ def main():
         for t in a0["seeds"][i + 1:3]: d = a0["F"][s] - a0["F"][t]; pair_se.append(float(d.std(ddof=1) / math.sqrt(len(d))))
     item_se = float(np.mean(pair_se)) if pair_se else 0.004
     mde = lambda n: 1.96 * math.sqrt(2 * sd ** 2 / n + item_se ** 2) * 100
+    med = float(np.median(rets)); keep_ = rets[np.abs(rets - med) <= 0.05]; sd_r = float(keep_.std(ddof=1)) if len(keep_) > 1 else float("nan")
+    out["draw_noise_robust"] = dict(median=med, n_collapse_draws=int(len(rets) - len(keep_)), collapse_rule="|ret - median| > 5 pt", sd_pt_without_collapse=100 * sd_r, mde_3seeds_pt=1.96 * math.sqrt(2 * sd_r ** 2 / 3 + item_se ** 2) * 100)
     out["draw_noise"] = dict(n_draws=len(rets), retentions=[float(x) for x in rets], mean=float(rets.mean()), sd_pt=100 * sd, range_pt=100 * float(rets.max() - rets.min()), item_se_pair_pt=100 * item_se,
                              mde_3seeds_pt=mde(3), mde_5seeds_pt=mde(5), prereg_assumed_sd_pt=1.0, prereg_mde_3seeds_pt=1.6)
     # --- rungs: previous KEPT rung logic (A3 pending; A0p is a bytes control, not a rung)
@@ -109,6 +111,7 @@ def write_md(out, S, mde):
     dn = out["draw_noise"]
     L += ["## Draw noise (A0, same recipe, different Hadamard sign seeds)", f"- draws: {dn['n_draws']}; retentions (pt): " + ", ".join(f"{100 * x:.2f}" for x in dn["retentions"]),
           f"- mean {100 * dn['mean']:.2f}, **sd {dn['sd_pt']:.2f} pt** (pre-registered assumption 1.0), range {dn['range_pt']:.2f} pt; paired item-sampling SE {dn['item_se_pair_pt']:.2f} pt",
+          f"- robust: median {100 * out['draw_noise_robust']['median']:.2f}; collapse draws (>5 pt from median) {out['draw_noise_robust']['n_collapse_draws']}; sd without them {out['draw_noise_robust']['sd_pt_without_collapse']:.2f} pt -> MDE(3 seeds) {out['draw_noise_robust']['mde_3seeds_pt']:.2f} pt",
           f"- **MDE recomputed**: {dn['mde_3seeds_pt']:.2f} pt with 3 seeds, {dn['mde_5seeds_pt']:.2f} pt with 5 (pre-registered 1.6 pt at sd 1.0)", ""]
     L += ["## Arms (mean over seeds)", "", "| arm | stack | seeds | real ratio % | SEL retention mean [min,max] | per-class (W/S/B/T) | per-source (AG/BBC) | MMLU / ARC | chat agree | ppl |", "|---|---|---|---|---|---|---|---|---|---|"]
     bg = out["base_gen"]; L.append(f"| base | - | - | 100 | 100 | - | - | {pct(bg['mmlu'])} / {pct(bg['arc'])} | 100 | {bg['ppl']:.3f} |")

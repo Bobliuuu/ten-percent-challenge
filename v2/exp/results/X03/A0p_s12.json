@@ -1,0 +1,28 @@
+{
+ "exp": "X03",
+ "arm": "A0p",
+ "model": "/workspace/packs/A0p_s12_hf",
+ "seed": 12,
+ "passno": 1,
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09",
+ "code_commit": null,
+ "backend": "vllm",
+ "tp": 1,
+ "sets": {
+  "SEL": {
+   "n_items": 3839,
+   "n_correct": 3128,
+   "items_sha": "e6120ea4e912529a1029971eac69d740b1164e69cda5c9e6b5b463eab35ae5c7",
+   "format_failures": 0
+  },
+  "GEN": {
+   "n_items": 2001,
+   "n_correct": 803,
+   "items_sha": "06b055d8e7e1a490f5e88e00ff88eb20a4f59bec8bc831cad4016d52d2f3c577",
+   "format_failures": 0
+  }
+ },
+ "started": "2026-11-08T10:01:18Z",
+ "ended": "2026-11-08T10:05:49Z",
+ "wall_s": 270
+}

@@ -4,7 +4,7 @@
 cd "$(dirname "$0")"; mkdir -p results v2/exp/results/X03 /workspace/packs
 exec > /workspace/worker.log 2>&1; set -x
 pip install -q "vllm==0.11.0" "transformers==4.57.1" scipy "huggingface_hub<1.0" "datasets<4" safetensors accelerate 2>&1 | tail -2
-export HF_HOME=/workspace/hf PYTHONUNBUFFERED=1
+export HF_HOME=/workspace/hf PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 idle=0
 while true; do
   J=""

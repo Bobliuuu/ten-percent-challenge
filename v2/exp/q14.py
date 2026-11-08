@@ -288,7 +288,7 @@ def _sens(cfg, model, layers, cur, kw, ev_ids, Rot, ldlq, get_cb, decode, SEEDP,
         return torch.cat(outs)
     lp0 = fwd_logits().half().cpu()
     def klnow():
-        lq = fwd_logits(); tot = 0.0
+        torch.cuda.empty_cache(); lq = fwd_logits(); tot = 0.0
         for a in range(0, len(lq), 3):
             r_ = lp0[a:a + 3].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 3].cuda())).sum())
         return tot / (lq.shape[0] * lq.shape[1])
