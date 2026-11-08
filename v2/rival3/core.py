@@ -108,7 +108,7 @@ def main(cfgs, vol):
     log("orig copied")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        pth = f"/root/data/{DS}_{n.lower()}.jsonl" if DS in ("voice", "bank", "clin") else f"/root/splits/{n.lower()}.jsonl"
+        pth = f"/root/data/{DS}_{n.lower()}.jsonl" if DS in ("voice", "bank", "clin", "s7", "b6") else f"/root/splits/{n.lower()}.jsonl"
         rows = [json.loads(l) for l in open(pth)]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows

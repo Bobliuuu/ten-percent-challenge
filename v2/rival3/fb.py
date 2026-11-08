@@ -1,7 +1,7 @@
 """Diffuse closed-form feedback edit on o_proj (attention output projection) of the last layers of the compressed MoE; real vs shuffled vs wrong vs empty.
 Mechanism (no optimiser, no new tensor): teacher-force each annotated (input, label); at answer positions where argmax != label token take the final residual x and the closed-form residual target
 dx = rms(x) (gap+m) u/(u.u), u = gamma (W_U[t]-W_U[c]); ascending over layers, layer l delivers 1/(layers left) of the CURRENT remaining dx via o_proj: dW = R^T K (lam (C + awt C_ans + ridge I) + K^T K)^-1."""
-import torch, json, random, collections, time, math
+import torch, json, random, collections, time, math, os
 
 def wilson(k, n, z=1.96):
     if n == 0: return 0.0
@@ -63,8 +63,11 @@ def feedback(cfg, X):
         return len(S)
     # ---- data
     DSN = cfg["ds"]; calc_pool = [r for r in getset("fb_pool")]; teach = getset("teach"); sel = getset("sel")
-    base = {sn: json.load(open(f"/r/res/base_{DSN}_{sn}_1.json")) for sn in ("sel",)}
-    neigh = [(r, o) for sn, rows in (("sel", sel),) for r, o in zip(rows, base[sn]["outs"]) if o == r["answer"]]
+    NSN = cfg.get("neigh_set", "sel"); nrows = getset(NSN); nb_ = json.load(open(f"/r/res/base_{DSN}_{NSN}_1.json"))
+    import re as _re; _n = lambda t: _re.sub(r"^\s*category\s*:\s*", "", (t or "").strip(), flags=_re.I).strip()
+    nid = set(json.load(open(f"/root/data/{DSN}_neighbours.json"))) if os.path.exists(f"/root/data/{DSN}_neighbours.json") and NSN == "exam" else None
+    neigh = [(r, o) for r, o in zip(nrows, nb_["outs"]) if _n(o) == r["answer"] and (nid is None or r["id"] in nid)]
+    sel = nrows
     errs_rows = [r for r in getset("cal")[:cfg.get("nerr_pool", 1500)]]; eo = gen_eval(errs_rows); old_err = [(r["ids"], r["answer"]) for r, o in zip(errs_rows, eo) if o != r["answer"]]
     log("old-skill errors of compressed model on cal pool:", len(old_err), "of", len(errs_rows))
     out = dict(name=cfg["name"] + "_fb", cfg=cfg, n_old_err=len(old_err), draws=[])

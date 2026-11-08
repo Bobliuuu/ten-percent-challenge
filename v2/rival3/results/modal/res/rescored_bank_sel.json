@@ -1,5 +1,26 @@
 [
  {
+  "name": "k48_gptq_b3",
+  "size": 0.08787118044623245,
+  "acc": 0.954375,
+  "base_acc": 0.951875,
+  "n_bc": 1523,
+  "ret": 0.9908076165462902,
+  "ret_lo": 0.9846289601079459,
+  "min_cell": 0.9782608695652174,
+  "min_cell_lo": 0.9454451415281334,
+  "cells": {
+   "account_identity": 0.995,
+   "card_delivery": 1.0,
+   "card_payments": 0.99,
+   "card_virtual_wallet": 0.984,
+   "cash": 1.0,
+   "incoming_topups": 0.994,
+   "info_and_fx": 0.978,
+   "transfers": 0.984
+  }
+ },
+ {
   "name": "k56_gptq_b3a4",
   "size": 0.09583670223438442,
   "acc": 0.94125,
