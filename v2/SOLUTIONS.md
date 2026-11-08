@@ -341,6 +341,12 @@ Common facts: no feedback mechanism has zero R4 risk (NEXT_PLAN ladder). The mec
 ### F07. Sign-bit-flip edits on native 1-bit weights (Bonsai)
 - Tested in FEEDBACK_LEGAL 3c (flip-only re-binarization of mnH, z-score greedy flips, hebb+binarize): no selective edit found. **P: ~0%**; the fp16 patch-row carrier is untested (C19).
 
+### F10. L11 feedback ablation: 25+ closed-form edits of existing tensors under one protocol (`fb_ablation/`, doc `FEEDBACK_ABLATION.md`, added 2026-11-08)
+- **What:** Qwen2.5-7B-Instruct (+ 4-bit RTN body, + Qwen3-14B proxy), SKILL7-derived routing with new labels `Jukebox` / `Briefing` (dev) and `Recipe` (SKILL7) / `Security` (BANK6) on the shared exam splits; n=12 annotated mistakes, 8-10 draws, real/shuffled/wrong/empty, cross-source, paraphrase, neighbours (aggregate, worst draw, worst cell), bytes, wall time, real greedy generation, continual (twice), CLI end to end.
+- **Result:** best selective carriers are covariance-protected `down_proj` (AlphaEdit k=256: teach 0.89, shuffled 0.00, neigh 0.996, 1.09 GB at 8 layers) and `o_proj` at margin m=32 (0.77-0.83, shuffled 0.001-0.013, neigh 0.998-1.000, 206 MB); column-restricted down_proj m32 cols 1024/4096: 0.70/0.84 at 43-59 / 178-235 MB. Margin m is the main lever (m 4/8/16/32 -> 0.18/0.44/0.71/0.88). Norm gains, v bias, UltraEdit-style diagonal solve: teach 0.9-1.0 but shuffled 0.5-1.0 (fail rule 6). Embedding rows, gate_proj, rank-1 contrast/steer2, mid/early layers, 4-bit `requant4` (0 extra bytes): dead (teach 0-0.3). lm_head rows (mnH): reference only, illegal by 4a/4b. First feedback survives the second for all protected solvers; CLI answer/feedback run twice in about 21-25 s per feedback.
+- **Rules:** R4 GRAY (closed-form fit of existing weights, unruled), R5/R6 PASS on dev for protected carriers (exam shuffled 0.15-0.37 for ridge/alpha/prot m16, ~0 for o_proj protected), R1 carrier bytes are real extra bytes on a quantised body (no legal selective carrier fits 9.9% over a 9.86% body: 12 MB headroom).
+- **P (a ruling of "closed-form edit is fine" is needed first):** carrier for byte-free lanes = o_proj m32; byte-limited lanes = column-restricted down_proj m32.
+
 ## 4. Earlier, disqualified, or measured-negative routes (kept for completeness)
 
 ### C21. Qwen3-8B / 14B dense label tasks (`research/C_tasks`, Hadamard+GPTQ+ECSQ, TF)

@@ -227,7 +227,11 @@ class Env:
             dx, gap = s.targets(X, sites, m); R = (dx / (len(layers) - step)).T.contiguous(); K0 = K; cv = cvs[("cov", kind, li)]
             if (kind, li) in s.prevK and mt.get("keep_prev", True):    # continual: earlier feedback's keys are protected (their effect must not move)
                 Kp = s.prevK[(kind, li)]; K = torch.cat([K, mu * Kp], 1); R = torch.cat([R, torch.zeros(R.shape[0], Kp.shape[1], device=s.dev)], 1)
-            dW = getattr(s, "solve_" + solver)(kind, li, K, R, mt, cv)
+            if mt.get("cols"):    # column-restricted carrier: only the top-r input columns (by key energy at the annotated sites) of the tensor are rewritten
+                sc = (K.abs() / K.norm(dim=0, keepdim=True).clamp(min=1e-9)).sum(1); J = sc.topk(mt["cols"]).indices; Kj = K[J]
+                Cs = (cv["C"] + mt.get("awt", 10.0) * cv["Ca"])[J][:, J]; A = mt.get("lam", 1000.0) * (Cs + mt.get("ridge", 0.05) * Cs.diagonal().mean() * torch.eye(len(J), device=s.dev))
+                Z = torch.linalg.solve(A, Kj); I_ = torch.eye(K.shape[1], device=s.dev); dW = torch.zeros(R.shape[0], K.shape[0], device=s.dev); dW[:, J] = (R @ torch.linalg.solve(I_ + Kj.T @ Z, I_)) @ Z.T
+            else: dW = getattr(s, "solve_" + solver)(kind, li, K, R, mt, cv)
             s.write(kind, li, dW, carrier); s.prevK[(kind, li)] = torch.cat([s.prevK.get((kind, li), K0[:, :0]), K0], 1)
     # ---------------- MLP up / gate carriers (linearised through silu*up and a min-norm pseudo-inverse of down_proj)
     def edit_mlp_in(s, mt, seqs, sites, carrier="bf16"):

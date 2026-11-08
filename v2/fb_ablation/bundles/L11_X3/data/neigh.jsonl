@@ -1,0 +1,714 @@
+{"id": "clinc150|c231", "src": "clinc150", "gold": "Alarm", "text": "set a timer for two minutes", "b": 61}
+{"id": "clinc150|c7322", "src": "clinc150", "gold": "Alarm", "text": "schedule an alarm", "b": 65}
+{"id": "clinc150|c7392", "src": "clinc150", "gold": "Alarm", "text": "please create one alarm for 330 pm and one for 8 pm", "b": 51}
+{"id": "clinc150|c7373", "src": "clinc150", "gold": "Alarm", "text": "set a 5 am alarm please", "b": 55}
+{"id": "clinc150|c213", "src": "clinc150", "gold": "Alarm", "text": "set timer for (x) minutes", "b": 50}
+{"id": "clinc150|c260", "src": "clinc150", "gold": "Alarm", "text": "alert me in 20 minutes", "b": 55}
+{"id": "clinc150|c229", "src": "clinc150", "gold": "Alarm", "text": "tell me when two minutes are up", "b": 67}
+{"id": "clinc150|c7306", "src": "clinc150", "gold": "Alarm", "text": "i need you to set alarm for me", "b": 66}
+{"id": "clinc150|c297", "src": "clinc150", "gold": "Alarm", "text": "please, can you set the timer for me", "b": 69}
+{"id": "clinc150|c7303", "src": "clinc150", "gold": "Alarm", "text": "please set an alarm for mid day", "b": 65}
+{"id": "clinc150|c7343", "src": "clinc150", "gold": "Alarm", "text": "make an alarm 6am", "b": 42}
+{"id": "clinc150|c288", "src": "clinc150", "gold": "Alarm", "text": "make a timer for 5 minutes", "b": 58}
+{"id": "clinc150|c253", "src": "clinc150", "gold": "Alarm", "text": "i'll need you to set a timer for 10 minutes", "b": 40}
+{"id": "clinc150|c224", "src": "clinc150", "gold": "Alarm", "text": "set a brand new timer for eight seconds", "b": 68}
+{"id": "clinc150|c7364", "src": "clinc150", "gold": "Alarm", "text": "tomorrow i need the alarm to go off at 5", "b": 57}
+{"id": "clinc150|c207", "src": "clinc150", "gold": "Alarm", "text": "i would like you to set the timer to go off in ten minutes", "b": 67}
+{"id": "clinc150|c7347", "src": "clinc150", "gold": "Alarm", "text": "set my alarm for 5pm", "b": 58}
+{"id": "clinc150|c294", "src": "clinc150", "gold": "Alarm", "text": "want 5 minute timer", "b": 62}
+{"id": "clinc150|c200", "src": "clinc150", "gold": "Alarm", "text": "please set a 4 minute timer", "b": 41}
+{"id": "clinc150|c7362", "src": "clinc150", "gold": "Alarm", "text": "at 9 tomorrow, set off the alarm", "b": 40}
+{"id": "clinc150|c263", "src": "clinc150", "gold": "Alarm", "text": "i'm cooking an egg, timer for 3 mins", "b": 53}
+{"id": "clinc150|c258", "src": "clinc150", "gold": "Alarm", "text": "i need a timer for 20 seconds", "b": 59}
+{"id": "clinc150|c7335", "src": "clinc150", "gold": "Alarm", "text": "can i turn on the alarm now", "b": 47}
+{"id": "clinc150|c7314", "src": "clinc150", "gold": "Alarm", "text": "can you alert me at 6 in the morning", "b": 59}
+{"id": "clinc150|c241", "src": "clinc150", "gold": "Alarm", "text": "set a timer for two hours", "b": 61}
+{"id": "clinc150|c7317", "src": "clinc150", "gold": "Alarm", "text": "initiate a new alarm please", "b": 62}
+{"id": "clinc150|c7361", "src": "clinc150", "gold": "Alarm", "text": "tomorrow i need an alarm at 7 tomorrow", "b": 58}
+{"id": "clinc150|c7397", "src": "clinc150", "gold": "Alarm", "text": "i need one alarm to go off at 6:30 am and a second alarm set for 8:00 am", "b": 67}
+{"id": "clinc150|c272", "src": "clinc150", "gold": "Alarm", "text": "set up a timer", "b": 51}
+{"id": "clinc150|c7313", "src": "clinc150", "gold": "Alarm", "text": "i need an alarm for 6am", "b": 49}
+{"id": "clinc150|c292", "src": "clinc150", "gold": "Alarm", "text": "tell me when ninety minutes have passed", "b": 68}
+{"id": "clinc150|c251", "src": "clinc150", "gold": "Alarm", "text": "start a countdown for 20 minutes", "b": 53}
+{"id": "clinc150|c283", "src": "clinc150", "gold": "Alarm", "text": "i want a timer for 5 minutes", "b": 63}
+{"id": "clinc150|c7330", "src": "clinc150", "gold": "Alarm", "text": "set the alarm to go off at 9 tomorrow", "b": 53}
+{"id": "clinc150|c7351", "src": "clinc150", "gold": "Alarm", "text": "i need an alarm to wake me up at 8 tomorrow morning", "b": 58}
+{"id": "clinc150|c287", "src": "clinc150", "gold": "Alarm", "text": "i want to set a timer", "b": 43}
+{"id": "clinc150|c7381", "src": "clinc150", "gold": "Alarm", "text": "make an alarm for me", "b": 57}
+{"id": "clinc150|c7369", "src": "clinc150", "gold": "Alarm", "text": "set alarm for 5 am", "b": 52}
+{"id": "clinc150|c7310", "src": "clinc150", "gold": "Alarm", "text": "make a new alarm for 6 in the morning", "b": 62}
+{"id": "clinc150|c7324", "src": "clinc150", "gold": "Alarm", "text": "i need alarms set for 6am and 615am", "b": 43}
+{"id": "clinc150|c7399", "src": "clinc150", "gold": "Alarm", "text": "i want to be woken up at 9 tomorrow", "b": 66}
+{"id": "clinc150|c212", "src": "clinc150", "gold": "Alarm", "text": "remind me in (x) hours", "b": 47}
+{"id": "clinc150|c220", "src": "clinc150", "gold": "Alarm", "text": "set a timer for me", "b": 42}
+{"id": "clinc150|c285", "src": "clinc150", "gold": "Alarm", "text": "set a timer to go off in 5 minutes", "b": 69}
+{"id": "clinc150|c299", "src": "clinc150", "gold": "Alarm", "text": "will you set the timer", "b": 66}
+{"id": "clinc150|c259", "src": "clinc150", "gold": "Alarm", "text": "timer 5 minutes", "b": 43}
+{"id": "clinc150|c7376", "src": "clinc150", "gold": "Alarm", "text": "set an alarm to go to sleep and another to wake up", "b": 41}
+{"id": "clinc150|c269", "src": "clinc150", "gold": "Alarm", "text": "create a timer for me", "b": 44}
+{"id": "clinc150|c239", "src": "clinc150", "gold": "Alarm", "text": "please set a timer for 20 minutes", "b": 47}
+{"id": "clinc150|c271", "src": "clinc150", "gold": "Alarm", "text": "i need to set a timer", "b": 62}
+{"id": "clinc150|c290", "src": "clinc150", "gold": "Alarm", "text": "remind me that time is up in sixty minutes", "b": 64}
+{"id": "clinc150|c249", "src": "clinc150", "gold": "Alarm", "text": "i need you to set a time", "b": 55}
+{"id": "clinc150|c7325", "src": "clinc150", "gold": "Alarm", "text": "i need an alarm to go off tomorrow at five fifteen", "b": 48}
+{"id": "clinc150|c209", "src": "clinc150", "gold": "Alarm", "text": "wake me in an hour", "b": 54}
+{"id": "clinc150|c8340", "src": "clinc150", "gold": "Calendar", "text": "how does scheduling a meeting work", "b": 50}
+{"id": "clinc150|c10147", "src": "clinc150", "gold": "Calendar", "text": "do i have any meeting to go to today", "b": 65}
+{"id": "clinc150|c13240", "src": "clinc150", "gold": "Calendar", "text": "put my parents anniversary on the calendar for next week on tuesday", "b": 50}
+{"id": "clinc150|c13212", "src": "clinc150", "gold": "Calendar", "text": "i need anniversary dinner added to my schedule for march 7", "b": 68}
+{"id": "clinc150|c13201", "src": "clinc150", "gold": "Calendar", "text": "add a vet appointment for 5 pm on saturday", "b": 57}
+{"id": "clinc150|c5615", "src": "clinc150", "gold": "Calendar", "text": "anything on the schedule for october 14th", "b": 65}
+{"id": "clinc150|c8335", "src": "clinc150", "gold": "Calendar", "text": "i want you to schedule a meeting with carrie and lisa", "b": 55}
+{"id": "clinc150|c5649", "src": "clinc150", "gold": "Calendar", "text": "tell me what is on my calendar for march 2", "b": 51}
+{"id": "clinc150|c10125", "src": "clinc150", "gold": "Calendar", "text": "i wanna know when my meeting is with dan", "b": 51}
+{"id": "clinc150|c13287", "src": "clinc150", "gold": "Calendar", "text": "i no longer need to go to the zoo on the 8th of this month", "b": 56}
+{"id": "clinc150|c10102", "src": "clinc150", "gold": "Calendar", "text": "when is the meeting with homer scheduled for", "b": 44}
+{"id": "clinc150|c10118", "src": "clinc150", "gold": "Calendar", "text": "when am i gonna be meeting roger", "b": 43}
+{"id": "clinc150|c10182", "src": "clinc150", "gold": "Calendar", "text": "do i have any meetings coming up today", "b": 42}
+{"id": "clinc150|c8378", "src": "clinc150", "gold": "Calendar", "text": "set up a meeting with frank at 2pm", "b": 40}
+{"id": "clinc150|c13207", "src": "clinc150", "gold": "Calendar", "text": "add staff meeting to my calendar for march 1 at 10:00 in the morning", "b": 51}
+{"id": "clinc150|c5693", "src": "clinc150", "gold": "Calendar", "text": "check my calendar for saturday", "b": 52}
+{"id": "clinc150|c5636", "src": "clinc150", "gold": "Calendar", "text": "what is currently on my calendar for friday the 1st", "b": 63}
+{"id": "clinc150|c10124", "src": "clinc150", "gold": "Calendar", "text": "when is my meeting with roger", "b": 44}
+{"id": "clinc150|c5608", "src": "clinc150", "gold": "Calendar", "text": "is my daughter's birthday on my calendar", "b": 53}
+{"id": "clinc150|c13235", "src": "clinc150", "gold": "Calendar", "text": "clear my calendar for this friday", "b": 66}
+{"id": "clinc150|c8383", "src": "clinc150", "gold": "Calendar", "text": "can you hook me up with a meeting room on saturday morning at 10am", "b": 66}
+{"id": "clinc150|c8399", "src": "clinc150", "gold": "Calendar", "text": "how is a meeting scheduled", "b": 58}
+{"id": "clinc150|c10158", "src": "clinc150", "gold": "Calendar", "text": "am i scheduled for any meetings between noon and one", "b": 69}
+{"id": "clinc150|c13269", "src": "clinc150", "gold": "Calendar", "text": "remove my date with liz from my calendar on april 1st", "b": 51}
+{"id": "clinc150|c13204", "src": "clinc150", "gold": "Calendar", "text": "i no longer want this event in my calendar", "b": 65}
+{"id": "clinc150|c5602", "src": "clinc150", "gold": "Calendar", "text": "are there any events on my calendar for january 1st", "b": 43}
+{"id": "clinc150|c10189", "src": "clinc150", "gold": "Calendar", "text": "do i have any meetings scheduled between 3 and 5 pm today", "b": 53}
+{"id": "clinc150|c13267", "src": "clinc150", "gold": "Calendar", "text": "remove dinner with suzie from my calendar on march 1st", "b": 42}
+{"id": "clinc150|c13294", "src": "clinc150", "gold": "Calendar", "text": "add meeting with carla to my schedule for july 4", "b": 47}
+{"id": "clinc150|c10193", "src": "clinc150", "gold": "Calendar", "text": "is a meeting with ruth on my schedule today", "b": 49}
+{"id": "clinc150|c8316", "src": "clinc150", "gold": "Calendar", "text": "can you schedule a meeting with steve at the office, please", "b": 53}
+{"id": "clinc150|c10156", "src": "clinc150", "gold": "Calendar", "text": "bring up any mettings for today", "b": 60}
+{"id": "clinc150|c5638", "src": "clinc150", "gold": "Calendar", "text": "i wanna know what is currently on my calendar for friday the 1st", "b": 49}
+{"id": "clinc150|c8364", "src": "clinc150", "gold": "Calendar", "text": "please tell me if there are meeting rooms available between 9:00 am and 11:00 am", "b": 55}
+{"id": "clinc150|c13242", "src": "clinc150", "gold": "Calendar", "text": "remove the recurring training meeting events off my calendar", "b": 52}
+{"id": "clinc150|c5607", "src": "clinc150", "gold": "Calendar", "text": "what've i got set for friday, the 13th, of next year", "b": 60}
+{"id": "clinc150|c10194", "src": "clinc150", "gold": "Calendar", "text": "what do i have going on between 9 and 10", "b": 45}
+{"id": "clinc150|c13264", "src": "clinc150", "gold": "Calendar", "text": "get rid of everything on my calendar for march 2nd", "b": 51}
+{"id": "clinc150|c10140", "src": "clinc150", "gold": "Calendar", "text": "do i have to be at any meetings today", "b": 53}
+{"id": "clinc150|c5605", "src": "clinc150", "gold": "Calendar", "text": "what items do i have on my calendar for easter", "b": 53}
+{"id": "clinc150|c13261", "src": "clinc150", "gold": "Calendar", "text": "march 3rd needs to be cleared on my calendar", "b": 40}
+{"id": "clinc150|c8300", "src": "clinc150", "gold": "Calendar", "text": "i want to know if there is meeting room available at 8", "b": 43}
+{"id": "clinc150|c8395", "src": "clinc150", "gold": "Calendar", "text": "please find out if rooms are free from 1 to 2", "b": 68}
+{"id": "clinc150|c10192", "src": "clinc150", "gold": "Calendar", "text": "tell me today's scheduled conferences from noon on wards", "b": 65}
+{"id": "clinc150|c10134", "src": "clinc150", "gold": "Calendar", "text": "what is my meeting schedule like for the day", "b": 68}
+{"id": "clinc150|c8305", "src": "clinc150", "gold": "Calendar", "text": "show me how do i schedule a meeting", "b": 40}
+{"id": "clinc150|c10101", "src": "clinc150", "gold": "Calendar", "text": "when is my meeting with dan scheduled for", "b": 59}
+{"id": "clinc150|c13278", "src": "clinc150", "gold": "Calendar", "text": "lunch with deb at noon today", "b": 55}
+{"id": "clinc150|c10144", "src": "clinc150", "gold": "Calendar", "text": "what meetings are scheduled for today", "b": 45}
+{"id": "clinc150|c13228", "src": "clinc150", "gold": "Calendar", "text": "remove anniversary dinner from my calendar on april 5", "b": 43}
+{"id": "clinc150|c8371", "src": "clinc150", "gold": "Calendar", "text": "a meeting needs to be schedule and i need to know how", "b": 52}
+{"id": "clinc150|c10160", "src": "clinc150", "gold": "Calendar", "text": "what meetings do i have today between noon and one", "b": 64}
+{"id": "clinc150|c10181", "src": "clinc150", "gold": "Calendar", "text": "is the gang getting together this afternoon", "b": 69}
+{"id": "clinc150|c10105", "src": "clinc150", "gold": "Calendar", "text": "on what day is my meeting with dr lee", "b": 53}
+{"id": "clinc150|c8352", "src": "clinc150", "gold": "Calendar", "text": "are there meeting rooms available between 10-11", "b": 60}
+{"id": "clinc150|c13221", "src": "clinc150", "gold": "Calendar", "text": "take the event called surprise party off my calendar for june 2", "b": 49}
+{"id": "clinc150|c8393", "src": "clinc150", "gold": "Calendar", "text": "how many rooms are available between 2 and 3", "b": 43}
+{"id": "clinc150|c13249", "src": "clinc150", "gold": "Calendar", "text": "i need to remove fishing from my calendar for soccer", "b": 57}
+{"id": "clinc150|c5688", "src": "clinc150", "gold": "Calendar", "text": "what is on my schedule for tomorrow", "b": 50}
+{"id": "clinc150|c10148", "src": "clinc150", "gold": "Calendar", "text": "what meetings do i have today", "b": 62}
+{"id": "clinc150|c13279", "src": "clinc150", "gold": "Calendar", "text": "add jake's birthday party for friday at 5", "b": 54}
+{"id": "clinc150|c8369", "src": "clinc150", "gold": "Calendar", "text": "can you schedule a meeting with george for 4", "b": 56}
+{"id": "clinc150|c10126", "src": "clinc150", "gold": "Calendar", "text": "do i have any meetings with michael today", "b": 68}
+{"id": "clinc150|c10185", "src": "clinc150", "gold": "Calendar", "text": "please list my meetings for today from 8:00 am to 2:00 pm", "b": 53}
+{"id": "clinc150|c5689", "src": "clinc150", "gold": "Calendar", "text": "search my calendar for birthday party", "b": 54}
+{"id": "clinc150|c5670", "src": "clinc150", "gold": "Calendar", "text": "do i have anything on my schedule for april 15", "b": 59}
+{"id": "clinc150|c5669", "src": "clinc150", "gold": "Calendar", "text": "pull up my calendar and tell me what i have scheduled for march 30", "b": 65}
+{"id": "clinc150|c10138", "src": "clinc150", "gold": "Calendar", "text": "what meetings do i have scheduled today", "b": 54}
+{"id": "clinc150|c10179", "src": "clinc150", "gold": "Calendar", "text": "are there any meetings on my calendar today", "b": 41}
+{"id": "clinc150|c8321", "src": "clinc150", "gold": "Calendar", "text": "are there any meeting rooms free from 10:00 am until 10:30 am", "b": 58}
+{"id": "clinc150|c10128", "src": "clinc150", "gold": "Calendar", "text": "do i have any meetings today between 4 and 5", "b": 50}
+{"id": "clinc150|c13282", "src": "clinc150", "gold": "Calendar", "text": "take lunch off my calendar on the 3rd", "b": 47}
+{"id": "clinc150|c5692", "src": "clinc150", "gold": "Calendar", "text": "check my calendar for 30th birthday party", "b": 68}
+{"id": "clinc150|c13265", "src": "clinc150", "gold": "Calendar", "text": "take my lunch plans off the calendar for march 13th", "b": 58}
+{"id": "clinc150|c13292", "src": "clinc150", "gold": "Calendar", "text": "please put taco night on the house calendar date of january 6", "b": 54}
+{"id": "clinc150|c8319", "src": "clinc150", "gold": "Calendar", "text": "i'd like to schedule a meeting room from 1:00 pm until 2:00 pm", "b": 43}
+{"id": "clinc150|c10191", "src": "clinc150", "gold": "Calendar", "text": "are there any meetings for today on my calendar", "b": 59}
+{"id": "clinc150|c8377", "src": "clinc150", "gold": "Calendar", "text": "what's the meeting room availability between noon and 2", "b": 63}
+{"id": "clinc150|c13291", "src": "clinc150", "gold": "Calendar", "text": "put \"get tires checked\" on my calendar", "b": 66}
+{"id": "clinc150|c13253", "src": "clinc150", "gold": "Calendar", "text": "i have to add farm trip to my calendar for friday", "b": 55}
+{"id": "clinc150|c2038", "src": "clinc150", "gold": "Lists", "text": "add apples to my to do shopping list", "b": 62}
+{"id": "clinc150|c7416", "src": "clinc150", "gold": "Lists", "text": "i need to hear my todo list", "b": 41}
+{"id": "clinc150|c12628", "src": "clinc150", "gold": "Lists", "text": "can you list my shopping list for me", "b": 69}
+{"id": "clinc150|c12610", "src": "clinc150", "gold": "Lists", "text": "can you look up what my shopping list has on it", "b": 52}
+{"id": "clinc150|c7496", "src": "clinc150", "gold": "Lists", "text": "read my to-do list to me", "b": 46}
+{"id": "clinc150|c2015", "src": "clinc150", "gold": "Lists", "text": "remove wine and add beer to my shopping list", "b": 47}
+{"id": "clinc150|c2079", "src": "clinc150", "gold": "Lists", "text": "add soda on my shopping list and remove carrots", "b": 41}
+{"id": "clinc150|c2035", "src": "clinc150", "gold": "Lists", "text": "add oranges to my to do shopping list", "b": 46}
+{"id": "clinc150|c4986", "src": "clinc150", "gold": "Lists", "text": "nix folding laundry from my todo list", "b": 57}
+{"id": "clinc150|c12684", "src": "clinc150", "gold": "Lists", "text": "what do i need to go shopping for", "b": 44}
+{"id": "clinc150|c4967", "src": "clinc150", "gold": "Lists", "text": "please put cleaning on my list of things to do", "b": 53}
+{"id": "clinc150|c4976", "src": "clinc150", "gold": "Lists", "text": "add schedule appraiser to my to do list", "b": 60}
+{"id": "clinc150|c7436", "src": "clinc150", "gold": "Lists", "text": "do i already have a task on my todo list to research delaware", "b": 51}
+{"id": "clinc150|c4922", "src": "clinc150", "gold": "Lists", "text": "please clear out my whole to do list", "b": 55}
+{"id": "clinc150|c12607", "src": "clinc150", "gold": "Lists", "text": "i need to know the items on my shopping list", "b": 54}
+{"id": "clinc150|c2070", "src": "clinc150", "gold": "Lists", "text": "take carrots off my list for shopping", "b": 47}
+{"id": "clinc150|c2026", "src": "clinc150", "gold": "Lists", "text": "add bread to my list of things to buy", "b": 40}
+{"id": "clinc150|c4982", "src": "clinc150", "gold": "Lists", "text": "add grocery shopping to my list of things to do", "b": 57}
+{"id": "clinc150|c2005", "src": "clinc150", "gold": "Lists", "text": "cross out bananas from my shopping list and put papayas on it, please", "b": 55}
+{"id": "clinc150|c4933", "src": "clinc150", "gold": "Lists", "text": "please put watering the plants on my to do list", "b": 69}
+{"id": "clinc150|c4965", "src": "clinc150", "gold": "Lists", "text": "on my to do list, i need cleaning added", "b": 56}
+{"id": "clinc150|c7424", "src": "clinc150", "gold": "Lists", "text": "what is on my to do list", "b": 50}
+{"id": "clinc150|c12670", "src": "clinc150", "gold": "Lists", "text": "read me my shopping list", "b": 45}
+{"id": "clinc150|c12601", "src": "clinc150", "gold": "Lists", "text": "list out what is on my shopping list", "b": 65}
+{"id": "clinc150|c2002", "src": "clinc150", "gold": "Lists", "text": "please take away the fries from the shopping list", "b": 54}
+{"id": "clinc150|c7476", "src": "clinc150", "gold": "Lists", "text": "what have i got on my to-do list", "b": 64}
+{"id": "clinc150|c12665", "src": "clinc150", "gold": "Lists", "text": "what do i have on my list for shopping", "b": 55}
+{"id": "clinc150|c2084", "src": "clinc150", "gold": "Lists", "text": "update my shopping list, delete canned olives", "b": 50}
+{"id": "clinc150|c7480", "src": "clinc150", "gold": "Lists", "text": "i want to hear my to do list read out loud", "b": 64}
+{"id": "clinc150|c2074", "src": "clinc150", "gold": "Lists", "text": "put carrots on my shopping list", "b": 45}
+{"id": "clinc150|c7421", "src": "clinc150", "gold": "Lists", "text": "i want to know what i have to do", "b": 46}
+{"id": "clinc150|c2027", "src": "clinc150", "gold": "Lists", "text": "put bread on my shopping list", "b": 60}
+{"id": "clinc150|c2092", "src": "clinc150", "gold": "Lists", "text": "i ran out of cherrios so add that to the list", "b": 41}
+{"id": "clinc150|c12622", "src": "clinc150", "gold": "Lists", "text": "tell me my shopping list", "b": 43}
+{"id": "clinc150|c2004", "src": "clinc150", "gold": "Lists", "text": "we no longer need fries on the shopping lisr", "b": 42}
+{"id": "clinc150|c7479", "src": "clinc150", "gold": "Lists", "text": "i need to know what tasks are on my to-do list", "b": 58}
+{"id": "clinc150|c12653", "src": "clinc150", "gold": "Lists", "text": "can you read my shopping list to me", "b": 69}
+{"id": "clinc150|c7407", "src": "clinc150", "gold": "Lists", "text": "is cleaning the toilet on my to-do list", "b": 64}
+{"id": "clinc150|c2003", "src": "clinc150", "gold": "Lists", "text": "remove fries from my shopping list", "b": 56}
+{"id": "clinc150|c12646", "src": "clinc150", "gold": "Lists", "text": "on the shopping list did i put tomato", "b": 69}
+{"id": "clinc150|c2071", "src": "clinc150", "gold": "Lists", "text": "my shopping list should have carrots on it", "b": 68}
+{"id": "clinc150|c4957", "src": "clinc150", "gold": "Lists", "text": "on my to do list, add dishes", "b": 65}
+{"id": "clinc150|c12604", "src": "clinc150", "gold": "Lists", "text": "do you want peanut butter for your lunches this week", "b": 63}
+{"id": "clinc150|c4994", "src": "clinc150", "gold": "Lists", "text": "can you remind me to mop later by putting it on my to do list today", "b": 44}
+{"id": "clinc150|c2072", "src": "clinc150", "gold": "Lists", "text": "remove carrots from my shopping list and add soda", "b": 50}
+{"id": "clinc150|c4966", "src": "clinc150", "gold": "Lists", "text": "put cleaning on my to do list", "b": 66}
+{"id": "clinc150|c12677", "src": "clinc150", "gold": "Lists", "text": "can you tell me my shopping list items, please", "b": 60}
+{"id": "clinc150|c7410", "src": "clinc150", "gold": "Lists", "text": "is vacuuming on my list of things to do", "b": 45}
+{"id": "clinc150|c7491", "src": "clinc150", "gold": "Lists", "text": "i need to know if sorting the mail is on my to do list", "b": 64}
+{"id": "clinc150|c4902", "src": "clinc150", "gold": "Lists", "text": "take doing the dishes off my todo list", "b": 44}
+{"id": "clinc150|c7423", "src": "clinc150", "gold": "Lists", "text": "tell me the content of my to do list today", "b": 49}
+{"id": "clinc150|c7429", "src": "clinc150", "gold": "Lists", "text": "do my task list have call kath on it", "b": 45}
+{"id": "clinc150|c4970", "src": "clinc150", "gold": "Lists", "text": "can you place laundry on my to do list", "b": 69}
+{"id": "clinc150|c2088", "src": "clinc150", "gold": "Lists", "text": "put rice and pudding on my shopping list cause i need them", "b": 44}
+{"id": "clinc150|c7477", "src": "clinc150", "gold": "Lists", "text": "let me know whether folding laundry is on my to do list", "b": 66}
+{"id": "clinc150|c4949", "src": "clinc150", "gold": "Lists", "text": "please put my acupuncture appointment on my to list", "b": 51}
+{"id": "clinc150|c12693", "src": "clinc150", "gold": "Lists", "text": "is a toothbrush on my shopping list", "b": 50}
+{"id": "clinc150|c2063", "src": "clinc150", "gold": "Lists", "text": "i would like to put carrots on my list for shopping", "b": 45}
+{"id": "clinc150|c7411", "src": "clinc150", "gold": "Lists", "text": "will an oil change be on my to-do list tomorrow", "b": 64}
+{"id": "clinc150|c12678", "src": "clinc150", "gold": "Lists", "text": "what items are on my shopping list", "b": 53}
+{"id": "clinc150|c2095", "src": "clinc150", "gold": "Lists", "text": "for the shopping list, add ham as well", "b": 52}
+{"id": "clinc150|c7473", "src": "clinc150", "gold": "Lists", "text": "go ahead and say all of the points on my list of to-do's please", "b": 47}
+{"id": "clinc150|c12679", "src": "clinc150", "gold": "Lists", "text": "do i need to get milk", "b": 67}
+{"id": "clinc150|c7472", "src": "clinc150", "gold": "Lists", "text": "please remind me of the tasks on my to do list", "b": 61}
+{"id": "clinc150|c12694", "src": "clinc150", "gold": "Lists", "text": "does my shopping list include corn", "b": 44}
+{"id": "clinc150|c4987", "src": "clinc150", "gold": "Lists", "text": "add washing dishes to my to do list", "b": 63}
+{"id": "clinc150|c4998", "src": "clinc150", "gold": "Lists", "text": "place cleaning the backyard on my list of things to do", "b": 47}
+{"id": "clinc150|c2048", "src": "clinc150", "gold": "Lists", "text": "i want to remove milk from my shopping list and add bread", "b": 68}
+{"id": "clinc150|c2046", "src": "clinc150", "gold": "Lists", "text": "please get milk removed from my shopping list and add bread", "b": 64}
+{"id": "clinc150|c4993", "src": "clinc150", "gold": "Lists", "text": "throw mopping onto my to do list", "b": 69}
+{"id": "clinc150|c2077", "src": "clinc150", "gold": "Lists", "text": "can you take carrots off my shopping list and add soda", "b": 61}
+{"id": "clinc150|c12626", "src": "clinc150", "gold": "Lists", "text": "what things are on my shopping list", "b": 44}
+{"id": "clinc150|c2067", "src": "clinc150", "gold": "Lists", "text": "take frozen food off my shopping list", "b": 54}
+{"id": "clinc150|c12618", "src": "clinc150", "gold": "Lists", "text": "my shopping list contains what again", "b": 68}
+{"id": "clinc150|c12615", "src": "clinc150", "gold": "Lists", "text": "pull up my shopping list for me", "b": 66}
+{"id": "clinc150|c2076", "src": "clinc150", "gold": "Lists", "text": "can you take frozen food of my shopping list", "b": 59}
+{"id": "clinc150|c4989", "src": "clinc150", "gold": "Lists", "text": "take everything off my todo list", "b": 67}
+{"id": "clinc150|c4917", "src": "clinc150", "gold": "Lists", "text": "can you kindly clear my agenda list", "b": 51}
+{"id": "clinc150|c4944", "src": "clinc150", "gold": "Lists", "text": "on my big project task list please add paint shutters in spring", "b": 45}
+{"id": "clinc150|c12634", "src": "clinc150", "gold": "Lists", "text": "what can you see on my shopping list", "b": 60}
+{"id": "clinc150|c3073", "src": "clinc150", "gold": "Transport", "text": "what is the time frame to get to phoenix", "b": 60}
+{"id": "clinc150|c11654", "src": "clinc150", "gold": "Transport", "text": "is a bar close to my church", "b": 59}
+{"id": "clinc150|c14767", "src": "clinc150", "gold": "Transport", "text": "is there any traffic on the way to the bank", "b": 57}
+{"id": "clinc150|c14754", "src": "clinc150", "gold": "Transport", "text": "i need to know what the traffic is like on the way to phoenix", "b": 67}
+{"id": "clinc150|c14745", "src": "clinc150", "gold": "Transport", "text": "is there traffic to work", "b": 68}
+{"id": "clinc150|c3039", "src": "clinc150", "gold": "Transport", "text": "i want to know how long it is from here to the sky harbor airport", "b": 68}
+{"id": "clinc150|c5719", "src": "clinc150", "gold": "Transport", "text": "i need an uber to times square asap", "b": 54}
+{"id": "clinc150|c3066", "src": "clinc150", "gold": "Transport", "text": "how long will it take to get to phoenix", "b": 55}
+{"id": "clinc150|c11622", "src": "clinc150", "gold": "Transport", "text": "what steps do i need to take to take a bus to detroit", "b": 53}
+{"id": "clinc150|c14775", "src": "clinc150", "gold": "Transport", "text": "tell me how traffic is looking on the interstate", "b": 55}
+{"id": "clinc150|c11603", "src": "clinc150", "gold": "Transport", "text": "direct me to the closest starbucks near home", "b": 66}
+{"id": "clinc150|c11612", "src": "clinc150", "gold": "Transport", "text": "how do i get to the college by bus", "b": 67}
+{"id": "clinc150|c11693", "src": "clinc150", "gold": "Transport", "text": "i want directions to the closest atm", "b": 59}
+{"id": "clinc150|c5778", "src": "clinc150", "gold": "Transport", "text": "get me an uber to the napa winery", "b": 47}
+{"id": "clinc150|c5704", "src": "clinc150", "gold": "Transport", "text": "i'm going to the movies book an uber for 6 people", "b": 40}
+{"id": "clinc150|c3061", "src": "clinc150", "gold": "Transport", "text": "i want to know the time to get to td bank in toms river", "b": 65}
+{"id": "clinc150|c11615", "src": "clinc150", "gold": "Transport", "text": "assist me to know how to get to target by bus", "b": 59}
+{"id": "clinc150|c3013", "src": "clinc150", "gold": "Transport", "text": "how long does it take to get to disneyland in anaheim", "b": 65}
+{"id": "clinc150|c5779", "src": "clinc150", "gold": "Transport", "text": "schedule me an uber to my job", "b": 55}
+{"id": "clinc150|c11601", "src": "clinc150", "gold": "Transport", "text": "what's the distance between home and the closest starbucks", "b": 46}
+{"id": "clinc150|c11675", "src": "clinc150", "gold": "Transport", "text": "can you tell me the nearest wells fargo bank location to port authority, new york", "b": 56}
+{"id": "clinc150|c3001", "src": "clinc150", "gold": "Transport", "text": "how long to get to the airport in la", "b": 44}
+{"id": "clinc150|c14715", "src": "clinc150", "gold": "Transport", "text": "should i take a different route to work", "b": 50}
+{"id": "clinc150|c14769", "src": "clinc150", "gold": "Transport", "text": "will there be traffic on the way to walmart", "b": 46}
+{"id": "clinc150|c5730", "src": "clinc150", "gold": "Transport", "text": "find an uber for two passengers we are going to the airport in toledo", "b": 68}
+{"id": "clinc150|c5709", "src": "clinc150", "gold": "Transport", "text": "book me an uber to olive garden", "b": 65}
+{"id": "clinc150|c11672", "src": "clinc150", "gold": "Transport", "text": "can you tell me where the atm closest to my current location is", "b": 64}
+{"id": "clinc150|c3062", "src": "clinc150", "gold": "Transport", "text": "what time will we arrive at the bank", "b": 45}
+{"id": "clinc150|c5747", "src": "clinc150", "gold": "Transport", "text": "i need an uber to the sears tower", "b": 45}
+{"id": "clinc150|c14742", "src": "clinc150", "gold": "Transport", "text": "i would like to know the traffic in tempe please", "b": 55}
+{"id": "clinc150|c3006", "src": "clinc150", "gold": "Transport", "text": "how long will it take to drive to the kroger in westwood", "b": 56}
+{"id": "clinc150|c14752", "src": "clinc150", "gold": "Transport", "text": "i need to know what traffic will be like in temp", "b": 45}
+{"id": "clinc150|c11646", "src": "clinc150", "gold": "Transport", "text": "how would i walk to the liberty bell from here", "b": 59}
+{"id": "clinc150|c3002", "src": "clinc150", "gold": "Transport", "text": "how early should i leave to the airport in la", "b": 51}
+{"id": "clinc150|c14748", "src": "clinc150", "gold": "Transport", "text": "tell me the traffic in tempe", "b": 42}
+{"id": "clinc150|c5706", "src": "clinc150", "gold": "Transport", "text": "are there any ubers available that fit 5 people we are going to wendys", "b": 56}
+{"id": "clinc150|c11600", "src": "clinc150", "gold": "Transport", "text": "i'm at home, so where is the closest starbucks", "b": 63}
+{"id": "clinc150|c11684", "src": "clinc150", "gold": "Transport", "text": "where is the closest chevron gas station in columbus, ohio", "b": 52}
+{"id": "clinc150|c11636", "src": "clinc150", "gold": "Transport", "text": "from here, how do i get to the statue of liberty by bus", "b": 63}
+{"id": "clinc150|c5707", "src": "clinc150", "gold": "Transport", "text": "call an uber that fits 5 people that are on their way to wendys", "b": 62}
+{"id": "clinc150|c11602", "src": "clinc150", "gold": "Transport", "text": "is there a starbucks close to home", "b": 60}
+{"id": "clinc150|c14761", "src": "clinc150", "gold": "Transport", "text": "how will traffic be at 7am on the way to my job", "b": 50}
+{"id": "clinc150|c11647", "src": "clinc150", "gold": "Transport", "text": "find me the closest public bathroom", "b": 55}
+{"id": "clinc150|c14710", "src": "clinc150", "gold": "Transport", "text": "what is the traffic like on the way to kaneohe", "b": 52}
+{"id": "clinc150|c5764", "src": "clinc150", "gold": "Transport", "text": "am i able to get an uber to the movies", "b": 57}
+{"id": "clinc150|c11683", "src": "clinc150", "gold": "Transport", "text": "what's the nearest starbucks", "b": 56}
+{"id": "clinc150|c11660", "src": "clinc150", "gold": "Transport", "text": "what's the quickest way to a bank", "b": 48}
+{"id": "clinc150|c11605", "src": "clinc150", "gold": "Transport", "text": "how do i get to the beach by bus", "b": 44}
+{"id": "clinc150|c5739", "src": "clinc150", "gold": "Transport", "text": "can i get an uber for myself to the grocery store", "b": 63}
+{"id": "clinc150|c11692", "src": "clinc150", "gold": "Transport", "text": "i would like to know where the closest gas station is", "b": 42}
+{"id": "clinc150|c14747", "src": "clinc150", "gold": "Transport", "text": "i gotta know what the traffic is like on the way to phoenix", "b": 69}
+{"id": "clinc150|c5796", "src": "clinc150", "gold": "Transport", "text": "call an uber for 2 people to go to fourth street live", "b": 54}
+{"id": "clinc150|c11626", "src": "clinc150", "gold": "Transport", "text": "tell me where is the closest coffee shop", "b": 54}
+{"id": "clinc150|c5733", "src": "clinc150", "gold": "Transport", "text": "i need an uber pool from home in the morning at seven to the capitol building", "b": 67}
+{"id": "clinc150|c5754", "src": "clinc150", "gold": "Transport", "text": "can you please reserve my uber to go to devon's seafood restaurant", "b": 62}
+{"id": "clinc150|c3024", "src": "clinc150", "gold": "Transport", "text": "give me the time left before i get to the hotel", "b": 57}
+{"id": "clinc150|c3057", "src": "clinc150", "gold": "Transport", "text": "what is the average time to get to walmart in mays landing", "b": 43}
+{"id": "clinc150|c11699", "src": "clinc150", "gold": "Transport", "text": "how would i get to city hall via bus", "b": 50}
+{"id": "clinc150|c5774", "src": "clinc150", "gold": "Transport", "text": "can i get an uber to union station for 3 riders", "b": 66}
+{"id": "clinc150|c3074", "src": "clinc150", "gold": "Transport", "text": "how long does it take to get to houston by bus", "b": 68}
+{"id": "clinc150|c3031", "src": "clinc150", "gold": "Transport", "text": "how many miles will it take to get to my destination", "b": 59}
+{"id": "clinc150|c5775", "src": "clinc150", "gold": "Transport", "text": "i need an uber to the doctor", "b": 58}
+{"id": "clinc150|c3086", "src": "clinc150", "gold": "Transport", "text": "how long is the drive from sfo to fisherman's wharf", "b": 59}
+{"id": "clinc150|c11673", "src": "clinc150", "gold": "Transport", "text": "where is the nearest gas station to 20th and market streets, in philadelphia, pa", "b": 57}
+{"id": "clinc150|c5770", "src": "clinc150", "gold": "Transport", "text": "uber, i have 3 people who are going to union station", "b": 50}
+{"id": "clinc150|c14763", "src": "clinc150", "gold": "Transport", "text": "how bad is traffic at 8 on the way to burger king", "b": 66}
+{"id": "clinc150|c14734", "src": "clinc150", "gold": "Transport", "text": "is the traffic bad on the way to work", "b": 49}
+{"id": "clinc150|c5794", "src": "clinc150", "gold": "Transport", "text": "help me get an uber", "b": 42}
+{"id": "clinc150|c5755", "src": "clinc150", "gold": "Transport", "text": "can you please order me an uber to get to jfk international", "b": 58}
+{"id": "clinc150|c14759", "src": "clinc150", "gold": "Transport", "text": "traffic looking alright going towards burger king", "b": 68}
+{"id": "clinc150|c3079", "src": "clinc150", "gold": "Transport", "text": "how long will a bus ride take if i'm going to the capitol building", "b": 60}
+{"id": "clinc150|c11613", "src": "clinc150", "gold": "Transport", "text": "how do i get to the hotel by bus", "b": 42}
+{"id": "clinc150|c11623", "src": "clinc150", "gold": "Transport", "text": "how can i travel by bus to the grand canyon", "b": 67}
+{"id": "clinc150|c5718", "src": "clinc150", "gold": "Transport", "text": "i am in need of an uber to the hospital", "b": 48}
+{"id": "clinc150|c11677", "src": "clinc150", "gold": "Transport", "text": "what are the nearest streets to the statue of liberty in new york", "b": 69}
+{"id": "clinc150|c5703", "src": "clinc150", "gold": "Transport", "text": "i need an uber to the movies for me and 5 other people", "b": 62}
+{"id": "clinc150|c11650", "src": "clinc150", "gold": "Transport", "text": "does the bus go to the washington monument", "b": 57}
+{"id": "clinc150|c5713", "src": "clinc150", "gold": "Transport", "text": "i need an uber for 5 people to go to wendys", "b": 43}
+{"id": "clinc150|c14762", "src": "clinc150", "gold": "Transport", "text": "pull up traffic predictions at 4pm on the way to the library", "b": 62}
+{"id": "clinc150|c14737", "src": "clinc150", "gold": "Transport", "text": "let me know the traffic in tempe", "b": 48}
+{"id": "clinc150|c10824", "src": "clinc150", "gold": "Weather", "text": "tell me this week's forecast", "b": 66}
+{"id": "clinc150|c10889", "src": "clinc150", "gold": "Weather", "text": "is it snowing right now in richmond, va", "b": 67}
+{"id": "clinc150|c10818", "src": "clinc150", "gold": "Weather", "text": "what is the record high temperature for today", "b": 57}
+{"id": "clinc150|c10843", "src": "clinc150", "gold": "Weather", "text": "what is the weather report for costa mesa", "b": 68}
+{"id": "clinc150|c10819", "src": "clinc150", "gold": "Weather", "text": "whats the predicted weather suppose to be like", "b": 55}
+{"id": "clinc150|c10837", "src": "clinc150", "gold": "Weather", "text": "can you tell me what the weather will be please", "b": 56}
+{"id": "clinc150|c10855", "src": "clinc150", "gold": "Weather", "text": "how cold is it going to be tonight", "b": 54}
+{"id": "clinc150|c10864", "src": "clinc150", "gold": "Weather", "text": "what kind of weather does miami have", "b": 46}
+{"id": "clinc150|c10856", "src": "clinc150", "gold": "Weather", "text": "what is the weather forecast for seattle", "b": 69}
+{"id": "clinc150|c10849", "src": "clinc150", "gold": "Weather", "text": "tell me the weather report for tallahassee", "b": 41}
+{"id": "clinc150|c10836", "src": "clinc150", "gold": "Weather", "text": "is there any rain in the next 3 days", "b": 56}
+{"id": "clinc150|c10865", "src": "clinc150", "gold": "Weather", "text": "how is the weather in miami", "b": 68}
+{"id": "clinc150|c10814", "src": "clinc150", "gold": "Weather", "text": "are there any tornadoes coming soon", "b": 40}
+{"id": "clinc150|c10871", "src": "clinc150", "gold": "Weather", "text": "what is the high temperature for tomorrow", "b": 49}
+{"id": "clinc150|c10801", "src": "clinc150", "gold": "Weather", "text": "what's the temperature like in tampa", "b": 65}
+{"id": "clinc150|c10844", "src": "clinc150", "gold": "Weather", "text": "weather in costa mesa", "b": 51}
+{"id": "clinc150|c10892", "src": "clinc150", "gold": "Weather", "text": "when is the next time it is suppose to rain", "b": 63}
+{"id": "clinc150|c10877", "src": "clinc150", "gold": "Weather", "text": "what is the weather like in sparks right now", "b": 67}
+{"id": "clinc150|c10835", "src": "clinc150", "gold": "Weather", "text": "will it snow this weekend", "b": 56}
+{"id": "clinc150|c10852", "src": "clinc150", "gold": "Weather", "text": "can you tell me the low tonight", "b": 66}
+{"id": "massive|m795", "src": "massive", "gold": "Alarm", "text": "what time is the alarm set for tomorrow", "b": 54}
+{"id": "massive|m4122", "src": "massive", "gold": "Alarm", "text": "let me know the alarm time", "b": 50}
+{"id": "massive|m5981", "src": "massive", "gold": "Alarm", "text": "let me know about the alarms you set", "b": 48}
+{"id": "massive|m5736", "src": "massive", "gold": "Alarm", "text": "show me what alarm times i've set for the week", "b": 44}
+{"id": "massive|m5507", "src": "massive", "gold": "Alarm", "text": "please arrange to wake me up at three am alarm", "b": 52}
+{"id": "massive|m509", "src": "massive", "gold": "Alarm", "text": "which alarms do i have", "b": 58}
+{"id": "massive|m1656", "src": "massive", "gold": "Alarm", "text": "show me all scheduled alarms", "b": 52}
+{"id": "massive|m722", "src": "massive", "gold": "Alarm", "text": "make an alarm to wake me up after five hours", "b": 45}
+{"id": "massive|m3949", "src": "massive", "gold": "Alarm", "text": "can you set an alarm for me", "b": 42}
+{"id": "massive|m7042", "src": "massive", "gold": "Alarm", "text": "please set a reminder alarm for three p. m. on saturday", "b": 41}
+{"id": "massive|m3537", "src": "massive", "gold": "Alarm", "text": "turn off my alarms", "b": 40}
+{"id": "massive|m3765", "src": "massive", "gold": "Alarm", "text": "please set an alarm for me", "b": 42}
+{"id": "massive|m4783", "src": "massive", "gold": "Alarm", "text": "set the alarm", "b": 43}
+{"id": "massive|m3063", "src": "massive", "gold": "Alarm", "text": "i would like this alarm permanently removed", "b": 51}
+{"id": "massive|m5622", "src": "massive", "gold": "Alarm", "text": "wake me at seven am", "b": 42}
+{"id": "massive|m1262", "src": "massive", "gold": "Alarm", "text": "when is my alarm set for", "b": 40}
+{"id": "massive|m602", "src": "massive", "gold": "Alarm", "text": "set alarm to begin", "b": 56}
+{"id": "massive|m3934", "src": "massive", "gold": "Alarm", "text": "show me the alarms that are set", "b": 46}
+{"id": "massive|m235", "src": "massive", "gold": "Alarm", "text": "alert me at three p. m. to go to the concert", "b": 47}
+{"id": "massive|m3150", "src": "massive", "gold": "Alarm", "text": "when will my alarm go off in the morning", "b": 56}
+{"id": "massive|m3445", "src": "massive", "gold": "Alarm", "text": "let me know when it is ten", "b": 46}
+{"id": "massive|m4594", "src": "massive", "gold": "Alarm", "text": "show me the alarms i've set", "b": 48}
+{"id": "massive|m95", "src": "massive", "gold": "Alarm", "text": "set alarm for eight every weekday", "b": 41}
+{"id": "massive|m5114", "src": "massive", "gold": "Alarm", "text": "is there any alarm after five am", "b": 64}
+{"id": "massive|m5890", "src": "massive", "gold": "Alarm", "text": "list all set alarms", "b": 58}
+{"id": "massive|m1733", "src": "massive", "gold": "Alarm", "text": "checkout today alarm of meeting", "b": 55}
+{"id": "massive|m1453", "src": "massive", "gold": "Alarm", "text": "change the alarm weekly settings", "b": 53}
+{"id": "massive|m4450", "src": "massive", "gold": "Alarm", "text": "what time will my alarm wake me up", "b": 51}
+{"id": "massive|m603", "src": "massive", "gold": "Alarm", "text": "change alarm to start at midnight", "b": 62}
+{"id": "massive|m2430", "src": "massive", "gold": "Alarm", "text": "please check alarms", "b": 40}
+{"id": "massive|m5618", "src": "massive", "gold": "Alarm", "text": "just see for me the alarms that you have set today morning", "b": 60}
+{"id": "massive|m233", "src": "massive", "gold": "Alarm", "text": "set an alarm for four in the afternoon", "b": 58}
+{"id": "massive|m5052", "src": "massive", "gold": "Alarm", "text": "i need an alarm", "b": 63}
+{"id": "massive|m5866", "src": "massive", "gold": "Alarm", "text": "is there any alarm active", "b": 41}
+{"id": "massive|m4018", "src": "massive", "gold": "Alarm", "text": "olly get rid of my current alarms", "b": 62}
+{"id": "massive|m172", "src": "massive", "gold": "Alarm", "text": "set alarm at ten am", "b": 40}
+{"id": "massive|m5794", "src": "massive", "gold": "Alarm", "text": "set an alarm in an hour's time", "b": 47}
+{"id": "massive|m1263", "src": "massive", "gold": "Alarm", "text": "how many alarms do i have", "b": 40}
+{"id": "massive|m3385", "src": "massive", "gold": "Alarm", "text": "at seven am tomorrow morning ring the alarm", "b": 62}
+{"id": "massive|m4876", "src": "massive", "gold": "Alarm", "text": "remove my six am alarm", "b": 46}
+{"id": "massive|m4014", "src": "massive", "gold": "Alarm", "text": "remove all of my alarms", "b": 65}
+{"id": "massive|m1338", "src": "massive", "gold": "Alarm", "text": "what alarms do i have scheduled for tomorrow", "b": 56}
+{"id": "massive|m3465", "src": "massive", "gold": "Alarm", "text": "please turn off the alarm", "b": 54}
+{"id": "massive|m6085", "src": "massive", "gold": "Alarm", "text": "open alarm and create an alert for ten am", "b": 42}
+{"id": "massive|m4080", "src": "massive", "gold": "Alarm", "text": "i need to set an alarm tomorrow at one thousand two hundred p. m. to remind me to take my medication", "b": 57}
+{"id": "massive|m5172", "src": "massive", "gold": "Alarm", "text": "please wake me up at seven thirty am", "b": 46}
+{"id": "massive|m2871", "src": "massive", "gold": "Alarm", "text": "what alarms have been set for me", "b": 68}
+{"id": "massive|m8174", "src": "massive", "gold": "Alarm", "text": "will you set alarm clock one day before for all gym class on my calendar", "b": 67}
+{"id": "massive|m4468", "src": "massive", "gold": "Alarm", "text": "postpone my alarm by fifteen minutes", "b": 64}
+{"id": "massive|m3693", "src": "massive", "gold": "Alarm", "text": "olly i need an alarm set for five hundred and thirty am tomorrow", "b": 53}
+{"id": "massive|m1975", "src": "massive", "gold": "Alarm", "text": "have i set any alarm for today", "b": 65}
+{"id": "massive|m4929", "src": "massive", "gold": "Alarm", "text": "turn on my first scheduled alarm", "b": 61}
+{"id": "massive|m3384", "src": "massive", "gold": "Alarm", "text": "please set the alarm for eight p. m. wednesday evening", "b": 64}
+{"id": "massive|m5668", "src": "massive", "gold": "Alarm", "text": "then tap ok", "b": 42}
+{"id": "massive|m1036", "src": "massive", "gold": "Alarm", "text": "is my work alarm set for tomorrow", "b": 53}
+{"id": "massive|m5072", "src": "massive", "gold": "Alarm", "text": "please create a new alarm", "b": 48}
+{"id": "massive|m2956", "src": "massive", "gold": "Alarm", "text": "what time are my alarms", "b": 51}
+{"id": "massive|m7610", "src": "massive", "gold": "Alarm", "text": "remove tomorrow's alarm", "b": 50}
+{"id": "massive|m847", "src": "massive", "gold": "Alarm", "text": "are there any alarms set right now", "b": 54}
+{"id": "massive|m507", "src": "massive", "gold": "Alarm", "text": "confirm the alarm time", "b": 43}
+{"id": "massive|m3044", "src": "massive", "gold": "Alarm", "text": "what time is alarm set for", "b": 51}
+{"id": "massive|m941", "src": "massive", "gold": "Alarm", "text": "set my alarm please", "b": 45}
+{"id": "massive|m3885", "src": "massive", "gold": "Alarm", "text": "what alarms are currently set", "b": 56}
+{"id": "massive|m2873", "src": "massive", "gold": "Alarm", "text": "do i have alarms set for today", "b": 49}
+{"id": "massive|m6848", "src": "massive", "gold": "Alarm", "text": "wake me up on friday at five in the morning i need to catch the train", "b": 43}
+{"id": "massive|m4718", "src": "massive", "gold": "Alarm", "text": "set an alarm for tomorrow monday at eight am", "b": 63}
+{"id": "massive|m3959", "src": "massive", "gold": "Alarm", "text": "change my alarms to mountain time", "b": 62}
+{"id": "massive|m2604", "src": "massive", "gold": "Alarm", "text": "set an alarm for one hour from now", "b": 64}
+{"id": "massive|m3955", "src": "massive", "gold": "Alarm", "text": "set an alarm for nine p. m.", "b": 56}
+{"id": "massive|m863", "src": "massive", "gold": "Alarm", "text": "my alarms", "b": 48}
+{"id": "massive|m3703", "src": "massive", "gold": "Alarm", "text": "what alarms are set for this week", "b": 41}
+{"id": "massive|m5506", "src": "massive", "gold": "Alarm", "text": "tell me if my alarm is set for the morning", "b": 51}
+{"id": "massive|m1624", "src": "massive", "gold": "Alarm", "text": "set the time", "b": 49}
+{"id": "massive|m3243", "src": "massive", "gold": "Alarm", "text": "set alarm for sixth of june two thousand seventeen at five am", "b": 43}
+{"id": "massive|m1183", "src": "massive", "gold": "Alarm", "text": "twelve am removed", "b": 49}
+{"id": "massive|m5868", "src": "massive", "gold": "Alarm", "text": "reset the alarm", "b": 57}
+{"id": "massive|m3965", "src": "massive", "gold": "Alarm", "text": "show me the list of alarms", "b": 45}
+{"id": "massive|m1485", "src": "massive", "gold": "Alarm", "text": "list all the alarms", "b": 53}
+{"id": "massive|m6100", "src": "massive", "gold": "Alarm", "text": "what home alarms have been set", "b": 46}
+{"id": "massive|m2671", "src": "massive", "gold": "Alarm", "text": "would you please check to see if i've set my alarm for tomorrow morning", "b": 45}
+{"id": "massive|m7085", "src": "massive", "gold": "Calendar", "text": "remind me later", "b": 63}
+{"id": "massive|m8121", "src": "massive", "gold": "Calendar", "text": "change moms birthday event to repeat every year on same day", "b": 62}
+{"id": "massive|m8898", "src": "massive", "gold": "Calendar", "text": "information", "b": 69}
+{"id": "massive|m8784", "src": "massive", "gold": "Calendar", "text": "is this event date right", "b": 64}
+{"id": "massive|m8682", "src": "massive", "gold": "Calendar", "text": "erase events", "b": 57}
+{"id": "massive|m6844", "src": "massive", "gold": "Calendar", "text": "set reminder for tennis game with peter on sunday at four p. m.", "b": 67}
+{"id": "massive|m7335", "src": "massive", "gold": "Calendar", "text": "note my event with person on date at place", "b": 53}
+{"id": "massive|m7017", "src": "massive", "gold": "Calendar", "text": "is my calendar empty", "b": 40}
+{"id": "massive|m7906", "src": "massive", "gold": "Calendar", "text": "task meeting", "b": 46}
+{"id": "massive|m8671", "src": "massive", "gold": "Calendar", "text": "when is the kiss concert", "b": 49}
+{"id": "massive|m7790", "src": "massive", "gold": "Calendar", "text": "please remind me about the eleven am business meet", "b": 62}
+{"id": "massive|m7831", "src": "massive", "gold": "Calendar", "text": "remove all appointments", "b": 49}
+{"id": "massive|m8363", "src": "massive", "gold": "Calendar", "text": "do i have anything scheduled tomorrow from noon to three p. m.", "b": 52}
+{"id": "massive|m7611", "src": "massive", "gold": "Calendar", "text": "cancel all meetings for today", "b": 63}
+{"id": "massive|m8756", "src": "massive", "gold": "Calendar", "text": "olly can you please add my dinner reservations to my calendar", "b": 50}
+{"id": "massive|m7245", "src": "massive", "gold": "Calendar", "text": "when will team meeting start", "b": 62}
+{"id": "massive|m6942", "src": "massive", "gold": "Calendar", "text": "set an event", "b": 55}
+{"id": "massive|m7897", "src": "massive", "gold": "Calendar", "text": "do i have any appointments set for tomorrow", "b": 43}
+{"id": "massive|m6793", "src": "massive", "gold": "Calendar", "text": "olly tell me about my events", "b": 40}
+{"id": "massive|m9058", "src": "massive", "gold": "Calendar", "text": "tell me when the event is happening", "b": 68}
+{"id": "massive|m8875", "src": "massive", "gold": "Calendar", "text": "anything happening today", "b": 41}
+{"id": "massive|m7629", "src": "massive", "gold": "Calendar", "text": "remind me about tomorrows meeting", "b": 46}
+{"id": "massive|m7748", "src": "massive", "gold": "Calendar", "text": "erase all my event in my calendar", "b": 61}
+{"id": "massive|m8222", "src": "massive", "gold": "Calendar", "text": "remind me about thing at time", "b": 69}
+{"id": "massive|m8675", "src": "massive", "gold": "Calendar", "text": "who is going to my meeting at nine am", "b": 57}
+{"id": "massive|m8696", "src": "massive", "gold": "Calendar", "text": "schedule a meeting with al on tuesday", "b": 59}
+{"id": "massive|m4293", "src": "massive", "gold": "Calendar", "text": "what are the upcoming reminders", "b": 57}
+{"id": "massive|m8486", "src": "massive", "gold": "Calendar", "text": "what day and time is the acme meeting in san diego california", "b": 57}
+{"id": "massive|m7787", "src": "massive", "gold": "Calendar", "text": "remind me the night before my doctor's appointment", "b": 58}
+{"id": "massive|m7364", "src": "massive", "gold": "Calendar", "text": "delete an first event of twenty third of march twenty seventeen", "b": 54}
+{"id": "massive|m8521", "src": "massive", "gold": "Calendar", "text": "set reminder in calendar", "b": 49}
+{"id": "massive|m7274", "src": "massive", "gold": "Calendar", "text": "remind me about my anniversary in advance", "b": 45}
+{"id": "massive|m8179", "src": "massive", "gold": "Calendar", "text": "could you delete all my appointments on calendar", "b": 62}
+{"id": "massive|m9172", "src": "massive", "gold": "Calendar", "text": "make a calendar entry for next saturday at ten am please", "b": 52}
+{"id": "massive|m6955", "src": "massive", "gold": "Calendar", "text": "set notification for meeting with boss", "b": 54}
+{"id": "massive|m9076", "src": "massive", "gold": "Calendar", "text": "give me the schedule", "b": 49}
+{"id": "massive|m7447", "src": "massive", "gold": "Calendar", "text": "could you create a new event with these people only", "b": 69}
+{"id": "massive|m6794", "src": "massive", "gold": "Calendar", "text": "is there any event today in my calendar", "b": 66}
+{"id": "massive|m6762", "src": "massive", "gold": "Calendar", "text": "drop my june holiday from calendar", "b": 60}
+{"id": "massive|m6780", "src": "massive", "gold": "Calendar", "text": "am i free this saturday", "b": 68}
+{"id": "massive|m8351", "src": "massive", "gold": "Calendar", "text": "what is the dress code for the party", "b": 62}
+{"id": "massive|m8015", "src": "massive", "gold": "Calendar", "text": "do i have a date for tonight", "b": 47}
+{"id": "massive|m6715", "src": "massive", "gold": "Calendar", "text": "delete the richard's wedding event next year", "b": 59}
+{"id": "massive|m9168", "src": "massive", "gold": "Calendar", "text": "olly remind me about my next meeting a few hours ahead of time", "b": 63}
+{"id": "massive|m8989", "src": "massive", "gold": "Calendar", "text": "add events", "b": 51}
+{"id": "massive|m7615", "src": "massive", "gold": "Calendar", "text": "tell me about the next devil's hockey game friday", "b": 69}
+{"id": "massive|m8464", "src": "massive", "gold": "Calendar", "text": "remind me of my meeting on wednesday at nine am", "b": 46}
+{"id": "massive|m7256", "src": "massive", "gold": "Calendar", "text": "when is my next appointment and who do i contact to reschedule", "b": 68}
+{"id": "massive|m7715", "src": "massive", "gold": "Calendar", "text": "locate address for myrtle beach state fair", "b": 43}
+{"id": "massive|m8536", "src": "massive", "gold": "Calendar", "text": "remind me to fill college's application form every two days from now", "b": 52}
+{"id": "massive|m7982", "src": "massive", "gold": "Calendar", "text": "delete all events for today", "b": 49}
+{"id": "massive|m7267", "src": "massive", "gold": "Calendar", "text": "hey make sure i go to sarahs birthday party on the twelveth", "b": 63}
+{"id": "massive|m7758", "src": "massive", "gold": "Calendar", "text": "when is my next event", "b": 44}
+{"id": "massive|m8065", "src": "massive", "gold": "Calendar", "text": "when is my mortgage due", "b": 53}
+{"id": "massive|m7282", "src": "massive", "gold": "Calendar", "text": "how busy is my schedule today", "b": 56}
+{"id": "massive|m7501", "src": "massive", "gold": "Calendar", "text": "next event is canceled", "b": 57}
+{"id": "massive|m7276", "src": "massive", "gold": "Calendar", "text": "show me the list of friends having birthday yesterday and i have not wished them", "b": 51}
+{"id": "massive|m8445", "src": "massive", "gold": "Calendar", "text": "remind me i need to be at the library a week from today at five", "b": 68}
+{"id": "massive|m7264", "src": "massive", "gold": "Calendar", "text": "what meetings do i have this week", "b": 57}
+{"id": "massive|m7803", "src": "massive", "gold": "Calendar", "text": "make a repeating reminder for my yoga practice every day at noon", "b": 43}
+{"id": "massive|m9192", "src": "massive", "gold": "Calendar", "text": "set this date to repeat reminder", "b": 52}
+{"id": "massive|m7406", "src": "massive", "gold": "Calendar", "text": "set repeating event gym day on calendar", "b": 56}
+{"id": "massive|m9133", "src": "massive", "gold": "Calendar", "text": "schedule meeting on tuesday", "b": 67}
+{"id": "massive|m7698", "src": "massive", "gold": "Calendar", "text": "remind me in the future of this", "b": 62}
+{"id": "massive|m8878", "src": "massive", "gold": "Calendar", "text": "what do i have going on next friday", "b": 56}
+{"id": "massive|m9109", "src": "massive", "gold": "Calendar", "text": "make a calendar note exhibition two thousand and seventeen mass on mar twenty five", "b": 51}
+{"id": "massive|m8070", "src": "massive", "gold": "Calendar", "text": "remind me to meet sarah at safeway in mckinleyville california at noon", "b": 59}
+{"id": "massive|m9125", "src": "massive", "gold": "Calendar", "text": "when is my next dentist appointment", "b": 57}
+{"id": "massive|m8316", "src": "massive", "gold": "Calendar", "text": "please add march fifth as john's birthday", "b": 54}
+{"id": "massive|m6949", "src": "massive", "gold": "Calendar", "text": "hi please remind the next meeting with my boss it will be at eleven am next monday", "b": 45}
+{"id": "massive|m7204", "src": "massive", "gold": "Calendar", "text": "can you set up a meeting with me", "b": 56}
+{"id": "massive|m8275", "src": "massive", "gold": "Calendar", "text": "please clear jeff's birthday from the calendar", "b": 42}
+{"id": "massive|m8530", "src": "massive", "gold": "Calendar", "text": "what appointments do i have between one p. m. till three p. m.", "b": 51}
+{"id": "massive|m8922", "src": "massive", "gold": "Calendar", "text": "please put me your input to know my schedule", "b": 67}
+{"id": "massive|m7411", "src": "massive", "gold": "Calendar", "text": "notify all birthdays next week", "b": 49}
+{"id": "massive|m7020", "src": "massive", "gold": "Calendar", "text": "give me the details of next reminder", "b": 67}
+{"id": "massive|m8566", "src": "massive", "gold": "Calendar", "text": "am i free between six to seven p. m.", "b": 54}
+{"id": "massive|m7482", "src": "massive", "gold": "Calendar", "text": "olly set up a daily reminder for me please", "b": 46}
+{"id": "massive|m9060", "src": "massive", "gold": "Calendar", "text": "what reminders do i have currently", "b": 57}
+{"id": "massive|m8514", "src": "massive", "gold": "Calendar", "text": "do i have any openings on my schedule for tomorrow", "b": 59}
+{"id": "massive|m10686", "src": "massive", "gold": "Lists", "text": "please remove sporty event from list", "b": 45}
+{"id": "massive|m11226", "src": "massive", "gold": "Lists", "text": "display my lists", "b": 47}
+{"id": "massive|m10564", "src": "massive", "gold": "Lists", "text": "please remove task list", "b": 53}
+{"id": "massive|m10872", "src": "massive", "gold": "Lists", "text": "add ketchup to the list", "b": 47}
+{"id": "massive|m10647", "src": "massive", "gold": "Lists", "text": "put clean dog at the top of the cleaning list", "b": 62}
+{"id": "massive|m11135", "src": "massive", "gold": "Lists", "text": "make new playlist from recent songs", "b": 56}
+{"id": "massive|m11100", "src": "massive", "gold": "Lists", "text": "enter this to a list", "b": 41}
+{"id": "massive|m11114", "src": "massive", "gold": "Lists", "text": "create a list for the following", "b": 61}
+{"id": "massive|m11033", "src": "massive", "gold": "Lists", "text": "make a things to do list", "b": 53}
+{"id": "massive|m10798", "src": "massive", "gold": "Lists", "text": "add butter to the list", "b": 56}
+{"id": "massive|m10612", "src": "massive", "gold": "Lists", "text": "take away from the list all food items with prefix dry", "b": 65}
+{"id": "massive|m11123", "src": "massive", "gold": "Lists", "text": "tell me items that are on my shopping list", "b": 63}
+{"id": "massive|m10477", "src": "massive", "gold": "Lists", "text": "make sure bread is on my grocery list", "b": 42}
+{"id": "massive|m11044", "src": "massive", "gold": "Lists", "text": "list check", "b": 49}
+{"id": "massive|m11090", "src": "massive", "gold": "Lists", "text": "refresh the list with new one", "b": 54}
+{"id": "massive|m7742", "src": "massive", "gold": "Lists", "text": "remove grocery shopping from my to do list on sunday", "b": 50}
+{"id": "massive|m11099", "src": "massive", "gold": "Lists", "text": "include this", "b": 44}
+{"id": "massive|m10878", "src": "massive", "gold": "Lists", "text": "i want to make a list and this should be automatically saved as a text file with the title list", "b": 69}
+{"id": "massive|m10818", "src": "massive", "gold": "Lists", "text": "do i have any lists", "b": 68}
+{"id": "massive|m10617", "src": "massive", "gold": "Lists", "text": "a new list to be created by tomorrow", "b": 59}
+{"id": "massive|m10942", "src": "massive", "gold": "Lists", "text": "what is on my rap playlist", "b": 58}
+{"id": "massive|m11218", "src": "massive", "gold": "Lists", "text": "refresh my list and tell me what's on it", "b": 46}
+{"id": "massive|m10463", "src": "massive", "gold": "Lists", "text": "delete list", "b": 56}
+{"id": "massive|m10465", "src": "massive", "gold": "Lists", "text": "get rid of item on the list", "b": 40}
+{"id": "massive|m10434", "src": "massive", "gold": "Lists", "text": "delete this list", "b": 56}
+{"id": "massive|m11229", "src": "massive", "gold": "Lists", "text": "i have all details about pda's", "b": 46}
+{"id": "massive|m10801", "src": "massive", "gold": "Lists", "text": "erase previous list", "b": 67}
+{"id": "massive|m11073", "src": "massive", "gold": "Lists", "text": "remove deposit check from to do list", "b": 48}
+{"id": "massive|m11018", "src": "massive", "gold": "Lists", "text": "do i have repair work today", "b": 44}
+{"id": "massive|m10436", "src": "massive", "gold": "Lists", "text": "create a list", "b": 60}
+{"id": "massive|m10874", "src": "massive", "gold": "Lists", "text": "can you remove my to do list", "b": 53}
+{"id": "massive|m10637", "src": "massive", "gold": "Lists", "text": "the available lists", "b": 67}
+{"id": "massive|m11142", "src": "massive", "gold": "Lists", "text": "please create a list of due payment those who not received more then ten months", "b": 53}
+{"id": "massive|m10802", "src": "massive", "gold": "Lists", "text": "get rid of the last list", "b": 55}
+{"id": "massive|m11230", "src": "massive", "gold": "Lists", "text": "i have report any of the pda's", "b": 45}
+{"id": "massive|m10862", "src": "massive", "gold": "Lists", "text": "i need you to remove item south from my list", "b": 50}
+{"id": "massive|m10884", "src": "massive", "gold": "Lists", "text": "how can i delete an item", "b": 67}
+{"id": "massive|m10639", "src": "massive", "gold": "Lists", "text": "what are the things i need for my journey", "b": 42}
+{"id": "massive|m10734", "src": "massive", "gold": "Lists", "text": "delete shopping from my list", "b": 42}
+{"id": "massive|m11105", "src": "massive", "gold": "Lists", "text": "to do list", "b": 55}
+{"id": "massive|m10963", "src": "massive", "gold": "Lists", "text": "please destroy this list", "b": 47}
+{"id": "massive|m11118", "src": "massive", "gold": "Lists", "text": "do i have any lists for the upcoming week", "b": 59}
+{"id": "massive|m11116", "src": "massive", "gold": "Lists", "text": "add new items in the alarm list", "b": 50}
+{"id": "massive|m11188", "src": "massive", "gold": "Lists", "text": "open the list", "b": 44}
+{"id": "massive|m10710", "src": "massive", "gold": "Lists", "text": "put this on my list", "b": 40}
+{"id": "massive|m11143", "src": "massive", "gold": "Lists", "text": "please find all name start with alphabetic of g. and create a list", "b": 45}
+{"id": "massive|m11252", "src": "massive", "gold": "Lists", "text": "please add item to list", "b": 52}
+{"id": "massive|m11072", "src": "massive", "gold": "Lists", "text": "remove car insurance from bills list", "b": 52}
+{"id": "massive|m10892", "src": "massive", "gold": "Lists", "text": "create a new list called grocery store please", "b": 50}
+{"id": "massive|m10947", "src": "massive", "gold": "Lists", "text": "can you tell me what list i have", "b": 46}
+{"id": "massive|m10515", "src": "massive", "gold": "Lists", "text": "i need to make a list of bills that are due", "b": 59}
+{"id": "massive|m10606", "src": "massive", "gold": "Lists", "text": "what is the number of food items on the list", "b": 50}
+{"id": "massive|m10937", "src": "massive", "gold": "Lists", "text": "clear list things to do this weekend", "b": 41}
+{"id": "massive|m11237", "src": "massive", "gold": "Lists", "text": "i need to add bananas to my grocery list", "b": 54}
+{"id": "massive|m11208", "src": "massive", "gold": "Lists", "text": "add a meeting with architect to my new project list", "b": 45}
+{"id": "massive|m10530", "src": "massive", "gold": "Lists", "text": "add to the list", "b": 56}
+{"id": "massive|m11028", "src": "massive", "gold": "Lists", "text": "edit list", "b": 40}
+{"id": "massive|m10722", "src": "massive", "gold": "Lists", "text": "hey olly i need you to make a list of cricket players of indian team who played for the international team in two thousand and fourteen", "b": 64}
+{"id": "massive|m11054", "src": "massive", "gold": "Lists", "text": "google i need you to delete the current list", "b": 40}
+{"id": "massive|m11015", "src": "massive", "gold": "Lists", "text": "put the item on the list", "b": 65}
+{"id": "massive|m10869", "src": "massive", "gold": "Lists", "text": "anything else left on the list", "b": 43}
+{"id": "massive|m10800", "src": "massive", "gold": "Lists", "text": "delete recent list now", "b": 48}
+{"id": "massive|m11027", "src": "massive", "gold": "Lists", "text": "olly edit list", "b": 50}
+{"id": "massive|m10959", "src": "massive", "gold": "Lists", "text": "add to my groceries", "b": 40}
+{"id": "massive|m11225", "src": "massive", "gold": "Lists", "text": "what kind of lists do i have", "b": 68}
+{"id": "massive|m10713", "src": "massive", "gold": "Lists", "text": "alexa create a new list", "b": 42}
+{"id": "massive|m10708", "src": "massive", "gold": "Lists", "text": "get rid of this list", "b": 65}
+{"id": "massive|m10913", "src": "massive", "gold": "Lists", "text": "name off all the lists i own", "b": 46}
+{"id": "massive|m11111", "src": "massive", "gold": "Lists", "text": "read out my list for today", "b": 46}
+{"id": "massive|m11031", "src": "massive", "gold": "Lists", "text": "do i have anything on my honey do list", "b": 50}
+{"id": "massive|m10774", "src": "massive", "gold": "Lists", "text": "could you open my list app and check for groceries please", "b": 60}
+{"id": "massive|m10980", "src": "massive", "gold": "Lists", "text": "tell me what is in your list", "b": 43}
+{"id": "massive|m10441", "src": "massive", "gold": "Lists", "text": "how many events on my list", "b": 43}
+{"id": "massive|m10856", "src": "massive", "gold": "Lists", "text": "i need to see my list", "b": 56}
+{"id": "massive|m10656", "src": "massive", "gold": "Lists", "text": "delete my christmas holiday list", "b": 61}
+{"id": "massive|m10788", "src": "massive", "gold": "Lists", "text": "mention the list", "b": 57}
+{"id": "massive|m11136", "src": "massive", "gold": "Lists", "text": "make a list of camera photos", "b": 65}
+{"id": "massive|m10601", "src": "massive", "gold": "Lists", "text": "i think i ran out of this can you add it to my list", "b": 56}
+{"id": "massive|m10740", "src": "massive", "gold": "Lists", "text": "is there room on my grocery list for an extra item", "b": 53}
+{"id": "massive|m11108", "src": "massive", "gold": "Lists", "text": "there are anything in my list", "b": 42}
+{"id": "massive|m12270", "src": "massive", "gold": "Transport", "text": "book me a train ticket in any train to bombay for tomorrow", "b": 58}
+{"id": "massive|m12823", "src": "massive", "gold": "Transport", "text": "find ny train time", "b": 65}
+{"id": "massive|m12184", "src": "massive", "gold": "Transport", "text": "is there any construction on route sixty six", "b": 68}
+{"id": "massive|m12425", "src": "massive", "gold": "Transport", "text": "what are the train times at millennium station departing toward indiana today", "b": 40}
+{"id": "massive|m12246", "src": "massive", "gold": "Transport", "text": "is there a train from philadelphia to new york city at noon", "b": 69}
+{"id": "massive|m12731", "src": "massive", "gold": "Transport", "text": "what are the train times for today", "b": 52}
+{"id": "massive|m12664", "src": "massive", "gold": "Transport", "text": "train tickets for two people from delhi to mumbai", "b": 57}
+{"id": "massive|m12695", "src": "massive", "gold": "Transport", "text": "is the traffic bad enough that i should leave early", "b": 50}
+{"id": "massive|m12574", "src": "massive", "gold": "Transport", "text": "book ticket for paris by train", "b": 61}
+{"id": "massive|m12374", "src": "massive", "gold": "Transport", "text": "what time can i catch the train to d. c. and arrive by nine am", "b": 58}
+{"id": "massive|m12214", "src": "massive", "gold": "Transport", "text": "schedule city cab from home to airport at eight am", "b": 46}
+{"id": "massive|m12720", "src": "massive", "gold": "Transport", "text": "what is my eta to the office if i leave in thirty minutes", "b": 43}
+{"id": "massive|m12129", "src": "massive", "gold": "Transport", "text": "book me a ticket for a train to new york from boston in two days from now", "b": 42}
+{"id": "massive|m12592", "src": "massive", "gold": "Transport", "text": "please purchase me a train ticket to atlanta", "b": 64}
+{"id": "massive|m12653", "src": "massive", "gold": "Transport", "text": "order a train ticket to los angeles", "b": 44}
+{"id": "massive|m12859", "src": "massive", "gold": "Transport", "text": "when is the next train to london", "b": 64}
+{"id": "massive|m4446", "src": "massive", "gold": "Transport", "text": "you need to find an alternate route to my destination", "b": 65}
+{"id": "massive|m12663", "src": "massive", "gold": "Transport", "text": "price of train ticket from delhi to mumbai", "b": 54}
+{"id": "massive|m12443", "src": "massive", "gold": "Transport", "text": "can i make back home without a traffic jam", "b": 44}
+{"id": "massive|m12401", "src": "massive", "gold": "Transport", "text": "book me on a train leaving penn station tomorrow traveling to any city more than two hundred miles away", "b": 64}
+{"id": "massive|m12845", "src": "massive", "gold": "Transport", "text": "book a cab in the evening for me", "b": 43}
+{"id": "massive|m12220", "src": "massive", "gold": "Transport", "text": "tell me how to get from here to the chimes in covington", "b": 41}
+{"id": "massive|m12515", "src": "massive", "gold": "Transport", "text": "olly what is the fastest route to town", "b": 50}
+{"id": "massive|m12893", "src": "massive", "gold": "Transport", "text": "i want you to book a train ticket for me", "b": 69}
+{"id": "massive|m12061", "src": "massive", "gold": "Transport", "text": "how far is walmart from here", "b": 61}
+{"id": "massive|m12123", "src": "massive", "gold": "Transport", "text": "book me a cab", "b": 54}
+{"id": "massive|m12775", "src": "massive", "gold": "Transport", "text": "show me a traffic map from kamycka to dejvicka", "b": 43}
+{"id": "massive|m6453", "src": "massive", "gold": "Transport", "text": "cheapest flights to kansas city from dallas", "b": 60}
+{"id": "massive|m12914", "src": "massive", "gold": "Transport", "text": "i need to book a train ticket to la", "b": 53}
+{"id": "massive|m12386", "src": "massive", "gold": "Transport", "text": "when does the next train to work leave", "b": 64}
+{"id": "massive|m12646", "src": "massive", "gold": "Transport", "text": "when does the train leave penn station", "b": 47}
+{"id": "massive|m12833", "src": "massive", "gold": "Transport", "text": "alexa book me a train ticket for this afternoon to chicago", "b": 43}
+{"id": "massive|m12770", "src": "massive", "gold": "Transport", "text": "show me timetables for trains going from prague to brno", "b": 59}
+{"id": "massive|m12399", "src": "massive", "gold": "Transport", "text": "call golden taxi to pick me up at seven p. m. today", "b": 46}
+{"id": "massive|m12658", "src": "massive", "gold": "Transport", "text": "how do i get from my house to the target along i forty", "b": 46}
+{"id": "massive|m12927", "src": "massive", "gold": "Transport", "text": "what is the estimated travel time for the train ride to orlando", "b": 68}
+{"id": "massive|m12403", "src": "massive", "gold": "Transport", "text": "when does the next train traveling the the city leave here", "b": 67}
+{"id": "massive|m12546", "src": "massive", "gold": "Transport", "text": "find a ride to the bar", "b": 65}
+{"id": "massive|m12778", "src": "massive", "gold": "Transport", "text": "arrange a taxi", "b": 57}
+{"id": "massive|m14482", "src": "massive", "gold": "Transport", "text": "tell me if i should use the train or bus to get across town today", "b": 63}
+{"id": "massive|m12678", "src": "massive", "gold": "Transport", "text": "are there any trips to location a provided by the train", "b": 62}
+{"id": "massive|m12477", "src": "massive", "gold": "Transport", "text": "can you get me a taxi home", "b": 63}
+{"id": "massive|m12832", "src": "massive", "gold": "Transport", "text": "book me a train ticket for this afternoon to chicago", "b": 46}
+{"id": "massive|m12637", "src": "massive", "gold": "Transport", "text": "what's traffic look like over the golden gate bridge", "b": 68}
+{"id": "massive|m12218", "src": "massive", "gold": "Transport", "text": "i need a plane ticket", "b": 58}
+{"id": "massive|m12209", "src": "massive", "gold": "Transport", "text": "are there any accidents on harvard", "b": 54}
+{"id": "massive|m12510", "src": "massive", "gold": "Transport", "text": "google search booking train ticket", "b": 50}
+{"id": "massive|m12562", "src": "massive", "gold": "Transport", "text": "find me a train ticket to cleveland on april fourteenth", "b": 41}
+{"id": "massive|m12876", "src": "massive", "gold": "Transport", "text": "call rta and book a taxi for three o'clock in the morning", "b": 48}
+{"id": "massive|m12277", "src": "massive", "gold": "Transport", "text": "can you book me a taxi", "b": 67}
+{"id": "massive|m12183", "src": "massive", "gold": "Transport", "text": "are there any accidents on the four hundred and five", "b": 41}
+{"id": "massive|m12572", "src": "massive", "gold": "Transport", "text": "are trains on schedule at ten", "b": 48}
+{"id": "massive|m12316", "src": "massive", "gold": "Transport", "text": "give information about the traffic near my location please", "b": 60}
+{"id": "massive|m12852", "src": "massive", "gold": "Transport", "text": "show me route to my phone location on yesterday twelve p. m.", "b": 45}
+{"id": "massive|m12902", "src": "massive", "gold": "Transport", "text": "would like to know the time of train four", "b": 69}
+{"id": "massive|m12560", "src": "massive", "gold": "Transport", "text": "i need a taxi uber", "b": 51}
+{"id": "massive|m12423", "src": "massive", "gold": "Transport", "text": "how was the traffic now", "b": 54}
+{"id": "massive|m12385", "src": "massive", "gold": "Transport", "text": "tell me the trains from california to new jersey after eleven p. m.", "b": 47}
+{"id": "massive|m12926", "src": "massive", "gold": "Transport", "text": "olly how long does it take for the train to get to orlando", "b": 66}
+{"id": "massive|m12738", "src": "massive", "gold": "Transport", "text": "fast road to get home", "b": 65}
+{"id": "massive|m12535", "src": "massive", "gold": "Transport", "text": "how long will it take to drive to long beach", "b": 40}
+{"id": "massive|m12903", "src": "massive", "gold": "Transport", "text": "tell me the time of train vf", "b": 68}
+{"id": "massive|m12279", "src": "massive", "gold": "Transport", "text": "can you look up train ticket prices for me", "b": 42}
+{"id": "massive|m12275", "src": "massive", "gold": "Transport", "text": "fix the driving route from here to grant market", "b": 41}
+{"id": "massive|m12481", "src": "massive", "gold": "Transport", "text": "find me an uber", "b": 43}
+{"id": "massive|m12422", "src": "massive", "gold": "Transport", "text": "traffic status please", "b": 49}
+{"id": "massive|m12659", "src": "massive", "gold": "Transport", "text": "give me directions to the target on i forty", "b": 44}
+{"id": "massive|m12356", "src": "massive", "gold": "Transport", "text": "i need a train ticket", "b": 49}
+{"id": "massive|m12645", "src": "massive", "gold": "Transport", "text": "how's are the roads looking right now", "b": 49}
+{"id": "massive|m6688", "src": "massive", "gold": "Transport", "text": "how is the traffic right now", "b": 53}
+{"id": "massive|m12411", "src": "massive", "gold": "Transport", "text": "get me directions to meijer", "b": 40}
+{"id": "massive|m12250", "src": "massive", "gold": "Transport", "text": "find an uber on twenty ninth", "b": 62}
+{"id": "massive|m12925", "src": "massive", "gold": "Transport", "text": "hey what time does the next train depart", "b": 63}
+{"id": "massive|m12365", "src": "massive", "gold": "Transport", "text": "what time does the train departs lagos", "b": 59}
+{"id": "massive|m12909", "src": "massive", "gold": "Transport", "text": "will the train be late today in new york", "b": 41}
+{"id": "massive|m12655", "src": "massive", "gold": "Transport", "text": "please call a taxi to arrive at four hundred and take me to the manor theater", "b": 50}
+{"id": "massive|m12200", "src": "massive", "gold": "Transport", "text": "book a train ticket to canada this evening", "b": 67}
+{"id": "massive|m12336", "src": "massive", "gold": "Transport", "text": "how far is the distance to rccg ikoyi lagos from here by train", "b": 43}
+{"id": "massive|m12447", "src": "massive", "gold": "Transport", "text": "how much is a train ticket to denver from here", "b": 63}
+{"id": "massive|m12555", "src": "massive", "gold": "Transport", "text": "how is the traffic", "b": 58}
+{"id": "massive|m1541", "src": "massive", "gold": "Weather", "text": "i don't want to carry an umbrella will we have rain today", "b": 43}
+{"id": "massive|m5995", "src": "massive", "gold": "Weather", "text": "do i need to wear my slicker today", "b": 59}
+{"id": "massive|m655", "src": "massive", "gold": "Weather", "text": "how is the current weather in california", "b": 43}
+{"id": "massive|m2543", "src": "massive", "gold": "Weather", "text": "what is the weather near me", "b": 43}
+{"id": "massive|m1328", "src": "massive", "gold": "Weather", "text": "how's weather today", "b": 50}
+{"id": "massive|m5534", "src": "massive", "gold": "Weather", "text": "is weather cloudy", "b": 66}
+{"id": "massive|m5077", "src": "massive", "gold": "Weather", "text": "it seems cold", "b": 56}
+{"id": "massive|m5235", "src": "massive", "gold": "Weather", "text": "umbrella later", "b": 55}
+{"id": "massive|m4250", "src": "massive", "gold": "Weather", "text": "is it raining later today", "b": 54}
+{"id": "massive|m2091", "src": "massive", "gold": "Weather", "text": "are there going to be any showers tomorrow morning", "b": 65}
+{"id": "massive|m1131", "src": "massive", "gold": "Weather", "text": "tell me the humidity level downtown today", "b": 69}
+{"id": "massive|m5467", "src": "massive", "gold": "Weather", "text": "is there a need for sun glasses", "b": 42}
+{"id": "massive|m326", "src": "massive", "gold": "Weather", "text": "evening", "b": 46}
+{"id": "massive|m4384", "src": "massive", "gold": "Weather", "text": "will the weather be hot or cold tomorrow", "b": 53}
+{"id": "massive|m4761", "src": "massive", "gold": "Weather", "text": "is snow coming tonight", "b": 57}
+{"id": "massive|m6092", "src": "massive", "gold": "Weather", "text": "is it going to be cloudy in london during the weekend", "b": 62}
+{"id": "massive|m96", "src": "massive", "gold": "Weather", "text": "is it raining", "b": 56}
+{"id": "massive|m5075", "src": "massive", "gold": "Weather", "text": "how is this week's weather", "b": 47}
+{"id": "massive|m2855", "src": "massive", "gold": "Weather", "text": "is it raining today", "b": 64}
+{"id": "massive|m2240", "src": "massive", "gold": "Weather", "text": "weather forecast for this week", "b": 62}
+{"id": "massive|m6046", "src": "massive", "gold": "Weather", "text": "can i wear shorts today", "b": 56}
+{"id": "massive|m1250", "src": "massive", "gold": "Weather", "text": "is there any possibility of rain this week", "b": 43}
+{"id": "massive|m3650", "src": "massive", "gold": "Weather", "text": "show me the weather for dallas", "b": 63}
+{"id": "massive|m6137", "src": "massive", "gold": "Weather", "text": "should i wear a coat outside", "b": 66}
+{"id": "massive|m278", "src": "massive", "gold": "Weather", "text": "what is the weather like in toronto", "b": 65}
+{"id": "massive|m283", "src": "massive", "gold": "Weather", "text": "do you expect sun on sunday", "b": 48}
+{"id": "massive|m5751", "src": "massive", "gold": "Weather", "text": "do i need to put a jacket on when i go outside", "b": 60}
+{"id": "massive|m179", "src": "massive", "gold": "Weather", "text": "tell me the weather", "b": 67}
+{"id": "massive|m6173", "src": "massive", "gold": "Weather", "text": "is it a good day to go to the beach", "b": 54}
+{"id": "massive|m2219", "src": "massive", "gold": "Weather", "text": "weather in dhaka", "b": 60}
+{"id": "massive|m4706", "src": "massive", "gold": "Weather", "text": "what is the forecast in my area today", "b": 41}
+{"id": "massive|m6029", "src": "massive", "gold": "Weather", "text": "i have to wear a jacket in the morning", "b": 50}
+{"id": "massive|m5664", "src": "massive", "gold": "Weather", "text": "do i need to apply sunburn cream when i go to golf club", "b": 59}
+{"id": "massive|m2223", "src": "massive", "gold": "Weather", "text": "weather in leisure city", "b": 61}
+{"id": "massive|m4926", "src": "massive", "gold": "Weather", "text": "this weeks weather forecast", "b": 53}
+{"id": "massive|m7641", "src": "massive", "gold": "Weather", "text": "give me the weather for the last five days", "b": 62}
+{"id": "massive|m2293", "src": "massive", "gold": "Weather", "text": "is it probable that there would be rain in the forecast today", "b": 57}
+{"id": "massive|m4051", "src": "massive", "gold": "Weather", "text": "is it snowing right now", "b": 43}
+{"id": "massive|m5670", "src": "massive", "gold": "Weather", "text": "get a forecast about wind speed tonight", "b": 55}
+{"id": "massive|m5790", "src": "massive", "gold": "Weather", "text": "its hot today", "b": 59}
+{"id": "massive|m5123", "src": "massive", "gold": "Weather", "text": "what's the temperature outside", "b": 60}
+{"id": "massive|m3303", "src": "massive", "gold": "Weather", "text": "what is the weather like this week", "b": 64}
+{"id": "massive|m6026", "src": "massive", "gold": "Weather", "text": "temperature", "b": 40}
+{"id": "massive|m4627", "src": "massive", "gold": "Weather", "text": "is it supposed to rain tomorrow", "b": 55}
+{"id": "massive|m1198", "src": "massive", "gold": "Weather", "text": "tell me what was the temperature in our city at twelve p. m.", "b": 44}
+{"id": "massive|m1968", "src": "massive", "gold": "Weather", "text": "is outside raining", "b": 44}
+{"id": "massive|m3535", "src": "massive", "gold": "Weather", "text": "will it be sunny", "b": 63}
+{"id": "massive|m4207", "src": "massive", "gold": "Weather", "text": "will i need to wear a coat today", "b": 60}
+{"id": "massive|m6117", "src": "massive", "gold": "Weather", "text": "weather report of the week", "b": 40}
+{"id": "massive|m1685", "src": "massive", "gold": "Weather", "text": "yes or no tomorrows temperature is to be hot", "b": 41}
+{"id": "massive|m644", "src": "massive", "gold": "Weather", "text": "what will be the highest temperature this week", "b": 45}
+{"id": "massive|m4210", "src": "massive", "gold": "Weather", "text": "do i need to wear a coat tomorrow when i leave for work", "b": 56}
+{"id": "massive|m1842", "src": "massive", "gold": "Weather", "text": "is the sun gonna shine in devon this weekend", "b": 46}
+{"id": "massive|m6110", "src": "massive", "gold": "Weather", "text": "i am gonna need an umbrella today after sunset", "b": 58}
+{"id": "massive|m5484", "src": "massive", "gold": "Weather", "text": "is it too hot for pants", "b": 42}
+{"id": "massive|m4140", "src": "massive", "gold": "Weather", "text": "when is it suppose to be above fifty again", "b": 69}
+{"id": "massive|m2422", "src": "massive", "gold": "Weather", "text": "what is the weather like in brooklyn right now", "b": 58}
+{"id": "massive|m2177", "src": "massive", "gold": "Weather", "text": "find me the current weather condition", "b": 45}
+{"id": "massive|m5078", "src": "massive", "gold": "Weather", "text": "do i need a coat", "b": 62}
+{"id": "massive|m5587", "src": "massive", "gold": "Weather", "text": "is today a sunscreen day", "b": 65}
+{"id": "massive|m3961", "src": "massive", "gold": "Weather", "text": "show me a forecast", "b": 41}
+{"id": "massive|m6143", "src": "massive", "gold": "Weather", "text": "what will the weather be like in two weeks", "b": 40}
+{"id": "massive|m1689", "src": "massive", "gold": "Weather", "text": "what is this weeks weather forecast", "b": 56}
+{"id": "massive|m1654", "src": "massive", "gold": "Weather", "text": "how cold will it be next tuesday", "b": 41}
+{"id": "massive|m3310", "src": "massive", "gold": "Weather", "text": "what is the weather in austin", "b": 69}
+{"id": "massive|m2345", "src": "massive", "gold": "Weather", "text": "is it currently raining in new york city", "b": 44}
+{"id": "massive|m5174", "src": "massive", "gold": "Weather", "text": "what's the weather for the entire week", "b": 64}
+{"id": "massive|m2039", "src": "massive", "gold": "Weather", "text": "it's pleasant today", "b": 62}
+{"id": "massive|m5875", "src": "massive", "gold": "Weather", "text": "should i wear a a dress or a sweat shirt today", "b": 49}
+{"id": "massive|m277", "src": "massive", "gold": "Weather", "text": "what is the weather in paris", "b": 57}
+{"id": "massive|m2339", "src": "massive", "gold": "Weather", "text": "what is the current weather in new york city", "b": 58}
+{"id": "massive|m1350", "src": "massive", "gold": "Weather", "text": "what's the weather for this week", "b": 58}
+{"id": "massive|m5377", "src": "massive", "gold": "Weather", "text": "please check weather on tuesday", "b": 66}
+{"id": "massive|m2051", "src": "massive", "gold": "Weather", "text": "tell me today's weather report of city alabama", "b": 69}
+{"id": "massive|m6153", "src": "massive", "gold": "Weather", "text": "tell me about the current weather", "b": 52}
+{"id": "massive|m6003", "src": "massive", "gold": "Weather", "text": "do i need to wear some warm clothes today", "b": 60}
+{"id": "massive|m1079", "src": "massive", "gold": "Weather", "text": "what will be tomorrow's weather in this location", "b": 48}
+{"id": "massive|m1937", "src": "massive", "gold": "Weather", "text": "give me weather condition of manhattan", "b": 55}
+{"id": "massive|m3027", "src": "massive", "gold": "Weather", "text": "accumulation of snow predictions in buffalo", "b": 67}
+{"id": "massive|m4053", "src": "massive", "gold": "Weather", "text": "is it sunny outside at this moment", "b": 44}

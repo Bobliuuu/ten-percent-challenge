@@ -200,3 +200,31 @@ fp16 470.19 GB, 10% = 47.02 GB. Recipe: routing-mass expert prune (per layer), g
 | Omni-3B text path (3.40B, 2.61 bpw), DEV | 9.875% | 98.90 [97.75] | Calendar 93.9 / 93.3 | .933 | fails per-kind 95 |
 | BANKFAM (fuzzy 7 families), Omni-7B DEV | 9.879% | 97.60 [95.84] | Payment 88.9 | .697 | ambiguous families, not presentable |
 Weakest rule: R9 spirit / R1 literal (denominator includes dropped audio/vision/talker modules, 3.12B params). Feedback legality R4 shared with other diffuse-edit lanes.
+
+
+## L11 feedback ablation (Qwen2.5-7B-Instruct, SKILL7-derived `Jukebox`, n=12 annotations, 10 draws; every variant incl. failures; details `FEEDBACK_ABLATION.md`)
+| mechanism | teach | shuffled | neighbours kept | bytes (7B, 8 layers) | verdict |
+|---|---|---|---|---|---|
+| down_proj AlphaEdit k256 | 0.893 | 0.000 | 0.996 | 1.09 GB | best teach, GRAY (4d) |
+| down_proj protected m32 | 0.884 | 0.011 | 0.997 | 1.09 GB | margin is the lever |
+| down_proj protected cols 4096 m32 | 0.844 | 0.000 | 0.998 | 178-235 MB | best byte/teach |
+| MEMIT (cov only) lam 10 / 1000 | 0.834 / 0.832 | 0.000 | 0.997 | 1.09 GB | ok |
+| o_proj AlphaEdit k512 | 0.802 | 0.001 | 0.997 | 206 MB | ok |
+| o_proj protected m32 | 0.773 | 0.000 | 0.998 | 206 MB | best controls (exam shuffled 0.001) |
+| lm_head rows mnH | 0.766 | 0.021 | 0.999 | 0.01 MB | ILLEGAL (4a/4b) reference |
+| down_proj protected m16 (earlier default) / m8 / m4 | 0.71 / 0.44 / 0.18 | 0.000 | 1.000 | 1.09 GB | under-margin |
+| down_proj last 12 / 5 / 3 layers | 0.70 / 0.68 / 0.54 | 0.000 | 1.000 | 1.63 / 0.68 / 0.41 GB | saturates at 5-8 |
+| down_proj protected cols 1024 m32 / cols 2048 / 4096 at m16 | 0.70 / 0.51 / 0.63 | 0.000 | 0.999-1.000 | 43 / 85 / 173 MB | |
+| o_proj protected cols 1536 / 512 m32 | 0.54 / 0.00 | 0.000 | 1.000 | 71 / 23 MB | |
+| up_proj / gate_proj (linearised) | 0.60 / 0.03 | 0.000 | 1.000 / 0.22 | 1.09 GB | gate breaks the model |
+| down_proj rank-1 contrast / Steer2Edit r512 / r64 | 0.21 / 0.36 / 0.26 | 0.000 | 0.998-1.000 | 1.09 GB (sparse: 29 MB / 3.6 MB) | weak |
+| down_proj diagonal-only (UltraEdit-style) | 0.98-0.99 | 0.79-0.81 | 0.96-0.97 | 1.09 GB | no selectivity, fails R6 |
+| post-attn RMSNorm gains L8 / L3 / input norm / final norm | 0.93 / 0.98 / 0.76 / 0.51 | 0.54 / 0.76 / 0.36 / 0.17 | 0.99 / 0.97 / 0.99 / 0.93 | 0.01-0.06 MB | fails R6 (exam shuffled 0.95) |
+| v_proj bias L8 (global steering) | 0.93 | 0.89 | 0.97 | 0.008 MB | fails R6 |
+| embedding rows (Gauss-Newton) | 0.00 | 0.00 | 0.99 | 0.4 MB | dead as implemented |
+| mid layers 10-17 / early 2-9 / every third | 0.005 / 0.00 / 0.30 | 0.00 | 1.00 | 1.09 GB | dead: label must be written near the output |
+| 4-bit RTN body, edited tensor re-rounded to the same 4-bit grid (requant4) | 0.00-0.08 | 0.00 | 1.00 | 0 | edit < grid step |
+| 4-bit RTN body, fp16 override (down prot / o prot m32 / norm / mnH) | 0.67 / 0.91 / 0.94 / 0.77 | 0.00 / 0.01 / 0.25 / 0.06 | 0.999 / 1.000 / 0.99 / 1.000 | counted | as bf16 |
+| shared exam SKILL7 `Recipe` (bf16): o_proj m32 / o_proj alpha / down alpha L5 / down alpha L8 / mnH | 0.83 / 0.91 / 0.87 / 0.86 / 0.79 | 0.001 / 0.17 / 0.15 / 0.20 / 0.12 | 0.999 / 0.996 / 0.995 / 0.999 / 1.000 | | cross-source MTOP 0.83-0.93 |
+| shared exam BANK6 `Security` (bf16): o alpha / down alpha L5 / down alpha L8 / mnH | 0.71 / 0.69 / 0.68 / 0.44 | 0.09 / 0.09 / 0.10 / 0.01 | 0.991 / 0.973 / 0.986 / 0.997 | | never-used Bitext teach 0.18-0.59 |
+| Qwen3-14B 4-bit proxy: down alpha / down prot / o prot / mnH | 0.78 / 0.60 / 0.31 / 0.69 | 0.001 / 0.000 / 0.000 / 0.010 | 0.993 / 0.996 / 0.998 / 0.999 | 1.43 GB / 1.43 GB / 0.42 GB / 0.02 MB | |

@@ -4,7 +4,7 @@ from analyze import table, md, load, f3
 def get(names): return load([f"results/modal/{n}.json" for n in names if os.path.exists(f"results/modal/{n}.json")])
 out = []
 def sec(t, s): out.append(f"### {t}\n\n{s}\n")
-main = get(["A1", "A1b", "A2", "B1", "B2"]); rows = [r for r in table(main, 12)]
+main = get(["A1", "A1b", "A1c", "A2", "B1", "B2", "G"]); rows = [r for r in table(main, 12)]
 sec("T1. Qwen2.5-7B-Instruct bf16 body, SKILL7-derived, new label Jukebox, n=12 annotations (ranked by teach - shuffled, then neighbours)", md(rows))
 ns = []
 for n in (5, 25):
@@ -14,8 +14,8 @@ if ns:
     h = "| method | n | teach | shuffled | neigh | min cell | MB dense |\n|---|---|---|---|---|---|---|\n"
     for r in sorted(ns, key=lambda r: (r["tag"], r["n"])): h += f"| {r['tag']} | {r['n']} | {f3(r['teach'])} | {f3(r['shuf'])} | {f3(r['neigh'])} | {f3(r['mincell'])} | {f3(r['dense_mb'])} |\n"
     sec("T2. n sweep (5 / 25 annotations) for the core methods", h)
-q = get(["C"]); sec("T3. 4-bit RTN g128 body (Qwen2.5-7B-Instruct), edited tensors as fp16 override vs re-quantised onto the same 4-bit grid (0 extra bytes)", md(table(q, 12)) if q else "pending")
-e = get(["E", "F"]); sec("T4. Qwen3-14B (E = 4-bit RTN body, F = bf16 body)", md(table(e, 8)) if e else "pending")
+q = get(["C", "G4"]); sec("T3. 4-bit RTN g128 body (Qwen2.5-7B-Instruct), edited tensors as fp16 override vs re-quantised onto the same 4-bit grid (0 extra bytes)", md(table(q, 12)) if q else "pending")
+e = get(["E", "F", "F2"]); sec("T4. Qwen3-14B (E = 4-bit RTN body, F = bf16 body)", md(table(e, 12)) if e else "pending")
 cont = []
 for R in get(["D"]):
     cc = collections.defaultdict(list)

@@ -50,7 +50,8 @@ if __name__ == "__main__":
     for R in Rs:
         for v in R.get("val", []): print("VAL", v["m"], v["set"], "agree", v["agree"], "tf", v["acc_tf"], "gen", v["acc_gen"])
         cc = collections.defaultdict(list)
-        for c in R.get("cont", []): cc[(c["m"], c["mode"])].append(c)
+        for c in R.get("cont", []):
+            if "mode" in c: cc[(c["m"], c["mode"])].append(c)
         for (m, md_), L in cc.items():
             f = lambda k, rr: np.mean([np.mean(list(map(int, x[rr][k]))) for x in L]); print("CONT", m, md_, "r1 teach %.3f ann1 %.3f | r2 jukebox %.3f ann1 %.3f ann2 %.3f briefing %.3f neigh %.3f" % (f("teach", "r1"), f("ann1", "r1"), f("teach", "r2"), f("ann1", "r2"), f("ann2", "r2"), f("teachN", "r2"), f("neigh", "r2")))
     json.dump(rows, open("summary.json", "w"), default=float, indent=1)
