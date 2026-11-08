@@ -1,0 +1,2 @@
+[{"tag":"scale_lam100","carrier":"scale","lam":100.0},{"tag":"scale_lam10","carrier":"scale","lam":10.0},{"tag":"scale_lam1","carrier":"scale","lam":1.0},{"tag":"scale_lam10_m24","carrier":"scale","lam":10.0,"margin":24.0},
+{"tag":"scale_lam10_aug4","carrier":"scale","lam":10.0,"aug":4},{"tag":"scale_lam10_L12","carrier":"scale","lam":10.0,"layers":12},{"tag":"scale_lam10_L18_aug4","carrier":"scale","lam":10.0,"layers":18,"aug":4},{"tag":"scale_lam100_aug4","carrier":"scale","lam":100.0,"aug":4}]

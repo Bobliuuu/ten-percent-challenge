@@ -1,0 +1,3 @@
+[{"tag":"cols_default"},{"tag":"cols_aug2","aug":2},{"tag":"cols_aug4","aug":4},{"tag":"cols_m24","margin":24.0},{"tag":"cols_lam300","lam":300.0},{"tag":"cols_aug4_lam300","aug":4,"lam":300.0},
+{"tag":"cols_L12_c512","layers":12,"cols":512},{"tag":"cols_L18_c256","layers":18,"cols":256},{"tag":"cols_L12_c512_aug4","layers":12,"cols":512,"aug":4},
+{"tag":"lr_default","carrier":"lr"},{"tag":"lr_aug4","carrier":"lr","aug":4},{"tag":"lr_L12_c512_aug4","carrier":"lr","layers":12,"cols":512,"aug":4}]

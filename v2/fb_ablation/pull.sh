@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~/ten-percent/v2/fb_ablation; mkdir -p results/modal
-for J in A1 A1b A2 B1 B2 C D E F X_SKILL7_bf16 X_SKILL7_q4 X_BANK6_bf16 X_BANK6_q4; do modal volume get --force tenpct-fbabl /$J/res.json results/modal/$J.json >/dev/null 2>&1; done
+for J in A1 A1b A1c F2 A2 B1 B2 C D E F X_SKILL7_bf16 X_SKILL7_q4 X_BANK6_bf16 X_BANK6_q4; do modal volume get --force tenpct-fbabl /$J/res.json results/modal/$J.json >/dev/null 2>&1; done
 python3 - <<'PY'
 import json,glob
 for p in sorted(glob.glob("results/modal/*.json")):

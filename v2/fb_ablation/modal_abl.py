@@ -8,6 +8,6 @@ vol = modal.Volume.from_name("tenpct-fbabl", create_if_missing=True); hf = modal
 def run(cfg: dict, name: str, script: str = "run_abl.py"):
     import subprocess, os
     os.makedirs("/r/" + name, exist_ok=True); json.dump(cfg, open("/root/cfg.json", "w"))
-    p = subprocess.run(["python", script, "cfg.json", "/r/" + name], cwd="/root"); vol.commit(); return p.returncode
+    p = subprocess.run(["python", script, "cfg.json", "/r/" + name], cwd="/root", stderr=subprocess.PIPE, text=True); open("/r/" + name + "/err.txt", "w").write(p.stderr[-6000:]); print(p.stderr[-3000:]); vol.commit(); return p.returncode
 if __name__ == "__main__":
     f = modal.Function.from_name("tenpct-fbabl", "run"); c = f.spawn(json.load(open(sys.argv[2])), sys.argv[3], sys.argv[4] if len(sys.argv) > 4 else "run_abl.py"); print("spawned", sys.argv[3], c.object_id)

@@ -379,3 +379,7 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08 vast 59720133 (rep2) destroyed after L5 Recipe feedback rerun
 - 2026-11-08T16:4xZ vast id 59722073 tenpct-nm-b destroyed after ~2.4 h (~$1.0)
 - 2026-11-08T17:00Z modal apps tenpct-near-miss-e (BitNet task-vocab, Falcon-E-3B; ap-VDH66.., ap-kX7H..) + tenpct-l7-native ap-YNe0aCfvr6pzz3TKDfFoMu (L7 feedback exp, A10G); duplicate ap-3Jj5.. stopped
+- 2026-11-08T17:00Z vast id 59742861 label tenpct-l1p GPU L40S $0.428/h started (L1+ experiments)
+- 2026-11-08T17:01Z vast id 59743010 label tenpct-l1p GPU RTX 4090 $0.455/h started (L1+ experiments)
+- 2026-11-08T17:09Z vast id 59744507 label tenpct-rival3_final_s7 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08 L11 relaunch (first X_* spawns failed on a stale deploy; A1b/F crashed, stderr now saved): A1c fc-01M6Y2NWAYJDNMNMR0AHXE0Q4K, F2 fc-01M6Y2NX2HS4A5BQB5AGEPJMPR, X_SKILL7_bf16 fc-01M6Y2NXSYFHMX1G87MFT3GTH5, X_SKILL7_q4 fc-01M6Y2NYG3Y0EDVG0E18V8SEYP, X_BANK6_bf16 fc-01M6Y2NZ6R4GJT27DWTVZ9ABF0, X_BANK6_q4 fc-01M6Y2NZXWBGHTJFZAV1M8GXBQ; CLI test CLI2 fc-01M6Y020C2V5E2028TFXPHDBNP done
