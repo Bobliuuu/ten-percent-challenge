@@ -152,8 +152,11 @@ def _run(A):
     def restore():
         for l, w in ORIG.items(): LAY[l].mlp.down_proj.weight.data.copy_(w)
         W32.clear()
+    F32L = set()
     def deploy(l, W2, qbits=None):
-        LAY[l].mlp.down_proj.weight.data.copy_((qrtn(W2, qbits) if qbits else W2).to(DT))
+        if A.get("f32cell") and l not in F32L:   # diagnostic: keep this layer's down_proj in fp32 (no bf16 rounding of the edit)
+            md = LAY[l].mlp.down_proj; md.float(); md.register_forward_pre_hook(lambda m, a: (a[0].float(),)); md.register_forward_hook(lambda m, a, o: o.to(DT)); F32L.add(l)
+        P_ = LAY[l].mlp.down_proj.weight; P_.data.copy_((qrtn(W2, qbits) if qbits else W2).to(P_.dtype))
     # ---------------- capture
     @torch.no_grad()
     def capture(seq, kl, Llast):
@@ -190,7 +193,7 @@ def _run(A):
         return PROT["keys"][l]
     def target(seq, Llast, tgt, m, key):
         """returns delta [len(ps), DM] fp32 to ADD to the MLP output of layer Llast at the target positions"""
-        ck = (key, Llast, tgt, m)
+        ck = (key, Llast, tgt, m, A.get("vnll"), A.get("vsteps"))
         if ck in VSTAR: return VSTAR[ck]
         ids, ps, g = seq; cap = capture(seq, Llast, Llast); T = torch.tensor(g).to(dev)
         mg0, lg0 = margins(seq, Llast, None)
@@ -266,7 +269,7 @@ def _run(A):
     f3 = lambda L, c, k: round(float(np.mean([np.mean(list(map(int, r[k]))) for r in L if r["c"] == c] or [-1])), 3)
     for cell in A["cells"]:
         Ls = cell["layers"]; lam = cell["lam"]; tgt = cell.get("tgt", "adam"); m = cell.get("m", 6.0); n = cell["n"]; qb = cell.get("qbits"); tag = cell.get("tag", "")
-        cell_runs = []; A["vnll"] = cell.get("vnll", 0.02); A["vsteps"] = cell.get("vsteps", A.get("vsteps", 30)); VSTAR.clear()
+        cell_runs = []; A["vnll"] = cell.get("vnll", 0.02); A["f32cell"] = cell.get("f32", False); A["vsteps"] = cell.get("vsteps", A.get("vsteps", 30))
         for d in range(cell.get("ndraw", 1)):
             cs = conds(n, d)
             for cn in cell.get("conds", ["real", "shuffle", "wrong"]):
@@ -274,7 +277,7 @@ def _run(A):
                 else: info = memit(cs[cn], (n, d, cn), Ls, lam, tgt, m, cell.get("ridge", 1e-3), cell.get("gain", 1.0), cell.get("agg"), qb, cell.get("only_fail", False), cell.get("prot", 0), cell.get("protw", 1.0), cell.get("pos", "all"))
                 rec = dict(m="memit" + tag, n=n, d=d, c=cn, Ls=Ls, lam=lam, tgt=tgt, qb=qb, **{k: v for k, v in info.items()}, teach=bits(ev("jb_teach")), ood=bits(ev("jb_ood")), dev=bits(ev("jb_dev")),
                            neigh=bits(ev("neigh_eval", NE_SUB)), nrows=0)
-                rec["nb_new"] = int((tf_ok.first == TG[NEWS[0]][0]).sum()); rec["nb_fail"] = int((np.array(list(map(int, rec["neigh"]))) == 0).sum())   # neighbours that now emit the new label vs all failures
+                rec["nb_new"] = int((tf_ok.first == TG[NEWS[0]][0]).sum()); fi = np.where(np.array(list(map(int, rec["neigh"]))) == 0)[0]; rec["fail_idx"] = fi.tolist(); rec["fail_pred"] = [tok.decode([int(tf_ok.first[i])]) for i in fi]; rec["nb_fail"] = int((np.array(list(map(int, rec["neigh"]))) == 0).sum())   # neighbours that now emit the new label vs all failures
                 if cell.get("gen") and cn == "real" and d < cell["gen"]:   # save to disk, restore, reload from disk, REAL greedy generation
                     from safetensors.torch import save_file, load_file
                     fn = f"/r/{A['name']}_c{len(RES['runs'])}.safetensors"; save_file({f"l{l}": LAY[l].mlp.down_proj.weight.data.cpu().contiguous() for l in Ls}, fn)
