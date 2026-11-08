@@ -62,19 +62,19 @@ def feedback(cfg, X):
             getp(l).data.add_(dW.to(getp(l).dtype))
         return len(S)
     # ---- data
-    calc_pool = [r for r in getset("fb_annot24")]; teach = getset("fb_teach_unseen"); sel = getset("SEL"); rep = getset("REP")
-    base = {sn: json.load(open(f"/r/res/base_voice_{sn}_1.json")) for sn in ("SEL", "REP")}
-    neigh = [(r, o) for sn, rows in (("SEL", sel), ("REP", rep)) for r, o in zip(rows, base[sn]["outs"]) if o == r["answer"]]
+    DSN = cfg["ds"]; calc_pool = [r for r in getset(cfg.get("ann_set", "fb_annot24"))]; teach = getset(cfg.get("teach_set", "fb_teach_unseen"))
+    NS = cfg.get("neigh_sets", ["SEL", "REP"]); base = {sn: json.load(open(f"/r/res/base_{DSN}_{sn}_1.json")) for sn in NS}
+    neigh = [(r, o) for sn in NS for r, o in zip(getset(sn), base[sn]["outs"]) if o == r["answer"]]
     errs_rows = [r for r in getset("cal")[:cfg.get("nerr_pool", 1500)]]; eo = gen_eval(errs_rows); old_err = [(r["ids"], r["answer"]) for r, o in zip(errs_rows, eo) if o != r["answer"]]
     log("old-skill errors of compressed model on cal pool:", len(old_err), "of", len(errs_rows))
     out = dict(name=cfg["name"] + "_fb", cfg=cfg, n_old_err=len(old_err), draws=[])
     def eval_all(tag, full=True):
-        to = gen_eval(teach); ta = [o == NEW for o in to]; calc_i = [i for i, r in enumerate(teach) if r["orig"] == "calculator"]; conv_i = [i for i, r in enumerate(teach) if r["orig"] != "calculator"]
+        to = gen_eval(teach); ta = [o == NEW for o in to]; srcs = sorted({r["src"] for r in teach}); by_src = {sc: sum(ta[i] for i, r in enumerate(teach) if r["src"] == sc) / sum(1 for r in teach if r["src"] == sc) for sc in srcs}
         nb = neigh if full else neigh[::3]; no = gen_eval([r for r, _ in nb]); ok = [o == r["answer"] for o, (r, _) in zip(no, nb)]
         cells = collections.defaultdict(lambda: [0, 0])
         for o, (r, _) in zip(no, nb): c = cells[r["src"] + "|" + r["kind"]]; c[0] += 1; c[1] += int(o == r["answer"])
         leak = sum(1 for o in no if o == NEW) / len(no)
-        d = dict(tag=tag, teach=sum(ta) / len(ta), teach_calc=sum(ta[i] for i in calc_i) / len(calc_i), teach_conv=sum(ta[i] for i in conv_i) / len(conv_i), neigh=sum(ok) / len(ok), neigh_lo=wilson(sum(ok), len(ok)), n_neigh=len(ok),
+        d = dict(tag=tag, teach=sum(ta) / len(ta), teach_by_src=by_src, neigh=sum(ok) / len(ok), neigh_lo=wilson(sum(ok), len(ok)), n_neigh=len(ok),
                  min_cell=min(v[1] / v[0] for v in cells.values()), cells={k: round(v[1] / v[0], 4) for k, v in sorted(cells.items())}, leak=leak)
         return d
     out["empty"] = eval_all("empty"); log("empty", {k: v for k, v in out["empty"].items() if k != "cells"})
