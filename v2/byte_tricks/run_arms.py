@@ -21,6 +21,9 @@ def mod(layer, p, n): return getattr(getattr(layer, p), n)
 class Catch(torch.nn.Module):
     def __init__(s, m): super().__init__(); s.m = m; s.args = None; s.kw = None
     def forward(s, *a, **kw): s.args = a; s.kw = kw; raise ValueError("caught")
+    def __getattr__(s, n):
+        try: return super().__getattr__(n)
+        except AttributeError: return getattr(s.__dict__["_modules"]["m"], n)
 
 R3 = os.path.join(HERE, "..", "rival3", "data")
 def load_task(task, limit=0):
