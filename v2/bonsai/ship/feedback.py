@@ -73,13 +73,13 @@ def _cal_cov(m, cal, li, J, bs=16):
     return C / max(n, 1), Ca / max(na, 1)
 
 @torch.no_grad()
-def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=DEF["lam"], awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None):
+def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=DEF["lam"], awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None, cal=None):
     """Edits the loaded model IN PLACE (fp16 columns) and returns the patch {"layers": [..], "cols": [int16 [r]], "vals": [fp16 [hidden, r]]}; None if nothing needs teaching.
     The model must be the ORIGINAL (unpatched) one."""
     dev = m.device; W = m.lm_head.weight.data; LY = m.model.layers; NL = len(LY); gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; D = m.config.hidden_size
     sites = make_sites(m, tok, ann, T)
     if not sites: return None
-    cal = calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "cols": [], "vals": []}
+    cal = cal or calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "cols": [], "vals": []}
     for step, li in enumerate(LS):
         rem = len(LS) - step; Ks, Xs, Ts = [], [], []
         for ids, pos, tgt in sites:
