@@ -6,7 +6,7 @@ import modal, json, sys, os
 app = modal.App("tenpct-quality")
 HERE = os.path.dirname(os.path.abspath(__file__))
 vol = modal.Volume.from_name("tenpct-quality", create_if_missing=True)
-img = (modal.Image.debian_slim(python_version="3.11").pip_install("vllm==0.11.0", "transformers==4.57.1", "huggingface_hub<1.0", "safetensors", "numpy<2.3", "datasets<4")
+img = (modal.Image.debian_slim(python_version="3.11").pip_install("vllm==0.11.0", "transformers==4.57.1", "huggingface_hub<1.0", "safetensors", "numpy<2.3", "datasets<4", "accelerate")
        .add_local_dir(HERE, "/code", ignore=["__pycache__", "*.pyc", "results"]))
 
 def _impl(cfg):
@@ -146,7 +146,7 @@ def _impl(cfg):
         stream = torch.tensor(stream[:ncal * Lc]).view(-1, Lc)[:ncal]; print("calib seqs", stream.shape, flush=True)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
-            def __init__(s, m): super().__init__(); s.m = m
+            def __init__(s, m): super().__init__(); s.m = m; s.attention_type = getattr(m, 'attention_type', 'full_attention')
             def forward(s, x, *a, **k): ins.append(x); kw.update(k); raise ValueError
         layers[0] = Catcher(layers[0])
         for i in range(len(stream)):

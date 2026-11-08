@@ -1,1 +1,2 @@
-[{"name":"vq8_k13","D":8,"K":8192,"model":"Qwen/Qwen2.5-7B-Instruct"}]
+[{"name":"base7b","mode":"base","model":"Qwen/Qwen2.5-7B-Instruct","emb4":false},
+ {"name":"vq8_k13","D":8,"K":8192,"model":"Qwen/Qwen2.5-7B-Instruct"}]
