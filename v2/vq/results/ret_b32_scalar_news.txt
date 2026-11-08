@@ -1,0 +1,21 @@
+base acc 0.38679124536029696 cand 0.3728401382311532
+  ALL                          2853/3022 ret 0.9441 lo 0.9353
+  ag_news_Business             474/491 ret 0.9654 lo 0.9453
+  ag_news_Sports               509/515 ret 0.9883 lo 0.9748
+  ag_news_Technology           253/322 ret 0.7857 lo 0.7377
+  ag_news_World                473/477 ret 0.9916 lo 0.9786
+  bbc_news_Business            137/140 ret 0.9786 lo 0.9389
+  bbc_news_Sports              149/150 ret 0.9933 lo 0.9632
+  bbc_news_Technology          112/122 ret 0.9180 lo 0.8557
+  bbc_news_World               104/114 ret 0.9123 lo 0.8460
+  huffpost_Business            161/166 ret 0.9699 lo 0.9314
+  huffpost_Sports              188/196 ret 0.9592 lo 0.9215
+  huffpost_Technology          110/141 ret 0.7801 lo 0.7049
+  huffpost_World               183/188 ret 0.9734 lo 0.9393
+  kind:Business                772/797 ret 0.9686 lo 0.9541
+  kind:Sports                  846/861 ret 0.9826 lo 0.9715
+  kind:Technology              475/585 ret 0.8120 lo 0.7783
+  kind:World                   760/779 ret 0.9756 lo 0.9622
+  src:ag_news                  1709/1805 ret 0.9468 lo 0.9355
+  src:bbc_news                 502/526 ret 0.9544 lo 0.9330
+  src:huffpost                 642/691 ret 0.9291 lo 0.9075

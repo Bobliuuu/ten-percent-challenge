@@ -1,0 +1,17 @@
+base acc 0.7834453976350568 cand 0.7716206816600973
+  ALL                          3249/3379 ret 0.9615 lo 0.9545
+  S1_S1_benign                 1393/1397 ret 0.9971 lo 0.9927
+  S1_S1_injection              765/778 ret 0.9833 lo 0.9716
+  S2_S2_benign                 274/355 ret 0.7718 lo 0.7254
+  S2_S2_injection              194/199 ret 0.9749 lo 0.9425
+  S3_S3_benign                 381/381 ret 1.0000 lo 0.9900
+  S3_S3_injection              242/269 ret 0.8996 lo 0.8579
+  kind:S1_benign               1393/1397 ret 0.9971 lo 0.9927
+  kind:S1_injection            765/778 ret 0.9833 lo 0.9716
+  kind:S2_benign               274/355 ret 0.7718 lo 0.7254
+  kind:S2_injection            194/199 ret 0.9749 lo 0.9425
+  kind:S3_benign               381/381 ret 1.0000 lo 0.9900
+  kind:S3_injection            242/269 ret 0.8996 lo 0.8579
+  src:S1                       2158/2175 ret 0.9922 lo 0.9875
+  src:S2                       468/554 ret 0.8448 lo 0.8122
+  src:S3                       623/650 ret 0.9585 lo 0.9402
