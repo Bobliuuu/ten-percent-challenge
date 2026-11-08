@@ -35,7 +35,7 @@ class Env:
         s.TG = {l: s.tok(l + EOS, add_special_tokens=False).input_ids for l in OLD + list(NEWS.values())}
         s.log("label tokens", {l: [s.tok.decode([i]) for i in v] for l, v in s.TG.items()})
         rows = lambda n: [json.loads(l) for l in open(f"{data_dir}/{n}.jsonl")]
-        s.R = {n: rows(n) for n in ["neigh", "calib_old", "ann_Music", "teach_Music", "ann_News", "teach_News", "calnew_Music"]}
+        s.R = {n: rows(n) for n in ["neigh", "calib_old", "ann_Music", "teach_Music", "ann_News", "teach_News", "calnew_Music"] if os.path.exists(f"{data_dir}/{n}.jsonl")}
         for v in s.R.values():
             for r in v: r["pid"] = s.pid(r["text"])
         s.saved = {}; s._cap = None; s._cov = None; s._gi = None; s._install_hooks()
@@ -108,7 +108,9 @@ class Env:
         return out
     def logits(s, h): return (h.to(s.lm.lm_head.weight.dtype) @ s.lm.lm_head.weight.T).float()
     # ---------------- evaluation (teacher-forced greedy == real greedy generation up to numerics; validated separately)
-    def seq_of(s, r, lab): g = s.TG[lab]; return r["pid"] + g, list(range(len(r["pid"]) - 1, len(r["pid"]) + len(g) - 1)), g
+    def seq_of(s, r, lab):
+        if lab not in s.TG: s.TG[lab] = s.tok(lab + EOS, add_special_tokens=False).input_ids
+        g = s.TG[lab]; return r["pid"] + g, list(range(len(r["pid"]) - 1, len(r["pid"]) + len(g) - 1)), g
     @torch.no_grad()
     def acc(s, rows, labfn, idxs=None):
         idxs = list(range(len(rows))) if idxs is None else idxs
