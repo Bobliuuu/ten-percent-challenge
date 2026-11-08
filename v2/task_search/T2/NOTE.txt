@@ -1,0 +1,1 @@
+Note: items_dev.jsonl in git has a synthetic github-token-shaped string in 3 PII items replaced by ghp_REDACTED (scanner); the Modal runs used the original text; build_t2.py regenerates the original.

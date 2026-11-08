@@ -1,0 +1,31 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-2pgCfei5N1TjGDmCiBgUbA
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/modal_run.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/task_search/../compress/dense/dense_data.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/calib2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/items2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/dense_core.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/items_dev.jsonl
+├── ✓ Created Function go_s.
+└── ✓ Created Function go_m.
+('Qwen/Qwen2.5-14B-Instruct', 't2b', 'fc-01M6WTWYNBB4NXSRKPZXFE4D00')
+('Qwen/Qwen2.5-14B-Instruct', 't2r100', 'fc-01M6WTWYQY5H14P3F3E1ED5JJM')
+('Qwen/Qwen2.5-14B-Instruct', 't2r1125', 'fc-01M6WTWYTMWTEG254EY9XBKTYK')
+('Qwen/Qwen2.5-14B-Instruct', 't2r125', 'fc-01M6WTWYX6HB9F5DFKN2SY8RHG')
+('Qwen/Qwen2.5-32B-Instruct', 't2b', 'fc-01M6WTWYZXG4G7D6M6GJZX32QA')
+('Qwen/Qwen2.5-32B-Instruct', 't2r100', 'fc-01M6WTWZ2HJ7X10DRTR4KZX3EZ')
+('Qwen/Qwen2.5-32B-Instruct', 't2r1125', 'fc-01M6WTWZ5GKZ5PPYSXJYGZ8AJJ')
+('Qwen/Qwen2.5-32B-Instruct', 't2r125', 'fc-01M6WTWZ82NRN6ZXE20RY7MYCY')
+('Qwen/Qwen2.5-7B-Instruct', 't2b', 'fc-01M6WTWZATFVPRQMSD547XG7FT')
+('Qwen/Qwen3-8B', 't2b', 'fc-01M6WTWZE877MTWJ9TFPF9D2QK')
+('Qwen/Qwen3-14B', 't2b', 'fc-01M6WTWZGQH7JVPJVE4WAM8GC3')
+[modal-client] 2026-11-08T00:43:13-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-2pgCfei5N1TjGDmCiBgUbA

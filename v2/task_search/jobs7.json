@@ -1,0 +1,155 @@
+[
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "t2b",
+"size": "s",
+"gpu_load": true,
+"t2": true,
+"cfgs": [
+{
+"name": "t_bf16"
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "t2r100",
+"size": "s",
+"gpu_load": true,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r100",
+"target_ratio": 0.1,
+"emb_L": 4,
+"head_L": 4,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "t2r1125",
+"size": "s",
+"gpu_load": true,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r1125",
+"target_ratio": 0.1125,
+"emb_L": 4,
+"head_L": 4,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "t2r125",
+"size": "s",
+"gpu_load": true,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r125",
+"target_ratio": 0.125,
+"emb_L": 6,
+"head_L": 6,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "t2b",
+"size": "m",
+"gpu_load": false,
+"t2": true,
+"cfgs": [
+{
+"name": "t_bf16"
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "t2r100",
+"size": "m",
+"gpu_load": false,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r100",
+"target_ratio": 0.1,
+"emb_L": 4,
+"head_L": 4,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "t2r1125",
+"size": "m",
+"gpu_load": false,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r1125",
+"target_ratio": 0.1125,
+"emb_L": 4,
+"head_L": 4,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "t2r125",
+"size": "m",
+"gpu_load": false,
+"t2": true,
+"cfgs": [
+{
+"name": "t_r125",
+"target_ratio": 0.125,
+"emb_L": 6,
+"head_L": 6,
+"g": 256
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-7B-Instruct",
+"tag": "t2b",
+"size": "s",
+"t2": true,
+"cfgs": [
+{
+"name": "t_bf16"
+}
+]
+},
+{
+"model": "Qwen/Qwen3-8B",
+"tag": "t2b",
+"size": "s",
+"t2": true,
+"cfgs": [
+{
+"name": "t_bf16"
+}
+]
+},
+{
+"model": "Qwen/Qwen3-14B",
+"tag": "t2b",
+"size": "s",
+"t2": true,
+"cfgs": [
+{
+"name": "t_bf16"
+}
+]
+}
+]

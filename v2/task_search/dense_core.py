@@ -93,6 +93,22 @@ def _run(cfg):
                 rows[i]=dict(id=items[i]["id"],task=items[i]["task"],role=items[i]["role"],src=items[i]["src"],kind=items[i]["kind"],correct=bool((mg>0).all().item()),
                   m_first=float(mg[0]),m_min=float(mg.min()),m_all=[round(float(x),3) for x in mg],lp_first=float(gl[0]-lse[0]),pred_first=int(oi[0]) if mg[0]<=0 else a[0])
         return rows
+    @torch.no_grad()
+    def run_gen(rows):
+        """REAL greedy generation of the whole answer; exact string match (strip) vs gold. Adds out/gen_correct to rows."""
+        items=[json.loads(l) for l in open(os.environ["CT_ITEMS"])]; model.config.use_cache=True
+        enc=[enc_prompt_full(it["user"]) for it in items]; glen=[len(tok.encode(it["answer"],add_special_tokens=False)) for it in items]
+        order=np.argsort([-len(e) for e in enc]); bs=cfg.get("gen_bs",16)
+        for b in range(0,len(order),bs):
+            idx=order[b:b+bs]; mx=max(len(enc[i]) for i in idx); mn=min(400,max(glen[i] for i in idx)+24)
+            ids=torch.full((len(idx),mx),tok.pad_token_id); att=torch.zeros(len(idx),mx,dtype=torch.long)
+            for j,i in enumerate(idx): ids[j,mx-len(enc[i]):]=torch.tensor(enc[i]); att[j,mx-len(enc[i]):]=1
+            g=model.generate(input_ids=ids.cuda(),attention_mask=att.cuda(),max_new_tokens=mn,do_sample=False,use_cache=True,pad_token_id=tok.pad_token_id,temperature=None,top_p=None,top_k=None)
+            for j,i in enumerate(idx):
+                out=tok.decode(g[j,mx:],skip_special_tokens=True).strip()
+                rows[i]["out"]=out; rows[i]["gold"]=items[i]["answer"].strip(); rows[i]["gen_correct"]=bool(out==items[i]["answer"].strip())
+        model.config.use_cache=False; return rows
+    def enc_prompt_full(p): return tok.encode(chat(p),add_special_tokens=False)
     T1RES={}
     def run_t1():
         items=t1_items()
@@ -116,7 +132,7 @@ def _run(cfg):
     if mode=="t1base":
         model.cuda(); run_t1(); return t1_result(None)
     if mode=="ctbase":
-        model.cuda(); rows=run_ct(); json.dump(dict(cfg=cfg,rows=rows,secs=time.time()-t0),open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag)
+        model.cuda(); rows=run_ct(); (run_gen(rows) if cfg.get("gen") else None); json.dump(dict(cfg=cfg,rows=rows,secs=time.time()-t0),open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag)
     if mode=="base":
         model.cuda()
         gid=gen_all([e["prompt"] for e in ev_id]); god=gen_all([e["prompt"] for e in ev_ood])
@@ -354,7 +370,7 @@ def _run(cfg):
     del inps,cur; torch.cuda.empty_cache()
     model.cuda()
     if cfg.get('ctasks'):
-        rows=run_ct(); d=dict(cfg=cfg,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v for k,v in Lcount.items()},secs=time.time()-t0)
+        rows=run_ct(); (run_gen(rows) if cfg.get('gen') else None); d=dict(cfg=cfg,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v for k,v in Lcount.items()},secs=time.time()-t0)
         json.dump(d,open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,"ratio",d["ratio"],"bpw",d["body_bpw"],"acc",np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag,ratio=d["ratio"])
     if cfg.get('t1'):
         run_t1(); return t1_result(locals_=dict(tot_bytes=tot_bytes,base_bytes=base_bytes,qbits=qbits,head_bits=head_bits,emb_bits=emb_bits,fixed_bytes=fixed_bytes,levels=levels,dropped=dropl,lin_total=lin_total))

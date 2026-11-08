@@ -1,0 +1,10 @@
+{
+ "ai4privacy": "ai4privacy/pii-masking-200k: custom open licence (see dataset card; synthetic)",
+ "gretel_pii_fin": "gretelai/synthetic_pii_finance_multilingual: Apache-2.0",
+ "conll2003": "eriktks/conll2003: Reuters corpus, research-only licence",
+ "wnut17": "leondz/wnut_17: CC-BY-4.0",
+ "loghub": "logpai/loghub: free for research/academic",
+ "sql_create_context": "b-mc2/sql-create-context: CC-BY-4.0",
+ "gretel_text2sql": "gretelai/synthetic_text_to_sql: Apache-2.0",
+ "glaive": "glaiveai/glaive-function-calling-v2: Apache-2.0"
+}
