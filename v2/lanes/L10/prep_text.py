@@ -22,6 +22,7 @@ def ensure(src, out, verify=False, kind="mllama"):
                     if i in xl: continue
                     k2 = f"model.layers.{remap[i]}.{m.group(2)}"
                 sd[k2] = g.get_tensor(k).to(torch.bfloat16)
+    nv = sd["lm_head.weight"].shape[0]; sd["model.embed_tokens.weight"] = sd["model.embed_tokens.weight"][:nv].contiguous()   # mllama embed has 8 extra (image) rows; text lm_head has 128256
     os.makedirs(out, exist_ok=True)
     lc = dict(architectures=["LlamaForCausalLM"], model_type="llama", hidden_size=tc["hidden_size"], intermediate_size=tc["intermediate_size"], num_attention_heads=tc["num_attention_heads"],
               num_key_value_heads=tc["num_key_value_heads"], num_hidden_layers=len(keep), vocab_size=sd["model.embed_tokens.weight"].shape[0], max_position_embeddings=tc["max_position_embeddings"],

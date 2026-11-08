@@ -1,0 +1,21 @@
+[
+ {
+  "tag": "omni7s",
+  "src": "Qwen/Qwen2.5-Omni-7B",
+  "dirname": "l10_omni7",
+  "kind": "omni",
+  "base_bytes": 21464450880,
+  "verify": false,
+  "cfgs": [
+   {
+    "name": "o_r985s",
+    "target_ratio": 0.0985,
+    "g": 256,
+    "gen_bs": 48,
+    "emb_L": 4,
+    "head_L": 4,
+    "save_deq": "/hf/l10_deq_omni7"
+   }
+  ]
+ }
+]

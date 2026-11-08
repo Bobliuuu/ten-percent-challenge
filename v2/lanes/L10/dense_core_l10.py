@@ -378,7 +378,9 @@ def _run(cfg):
     to_dev()
     if cfg.get('ctasks'):
         import gc; gc.collect(); torch.cuda.empty_cache()
-        rows=run_ct(); (run_gen(rows) if cfg.get('gen') else None); d=dict(cfg=cfg,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v for k,v in Lcount.items()},secs=time.time()-t0)
+        rows=run_ct(); (run_gen(rows) if cfg.get('gen') else None)
+        if cfg.get('save_deq'): model.save_pretrained(cfg['save_deq'],safe_serialization=True); tok.save_pretrained(cfg['save_deq']); print('SAVED_DEQ',cfg['save_deq'],flush=True)
+        d=dict(cfg=cfg,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v for k,v in Lcount.items()},secs=time.time()-t0)
         json.dump(d,open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,"ratio",d["ratio"],"bpw",d["body_bpw"],"acc",np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag,ratio=d["ratio"])
     if cfg.get('t1'):
         run_t1(); return t1_result(locals_=dict(tot_bytes=tot_bytes,base_bytes=base_bytes,qbits=qbits,head_bits=head_bits,emb_bits=emb_bits,fixed_bytes=fixed_bytes,levels=levels,dropped=dropl,lin_total=lin_total))
