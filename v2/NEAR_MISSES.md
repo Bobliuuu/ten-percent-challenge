@@ -228,3 +228,21 @@ Weakest rule: R9 spirit / R1 literal (denominator includes dropped audio/vision/
 | shared exam SKILL7 `Recipe` (bf16): o_proj m32 / o_proj alpha / down alpha L5 / down alpha L8 / mnH | 0.83 / 0.91 / 0.87 / 0.86 / 0.79 | 0.001 / 0.17 / 0.15 / 0.20 / 0.12 | 0.999 / 0.996 / 0.995 / 0.999 / 1.000 | | cross-source MTOP 0.83-0.93 |
 | shared exam BANK6 `Security` (bf16): o alpha / down alpha L5 / down alpha L8 / mnH | 0.71 / 0.69 / 0.68 / 0.44 | 0.09 / 0.09 / 0.10 / 0.01 | 0.991 / 0.973 / 0.986 / 0.997 | | never-used Bitext teach 0.18-0.59 |
 | Qwen3-14B 4-bit proxy: down alpha / down prot / o prot / mnH | 0.78 / 0.60 / 0.31 / 0.69 | 0.001 / 0.000 / 0.000 / 0.010 | 0.993 / 0.996 / 0.998 / 0.999 | 1.43 GB / 1.43 GB / 0.42 GB / 0.02 MB | |
+
+## L13 byte tricks (Qwen2.5-14B-Instruct, GPTQ+Hadamard g128, uniform grid; SKILL7 dev n=653 base-correct / BANK6 sel n=302; Wilson lo in brackets; seed noise +-1.5 pp SD at L=3; NOT the exam). Full table: v2/BYTE_TRICKS.md, v2/byte_tricks/results/FINAL_TABLES.md
+| method | size (body pp of fp16) | retention SKILL7 / BANK6 | verdict / rule gaps |
+|---|---|---|---|
+| L3 g128, fp16 scales (reference) | 8.44 | 83.6 [80.6] (seed7 87.0) / 95.7 [92.8] | reference |
+| L3 g128, log 1/8-octave coded scales | 7.87 | 91.1 [88.7] (seeds 89.1, 88.2) / 96.7 (1/4 oct) | win: -0.57 pp bytes, no loss |
+| L3 g64, coded scales | 8.33 | 96.2 [94.4] / 96.0 [93.2] | win: +5..9 pts for +0.46 pp |
+| L3 g256 fp16 / coded; g512 | 7.78 / 7.50; 7.32 | 80.1, 76.4; 46.6 / 89.4 | loss, reject |
+| L3 shared scale across 4 rows | 6.91 | 31.9 / 62.9 | collapse, reject |
+| L3 asymmetric zero-point (3 levels) | 5.96 | 0.0 | broken at 3 levels, reject |
+| L4 g128 coded / L5 | 10.44 / 12.27 | 98.6 [97.4] / 98.9 | L4 is the budget-feasible point for this simple GPTQ |
+| data-free RTN / HIGGS-grid at L3 | 7.8 / 8.7 | 0.0 / 0.0 | collapse; calibration needed at 1.4 bpw |
+| data-free RTN / HIGGS / dead-zone at L5 | 12.3 / 12.5 / 11.4 | 96.0 / 97.7 / 54.1 (BANK6 88.1 / 89.4) | needs +2.5..4 pp more bytes than GPTQ-L4 |
+| per-tensor allocation, trace / KL, ref L4 (Ls 3..6) | 10.43 | 95.7 [93.9] / 98.5 [97.2] vs uniform 98.6 | no gain; ref L3 with 1-bit tensors 0.0 |
+| emb+head fp8 / RTN 4b / 3b / 2b (linears fp16) | 5.27 / 2.50 / 1.92 / 1.30 (emb+head, fp16 = 10.54) | 100 / 100 / 100 / 99.8 (BANK6 -, -, 99.7, 99.3) | win: up to 9.2 pp freed |
+| emb+head VQ d8 K256 (1 bpw) / d4 / low-rank r1024 | 0.65 / 1.30 / 2.18 | 99.4 (BANK6 96.4) / 99.8 / 98.5 | d8 too lossy on BANK6 |
+| vocab trim id<100k / 65,536 / 40,000 (specials + byte pieces kept, head+emb rows) | 6.96 / 4.57 / 2.80 (emb+head) | 100 / 100 / 98.8 (BANK6 - / 99.7 / 95.0) | 40k drops label tokens from the kept set = FAIL (PRUNE_LEGAL); >=65,536 gray-legal |
+| real-tensor byte stats (5 models) | - | - | coded scale table 0.03 bpw vs 0.125 fp16; embed/head bf16 exponent coding 10.6 bits (33% lossless); Ternary-27B vision tower 1.68% |

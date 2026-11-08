@@ -1,34 +1,0 @@
-++ dirname run.sh
-+ cd .
-+ mkdir -p results
-+ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub zstandard safetensors
-+ tail -2
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-+ cd v2/byte_tricks
-+ python stats_weights.py Qwen/Qwen2.5-14B-Instruct --shards 1 --tensors 16
-+ tail -3
-Parse safetensors files:   0%|          | 0/8 [00:00<?, ?it/s]Parse safetensors files:  12%|█▎        | 1/8 [00:00<00:04,  1.62it/s]Parse safetensors files:  50%|█████     | 4/8 [00:00<00:00,  6.86it/s]Parse safetensors files: 100%|██████████| 8/8 [00:00<00:00, 11.04it/s]
-Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:00,  6.23it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 27.33it/s]
-wrote /workspace/bundle/v2/byte_tricks/results/stats_Qwen_Qwen2.5-14B-Instruct.json
-+ python stats_weights.py Qwen/Qwen2.5-32B-Instruct --shards 1 --tensors 16
-+ tail -3
-Parse safetensors files:   0%|          | 0/17 [00:00<?, ?it/s]Parse safetensors files:   6%|▌         | 1/17 [00:00<00:09,  1.70it/s]Parse safetensors files: 100%|██████████| 17/17 [00:00<00:00, 25.87it/s]
-Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:00,  6.07it/s]Fetching 7 files:  71%|███████▏  | 5/7 [00:00<00:00, 21.40it/s]Fetching 7 files: 100%|██████████| 7/7 [00:00<00:00, 26.00it/s]
-wrote /workspace/bundle/v2/byte_tricks/results/stats_Qwen_Qwen2.5-32B-Instruct.json
-+ python stats_weights.py Qwen/Qwen3-30B-A3B --shards 1 --tensors 24
-+ tail -3
-Parse safetensors files:   0%|          | 0/16 [00:00<?, ?it/s]Parse safetensors files:   6%|▋         | 1/16 [00:00<00:08,  1.68it/s]Parse safetensors files:  12%|█▎        | 2/16 [00:01<00:07,  1.84it/s]Parse safetensors files: 100%|██████████| 16/16 [00:01<00:00, 14.54it/s]
-Fetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]Fetching 7 files:  14%|█▍        | 1/7 [00:00<00:01,  5.73it/s]Fetching 7 files:  71%|███████▏  | 5/7 [00:01<00:00,  3.08it/s]Fetching 7 files: 100%|██████████| 7/7 [00:01<00:00,  4.43it/s]
-wrote /workspace/bundle/v2/byte_tricks/results/stats_Qwen_Qwen3-30B-A3B.json
-+ python stats_weights.py prism-ml/Bonsai-8B-unpacked --shards 1 --tensors 16 --discrete
-+ tail -3
-Parse safetensors files:   0%|          | 0/4 [00:00<?, ?it/s]Parse safetensors files:  25%|██▌       | 1/4 [00:00<00:02,  1.25it/s]Parse safetensors files: 100%|██████████| 4/4 [00:00<00:00,  4.99it/s]
-Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  10%|█         | 1/10 [00:00<00:03,  2.57it/s]Fetching 10 files:  80%|████████  | 8/10 [00:01<00:00,  5.36it/s]Fetching 10 files: 100%|██████████| 10/10 [00:01<00:00,  6.44it/s]
-wrote /workspace/bundle/v2/byte_tricks/results/stats_prism-ml_Bonsai-8B-unpacked.json
-+ python stats_weights.py prism-ml/Ternary-Bonsai-27B-unpacked --shards 1 --tensors 16 --discrete
-+ tail -3
-Parse safetensors files:   0%|          | 0/12 [00:00<?, ?it/s]Parse safetensors files:   8%|▊         | 1/12 [00:00<00:10,  1.08it/s]Parse safetensors files: 100%|██████████| 12/12 [00:00<00:00, 12.04it/s]
-Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  11%|█         | 1/9 [00:00<00:03,  2.48it/s]Fetching 9 files:  44%|████▍     | 4/9 [00:00<00:00,  7.40it/s]Fetching 9 files:  78%|███████▊  | 7/9 [00:01<00:00,  4.56it/s]Fetching 9 files: 100%|██████████| 9/9 [00:01<00:00,  6.01it/s]
-wrote /workspace/bundle/v2/byte_tricks/results/stats_prism-ml_Ternary-Bonsai-27B-unpacked.json
-+ cp results/stats_Qwen_Qwen2.5-14B-Instruct.json results/stats_Qwen_Qwen2.5-32B-Instruct.json results/stats_Qwen_Qwen3-30B-A3B.json results/stats_prism-ml_Bonsai-8B-unpacked.json results/stats_prism-ml_Ternary-Bonsai-27B-unpacked.json ../../results/
-+ touch ../../results/DONE

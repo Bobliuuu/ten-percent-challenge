@@ -414,3 +414,11 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T18:24Z vast id 59756584 label tenpct-L11_X2 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
 - 2026-11-08T18:26Z vast id 59756924 label tenpct-L11_X3 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
 - 2026-11-08 modal tenpct-l13 job e (alloc ref L4, Ls 3..6; the L2..6 alloc collapsed to 0%)
+- 2026-11-08T18:27Z vast id 59757196 label tenpct-L11_X4 GPU A100 SXM4 80GB $1.015/h (+5% guard) started
+- 2026-11-08T18:29Z vast id 59757462 label tenpct-L11_G GPU A100 SXM4 80GB $1.001/h (+5% guard) started
+- 2026-11-08T18:47Z vast id 59756246 tenpct-L11_X1 destroyed after 0.40 h (~$0.43)
+- 2026-11-08T18:53Z vast id 59756584 tenpct-L11_X2 destroyed after 0.47 h (~$0.47)
+- 2026-11-08 L4 fb-only retry (lam3000 awt40 m12) s7/b6 via tenpct-rival3
+- 2026-11-08T19:13Z vast id 59757196 tenpct-L11_X4 destroyed after 0.75 h (~$0.76)
+- 2026-11-08T19:15Z vast id 59756924 tenpct-L11_X3 destroyed after 0.81 h (~$0.81)
+- 2026-11-08T19:19Z vast id 59757462 tenpct-L11_G destroyed after 0.82 h (~$0.82)
