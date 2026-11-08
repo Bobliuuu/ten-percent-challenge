@@ -1,0 +1,54 @@
+{
+ "ternary_params": 2919235584,
+ "ternary_bits_ideal": 4563984743.652546,
+ "ternary_bytes_5pb": 583847232,
+ "small_bytes": 266688,
+ "emb": [
+  32768,
+  2048
+ ],
+ "head": [
+  32768,
+  2048
+ ],
+ "other_params": 133344,
+ "total_params": 3053586656,
+ "ternary_bytes_ideal": 570498092.9565682,
+ "fp16_ref_bytes": 6107173312,
+ "model": "tiiuae/Falcon-E-3B-Instruct",
+ "vocab": 32768,
+ "dim": 2048,
+ "tied": false,
+ "cands": [
+  [
+   4118,
+   16,
+   64,
+   true
+  ],
+  [
+   7751,
+   8,
+   64,
+   true
+  ],
+  [
+   14616,
+   4,
+   64,
+   true
+  ],
+  [
+   18771,
+   3,
+   64,
+   true
+  ],
+  [
+   26229,
+   2,
+   64,
+   true
+  ]
+ ]
+}
