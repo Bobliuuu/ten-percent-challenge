@@ -192,7 +192,8 @@ class Engine:
             else: ids[r, :len(x)] = torch.tensor(x); am[r, :len(x)] = 1
         return ids.to(s.dev), am.to(s.dev)
     @torch.no_grad()
-    def gen_eval(s, rows, budget=24000, max_new=6):
+    def gen_eval(s, rows, budget=24000, max_new=None):
+        max_new = max_new or getattr(s, 'max_new', 6)
         outs = [None] * len(rows)
         for idx in s.batches(rows, budget):
             ids, am = s.pad([rows[k]["ids"] for k in idx]); L = ids.shape[1]
@@ -453,9 +454,9 @@ class Engine:
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("--cfgs", required=True); ap.add_argument("--model", default="Qwen/Qwen3-30B-A3B-Instruct-2507"); ap.add_argument("--data", default="data"); ap.add_argument("--out", default="out")
-    ap.add_argument("--ncal", type=int, default=1231); ap.add_argument("--only", default=None)
+    ap.add_argument("--ncal", type=int, default=1231); ap.add_argument("--only", default=None); ap.add_argument("--max_new", type=int, default=6)
     a = ap.parse_args()
-    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out)
+    cfgs = json.load(open(a.cfgs)); eng = Engine(a.model, a.data, a.out); eng.max_new = a.max_new
     eng.run_cfg(dict(name="base", sets=["sel", "rep"])); eng.run_stats(a.ncal)
     for cfg in cfgs:
         if a.only and a.only not in cfg["name"]: continue
