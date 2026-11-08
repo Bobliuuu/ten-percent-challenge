@@ -1,0 +1,4 @@
+[
+ {"model":"Qwen/Qwen2.5-7B-Instruct","tag":"r1","size":"s","cfgs":[{"name":"bf16"},{"name":"r100","target_ratio":0.100,"emb_L":4,"head_L":4,"g":256},{"name":"r1125","target_ratio":0.1125,"emb_L":4,"head_L":4,"g":256},{"name":"r125","target_ratio":0.125,"emb_L":6,"head_L":6,"g":256},{"name":"r096","target_ratio":0.096,"emb_L":4,"head_L":4,"g":256}]},
+ {"model":"Qwen/Qwen2.5-14B-Instruct","tag":"r1","size":"s","cfgs":[{"name":"bf16"},{"name":"r100","target_ratio":0.100,"emb_L":4,"head_L":4,"g":256},{"name":"r1125","target_ratio":0.1125,"emb_L":4,"head_L":4,"g":256},{"name":"r125","target_ratio":0.125,"emb_L":6,"head_L":6,"g":256},{"name":"r096","target_ratio":0.096,"emb_L":4,"head_L":4,"g":256}]}
+]

@@ -134,3 +134,5 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 - 2026-11-07 v2/harness/validity/general_c2_remote.py: Modal app tenpct-general-c2 ap-uRyjoRqY1RCZIT13zjEH0y fc-01M6V3WK01BKQTS6PAZ8HCCR2R (--detach), filed C2 artifact general check, result Volume tenpct-c2fb:/general/general_c2_result.json
 - 2026-11-07 general check filed C2 DONE (ap-YGbm6ItpQZ3PBpggJcY8f4): cand MMLU .467 vs base .693 etc; v2/harness/validity/c2_general_result.json
 fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1.json (see launch1.log)
+- 2026-11-08 v2/fb_legal/legal.py: Modal app tenpct-fblegal (deployed, spawn via launch.py), smoke_q3 Qwen3-8B A100-80GB; results Volume tenpct-fblegal:/r
+- 2026-11-07 TASK_SEARCH (switch-task lane): Modal app tenpct-tasksearch, `python v2/task_search/modal_run.py jobs1.json`; calls Qwen2.5-7B fc-01M6WCN28WW1W19Z4CBV7F99NW, Qwen2.5-14B fc-01M6WCN2CPDFB7SP745Q307MY4; results -> volume tenpct-tasksearch
