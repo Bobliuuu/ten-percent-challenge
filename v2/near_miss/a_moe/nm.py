@@ -83,6 +83,9 @@ def score(S, i, crit):
     raise ValueError(crit)
 
 # ---------------------------------------------------------------- quantisation + exact byte accounting
+def eg(last, g):
+    while last % g: g //= 2
+    return g
 def qbytes(n, bits, g):
     """packed payload + per-group fp16 scale (+ zero-point of `bits` bits unless ternary)"""
     if bits in ("t", 1.58):  return math.ceil(n / 5) + 2 * (n // g)                 # 5 trits per byte, fp16 scale per group
@@ -90,6 +93,7 @@ def qbytes(n, bits, g):
     return n * bits / 8 + (n // g) * (2 + bits / 8)
 def rtn(w, bits, g):
     import torch
+    g = eg(w.shape[-1], g)
     sh = w.shape; wg = w.float().reshape(*sh[:-1], sh[-1] // g, g)
     if bits in ("t", 1.58):
         mx = wg.abs().amax(-1, keepdim=True).clamp(min=1e-8); best = None; berr = None
@@ -125,10 +129,10 @@ def plan_bytes(shapes, cfg, K, ne, aux_bytes):
         for d in sh: numel *= d
         if k == "expert":
             if j == 0: nlay.add(n.split(".mlp.")[0])
-            if j < K: bd["expert"] += qbytes(numel, cfg["xb"], cfg["xg"])
+            if j < K: bd["expert"] += qbytes(numel, cfg["xb"], eg(sh[-1], cfg["xg"]))
         elif k == "router": bd["router"] += 2 * numel * K // ne
-        elif k == "embed": bd["embed"] += qbytes(numel, cfg["eb"], cfg["eg"])
-        elif k == "attn": bd["attn"] += qbytes(numel, cfg["ab"], cfg["ag"])
+        elif k == "embed": bd["embed"] += qbytes(numel, cfg["eb"], eg(sh[-1], cfg["eg"]))
+        elif k == "attn": bd["attn"] += qbytes(numel, cfg["ab"], eg(sh[-1], cfg["ag"]))
         else: bd["fp16"] += 2 * numel
     bd["index"] = len(nlay) * K      # kept-expert ids (1 byte each)
     return sum(bd.values()), bd
@@ -231,6 +235,118 @@ def run(base, cfgs):
             import traceback; traceback.print_exc()
         shutil.rmtree(f"{M}/{tag}", ignore_errors=True)
 
+
+# ---------------------------------------------------------------- GPTQ (GRAY: weight update from calibration Hessians; no gradients/training) on the pruned model
+def gptq_q(W, H, bits, g, damp=0.01, blk=128):
+    g = eg(W.shape[1], g)
+    """W: (out,in) float cuda; H: (in,in) float cuda. column-wise OBS update, group asym minmax (fp16 scale, int zero)."""
+    import torch
+    W = W.clone().float(); n = W.shape[1]; qm = 2 ** bits - 1
+    H = H.clone(); dead = H.diagonal() == 0; H[dead, dead] = 1; W[:, dead] = 0
+    H += damp * H.diagonal().mean() * torch.eye(n, device=W.device)
+    try: Hi = torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)), upper=True)
+    except Exception: return rtn(W, bits, g)
+    Q = torch.zeros_like(W)
+    for i1 in range(0, n, blk):
+        i2 = min(i1 + blk, n); W1 = W[:, i1:i2].clone(); Q1 = torch.zeros_like(W1); E1 = torch.zeros_like(W1); Hi1 = Hi[i1:i2, i1:i2]
+        for i in range(i2 - i1):
+            if (i1 + i) % g == 0:
+                grp = W1[:, i:i + g]
+                mx = grp.amax(1, keepdim=True); mn = grp.amin(1, keepdim=True)
+                sc = ((mx - mn) / qm).clamp(min=1e-8).half().float(); z = (-mn / sc).round().clamp(0, qm)
+            w = W1[:, i:i + 1]; q = ((w / sc + z).round().clamp(0, qm) - z) * sc
+            Q1[:, i:i + 1] = q; e = (w - q) / Hi1[i, i]; W1[:, i:] -= e @ Hi1[i:i + 1, i:]; E1[:, i:i + 1] = e
+        Q[:, i1:i2] = Q1; W[:, i2:] -= E1 @ Hi[i1:i2, i2:]
+    return Q
+
+def gptq_qb(W, H, bits, g, damp=0.01, blk=128):
+    """batched GPTQ. W: (B,out,in) float cuda; H: (B,in,in). column-wise OBS update; group asym minmax (fp16 scale, int zero)."""
+    import torch
+    g = eg(W.shape[2], g); W = W.clone().float(); B, o, n = W.shape; qm = 2 ** bits - 1; I = torch.eye(n, device=W.device)
+    H = H.clone(); dd = H.diagonal(dim1=1, dim2=2); dead = dd == 0
+    H = H + torch.diag_embed(dead.float()); W = W.masked_fill(dead[:, None, :], 0)
+    dm = H.diagonal(dim1=1, dim2=2).mean(1)
+    for dmp in (damp, 0.1, 1.0):
+        Hd = H + (dmp * dm)[:, None, None] * I
+        L, info = torch.linalg.cholesky_ex(Hd)
+        if int(info.max()) == 0: break
+    else: return torch.stack([rtn(W[b], bits, g) for b in range(B)])
+    Hi = torch.linalg.cholesky(torch.cholesky_inverse(L), upper=True)
+    Q = torch.zeros_like(W)
+    for i1 in range(0, n, blk):
+        i2 = min(i1 + blk, n); W1 = W[:, :, i1:i2].clone(); Q1 = torch.zeros_like(W1); E1 = torch.zeros_like(W1); Hi1 = Hi[:, i1:i2, i1:i2]
+        for i in range(i2 - i1):
+            if (i1 + i) % g == 0:
+                grp = W1[:, :, i:i + g]; mx0 = grp.amax(2, keepdim=True); mn0 = grp.amin(2, keepdim=True); berr = None
+                for r in (1.0, 0.9, 0.8, 0.7, 0.6, 0.5):
+                    sc_ = (((mx0 - mn0) * r) / qm).clamp(min=1e-8).half().float(); z_ = (-(mn0 * r) / sc_).round().clamp(0, qm)
+                    err = ((((grp / sc_ + z_).round().clamp(0, qm) - z_) * sc_ - grp) ** 2).sum(2, keepdim=True)
+                    if berr is None: sc, z, berr = sc_, z_, err
+                    else: m_ = err < berr; sc = torch.where(m_, sc_, sc); z = torch.where(m_, z_, z); berr = torch.where(m_, err, berr)
+            w = W1[:, :, i:i + 1]; q = ((w / sc + z).round().clamp(0, qm) - z) * sc
+            Q1[:, :, i:i + 1] = q; e = (w - q) / Hi1[:, i, i][:, None, None]; W1[:, :, i:] -= e @ Hi1[:, i:i + 1, i:]; E1[:, :, i:i + 1] = e
+        Q[:, :, i1:i2] = Q1; W[:, :, i2:] -= E1 @ Hi[:, i1:i2, i2:]
+    return Q
+
+def gptq_build(base, tag, cfg):
+    """pruned fp model -> Hessians from task calibration prompts (EASY calib, all tasks, disjoint from dev) -> GPTQ experts, RTN attn/embed -> save"""
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from huggingface_hub import snapshot_download
+    snap = snapshot_download(BASES[base]["id"], allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.py", "*.tiktoken"])
+    shapes = get_shapes(snap); fp16_bytes = 2 * sum(math.prod(s) for s in shapes.values()); ne = (json.load(open(snap + "/config.json")).get("num_experts") or json.load(open(snap + "/config.json")).get("n_routed_experts"))
+    K = cfg["K"] if cfg["K"] != "max" else pick_K(shapes, cfg, ne, aux_bytes(snap), fp16_bytes)
+    cfg = dict(cfg); cfg["K"] = K
+    pre = dict(cfg); pre.update(xb=16, ab=16, eb=16); ptag = "pre_" + tag
+    info = build(base, ptag, pre); d = f"{M}/{ptag}"
+    tot, bd = plan_bytes(shapes, cfg, K, ne, aux_bytes(snap)); info.update(shipped_bytes=tot, ratio=tot / fp16_bytes, breakdown=bd)
+    tok = AutoTokenizer.from_pretrained(d); lm = AutoModelForCausalLM.from_pretrained(d, torch_dtype=torch.bfloat16, device_map={"": 0}).eval()
+    layers = [(i, l.mlp) for i, l in enumerate(lm.model.layers) if hasattr(l.mlp, "experts")]
+    Hg = {}; Hd = {}; hs = []
+    for i, mlp in layers:
+        for j, ex in enumerate(mlp.experts):
+            def hg(mod, inp, i=i, j=j):
+                x = inp[0].float().reshape(-1, inp[0].shape[-1]); Hg[(i, j)] = Hg.get((i, j), 0) + x.T @ x
+            def hd(mod, inp, i=i, j=j):
+                x = inp[0].float().reshape(-1, inp[0].shape[-1]); Hd[(i, j)] = Hd.get((i, j), 0) + x.T @ x
+            hs.append(ex.gate_proj.register_forward_pre_hook(hg)); hs.append(ex.down_proj.register_forward_pre_hook(hd))
+    cal = [json.loads(l) for l in open(D + "/calib_all.jsonl")]
+    with torch.no_grad():
+        for it in cal:
+            ids = tok(chat(tok, it["user"]), return_tensors="pt", add_special_tokens=False).input_ids[:, :1500].cuda(); lm(ids, use_cache=False)
+    for h in hs: h.remove()
+    log("hessians done", len(Hg))
+    with torch.no_grad():
+        for i, mlp in layers:
+            ne_ = len(mlp.experts); Hgs = torch.stack([Hg.get((i, j), torch.eye(mlp.experts[j].gate_proj.weight.shape[1], device="cuda")) for j in range(ne_)]); Hds = torch.stack([Hd.get((i, j), torch.eye(mlp.experts[j].down_proj.weight.shape[1], device="cuda")) for j in range(ne_)])
+            Wgu = torch.cat([torch.stack([mlp.experts[j].gate_proj.weight.data.float() for j in range(ne_)]), torch.stack([mlp.experts[j].up_proj.weight.data.float() for j in range(ne_)])], 1)
+            Qgu = gptq_qb(Wgu, Hgs, cfg["xb"], cfg["xg"]); oo = Qgu.shape[1] // 2
+            Qd = gptq_qb(torch.stack([mlp.experts[j].down_proj.weight.data.float() for j in range(ne_)]), Hds, cfg["xb"], cfg["xg"])
+            for j in range(ne_):
+                ex = mlp.experts[j]; ex.gate_proj.weight.data = Qgu[j, :oo].to(torch.bfloat16); ex.up_proj.weight.data = Qgu[j, oo:].to(torch.bfloat16); ex.down_proj.weight.data = Qd[j].to(torch.bfloat16)
+            for j in range(ne_): Hg.pop((i, j), None); Hd.pop((i, j), None)
+            del Hgs, Hds, Wgu, Qgu, Qd; torch.cuda.empty_cache(); log("gptq layer", i)
+        Hg.clear(); Hd.clear(); torch.cuda.empty_cache()
+        for n_, p in lm.named_parameters():
+            k, _ = classify(n_, tuple(p.shape))
+            if k == "attn": p.data = rtn(p.data.float(), cfg["ab"], cfg["ag"]).to(torch.bfloat16)
+            elif k == "embed": p.data = rtn(p.data.float(), cfg["eb"], cfg["eg"]).to(torch.bfloat16)
+    d2 = f"{M}/{tag}"; shutil.rmtree(d2, ignore_errors=True); lm.save_pretrained(d2, safe_serialization=True); tok.save_pretrained(d2)
+    del lm; torch.cuda.empty_cache(); shutil.rmtree(d, ignore_errors=True)
+    info2 = dict(info); info2.update(tag=tag, cfg=cfg); json.dump(info2, open(f"{OUT}/{tag}.size.json", "w"), indent=1); log("GPTQ BUILT", tag, info2["ratio"]); return info2
+
+def rungptq(base, cfgs):
+    env = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+    for tag, cfg in cfgs:
+        if os.path.exists(f"{OUT}/{tag}.json"): continue
+        try:
+            subprocess.run([sys.executable, __file__, "gptqbuild", base, tag, json.dumps(cfg)], env=os.environ, check=True)
+            r = subprocess.run([sys.executable, __file__, "probe", f"{M}/{tag}", tag], capture_output=True, text=True, env=env)
+            print(r.stdout[-300:], r.stderr[-1500:] if r.returncode else "", flush=True)
+        except Exception:
+            import traceback; traceback.print_exc()
+        shutil.rmtree(f"{M}/{tag}", ignore_errors=True)
+
 if __name__ == "__main__":
     c = sys.argv[1]
     if c == "probe": probe(sys.argv[2], sys.argv[3])
@@ -239,4 +355,6 @@ if __name__ == "__main__":
         probe(snapshot_download(BASES[sys.argv[2]]["id"], allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.py", "*.tiktoken"]), "base_" + sys.argv[2])
     elif c == "stats": stats(sys.argv[2])
     elif c == "run": run(sys.argv[2], json.load(open(sys.argv[3])))
+    elif c == "gptqbuild": gptq_build(sys.argv[2], sys.argv[3], json.loads(sys.argv[4]))
+    elif c == "rungptq": rungptq(sys.argv[2], json.load(open(sys.argv[3])))
     elif c == "build": build(sys.argv[2], sys.argv[3], json.loads(sys.argv[4]))
