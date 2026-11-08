@@ -346,3 +346,6 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T15:34Z vast id 59730392 label tenpct-L12B GPU A100 SXM4 80GB $1.230/h (+5% guard) started
 - 2026-11-08T15:35Z vast id 59730572 label tenpct-l13a GPU A40 48GB $0.549/h (+5% guard) started
 - 2026-11-08T15:36Z vast id 59730647 label tenpct-t3-32bb GPU RTX PRO 6000 Max-Q $1.002/h started
+
+## L9b (Qwen3.5-35B-A3B real packed artifact) 2026-11-08
+modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6XHN7ZRPE9NAX (2xA100-80)

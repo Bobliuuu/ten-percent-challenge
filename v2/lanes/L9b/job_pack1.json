@@ -1,0 +1,3 @@
+{"stage":"pack","tag":"pack1","sets":["SEL","REP"],"variants":[
+ {"name":"v1_k102_e3","k":102,"eb":3,"attn_b":6,"emb_b":4,"head_b":4,"draw":0},
+ {"name":"v1_k112_e3","k":112,"eb":3,"attn_b":6,"emb_b":4,"head_b":4,"draw":0}]}
