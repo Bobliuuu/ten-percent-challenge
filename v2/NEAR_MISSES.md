@@ -111,3 +111,9 @@ Layer-level proxy (relative Hessian error) for 95 methods incl. SpQR, OWQ, Squee
 <!-- MOE-CENSUS-B END -->
 
 | Ternary-Bonsai-2-27B (ours f165k) | SKILL7 shared exam | trits+coded scales | - | 9.94% | 100.0 [99.9] | 1.00 (all kinds) | L2: real pack on box, locked exam scored once, feedback Recipe 82.7% teach / shuffled 0 / empty 0; gray: base is already ternary, closed-form edit |
+
+### L3 MoE, recipe switch 2026-11-08 (SKILL7 shared-exam task; dev/selection only, exam NOT yet scored). vq4 = D4 K256 gaussian VQ, Hadamard both sides, error-feedback, 2.0 bpw experts, per-expert sigma, attn6 emb5 head4
+| method | size | SEL retention [lo] | DEV retention [lo] | min cell | feedback (Recipe, 24 annotations: 12 new + 12 old-skill errors) | rule gaps |
+|---|---|---|---|---|---|---|
+| keep 87, vq4 | 9.86% | 99.35 [98.84] | 99.85 [99.15] | 98.2 / 98.3 | not run on this variant | exam not yet scored |
+| keep 85, vq4 packed (real file 9.676% + 0.134% fp16 o_proj override = 9.81%) + o_proj edit (last 8 layers, closed form) | 9.81% | 99.17 [98.61] | 99.70 [98.9] | 97.0 / 98.0 | teach .39 / ~.45 / .55 (3 draws; cross-source mtop/hwu .40-.67); shuffled(derangement) 0.0; wrong-label 0.0; empty 0.0; neighbours .9957-.9966 (empty .9923) | teach lower than rival's 64.9%; feedback legality unruled |
