@@ -30,6 +30,5 @@ for base, rows, cols, ng in I["index"]:
 for k, v in torch.load(art + "/small.pt").items():
     h = hf(k)
     if h.endswith("conv1d.weight") and v.ndim == 3 and v.shape[-1] == 1: v = v.permute(0, 2, 1)
-    if h.endswith(NORMS): v = (v.float() - 1.0)
-    put(h, v.float() if I["small_dtype"][k] == "torch.float32" or h.endswith(NORMS) else v.to(torch.bfloat16))
+    put(h, v)
 flush(); json.dump({"metadata": {}, "weight_map": wm}, open(out + "/model.safetensors.index.json", "w"))

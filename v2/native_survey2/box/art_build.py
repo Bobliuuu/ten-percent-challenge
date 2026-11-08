@@ -28,15 +28,16 @@ for base in names:
 trit_f.close()
 open(out + "/rowbase.bin", "wb").write(b"".join(rowbase))
 open(out + "/scales.q.xz", "wb").write(lzma.compress(b"".join(qbytes), format=lzma.FORMAT_XZ, preset=9 | lzma.PRESET_EXTREME))
-small = {}; sdt = {}
+NORMS = ("input_layernorm.weight", "post_attention_layernorm.weight", "model.norm.weight", "q_norm.weight", "k_norm.weight")
+small = {}
 for k in keys:
     if k.endswith((".scales", ".biases", ".signs")) or k.startswith("vision_tower"): continue
     if k.rsplit(".", 1)[0] in names and k.endswith(".weight"): continue
     t = f.get_tensor(k)
     if t.dtype in (torch.uint32, torch.int32): continue
-    sdt[k] = str(t.dtype)
-    if t.dtype == torch.float32 and torch.equal(t.half().float(), t): t = t.half()
-    small[k] = t
+    if k.endswith(NORMS): t = t.float() - 1.0          # stored as (1+w) in the MLX pack; HF uses w
+    small[k] = t.float() if k.endswith(("A_log", "dt_bias")) else t.to(torch.bfloat16)
+sdt = {}
 torch.save(small, out + "/small.pt")
 json.dump({"K": K, "NV": NV, "index": index, "n_trit": n_trit, "small_dtype": sdt}, open(out + "/index.json", "w"))
 # tokenizer (trimmed)
