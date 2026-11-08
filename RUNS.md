@@ -328,3 +328,6 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T15:11Z vast id 59727524 label tenpct-L12B GPU A100 SXM4 80GB $1.306/h (+5% guard) started
 - 2026-11-08T15:11Z vast id 59727525 label tenpct-L12A GPU A100 SXM4 80GB $1.306/h (+5% guard) started
 - 2026-11-08T15:13Z L12 Modal calls cancelled and app tenpct-l12 stopped (GPU queue); running on Vast ids 59727525 (L12A) and the L12B box instead
+- 2026-11-08T15:20Z vast id 59723286 tenpct-x03p12 destroyed after 0.72 h (~$0.40)
+- 2026-11-08T15:21Z vast id 59727487 tenpct-l13b destroyed after 0.18 h (~$0.07)
+- 2026-11-08 vast id 59724866 label tenpct-l3a H100 NVL $3.06/h started (L3 MoE sweeps)
