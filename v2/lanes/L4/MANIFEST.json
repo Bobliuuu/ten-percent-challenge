@@ -1,0 +1,40 @@
+{
+ "lane": "L4",
+ "base": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+ "fp16_bytes": 61064245248,
+ "status": "EST sizes from bit counts; NO packed file exporter yet; checkpoint = harness-materialised (dequantised bf16, router-masked)",
+ "recipe": {
+  "experts": "routing-mass top-80/128 per layer (mass from task calibration prompts, no labels), GPTQ + block-Hadamard(256) 2-bit g128, fp16 scale + int zero",
+  "attn": "RTN 6b g128",
+  "embed": "RTN 5b",
+  "lm_head": "RTN 4b",
+  "feedback_carrier": "last 6 layers o_proj stay fp16 (6*4096*2048*2 B) so the closed-form edit has a carrier"
+ },
+ "tasks": {
+  "SKILL7": "v2/exam shared locked exam 2744 items",
+  "BANK6": "v2/exam shared locked exam 2237 items"
+ },
+ "bytes_SKILL7_BANK6_same_recipe": {
+  "parts": {
+   "experts": 4848353280,
+   "router": 15728640,
+   "keep_index": 3840,
+   "attn": 698941440,
+   "embed": 200859392,
+   "head": 161659904,
+   "norms": 421888,
+   "tokenizer_config": 116545201
+  },
+  "total": 6042513585,
+  "ratio": 0.09895338197433803
+ },
+ "shipped_files_planned": [
+  "quantised expert codes+scales+zeros",
+  "kept-expert index (3840 B)",
+  "attn/embed/head RTN",
+  "fp16 o_proj x6",
+  "tokenizer+config",
+  "answer.py",
+  "feedback.py (code size counted in tokenizer_config bucket only approximately: NOT yet counted)"
+ ]
+}
