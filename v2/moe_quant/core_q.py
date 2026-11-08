@@ -108,7 +108,7 @@ def main(cfgs, vol):
     log("orig copied")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS == "voice" else f"/root/data2/skill7_{n.lower()}.jsonl" if DS == "skill7" else f"/root/splits/{n.lower()}.jsonl"
+        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS == "voice" else f"/root/data2/{DS}_{n.lower()}.jsonl" if DS in ("skill7", "bank8") else f"/root/splits/{n.lower()}.jsonl"
         rows = [json.loads(l) for l in open(pth)]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows
@@ -268,7 +268,7 @@ def main(cfgs, vol):
         for sn in cfg.get("sets", ["SEL"]):
             rows = getset(sn)
             if cfg.get("sub"): rows = rows[::cfg["sub"]]
-            outs = gen_eval(rows); res_s = dict(outs=outs, ids=[r["id"] for r in rows]); correct = [o == r["answer"] for o, r in zip(outs, rows)]
+            outs = gen_eval(rows, max_new=cfg.get("max_new", 5)); res_s = dict(outs=outs, ids=[r["id"] for r in rows]); correct = [o == r["answer"] for o, r in zip(outs, rows)]
             bp = f"/r/res/base_{DS}_{sn}_{cfg.get('sub',1)}.json"
             if name == "base": json.dump(dict(outs=outs, ids=res_s["ids"]), open(bp, "w")); vol.commit()
             sm = dict(n=len(rows), acc=sum(correct) / len(rows))

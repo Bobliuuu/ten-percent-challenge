@@ -1,15 +1,15 @@
-"""offline scorer: python score.py RESDIR -> table of retention vs bytes for every voice_<name>.json (re-scores outs against outs_skill7_base_SEL.json)"""
+"""offline scorer: python score.py RESDIR -> table of retention vs bytes for every voice_<name>.json (re-scores outs against outs_{DS}_base_SEL.json)"""
 import json, sys, glob, os, math, collections
-d = sys.argv[1]; rows = [json.loads(l) for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "moe_quant", "data", "skill7_sel.jsonl"))]
+d = sys.argv[1]; DS = sys.argv[2] if len(sys.argv) > 2 else "skill7"; rows = [json.loads(l) for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "moe_quant", "data", f"{DS}_sel.jsonl"))]
 def wil(k, n, z=1.96):
     if n == 0: return 0.0
     p = k / n; dd = 1 + z * z / n; c = p + z * z / (2 * n); h = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return (c - h) / dd
-b = json.load(open(f"{d}/outs_skill7_base_SEL.json")); assert b["ids"] == [r["id"] for r in rows]
+b = json.load(open(f"{d}/outs_{DS}_base_SEL.json")); assert b["ids"] == [r["id"] for r in rows]
 bc = [o == r["answer"] for o, r in zip(b["outs"], rows)]; nb = sum(bc); out = []
-for f in sorted(glob.glob(f"{d}/skill7_*.json")):
+for f in sorted(glob.glob(f"{d}/{DS}_*.json")):
     j = json.load(open(f)); n = j["name"]
     if n == "base": continue
-    o = json.load(open(f"{d}/outs_skill7_{n}_SEL.json"))["outs"]; ok = [x == r["answer"] for x, r in zip(o, rows)]
+    o = json.load(open(f"{d}/outs_{DS}_{n}_SEL.json"))["outs"]; ok = [x == r["answer"] for x, r in zip(o, rows)]
     k = sum(1 for x, y in zip(ok, bc) if x and y); cells = collections.defaultdict(lambda: [0, 0])
     for x, y, r in zip(ok, bc, rows):
         if y: c = cells[r["kind"]]; c[0] += 1; c[1] += int(x)

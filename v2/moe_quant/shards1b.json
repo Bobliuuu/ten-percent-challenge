@@ -1,0 +1,1 @@
+{"A": ["rvq8_had_b2", "gptq_had_b3_g32", "gptq_had_b2_g64", "mix_had_h30_3_2"], "B": ["rtn_b3", "gptq_had_b2_g32", "gptq_had_b3_g256", "mix_had_h50_3_2"]}
