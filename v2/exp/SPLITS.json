@@ -1,0 +1,66 @@
+{
+ "version": 1,
+ "builder": "v2/exp/build_splits.py",
+ "builder_sha256": "9dfbfefed5afaa243f89ba580a6095eb2469c94b60266bf15795d5c6ae326d31",
+ "builder_commit": "a05ef0d44cf16b8ecef5c3c740aa2aa92cb5f097",
+ "bucket_fn": "task_search/NEWS/build_news.py:bucket",
+ "prompt": "Assign the following news article to exactly one topic.\nAnswer with exactly one word from: World, Sports, Business, Technology, or, if none fits, a different one-word topic.\n\nArticle: {X}",
+ "files": {
+  "cal": {
+   "path": "v2/exp/splits/cal.jsonl",
+   "sha256": "a5e8b23cf7450a69207e72b4d8a953950e6dd4ff9d5378db8a7c22fc26430fa2",
+   "n": 8000
+  },
+  "sel": {
+   "path": "v2/exp/splits/sel.jsonl",
+   "sha256": "645b95b73862d36704616c8e3083c67c72dd6d64249f0860ba3ce0a4ee6f5843",
+   "n": 3839
+  },
+  "rep": {
+   "path": "v2/exp/splits/rep.jsonl",
+   "sha256": "5f505befc34c800e09e1597e4c8ba79a645010ef691ab99c29f2b686b88bee76",
+   "n": 7234
+  },
+  "gen": {
+   "path": "v2/exp/splits/gen.jsonl",
+   "sha256": "401b4766a7352c08e7d9fd23ec197558f6b5ca0021e6fac483c7df9eb8040119",
+   "n": 2001
+  }
+ },
+ "counts": {
+  "cal": {
+   "ag_news|Business": 2000,
+   "ag_news|Sports": 2000,
+   "ag_news|Technology": 2000,
+   "ag_news|World": 2000
+  },
+  "sel": {
+   "ag_news|Business": 750,
+   "ag_news|Sports": 750,
+   "ag_news|Technology": 750,
+   "ag_news|World": 750,
+   "bbc_news|Business": 238,
+   "bbc_news|Sports": 235,
+   "bbc_news|Technology": 174,
+   "bbc_news|World": 192
+  },
+  "rep": {
+   "ag_news|Business": 625,
+   "ag_news|Sports": 625,
+   "ag_news|Technology": 625,
+   "ag_news|World": 625,
+   "bbc_news|Business": 265,
+   "bbc_news|Sports": 267,
+   "bbc_news|Technology": 172,
+   "bbc_news|World": 211,
+   "huffpost|Business": 969,
+   "huffpost|Sports": 848,
+   "huffpost|Technology": 407,
+   "huffpost|World": 1595
+  }
+ },
+ "base_correct": {},
+ "floors": {},
+ "notes": "base_correct filled by X01 (v2/exp/results/X01) per model",
+ "split_hash": "6164d3c3f810f8afc15e95381e82ef39d76458fc11f70bb7d3476d78e7e99a09"
+}
