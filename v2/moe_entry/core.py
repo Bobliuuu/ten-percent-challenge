@@ -193,6 +193,9 @@ def main(cfgs, vol):
     def keep_lists(cfg, mass0):
         mass = {"mass": mass0, "reap": reap / cnt.clamp(min=1), "massreap": (mass0 / mass0.sum(1, keepdim=True)) * (reap / cnt.clamp(min=1) / (reap / cnt.clamp(min=1)).mean(1, keepdim=True))}[cfg.get("score", "mass")]
         if cfg.get("kept_counts"): return [sorted(torch.topk(mass[l], cfg["kept_counts"][l]).indices.tolist()) for l in range(NL)]
+        if cfg.get("alpha") is not None:
+            mf = get_mass(False)[0]; ms = get_mass(True)[0]; pp = (mf - ms).clamp(min=0); a = cfg["alpha"]
+            mass0 = a * pp / pp.sum(1, keepdim=True) + (1 - a) * ms / ms.sum(1, keepdim=True); mass = mass0
         k = cfg.get("keep", NE)
         if cfg.get("kept_file"): return [sorted(x) for x in json.load(open(cfg["kept_file"]))]
         if isinstance(k, float) and k <= 1.0: k = int(round(k * NE))
