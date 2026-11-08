@@ -1,0 +1,12 @@
+[    16s] model /root/q32_h label tokens {'safe': ['safe', '<|im_end|>'], 'toxic': ['to', 'xic', '<|im_end|>'], 'hate': ['h', 'ate', '<|im_end|>'], 'sexual': ['sexual', '<|im_end|>'], 'violence': ['viol', 'ence', '<|im_end|>'], 'selfharm': ['self', 'h', 'arm', '<|im_end|>']}
+[    78s] cached items 2273
+[   137s] calibration tokens 24494 answer positions 600
+[   138s] base labels on ann pool Counter({'Alarm': 18, 'Calendar': 4, 'other': 2, 'Lists': 1})
+[   142s] paraphrase sample: You are the router of a voice assistant. Decide which skill should handle the user's request. Answer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport.  Request: What
+[   154s] base TF acc {'jb_dev': nan, 'jb_teach': 0.0, 'jb_ood': nan, 'neigh_eval': 0.946} base-correct neighbours 1403
+[   356s] S6_c1024 n 12 real teach 0.049 shuffle teach 0.0 neigh real 1.0 ood nan para 0.0 ann 0.05
+[   573s] S6_c1024 n 25 real teach 0.5 shuffle teach 0.0 neigh real 1.0 ood nan para 0.443 ann 0.357
+[   778s] S6_c2048 n 12 real teach 0.368 shuffle teach 0.0 neigh real 1.0 ood nan para 0.417 ann 0.317
+[  1000s] S6_c2048 n 25 real teach 0.819 shuffle teach 0.0 neigh real 1.0 ood nan para 0.739 ann 0.696
+[  1022s] VALIDITY [{'m': 'S6_c1024', 'draw': 0, 'set': 'jb_teach', 'agree': 0.98, 'acc_tf': 0.03, 'acc_gen': 0.05}, {'m': 'S6_c1024', 'draw': 0, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}, {'m': 'S6_c1024', 'draw': 1, 'set': 'jb_teach', 'agree': 1.0, 'acc_tf': 0.04, 'acc_gen': 0.04}, {'m': 'S6_c1024', 'draw': 1, 'set': 'neigh_eval', 'agree': 1.0, 'acc_tf': 1.0, 'acc_gen': 1.0}]
+[  1022s] DONE
