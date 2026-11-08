@@ -1,0 +1,210 @@
+{
+ "model": "/workspace/models/L6model",
+ "new": "Lists",
+ "n": 20,
+ "lam": 0.1,
+ "margin": 6.0,
+ "layers": [
+  20,
+  21,
+  22,
+  23
+ ],
+ "base_neigh_acc": 0.8228070175438597,
+ "draws": [
+  {
+   "draw": 0,
+   "n_teach": 92,
+   "empty": {
+    "train_ann": 0.0,
+    "teach": 0.0,
+    "neigh_kept": 0.9808102345415778,
+    "neigh_by_class": {
+     "Alarm": 1.0,
+     "Weather": 0.9846153846153847,
+     "Music": 0.9545454545454546,
+     "Calendar": 1.0,
+     "News": 0.9767441860465116,
+     "Transport": 0.9690721649484536
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      56
+     ],
+     [
+      "Music",
+      6
+     ],
+     [
+      "Delete",
+      3
+     ],
+     [
+      "ShoppingList",
+      3
+     ]
+    ]
+   },
+   "real": {
+    "train_ann": 0.55,
+    "teach": 0.14130434782608695,
+    "neigh_kept": 0.9616204690831557,
+    "neigh_by_class": {
+     "Alarm": 0.9583333333333334,
+     "Weather": 0.9846153846153847,
+     "Music": 0.9431818181818182,
+     "Calendar": 0.9711538461538461,
+     "News": 0.9767441860465116,
+     "Transport": 0.9484536082474226
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      33
+     ],
+     [
+      "Lists",
+      13
+     ],
+     [
+      "Music",
+      5
+     ],
+     [
+      "List",
+      4
+     ]
+    ]
+   },
+   "shuffle": {
+    "train_ann": 0.0,
+    "teach": 0.0,
+    "neigh_kept": 0.9594882729211087,
+    "neigh_by_class": {
+     "Alarm": 0.9583333333333334,
+     "Weather": 0.9846153846153847,
+     "Music": 0.9659090909090909,
+     "Calendar": 0.9519230769230769,
+     "News": 0.9767441860465116,
+     "Transport": 0.9381443298969072
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      47
+     ],
+     [
+      "Music",
+      10
+     ],
+     [
+      "Alarm",
+      5
+     ],
+     [
+      "Remove",
+      2
+     ]
+    ]
+   }
+  },
+  {
+   "draw": 1,
+   "n_teach": 92,
+   "empty": {
+    "train_ann": 0.0,
+    "teach": 0.0,
+    "neigh_kept": 0.9808102345415778,
+    "neigh_by_class": {
+     "Alarm": 1.0,
+     "Weather": 0.9846153846153847,
+     "Music": 0.9545454545454546,
+     "Calendar": 1.0,
+     "News": 0.9767441860465116,
+     "Transport": 0.9690721649484536
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      60
+     ],
+     [
+      "Music",
+      5
+     ],
+     [
+      "Delete",
+      4
+     ],
+     [
+      "Unknown",
+      2
+     ]
+    ]
+   },
+   "real": {
+    "train_ann": 0.55,
+    "teach": 0.18478260869565216,
+    "neigh_kept": 0.9722814498933902,
+    "neigh_by_class": {
+     "Alarm": 0.9583333333333334,
+     "Weather": 0.9692307692307692,
+     "Music": 0.9431818181818182,
+     "Calendar": 0.9807692307692307,
+     "News": 1.0,
+     "Transport": 0.9896907216494846
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      35
+     ],
+     [
+      "Lists",
+      17
+     ],
+     [
+      "Delete",
+      7
+     ],
+     [
+      "Music",
+      4
+     ]
+    ]
+   },
+   "shuffle": {
+    "train_ann": 0.0,
+    "teach": 0.0,
+    "neigh_kept": 0.9616204690831557,
+    "neigh_by_class": {
+     "Alarm": 0.9722222222222222,
+     "Weather": 0.9230769230769231,
+     "Music": 0.9545454545454546,
+     "Calendar": 0.9903846153846154,
+     "News": 1.0,
+     "Transport": 0.9381443298969072
+    },
+    "teach_outputs": [
+     [
+      "Calendar",
+      48
+     ],
+     [
+      "Music",
+      13
+     ],
+     [
+      "Alarm",
+      5
+     ],
+     [
+      "Weather",
+      5
+     ]
+    ]
+   }
+  }
+ ]
+}

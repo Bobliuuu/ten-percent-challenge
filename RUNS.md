@@ -377,3 +377,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T16:25Z vast id 59735549 tenpct-l9b destroyed after 0.17 h (~$0.60)
 - 2026-11-08 L13 relaunched at L=3 (real operating point; L5 saturates at 99%): modal tenpct-l13 jobs a,a2 (SKILL7), c (BANK6 sel); earlier L5 apps stopped
 - 2026-11-08 vast 59720133 (rep2) destroyed after L5 Recipe feedback rerun
+- 2026-11-08T16:4xZ vast id 59722073 tenpct-nm-b destroyed after ~2.4 h (~$1.0)
