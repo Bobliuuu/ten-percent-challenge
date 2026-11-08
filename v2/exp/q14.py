@@ -221,7 +221,7 @@ def _impl(cfg):
     fixed = sum(os.path.getsize(os.path.join(pack, f)) for f in os.listdir(pack))
     target = cfg.get("target_pct", 9.90); budget = int(fp16_bytes * target / 100.0) - int(cfg.get("slack_bytes", 2_000_000))
     if cfg.get("alloc") == "kl":
-        sens = json.load(open(cfg["alloc_sens"])); K_of, tot = solve_kl(shapes, fixed, budget, sens, cfg.get("alloc_a", 2.5))
+        sens = json.load(open(cfg["alloc_sens"] if os.path.isabs(cfg["alloc_sens"]) else os.path.join(HERE, cfg["alloc_sens"]))); K_of, tot = solve_kl(shapes, fixed, budget, sens, cfg.get("alloc_a", 2.5))
     else: K_of, tot = solve_uniform(shapes, fixed, budget)
     print("planned bytes %d (%.4f%%) budget %d; K range %d-%d; distinct K %d" % (tot, 100 * tot / fp16_bytes, budget, min(K_of.values()), max(K_of.values()), len(set(K_of.values()))), flush=True)
     res.update(planned_bytes=tot, planned_ratio_pct=100 * tot / fp16_bytes, K_min=min(K_of.values()), K_max=max(K_of.values()), K_mean_bits=float(np.mean([math.log2(k) for k in K_of.values()])))

@@ -8,7 +8,6 @@ FLAGS = {"A0": {}, "A0p": {"target_pct": 10.00}, "A1": {"alloc": "kl", "alloc_se
 def make_cfg(arm, seed, stack=(), work="/workspace"):
     c = dict(name=arm, exp="X03", model=MODEL, seed=seed, target_pct=9.90, n_task=1500, wiki_tokens=400000, ncal=1024, callen=512, work=work, stack=list(stack), quantiser="q14")
     for a in list(stack) + [arm]: c.update(FLAGS[a])
-    if "alloc_sens" in c: c["alloc_sens"] = os.path.join(HERE, c["alloc_sens"]) if not os.path.isabs(c["alloc_sens"]) else c["alloc_sens"]
     c["pack_dir"] = f"{work}/packs/{arm}_s{seed}"; return c
 def screen_ids(base_items, n_per=75):
     """first n_per base-correct SEL items per class, ordered by sha1(id) (fixed, base-only information)"""
