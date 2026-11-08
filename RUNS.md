@@ -397,3 +397,11 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08 vast id 59723460 tenpct-t3-32b destroyed (T3 lane done, results pulled)
 - 2026-11-08 vast id 59725948 tenpct-t3-14b destroyed (T3 lane done, results pulled)
 - 2026-11-08T17:56Z vast id 59751753 label tenpct-L11_G GPU RTX PRO 6000 Max-Q 96GB $1.393/h (+5% guard) started
+- 2026-11-08T17:57Z vast id 59750290 tenpct-L11_X4 destroyed after 0.18 h (~$0.18)
+- 2026-11-08T18:02Z vast id 59750988 tenpct-L11_X2 destroyed after 0.18 h (~$0.25)
+- 2026-11-08T18:05Z vast id 59753247 label tenpct-L11_X1 GPU A100 SXM4 80GB $1.001/h (+5% guard) started
+- 2026-11-08T18:07Z vast id 59753518 label tenpct-L11_X2 GPU A100 SXM4 80GB $1.068/h (+5% guard) started
+- 2026-11-08T18:08Z vast id 59753748 label tenpct-L11_X3 GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T18:10Z vast id 59753950 label tenpct-L11_X4 GPU A100 SXM4 80GB $1.122/h (+5% guard) started
+- 2026-11-08T18:10Z vast id 59751753 tenpct-L11_G destroyed after 0.18 h (~$0.25)
+- 2026-11-08 vast tenpct-l3a (H100 NVL ~$3.1/h, ~10 h) and 3 orphan duplicates from a retry loop destroyed + verified gone; Modal app tenpct-moe-entry has no running tasks
