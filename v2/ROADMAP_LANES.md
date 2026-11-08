@@ -30,3 +30,14 @@ Support lanes: easy-task sweep, task catalogue, model census, quantization sweep
 - 11-11..11-12 12:00: write presentation (STATUS.md lane table, README), file the best entry only if honest.
 
 ## Lane scoreboard (updated as results land): see v2/NEAR_MISSES.md and STATUS.md
+
+## PRIORITY (decided 2026-11-08 from evidence; supersedes the equal weighting above)
+Evidence: dense quant (scalar/VQ/TCQ/GPTAQ) all 92-97% at <=10% -> method-insensitive, dense = fallback. MoE task-pruned experts + low-bit: rival #4 99.36% @ 9.892% (2,910 items), rival #3 96.0 vs 95.8 @ 10.48%, maintainer praised compression -> best route. Easy narrow tasks retain better. Feedback is the bottleneck: lm_head rows rejected (#3); diffuse down_proj works (teach .6-.8, shuffled ~0, neighbours .99), legality unruled. Native low-bit passes only vs its own checkpoint (identity gray).
+1. L3 Qwen3-30B-A3B, ~43% experts kept by routing mass, 3-bit GPTQ+Hadamard on kept experts, easy routing task, diffuse feedback.  P(all 9) ~20%
+2. L4 same model, banking10, feedback done right.  ~15%
+3. L9 bigger MoE (Qwen3-235B-A22B, gpt-oss-120b, Qwen3-Next-80B) same recipe.  ~12%
+4. L1 Bonsai-8B easy task + column-sparse feedback.  ~8% (identity gray)
+5. L2 Ternary-Bonsai-27B + feedback.  ~6% (identity gray)
+6. L6 other MoE bases.  ~8%
+7. L5 dense 32B + repair (fallback only).  ~3%
+Dropped: L8 depth/width pruning, VQ/trellis/GPTAQ sweeps. Quant sweep refocus: best quantizer for KEPT MoE EXPERTS at 2-3 bits. GPUs go to L3/L4/L9 first.
