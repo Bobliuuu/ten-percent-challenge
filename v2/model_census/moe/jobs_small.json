@@ -1,0 +1,212 @@
+[
+ {
+  "model": "allenai/OLMoE-1B-7B-0125-Instruct",
+  "size": "s",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+  "size": "s",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "moonshotai/Moonlight-16B-A3B-Instruct",
+  "size": "s",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "baidu/ERNIE-4.5-21B-A3B-PT",
+  "size": "s",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "openai/gpt-oss-20b",
+  "size": "s",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "size": "m2",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ },
+ {
+  "model": "Qwen/Qwen3.5-35B-A3B",
+  "size": "m2",
+  "cfgs": [
+   {
+    "f": 1,
+    "bits": 3
+   },
+   {
+    "f": 0.75,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 3
+   },
+   {
+    "f": 0.4,
+    "bits": 3
+   },
+   {
+    "f": 0.3,
+    "bits": 3
+   },
+   {
+    "f": 0.5,
+    "bits": 4
+   }
+  ]
+ }
+]

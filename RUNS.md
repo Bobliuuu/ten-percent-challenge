@@ -254,3 +254,6 @@ Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) 
 - 2026-11-08 vast 59720135 destroyed (R3 leaky arm dropped, spend cap $30)
 - 2026-11-08T14:16Z vast id 59721403 label tenpct-rival3_bank GPU RTX 6000D 84GB $0.948/h (+5% guard) started
 - 2026-11-08T14:16Z vast id 59721406 label tenpct-rival3_clin GPU A100 SXM4 80GB $1.121/h (+5% guard) started
+
+## 2026-11-08 MoE census probes (fork B)
+Modal deployed app tenpct-moe-census (v2/model_census/moe/moe_probe.py), jobs v2/model_census/moe/jobs_small.json(.calls); launch: python3 v2/model_census/moe/launch.py jobs_small.json; results volume tenpct-moe-census:/res
