@@ -1,0 +1,18 @@
+{
+ "name": "SENS14",
+ "exp": "X03",
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "seed": 11,
+ "target_pct": 9.9,
+ "n_task": 1500,
+ "wiki_tokens": 400000,
+ "ncal": 1024,
+ "callen": 512,
+ "work": "/workspace",
+ "stack": [],
+ "quantiser": "q14",
+ "pack_dir": "/workspace/packs/SENS14_s11",
+ "mode": "sens",
+ "nsens_eval": 24,
+ "sens_K": 8192
+}

@@ -1,0 +1,15 @@
+{
+ "name": "A0p",
+ "exp": "X03",
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "seed": 12,
+ "target_pct": 10.0,
+ "n_task": 1500,
+ "wiki_tokens": 400000,
+ "ncal": 1024,
+ "callen": 512,
+ "work": "/workspace",
+ "stack": [],
+ "quantiser": "q14",
+ "pack_dir": "/workspace/packs/A0p_s12"
+}

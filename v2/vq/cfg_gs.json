@@ -1,0 +1,14 @@
+[
+ {
+  "name": "t7_tcq_gs4",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "K": 3,
+  "L": 12,
+  "V": 2,
+  "calib_file": "calib_mix.jsonl",
+  "gen_tokens": 200000,
+  "ncal": 256,
+  "gscale": 4,
+  "no_general": true
+ }
+]

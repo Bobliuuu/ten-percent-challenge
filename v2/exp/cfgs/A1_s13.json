@@ -1,0 +1,17 @@
+{
+ "name": "A1",
+ "exp": "X03",
+ "model": "Qwen/Qwen2.5-14B-Instruct",
+ "seed": 13,
+ "target_pct": 9.9,
+ "n_task": 1500,
+ "wiki_tokens": 400000,
+ "ncal": 1024,
+ "callen": 512,
+ "work": "/workspace",
+ "stack": [],
+ "quantiser": "q14",
+ "alloc": "kl",
+ "alloc_sens": "/Users/jhome/ten-percent/v2/exp/results/X03/sens_14b.json",
+ "pack_dir": "/workspace/packs/A1_s13"
+}

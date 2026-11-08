@@ -128,18 +128,25 @@ def _impl(cfg):
                 del Hc
                 if U is not None: break
             del H; torch.cuda.empty_cache()
-            W = Wn.clone(); W[:, dead] = 0; Q = torch.empty_like(W); nt = R // 16; Vd = tr.V
+            W = Wn.clone(); W[:, dead] = 0; Q = torch.empty_like(W); nt = R // 16; Vd = tr.V; gscale = cfg.get("gscale", 0); SH = []
             for c0 in range(0, Cc, chunk):
                 c1 = min(c0 + chunk, Cc); Wc = W[:, c0:c1].clone(); Err = torch.zeros_like(Wc)
                 for j in range(0, c1 - c0, blk_c):
-                    blk = Wc[:, j:j + blk_c]; X = blk.reshape(nt, 16, blk_c).reshape(nt, 16 * blk_c // Vd, Vd)
+                    blk = Wc[:, j:j + blk_c]; X = blk.reshape(nt, 16, blk_c)
+                    if gscale:
+                        rms = X.pow(2).mean((1, 2)).sqrt().clamp(min=1e-6); si = torch.round(gscale * torch.log2(rms)).clamp(-40, 40); scl = (2.0 ** (si / gscale))[:, None, None]; SH.append(torch.bincount((si + 40).long(), minlength=81)); X = X / scl
+                    X = X.reshape(nt, 16 * blk_c // Vd, Vd)
                     out = []
                     for a in range(0, nt, cfg.get("vit_batch", 2048)): out.append(tr.quantize(X[a:a + cfg.get("vit_batch", 2048)])[1])
-                    Qb = torch.cat(out).reshape(nt, 16, blk_c).reshape(R, blk_c); E = blk - Qb; Ub = U[c0 + j:c0 + j + blk_c, c0 + j:c0 + j + blk_c]
+                    Qb = torch.cat(out).reshape(nt, 16, blk_c)
+                    if gscale: Qb = Qb * scl
+                    Qb = Qb.reshape(R, blk_c); E = blk - Qb; Ub = U[c0 + j:c0 + j + blk_c, c0 + j:c0 + j + blk_c]
                     Es = torch.linalg.solve_triangular(Ub, E, upper=True, left=False); Err[:, j:j + blk_c] = Es
                     if j + blk_c < c1 - c0: Wc[:, j + blk_c:] -= Es @ U[c0 + j:c0 + j + blk_c, c0 + j + blk_c:c1]
                     Q[:, c0 + j:c0 + j + blk_c] = Qb
                 if c1 < Cc: W[:, c1:] -= Err @ U[c0:c1, c1:]
+            if gscale and SH:
+                h = torch.stack(SH).sum(0).float(); p = h / h.sum(); p = p[p > 0]; st["scale_bits"] = st.get("scale_bits", 0.0) + float(h.sum() * -(p * p.log2()).sum()); st["scale_n"] = st.get("scale_n", 0) + int(h.sum())
             return Q
         def decode(Qn, sigma, rin, rout):
             Wq = Qn * sigma; Wq = rout.inv(Wq.T.contiguous()).T.contiguous(); return rin.inv(Wq)
@@ -286,7 +293,7 @@ def _impl(cfg):
             q_embhead(mod, "eh." + nm_); eh_params += mod.weight.numel()
         eh_bytes = eh_params * (2 + 16 / GS) / 8
         other = allp - nb - eh_params - (V * hd if tied else 0)
-        cbbytes = sum(t_.S * t_.V * 2 for t_ in TR.values()); fbytes = int(st["fixed_bits"] / 8 + st["meta"] * 2)
+        cbbytes = sum(t_.S * t_.V * 2 for t_ in TR.values()); fbytes = int((st["fixed_bits"] + st.get("scale_bits", 0.0)) / 8 + st["meta"] * 2)
         FILES = cfg.get("file_bytes", 7.2e6 + 1.5e5)   # tokenizer.json+tokenizer_config+config+generation_config (~7.2MB) + code (~150KB)
         total = fbytes + eh_bytes + other * 2 + cbbytes + FILES
         res.update(body_bpw_fixed=st["fixed_bits"] / nb, rel_proxy_err=st["num"] / st["den"], codebook_bytes=cbbytes, body_bytes=fbytes, embhead_bytes=eh_bytes, other_fp16_bytes=other * 2, file_bytes=FILES,
