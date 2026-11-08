@@ -408,3 +408,9 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T18:17Z vast id 59753247 tenpct-L11_X1 destroyed after 0.18 h (~$0.18)
 - 2026-11-08T18:18Z vast id 59753518 tenpct-L11_X2 destroyed after 0.18 h (~$0.19)
 - 2026-11-08 L10 exam result: Omni-7B text path SKILL7 shared exam retention 99.55% [99.21], feedback Recipe 0->86.0% [79.8] (shuffled 0); see v2/lanes/L10/REPORT.md. Modal l10 apps finished (no boxes launched, nothing to destroy).
+- 2026-11-08T18:19Z vast id 59753748 tenpct-L11_X3 destroyed after 0.18 h (~$0.17)
+- 2026-11-08T18:21Z vast id 59753950 tenpct-L11_X4 destroyed after 0.17 h (~$0.19)
+- 2026-11-08T18:22Z vast id 59756246 label tenpct-L11_X1 GPU A100 SXM4 80GB $1.068/h (+5% guard) started
+- 2026-11-08T18:24Z vast id 59756584 label tenpct-L11_X2 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08T18:26Z vast id 59756924 label tenpct-L11_X3 GPU RTX PRO 6000 Max-Q 96GB $1.002/h (+5% guard) started
+- 2026-11-08 modal tenpct-l13 job e (alloc ref L4, Ls 3..6; the L2..6 alloc collapsed to 0%)
