@@ -369,3 +369,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T16:15Z vast id 59729666 tenpct-x03q destroyed after 0.76 h (~$0.41)
 - 2026-11-08 vast id 59723461 tenpct-t3-7b destroyed (job finished, results pulled)
 - 2026-11-08 vast id 59730647 tenpct-t3-32bb destroyed (job finished, results pulled)
+- 2026-11-08 L10 shared-exam scoring (SKILL7, once): app tenpct-l10exam fc-01M6XZAAE64DEPX3HJ4P11XS8Z -> Volume tenpct-tasksearch:/l10exam/exam_skill7_omni7.json
+- 2026-11-08 modal tenpct-l13 job c (BANK6 sel, canonical) replaces job b (BANK8, stopped before start)

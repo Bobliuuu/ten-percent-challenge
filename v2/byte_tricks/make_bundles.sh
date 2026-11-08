@@ -5,6 +5,7 @@ for n in l13a l13b l13s; do
   rm -rf $B/$n; mkdir -p $B/$n/v2/byte_tricks $B/$n/v2/task_search/EASY $B/$n/v2/rival3/data/bank $B/$n/v2/rival3/data/clin $B/$n/results
   cp $V2/byte_tricks/*.py $V2/byte_tricks/arms_*.json $B/$n/v2/byte_tricks/
   cp $V2/task_search/EASY/{items_dev.jsonl,calib.jsonl,PLAN.json} $B/$n/v2/task_search/EASY/
+  mkdir -p $B/$n/v2/exam/data; cp $V2/exam/loader.py $V2/exam/MANIFEST.json $B/$n/v2/exam/; cp $V2/exam/data/bank6_sel.jsonl $V2/exam/data/bank6_cal.jsonl $B/$n/v2/exam/data/
   for s in bank clin; do cp $V2/rival3/data/$s/{sel.jsonl,cal.jsonl} $B/$n/v2/rival3/data/$s/; done
 done
 cat > $B/l13a/run.sh <<'X'

@@ -29,6 +29,10 @@ R3 = os.path.join(HERE, "..", "rival3", "data")
 def load_task(task, limit=0):
     """returns items, labels, calib path. SKILL7 = EASY-A (task_search/EASY dev items); BANK8 = EASY-B (rival3 bank+clin SEL sets, first 400 each by stable hash; never the exam)."""
     import hashlib
+    if task == "BANK6":   # shared exam package: dev-side 'sel' set (never the exam); calib = bank6_cal
+        sys.path.insert(0, os.path.join(HERE, "..", "exam")); from loader import load
+        items = load("BANK6", "sel"); labels = sorted({i["answer"] for i in items})
+        return (items[:limit] if limit else items), labels, os.path.join(HERE, "..", "exam", "data", "bank6_cal.jsonl")
     if task == "BANK8":
         items = []
         for src in ("bank", "clin"):
