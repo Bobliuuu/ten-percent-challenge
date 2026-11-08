@@ -266,7 +266,7 @@ def _run(A):
     f3 = lambda L, c, k: round(float(np.mean([np.mean(list(map(int, r[k]))) for r in L if r["c"] == c] or [-1])), 3)
     for cell in A["cells"]:
         Ls = cell["layers"]; lam = cell["lam"]; tgt = cell.get("tgt", "adam"); m = cell.get("m", 6.0); n = cell["n"]; qb = cell.get("qbits"); tag = cell.get("tag", "")
-        cell_runs = []
+        cell_runs = []; A["vnll"] = cell.get("vnll", 0.02); A["vsteps"] = cell.get("vsteps", A.get("vsteps", 30)); VSTAR.clear()
         for d in range(cell.get("ndraw", 1)):
             cs = conds(n, d)
             for cn in cell.get("conds", ["real", "shuffle", "wrong"]):
