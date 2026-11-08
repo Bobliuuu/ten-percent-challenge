@@ -28,5 +28,37 @@ Byte plan at K=8, N=140k, 5 trits/byte: see RESULTS for the REAL written size.
 - R2 vs base measured on dev only (RESULTS). Vocab truncation changes tokenisation of rare multilingual text: maintainer OOD data in other languages is the exposure.
 - R4: nothing fitted, no training. Scale rounding and vocab pruning are deterministic transforms. R5/R6/MC (feedback): untouched, OPEN like every other route.
 
-## RESULTS
-(pending; filled below as the dev probes finish)
+## RESULTS (all DEV, real greedy generation, vLLM bf16, files: `v2/native_survey2/results/*.json`, analysis `analysis_*.json`)
+Probe set: T1 tool calls (600; Qwen3.5+ XML calls converted to the JSON scorer format, `analyze.py`), TOX 5-class label (705), INJ Injection/Benign (695). Retention = P(candidate correct | base correct), cells = (task, source, class).
+Accuracies (all / T1 / TOX / INJ): Qwen3.8-27B parent .698/.589/.836; Ternary-Bonsai-2-27B unfolded (T2B) .683/.548/.858; Qwen3.6-27B .735/.596/.866; Bonsai-27B 1-bit .623/.543/.840. Rule 8 OK for all (above chance, below ceiling).
+
+### A. Native models vs their PARENT (the strict reading of "model you started from")
+| candidate | parent | retention all [Wilson lo] | T1 | TOX | INJ | worst cell (n>=20) |
+|---|---|---|---|---|---|---|
+| Ternary-Bonsai-2-27B (unfolded, exact) | Qwen3.8-27B | **94.6%** [93.3] (n=1415) | 92.4 | 89.6 | 99.8 | TOX S1 violence 64%, T1 S1 nocall 80% |
+| Bonsai-27B 1-bit | Qwen3.6-27B | **86.7%** [84.8] (n=1463) | 81.0 | 79.8 | 95.7 | TOX S3 toxic 38%, TOX S1 toxic 45% |
+Both fail R2 against the parent. Vendor "98.2% of FP16" for Ternary-Bonsai-2 is an average-benchmark score ratio, not item retention; item retention on our tasks is 94.6%. Scale does not rescue the 1-bit model (89.5% avg per vendor, 86.7% item-level here; Bonsai-8B measured 88.9% by B_native). These are the first item-level parent-retention numbers for 27B-class native low-bit models.
+
+### B. Compression of Ternary-Bonsai-2-27B itself (base = the released ternary model, exact unfolded reconstruction)
+| variant | lossy steps | real size (written bytes / 53,808,408,928) | retention vs T2B all [lo] | T1 | TOX | INJ | worst cells (n>=20) |
+|---|---|---|---|---|---|---|---|
+| exact (reference) | none | (5.743 GB min lossless = 10.67%) | 100% | | | | |
+| v_k8_full | scales to 8 steps/octave | n/a | 98.92% [98.2] | 98.0 | 98.7 | 99.7 | TOX S3 safe 92% (n=50) |
+| v_k8_n140k | + vocab prefix 140k+33 | **9.789%** (5,267,116,016 B, art_build real files, loader verified) | 98.78% [98.1] (n=1392) | 97.8 | 98.4 | 99.7 | TOX S3 safe 92% (50), TOX S3 toxic 95% (20), T1 S3 multi 95.1% |
+| v_k8_n170k | + vocab prefix 170k+33 | ~9.86% (est) | 98.85% [98.1] | 98.0 | 98.4 | 99.7 | same |
+| **v_k16_n140k** | 16 steps/octave + vocab 140k | **9.835%** (5,292,128,989 B real; + ~155 KB loader/hadamard.json = 9.835%) | **99.57%** [99.1] (n=1392) | 99.5 | 99.0 | 100.0 | TOX S3 toxic 90% (n=20, 2 flips), TOX S1 violence 97.4%, TOX S1 hate 98.1% |
+Observations: the loss is almost entirely the scale rounding (K=8 -> 98.9%, K=16 -> 99.6%); vocab truncation to 140k tokens costs <=0.15 pt on these English tasks (170k buys nothing). K=16 is within greedy-numerics noise of the base. Bytes: trits 5 per byte (5.152 GB, 1.6 bpw), scales 2.73 bits/scale via lzma (74.0 MB), row bases fp16 8.4 MB, bf16 small tensors 52.6 MB, trimmed tokenizer 4.9 MB, rest <0.1 MB. A 41-trits-in-65-bits coder (not built) would save another ~0.05 GB.
+Loader proof: `box/art_load.py` rebuilds HF bf16 tensors from the artifact; vs the variant checkpoint used for the probe: 851 tensors, 1 differing by 1.5e-8 (K8 build). The K16 shipped-path probe (loaded from the artifact bytes) is row "loaded_k16" below when finished.
+
+### C. Rules (v2/RULES.md; PASS/FAIL/GRAY, dev evidence only)
+- R1 size: PASS 9.835% real (K16/N140k) of the vendor's own F16 reference for the same model; GRAY only on "model you started from" = Ternary-Bonsai-2-27B (not ruled; RULES.md section 5: low-bit starting models and vocab trimming are not ruled).
+- R2: PASS-on-dev vs T2B (99.57% overall, 99.1 lower bound; every cell >=97% except a 20-item cell at 90%); FAIL vs the grand-parent Qwen3.8-27B (94.6% before our compression, so ~94% after).
+- R3: UNTESTED (no locked exam built). R4: PASS (no fitting; scale rounding and prefix vocab truncation are deterministic; `signs`/Hadamard are the vendor's). R7: PASS (real label words, real tool calls). R8: PASS. R9: GRAY (compressing a released low-bit derivative; tokenizer change; same base-identity exposure as Bonsai-8B but with a real entrant-side compression step).
+- R5/R6/MC (feedback): OPEN, nothing built. Per 4d, any lm_head-row edit is high risk; the ternary model has 5120-wide ternary lm_head rows so closed-form row edits would also need re-quantisation.
+- MC exposure: the vocab trim drops ~108k multilingual tokens; maintainer data in another language is untested (all three probe tasks are English).
+
+### D. Dead ends found in this lane
+- Bonsai-27B 1-bit lossless: 7.1% but 86.7% vs parent (R2 FAIL on strict reading, same identity bet as Bonsai-8B; larger scale did not help).
+- Other native ternary models (Falcon3-10B-1.58, Llama3-8B-1.58, BitNet-3B/TriLM, Falcon-E): size >=13.8% regardless of coding because embeddings/head are bf16 or the body alone is 9.9%.
+- No native >27B low-bit exists; VPTQ/AQLM/QuIP#/QTIP 1.5-2 bit PTQ checkpoints are lossy compression of the same family as our own VQ work (84-95% item retention in D_scale/L3).
+- Models whose structure is cheap (hash-routed, low-rank, Monarch, embedding-light): none released at a useful scale; Gemma-3n per-layer-embedding tables are lookup-only but 4-bit PLE still averages ~1.6 bpw over the whole checkpoint.
