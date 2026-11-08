@@ -1,0 +1,21 @@
+[
+ {
+  "tag": "llamas",
+  "src": "unsloth/Llama-3.2-11B-Vision-Instruct",
+  "dirname": "l10_llama11b",
+  "kind": "mllama",
+  "base_bytes": 21340441670,
+  "verify": false,
+  "cfgs": [
+   {
+    "name": "l_r985s",
+    "target_ratio": 0.0985,
+    "g": 256,
+    "gen_bs": 48,
+    "emb_L": 4,
+    "head_L": 4,
+    "save_deq": "/hf/l10_deq_llama"
+   }
+  ]
+ }
+]

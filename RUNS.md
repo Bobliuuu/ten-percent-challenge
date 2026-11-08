@@ -309,3 +309,13 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T14:46Z vast id 59723460 tenpct-t3-32b destroyed after 0.17 h (~$0.16)
 - 2026-11-08T14:48Z vast id 59723852 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.22)
 - 2026-11-08 L5 fork A: reusing vast 59720130 (rep1) for SKILL7 32B + Qwen3-14B draws; account at instance limit (cannot rent more)
+- 2026-11-08T14:48Z vast id 59724219 tenpct-l13a destroyed after 0.11 h (~$0.07)
+- 2026-11-08T14:49Z vast id 59725181 label tenpct-L12B GPU A100 SXM4 80GB $1.318/h (+5% guard) started
+- 2026-11-08T14:49Z vast id 59723688 tenpct-ne_b destroyed after 0.18 h (~$0.04)
+- 2026-11-08T14:53Z vast id 59725539 label tenpct-rival3_clin1 GPU A100 SXM4 80GB $1.138/h (+5% guard) started
+- 2026-11-08T14:53Z vast id 59724228 tenpct-L12A destroyed after 0.19 h (~$0.25)
+- 2026-11-08T14:56Z vast id 59725181 tenpct-L12B destroyed after 0.11 h (~$0.15)
+- 2026-11-08 modal app ap-bukXjGSrp8iWM3vfUdO6M4 tenpct-l13 job a (14B SKILL7 byte-trick arms, A100-80GB, detached; results volume tenpct-l13)
+- 2026-11-08T14:56Z vast id 59725949 label tenpct-t3-q3-14b GPU RTX PRO 6000 WS $1.336/h started
+- 2026-11-08T14:56Z vast id 59725948 label tenpct-t3-14b GPU RTX PRO 6000 WS $1.336/h started
+- 2026-11-08 L10 results: Llama-3.2-11B-Vision text path @9.872% of fp16(11B) body 2.10 bpw: SKILL7 retention 98.7% [97.4 Wilson], worst kind Alarm 95.5% (n=89); BANKFAM 95.6% worst Payment 79.5% (dev, real greedy gen). Files v2/lanes/L10/results/. Relaunched omni7/omni3 (fc-01M6XSZPKTYTJDVP07R2X0D2BE, fc-01M6XSZPQ1DT3QJS6XSQQRHYTY; first attempt had a stop-token bug, discarded) and llama save_deq job fc-01M6XTNSH1DQXT8H4MF6HBGF8A.
