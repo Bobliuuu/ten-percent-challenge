@@ -27,6 +27,7 @@ Bottom line: **no candidate is above about 5% and none currently passes R2 on a 
 | 3 | C11 | Qwen2.5-7B VQ-D8 K=14500 (QUALITY_PUSH), INJ / TOOLSEL | INJ 96.2% [95.0] (best of 12 configs), TOOLSEL 94.3% [92.5]; worst cell INJ 93.8, TOOLSEL 80-84 (S1/none) | 9.93% est | 2% | 2 | 4.0 | Same quantiser on 14B/32B same items; fix S1/none cell with the self-distilled calibration (about $10) |
 | 4 | C03 | Qwen2.5-72B TOOLSEL, label+self-distilled tool calibration (V7) | 95.55% [94.0]; worst cell S1/none 89.3 | 9.61% est | 1.2% | 3 | 3.6 | Same as C04 (VQ on 72B); no-irrelevance TOOLSEL is a product change (R7/R1 exposure) |
 | 5b | C27 | Ternary-Bonsai-2-27B (released ternary 27B) + train-free scale log-quantisation (16 steps/octave) + vocab prefix truncation (140k), base = that model | 99.57% [99.1] vs T2B (n=1392 base-correct, T1 99.5 / TOX 99.0 / INJ 100) DEV GEN; vs parent Qwen3.8-27B only 94.6% | 9.835% real written (5,292,128,989 B; loader verified) | 6% | 1.5 | 9.0 | Build locked exam + feedback; post/decide base reading; test non-English via maintainer-proxy; K16 shipped-path probe |
+| 11 | C30 | Qwen2.5-32B tool-call argument filling (copied values), TASK_SEARCH2 | 95.0 / 94.6 / 97.9% [96.3] at 10.0 / 11.3 / 12.5%, GEN DEV; 14B 81 / 87 / 92% | 10.02-12.53% | <1% | 2 | <2 | VQ quantiser on 32B (about $15) |
 | 5 | C19 | Bonsai-8B 1-bit, lossless repack (D1a tool call / D1b label task + feedback) | 100% vs itself (2000/2000 identical greedy, dev); 88.9% vs parent Qwen3-8B | 7.13% real (shipped tree) | 3% | 1 | 3.0 | Post the 3 maintainer questions (needs user OK, $0); in parallel the fp16-patch feedback test on Bonsai (cfgs8, about $5) |
 | 6 | C08 | Qwen2.5-32B NEWS router (4-menu) | 96.1% [95.0]; Technology class 0.90 | 10.03% est (OVER cap) | 0.8% | 2 | 1.6 | Run at the legal 9.6% point and with C07's quantiser; build Entertainment feedback (about $20) |
 | 7 | C09 | Qwen2.5-32B INJ-real, scalar GPTQ | 95.7% [94.5]; S2_benign 0.78 | 10.03% est (OVER cap) | 0.7% | 2 | 1.4 | Superseded by C07 (same task, VQ); skip unless C07 is dropped |
@@ -244,6 +245,33 @@ Each block: base | task and answer | compression | feedback | size | retention |
 - **P(all 9 as written):** 6% (V=1.5): the only route with measured >=98% real-generation retention vs its own base at <10% real bytes; hinges on base reading + feedback.
 - **Cheapest next experiment:** build locked exam and run K16/N140k loaded artifact; then a feedback edit on the 27B (~$10).
 
+### C30. TOOLARG tool-call argument filling (copied values), Qwen2.5-32B / 14B   (added 2026-11-08 by task-search-2 lane)
+- **Base:** Qwen2.5-32B-Instruct (65.5 GB fp16) and 14B; also probed Qwen2.5-7B, Qwen3-8B/14B (base only).
+- **Task / answer format:** given function schemas + conversation, generate `{"name":..,"arguments":{..}}` (values copied from the user text); whole-output JSON equality (whitespace-insensitive). Data: glaive-function-calling-v2 (Apache-2.0), S1/S2 = disjoint function-name hash halves; single-turn calls only. 300 items per half, DEV.
+- **Compression method:** repo Hadamard+GPTQ+entropy-coded pipeline (`task_search/dense_core.py`), calibrated on the six TASK_SEARCH2 tasks (hash-disjoint items).
+- **Feedback mechanism:** none built.
+- **Size:** 10.02 / 11.28 / 12.53% of fp16 (32B), 10.03 / 11.29 / 12.54% (14B), file-level accounting from the quantizer (not a written artifact).
+- **Retention:** GEN, real generation, DEV. 32B: 95.0% [92.9] / 94.6% [92.4] / **97.9% [96.3]** at 10.0 / 11.3 / 12.5% (n=559 base-correct; worst kind 3+args 83 / 88 / 96%, n=48). 14B: 81.1 / 87.4 / 91.7%. Base acc .93 (near ceiling). Per-item: `task_search/results/raw3/`, write-up `TASK_SEARCH2.md`.
+- **General capability:** not measured.
+- **Rules:** R1 FAIL at 12.5% / PASS* only at 10.0% (cap exceeded by 0.02-0.03 pt) | R2 FAIL (95.0 at 10.0%) | R3 UNTESTED (one synthetic source; needs a second real source) | R4 PASS* | R5 UNTESTED | R6 UNTESTED | R7 PASS (real generated call with arguments) | R8 GRAY (base .93, near ceiling) | R9 GRAY (narrow synthetic function vocabulary) | MC n/a
+- **Remaining work and cost:** a real second source, VQ quantiser (C11 recipe) on 32B at 9.85%, locked exam: >$40, days.
+- **Blockers:** R2 at <=10% (95% vs 98%), single synthetic source.
+- **P(all 9 as written):** <1% (V=2): same ~95% wall as TOOLSEL/INJ on 32B; this lane shows copy-style output does not help.
+- **Cheapest next experiment:** run the C07/C11 VQ quantiser on 32B and score these 1200 items (about $15 on one H100 box).
+
+### C31. PII detection / redaction to structured output (PIIDET, PIIRED), Qwen2.5-32B / 14B   (added 2026-11-08 by task-search-2 lane)
+- **Base:** Qwen2.5-32B-Instruct / 14B-Instruct.
+- **Task / answer format:** PIIDET: JSON list of [type,value] for EMAIL/PHONE/SSN/CARD/IBAN/IP/PASSWORD; PIIRED: rewrite the text with those spans replaced by [TAG]; strict whole-output match. Data: ai4privacy pii-masking-200k (S1, open custom licence, synthetic), gretel synthetic_pii_finance_multilingual (S2, Apache-2.0); 300 items per source per task, DEV.
+- **Compression method / Feedback:** as C30 / none.
+- **Size:** as C30.
+- **Retention:** GEN DEV, 32B at 10.0 / 11.3 / 12.5%: PIIDET 86.1 [82.4] / 93.1 [90.1] / 87.8 [84.3] (n=403, base .67); PIIRED 70.1 [64.5] / 80.4 [75.4] / 80.4 (n=281, base .47). 14B: PIIDET 69.0 / 84.0 / 90.6, PIIRED 27.3 / 67.9 / 79.0. Worst cells 0.4-0.78 (CARD, IP, IBAN, PASSWORD, EMAIL).
+- **Rules:** R2 FAIL by 5-30 pt | R3 PARTIAL (S2 pool only 3.1k paragraphs, SSN/IBAN thin) | R7 PASS (real output) | R8 PASS (base .4-.76) | R9 GRAY (synthetic PII corpora) | others UNTESTED.
+- **P(all 9 as written):** <0.5% (V=2): long exact-match outputs retain far worse than label words.
+- **Cheapest next experiment:** none worthwhile before a >=72B or VQ route exists for a simpler task.
+
+### C32. NER / log-template / SQL exact-match tasks (TASK_SEARCH2), measured-negative   (added 2026-11-08 by task-search-2 lane)
+- NER (CoNLL-2003 research-only, WNUT-17 CC-BY-4.0) 32B 30 / 44 / 52% retention, base .34; LOGTPL (loghub, research) 32B 79 / 81 / 86%, narrow (2k lines per system); SQL (sql-create-context CC-BY-4.0, gretel text2sql Apache-2.0) base 4-14% strict, 24-41%. All FAIL R2 by 12-70 pt, R8 or R3/R9 problems. **P: ~0%.** Details: `TASK_SEARCH2.md`.
+
 ## 3. Feedback mechanisms (sub-registry; combine with any compression candidate)
 
 Common facts: no feedback mechanism has zero R4 risk (NEXT_PLAN ladder). The mechanism must also be run on the real compressed artifact, with the harness-v3 protocol (`harness/v3/PROOF_RUN.md`: real vs shuffled vs empty arms, teach >= 25 pre-locked, neighbours >= 400 verified). P here is P(R4+R5+R6 judged OK on a base where it applies), not P(all 9).
@@ -323,4 +351,4 @@ Copy this block, fill every field, keep honest status codes, append under sectio
 - **Cheapest next experiment:** <what, cost>.
 ```
 
-Update log (append): 2026-11-08 registry created; entries C01-C25, F01-F07 from repo state at commit eefb8f6 plus untracked `v2/bonsai/` (probe only, no result).
+Update log (append): 2026-11-08 TASK_SEARCH2 added C30-C32 (copy/derive tasks: NO-GO, best 97.9% at 12.5%); 2026-11-08 registry created; entries C01-C25, F01-F07 from repo state at commit eefb8f6 plus untracked `v2/bonsai/` (probe only, no result).
