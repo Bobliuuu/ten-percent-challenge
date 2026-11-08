@@ -1,0 +1,297 @@
+[
+ {
+  "name": "A1_freq_k25",
+  "score": "freq",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_mass_k25",
+  "score": "mass",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_reap_k25",
+  "score": "reap",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_reapsum_k25",
+  "score": "reapsum",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_gatefree_k25",
+  "score": "gatefree",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_rand_k25",
+  "score": "rand",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_kl_k25",
+  "score": "kl",
+  "keep": 0.25
+ },
+ {
+  "name": "A1_freq_k40",
+  "score": "freq",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_mass_k40",
+  "score": "mass",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_reap_k40",
+  "score": "reap",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_reapsum_k40",
+  "score": "reapsum",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_gatefree_k40",
+  "score": "gatefree",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_rand_k40",
+  "score": "rand",
+  "keep": 0.4
+ },
+ {
+  "name": "A1_kl_k40",
+  "score": "kl",
+  "keep": 0.4
+ },
+ {
+  "name": "A2_uniform_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "adapt": "uniform"
+ },
+ {
+  "name": "A2_global_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "adapt": "global"
+ },
+ {
+  "name": "A2_cover_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "adapt": "cover",
+  "cover": 0.95
+ },
+ {
+  "name": "A2_kl0.5_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "adapt": "kl",
+  "gamma": 0.5
+ },
+ {
+  "name": "A2_kl1.0_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "adapt": "kl",
+  "gamma": 1.0
+ },
+ {
+  "name": "A3_full_top8",
+  "keep": 1.0,
+  "topk": 8
+ },
+ {
+  "name": "A3_full_top6",
+  "keep": 1.0,
+  "topk": 6
+ },
+ {
+  "name": "A3_full_top4",
+  "keep": 1.0,
+  "topk": 4
+ },
+ {
+  "name": "A3_full_top3",
+  "keep": 1.0,
+  "topk": 3
+ },
+ {
+  "name": "A3_full_top2",
+  "keep": 1.0,
+  "topk": 2
+ },
+ {
+  "name": "A3_reap40_top6",
+  "score": "reap",
+  "keep": 0.4,
+  "topk": 6
+ },
+ {
+  "name": "A3_reap40_top4",
+  "score": "reap",
+  "keep": 0.4,
+  "topk": 4
+ },
+ {
+  "name": "A4_prune_k25",
+  "score": "reap",
+  "keep": 0.25
+ },
+ {
+  "name": "A4_mergeavg_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "merge": "avg"
+ },
+ {
+  "name": "A4_mergealign_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "merge": "align"
+ },
+ {
+  "name": "A4_mergealign_nolse_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "merge": "align",
+  "merge_router": false
+ },
+ {
+  "name": "A4_prune_k40",
+  "score": "reap",
+  "keep": 0.4
+ },
+ {
+  "name": "A4_mergeavg_k40",
+  "score": "mass",
+  "keep": 0.4,
+  "merge": "avg"
+ },
+ {
+  "name": "A4_mergealign_k40",
+  "score": "mass",
+  "keep": 0.4,
+  "merge": "align"
+ },
+ {
+  "name": "A4_mergealign_nolse_k40",
+  "score": "mass",
+  "keep": 0.4,
+  "merge": "align",
+  "merge_router": false
+ },
+ {
+  "name": "A5_nonexp_q4",
+  "keep": 1.0,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A5_nonexp_q3",
+  "keep": 1.0,
+  "attn_b": 3,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A6_rtn4_all",
+  "keep": 1.0,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A6_rtn3_all",
+  "keep": 1.0,
+  "eb": 3,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A6_rtn2_all",
+  "keep": 1.0,
+  "eb": 2,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A7_sub_r1024_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "subspace": {
+   "r": 1024,
+   "r_down": 512,
+   "cb": 4,
+   "bb": 4
+  },
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A7_sub_r512_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "subspace": {
+   "r": 512,
+   "r_down": 256,
+   "cb": 4,
+   "bb": 4
+  },
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A7_sub_r256_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "subspace": {
+   "r": 256,
+   "r_down": 128,
+   "cb": 4,
+   "bb": 4
+  },
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A7_sub_r512_cb3_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "subspace": {
+   "r": 512,
+   "r_down": 256,
+   "cb": 3,
+   "bb": 4
+  },
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "A7_sub_r1024_k100",
+  "keep": 1.0,
+  "subspace": {
+   "r": 1024,
+   "r_down": 512,
+   "cb": 3,
+   "bb": 4
+  },
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ }
+]

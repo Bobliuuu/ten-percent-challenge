@@ -1,0 +1,147 @@
+[
+ {
+  "name": "B1_gptq4_all",
+  "keep": 1.0,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B1_gptq3_all",
+  "keep": 1.0,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B1_gptq2_all",
+  "keep": 1.0,
+  "eb": 2,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq2_reap_k70",
+  "score": "reap",
+  "keep": 0.7,
+  "eb": 2,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq3_reap_k50",
+  "score": "reap",
+  "keep": 0.5,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq3_reap_k45",
+  "score": "reap",
+  "keep": 0.45,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq4_reap_k35",
+  "score": "reap",
+  "keep": 0.35,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq3_reap_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq3_reap_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq4_reap_k25",
+  "score": "reap",
+  "keep": 0.25,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq4_reap_k30",
+  "score": "reap",
+  "keep": 0.3,
+  "eb": 4,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq2_reap_k50",
+  "score": "reap",
+  "keep": 0.5,
+  "eb": 2,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B2_gptq3_reap_k35",
+  "score": "reap",
+  "keep": 0.35,
+  "eb": 3,
+  "quant": "gptq",
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B3_rtn2_reap_k50",
+  "score": "reap",
+  "keep": 0.5,
+  "eb": 2,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ },
+ {
+  "name": "B3_rtn3_reap_k40",
+  "score": "reap",
+  "keep": 0.4,
+  "eb": 3,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4
+ }
+]

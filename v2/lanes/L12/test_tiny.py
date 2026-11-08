@@ -42,3 +42,12 @@ for cfg in [dict(name="t_prune", score="reap", keep=0.5, eb=3, eg=16, attn_g=16,
             dict(name="t_k4", score="reap", keep=0.5, topk=2, eb=4, eg=16, adapt="global", kmin=2),
             dict(name="t_kl", score="kl", keep=0.5, adapt="kl", eb=4, eg=16)]:
     eng.run_cfg(dict(cfg, sets=["sel"]))
+import l12_fb as FB
+eng.run_cfg(dict(name="t_fbcfg", score="reap", keep=0.5, eb=4, eg=16, attn_g=16, sets=["sel"]))
+eng.build(dict(name="t_fbcfg", score="reap", keep=0.5, eb=4, eg=16, attn_g=16))
+for r in eng.D["rep"] + eng.D["sel"]: r.setdefault("ids", None)
+ann = eng.D["sel"][:6]; teach = eng.D["sel"][6:16]
+for r in teach: r["answer"] = "Home"
+undo, info = FB.fb_edit(eng, ann, ["Home"] * 6, nlay=2, lam=1.0, margin=2.0); print("FBINFO", info)
+o = eng.gen_eval(ann); print("ann outs after edit", o); undo(); print("pre", eng.gen_eval(ann))
+res = FB.eval_feedback(eng, dict(ann=ann, teach=teach, old_labels=["a","b"]), None, nlay=2, requant=dict(eb=4, eg=16)); print("FBRES", {k: (v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if kk != "info"}) for k, v in res.items()})

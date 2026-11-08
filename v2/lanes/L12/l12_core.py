@@ -90,6 +90,9 @@ class MyMoE(nn.Module):
             k_, t_ = torch.where(em[e]); xe = x[t_]
             a = F.silu(xe @ lv.G[e].T) * (xe @ lv.U[e].T); y = a @ lv.D[e].T; we = w[t_, k_]
             out.index_add_(0, t_, y * we[:, None])
+            if s.capture is not None:
+                pm = s.capture["mask"][t_]
+                if pm.any(): s.capture["rec"].append((e, t_[pm], we[pm].float(), a[pm].float()))
             if s.rec is not None or s.hess is not None:
                 v = valid[t_] if valid is not None else torch.ones(len(t_), device=x.device)
                 if s.rec is not None:
