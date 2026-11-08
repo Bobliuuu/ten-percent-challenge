@@ -16,7 +16,8 @@ def _impl(cfg):
     torch.backends.cuda.matmul.allow_tf32 = False
     t0 = time.time(); dev = "cuda"; name = cfg["name"]; M = cfg.get("model", "Qwen/Qwen2.5-7B-Instruct"); os.makedirs("/vol/res", exist_ok=True)
     tok = AutoTokenizer.from_pretrained(M)
-    model = AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="cuda").eval(); model.config.use_cache = False
+    ng = torch.cuda.device_count()
+    model = (AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="auto", max_memory={i: cfg.get("maxmem", "46GiB") for i in range(ng)}) if ng > 1 else AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="cuda")).eval(); model.config.use_cache = False
     vol.commit()
     base_params = sum(p.numel() for p in model.parameters()); res = dict(name=name, cfg=cfg, base_params=base_params)
     # ---------------- general MC + ppl/KL (same sets/prompt as harness/validity/general_remote.py)
@@ -72,7 +73,7 @@ def _impl(cfg):
             ref = torch.load("/vol/res/ref_%s.pt" % M.replace("/", "_")); nll, n, kl, _ = ppl_kl(m, ref)
         return dict(preds={k: v.tolist() for k, v in P.items()}, y={k: [r["a"] for r in rows] for k, rows in sets.items()}, ppl=float(np.exp(nll / n)), kl=kl / n)
     # ---------------- quantisation
-    if cfg.get("mode", "vq") != "base":
+    if cfg.get("mode", "vq") in ("vq", "sens"):
         def had(p):
             Hm = torch.ones(1, 1)
             while Hm.shape[0] < p: Hm = torch.cat([torch.cat([Hm, Hm], 1), torch.cat([Hm, -Hm], 1)], 0)
@@ -152,7 +153,8 @@ def _impl(cfg):
                 if acc >= gtok: break
         rng = np.random.RandomState(0); rng.shuffle(txt); ncal = cfg.get("ncal", 256); Lc = cfg.get("callen", 512); stream = []
         for s in txt: stream += tok.encode(s, add_special_tokens=False)[:2048]
-        stream = torch.tensor(stream[:ncal * Lc]).view(-1, Lc)[:ncal]; print("calib seqs", stream.shape, flush=True)
+        nev_s = cfg.get("nsens_eval", 24) if cfg.get("mode") == "sens" else 0
+        stream = torch.tensor(stream[:(ncal + nev_s) * Lc]).view(-1, Lc)[:ncal + nev_s]; ev_ids = stream[ncal:] if nev_s else None; stream = stream[:ncal]; print("calib seqs", stream.shape, flush=True)
         layers = model.model.layers; ins = []; kw = {}
         class Catcher(nn.Module):
             def __init__(s, m): super().__init__(); s.m = m; s.attention_type = getattr(m, 'attention_type', 'full_attention')
@@ -171,13 +173,49 @@ def _impl(cfg):
             for rg, v in plan:
                 if re.search(rg, f"L{li}.{n}"): k = v
             return k
+        if cfg.get("mode") == "sens":
+            sK = cfg.get("sens_K", 8192); C = get_cb(sK); sres = {}
+            def fwd_logits():
+                outs = []
+                with torch.no_grad():
+                    for a in range(0, len(ev_ids), 6): outs.append(model(input_ids=ev_ids[a:a + 6].cuda()).logits.float().log_softmax(-1))
+                return torch.cat(outs)
+            lp0 = fwd_logits().to(torch.bfloat16).cpu(); print("sens ref logits", lp0.shape, flush=True)
+            def klnow():
+                lq = fwd_logits(); tot = 0.0
+                for a in range(0, len(lq), 6):
+                    r_ = lp0[a:a + 6].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 6])).sum())
+                return tot / (lq.shape[0] * lq.shape[1])
+            for li, l in enumerate(layers):
+                Hs = {}; nsm = {}
+                for gname, names, hookn in groups:
+                    m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
+                def mk(gname):
+                    def hook(m, i, o): x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
+                    return hook
+                hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
+                with torch.no_grad():
+                    for j, x in enumerate(cur): o = l(x, **kw); cur[j] = o[0] if isinstance(o, tuple) else o
+                for h_ in hds: h_.remove()
+                for gname, names, hookn in groups:
+                    Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
+                    Hr = rin.fwd(Hraw); Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw; olds = {}
+                    for n in names:
+                        m = l.get_submodule(n); wdev = m.weight.device; olds[n] = m.weight.data.clone(); W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
+                        Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()); idx = ldlq(Wr / sigma, Hr, C)
+                        m.weight.data = decode(idx, C, sigma, rin, rout).to(torch.bfloat16).to(wdev)
+                    k_ = klnow(); sres[f"L{li}.{gname}"] = dict(kl=k_, n=sum(int(l.get_submodule(n).weight.numel()) for n in names))
+                    for n in names: l.get_submodule(n).weight.data = olds[n]
+                    del Hr
+                del Hs; torch.cuda.empty_cache(); print("sens layer", li, {k: round(v["kl"], 5) for k, v in sres.items() if k.startswith(f"L{li}.")}, round(time.time() - t0), flush=True)
+            res["sens"] = sres; res["sens_K"] = sK; json.dump(res, open(f"/vol/res/{name}.json", "w")); vol.commit(); print("RESULT_JSON " + json.dumps(dict(name=name, sens=sres))); return res
         st = dict(fixed_bits=0.0, ent_bits=0.0, nq=0, meta=0, num=0.0, den=0.0)
         for li, l in enumerate(layers):
             Hs = {}; nsm = {}
             for gname, names, hookn in groups:
                 m = l.get_submodule(hookn); Hs[gname] = torch.zeros(m.in_features, m.in_features, device=dev); nsm[gname] = 0
             def mk(gname):
-                def hook(m, i, o): x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; Hs[gname] += x.T @ x
+                def hook(m, i, o): x = i[0].reshape(-1, i[0].shape[-1]).float(); nsm[gname] += x.shape[0]; Hs[gname] += (x.T @ x).to(Hs[gname].device)
                 return hook
             hds = [l.get_submodule(hn).register_forward_hook(mk(gn)) for gn, _, hn in groups]
             with torch.no_grad():
@@ -188,11 +226,11 @@ def _impl(cfg):
                 Hraw = Hs[gname].to(dev) / nsm[gname]; n_in = Hraw.shape[0]; rin = Rot(n_in, zlib.crc32(f"{li}.{gname}.in".encode()))
                 Hr = rin.fwd(Hraw); Hr = rin.fwd(Hr.T.contiguous()).T.contiguous(); del Hraw
                 for n in names:
-                    m = l.get_submodule(n); W = m.weight.data.float(); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
+                    m = l.get_submodule(n); wdev = m.weight.device; W = m.weight.data.float().to(dev); od = W.shape[0]; rout = Rot(od, zlib.crc32(f"{li}.{n}.out".encode()))
                     Wr = rin.fwd(W); Wr = rout.fwd(Wr.T.contiguous()).T.contiguous(); sigma = float(Wr.std()) * cfg.get("smult", 1.0)
                     K = Kof(li, n); C = get_cb(K); idx = ldlq(Wr / sigma, Hr, C, damp=cfg.get("damp", 0.01))
                     Q = C[idx].reshape(od, -1) * sigma; Eq = Wr - Q; st["num"] += float(((Eq @ Hr) * Eq).sum()); st["den"] += float(((Wr @ Hr) * Wr).sum())
-                    m.weight.data = decode(idx, C, sigma, rin, rout).to(torch.bfloat16)
+                    m.weight.data = decode(idx, C, sigma, rin, rout).to(torch.bfloat16).to(wdev)
                     cnt = torch.bincount(idx.flatten(), minlength=K).float(); p = cnt / cnt.sum(); p = p[p > 0]; e = float(-(p * p.log2()).sum())
                     st["fixed_bits"] += idx.numel() * math.log2(K); st["ent_bits"] += idx.numel() * e; st["nq"] += W.numel(); st["meta"] += 2
                 del Hr
@@ -221,9 +259,9 @@ def _impl(cfg):
                                      retention=float(((np.array(g["preds"][k]) == np.array(g["y"][k])) & (np.array(bg["preds"][k]) == np.array(bg["y"][k]))).sum() / max(1, (np.array(bg["preds"][k]) == np.array(bg["y"][k])).sum()))) for k in g["preds"]}
         print("GENERAL", json.dumps(res["general_summary"]), "ppl", g["ppl"], "kl", g["kl"], flush=True)
     outd = f"/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
-    del model; gc.collect(); torch.cuda.empty_cache()
+    layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); torch.cuda.empty_cache(); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
-    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); r = subprocess.run(f"python /code/vllm_real.py {outd} /tmp/real_{name} inj,toolsel", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
+    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng); r = subprocess.run(f"python /code/vllm_real.py {outd} /tmp/real_{name} inj,toolsel", shell=True, cwd="/code"); print("vllm rc", r.returncode, flush=True)
     for t in ("inj", "toolsel"):
         f = f"/tmp/real_{name}_{t}.json"
         if os.path.exists(f): res["real_" + t] = json.load(open(f))["rows"]
@@ -236,11 +274,14 @@ def _impl(cfg):
 @app.function(image=img, gpu=["H100", "A100-80GB"], memory=65536, timeout=4 * 3600, volumes={"/vol": vol}, max_containers=8)
 def run(cfg): return _impl(cfg)
 
-@app.function(image=img, gpu=["H200", "H100:2", "A100-80GB:2"], memory=262144, ephemeral_disk=800 * 1024, timeout=8 * 3600, volumes={"/vol": vol}, max_containers=3)
+@app.function(image=img, gpu="A100-80GB:2", memory=262144, ephemeral_disk=600 * 1024, timeout=8 * 3600, volumes={"/vol": vol}, max_containers=3)
 def run_big(cfg): return _impl(cfg)
+
+@app.function(image=img, gpu="A100-80GB:4", memory=400000, ephemeral_disk=900 * 1024, timeout=10 * 3600, volumes={"/vol": vol}, max_containers=1)
+def run_huge(cfg): return _impl(cfg)
 
 if __name__ == "__main__":
     cs = json.load(open(sys.argv[1])); calls = []
     with modal.enable_output(), app.run(detach=True):
-        for c in cs: calls.append((c["name"], (run_big if c.get("big") else run).spawn(c).object_id)); print(calls[-1], flush=True)
+        for c in cs: calls.append((c["name"], ({"huge": run_huge, "big": run_big}.get(c.get("size"), run)).spawn(c).object_id)); print(calls[-1], flush=True)
     json.dump(calls, open(sys.argv[1] + ".calls", "w"))

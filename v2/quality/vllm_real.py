@@ -8,7 +8,7 @@ tok = AutoTokenizer.from_pretrained(md)
 def chat(u):
     try: return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
     except TypeError: return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
-llm = LLM(md, dtype="bfloat16", max_model_len=8192, gpu_memory_utilization=float(os.environ.get('VLLM_UTIL','0.5')), enable_prefix_caching=False)
+llm = LLM(md, dtype="bfloat16", max_model_len=8192, gpu_memory_utilization=float(os.environ.get('VLLM_UTIL','0.5')), enable_prefix_caching=False, tensor_parallel_size=int(os.environ.get('VLLM_TP','1')))
 for task in tasks.split(","):
     if task == "inj":
         items = [json.loads(l) for l in open(R + "/inj_items.jsonl")]; U = [i["query"] for i in items]; mt = 16
