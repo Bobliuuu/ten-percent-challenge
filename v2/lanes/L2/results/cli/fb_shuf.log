@@ -1,0 +1,43 @@
+Loading weights:   0%|          | 0/851 [00:00<?, ?it/s]Loading weights:   0%|          | 1/851 [00:00<01:39,  8.52it/s]Loading weights:   0%|          | 2/851 [00:00<02:09,  6.57it/s]Loading weights:   3%|▎         | 26/851 [00:00<00:09, 88.02it/s]Loading weights:   5%|▍         | 42/851 [00:00<00:07, 105.79it/s]Loading weights:   7%|▋         | 59/851 [00:00<00:06, 124.81it/s]Loading weights:   9%|▉         | 80/851 [00:00<00:05, 148.93it/s]Loading weights:  11%|█▏        | 96/851 [00:00<00:05, 147.87it/s]Loading weights:  14%|█▍        | 119/851 [00:00<00:04, 165.75it/s]Loading weights:  16%|█▌        | 136/851 [00:01<00:04, 162.43it/s]Loading weights:  18%|█▊        | 153/851 [00:01<00:04, 149.19it/s]Loading weights:  20%|██        | 174/851 [00:01<00:04, 164.36it/s]Loading weights:  23%|██▎       | 199/851 [00:01<00:03, 185.27it/s]Loading weights:  26%|██▌       | 218/851 [00:01<00:03, 170.43it/s]Loading weights:  28%|██▊       | 238/851 [00:01<00:03, 176.33it/s]Loading weights:  30%|███       | 257/851 [00:01<00:03, 163.99it/s]Loading weights:  33%|███▎      | 277/851 [00:01<00:03, 157.44it/s]Loading weights:  35%|███▌      | 301/851 [00:02<00:03, 174.05it/s]Loading weights:  37%|███▋      | 319/851 [00:02<00:03, 160.43it/s]Loading weights:  41%|████      | 345/851 [00:02<00:02, 178.31it/s]Loading weights:  43%|████▎     | 364/851 [00:02<00:02, 169.70it/s]Loading weights:  45%|████▌     | 385/851 [00:02<00:02, 174.29it/s]Loading weights:  48%|████▊     | 408/851 [00:02<00:02, 187.22it/s]Loading weights:  50%|█████     | 428/851 [00:02<00:02, 173.34it/s]Loading weights:  53%|█████▎    | 451/851 [00:02<00:02, 181.06it/s]Loading weights:  55%|█████▌    | 470/851 [00:02<00:02, 171.48it/s]Loading weights:  58%|█████▊    | 491/851 [00:03<00:02, 175.70it/s]Loading weights:  60%|██████    | 513/851 [00:03<00:01, 185.94it/s]Loading weights:  63%|██████▎   | 532/851 [00:03<00:01, 170.31it/s]Loading weights:  65%|██████▌   | 557/851 [00:03<00:01, 184.12it/s]Loading weights:  68%|██████▊   | 576/851 [00:03<00:01, 173.45it/s]Loading weights:  70%|███████   | 597/851 [00:03<00:01, 177.22it/s]Loading weights:  73%|███████▎  | 619/851 [00:03<00:01, 186.94it/s]Loading weights:  75%|███████▍  | 638/851 [00:03<00:01, 170.91it/s]Loading weights:  78%|███████▊  | 663/851 [00:04<00:01, 184.53it/s]Loading weights:  80%|████████  | 682/851 [00:04<00:00, 173.74it/s]Loading weights:  83%|████████▎ | 703/851 [00:04<00:00, 177.55it/s]Loading weights:  85%|████████▌ | 726/851 [00:04<00:00, 189.94it/s]Loading weights:  88%|████████▊ | 746/851 [00:04<00:00, 175.01it/s]Loading weights:  90%|█████████ | 769/851 [00:04<00:00, 181.40it/s]Loading weights:  93%|█████████▎| 788/851 [00:04<00:00, 171.31it/s]Loading weights:  95%|█████████▌| 809/851 [00:04<00:00, 175.43it/s]Loading weights:  98%|█████████▊| 832/851 [00:05<00:00, 185.09it/s]Loading weights: 100%|██████████| 851/851 [00:05<00:00, 172.12it/s]Loading weights: 100%|██████████| 851/851 [00:05<00:00, 165.81it/s]
+[transformers] [1mQwen3_5ForConditionalGeneration LOAD REPORT[0m from: /home/ubuntu/work/unf_ship
+Key                                                | Status  | 
+---------------------------------------------------+---------+-
+model.visual.blocks.{0...26}.mlp.linear_fc1.bias   | MISSING | 
+model.visual.blocks.{0...26}.norm1.bias            | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.weight | MISSING | 
+model.visual.blocks.{0...26}.attn.proj.weight      | MISSING | 
+model.visual.blocks.{0...26}.norm2.bias            | MISSING | 
+model.visual.blocks.{0...26}.norm2.weight          | MISSING | 
+model.visual.blocks.{0...26}.attn.qkv.bias         | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.bias   | MISSING | 
+model.visual.patch_embed.proj.bias                 | MISSING | 
+model.visual.blocks.{0...26}.attn.proj.bias        | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.weight | MISSING | 
+model.visual.blocks.{0...26}.norm1.weight          | MISSING | 
+model.visual.blocks.{0...26}.attn.qkv.weight       | MISSING | 
+model.visual.merger.norm.bias                      | MISSING | 
+model.visual.merger.linear_fc2.weight              | MISSING | 
+model.visual.merger.norm.weight                    | MISSING | 
+model.visual.merger.linear_fc1.weight              | MISSING | 
+model.visual.patch_embed.proj.weight               | MISSING | 
+model.visual.merger.linear_fc1.bias                | MISSING | 
+model.visual.merger.linear_fc2.bias                | MISSING | 
+model.visual.pos_embed.weight                      | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+BASE teach acc 0.0 n_teach_fail 25 neigh base acc 0.941952506596306 used 357 8.921811819076538
+ann usable 25 base outputs [('lists', 17), ('news', 5), ('music', 3)]
+/home/ubuntu/work/ship_L2/fb27s.py:82: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print('GN mean', float(GN.mean()), 'weight mean', float(NORM.weight.float().mean()), flush=True)
+GN mean 1.9400604963302612 weight mean 0.9427384734153748
+{'tag': 'empty', 'teach': 0.0, 'neigh': 1.0, 'min_cell': 1.0, 'teach_outs': [('lists', 17), ('news', 5), ('music', 3)], 'arm': 'empty'}
+cholesky retry eps 0.001
+{'tag': 'real-n25-d0', 'teach': 1.0, 'neigh': 0.988795518207283, 'min_cell': 0.9797979797979798, 'teach_outs': [('recipe', 25)], 'arm': 'real', 'n': 25, 'draw': 0, 'sites': 50, 'secs': 24.779900312423706}
+cholesky retry eps 0.001
+{'tag': 'fromfile-n25-d0', 'teach': 0.0, 'neigh': 0.9831932773109243, 'min_cell': 0.9722222222222222, 'teach_outs': [('lists', 8), ('alarm', 7), ('transport', 6), ('music', 2), ('weather', 1)], 'arm': 'fromfile_shuffled'}
+{'tag': 'shuffled-n25-d0', 'teach': 0.0, 'neigh': 0.9831932773109243, 'min_cell': 0.9722222222222222, 'teach_outs': [('lists', 8), ('alarm', 7), ('transport', 6), ('music', 2), ('weather', 1)], 'arm': 'shuffled', 'n': 25, 'draw': 0, 'sites': 38, 'secs': 16.23794913291931}
+FB_DONE

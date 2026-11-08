@@ -1,0 +1,21 @@
+artifact: /home/ubuntu/work/ship_L2
+base fp16: 53,808.4 MB   cap 10.0% = 5,380.8 MB
+category           files           bytes  % of base fp16  % of cap
+weights                4   5,268,952,570         9.7921%    97.92%
+scales/codebooks       1      74,748,772         0.1389%     1.39%
+tokenizer              2       5,926,252         0.0110%     0.11%
+data/docs              2         373,956         0.0007%     0.01%
+config                 5         185,702         0.0003%     0.00%
+code                   4          18,611         0.0000%     0.00%
+template               1           9,004         0.0000%     0.00%
+TOTAL                 19   5,350,214,867         9.9431%    99.43%
+RESULT: PASS  total = 9.9431% of base fp16 (cap 10.0%), slack 30.6 MB
+largest files:
+     5,203,380,224   9.6702%  trits.bin
+        74,748,772   0.1389%  scales.q.xz
+        52,605,359   0.0978%  small.pt
+         8,458,916   0.0157%  rowbase.bin
+         5,916,268   0.0110%  tokenizer.json
+         4,508,071   0.0084%  feedback.pt
+           226,603   0.0004%  data/exam/cal.jsonl
+           152,464   0.0003%  hadamard.json

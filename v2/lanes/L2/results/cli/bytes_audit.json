@@ -1,0 +1,54 @@
+{
+ "dir": "/home/ubuntu/work/ship_L2",
+ "base_fp16_bytes": 53808408928.0,
+ "total_bytes": 5350214867,
+ "pct_base": 9.943083197570513,
+ "cap": 10.0,
+ "ok": true,
+ "categories": [
+  {
+   "category": "weights",
+   "files": 4,
+   "bytes": 5268952570,
+   "pct_base": 9.792061640496161
+  },
+  {
+   "category": "scales/codebooks",
+   "files": 1,
+   "bytes": 74748772,
+   "pct_base": 0.1389165252962969
+  },
+  {
+   "category": "tokenizer",
+   "files": 2,
+   "bytes": 5926252,
+   "pct_base": 0.011013616864103534
+  },
+  {
+   "category": "data/docs",
+   "files": 2,
+   "bytes": 373956,
+   "pct_base": 0.0006949768771278544
+  },
+  {
+   "category": "config",
+   "files": 5,
+   "bytes": 185702,
+   "pct_base": 0.00034511706199765965
+  },
+  {
+   "category": "code",
+   "files": 4,
+   "bytes": 18611,
+   "pct_base": 3.458753077962781e-05
+  },
+  {
+   "category": "template",
+   "files": 1,
+   "bytes": 9004,
+   "pct_base": 1.6733444045981883e-05
+  }
+ ],
+ "flags": [],
+ "dup": []
+}

@@ -110,7 +110,7 @@ Layer-level proxy (relative Hessian error) for 95 methods incl. SpQR, OWQ, Squee
 | openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0% | 97.4 [95.2] | 0.89 card_virtual_wallet | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 <!-- MOE-CENSUS-B END -->
 
-| Ternary-Bonsai-2-27B (ours f165k) | SKILL7 shared exam | trits+coded scales | - | 9.94% | 100.0 [99.9] | 1.00 (all kinds) | L2: real pack on box, locked exam scored once, feedback Recipe 82.7% teach / shuffled 0 / empty 0; gray: base is already ternary, closed-form edit |
+| Ternary-Bonsai-2-27B (ours f165k) | SKILL7 shared exam | trits+coded scales | - | 9.94% | 100.0 [99.9] | 1.00 (all kinds) | L2: real pack, locked exam scored once; shipped CLIs end to end: Recipe 87.2% teach / shuffled 0 / empty 0 / neighbours 99.2%; bytes_audit 9.943% PASS; gray: closed-form edit (R4), spirit (R9), clean-only Lists/Transport <300 |
 
 ### L3 MoE, recipe switch 2026-11-08 (SKILL7 shared-exam task; dev/selection only, exam NOT yet scored). vq4 = D4 K256 gaussian VQ, Hadamard both sides, error-feedback, 2.0 bpw experts, per-expert sigma, attn6 emb5 head4
 | method | size | SEL retention [lo] | DEV retention [lo] | min cell | feedback (Recipe, 24 annotations: 12 new + 12 old-skill errors) | rule gaps |

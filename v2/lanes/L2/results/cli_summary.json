@@ -1,0 +1,74 @@
+{
+ "empty": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 357,
+   "ret": 1.0,
+   "wilson_lo": 0.9893537773915203,
+   "worst_kind": [
+    1.0,
+    "Alarm"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 354,
+   "ret": 1.0,
+   "wilson_lo": 0.9892645237445842,
+   "worst_kind": [
+    1.0,
+    "Alarm"
+   ]
+  }
+ },
+ "real": {
+  "teach": 0.8719512195121951,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 354,
+   "ret": 0.9915966386554622,
+   "wilson_lo": 0.975587866336886,
+   "worst_kind": [
+    0.9908536585365854,
+    "Lists"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 351,
+   "ret": 0.9915254237288136,
+   "wilson_lo": 0.9753834997817411,
+   "worst_kind": [
+    0.9907692307692307,
+    "Lists"
+   ]
+  }
+ },
+ "shuf": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 351,
+   "ret": 0.9831932773109243,
+   "wilson_lo": 0.9638229373406092,
+   "worst_kind": [
+    0.9817073170731707,
+    "Lists"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 351,
+   "ret": 0.9915254237288136,
+   "wilson_lo": 0.9753834997817411,
+   "worst_kind": [
+    0.9907692307692307,
+    "Lists"
+   ]
+  }
+ }
+}

@@ -25,8 +25,10 @@
  "feedback_delta_bytes": 4508141,
  "feedback_file": "v2/lanes/L2/ship/feedback.pt",
  "fp16_denominator_bytes": 53808408928,
- "shipped_total_bytes": 5349839445,
- "pct_of_fp16": 9.9424,
+ "shipped_total_bytes": 5350214867,
+ "pct_of_fp16": 9.9431,
  "note": "fp16 denominator is back-computed from the artifact report (TOTAL / pct_of_fp16); the start model is itself ternary, so base-identity vs rule 1 is gray. Hadamard sign file is inside small.pt/hadamard.json counted via art_load inputs? hadamard.json (152 KB) is NOT in the artifact byte list above: add it.",
- "hadamard_json_bytes": 152464
+ "hadamard_json_bytes": 152464,
+ "bytes_audit": "results/cli/bytes_audit.txt (v2/tools/bytes_audit.py on the exact shipped tree: artifact + answer.py feedback.py fb27s.py art_load.py + feedback.pt + data/exam/{cal,neigh}.jsonl): 5,350,214,867 B = 9.9431% of 53,808,408,928, PASS, slack 30.6 MB",
+ "durable_copy": "s3://tenpct-l2-artifact-618283574049/art_k16_f165k/ (AWS account of profile lab, region eu-north-1, private, public access blocked): all 13 artifact files, 5.3 GB; feedback.pt, code and data are in this repo (v2/lanes/L2/ship, v2/lanes/L2/*.py)"
 }
