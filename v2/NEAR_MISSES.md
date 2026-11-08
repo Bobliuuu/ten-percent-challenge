@@ -102,12 +102,12 @@ Layer-level proxy (relative Hessian error) for 95 methods incl. SpQR, OWQ, Squee
 | openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5% | 67.1 [62.3] | 0.09 info_and_fx | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9% | 68.1 [64.3] | 0.17 Transport | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9% | 85.1 [81.2] | 0.04 small_talk | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4% | 86.6 [83.7] | 0.45 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4% | 95.6 [93.0] | 0.78 work | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7% | 77.3 [73.9] | 0.49 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7% | 96.6 [94.3] | 0.76 banking | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0% | 50.8 [46.9] | 0.16 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
-| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0% | 94.5 [91.8] | 0.80 travel | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4% | 86.9 [84.1] | 0.45 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4% | 96.6 [94.3] | 0.84 card_virtual_wallet | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7% | 75.0 [71.5] | 0.42 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7% | 96.3 [93.9] | 0.76 banking | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0% | 78.4 [75.1] | 0.43 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0% | 97.4 [95.2] | 0.89 card_virtual_wallet | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 <!-- MOE-CENSUS-B END -->
 
 | Ternary-Bonsai-2-27B (ours f165k) | SKILL7 shared exam | trits+coded scales | - | 9.94% | 100.0 [99.9] | 1.00 (all kinds) | L2: real pack on box, locked exam scored once, feedback Recipe 82.7% teach / shuffled 0 / empty 0; gray: base is already ternary, closed-form edit |

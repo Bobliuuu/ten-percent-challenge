@@ -142,7 +142,7 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | 1 | Qwen/Qwen3.5-35B-A3B | f=0.4, 3-bit | 10.1% | 0.991 / 0.997 | 0.980 | 0.95 | 0.969 / 0.973 |
 | 2 | Qwen/Qwen3-30B-A3B-Instruct-2507 | f=0.5, 3-bit | 11.3% | 0.989 / 0.995 | 0.978 | 0.95 | 0.966 / 0.975 |
 | 3 | zai-org/GLM-4.5-Air | f=0.4, 3-bit | 10.0% | 0.986 / 0.997 | 0.974 | 0.95 | 0.962 / 0.985 |
-| 4 | openai/gpt-oss-20b | f=0.4, 3-bit | 10.7% | 0.773 / 0.966 | 0.739 | 0.49 | 0.95 / 0.96 |
+| 4 | openai/gpt-oss-20b | f=0.3, 3-bit | 9.0% | 0.784 / 0.974 | 0.751 | 0.43 | 0.95 / 0.955 |
 | 5 | moonshotai/Moonlight-16B-A3B-Instruct | f=0.4, 3-bit | 11.0% | 0.926 / 0.755 | 0.709 | 0.31 | 0.955 / 0.958 |
 | 6 | openai/gpt-oss-120b | f=0.4, 4-bit | 10.9% | 0.681 / 0.851 | 0.643 | 0.04 | 0.906 / 0.973 |
 | 7 | baidu/ERNIE-4.5-21B-A3B-PT | f=0.3, 3-bit | 8.0% | 0.409 / 0.877 | 0.372 | 0.00 | 0.95 / 0.978 |
@@ -182,7 +182,7 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | openai/gpt-oss-120b | SKILL7 | 0.32 / 0.41 / 0.54 | 0.75 | 0.98 | 0.88 | BANK8 0.90, NEWS 0.92 |
 | openai/gpt-oss-120b | BANK8 | 0.33 / 0.43 / 0.61 | 0.75 | 0.97 | 0.88 | SKILL7 0.94, NEWS 0.92 |
 | openai/gpt-oss-20b | SKILL7 | 0.50 / 0.60 / 0.76 | 0.80 | 0.91 | 0.76 | BANK8 0.86, NEWS 0.86 |
-| openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.78 | SKILL7 0.86, NEWS 0.85 |
+| openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.79 | SKILL7 0.86, NEWS 0.85 |
 
 ### Prune + RTN probe (real greedy generation)
 | model | task | kept f | bits | est size % fp16 | base acc | retention | lower | worst cell | cell | n |
@@ -291,20 +291,20 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5 | 0.973 | 0.671 | 0.623 | 0.09 | info_and_fx | 389 |
 | openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9 | 0.906 | 0.681 | 0.643 | 0.17 | Transport | 618 |
 | openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9 | 0.973 | 0.851 | 0.812 | 0.04 | small_talk | 389 |
-| openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.75 | 3 | 16.9 | 0.960 | 0.979 | 0.959 | 0.91 | info_and_fx | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4 | 0.950 | 0.866 | 0.837 | 0.45 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4 | 0.960 | 0.956 | 0.930 | 0.78 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7 | 0.950 | 0.773 | 0.739 | 0.49 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7 | 0.960 | 0.966 | 0.943 | 0.76 | banking | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0 | 0.950 | 0.508 | 0.469 | 0.16 | Calendar | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0 | 0.960 | 0.945 | 0.918 | 0.8 | travel | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.5 | 4 | 15.2 | 0.950 | 0.900 | 0.874 | 0.63 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.5 | 4 | 15.2 | 0.960 | 0.966 | 0.943 | 0.87 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.853 | 0.824 | 0.46 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.960 | 0.961 | 0.937 | 0.89 | card_virtual_wallet | 384 |
+| openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.995 | 0.986 | 0.98 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.955 | 0.997 | 0.985 | 0.96 | cash | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.986 | 0.974 | 0.95 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.75 | 3 | 16.9 | 0.955 | 0.984 | 0.966 | 0.91 | info_and_fx | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4 | 0.950 | 0.869 | 0.841 | 0.45 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4 | 0.955 | 0.966 | 0.943 | 0.84 | card_virtual_wallet | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7 | 0.950 | 0.750 | 0.715 | 0.42 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7 | 0.955 | 0.963 | 0.939 | 0.76 | banking | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0 | 0.950 | 0.784 | 0.751 | 0.43 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0 | 0.955 | 0.974 | 0.952 | 0.89 | card_virtual_wallet | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 4 | 15.2 | 0.950 | 0.901 | 0.876 | 0.64 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 4 | 15.2 | 0.955 | 0.971 | 0.949 | 0.86 | work | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.847 | 0.817 | 0.47 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.955 | 0.969 | 0.946 | 0.89 | card_virtual_wallet | 382 |
 
 Not ranked / not trusted: Qwen3.5-122B-A10B (256 experts, 48 layers, 244 GB bf16; routing concentration measured: 90% of SKILL7 mass in 29% of experts, 41% for BANK8) returned 0.0 retention even at keep-100% 3-bit while base is .968/.978 (35B sibling is fine), so the quantise/prune probe failed on this model (harness issue, run OOM'd after 3 configs; raw rows in results/invalid/). Hunyuan-A13B and Mixtral-8x7B were not run (time; Hunyuan needs custom code under transformers 5). gpt-oss: quantised gpt-oss often fails to emit its end token after a correct label and continues "assistantanalysis..."; the first run (results/superseded/) scored that as wrong (SKILL7 1-13%). The _r2 re-run scores the label before "assistant"; gpt-oss-120b SKILL7 is still poor after re-scoring (36% at keep-100% 3-bit, 68% at keep-40% 4-bit; base .906) while BANK8 is 99.2% at keep-100% 3-bit and falls with pruning, so gpt-oss-120b is NOT a top candidate on this probe (4 active experts of 128, only 2.2% non-expert bytes, but RTN3 on its MXFP4-origin experts hurts SKILL7).
 

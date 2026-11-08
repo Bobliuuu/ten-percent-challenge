@@ -31,7 +31,7 @@
 | openai/gpt-oss-120b | SKILL7 | 0.32 / 0.41 / 0.54 | 0.75 | 0.98 | 0.88 | BANK8 0.90, NEWS 0.92 |
 | openai/gpt-oss-120b | BANK8 | 0.33 / 0.43 / 0.61 | 0.75 | 0.97 | 0.88 | SKILL7 0.94, NEWS 0.92 |
 | openai/gpt-oss-20b | SKILL7 | 0.50 / 0.60 / 0.76 | 0.80 | 0.91 | 0.76 | BANK8 0.86, NEWS 0.86 |
-| openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.78 | SKILL7 0.86, NEWS 0.85 |
+| openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.79 | SKILL7 0.86, NEWS 0.85 |
 
 ### Prune + RTN probe (real greedy generation)
 | model | task | kept f | bits | est size % fp16 | base acc | retention | lower | worst cell | cell | n |
@@ -140,17 +140,17 @@
 | openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5 | 0.973 | 0.671 | 0.623 | 0.09 | info_and_fx | 389 |
 | openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9 | 0.906 | 0.681 | 0.643 | 0.17 | Transport | 618 |
 | openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9 | 0.973 | 0.851 | 0.812 | 0.04 | small_talk | 389 |
-| openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.75 | 3 | 16.9 | 0.960 | 0.979 | 0.959 | 0.91 | info_and_fx | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4 | 0.950 | 0.866 | 0.837 | 0.45 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4 | 0.960 | 0.956 | 0.930 | 0.78 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7 | 0.950 | 0.773 | 0.739 | 0.49 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7 | 0.960 | 0.966 | 0.943 | 0.76 | banking | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0 | 0.950 | 0.508 | 0.469 | 0.16 | Calendar | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0 | 0.960 | 0.945 | 0.918 | 0.8 | travel | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.5 | 4 | 15.2 | 0.950 | 0.900 | 0.874 | 0.63 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.5 | 4 | 15.2 | 0.960 | 0.966 | 0.943 | 0.87 | work | 384 |
-| openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.853 | 0.824 | 0.46 | Music | 648 |
-| openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.960 | 0.961 | 0.937 | 0.89 | card_virtual_wallet | 384 |
+| openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.995 | 0.986 | 0.98 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.955 | 0.997 | 0.985 | 0.96 | cash | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.986 | 0.974 | 0.95 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.75 | 3 | 16.9 | 0.955 | 0.984 | 0.966 | 0.91 | info_and_fx | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4 | 0.950 | 0.869 | 0.841 | 0.45 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4 | 0.955 | 0.966 | 0.943 | 0.84 | card_virtual_wallet | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7 | 0.950 | 0.750 | 0.715 | 0.42 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7 | 0.955 | 0.963 | 0.939 | 0.76 | banking | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0 | 0.950 | 0.784 | 0.751 | 0.43 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0 | 0.955 | 0.974 | 0.952 | 0.89 | card_virtual_wallet | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 4 | 15.2 | 0.950 | 0.901 | 0.876 | 0.64 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 4 | 15.2 | 0.955 | 0.971 | 0.949 | 0.86 | work | 382 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.847 | 0.817 | 0.47 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.955 | 0.969 | 0.946 | 0.89 | card_virtual_wallet | 382 |
