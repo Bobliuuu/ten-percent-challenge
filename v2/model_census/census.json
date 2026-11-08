@@ -1,0 +1,2172 @@
+[
+ {
+  "id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "kind": "dense",
+  "params": 494032768,
+  "dtypes": {
+   "BF16": 494032768
+  },
+  "repo_bytes": 988097824,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 24,
+   "d": 896,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 4864
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "kind": "dense",
+  "params": 1543714304,
+  "dtypes": {
+   "BF16": 1543714304
+  },
+  "repo_bytes": 3087467144,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 28,
+   "d": 1536,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 8960
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-3B-Instruct",
+  "kind": "dense",
+  "params": 3085938688,
+  "dtypes": {
+   "BF16": 3085938688
+  },
+  "repo_bytes": 6171926992,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 36,
+   "d": 2048,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-7B-Instruct",
+  "kind": "dense",
+  "params": 7615616512,
+  "dtypes": {
+   "BF16": 7615616512
+  },
+  "repo_bytes": 15231271888,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 28,
+   "d": 3584,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 18944
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-14B-Instruct",
+  "kind": "dense",
+  "params": 14770033664,
+  "dtypes": {
+   "BF16": 14770033664
+  },
+  "repo_bytes": 29540134000,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 48,
+   "d": 5120,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 13824
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-32B-Instruct",
+  "kind": "dense",
+  "params": 32763876352,
+  "dtypes": {
+   "BF16": 32763876352
+  },
+  "repo_bytes": 65527841856,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 64,
+   "d": 5120,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 27648
+  }
+ },
+ {
+  "id": "Qwen/Qwen2.5-72B-Instruct",
+  "kind": "dense",
+  "params": 72706203648,
+  "dtypes": {
+   "BF16": 72706203648
+  },
+  "repo_bytes": 145412519312,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 80,
+   "d": 8192,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 29568
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-0.6B",
+  "kind": "dense",
+  "params": 751632384,
+  "dtypes": {
+   "BF16": 751632384
+  },
+  "repo_bytes": 1503300328,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 28,
+   "d": 1024,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 3072
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-1.7B",
+  "kind": "dense",
+  "params": 2031739904,
+  "dtypes": {
+   "BF16": 2031739904
+  },
+  "repo_bytes": 4063515592,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 28,
+   "d": 2048,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 6144
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-4B",
+  "kind": "dense",
+  "params": 4022468096,
+  "dtypes": {
+   "BF16": 4022468096
+  },
+  "repo_bytes": 8044982000,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 36,
+   "d": 2560,
+   "V": 151936,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 9728
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-8B",
+  "kind": "dense",
+  "params": 8190735360,
+  "dtypes": {
+   "BF16": 8190735360
+  },
+  "repo_bytes": 16381516776,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 36,
+   "d": 4096,
+   "V": 151936,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-14B",
+  "kind": "dense",
+  "params": 14768307200,
+  "dtypes": {
+   "BF16": 14768307200
+  },
+  "repo_bytes": 29536665640,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 40,
+   "d": 5120,
+   "V": 151936,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 17408
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-32B",
+  "kind": "dense",
+  "params": 32762123264,
+  "dtypes": {
+   "BF16": 32762123264
+  },
+  "repo_bytes": 65524328560,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 64,
+   "d": 5120,
+   "V": 151936,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 25600
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-30B-A3B",
+  "kind": "moe",
+  "params": 30532122624,
+  "dtypes": {
+   "BF16": 30532122624
+  },
+  "repo_bytes": 61066575648,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_moe",
+   "L": 48,
+   "d": 2048,
+   "V": 151936,
+   "tie": false,
+   "experts": 128,
+   "topk": 8,
+   "kv": 4,
+   "ff": 6144
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-235B-A22B",
+  "kind": "moe",
+  "params": 235093634560,
+  "dtypes": {
+   "BF16": 235093634560
+  },
+  "repo_bytes": 470191875096,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_moe",
+   "L": 94,
+   "d": 4096,
+   "V": 151936,
+   "tie": false,
+   "experts": 128,
+   "topk": 8,
+   "kv": 4,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+  "kind": "moe",
+  "params": 81324862720,
+  "dtypes": {
+   "BF16": 81324862720
+  },
+  "repo_bytes": 162659161528,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_next",
+   "L": 48,
+   "d": 2048,
+   "V": 151936,
+   "tie": false,
+   "experts": 512,
+   "topk": 10,
+   "kv": 2,
+   "ff": 5120
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-0.8B",
+  "kind": "dense",
+  "params": 873438784,
+  "dtypes": {
+   "F32": 2592,
+   "BF16": 873436192
+  },
+  "repo_bytes": 1746942600,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5",
+   "L": 24,
+   "d": 1024,
+   "V": 248320,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 3584
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-2B",
+  "kind": "dense",
+  "params": 2274069824,
+  "dtypes": {
+   "F32": 2592,
+   "BF16": 2274067232
+  },
+  "repo_bytes": 4548221488,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5",
+   "L": 24,
+   "d": 2048,
+   "V": 248320,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 6144
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-4B",
+  "kind": "dense",
+  "params": 4659865088,
+  "dtypes": {
+   "BF16": 4659861248,
+   "F32": 3840
+  },
+  "repo_bytes": 9319828096,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5",
+   "L": 32,
+   "d": 2560,
+   "V": 248320,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 9216
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-9B",
+  "kind": "dense",
+  "params": 9653104368,
+  "dtypes": {
+   "BF16": 9653100528,
+   "F32": 3840
+  },
+  "repo_bytes": 19306310880,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5",
+   "L": 32,
+   "d": 4096,
+   "V": 248320,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-27B",
+  "kind": "dense",
+  "params": 27781427952,
+  "dtypes": {
+   "BF16": 27781419504,
+   "F32": 8448
+  },
+  "repo_bytes": 55563022432,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5",
+   "L": 64,
+   "d": 5120,
+   "V": 248320,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 17408
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-35B-A3B",
+  "kind": "moe",
+  "params": 35951822704,
+  "dtypes": {
+   "BF16": 35951817904,
+   "F32": 4800
+  },
+  "repo_bytes": 71903878016,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5_moe",
+   "L": 40,
+   "d": 2048,
+   "V": 248320,
+   "tie": false,
+   "experts": 256,
+   "topk": 8,
+   "kv": 2,
+   "ff": null
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-122B-A10B",
+  "kind": "moe",
+  "params": 125086497008,
+  "dtypes": {
+   "BF16": 125086490096,
+   "F32": 6912
+  },
+  "repo_bytes": 250173250864,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5_moe",
+   "L": 48,
+   "d": 3072,
+   "V": 248320,
+   "tie": false,
+   "experts": 256,
+   "topk": 8,
+   "kv": 2,
+   "ff": null
+  }
+ },
+ {
+  "id": "Qwen/Qwen3.5-397B-A17B",
+  "kind": "moe",
+  "params": 403397928944,
+  "dtypes": {
+   "BF16": 403397920304,
+   "F32": 8640
+  },
+  "repo_bytes": 806796241352,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3_5_moe",
+   "L": 60,
+   "d": 4096,
+   "V": 248320,
+   "tie": false,
+   "experts": 512,
+   "topk": 10,
+   "kv": 2,
+   "ff": null
+  }
+ },
+ {
+  "id": "meta-llama/Llama-3.2-1B-Instruct",
+  "kind": "dense",
+  "params": 1235814400,
+  "dtypes": {
+   "BF16": 1235814400
+  },
+  "repo_bytes": 2471645608,
+  "gated": true
+ },
+ {
+  "id": "meta-llama/Llama-3.2-3B-Instruct",
+  "kind": "dense",
+  "params": 3212749824,
+  "dtypes": {
+   "BF16": 3212749824
+  },
+  "repo_bytes": 6425529048,
+  "gated": true
+ },
+ {
+  "id": "meta-llama/Llama-3.1-8B-Instruct",
+  "kind": "dense",
+  "params": 8030261248,
+  "dtypes": {
+   "BF16": 8030261248
+  },
+  "repo_bytes": 16060556376,
+  "gated": true
+ },
+ {
+  "id": "meta-llama/Llama-3.3-70B-Instruct",
+  "kind": "dense",
+  "params": 70553706496,
+  "dtypes": {
+   "BF16": 70553706496
+  },
+  "repo_bytes": 141107497872,
+  "gated": true
+ },
+ {
+  "id": "unsloth/Llama-3.2-3B-Instruct",
+  "kind": "dense",
+  "params": 3212749824,
+  "dtypes": {
+   "BF16": 3212749824
+  },
+  "repo_bytes": 6425529048,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 28,
+   "d": 3072,
+   "V": 128256,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "unsloth/Meta-Llama-3.1-8B-Instruct",
+  "kind": "dense",
+  "params": 8030261248,
+  "dtypes": {
+   "BF16": 8030261248
+  },
+  "repo_bytes": 16060556376,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 4096,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "unsloth/Llama-3.3-70B-Instruct",
+  "kind": "dense",
+  "params": 70553706496,
+  "dtypes": {
+   "BF16": 70553706496
+  },
+  "repo_bytes": 141107497872,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 80,
+   "d": 8192,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 28672
+  }
+ },
+ {
+  "id": "google/gemma-2-2b-it",
+  "kind": "dense",
+  "params": 2614341888,
+  "dtypes": {
+   "BF16": 2614341888
+  },
+  "repo_bytes": 5228717488,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-2-9b-it",
+  "kind": "dense",
+  "params": 9241705984,
+  "dtypes": {
+   "BF16": 9241705984
+  },
+  "repo_bytes": 18483466448,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-2-27b-it",
+  "kind": "dense",
+  "params": 27227128320,
+  "dtypes": {
+   "BF16": 27227128320
+  },
+  "repo_bytes": 54454316552,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-3-1b-it",
+  "kind": "dense",
+  "params": 999885952,
+  "dtypes": {
+   "BF16": 999885952
+  },
+  "repo_bytes": 1999811208,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-3-4b-it",
+  "kind": "dense",
+  "params": 4300079472,
+  "dtypes": {
+   "BF16": 4300079472
+  },
+  "repo_bytes": 8600277880,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-3-12b-it",
+  "kind": "dense",
+  "params": 12187325040,
+  "dtypes": {
+   "BF16": 12187325040
+  },
+  "repo_bytes": 24374793024,
+  "gated": true
+ },
+ {
+  "id": "google/gemma-3-27b-it",
+  "kind": "dense",
+  "params": 27432406640,
+  "dtypes": {
+   "BF16": 27432406640
+  },
+  "repo_bytes": 54864980440,
+  "gated": true
+ },
+ {
+  "id": "microsoft/Phi-3-mini-4k-instruct",
+  "kind": "dense",
+  "params": 3821079552,
+  "dtypes": {
+   "BF16": 3821079552
+  },
+  "repo_bytes": 7642181880,
+  "gated": false,
+  "arch": {
+   "model_type": "phi3",
+   "L": 32,
+   "d": 3072,
+   "V": 32064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 32,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "microsoft/Phi-3-medium-4k-instruct",
+  "kind": "dense",
+  "params": 13960238080,
+  "dtypes": {
+   "BF16": 13960238080
+  },
+  "repo_bytes": 27920504728,
+  "gated": false,
+  "arch": {
+   "model_type": "phi3",
+   "L": 40,
+   "d": 5120,
+   "V": 32064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 10,
+   "ff": 17920
+  }
+ },
+ {
+  "id": "microsoft/phi-4",
+  "kind": "dense",
+  "params": 14659507200,
+  "dtypes": {
+   "BF16": 14659507200
+  },
+  "repo_bytes": 29319042992,
+  "gated": false,
+  "arch": {
+   "model_type": "phi3",
+   "L": 40,
+   "d": 5120,
+   "V": 100352,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 10,
+   "ff": 17920
+  }
+ },
+ {
+  "id": "microsoft/Phi-4-mini-instruct",
+  "kind": "dense",
+  "params": 3836021760,
+  "dtypes": {
+   "BF16": 3836021760
+  },
+  "repo_bytes": 7672066216,
+  "gated": false,
+  "arch": {
+   "model_type": "phi3",
+   "L": 32,
+   "d": 3072,
+   "V": 200064,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "mistralai/Mistral-7B-Instruct-v0.3",
+  "kind": "dense",
+  "params": 7248023552,
+  "dtypes": {
+   "BF16": 7248023552
+  },
+  "repo_bytes": 28992159440,
+  "gated": false,
+  "arch": {
+   "model_type": "mistral",
+   "L": 32,
+   "d": 4096,
+   "V": 32768,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "mistralai/Mistral-Nemo-Instruct-2407",
+  "kind": "dense",
+  "params": 12247782400,
+  "dtypes": {
+   "BF16": 12247782400
+  },
+  "repo_bytes": 48991211328,
+  "gated": false,
+  "arch": {
+   "model_type": "mistral",
+   "L": 40,
+   "d": 5120,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "kind": "dense",
+  "params": 23572403200,
+  "dtypes": {
+   "BF16": 23572403200
+  },
+  "repo_bytes": 94289694896,
+  "gated": false,
+  "arch": {
+   "model_type": "mistral",
+   "L": 40,
+   "d": 5120,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 32768
+  }
+ },
+ {
+  "id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+  "kind": "dense",
+  "params": 24011361280,
+  "dtypes": {
+   "BF16": 24011361280
+  },
+  "repo_bytes": 96045592840,
+  "gated": false,
+  "arch": {
+   "model_type": "mistral3",
+   "L": 40,
+   "d": 5120,
+   "V": 131072,
+   "tie": null,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 32768
+  }
+ },
+ {
+  "id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+  "kind": "moe",
+  "params": 46702792704,
+  "dtypes": {
+   "BF16": 46702792704
+  },
+  "repo_bytes": 93405713504,
+  "gated": false,
+  "arch": {
+   "model_type": "mixtral",
+   "L": 32,
+   "d": 4096,
+   "V": 32000,
+   "tie": false,
+   "experts": 8,
+   "topk": 2,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+  "kind": "moe",
+  "params": 140630071296,
+  "dtypes": {
+   "BF16": 140630071296
+  },
+  "repo_bytes": 281260367720,
+  "gated": false,
+  "arch": {
+   "model_type": "mixtral",
+   "L": 56,
+   "d": 6144,
+   "V": 32768,
+   "tie": false,
+   "experts": 8,
+   "topk": 2,
+   "kv": 8,
+   "ff": 16384
+  }
+ },
+ {
+  "id": "HuggingFaceTB/SmolLM3-3B",
+  "kind": "dense",
+  "params": 3075098624,
+  "dtypes": {
+   "BF16": 3075098624
+  },
+  "repo_bytes": 6150235008,
+  "gated": false,
+  "arch": {
+   "model_type": "smollm3",
+   "L": 36,
+   "d": 2048,
+   "V": 128256,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "kind": "dense",
+  "params": 1711376384,
+  "dtypes": {
+   "BF16": 1711376384
+  },
+  "repo_bytes": 3422784472,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 24,
+   "d": 2048,
+   "V": 49152,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 32,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "allenai/OLMo-2-1124-7B-Instruct",
+  "kind": "dense",
+  "params": 7298617344,
+  "dtypes": {
+   "BF16": 7298617344
+  },
+  "repo_bytes": 14597276128,
+  "gated": false,
+  "arch": {
+   "model_type": "olmo2",
+   "L": 32,
+   "d": 4096,
+   "V": 100352,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 32,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "allenai/OLMo-2-1124-13B-Instruct",
+  "kind": "dense",
+  "params": 13716198400,
+  "dtypes": {
+   "BF16": 13716198400
+  },
+  "repo_bytes": 27432448592,
+  "gated": false,
+  "arch": {
+   "model_type": "olmo2",
+   "L": 40,
+   "d": 5120,
+   "V": 100352,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 40,
+   "ff": 13824
+  }
+ },
+ {
+  "id": "allenai/OLMo-2-0325-32B-Instruct",
+  "kind": "dense",
+  "params": 32234279936,
+  "dtypes": {
+   "BF16": 32234279936
+  },
+  "repo_bytes": 64468642816,
+  "gated": false,
+  "arch": {
+   "model_type": "olmo2",
+   "L": 64,
+   "d": 5120,
+   "V": 100352,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 27648
+  }
+ },
+ {
+  "id": "allenai/Olmo-3-7B-Instruct",
+  "kind": "dense",
+  "params": 7298011136,
+  "dtypes": {
+   "BF16": 7298011136
+  },
+  "repo_bytes": 14596063712,
+  "gated": false,
+  "arch": {
+   "model_type": "olmo3",
+   "L": 32,
+   "d": 4096,
+   "V": 100278,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 32,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "allenai/Olmo-3-32B-Think",
+  "kind": "dense",
+  "params": 32233522176,
+  "dtypes": {
+   "BF16": 32233522176
+  },
+  "repo_bytes": 64467127296,
+  "gated": false,
+  "arch": {
+   "model_type": "olmo3",
+   "L": 64,
+   "d": 5120,
+   "V": 100278,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 27648
+  }
+ },
+ {
+  "id": "allenai/OLMoE-1B-7B-0125-Instruct",
+  "kind": "moe",
+  "params": 6919161856,
+  "dtypes": {
+   "BF16": 6919161856
+  },
+  "repo_bytes": 13838721960,
+  "gated": false,
+  "arch": {
+   "model_type": "olmoe",
+   "L": 16,
+   "d": 2048,
+   "V": 50304,
+   "tie": false,
+   "experts": 64,
+   "topk": 8,
+   "kv": 16,
+   "ff": 1024
+  }
+ },
+ {
+  "id": "01-ai/Yi-1.5-6B-Chat",
+  "kind": "dense",
+  "params": 6061035520,
+  "dtypes": {
+   "BF16": 6061035520
+  },
+  "repo_bytes": 12122104808,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 4096,
+   "V": 64000,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "01-ai/Yi-1.5-9B-Chat",
+  "kind": "dense",
+  "params": 8829407232,
+  "dtypes": {
+   "BF16": 8829407232
+  },
+  "repo_bytes": 17658864984,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 48,
+   "d": 4096,
+   "V": 64000,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 11008
+  }
+ },
+ {
+  "id": "01-ai/Yi-1.5-34B-Chat",
+  "kind": "dense",
+  "params": 34388917248,
+  "dtypes": {
+   "BF16": 34388917248
+  },
+  "repo_bytes": 68777898032,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 60,
+   "d": 7168,
+   "V": 64000,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 20480
+  }
+ },
+ {
+  "id": "internlm/internlm2_5-7b-chat",
+  "kind": "dense",
+  "params": 7737708544,
+  "dtypes": {
+   "BF16": 7737708544
+  },
+  "repo_bytes": 15475442848,
+  "gated": false,
+  "arch": {
+   "model_type": "internlm2",
+   "L": 32,
+   "d": 4096,
+   "V": 92544,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "internlm/internlm3-8b-instruct",
+  "kind": "dense",
+  "params": 8804241408,
+  "dtypes": {
+   "BF16": 8804241408
+  },
+  "repo_bytes": 17608533440,
+  "gated": false,
+  "arch": {
+   "model_type": "internlm3",
+   "L": 48,
+   "d": 4096,
+   "V": 128512,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 10240
+  }
+ },
+ {
+  "id": "THUDM/glm-4-9b-chat-hf",
+  "kind": "dense",
+  "params": 9399951360,
+  "dtypes": {
+   "BF16": 9399951360
+  },
+  "repo_bytes": 18799953696,
+  "gated": false,
+  "arch": {
+   "model_type": "glm",
+   "L": 40,
+   "d": 4096,
+   "V": 151552,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 13696
+  }
+ },
+ {
+  "id": "zai-org/GLM-4-32B-0414",
+  "kind": "dense",
+  "params": 32566081536,
+  "dtypes": {
+   "BF16": 32566081536
+  },
+  "repo_bytes": 65132235080,
+  "gated": false,
+  "arch": {
+   "model_type": "glm4",
+   "L": 61,
+   "d": 6144,
+   "V": 151552,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 23040
+  }
+ },
+ {
+  "id": "zai-org/GLM-4.5-Air",
+  "kind": "moe",
+  "params": 110468824832,
+  "dtypes": {
+   "BF16": 110468818944,
+   "F32": 5888
+  },
+  "repo_bytes": 220939943456,
+  "gated": false,
+  "arch": {
+   "model_type": "glm4_moe",
+   "L": 46,
+   "d": 4096,
+   "V": 151552,
+   "tie": false,
+   "experts": 128,
+   "topk": 8,
+   "kv": 8,
+   "ff": 10944
+  }
+ },
+ {
+  "id": "zai-org/GLM-4.5",
+  "kind": "moe",
+  "params": 358337791296,
+  "dtypes": {
+   "BF16": 358337776896,
+   "F32": 14400
+  },
+  "repo_bytes": 716681196672,
+  "gated": false,
+  "arch": {
+   "model_type": "glm4_moe",
+   "L": 92,
+   "d": 5120,
+   "V": 151552,
+   "tie": false,
+   "experts": 160,
+   "topk": 8,
+   "kv": 8,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "kind": "dense",
+  "params": 1777088000,
+  "dtypes": {
+   "BF16": 1777088000
+  },
+  "repo_bytes": 3554214621,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 28,
+   "d": 1536,
+   "V": 151936,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 8960
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "kind": "dense",
+  "params": 7615616512,
+  "dtypes": {
+   "BF16": 7615616512
+  },
+  "repo_bytes": 15231271850,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 28,
+   "d": 3584,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 18944
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+  "kind": "dense",
+  "params": 14770033664,
+  "dtypes": {
+   "BF16": 14770033664
+  },
+  "repo_bytes": 29540133872,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 48,
+   "d": 5120,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 13824
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+  "kind": "dense",
+  "params": 32763876352,
+  "dtypes": {
+   "BF16": 32763876352
+  },
+  "repo_bytes": 65527841532,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen2",
+   "L": 64,
+   "d": 5120,
+   "V": 152064,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 27648
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+  "kind": "dense",
+  "params": 8030261248,
+  "dtypes": {
+   "BF16": 8030261248
+  },
+  "repo_bytes": 16060556354,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 4096,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+  "kind": "dense",
+  "params": 70553706496,
+  "dtypes": {
+   "BF16": 70553706496
+  },
+  "repo_bytes": 141107497606,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 80,
+   "d": 8192,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 28672
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-V2-Lite-Chat",
+  "kind": "moe",
+  "params": 15706484224,
+  "dtypes": {
+   "BF16": 15706484224
+  },
+  "repo_bytes": 31413626576,
+  "gated": false,
+  "arch": {
+   "model_type": "deepseek_v2",
+   "L": 27,
+   "d": 2048,
+   "V": 102400,
+   "tie": false,
+   "experts": 64,
+   "topk": 6,
+   "kv": 16,
+   "ff": 10944
+  }
+ },
+ {
+  "id": "deepseek-ai/DeepSeek-V3",
+  "kind": "moe",
+  "params": 684489845504,
+  "dtypes": {
+   "BF16": 3918786560,
+   "F8_E4M3": 680571043840,
+   "F32": 15104
+  },
+  "repo_bytes": 688586727753,
+  "gated": false,
+  "arch": {
+   "model_type": "deepseek_v3",
+   "L": 61,
+   "d": 7168,
+   "V": 129280,
+   "tie": false,
+   "experts": 256,
+   "topk": 8,
+   "kv": 128,
+   "ff": 18432
+  }
+ },
+ {
+  "id": "moonshotai/Moonlight-16B-A3B-Instruct",
+  "kind": "moe",
+  "params": 15960111936,
+  "dtypes": {
+   "BF16": 15960111936
+  },
+  "repo_bytes": 31920879456,
+  "gated": false,
+  "arch": {
+   "model_type": "deepseek_v3",
+   "L": 27,
+   "d": 2048,
+   "V": 163840,
+   "tie": false,
+   "experts": 64,
+   "topk": 6,
+   "kv": 16,
+   "ff": 11264
+  }
+ },
+ {
+  "id": "moonshotai/Kimi-K2-Instruct",
+  "kind": "moe",
+  "params": 1026408235864,
+  "dtypes": {
+   "F32": 23040,
+   "BF16": 2514970968,
+   "F8_E4M3": 1023893241856
+  },
+  "repo_bytes": 1029190981272,
+  "gated": false,
+  "arch": {
+   "model_type": "kimi_k2",
+   "L": 61,
+   "d": 7168,
+   "V": 163840,
+   "tie": false,
+   "experts": 384,
+   "topk": 8,
+   "kv": 64,
+   "ff": 18432
+  }
+ },
+ {
+  "id": "ibm-granite/granite-3.3-2b-instruct",
+  "kind": "dense",
+  "params": 2533539840,
+  "dtypes": {
+   "BF16": 2533539840
+  },
+  "repo_bytes": 5067121552,
+  "gated": false,
+  "arch": {
+   "model_type": "granite",
+   "L": 40,
+   "d": 2048,
+   "V": 49159,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "ibm-granite/granite-3.3-8b-instruct",
+  "kind": "dense",
+  "params": 8170864640,
+  "dtypes": {
+   "BF16": 8170864640
+  },
+  "repo_bytes": 16341771384,
+  "gated": false,
+  "arch": {
+   "model_type": "granite",
+   "L": 40,
+   "d": 4096,
+   "V": 49159,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 12800
+  }
+ },
+ {
+  "id": "ibm-granite/granite-4.0-h-small",
+  "kind": "moe",
+  "params": 32207337984,
+  "dtypes": {
+   "BF16": 32207337984
+  },
+  "repo_bytes": 64414744168,
+  "gated": false,
+  "arch": {
+   "model_type": "granitemoehybrid",
+   "L": 40,
+   "d": 4096,
+   "V": 100352,
+   "tie": true,
+   "experts": 72,
+   "topk": 10,
+   "kv": 8,
+   "ff": 768
+  }
+ },
+ {
+  "id": "ibm-granite/granite-3.1-3b-a800m-instruct",
+  "kind": "moe",
+  "params": 3298793472,
+  "dtypes": {
+   "BF16": 3298793472
+  },
+  "repo_bytes": 6597622168,
+  "gated": false,
+  "arch": {
+   "model_type": "granitemoe",
+   "L": 32,
+   "d": 1536,
+   "V": 49155,
+   "tie": true,
+   "experts": 40,
+   "topk": 8,
+   "kv": 8,
+   "ff": 512
+  }
+ },
+ {
+  "id": "LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct",
+  "kind": "dense",
+  "params": 2405327360,
+  "dtypes": {
+   "F32": 2405327360
+  },
+  "repo_bytes": 9621340360,
+  "gated": false,
+  "arch": {
+   "model_type": "exaone",
+   "L": null,
+   "d": 2560,
+   "V": 102400,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 7168
+  }
+ },
+ {
+  "id": "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct",
+  "kind": "dense",
+  "params": 7818448896,
+  "dtypes": {
+   "F32": 7818448896
+  },
+  "repo_bytes": 31273829024,
+  "gated": false,
+  "arch": {
+   "model_type": "exaone",
+   "L": null,
+   "d": 4096,
+   "V": 102400,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "LGAI-EXAONE/EXAONE-3.5-32B-Instruct",
+  "kind": "dense",
+  "params": 32003200000,
+  "dtypes": {
+   "F32": 32003200000
+  },
+  "repo_bytes": 128012867208,
+  "gated": false,
+  "arch": {
+   "model_type": "exaone",
+   "L": null,
+   "d": 5120,
+   "V": 102400,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 27392
+  }
+ },
+ {
+  "id": "tiiuae/Falcon3-1B-Instruct",
+  "kind": "dense",
+  "params": 1669408768,
+  "dtypes": {
+   "BF16": 1669408768
+  },
+  "repo_bytes": 3338836632,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 18,
+   "d": 2048,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 8192
+  }
+ },
+ {
+  "id": "tiiuae/Falcon3-3B-Instruct",
+  "kind": "dense",
+  "params": 3227655168,
+  "dtypes": {
+   "BF16": 3227655168
+  },
+  "repo_bytes": 6455333640,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 22,
+   "d": 3072,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 9216
+  }
+ },
+ {
+  "id": "tiiuae/Falcon3-7B-Instruct",
+  "kind": "dense",
+  "params": 7455550464,
+  "dtypes": {
+   "BF16": 7455550464
+  },
+  "repo_bytes": 14911130600,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 28,
+   "d": 3072,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 23040
+  }
+ },
+ {
+  "id": "tiiuae/Falcon3-10B-Instruct",
+  "kind": "dense",
+  "params": 10305653760,
+  "dtypes": {
+   "BF16": 10305653760
+  },
+  "repo_bytes": 20611349792,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 40,
+   "d": 3072,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 23040
+  }
+ },
+ {
+  "id": "nvidia/Llama-3.1-Nemotron-Nano-8B-v1",
+  "kind": "dense",
+  "params": 8030261248,
+  "dtypes": {
+   "BF16": 8030261248
+  },
+  "repo_bytes": 16060556376,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 4096,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "nvidia/Llama-3_3-Nemotron-Super-49B-v1",
+  "kind": "dense",
+  "params": 49867145216,
+  "dtypes": {
+   "BF16": 49867145216
+  },
+  "repo_bytes": 99734357144,
+  "gated": false,
+  "arch": {
+   "model_type": "nemotron-nas",
+   "L": 80,
+   "d": 8192,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": null,
+   "ff": null
+  }
+ },
+ {
+  "id": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+  "kind": "dense",
+  "params": 70553706496,
+  "dtypes": {
+   "BF16": 70553706496
+  },
+  "repo_bytes": 141107497872,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 80,
+   "d": 8192,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 28672
+  }
+ },
+ {
+  "id": "nvidia/NVIDIA-Nemotron-Nano-9B-v2",
+  "kind": "dense",
+  "params": 8888227328,
+  "dtypes": {
+   "BF16": 8888227328
+  },
+  "repo_bytes": 17776492512,
+  "gated": false,
+  "arch": {
+   "model_type": "nemotron_h",
+   "L": 56,
+   "d": 4480,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 15680
+  }
+ },
+ {
+  "id": "openai/gpt-oss-20b",
+  "kind": "moe",
+  "params": 20914757184,
+  "dtypes": {
+   "BF16": 1804459584,
+   "U8": 19110297600
+  },
+  "repo_bytes": 41273504288,
+  "gated": false,
+  "arch": {
+   "model_type": "gpt_oss",
+   "L": 24,
+   "d": 2880,
+   "V": 201088,
+   "tie": false,
+   "experts": 32,
+   "topk": 4,
+   "kv": 8,
+   "ff": 2880
+  }
+ },
+ {
+  "id": "openai/gpt-oss-120b",
+  "kind": "moe",
+  "params": 116829156672,
+  "dtypes": {
+   "BF16": 2167371072,
+   "U8": 114661785600
+  },
+  "repo_bytes": 195736016552,
+  "gated": false,
+  "arch": {
+   "model_type": "gpt_oss",
+   "L": 36,
+   "d": 2880,
+   "V": 201088,
+   "tie": false,
+   "experts": 128,
+   "topk": 4,
+   "kv": 8,
+   "ff": 2880
+  }
+ },
+ {
+  "id": "tencent/Hunyuan-A13B-Instruct",
+  "kind": "moe",
+  "params": 80393183232,
+  "dtypes": {
+   "F32": 8388608,
+   "BF16": 80384794624
+  },
+  "repo_bytes": 160803954720,
+  "gated": false,
+  "arch": {
+   "model_type": "hunyuan_v1_moe",
+   "L": 32,
+   "d": 4096,
+   "V": 128167,
+   "tie": true,
+   "experts": 64,
+   "topk": null,
+   "kv": 8,
+   "ff": 3072
+  }
+ },
+ {
+  "id": "tencent/Hunyuan-7B-Instruct",
+  "kind": "dense",
+  "params": 7504568320,
+  "dtypes": {
+   "BF16": 7504568320
+  },
+  "repo_bytes": 15009178056,
+  "gated": false,
+  "arch": {
+   "model_type": "hunyuan_v1_dense",
+   "L": 32,
+   "d": 4096,
+   "V": 128167,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "baidu/ERNIE-4.5-21B-A3B-PT",
+  "kind": "moe",
+  "params": 21948655808,
+  "dtypes": {
+   "F32": 4425408,
+   "BF16": 21944230400
+  },
+  "repo_bytes": 43906845592,
+  "gated": false,
+  "arch": {
+   "model_type": "ernie4_5_moe",
+   "L": 28,
+   "d": 2560,
+   "V": 103424,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "baidu/ERNIE-4.5-300B-A47B-PT",
+  "kind": "moe",
+  "params": 300474051776,
+  "dtypes": {
+   "BF16": 300447309824,
+   "F32": 26741952
+  },
+  "repo_bytes": 602982642336,
+  "gated": false,
+  "arch": {
+   "model_type": "ernie4_5_moe",
+   "L": 54,
+   "d": 8192,
+   "V": 103424,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 28672
+  }
+ },
+ {
+  "id": "baidu/ERNIE-4.5-0.3B-PT",
+  "kind": "dense",
+  "params": 360748032,
+  "dtypes": {
+   "BF16": 360748032
+  },
+  "repo_bytes": 721514672,
+  "gated": false,
+  "arch": {
+   "model_type": "ernie4_5",
+   "L": 18,
+   "d": 1024,
+   "V": 103424,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 3072
+  }
+ },
+ {
+  "id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+  "kind": "moe",
+  "params": 108641793536,
+  "dtypes": {
+   "BF16": 108641793536
+  },
+  "repo_bytes": 217283738720,
+  "gated": true
+ },
+ {
+  "id": "microsoft/bitnet-b1.58-2B-4T",
+  "kind": "native",
+  "params": 849786880,
+  "dtypes": {
+   "BF16": 328775680,
+   "U8": 521011200
+  },
+  "repo_bytes": 1178623988,
+  "gated": false,
+  "arch": {
+   "model_type": "bitnet",
+   "L": 30,
+   "d": 2560,
+   "V": 128256,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 5,
+   "ff": 6912
+  }
+ },
+ {
+  "id": "microsoft/bitnet-b1.58-2B-4T-bf16",
+  "kind": "native",
+  "params": 2412820480,
+  "dtypes": {
+   "BF16": 2412820480
+  },
+  "repo_bytes": 4825679400,
+  "gated": false,
+  "arch": {
+   "model_type": "bitnet",
+   "L": 30,
+   "d": 2560,
+   "V": 128256,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 5,
+   "ff": 6912
+  }
+ },
+ {
+  "id": "tiiuae/Falcon-E-3B-Instruct",
+  "kind": "native",
+  "params": 864159744,
+  "dtypes": {
+   "BF16": 134350848,
+   "U8": 729808896
+  },
+  "repo_bytes": 998568704,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 2048,
+   "V": 32768,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 13312
+  }
+ },
+ {
+  "id": "tiiuae/Falcon-E-1B-Instruct",
+  "kind": "native",
+  "params": 530679808,
+  "dtypes": {
+   "BF16": 134318080,
+   "U8": 396361728
+  },
+  "repo_bytes": 665041488,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 24,
+   "d": 2048,
+   "V": 32768,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 2,
+   "ff": 9216
+  }
+ },
+ {
+  "id": "tiiuae/Falcon3-10B-Instruct-1.58bit",
+  "kind": "native",
+  "params": 3180579840,
+  "dtypes": {
+   "BF16": 805555200,
+   "U8": 2375024640
+  },
+  "repo_bytes": 3986209008,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 40,
+   "d": 3072,
+   "V": 131072,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 4,
+   "ff": 23040
+  }
+ },
+ {
+  "id": "HF1BitLLM/Llama3-8B-1.58-100B-tokens",
+  "kind": "native",
+  "params": 2795769856,
+  "dtypes": {
+   "BF16": 1050939392,
+   "U8": 1744830464
+  },
+  "repo_bytes": 3846768552,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 32,
+   "d": 4096,
+   "V": 128256,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 14336
+  }
+ },
+ {
+  "id": "1bitLLM/bitnet_b1_58-3B",
+  "kind": "native",
+  "params": 3324389140,
+  "dtypes": {
+   "F32": 3324389140
+  },
+  "repo_bytes": 13297592664,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 26,
+   "d": 3200,
+   "V": 32002,
+   "tie": true,
+   "experts": null,
+   "topk": null,
+   "kv": 32,
+   "ff": 8640
+  }
+ },
+ {
+  "id": "SpectraSuite/TriLM_3.9B_Unpacked",
+  "kind": "native",
+  "params": 3992116224,
+  "dtypes": {
+   "F16": 3992116224
+  },
+  "repo_bytes": 7984263784,
+  "gated": false,
+  "arch": {
+   "model_type": "llama",
+   "L": 30,
+   "d": 3072,
+   "V": 50688,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 24,
+   "ff": 9216
+  }
+ },
+ {
+  "id": "prism-ml/Bonsai-8B-unpacked",
+  "kind": "native",
+  "params": 8188548096,
+  "dtypes": {
+   "F16": 8188548096
+  },
+  "repo_bytes": 16377141728,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 36,
+   "d": 4096,
+   "V": 151669,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "prism-ml/Ternary-Bonsai-8B-unpacked",
+  "kind": "native",
+  "params": 8188548096,
+  "dtypes": {
+   "F16": 8188548096
+  },
+  "repo_bytes": 16377141728,
+  "gated": false,
+  "arch": {
+   "model_type": "qwen3",
+   "L": 36,
+   "d": 4096,
+   "V": 151669,
+   "tie": false,
+   "experts": null,
+   "topk": null,
+   "kv": 8,
+   "ff": 12288
+  }
+ },
+ {
+  "id": "prism-ml/Bonsai-27B",
+  "kind": "native",
+  "err": "RepositoryNotFoundError"
+ },
+ {
+  "id": "prism-ml/Ternary-Bonsai-2-27B",
+  "kind": "native",
+  "err": "RepositoryNotFoundError"
+ }
+]

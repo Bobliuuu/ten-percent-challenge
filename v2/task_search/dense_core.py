@@ -19,6 +19,7 @@ def _run(cfg):
     D=json.load(open(os.environ.get("DENSE_DATA","/root/dense_data.json"))); os.makedirs(HFD+"/dense",exist_ok=True)
     tok=AutoTokenizer.from_pretrained(M); tok.padding_side="left"
     if tok.pad_token is None: tok.pad_token=tok.eos_token
+    _v=tok.get_vocab(); ENDT=next((t for t in ("<|im_end|>","<end_of_turn>","<|eot_id|>","<|end|>") if t in _v), tok.eos_token)
     def chat(p):
         try: return tok.apply_chat_template([{"role":"user","content":p}],add_generation_prompt=True,tokenize=False,enable_thinking=False)
         except TypeError: return tok.apply_chat_template([{"role":"user","content":p}],add_generation_prompt=True,tokenize=False)
@@ -55,7 +56,7 @@ def _run(cfg):
             res.append((ti.cpu().numpy().astype(np.int32),tv.cpu().numpy().astype(np.float32)))
         return res
     def tf_items():
-        A=[(enc_prompt(t["prompt"]),tok.encode(t["ref"],add_special_tokens=False)[:150]+[tok.convert_tokens_to_ids("<|im_end|>")]) for t in tfs]
+        A=[(enc_prompt(t["prompt"]),tok.encode(t["ref"],add_special_tokens=False)[:150]+[tok.convert_tokens_to_ids(ENDT)]) for t in tfs]
         return A
     bpath=f"{HFD}/dense/base_{tag}.json"
     def kind_masks(ev): return {k:[i for i,e in enumerate(ev) if e["kind"]==k] for k in sorted(set(e["kind"] for e in ev))}
@@ -76,7 +77,7 @@ def _run(cfg):
     @torch.no_grad()
     def run_ct():
         items=[json.loads(l) for l in open(os.environ["CT_ITEMS"])]
-        eosid=tok.convert_tokens_to_ids("<|im_end|>"); enc=[]
+        eosid=tok.convert_tokens_to_ids(ENDT); enc=[]
         for it in items:
             p=tok.encode(chat(it["user"]),add_special_tokens=False); a=tok.encode(it["answer"],add_special_tokens=False)+[eosid]; enc.append((p,a))
         order=np.argsort([-(len(p)+len(a)) for p,a in enc]); rows=[None]*len(items); bs=cfg.get("ct_bs",8); model.config.use_cache=False
@@ -151,7 +152,7 @@ def _run(cfg):
     layers=model.model.layers; nl0=len(layers)
     linn=["self_attn.q_proj","self_attn.k_proj","self_attn.v_proj","self_attn.o_proj","mlp.gate_proj","mlp.up_proj","mlp.down_proj"]
     groups=[("self_attn.q_proj",["self_attn.q_proj","self_attn.k_proj","self_attn.v_proj"]),("self_attn.o_proj",["self_attn.o_proj"]),("mlp.gate_proj",["mlp.gate_proj","mlp.up_proj"]),("mlp.down_proj",["mlp.down_proj"])]
-    cal_txt=[chat(c["prompt"])+c["ref"]+"<|im_end|>\n" for c in D["calib"]]
+    cal_txt=[chat(c["prompt"])+c["ref"]+ENDT+"\n" for c in D["calib"]]
     if cfg.get("calib_t1"):
         from_t1=[json.loads(l) for l in open(os.environ.get("DENSE_T1","/root/t1")+"/calib_t1.jsonl")]
         cal_txt=[]
@@ -161,9 +162,9 @@ def _run(cfg):
             try: pr=tok.apply_chat_template([{"role":"user","content":it["query"]}],tools=tools,add_generation_prompt=True,tokenize=False,enable_thinking=False)
             except TypeError: pr=tok.apply_chat_template([{"role":"user","content":it["query"]}],tools=tools,add_generation_prompt=True,tokenize=False)
             ans="\n".join("<tool_call>\n"+json.dumps(dict(name=g["name"],arguments=g["arguments"]))+"\n</tool_call>" for g in it["gold"]) or "None of the available tools applies to this request."
-            cal_txt.append(pr+ans+"<|im_end|>\n")
-        if cfg.get("calib_mix"): cal_txt=cal_txt[:len(cal_txt)//2]+[chat(c["prompt"])+c["ref"]+"<|im_end|>\n" for c in D["calib"]][:len(cal_txt)//2]
-    if cfg.get('calib_ct'): cal_txt=[chat(c["user"])+c["answer"]+"<|im_end|>\n" for c in map(json.loads,open(os.environ["CT_CALIB"]))]
+            cal_txt.append(pr+ans+ENDT+"\n")
+        if cfg.get("calib_mix"): cal_txt=cal_txt[:len(cal_txt)//2]+[chat(c["prompt"])+c["ref"]+ENDT+"\n" for c in D["calib"]][:len(cal_txt)//2]
+    if cfg.get('calib_ct'): cal_txt=[chat(c["user"])+c["answer"]+ENDT+"\n" for c in map(json.loads,open(os.environ["CT_CALIB"]))]
     rng=np.random.RandomState(0); rng.shuffle(cal_txt)
     ncal=cfg.get("ncal",128); CL=cfg.get("CL",512); stream=[]
     for s in cal_txt:
