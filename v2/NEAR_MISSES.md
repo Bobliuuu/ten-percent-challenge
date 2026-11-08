@@ -163,3 +163,14 @@ Reading: at the SAME 2-bit budget, fewer experts at the same bits beat more expe
 | BANK6 | lam10000 awt100 m8 / lam30000 awt100 m16 / 12 layers awt300 m12 | 0 / 0 / 0 | 0 | .987-.989 | .976 | no teaching |
 | VOICE10 calculator (RTN3 k54 body) | lam1000 awt10 m16 | .46/.43/.39 | .29/.29/.16 (non-strict shuffle) | .978 (.979) | .93-.94 | old shuffle control was not a derangement |
 BANK6 dev at keep 87 vq4: SEL 98.69 [96.68], DEV 99.18 [97.61], min cell .96-.976, size 9.86%.
+
+## L9 big MoE lane (Qwen3-235B-A22B-Instruct-2507, SKILL7 voice-skill routing; full details lanes/L9/REPORT.md)
+fp16 470.19 GB, 10% = 47.02 GB. Recipe: routing-mass expert prune (per layer), grouped RTN (MSE clip) on kept experts, 4-bit attention/embedding/head. DEV rows SEL 963 / REP 932 (retention vs base-correct, Wilson lo); the packed row is a real file set audited by tools/bytes_audit.py.
+| method | size | retention [Wilson lo] | min cell | feedback | rule gaps |
+|---|---|---|---|---|---|
+| **PACKED, keep 88/128, RTN2 g128** | **9.7814%** | SEL 99.22 [98.39]; REP 99.43 [98.67]; 3 calibration draws REP 99.43-99.54; **shared exam SKILL7 (2744) 98.98 [98.52]**, kinds >= 97.7, never-used sources 99.17 [98.56], clean_only 98.83 [98.27] | 95.3 (src x kind) | Recipe teach 74.4% vs empty 2.4% / shuffled 12.2% / wrong 0.0%; neighbours 99.16% unchanged (1 draw; o_proj delta carrier 537 MB -> 9.8956%) | edit legality, task-pruned experts (gray); 1 feedback draw; CLI test not re-run |
+| keep 60, RTN3 | 9.80% | SEL 98.88 [97.95], REP 99.32 [98.52] | 96.5 | not run | simulated bytes |
+| keep 72 / 64 / 48, RTN2 | 8.16 / 7.35 / 5.74% | REP 99.32 / 99.32 / 98.75 | 97.1 / 94.1 / 96.2 | not run | simulated |
+| keep 32 / 24 / 16, RTN2 | 4.12 / 3.31 / 2.50% | REP 97.5 / 96.7 / 78.6 | 94.1 / 90.3 / 0 | not run | retention |
+| keep 88, RTN2, attn/emb/head 3b | 9.57% | REP 98.29 [97.2] | 93.5 | not run | retention |
+| BANK8 dev, keep 88 RTN2 (simulated) | 9.78% | 98.96 [98.32] | 97.8 | not run | single source |

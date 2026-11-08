@@ -314,3 +314,6 @@ Reading: concentration = fraction of experts (layer mean) needed to cover 90/95/
 
 ## L9b measured: Qwen3.5-35B-A3B packed at 9.67% (real artifact, shared locked exam)
 SKILL7 locked exam retention 99.55% [99.21] (3 quantizer draws 99.47-99.55), worst kind Lists 98.4; BANK6 exam 97.37% [96.58] (fails). Real shipped bytes 6.706 GB = 9.674% of the 69.3 GB text-only fp16 (9.33% of the full 71.9 GB checkpoint). Feedback via shared-expert down_proj columns teaches a new skill (.73-.79) with neighbours intact. Details: v2/lanes/L9b/REPORT.md. Hardware: one >=40 GB GPU.
+
+## Big MoE probe: Qwen3-235B-A22B-Instruct-2507 (lane L9, measured; details lanes/L9/REPORT.md)
+fp16 470.19 GB, 10% = 47.02 GB; 128 experts/layer, top-8, 94 layers, experts = 96.6% of params. Keep 88/128 experts by routing mass on the task + 2-bit g128 RTN experts + 4-bit attention/embedding/head: REAL packed artifact 9.7814% of fp16. SKILL7 shared locked exam (2744 items): retention 98.98% [98.52], kinds >= 97.7%, never-used sources 99.17%; REP 99.43-99.54 over 3 calibration draws. 48 experts (5.74%) still 98.75% on REP; 16 experts collapses. Strongest measured census row: the big MoE tolerates 2-bit experts and 31% expert pruning on an easy routing task and leaves ~1 GB slack for a 537 MB feedback carrier. Not ported: Qwen3-Next-80B (hybrid linear attention, 512 experts + shared expert).
