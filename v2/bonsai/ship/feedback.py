@@ -79,7 +79,7 @@ def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF[
     dev = m.device; W = m.lm_head.weight.data; LY = m.model.layers; NL = len(LY); gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; D = m.config.hidden_size
     sites = make_sites(m, tok, ann, T)
     if not sites: return None
-    cal = cal or calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "cols": [], "vals": []}
+    cal = cal or calib_seqs(m, tok, calib_prompts); LS = list(range(NL - layers, NL)); out = {"layers": [], "cols": [], "vals": [], "orig": []}
     for step, li in enumerate(LS):
         rem = len(LS) - step; Ks, Xs, Ts = [], [], []
         for ids, pos, tgt in sites:
@@ -93,10 +93,14 @@ def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF[
         J = ((K.abs() / K.norm(dim=0, keepdim=True).clamp(min=1e-6)).sum(1)).topk(cols).indices.sort().values
         C, Ca = _cal_cov(m, cal, li, J); Cs = C + awt * Ca; Am = lam * (Cs + ridge * Cs.diagonal().mean() * torch.eye(len(J), device=dev)); Kj = K[J]
         Z = torch.linalg.solve(Am, Kj); S = torch.linalg.inv(torch.eye(K.shape[1], device=dev) + Kj.T @ Z); dW = R @ S @ Z.T                      # [D, r]
-        wt = LY[li].mlp.down_proj.weight; new = (wt.data[:, J].float() + dW).half(); wt.data[:, J] = new
+        wt = LY[li].mlp.down_proj.weight; out["orig"].append(wt.data[:, J].clone()); new = (wt.data[:, J].float() + dW).half(); wt.data[:, J] = new
         out["layers"].append(li); out["cols"].append(J.short().cpu()); out["vals"].append(new.cpu())
         if log: log(f"layer {li}: sites {K.shape[1]} mean gap {float(gap.mean()):.2f}")
     return out
+
+def undo(m, P):
+    """exact undo of compute_patch's in-place edit (experiments only)"""
+    for li, c, o in zip(P["layers"], P["cols"], P["orig"]): m.model.layers[li].mlp.down_proj.weight.data[:, c.long().to(m.device)] = o
 
 def apply_patch(m, P, save=None):
     """overlay patch columns on the existing down_proj tensors; if save is a dict, the replaced original columns are stored there (for exact restore in experiments)."""
@@ -122,7 +126,7 @@ def main():
     m, _ = BL.load(a.art, patch=None); tok = AutoTokenizer.from_pretrained(a.art)
     cp = a.calib or a.art + "/feedback_calib.jsonl"; cal = [common.prompt_of(json.loads(l), T) for l in open(cp) if l.strip()]
     P = compute_patch(m, tok, ann, T, cal, a.layers, a.cols, a.lam, a.awt, a.margin, a.ridge)
-    if P is not None: torch.save(P, pf)
+    if P is not None: P.pop("orig", None); torch.save(P, pf)
     print(json.dumps({"patched_layers": P["layers"] if P else [], "cols": a.cols, "patch_bytes": os.path.getsize(pf) if P else 0}))
 
 if __name__ == "__main__": main()

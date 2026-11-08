@@ -36,9 +36,8 @@ def run_arm(ann_rows, labels, cfg):
     """compute the patch from (rows, labels) on the ORIGINAL model and apply it in place; returns (patch, saved, seconds)"""
     t = time.time()
     A = [dict(query=r["text"], label=l) for r, l in zip(ann_rows, labels)]
-    P = FB.compute_patch(m, tok, A, None, calib, cal=cal, **cfg); sv = {}
-    if P is not None: FB.apply_patch(m, P, sv)
-    return P, sv, time.time() - t
+    P = FB.compute_patch(m, tok, A, None, calib, cal=cal, **cfg)      # edits the model in place; P["orig"] holds the replaced columns
+    return P, P, time.time() - t
 def score(rows, outs, labels=None): return [int(o == (labels[i] if labels else r["kind"])) for i, (r, o) in enumerate(zip(rows, outs))]
 def evalsets(spec):
     res = {}
@@ -69,7 +68,7 @@ if a.mode == "sweep":
             for arm in ("real", "shuffled"):
                 rows, lab = cs[arm]; P, sv, secs = run_arm(rows, lab, c)
                 ev = evalsets(dict(teach_sel=(E_TSEL, NEW), **({"neigh_sel": (N_SEL, None), "neigh_sel_hp": ([r for r in N_SEL if r["src"] == "huffpost"], None)} if arm == "real" else {})))
-                FB.restore(m, sv); finish(tag, arm, 25, d, c, P, sv, secs, ev)
+                (FB.undo(m, sv) if sv is not None else None); finish(tag, arm, 25, d, c, P, sv, secs, ev)
 elif a.mode == "final":
     c = cfgs[0]; tag = c.get("tag", "final"); c = {k: v for k, v in c.items() if k != "tag"}
     TEACH = dict(teach_rep=(E_TREP, NEW), teach_bbc=(B_TEACH, NEW))
@@ -83,13 +82,13 @@ elif a.mode == "final":
                 spec = dict(TEACH); 
                 if arm == "real": spec.update(NEIGH)
                 if arm in ("real", "wrong", "mixed") and n == 25: spec["neigh_rep"] = (N_REP, None)
-                ev = evalsets(spec); FB.restore(m, sv); finish(tag, arm, n, d, c, P, sv, secs, ev)
+                ev = evalsets(spec); (FB.undo(m, sv) if sv is not None else None); finish(tag, arm, n, d, c, P, sv, secs, ev)
     # empty = no patch: base behaviour by construction (also verified by generation once)
     ev = evalsets(dict(TEACH, neigh_rep=(N_REP, None))); RES["runs"].append(dict(tag=tag, arm="empty", n=0, d=0, res=ev, bytes=0)); save()
     # annotations from source B (BBC entertainment) -> teach on held-out B and on A; calibration stays AG (source A)
     for d in range(a.ndraw_aux):
         ix = draw(25, d, B_ANN); P, sv, secs = run_arm(ix, [NEW] * 25, c)
-        tb = [r for r in B_TEACH]; ev = evalsets(dict(teach_rep=(E_TREP, NEW), teach_bbc=(tb, NEW), neigh_rep=(N_REP, None))); FB.restore(m, sv); finish(tag, "annB", 25, d, c, P, sv, secs, ev)
+        tb = [r for r in B_TEACH]; ev = evalsets(dict(teach_rep=(E_TREP, NEW), teach_bbc=(tb, NEW), neigh_rep=(N_REP, None))); (FB.undo(m, sv) if sv is not None else None); finish(tag, "annB", 25, d, c, P, sv, secs, ev)
 elif a.mode == "policy":
     c = cfgs[0]; tag = c.get("tag", "policy"); c = {k: v for k, v in c.items() if k != "tag"}
     SPEC = dict(teach_rep=(E_TREP, NEW), neigh_rep=(N_REP, None), old_teach=(OLD_TEACH, None))
@@ -99,6 +98,6 @@ elif a.mode == "policy":
         for arm, (_, kent) in arms.items():
             ke = 25 if arm == "ent25" else kent; ent_ix = rr.sample(E_ANN, ke); old_ix = rr.sample(OLD_ANN, 25 - ke)
             rows = ent_ix + old_ix; lab = [NEW] * ke + [r["kind"] for r in old_ix]; P, sv, secs = run_arm(rows, lab, c)
-            ev = evalsets(SPEC); FB.restore(m, sv); finish(tag, arm, 25, d, c, P, sv, secs, ev)
+            ev = evalsets(SPEC); (FB.undo(m, sv) if sv is not None else None); finish(tag, arm, 25, d, c, P, sv, secs, ev)
     ev = evalsets(SPEC); RES["runs"].append(dict(tag=tag, arm="empty", n=0, d=0, res=ev, bytes=0))
 RES["done"] = True; save(); log("DONE")
