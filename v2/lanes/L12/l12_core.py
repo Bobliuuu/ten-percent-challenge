@@ -123,7 +123,7 @@ class Engine:
         with torch.device("meta"): lm = AutoModelForCausalLM.from_config(tc if s.q35 else s.cfgm, dtype=dtype, attn_implementation="sdpa")
         s.lm = lm; s.blocks = []
         for l, lay in enumerate(lm.model.layers):
-            with torch.device("meta"): b = MyMoE(s.HID, s.E, s.TOPK)
+            with torch.device("meta"): b = MyMoE(s.HID, s.E, s.TOPK); b.gate = b.gate.to(dtype)
             if getattr(lay.mlp, "shared_expert", None) is not None: b.shared_expert = lay.mlp.shared_expert; b.shared_expert_gate = lay.mlp.shared_expert_gate
             lay.mlp = b; s.blocks.append(b)
         lm.to_empty(device=dev)
