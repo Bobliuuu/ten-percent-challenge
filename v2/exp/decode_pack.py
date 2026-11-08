@@ -8,7 +8,7 @@ def main(pack, out, dev="cuda"):
     from safetensors.torch import save_file, load_file
     os.makedirs(out, exist_ok=True)
     for f in os.listdir(pack):
-        if f.endswith((".json", ".txt")) and f not in ("qbody.json", "emb.json", "head.json", "model.safetensors.index.json"): shutil.copy(os.path.join(pack, f), out)
+        if f.endswith((".json", ".txt", ".jinja")) and f not in ("qbody.json", "emb.json", "head.json", "model.safetensors.index.json"): shutil.copy(os.path.join(pack, f), out)
     hdr = json.load(open(f"{pack}/qbody.json")); seed = hdr["seed"]; SEEDP = (str(seed) + ":").encode() if seed else b""; D = hdr["D"]
     body = np.memmap(f"{pack}/qbody.bin", dtype=np.uint8, mode="r"); cbb = open(f"{pack}/codebooks.bin", "rb").read()
     cbs = {int(k): torch.from_numpy(np.frombuffer(cbb[o:o + l], dtype=np.float16).copy().reshape(int(k), D)).float().to(dev) for k, (o, l) in hdr["codebooks"].items()}

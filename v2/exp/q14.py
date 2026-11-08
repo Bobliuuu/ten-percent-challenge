@@ -41,16 +41,23 @@ def header_size_estimate(shapes, K_of, seed):
     return len(json.dumps(dict(seed=seed, D=D, codebooks=cbo, tensors=ent), separators=(",", ":")))
 
 def solve_uniform(shapes, fixed, budget):
-    """largest uniform K whose total fits the budget"""
+    """largest uniform K whose total fits the budget; then the leftover is spent by moving a pseudo-randomly spread subset of tensors to the next 1-bit-per-group K level
+    (index cost is quantised in 1/8 bit per index, i.e. ~0.08 pp per uniform step; this keeps A0 'uniform to within one bit' and lands on the byte target)."""
     lo, hi = 1024, 16384
-    def tot(K):
-        Ko = {n: K for n in shapes}; return fixed + body_bytes(shapes, Ko) + codebook_bytes(Ko) + header_size_estimate(shapes, Ko, 0)
-    if tot(lo) > budget: raise RuntimeError("even K=1024 exceeds budget")
+    def tot(Ko): return fixed + body_bytes(shapes, Ko) + codebook_bytes(Ko) + header_size_estimate(shapes, Ko, 0)
+    U = lambda K: {n: K for n in shapes}
+    if tot(U(lo)) > budget: raise RuntimeError("even K=1024 exceeds budget")
     while lo < hi:
         mid = (lo + hi + 1) // 2
-        if tot(mid) <= budget: lo = mid
+        if tot(U(mid)) <= budget: lo = mid
         else: hi = mid - 1
-    return {n: lo for n in shapes}, tot(lo)
+    Ko = U(lo); B0 = P.group_bits(lo); K1 = int(2 ** ((B0 + 1) / 8))
+    while P.group_bits(K1) > B0 + 1: K1 -= 1
+    order = sorted(shapes, key=lambda n: (zlib.crc32(n.encode()) , n))
+    for n in order:
+        trial = dict(Ko); trial[n] = K1
+        if tot(trial) <= budget: Ko = trial
+    return Ko, tot(Ko)
 def solve_kl(shapes, fixed, budget, sens, a=2.5):
     import alloc as A
     def mk(tb):
@@ -277,13 +284,13 @@ def _sens(cfg, model, layers, cur, kw, ev_ids, Rot, ldlq, get_cb, decode, SEEDP,
     def fwd_logits():
         outs = []
         with torch.no_grad():
-            for a in range(0, len(ev_ids), 6): outs.append(model(input_ids=ev_ids[a:a + 6].cuda()).logits.float().log_softmax(-1))
+            for a in range(0, len(ev_ids), 3): outs.append(model(input_ids=ev_ids[a:a + 3].cuda()).logits.float().log_softmax(-1).cpu())
         return torch.cat(outs)
     lp0 = fwd_logits().half().cpu()
     def klnow():
         lq = fwd_logits(); tot = 0.0
-        for a in range(0, len(lq), 6):
-            r_ = lp0[a:a + 6].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 6])).sum())
+        for a in range(0, len(lq), 3):
+            r_ = lp0[a:a + 3].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 3].cuda())).sum())
         return tot / (lq.shape[0] * lq.shape[1])
     res["sens_kl_offset"] = klnow()
     for li, l in enumerate(layers):

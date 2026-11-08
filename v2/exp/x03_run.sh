@@ -3,7 +3,7 @@
 # Exits when STOP exists and no job is left, or after 40 idle minutes.
 cd "$(dirname "$0")"; mkdir -p results v2/exp/results/X03 /workspace/packs
 exec > /workspace/worker.log 2>&1; set -x
-pip install -q "vllm==0.11.0" "transformers==4.57.1" scipy "huggingface_hub<1.0" "datasets<4" safetensors 2>&1 | tail -2
+pip install -q "vllm==0.11.0" "transformers==4.57.1" scipy "huggingface_hub<1.0" "datasets<4" safetensors accelerate 2>&1 | tail -2
 export HF_HOME=/workspace/hf PYTHONUNBUFFERED=1
 idle=0
 while true; do

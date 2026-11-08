@@ -171,7 +171,7 @@ def stage_quant(a):
     cfg = json.load(open(a.cfg)); q = cfg.get("quantiser", "q14"); pack = cfg["pack_dir"]
     if os.path.exists(pack + "/.QUANT_DONE"): print("pack exists, skip quantise"); return
     if q == "q14":
-        import q14; r = q14._impl(cfg); return
+        subprocess.check_call([sys.executable, HERE + "/q14.py", a.cfg, cfg["name"]]); return      # separate process: the quantiser's ~40GB GPU memory must be released before vLLM starts
     mod = os.path.splitext(os.path.basename(RUNNERS[q]))[0]; d = os.path.join(V2, os.path.dirname(RUNNERS[q]))
     cmd = [sys.executable, V2 + "/vq/box_run.py", mod, a.cfg, cfg["name"]]
     print("QUANT CMD:", " ".join(cmd), "(cwd", d + ")"); subprocess.check_call(cmd, cwd=d)
@@ -182,7 +182,7 @@ def stage_decode(a, cfg):
     """real decoder: pack dir -> bf16 HF dir (decode_pack.py is the SHIPPED decoder inside the pack)"""
     out = cfg["pack_dir"].rstrip("/") + "_hf"
     if not os.path.exists(out + "/.DECODED"):
-        subprocess.check_call([sys.executable, cfg["pack_dir"] + "/decode_pack.py", cfg["pack_dir"], out]); open(out + "/.DECODED", "w").write("ok")
+        subprocess.check_call([sys.executable, "-B", cfg["pack_dir"] + "/decode_pack.py", cfg["pack_dir"], out]); open(out + "/.DECODED", "w").write("ok")
     return out
 
 def main():
