@@ -1,0 +1,224 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-qkUu2pfhAfgA2SH4moujlE
+Building image im-0Q8XNyUCmRdpAZRAcRxFc9
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install accelerate huggingface_hub numpy protobuf sentencepiece torch==2.4.1 transformers==4.57.1
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting accelerate
+  Downloading accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+Collecting huggingface_hub
+  Downloading huggingface_hub-2.4.0-py3-none-any.whl.metadata (16 kB)
+Collecting numpy
+  Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting protobuf
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting sentencepiece
+  Downloading sentencepiece-0.2.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (34 kB)
+Collecting torch==2.4.1
+  Downloading torch-2.4.1-cp311-cp311-manylinux1_x86_64.whl.metadata (26 kB)
+Collecting transformers==4.57.1
+  Downloading transformers-4.57.1-py3-none-any.whl.metadata (43 kB)
+Collecting filelock (from torch==2.4.1)
+  Downloading filelock-4.2.9-py3-none-any.whl.metadata (2.3 kB)
+Collecting typing-extensions>=4.8.0 (from torch==2.4.1)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting sympy (from torch==2.4.1)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.4.1)
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch==2.4.1)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.4.1)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch==2.4.1)
+  Downloading nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch==2.4.1)
+  Downloading nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch==2.4.1)
+  Downloading nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch==2.4.1)
+  Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cublas-cu12==12.1.3.1 (from torch==2.4.1)
+  Downloading nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cufft-cu12==11.0.2.54 (from torch==2.4.1)
+  Downloading nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-curand-cu12==10.3.2.106 (from torch==2.4.1)
+  Downloading nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch==2.4.1)
+  Downloading nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch==2.4.1)
+  Downloading nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-nccl-cu12==2.20.5 (from torch==2.4.1)
+  Downloading nvidia_nccl_cu12-2.20.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvtx-cu12==12.1.105 (from torch==2.4.1)
+  Downloading nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl.metadata (1.7 kB)
+Collecting triton==3.0.0 (from torch==2.4.1)
+  Downloading triton-3.0.0-1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.3 kB)
+Collecting huggingface_hub
+  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: packaging>=20.0 in ./usr/local/lib/python3.11/site-packages (from transformers==4.57.1) (26.3)
+Collecting pyyaml>=5.1 (from transformers==4.57.1)
+  Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting regex!=2019.12.17 (from transformers==4.57.1)
+  Downloading regex-2026.11.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting requests (from transformers==4.57.1)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.1)
+  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting safetensors>=0.4.3 (from transformers==4.57.1)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting tqdm>=4.27 (from transformers==4.57.1)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting nvidia-nvjitlink-cu12 (from nvidia-cusolver-cu12==11.4.5.107->torch==2.4.1)
+  Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface_hub)
+  Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting psutil (from accelerate)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.4.1)
+  Downloading markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting charset_normalizer<4,>=2 (from requests->transformers==4.57.1)
+  Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Collecting idna<4,>=2.5 (from requests->transformers==4.57.1)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests->transformers==4.57.1)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests->transformers==4.57.1)
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->torch==2.4.1)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Downloading torch-2.4.1-cp311-cp311-manylinux1_x86_64.whl (797.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 797.1/797.1 MB 771.5 MB/s  0:00:00
+Downloading transformers-4.57.1-py3-none-any.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 575.2 MB/s  0:00:00
+Downloading nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 410.6/410.6 MB 752.5 MB/s  0:00:00
+Downloading nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.1/14.1 MB 836.4 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 801.9 MB/s  0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 823.6/823.6 kB 940.0 MB/s  0:00:00
+Downloading nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 760.7 MB/s  0:00:00
+Downloading nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.6/121.6 MB 754.2 MB/s  0:00:00
+Downloading nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 MB 781.6 MB/s  0:00:00
+Downloading nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 MB 755.5 MB/s  0:00:00
+Downloading nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.0/196.0 MB 796.7 MB/s  0:00:00
+Downloading nvidia_nccl_cu12-2.20.5-py3-none-manylinux2014_x86_64.whl (176.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 176.2/176.2 MB 785.0 MB/s  0:00:00
+Downloading nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+Downloading triton-3.0.0-1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (209.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.4/209.4 MB 764.8 MB/s  0:00:00
+Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 913.4 MB/s  0:00:00
+Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 825.2 MB/s  0:00:00
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 812.0 MB/s  0:00:00
+Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 805.8 MB/s  0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading sentencepiece-0.2.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 868.1 MB/s  0:00:00
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 996.4 MB/s  0:00:00
+Downloading regex-2026.11.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (805 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.6/805.6 kB 1.0 GB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading filelock-4.2.9-py3-none-any.whl (164 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 969.0 MB/s  0:00:00
+Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.7/39.7 MB 737.6 MB/s  0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 745.6 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 1.1 GB/s  0:00:00
+Installing collected packages: mpmath, urllib3, typing-extensions, tqdm, sympy, sentencepiece, safetensors, regex, pyyaml, psutil, protobuf, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, idna, hf-xet, fsspec, filelock, charset_normalizer, certifi, triton, requests, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, huggingface_hub, torch, tokenizers, transformers, accelerate
+
+Successfully installed MarkupSafe-3.0.4 accelerate-1.15.0 certifi-2026.10.23 charset_normalizer-3.5.2 filelock-4.2.9 fsspec-2026.9.0 hf-xet-1.8.0 huggingface_hub-0.36.2 idna-3.20 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 numpy-2.4.6 nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.20.5 nvidia-nvjitlink-cu12-12.9.86 nvidia-nvtx-cu12-12.1.105 protobuf-7.36.2 psutil-7.2.2 pyyaml-6.0.3 regex-2026.11.7 requests-2.34.2 safetensors-0.8.0 sentencepiece-0.2.3 sympy-1.14.0 tokenizers-0.22.2 torch-2.4.1 tqdm-4.70.1 transformers-4.57.1 triton-3.0.0 typing-extensions-4.16.0 urllib3-2.8.0
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Image saved, took 4.16s
+
+Built image im-0Q8XNyUCmRdpAZRAcRxFc9 in 47.63s
+
+
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/model_census/modal_census.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/model_census/../task_search/../compress/dense/de
+│   nse_data.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/model_census/census_items.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/model_census/census_calib.jsonl
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/model_census/../task_search/dense_core.py
+├── ✓ Created Function go_s.
+└── ✓ Created Function go_m.
+('Qwen/Qwen2.5-0.5B-Instruct', 'cen', 'fc-01M6XR1BJ1Y0QB9ECMTREZ210M')
+('Qwen/Qwen2.5-1.5B-Instruct', 'cen', 'fc-01M6XR1BNJQZGSJ1XENK4S2S7S')
+('Qwen/Qwen2.5-3B-Instruct', 'cen', 'fc-01M6XR1BR2P0YN1K4H0080N8V7')
+('Qwen/Qwen2.5-7B-Instruct', 'cen', 'fc-01M6XR1BTHRHZXN9CPDS4BGAND')
+('Qwen/Qwen2.5-14B-Instruct', 'cen', 'fc-01M6XR1BX4F2A9EFYN818E2H3K')
+('Qwen/Qwen3-0.6B', 'cen', 'fc-01M6XR1BZW6AN1AKDY7DKHRJD0')
+('Qwen/Qwen3-1.7B', 'cen', 'fc-01M6XR1C2G2ZPBHKYB7RMCF25M')
+('Qwen/Qwen3-4B', 'cen', 'fc-01M6XR1C5GCD8RSP9G4HFEB8BJ')
+('Qwen/Qwen3-8B', 'cen', 'fc-01M6XR1C85K0FQK9MX8DYGZQD7')
+('Qwen/Qwen3-14B', 'cen', 'fc-01M6XR1CB6C5PGCY46HH70FFJ0')
+('unsloth/Llama-3.2-1B-Instruct', 'cen', 'fc-01M6XR1CEHZCZCYXMY4Q1DWZ09')
+('unsloth/Llama-3.2-3B-Instruct', 'cen', 'fc-01M6XR1CH9RMVZ8EF5CWYBH3RZ')
+('unsloth/Meta-Llama-3.1-8B-Instruct', 'cen', 'fc-01M6XR1CKVR3X1KF7XDNNTH72R')
+('unsloth/gemma-2-2b-it', 'cen', 'fc-01M6XR1CPRAWSBY26MQ8WPFKDP')
+('unsloth/gemma-2-9b-it', 'cen', 'fc-01M6XR1CSKQK62V6829867ZRR7')
+('unsloth/gemma-3-1b-it', 'cen', 'fc-01M6XR1CW37R5YZSYDW1HVK1EF')
+('unsloth/Phi-4', 'cen', 'fc-01M6XR1CZ58ZKP6ZDEXQGAJTTG')
+('mistralai/Mistral-7B-Instruct-v0.3', 'cen', 'fc-01M6XR1D1J9255RP0HM5769YCF')
+('unsloth/Mistral-Nemo-Instruct-2407', 'cen', 'fc-01M6XR1D44T3NC1FRE7Y866352')
+('HuggingFaceTB/SmolLM3-3B', 'cen', 'fc-01M6XR1D74HJAQNR2T9TSZW8FX')
+('HuggingFaceTB/SmolLM2-1.7B-Instruct', 'cen', 'fc-01M6XR1DA9K82HPJC777MS0S4S')
+('allenai/OLMo-2-1124-7B-Instruct', 'cen', 'fc-01M6XR1DD0HCSGGSW60PS5YX32')
+('allenai/OLMo-2-1124-13B-Instruct', 'cen', 'fc-01M6XR1DFV1YZVS46N6B4ENH0P')
+('allenai/Olmo-3-7B-Instruct', 'cen', 'fc-01M6XR1DJVB7JPCQD9XFW2R3BG')
+('01-ai/Yi-1.5-6B-Chat', 'cen', 'fc-01M6XR1DNNWPJEGVWBVQASMJ3Q')
+('01-ai/Yi-1.5-9B-Chat', 'cen', 'fc-01M6XR1DR28MC8WXD3JZZQN734')
+('tiiuae/Falcon3-1B-Instruct', 'cen', 'fc-01M6XR1DTNKY6WYKKP1QZZ7NZ8')
+('tiiuae/Falcon3-3B-Instruct', 'cen', 'fc-01M6XR1DXEPJNH6XVN8KMP2MJJ')
+('tiiuae/Falcon3-7B-Instruct', 'cen', 'fc-01M6XR1E07MHXM52J675FDDXZP')
+('tiiuae/Falcon3-10B-Instruct', 'cen', 'fc-01M6XR1E30CYADC5PR7ENYM6AF')
+('deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B', 'cen', 'fc-01M6XR1E625Q7NJVA9QGTJRA99')
+('deepseek-ai/DeepSeek-R1-Distill-Qwen-7B', 'cen', 'fc-01M6XR1E8MET5ZC3T8N5YRYY1R')
+('deepseek-ai/DeepSeek-R1-Distill-Qwen-14B', 'cen', 'fc-01M6XR1EB39B2RRGWBHYRN52R6')
+('deepseek-ai/DeepSeek-R1-Distill-Llama-8B', 'cen', 'fc-01M6XR1EDP2D90J1BV761W2C4K')
+('ibm-granite/granite-3.3-2b-instruct', 'cen', 'fc-01M6XR1EG6XQ6AVX13SYWDY2F1')
+('ibm-granite/granite-3.3-8b-instruct', 'cen', 'fc-01M6XR1EK21YW1X443XBCSWXY9')
+('nvidia/Llama-3.1-Nemotron-Nano-8B-v1', 'cen', 'fc-01M6XR1ENM6NY8NPREENNZMMFP')
+('Qwen/Qwen3.5-0.8B', 'cen', 'fc-01M6XR1ES132ZRTBAX0G79RQ7P')
+('Qwen/Qwen3.5-4B', 'cen', 'fc-01M6XR1EVHQ8T55ST29GM6RXEM')
+('Qwen/Qwen2.5-32B-Instruct', 'cen', 'fc-01M6XR1EYA4EPDCNEP61BVYJXG')
+('Qwen/Qwen3-32B', 'cen', 'fc-01M6XR1F11ZSW1J1DX8ZMJZFQA')
+('unsloth/gemma-2-27b-it', 'cen', 'fc-01M6XR1F3RJJ5V32GDE3R2EDW8')
+('unsloth/Mistral-Small-24B-Instruct-2501', 'cen', 'fc-01M6XR1F6BS66NJK1T0YRYQZCV')
+('allenai/OLMo-2-0325-32B-Instruct', 'cen', 'fc-01M6XR1F8THK61868W7VSXE5HE')
+('01-ai/Yi-1.5-34B-Chat', 'cen', 'fc-01M6XR1FB828GHGX0CX9S56XP2')
+('deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'cen', 'fc-01M6XR1FE8EMQVJTH6N09CCYSN')
