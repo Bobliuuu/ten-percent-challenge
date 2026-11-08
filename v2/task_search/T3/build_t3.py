@@ -354,6 +354,31 @@ def t_pii2c():
 safe("PII2C", t_pii2c)
 
 
+
+# ---------------- COMM4: community routing of forum post titles (Reddit vs StackExchange)
+def t_comm():
+    L = ["Astronomy", "Pets", "Brewing", "Cars"]; pr = P("Which community should this forum post go to?", L, "Post title")
+    ms = {"space.stackexchange.com.txt": "Astronomy", "pets.stackexchange.com.txt": "Pets", "homebrew.stackexchange.com.txt": "Brewing", "mechanics.stackexchange.com.txt": "Cars"}
+    mr = {"Astronomy.txt": "Astronomy", "Animals.txt": "Pets", "cats.txt": "Pets", "beer.txt": "Brewing", "Autos.txt": "Cars", "cars.txt": "Cars"}
+    def gen(name, m):
+        n = 0
+        for r in stream(name, None, "test", limit=100000):
+            for j, (t, lab) in enumerate(zip(r["sentences"], r["labels"])):
+                if lab in m: yield f"{lab}{n}", m[lab], trunc(t, 300); n += 1
+    add("COMM4", "S1", "stackexchange_titles", gen("mteb/stackexchange-clustering", ms), L, pr)
+    add("COMM4", "S2", "reddit_titles", gen("mteb/reddit-clustering", mr), L, pr)
+safe("COMM4", t_comm)
+
+
+def t_phish2b():
+    L = ["Phishing", "Legitimate"]; pr = ("You are an email security filter.\nPhishing = an email that deceives the reader into clicking a link, opening an attachment, revealing credentials, or sending money (fake bank, delivery, account or prize notices, urgent threats).\nLegitimate = any ordinary email without such deception.\nAnswer with exactly one word from: Phishing, Legitimate.\n\nEmail: {X}")
+    add("PHISH2B", "S1", "zefang_phish", ((i, "Phishing" if r["Email Type"] == "Phishing Email" else "Legitimate", trunc(r["Email Text"], 900)) for i, r in enumerate(stream("zefang-liu/phishing-email-dataset"))), L, pr)
+    def s2():
+        for i, r in enumerate(stream("puyang2025/seven-phishing-email-datasets", limit=40000)):
+            t = (r.get("subject") or "") + "\n" + (r.get("text") or ""); yield i, ("Phishing" if int(r["label"]) == 1 else "Legitimate"), trunc(t, 900)
+    add("PHISH2B", "S2", "sevenphish", s2(), L, pr)
+safe("PHISH2B", t_phish2b)
+
 if not ONLY or True:
     tag = "_".join(ONLY) if ONLY else ""
     json.dump(plan, open(os.path.join(HERE, f"PLAN{tag}.json"), "w"), indent=1)

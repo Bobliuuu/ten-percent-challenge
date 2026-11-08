@@ -1,0 +1,31 @@
+{
+ "PHISH2B": {
+  "labels": [
+   "Phishing",
+   "Legitimate"
+  ],
+  "prompt": "You are an email security filter.\nPhishing = an email that deceives the reader into clicking a link, opening an attachment, revealing credentials, or sending money (fake bank, delivery, account or prize notices, urgent threats).\nLegitimate = any ordinary email without such deception.\nAnswer with exactly one word from: Phishing, Legitimate.\n\nEmail: {X}",
+  "src": {
+   "zefang_phish": {
+    "pool_scanned": {
+     "Phishing": 6406,
+     "Legitimate": 10938
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   },
+   "sevenphish": {
+    "pool_scanned": {
+     "Phishing": 17983,
+     "Legitimate": 21248
+    },
+    "dev_kept": {
+     "Phishing": 80,
+     "Legitimate": 80
+    }
+   }
+  }
+ }
+}

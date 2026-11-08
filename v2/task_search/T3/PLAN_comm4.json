@@ -1,0 +1,41 @@
+{
+ "COMM4": {
+  "labels": [
+   "Astronomy",
+   "Pets",
+   "Brewing",
+   "Cars"
+  ],
+  "prompt": "Which community should this forum post go to?\nAnswer with exactly one word from: Astronomy, Pets, Brewing, Cars.\n\nPost title: {X}",
+  "src": {
+   "stackexchange_titles": {
+    "pool_scanned": {
+     "Astronomy": 2477,
+     "Pets": 2482,
+     "Brewing": 2687,
+     "Cars": 4511
+    },
+    "dev_kept": {
+     "Astronomy": 40,
+     "Pets": 40,
+     "Brewing": 40,
+     "Cars": 40
+    }
+   },
+   "reddit_titles": {
+    "pool_scanned": {
+     "Astronomy": 1284,
+     "Pets": 2401,
+     "Brewing": 1263,
+     "Cars": 2605
+    },
+    "dev_kept": {
+     "Astronomy": 40,
+     "Pets": 40,
+     "Brewing": 40,
+     "Cars": 40
+    }
+   }
+  }
+ }
+}

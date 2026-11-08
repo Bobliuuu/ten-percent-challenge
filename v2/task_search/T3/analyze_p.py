@@ -8,7 +8,7 @@ root = sys.argv[1]; files = glob.glob(root + "/**/ct_*.json", recursive=True)
 base = collections.defaultdict(dict); quant = []
 for f in files:
     b = os.path.basename(f)[3:-5]
-    m = re.match(r"(.+?)_t3(?:r[23])?_bf16$", b)
+    m = re.match(r"(.+?)_t3(?:r\d)?_bf16$", b)
     if m:
         for r in json.load(open(f))["rows"]: base[m.group(1)][r["id"]] = r
         continue
