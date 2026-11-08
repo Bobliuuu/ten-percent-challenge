@@ -15,12 +15,15 @@ def main(job):
     from transformers import AutoTokenizer, AutoModelForCausalLM
     T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
     MID = job["model"]; tag = MID.split("/")[-1]; os.environ.setdefault("HF_HOME", "/hf")
-    tok = AutoTokenizer.from_pretrained(MID); tok.padding_side = "left"
+    tok = AutoTokenizer.from_pretrained(MID, trust_remote_code=bool(job.get("trust_tok"))); tok.padding_side = "left"
     if tok.pad_token is None: tok.pad_token = tok.eos_token
     ng = torch.cuda.device_count(); kw = dict(dtype=torch.bfloat16, device_map="auto", max_memory={i: "74GiB" for i in range(ng)})
     if "gpt-oss" in MID:
         from transformers import Mxfp4Config; kw["quantization_config"] = Mxfp4Config(dequantize=True)
-    model = AutoModelForCausalLM.from_pretrained(MID, **kw).eval()
+    if job.get("native_class"):
+        import transformers; Cls = getattr(transformers, job["native_class"])
+    else: Cls = AutoModelForCausalLM
+    model = Cls.from_pretrained(MID, **kw).eval()
     for p in model.parameters(): p.requires_grad_(False)
     log("loaded", sum(p.numel() for p in model.parameters()) / 1e9, "B params")
     # ---- locate MoE blocks
