@@ -7,7 +7,7 @@
    "id": "X01",
    "title": "Reference runs, splits, floors, tooling",
    "wave": "1",
-   "status": "running",
+   "status": "done",
    "trigger": {
     "start_when": "now",
     "cancel_when": null
