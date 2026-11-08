@@ -100,6 +100,6 @@ Score on locked exam: base <acc> / mine <acc>, n=<N>
 
 ## Repo / competition status (checked 2026-11-06)
 - DeusExperiments/ten-percent-challenge: 3 commits, last 2026-11-05 19:08Z ("Take submissions as GitHub issues"). Earlier commit: "Only the first complete, working proof qualifies". The first-valid-proof rule makes the race matter.
-- 1 open issue (#1, by StarAtNyte, updated 2026-11-06 03:52Z), 0 comments. No PRs.
-- Stars 6, forks 1 (newjordan, no new commits since upstream). Bobliuuu/ten-percent-challenge (pushed 2026-11-06) is not a fork and appears to be your own repo. No competing submission issues or attempts seen yet.
+- 1 open issue (#1, by entrant #1, updated 2026-11-06 03:52Z), 0 comments. No PRs.
+- Stars 6, forks 1 (a fork owner, no new commits since upstream). Bobliuuu/ten-percent-challenge (pushed 2026-11-06) is not a fork and appears to be your own repo. No competing submission issues or attempts seen yet.
 - Note: GitHub MCP server failed to connect (auth header); `gh` CLI worked fine.

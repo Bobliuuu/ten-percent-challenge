@@ -20,7 +20,7 @@ README history (4 commits, all by tokenbender, no PRs):
 - 091cd670 19:07Z: submissions = GitHub issues.
 - 7ff8d56e 2026-11-06 05:24Z: prize, deadline, ">0.5B", "commercial-class", "fp16 size", feedback = annotation/labelling with very few samples.
 
-## 2. Maintainer answers (issue #1, asked by StarAtNyte 2026-11-06 03:51Z)
+## 2. Maintainer answers (issue #1, asked by entrant #1 2026-11-06 03:51Z)
 
 Link: https://github.com/DeusExperiments/ten-percent-challenge/issues/1#issuecomment-6678110736 (tokenbender, 2026-11-06 05:57Z). Only comment on the only issue. Verbatim:
 

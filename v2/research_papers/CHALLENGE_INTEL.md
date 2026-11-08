@@ -17,15 +17,15 @@ Sources: `gh api` on the public repo (4 issues, 0 PRs, discussions disabled, 5 c
 
 | # | Entrant | Model | Task | Claimed size / retention | Verdict (as of 2026-11-08) | Rule/reason cited |
 |---|---|---|---|---|---|---|
-| 1 | StarAtNyte | none (rules Q&A) | n/a | n/a | answered, not a submission | see section 3 |
+| 1 | entrant #1 | none (rules Q&A) | n/a | n/a | answered, not a submission | see section 3 |
 | 2 | Bobliuuu (us) | Qwen2.5-7B-Instruct | C2 tool selection among 4 + none (letter prompt) | 9.404%; 0.799 vs base 0.7675; 0.802 after feedback | PARTIAL REJECT: "steps 1-4 are fine", step 5 "doesn't hold" | feedback "only works through head.npz, a classifier fitted to 2000 labels"; later rule 4. Rule 7 (MCQ) not raised yet but was added after |
-| 3 | ms0-dev | Qwen3-30B-A3B-Instruct-2507 | Banking77 -> 10 queues router | 10.48% disk (76.25% of params stored, 96/128 experts, ~2.2 bpw); locked 96.00% vs base 95.80% (1,000 items) | REJECTED on step 5, invited to retry in new repo (ms0-dev/ten-percent-challenge-first / -best) | overwriting 10 lm_head rows with feedback centroids "is a nearest-centroid classifier"; "grown model is never run on the new-intent items"; answer cmd lists only old 10 families; "the same head as before, just kept inside the model file" |
-| 4 | akshay-commits-code | Qwen3-30B-A3B-Instruct-2507 | voice-assistant skill routing (7+ skills, free-gen skill name) | 9.892% (6.04 GB); 99.36% of base-correct kept; 2,910 locked items, 600 CLINC150 unseen source; feedback 18.97%->64.87%, shuffled 29.23%, empty 18.97% | PENDING, no comment | n/a. Note: feedback = closed-form edit of existing output-layer rows using mean hidden state (same family of method ms0-dev was told is a centroid classifier); also lowered its own dev gate; music subset shuffled > real. Likely to meet the same objection (INFERENCE) |
-| - | qeinstein, newjordan | forks only | - | - | no submission | - |
+| 3 | entrant #3 | Qwen3-30B-A3B-Instruct-2507 | Banking77 -> 10 queues router | 10.48% disk (76.25% of params stored, 96/128 experts, ~2.2 bpw); locked 96.00% vs base 95.80% (1,000 items) | REJECTED on step 5, invited to retry in new repo (entrant #3/ten-percent-challenge-first / -best) | overwriting 10 lm_head rows with feedback centroids "is a nearest-centroid classifier"; "grown model is never run on the new-intent items"; answer cmd lists only old 10 families; "the same head as before, just kept inside the model file" |
+| 4 | entrant #4 | Qwen3-30B-A3B-Instruct-2507 | voice-assistant skill routing (7+ skills, free-gen skill name) | 9.892% (6.04 GB); 99.36% of base-correct kept; 2,910 locked items, 600 CLINC150 unseen source; feedback 18.97%->64.87%, shuffled 29.23%, empty 18.97% | PENDING, no comment | n/a. Note: feedback = closed-form edit of existing output-layer rows using mean hidden state (same family of method entrant #3 was told is a centroid classifier); also lowered its own dev gate; music subset shuffled > real. Likely to meet the same objection (INFERENCE) |
+| - | a fork owner, a fork owner | forks only | - | - | no submission | - |
 
 ## 3. Maintainer statements (exact quotes, short)
 
-Issue #1 (answering StarAtNyte's 4 questions; the thread is the only Q&A):
+Issue #1 (answering entrant #1's 4 questions; the thread is the only Q&A):
 - "10% of size on disk is fine compared to fp16 equivalent weights."
 - "can't train the weights means compression techniques are fine but no retraining."
 - "For user feedback section, no retraining of the weights or RAG methods because just context space being edited makes it less fun."
@@ -35,12 +35,12 @@ Note: direct weight editing was not explicitly answered; but see #3 where editin
 
 Issue #2 (to us): "steps 1-4 are fine as per relaxed submission criteria. step 5 doesn't hold here though. the feedback only works through head.npz, which is a classifier fitted to 2000 labels, and without it your memory changes zero answers." and "the objective for the challenge is to work around this problem where i want to see what can be improved without any external memory/parameters otherwise this step gets trivialised."
 
-Issue #3 (to ms0-dev): "this comes down to step 5 only, which has been there from the start. the system has to learn the new from feedback, and here it doesn't... a nearest-centroid classifier... the grown model is never run on the new-intent items. your answer command also only lists and parses the 10 old families, so a new intent can't come out of the system you ship. the 10 overwritten rows are the same head as before, just kept inside the model file. the compression side is genuinely nice, and you're welcome to try again in the new repo before the deadline."
+Issue #3 (to entrant #3): "this comes down to step 5 only, which has been there from the start. the system has to learn the new from feedback, and here it doesn't... a nearest-centroid classifier... the grown model is never run on the new-intent items. your answer command also only lists and parses the 10 old families, so a new intent can't come out of the system you ship. the 10 overwritten rows are the same head as before, just kept inside the model file. the compression side is genuinely nice, and you're welcome to try again in the new repo before the deadline."
 
 ## 4. Topic-by-topic
 
 - Start from already-quantized / low-bit / distilled model: NO statement. Closest: "Any model is fine... either before or after you cut it" (rule 1; about the >0.5B floor, i.e. the model may be pruned below 0.5B after cutting). "compression techniques are fine".
-- Size baseline: "fp16 size of the model you started from"; on-disk bytes of everything shipped (weights, tokenizer, code, feedback storage); "10% of size on disk is fine compared to fp16 equivalent weights." ms0-dev's param-count caveat (76% of params) was not objected to. Python libs: we counted none (our own claim, unruled).
+- Size baseline: "fp16 size of the model you started from"; on-disk bytes of everything shipped (weights, tokenizer, code, feedback storage); "10% of size on disk is fine compared to fp16 equivalent weights." entrant #3's param-count caveat (76% of params) was not objected to. Python libs: we counted none (our own claim, unruled).
 - Vocabulary pruning / tokenizer / head changes: no ruling. Our #2 vocab trimmed to 24,000 tokens + lm_head to 5 letters; maintainer said steps 1-4 fine on 11-06 16:10Z (before the strict rule list), so size/compression/exam not objected to then. Entrant #3 and #4 touched lm_head rows only for feedback. Rule 4 bans "heads, classifiers, adapters (LoRA included), or side memory"; rows "overwritten" in the existing head were ruled to be the same classifier head (#3).
 - Feedback accepted/rejected: rejected = external head fitted to labels (#2); overwriting/centroid-averaging output rows from feedback hidden states, never run on the new classes and not generating the new label (#3). Nothing yet accepted. #4's variant (edit rows of the taught label tokens, new skill `recipe` generated via free generation) is the first that does run the new label end to end; its fate is the best signal of what is allowed. Context/RAG/prompt feedback banned. Weight gradient training banned.
 - "Training" definition: only "no retraining"/"can't train the weights"; README rule 4: "Don't add new computation fitted to data". No statement on closed-form edits per se.
@@ -58,6 +58,6 @@ No direct precedent. Closest signals: (a) maintainer's repeated "the objective..
 
 - Deadline 2026-11-12 17:05 UTC (= 12:05 EST, 09:05 PST, 22:35 IST). Today 2026-11-08; about 4 days left.
 - Repo main head 645d1614 (2026-11-06T17:25:52Z); README last changed then; watch for further edits (`gh api repos/DeusExperiments/ten-percent-challenge/commits`).
-- Maintainer review of ms0-dev took ~21 h on the last turnaround; ms0-dev was invited to resubmit "in the new repo before the deadline", so resubmission by edit/new issue is accepted practice.
+- Maintainer review of entrant #3 took ~21 h on the last turnaround; entrant #3 was invited to resubmit "in the new repo before the deadline", so resubmission by edit/new issue is accepted practice.
 - Maintainer's own-data check is pre-payment and uses his "own feedback"; plan answer/feedback commands to run on arbitrary data.
 - Not obtainable: the X announcement thread and replies (blocked); any statement there is only reflected in the commit "Add the prize, deadline and rule clarifications from the announcement thread" (2026-11-06T05:24Z). Suggest the user read the thread manually.

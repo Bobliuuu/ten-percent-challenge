@@ -3,8 +3,8 @@
 ## 1. Landscape (verified via gh API / web)
 - Repo DeusExperiments/ten-percent-challenge: created 2026-11-05 17:02Z, 3 commits (all by `tokenbender`, committed with Claude Opus 5.5). Contains only README.md + challenge.png. No rules beyond the 5 points. 6 stars.
 - Org DeusExperiments (created 2026-10-05, 0 followers, 2 repos; other repo = deusexperiments.com site, deployed via "ChatGPT Sites"). Runs by tokenbender (bio "RL and metaharnesses", tokenbender.com). No statement on size meaning, task class, or judging.
-- Issues: only #1 (StarAtNyte, 19:24Z... "few questions about the rules"): asks (a) 10% = params or disk size, (b) is direct weight editing OK vs only gradient training, (c) external memory for feedback OK, (d) what is "commercial class". UNANSWERED as of fetch, no comments. The README never says "commercial class"; the author's rules are ambiguous. No submission issues yet.
-- Forks: newjordan/ten-percent-challenge (Frosty40, fork 19:24Z, no commits beyond upstream). No other public attempts found on GitHub search/web (WebSearch for the phrase returned nothing relevant; X/HN not indexed by the tool, so unchecked).
+- Issues: only #1 (entrant #1, 19:24Z... "few questions about the rules"): asks (a) 10% = params or disk size, (b) is direct weight editing OK vs only gradient training, (c) external memory for feedback OK, (d) what is "commercial class". UNANSWERED as of fetch, no comments. The README never says "commercial class"; the author's rules are ambiguous. No submission issues yet.
+- Forks: a fork (a fork owner, fork 19:24Z, no commits beyond upstream). No other public attempts found on GitHub search/web (WebSearch for the phrase returned nothing relevant; X/HN not indexed by the tool, so unchecked).
 - Implication: rules ambiguous, judging discretionary ("complete, working proof", first wins). Race is real but field is empty. Ask/watch issue #1; any answer there is the de facto rule. Make the submission self-evidently conservative on every ambiguity (disk bytes incl. everything, no gradient anything, calibration only on train split).
 
 ## 2. Literature (training-free compression and no-weight-training learning)

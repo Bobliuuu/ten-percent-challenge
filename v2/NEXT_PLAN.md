@@ -72,14 +72,14 @@ Purpose: make the design pass under both base-identity readings. Candidates: Ter
 
 ### D4 (rank 4, P~5-8%): conventional PTQ of a big dense model on a label task, all levers stacked, feedback by rung 3/4
 - Base Qwen2.5-72B (best real-exam numbers: TOOLSEL 95.55%, INJ 95.21% at 9.6%, D_scale), with: BI (block-influence) layer-weighted bit allocation (gamma=1 gave +9 pts on 32B tool calls), vocab trim only on the OUTPUT side if at all, task = tool SELECTION without an irrelevance class or with it only if retention on it is fixed (binding cell S1/none 89.3%), annotation-weighted requant as feedback (rung 4).
-- Needs +2.5 pts overall and +5-6 pts in the binding cell vs the best measured; no tested lever delivered that (everything else was inside noise, D_scale). Dropping the "none" class changes the product (rule 7/1 exposure: ms0-dev precedent was ruled a narrow router).
+- Needs +2.5 pts overall and +5-6 pts in the binding cell vs the best measured; no tested lever delivered that (everything else was inside noise, D_scale). Dropping the "none" class changes the product (rule 7/1 exposure: entrant #3 precedent was ruled a narrow router).
 - Cost: $120-250 and 2.5 days for quantization + real-exam evaluation of 72B on Modal H100-less caps or owned AWS; exceeds my $30 lane budget, needs user OK.
 - Cheapest experiment ($30-40 on one box, 1 day): re-run the best 72B config (V7) with BI gamma=1 and no-irrelevance TOOLSEL exam on 500 items; gate: >=98.5% overall AND >=96% in every kind with Wilson lower bound >=96%. Else kill. Realistic outcome: fail.
 
 ### Rejected (do not spend): filed C2 7B artifact (rule 4 head+memory, rule 7 letters, 93.5% retention); fix_real 7B real tool-call (0.934 retention, MMLU gate fails, no feedback mechanism); 405B Llama (INJ 90.2%, 100+ GB eval infrastructure); MoE+REAP (<=94% at 9.6%, only 14-22% reaches 98%); Maple/gpt-oss/Kimi/NVFP4 releases (12-31% of fp16); ternary Bonsai-8B at 10.19% (31 MB over cap; vocab trim breaks identity); Llama/Mistral/Gemma/GLM (fail rule 8 under our scorer; probe-harness artifacts, L1).
 
 ## 3. Cross-cutting decisions that need the user (nothing else blocks)
-1. Post the B_native 3-question maintainer question as a NEW comment on issue #1 (not on our filed proof issue)? It is the single highest-value action: it decides D1's viability for $0. Risks: public, tips off rivals to the lossless-repack idea (ms0-dev is active). Alternative: decide by risk appetite without asking. My recommendation: ask, with the question phrased neutrally, and run G1-G3 in parallel so no time is lost.
+1. Post the B_native 3-question maintainer question as a NEW comment on issue #1 (not on our filed proof issue)? It is the single highest-value action: it decides D1's viability for $0. Risks: public, tips off rivals to the lossless-repack idea (entrant #3 is active). Alternative: decide by risk appetite without asking. My recommendation: ask, with the question phrased neutrally, and run G1-G3 in parallel so no time is lost.
 2. Is a base-identity rule-9 exposure acceptable if he does not answer? I would not file.
 3. If D1 and D2 both die by 11-09 evening, the honest outcome is "no entry that passes all nine as written" (D3 and D4 are long shots). Do not file a failing entry as a pass (DECISION.md).
 

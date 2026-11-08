@@ -28,7 +28,7 @@ Scoring: C = commercial legitimacy, D = distinct public sources/time periods (S1
 | 7 | NLI / grounding check | medium | MNLI / FEVER-NLI / ANLI, SNLI | 3 | low | 0.725 | 0.722 | 0.945 | lowest margins of the useful tasks |
 | 8 | Review sentiment (control) | medium | SST-2 / Yelp / IMDB | 2 | high: base near ceiling (0.94), "toy" | 0.938 | 0.801 | 0.986 | control only |
 | 9 | AI-vs-human text detection (maintainer's list) | high | GPT-wiki-intro / dmitva essays / Ateeqq 23k | 2 | base is chance or worse | 0.588 (8B: 0.32) | 0.26 | 0.92 | fails "base well above chance"; 8B is below chance (biased to answer "AI") |
-| 10 | Intent classification (Banking77 / CLINC) | high | Banking77, CLINC150, HWU64, MASSIVE | 64 to 150 | high: Banking77 = narrow domain (ms0-dev precedent), 77 classes | n/p | n/p | n/p | many labels, per-kind>=300 impossible |
+| 10 | Intent classification (Banking77 / CLINC) | high | Banking77, CLINC150, HWU64, MASSIVE | 64 to 150 | high: Banking77 = narrow domain (entrant #3 precedent), 77 classes | n/p | n/p | n/p | many labels, per-kind>=300 impossible |
 | 11 | Support-ticket triage (queue/priority) | high | Tobi-Bueck 62k (synthetic) only | ~10 | high: single synthetic source | n/p | n/p | n/p | no real OOD source found |
 | 12 | PII presence / type | high | ai4privacy 300k (all positive, synthetic) | 2+ | high: no natural negatives, synthetic only | n/p | n/p | n/p | trivial or ill-posed as a label |
 | 13 | Legal clause tagging | medium | LEDGAR (100 classes, one family), UNFAIR-ToS | 100 | high: classes, one source | n/p | n/p | n/p | |
