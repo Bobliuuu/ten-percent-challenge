@@ -1,0 +1,37 @@
+{
+ "sha256": "83b2943bfbda639441f56ee92f53d91fcf58f65af742eae6255d1afd8b96ec5a",
+ "n": 2806,
+ "per_kind": {
+  "Calendar": 900,
+  "Alarm": 256,
+  "Lists": 418,
+  "Music": 317,
+  "Transport": 405,
+  "Weather": 291,
+  "News": 219
+ },
+ "per_source": {
+  "massive": 1950,
+  "clinc150": 856
+ },
+ "per_cell": {
+  "clinc150|Alarm": 83,
+  "clinc150|Calendar": 187,
+  "clinc150|Lists": 183,
+  "clinc150|Music": 181,
+  "clinc150|Transport": 178,
+  "clinc150|Weather": 44,
+  "massive|Alarm": 173,
+  "massive|Calendar": 713,
+  "massive|Lists": 235,
+  "massive|Music": 136,
+  "massive|News": 219,
+  "massive|Transport": 227,
+  "massive|Weather": 247
+ },
+ "checks": {
+  "n_ge_2000": true,
+  "min_kind_ge_300": false,
+  "other_source_ge_500": true
+ }
+}
