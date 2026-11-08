@@ -42,6 +42,17 @@ def evaluate(rec, ix_ann=None, full=True):
     rec["teach"] = bits(env.acc(teach, lab_of(NEW1))); rec["neigh"] = bits(env.acc(neigh, lambda r: r["gold"], NE_OK)); rec["cal"] = bits(cal_acc())
     if full: rec["teach2"] = bits(env.acc(teach2, lab_of(NEW1)))
     return rec
+def acc_items(items):
+    return float(np.mean([env.acc([r], lambda r_, l=l: l)[0] for r, l in items]))
+def apply_any(mt, items):
+    """autocal: choose the margin m from the feedback itself (annotated items + calibration prompts only): smallest m with annotated acc>=0.95 and calibration agreement>=0.985"""
+    if not mt.get("autocal"): return env.apply(mt, items)
+    t0 = time.time(); chosen = None; fb = None
+    for m in mt["autocal"]:
+        env.restore(); env.apply(dict(mt, m=m), items); a = acc_items(items); c = float(cal_acc().mean())
+        if c >= 0.985: fb = m
+        if c >= 0.985 and a >= 0.95: chosen = m; break
+    chosen = chosen or fb or mt["autocal"][0]; env.restore(); info = env.apply(dict(mt, m=chosen), items); info["m_chosen"] = chosen; info["secs"] = time.time() - t0; return info
 RES = dict(cfg=cfg, base=base, meta=meta, runs=[], cont=[], val=[], bytes={})
 def dump(): json.dump(RES, open(f"{OUT}/res.json", "w")); 
 prev = None
@@ -54,8 +65,8 @@ for mt in cfg["methods"]:
             cs = conds_for(n, d)
             for cn in CD:
                 if cn in ("real_massive", "real_clinc150") and n != cfg.get("xsrc_n", 12): continue
-                ix, items = cs[cn]; env.restore(); info = env.apply(mt, items)
-                rec = dict(m=tag, n=n, d=d, c=cn, nsites=info["nsites"], secs=info["secs"]); evaluate(rec, full=(cn == "real"))
+                ix, items = cs[cn]; env.restore(); info = apply_any(mt, items)
+                rec = dict(m=tag, n=n, d=d, c=cn, nsites=info["nsites"], secs=info["secs"], mch=info.get("m_chosen")); evaluate(rec, full=(cn == "real"))
                 if cn.startswith("real"):
                     rec["annself"] = bits(env.acc(R["ann_Music"], lab_of(NEW1), ix)); rec["para"] = bits(env.acc(PARA, lab_of(NEW1), ix))
                     if d < 3: rec["bytes"] = env.delta_stats()
