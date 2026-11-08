@@ -4,15 +4,14 @@ def wil(k,n,z=1.96):
     if n==0: return 0,0
     p=k/n; d=1+z*z/n; c=(p+z*z/2/n)/d; h=z*math.sqrt(p*(1-p)/n+z*z/4/n/n)/d; return c-h,c+h
 os.makedirs("raw",exist_ok=True)
-ls=subprocess.run(["modal","volume","ls","tenpct-tasksearch","dense"],capture_output=True,text=True).stdout.split()
-models=collections.defaultdict(dict)
+ls=subprocess.run(["modal","volume","ls","tenpct-tasksearch","/"],capture_output=True,text=True).stdout.split()
+models={}
 for f in ls:
     n=os.path.basename(f)
-    if n.startswith("ct_") and (n.endswith("_bf16.json") or n.endswith("_c099.json")):
+    if n.endswith("_cen3.json"):
         p="raw/"+n
-        if not os.path.exists(p): subprocess.run(["modal","volume","get","tenpct-tasksearch",f,"raw/","--force"],capture_output=True)
-        if os.path.exists(p):
-            d=json.load(open(p)); models[n[3:].rsplit("_",1)[0]][n.rsplit("_",1)[1][:-5]]=d
+        if not os.path.exists(p): subprocess.run(["modal","volume","get","tenpct-tasksearch",n,"raw/","--force"],capture_output=True)
+        if os.path.exists(p): models[n[:-10]]=json.load(open(p))
 rows=[]
 for m,d in models.items():
     if "bf16" not in d or "c099" not in d: continue

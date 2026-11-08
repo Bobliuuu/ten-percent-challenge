@@ -122,5 +122,12 @@ Native low-bit rows: `params` is the packed count of the released repo (not the 
 - Qwen2.5 has massive-activation outliers in a few channels, Hadamard rotation handles it (our pipeline). Llama-3 is known to be harder to quantize than Llama-2 (low-bit PTQ papers, e.g. "How good are low-bit quantized Llama3 models"); Gemma-2/3 and Mistral-Nemo tolerate int4 well. VPTQ/QuIP#/AQLM report ~1.5-2 bpw on 70B-405B with 85-95% retention of benchmark scores: the best published points are on the biggest models.
 - MoE: experts are individually redundant (OLMoE, Qwen3-30B-A3B routing-mass prune works to 96/128); see moe_entry.
 
-## Probe results
-See below (filled by `model_census/analyze.py`).
+## Probe results: dense pipeline at ~9.9% of fp16 (SKILL7 + BANK8 dev, real greedy generation, retention = P(correct | base correct))
+Pipeline: Hadamard + GPTQ + entropy-coded levels, no training (task_search/dense_core.py, target_ratio 0.099, emb/head 4 levels, g256); calibration 382 rows, items 1,382 dev rows from the sel/dev splits (no sealed file). Ranked by Wilson lower bound. Source: model_census/analyze.py, raw rows model_census/raw/. Models still running or failed are absent (failed = architecture the pipeline does not support).
+| rank | model | base acc | n base-correct | ratio of fp16 | body bpw | retention | Wilson lo | worst cell (n>=8) | per task |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Qwen2.5-32B-Instruct | 0.970 | 1341 | 9.91% | 1.56 | 98.9% | 98.2% | 93% BANK8/bank/card_virtual_wallet | {'SKILL7': 0.989, 'BANK8': 0.988} |
+| 2 | Qwen2.5-3B-Instruct | 0.943 | 1303 | 9.95% | 1.52 | 91.9% | 90.3% | 69% SKILL7/massive/Calendar | {'SKILL7': 0.889, 'BANK8': 0.948} |
+| 3 | Qwen3-32B | 0.937 | 1295 | 9.93% | 1.57 | 83.6% | 81.5% | 0% BANK8/clin/banking | {'SKILL7': 0.985, 'BANK8': 0.684} |
+| 4 | Qwen2.5-1.5B-Instruct | 0.897 | 1240 | 9.95% | 1.47 | 50.4% | 47.6% | 0% BANK8/clin/travel | {'SKILL7': 0.505, 'BANK8': 0.503} |
+| 5 | Qwen2.5-0.5B-Instruct | 0.458 | 633 | 9.97% | 1.28 | 0.0% | 0.0% | 0% BANK8/bank/account_identity | {'SKILL7': 0.0, 'BANK8': 0.0} |
