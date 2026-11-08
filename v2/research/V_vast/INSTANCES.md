@@ -54,3 +54,69 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - id 59675358 tenpct-x14 destroyed after 0.26 h (~$0.11)
 - 2026-11-08T06:44Z vast id 59676882 label tenpct-x01-32b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
 - 2026-11-08T06:44Z vast id 59676883 label tenpct-x01-14b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677078 label tenpct-prune32n GPU A100 SXM4 80GB $1.122/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677079 label tenpct-prune32i GPU A100 SXM4 80GB $1.175/h (+5% guard) started
+- 2026-11-08T06:46Z vast id 59677095 label tenpct-x01-32b GPU A100 SXM4 80GB $1.175/h (+5% guard) started
+- id 59676883 tenpct-x01-14b destroyed after 0.46 h (~$0.28)
+- 2026-11-08T07:40Z vast id 59675262 tenpct-x13 destroyed (~2 h, ~$2.5)
+- id 59677095 tenpct-x01-32b destroyed after 0.83 h (~$0.98)
+- 2026-11-08T08:13Z vast id 59685794 label tenpct-x03smoke GPU RTX 3090 24GB $0.166/h (+5% guard) started
+- id 59685794 destroyed (load timeout 480s, ~$0.02)
+- 2026-11-08T08:22Z vast id 59686694 label tenpct-x03smoke GPU RTX 3090 24GB $0.167/h (+5% guard) started
+- id 59686694 tenpct-x03smoke destroyed after 0.21 h (~$0.03)
+- 2026-11-08T08:38Z vast id 59688096 label tenpct-x03a GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T08:47Z vast id 59688747 label tenpct-x03b GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- id 59688096 tenpct-x03a destroyed after 0.17 h (~$0.09)
+- 2026-11-08T08:52Z vast id 59689208 label tenpct-x03b GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T08:52Z vast id 59689209 label tenpct-x03a GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T09:00Z vast id 59690023 label tenpct-x03c GPU RTX 6000Ada 48GB $0.537/h (+5% guard) started
+- id 59674056 tenpct-prune14b destroyed after 2.89 h (~$3.10)
+- id 59673386 tenpct-prune14d destroyed after 3.16 h (~$3.33)
+- id 59672638 tenpct-prune14c destroyed after 3.50 h (~$2.81)
+- 2026-11-08T09:34Z vast id 59693741 label tenpct-x03d GPU L40S 45GB $0.428/h (+5% guard) started
+- 2026-11-08T09:34Z vast id 59693745 label tenpct-x03f GPU RTX A6000 48GB $0.535/h (+5% guard) started
+- 2026-11-08T09:34Z vast id 59693748 label tenpct-x03e GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- 2026-11-08T09:34Z vast id 59693757 label tenpct-x03g GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- 2026-11-08T09:47Z vast id 59695221 label tenpct-x03h GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- id 59689209 tenpct-x03a destroyed after 1.13 h (~$0.61)
+- id 59690023 tenpct-x03c destroyed after 1.09 h (~$0.59)
+- id 59693741 tenpct-x03d destroyed after 0.73 h (~$0.31)
+- id 59695221 tenpct-x03h destroyed after 0.61 h (~$0.37)
+- 2026-11-08T10:30Z vast id 59699783 label tenpct-x03i GPU RTX PRO 6000 Max-Q 96GB $1.230/h (+5% guard) started
+- id 59693757 tenpct-x03g destroyed after 0.91 h (~$0.55)
+- id 59693748 tenpct-x03e destroyed after 0.89 h (~$0.54)
+- id 59693745 tenpct-x03f destroyed after 1.10 h (~$0.59)
+- id 59699783 tenpct-x03i destroyed after 0.19 h (~$0.23)
+- 2026-11-08T10:46Z vast id 59701322 label tenpct-x03j GPU RTX PRO 5000 72GB $1.204/h (+5% guard) started
+- id 59701322 tenpct-x03j destroyed after 0.43 h (~$0.52)
+- 2026-11-08T11:18Z vast id 59704552 label tenpct-x03k13 GPU A40 45GB $0.602/h (+5% guard) started
+- 2026-11-08T11:18Z vast id 59704550 label tenpct-x03k12 GPU A40 45GB $0.601/h (+5% guard) started
+- 2026-11-08T11:18Z vast id 59704551 label tenpct-x03k11 GPU A40 45GB $0.601/h (+5% guard) started
+- id 59704550 destroyed (load timeout 360s, ~$0.06)
+- 2026-11-08T11:24Z vast id 59705226 label tenpct-x03k12 GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- id 59705226 tenpct-x03k12 destroyed after 0.05 h (~$0.03)
+- 2026-11-08T11:31Z vast id 59705925 label tenpct-x03k12b GPU L40S 45GB $0.468/h (+5% guard) started
+- id 59705925 tenpct-x03k12b destroyed after 0.48 h (~$0.23)
+- id 59704551 tenpct-x03k11 destroyed after 0.82 h (~$0.49)
+- id 59704552 tenpct-x03k13 destroyed after 0.83 h (~$0.50)
+- 2026-11-08T12:10Z vast id 59709529 label tenpct-x03m11 GPU L40S 45GB $0.428/h (+5% guard) started
+- 2026-11-08T12:10Z vast id 59709530 label tenpct-x03m13 GPU L40S 45GB $0.428/h (+5% guard) started
+- 2026-11-08T12:10Z vast id 59709533 label tenpct-x03m12 GPU A40 45GB $0.602/h (+5% guard) started
+- id 59709530 destroyed (load timeout 360s, ~$0.04)
+- 2026-11-08T12:16Z vast id 59710326 label tenpct-x03m13 GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- id 59710326 tenpct-x03m13 destroyed after 0.06 h (~$0.04)
+- id 59709529 tenpct-x03m11 destroyed after 0.48 h (~$0.21)
+- 2026-11-08T12:51Z vast id 59713864 label tenpct-x03m13b GPU RTX 6000Ada 48GB $0.537/h (+5% guard) started
+- id 59709533 tenpct-x03m12 destroyed after 0.89 h (~$0.54)
+- id 59713864 tenpct-x03m13b destroyed after 0.56 h (~$0.30)
+- 2026-11-08T13:26Z vast id 59716950 label tenpct-x03n11 GPU RTX 6000Ada 48GB $0.537/h (+5% guard) started
+- 2026-11-08T13:26Z vast id 59716952 label tenpct-x03n13 GPU RTX 6000Ada 48GB $0.537/h (+5% guard) started
+- 2026-11-08T13:26Z vast id 59716954 label tenpct-x03n12 GPU A40 45GB $0.601/h (+5% guard) started
+- id 59716952 destroyed (load timeout 360s, ~$0.05)
+- 2026-11-08T13:32Z vast id 59717440 label tenpct-x03n13 GPU A40 45GB $0.602/h (+5% guard) started
+- vast id 59719512 label tenpct-fbx GPU L40 $0.456/h started (bonsai fb experiments)
+- id 59716950 tenpct-x03n11 destroyed after 0.60 h (~$0.32)
+- 2026-11-08T14:10Z vast id 59720818 label tenpct-ne_a GPU RTX 4090 48GB $0.442/h (+5% guard) started
+- vast id 59721274 label tenpct-fbx GPU L40 $0.456/h started (bonsai fb experiments)
+- 2026-11-08T14:16Z vast id 59721403 label tenpct-rival3_bank GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T14:16Z vast id 59721406 label tenpct-rival3_clin GPU A100 SXM4 80GB $1.121/h (+5% guard) started

@@ -252,3 +252,5 @@ Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) 
 - 2026-11-08 vast 59720587 tenpct-cdwidth destroyed unused (never reached running; lane dropped, ~$0.1)
 - 2026-11-08 ap-J0QqFY3mD2igD1CA49DozJ stopped by lane b_depth (no results after ~25 min; coordinator dropped lane); spend <$1.5
 - 2026-11-08 vast 59720135 destroyed (R3 leaky arm dropped, spend cap $30)
+- 2026-11-08T14:16Z vast id 59721403 label tenpct-rival3_bank GPU RTX 6000D 84GB $0.948/h (+5% guard) started
+- 2026-11-08T14:16Z vast id 59721406 label tenpct-rival3_clin GPU A100 SXM4 80GB $1.121/h (+5% guard) started

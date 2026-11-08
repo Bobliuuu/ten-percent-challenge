@@ -1,0 +1,108 @@
+[
+{
+"name": "base",
+"ds": "clin",
+"sets": [
+"sel"
+],
+"ncal": 960
+},
+{
+"name": "k80_rtn_b2",
+"ds": "clin",
+"keep": 80,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "rtnmse",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k80_gptq_b2",
+"ds": "clin",
+"keep": 80,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k64_gptq_b2",
+"ds": "clin",
+"keep": 64,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k56_gptq_b3a4",
+"ds": "clin",
+"keep": 56,
+"eb": 3,
+"eg": 128,
+"attn_b": 4,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k48_gptq_b3",
+"ds": "clin",
+"keep": 48,
+"eb": 3,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k72g_gptq_b2a4",
+"ds": "clin",
+"keep": 72,
+"eb": 2,
+"eg": 128,
+"attn_b": 4,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600,
+"mode": "global",
+"kmin": 24
+}
+]

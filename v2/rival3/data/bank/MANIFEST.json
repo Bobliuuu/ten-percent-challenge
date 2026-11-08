@@ -1,0 +1,112 @@
+{
+ "cal": {
+  "n": 960,
+  "sha256": "48fa8049da5c6ade435f373b1343636281140d3e040916c05b1682eebc8124b6",
+  "kinds": {
+   "card_delivery": 120,
+   "info_and_fx": 120,
+   "card_payments": 120,
+   "cash": 120,
+   "incoming_topups": 120,
+   "card_virtual_wallet": 120,
+   "transfers": 120,
+   "account_identity": 120
+  }
+ },
+ "sel": {
+  "n": 1600,
+  "sha256": "3758b99fed69fad872087d22d733241ccd34ab5e6108e96edcf9a51e9263e20e",
+  "kinds": {
+   "card_delivery": 200,
+   "info_and_fx": 200,
+   "card_payments": 200,
+   "cash": 200,
+   "incoming_topups": 200,
+   "card_virtual_wallet": 200,
+   "transfers": 200,
+   "account_identity": 200
+  }
+ },
+ "exam": {
+  "n": 2400,
+  "sha256": "0b2bbaf60fd4436ebdadcdc297ba2b601f504b18e7b28112e5f06831e0e9894c",
+  "kinds": {
+   "card_delivery": 300,
+   "info_and_fx": 300,
+   "card_payments": 300,
+   "cash": 300,
+   "incoming_topups": 300,
+   "card_virtual_wallet": 300,
+   "transfers": 300,
+   "account_identity": 300
+  }
+ },
+ "never": {
+  "n": 560,
+  "sha256": "f8d9e4059992c4ff29de20f7c8a772694e8d04e4ce689b0fd4999ff2c082ede7",
+  "kinds": {
+   "card_delivery": 70,
+   "info_and_fx": 70,
+   "card_payments": 70,
+   "cash": 70,
+   "incoming_topups": 70,
+   "card_virtual_wallet": 70,
+   "transfers": 70,
+   "account_identity": 70
+  }
+ },
+ "fbn": {
+  "n": 320,
+  "sha256": "52bed41b60169aaa971b6654d339edef9b450441b21afc4a43d3d97a274ac998",
+  "kinds": {
+   "card_delivery": 40,
+   "info_and_fx": 40,
+   "card_payments": 40,
+   "cash": 40,
+   "incoming_topups": 40,
+   "card_virtual_wallet": 40,
+   "transfers": 40,
+   "account_identity": 40
+  }
+ },
+ "fb_pool": {
+  "n": 150,
+  "sha256": "81cae00d6d23ac4c08a3e0a4abd6b56598ab3db3c23139235d74c27d9c3ea31b",
+  "kinds": {
+   "security": 150
+  }
+ },
+ "new_cal": {
+  "n": 150,
+  "sha256": "255d9f3a731bfac9b6338a807d7105de98c729850dc9ecb69c2e2ac3d0fbdfce",
+  "kinds": {
+   "security": 150
+  }
+ },
+ "teach": {
+  "n": 300,
+  "sha256": "0cfc6eab35faeb580befa99c20db848f9452f0ba9b848379d7cd761f24a94514",
+  "kinds": {
+   "security": 300
+  }
+ },
+ "new_sel": {
+  "n": 200,
+  "sha256": "357414d5ff52376411e20c5b9b449c69a9cedd89a787e7d0aae6fd6ad284619c",
+  "kinds": {
+   "security": 200
+  }
+ },
+ "pool_n": 5641,
+ "labels": [
+  "account_identity",
+  "card_delivery",
+  "card_payments",
+  "card_virtual_wallet",
+  "cash",
+  "incoming_topups",
+  "info_and_fx",
+  "transfers"
+ ],
+ "new": "security"
+}

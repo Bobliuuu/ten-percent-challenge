@@ -1,0 +1,118 @@
+{
+ "cal": {
+  "n": 1080,
+  "sha256": "938d8bfb20bdc0f8f772b5222d0e0d779f5591c7e960478616cf58045aaf6ce2",
+  "kinds": {
+   "travel": 120,
+   "banking": 120,
+   "utility": 120,
+   "small_talk": 120,
+   "work": 120,
+   "credit_cards": 120,
+   "meta": 120,
+   "home": 120,
+   "auto_commute": 120
+  }
+ },
+ "sel": {
+  "n": 1800,
+  "sha256": "8059a3f4a7083029c959d4012ddf814d0b8fac1056f57e8e9448daf93c8791c3",
+  "kinds": {
+   "travel": 200,
+   "banking": 200,
+   "utility": 200,
+   "small_talk": 200,
+   "work": 200,
+   "credit_cards": 200,
+   "meta": 200,
+   "home": 200,
+   "auto_commute": 200
+  }
+ },
+ "exam": {
+  "n": 2700,
+  "sha256": "b01ba36937b822bfd58e2ce9bb6131b05d44da05eb8fd2cc7914bf23b66292a6",
+  "kinds": {
+   "travel": 300,
+   "banking": 300,
+   "utility": 300,
+   "small_talk": 300,
+   "work": 300,
+   "credit_cards": 300,
+   "meta": 300,
+   "home": 300,
+   "auto_commute": 300
+  }
+ },
+ "never": {
+  "n": 630,
+  "sha256": "73c80fb59868008116a4b05215e1112165ded3e1118cd9c5f44c6658ef7431b8",
+  "kinds": {
+   "travel": 70,
+   "banking": 70,
+   "utility": 70,
+   "small_talk": 70,
+   "work": 70,
+   "credit_cards": 70,
+   "meta": 70,
+   "home": 70,
+   "auto_commute": 70
+  }
+ },
+ "fbn": {
+  "n": 360,
+  "sha256": "bd05258625760deb00150ad7142d7e663eb993e7511845569c723d6043e79595",
+  "kinds": {
+   "travel": 40,
+   "banking": 40,
+   "utility": 40,
+   "small_talk": 40,
+   "work": 40,
+   "credit_cards": 40,
+   "meta": 40,
+   "home": 40,
+   "auto_commute": 40
+  }
+ },
+ "fb_pool": {
+  "n": 150,
+  "sha256": "5a7696eb0ee88445da42e3e4e339e3e16a7e413bbea73d6b3eb34e7fe8910149",
+  "kinds": {
+   "kitchen": 150
+  }
+ },
+ "new_cal": {
+  "n": 150,
+  "sha256": "0c00406f543dcb7745068f4b61af843d8cec6ae0afb27310ad584fc7e17a7dfc",
+  "kinds": {
+   "kitchen": 150
+  }
+ },
+ "teach": {
+  "n": 300,
+  "sha256": "71f2adeb93dcda9a207cc2cfe355386357cf35e35905cb7b4915f5a32bf85ead",
+  "kinds": {
+   "kitchen": 300
+  }
+ },
+ "new_sel": {
+  "n": 200,
+  "sha256": "88b07c35463e2b0b5806e1c454a98211bc0a971f8a79b6526d9c95f72199c00f",
+  "kinds": {
+   "kitchen": 200
+  }
+ },
+ "pool_n": 13680,
+ "labels": [
+  "auto_commute",
+  "banking",
+  "credit_cards",
+  "home",
+  "meta",
+  "small_talk",
+  "travel",
+  "utility",
+  "work"
+ ],
+ "new": "kitchen"
+}
