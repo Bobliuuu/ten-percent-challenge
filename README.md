@@ -20,6 +20,17 @@
 
 ---
 
+## Status and plan
+
+The entry described below is filed as issue #2 and the maintainer has said its feedback step does not hold; measured against the nine judging rules in the upstream README it does not pass (rule 2: 93.9% of base-correct items kept on the locked exam against the required 98%; rule 4 and rule 7 as well). The description below is left unchanged as a record of what was submitted. Current work, everything we have tried (including negative results), the planned experiments, and an honest feasibility estimate before the 2026-11-12 17:05 UTC deadline are in:
+
+- [`STATUS.md`](STATUS.md): one-page status, the maintainer's rulings, a rule-by-rule scoreboard of every approach, the full log of what was tried, what is next, and can-we-do-it-in-time
+- [`v2/RULES.md`](v2/RULES.md): the rules and the maintainer's rulings, single source of truth
+- [`v2/SOLUTIONS.md`](v2/SOLUTIONS.md): registry of every candidate and feedback mechanism
+- [`v2/EXPERIMENT_QUEUE.md`](v2/EXPERIMENT_QUEUE.md): pre-registered next experiments X01-X15 with decision rules and budget
+
+---
+
 ## 📊 The result
 
 <p align="center"><img src="assets/demo.gif" alt="A 7B model in 1.4 GB: size shrinks from 15.23 GB to 1.43 GB, then the locked-exam scores" width="720"><br><sub>🎞️ 16-second summary · <a href="assets/demo.mp4">MP4</a></sub></p>
