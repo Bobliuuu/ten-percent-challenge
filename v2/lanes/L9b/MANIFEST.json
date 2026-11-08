@@ -26,6 +26,31 @@
   "s7_k102_e3_d1",
   "s7_k102_e3_d2"
  ],
- "reproduce": "routing-mass files results/mass_skill7.pt; python pack via runjob.py stage pack (variants in results/logs); artifact itself lives only on the (destroyed) box and is regenerated in ~10 min from the HF model + mass file (pack takes 8 s once the model is loaded)",
- "exam": "v2/exam (shared locked exam, MANIFEST sha256), scored once per draw artifact"
+ "reproduce": "routing-mass files results/mass_skill7.pt; python pack via runjob.py stage pack (variants in results/logs); artifact itself lived only on the (destroyed) box and is regenerated in ~10 min from the HF model + mass file (pack takes 8 s once the model is loaded)",
+ "exam": "v2/exam (shared locked exam, MANIFEST sha256), scored once per draw artifact",
+ "repo_files_sha256": {
+  "core.py": "c6a2de74ff7bb55d6046136a7a333e5f284663ca3c344087bad665848f48ca54",
+  "qpack.py": "8a0c283b1348f0598ebdfe2040693208412139a4f113a857570f418a7dfc5fbc",
+  "answer.py": "c722fdadf35c4eba2f0fdfb492f9b2138c07b618183746ac1bdc79715df047d3",
+  "fbcore.py": "329d5df136fbde09de5caac238a598ef523969a8e48da9000845553a84519bbf",
+  "feedback.py": "308c9a21e1c016cf9a960ad61e7a052d30dd81b2a67b69890e2d058b960f77de",
+  "annot.py": "862c49ac392bc4a2dd7ac90c12dbe60d9640eb16e6476b9da4e3fba77a68f8c9",
+  "skill_task.json": "9a565bd7a9025d11cd061b0c7a4fe59e40ea6703314a96cd95c091c9da917af9",
+  "feedback_cal.jsonl": "c87e0b7297cf39e97d7e02e0ccf04eedfa0aca79c8a3f1effeef388a02419226"
+ },
+ "repo_files_bytes": {
+  "core.py": 7866,
+  "qpack.py": 4310,
+  "answer.py": 957,
+  "fbcore.py": 5893,
+  "feedback.py": 1838,
+  "annot.py": 919,
+  "skill_task.json": 320,
+  "feedback_cal.jsonl": 101819
+ },
+ "feedback_code_and_cal_bytes": 110789,
+ "total_with_feedback_and_code": 6726991874,
+ "pct_with_feedback_and_code": 9.7041,
+ "artifact_sha256": "NOT AVAILABLE: artifact_s7_k102_e3 body.bin lived only on a destroyed box; rebuild (runjob.py stage pack) then record sha256 here",
+ "tokenizer_json_sha256_note": "tokenizer.json/chat_template/tokenizer_config are copied unchanged from Qwen/Qwen3.5-35B-A3B"
 }
