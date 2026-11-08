@@ -13,7 +13,7 @@ def run(job: str):
     for i in range(6):
         try: snapshot_download("Qwen/Qwen2.5-14B-Instruct", allow_patterns=["*.safetensors", "*.json", "*.txt", "*.jinja"]); break
         except Exception as e: print("dl retry", e); import time; time.sleep(20)
-    arms, out, task, mn = {"a": ("arms_full.json", "q14_skill7_L3", "SKILL7", 8), "a2": ("arms_full_rev.json", "q14_skill7_L3_rev", "SKILL7", 8), "b": ("arms_sub.json", "q14_bank8_L3", "BANK8", 12), "c": ("arms_sub.json", "q14_bank6_L3", "BANK6", 12)}[job]
+    arms, out, task, mn = {"a": ("arms_full.json", "q14_skill7_L3", "SKILL7", 8), "a2": ("arms_full_rev.json", "q14_skill7_L3_rev", "SKILL7", 8), "b": ("arms_sub.json", "q14_bank8_L3", "BANK8", 12), "d": ("arms_extra.json", "q14_skill7_L3x", "SKILL7", 8), "c": ("arms_sub.json", "q14_bank6_L3", "BANK6", 12)}[job]
     job = "L3" + job; os.makedirs("/res/" + job, exist_ok=True)
     os.chdir("/code/v2/byte_tricks"); os.makedirs("results", exist_ok=True)
     for f in os.listdir("/res/" + job): shutil.copy("/res/%s/%s" % (job, f), "results/" + f)   # resume

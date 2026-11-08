@@ -97,7 +97,7 @@ def quantize_linears(model, orig, cfg, calib, dev, bs=8, sens=None):
     acct = collections.defaultdict(float); acct["scale_by"] = collections.defaultdict(float); per = {}
     t0 = time.time()
     for l in range(nl):
-        layer = layers[l]; seeds = {g: 1000 * l + GID[g] for g in GID}
+        layer = layers[l]; seeds = {g: cfg.get('seed_off', 0) + 1000 * l + GID[g] for g in GID}
         if need_H: Hs, outs = collect_H(layer, xs, kw, seeds, dev)
         for p, n in LIN:
             m = mod(layer, p, n); gname = GROUP_OF[n]; W = orig[l][f"{p}.{n}"].to(dev).float(); C = W.shape[1]
