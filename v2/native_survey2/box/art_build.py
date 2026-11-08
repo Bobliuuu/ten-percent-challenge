@@ -6,7 +6,9 @@ from huggingface_hub import snapshot_download
 from safetensors import safe_open
 out, K, NV = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); os.makedirs(out, exist_ok=True)
 SPEC0, SPEC1 = 248044, 248077
-keep_rows = np.array(list(range(NV)) + list(range(SPEC0, SPEC1))) if NV else None
+KEEP = os.environ.get("KEEP")
+if KEEP: _kl = json.load(open(KEEP)); NV = len(_kl)
+keep_rows = np.array((_kl if KEEP else list(range(NV))) + list(range(SPEC0, SPEC1))) if NV else None
 src = snapshot_download("prism-ml/Ternary-Bonsai-2-27B-mlx-2bit", allow_patterns=["model.safetensors"])
 f = safe_open(src + "/model.safetensors", "pt"); keys = list(f.keys())
 names = sorted(set(k.rsplit(".", 1)[0] for k in keys if k.endswith(".scales")))
@@ -44,7 +46,8 @@ json.dump({"K": K, "NV": NV, "index": index, "n_trit": n_trit, "small_dtype": sd
 psrc = snapshot_download("Qwen/Qwen3.8-27B", allow_patterns=["tokenizer.json", "tokenizer_config.json", "chat_template.jinja", "config.json", "generation_config.json", "vocab.json", "merges.txt"])
 if NV:
     tj = json.load(open(psrc + "/tokenizer.json")); m = tj["model"]
-    vocab = {t: i for t, i in m["vocab"].items() if i < NV}; merges = [mg for mg in m["merges"] if (lambda a, b: a in vocab and b in vocab and (a + b) in vocab)(*(mg if isinstance(mg, list) else mg.split(" ")))]
+    _new = {o: n for n, o in enumerate(_kl)} if KEEP else None
+    vocab = ({t: _new[i] for t, i in m["vocab"].items() if i in _new} if KEEP else {t: i for t, i in m["vocab"].items() if i < NV}); merges = [mg for mg in m["merges"] if (lambda a, b: a in vocab and b in vocab and (a + b) in vocab)(*(mg if isinstance(mg, list) else mg.split(" ")))]
     sp = {}
     for a in tj["added_tokens"]: sp[a["id"]] = a
     new_added = []; mp = {}

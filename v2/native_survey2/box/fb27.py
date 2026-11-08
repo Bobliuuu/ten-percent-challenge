@@ -36,7 +36,7 @@ for S in (ann, teach, neigh_pool, cal):
 t0 = time.time(); base_teach = gen(teach); base_neigh = gen(neigh_pool)
 teach_fail = [i for i, o in enumerate(base_teach) if word(o) != "entertainment"]
 neigh_ok = [i for i, o in enumerate(base_neigh) if word(o) == neigh_pool[i]["answer"].lower()]
-NEI = [neigh_pool[i] for i in neigh_ok[:600]]
+NEI = [neigh_pool[i] for i in neigh_ok[:int(os.environ.get('NEIGH', '600'))]]
 print("BASE teach acc", 1 - len(teach_fail) / len(teach), "n_teach_fail", len(teach_fail), "neigh base acc", len(neigh_ok) / len(neigh_pool), "used", len(NEI), time.time() - t0, flush=True)
 TEACH = [teach[i] for i in teach_fail]
 # annotation pool: ann items where base is wrong (all new class, base wrong by construction if word != entertainment)
@@ -44,7 +44,7 @@ ann_out = gen(ann); ANN = [a for a, o in zip(ann, ann_out) if word(o) != "entert
 print("ann usable", len(ANN), "base outputs", collections.Counter(word(o) for o in ann_out).most_common(6), flush=True)
 # ---- capture machinery
 hooks = {}
-def capture(seqs, L, budget=24000):
+def capture(seqs, L, budget=6000):
     """seqs=[(ids, positions)] -> per seq (h_final_normed[pos], key[pos], rms[pos])"""
     out = [None] * len(seqs); order = sorted(range(len(seqs)), key=lambda i: len(seqs[i][0])); i = 0; buf = {}
     h1 = LAY[L].mlp.down_proj.register_forward_pre_hook(lambda m, a: buf.__setitem__("k", a[0]))
@@ -72,7 +72,7 @@ def cov(L):
     with torch.no_grad():
         while i < len(order):
             j = i
-            while j < len(order) and (j - i + 1) * len(seqs[order[j]]) <= 24000: j += 1
+            while j < len(order) and (j - i + 1) * len(seqs[order[j]]) <= 6000: j += 1
             j = max(j, i + 1); idx = order[i:j]; Lm = max(len(seqs[k]) for k in idx)
             ids = torch.full((len(idx), Lm), tok.pad_token_id or 0, dtype=torch.long); am = torch.zeros((len(idx), Lm), dtype=torch.long)
             for r, k in enumerate(idx): ids[r, :len(seqs[k])] = torch.tensor(seqs[k]); am[r, :len(seqs[k])] = 1
@@ -120,6 +120,6 @@ for n in tuple(int(x) for x in os.environ.get('NS', '5,12,25').split(',')):
         rng = random.Random(1000 * n + d); sel = rng.sample(ANN, min(n, len(ANN)))
         for arm in ("real", "shuffled"):
             labels = ["Entertainment"] * len(sel) if arm == "real" else [rng.choice(["World", "Sports", "Business", "Technology"]) for _ in sel]
-            t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}"); restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0); print(r, flush=True); res["runs"].append(r)
+            t0 = time.time(); nb = apply_edit(sel, labels); r = evaluate(f"{arm}-n{n}-d{d}"); restore(); r.update(arm=arm, n=n, draw=d, sites=nb, secs=time.time() - t0, delta_bytes_est=nb * (5120 + 17408) * 2); print(r, flush=True); res["runs"].append(r)
         json.dump(res, open(outp, "w"))
 json.dump(res, open(outp, "w")); print("FB_DONE")

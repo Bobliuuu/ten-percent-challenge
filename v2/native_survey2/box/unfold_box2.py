@@ -11,7 +11,9 @@ NV = int(sys.argv[2]) if len(sys.argv) > 2 else 0  # vocab prefix length (0 = no
 LAYERS_DROP = [int(x) for x in sys.argv[4].split(",")] if len(sys.argv) > 4 and sys.argv[4] else []
 repo = "prism-ml/Ternary-Bonsai-2-27B-mlx-2bit"; out = sys.argv[3] if len(sys.argv) > 3 else "/home/ubuntu/work/tb2_hf"; parent = "Qwen/Qwen3.8-27B"
 SPEC0, SPEC1 = 248044, 248077
-keep_rows = (list(range(NV)) + list(range(SPEC0, SPEC1))) if NV else None
+KEEP = os.environ.get("KEEP")
+if KEEP: _kl = json.load(open(KEEP)); NV = len(_kl)
+keep_rows = ((_kl if KEEP else list(range(NV))) + list(range(SPEC0, SPEC1))) if NV else None
 os.makedirs(out, exist_ok=True)
 H = json.load(open("/home/ubuntu/work/hadamard.json")); folded = set(H["prism.hadamard.weight_names"]) | set(H["prism.hadamard.inverse_weight_names"])
 sw, sv = H["prism.hadamard.sign_widths"], H["prism.hadamard.sign_values"]; signs = {}; o = 0
@@ -82,7 +84,8 @@ for fn in os.listdir(psrc):
 
 if NV:
     tj = json.load(open(out + "/tokenizer.json")); m = tj["model"]
-    m["vocab"] = {t: i for t, i in m["vocab"].items() if i < NV}; kv = m["vocab"]; m["merges"] = [mg for mg in m["merges"] if (lambda a, b: a in kv and b in kv and (a + b) in kv)(*(mg if isinstance(mg, list) else mg.split(" ")))]
+    _new = {o: n for n, o in enumerate(_kl)} if KEEP else None
+    m["vocab"] = ({t: _new[i] for t, i in m["vocab"].items() if i in _new} if KEEP else {t: i for t, i in m["vocab"].items() if i < NV}); kv = m["vocab"]; m["merges"] = [mg for mg in m["merges"] if (lambda a, b: a in kv and b in kv and (a + b) in kv)(*(mg if isinstance(mg, list) else mg.split(" ")))]
     sp = {a["id"]: a for a in tj["added_tokens"]}; mp = {}; na = []
     for j, oid in enumerate(range(SPEC0, SPEC1)):
         a = dict(sp[oid]); a["id"] = NV + j; mp[oid] = NV + j; na.append(a)

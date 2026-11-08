@@ -69,3 +69,39 @@ Loader proof: `box/art_load.py` rebuilds HF bf16 tensors from the artifact; vs t
 - Qwen3.6-27B: https://huggingface.co/Qwen/Qwen3.6-27B, post-trained, April 2026 ("Following the February release of the Qwen3.5 series, we're pleased to share the first open-weight variant of Qwen3.6").
 - Bonsai-27B (1-bit): https://huggingface.co/prism-ml/Bonsai-27B-gguf card "Derived from Qwen3.6-27B"; its NOTICE.txt: "built from Qwen3.6-27B, Copyright 2026 Alibaba Cloud". So the 1-bit and ternary-2 families have DIFFERENT parents (Qwen3.6 vs Qwen3.8); our parent-retention numbers use the right parent for each (q36 for 1-bit, q38 for ternary-2).
 - Precisely stated question for the maintainer: "May the model one starts from be Ternary-Bonsai-2-27B, a third-party released ternary-weight model derived (by its authors) from Qwen3.8-27B, with the size baseline taken as its own 53.8 GB fp16 reference, and may the entrant's compression (scale quantisation, vocabulary truncation, packing) be what is judged for 'at most 10%' and '>= 98% of the items the original got right', where 'the original' is that released ternary model?" Measured: vs that model 99.7% on dev; vs Qwen3.8-27B 94.6% already before our step.
+
+## F. C27 push results (2026-11-08, dev, real greedy generation; files `v2/native_survey2/results2/`, scripts `build_devlarge.py`, `box/probe2_box.py`, `analyze2.py`)
+Eval set: 21,239 dev-large items (NEWS sel+rep 11,073; TOX 4,900; INJ 2,866; T1 2,400; no locked/audit files; sha256 prefix a5f11a5f) + 7,500 multilingual/code proxy items (MGSM 11 languages x 250, multilingual toxicity 15 languages x 300, MBPP 257, HumanEval 164; scored by execution on the box). Base = exact unfolded Ternary-Bonsai-2-27B; candidate = shipped-path artifact (K=16, vocab prefix 140k, 9.835% real). Retention = P(candidate correct | base correct).
+
+### F1. English / in-distribution tasks, 16,395 base-correct items (>= 3000 requirement met)
+| task | retention [Wilson lo] | n base-correct |
+|---|---|---|
+| NEWS (open tail, AG/BBC/HuffPost) | 99.77% [99.6] | 9,816 |
+| TOX 5-class | 98.84% [98.4] | 3,022 |
+| INJ | 99.94% [99.7] | 1,780 |
+| T1 tool calls | 99.15% [98.5] | 1,414 |
+| code (MBPP+HumanEval, exec) | 98.9% [97.2] | 363 |
+English-only overall 99.54%. 22 cells have n >= 300 (all NEWS/INJ/T1/TOX cells at the 400-700 sampling depth); the lowest Wilson lower bound among them is 94.8% (TOX S1 toxic: 97.3%, n=300). Other weak spots: TOX S3 toxic 95.2% [91.5] (n=210), T1 S3 multi 97.6% [94.4]. The base itself is weak on TOX (acc .54, S1 sexual 3% -> n=23). So the 95%-per-kind check is TESTED here and passes on every NEWS/INJ cell; TOX has two cells that would sit at the edge. NEWS or INJ are the safer exam tasks. Parent Qwen3.8-27B vs the same base: NEWS 97.6, TOX 94.8, INJ 97.6, T1 94.4 (the parent differs from the ternary model as much as it differs from the candidate).
+
+### F2. Multilingual and code proxy (the maintainer own-data exposure)
+Vocab truncation hurts non-English badly with the prefix rule; the candidate (K16, prefix 140k) keeps only MGSM 69% / multilingual toxicity 93.3% of the base-correct items. Per language MGSM: en 98%, zh 96%, ru 93%, de 91%, es 91%, fr 94%, sw 87%, ja 77%, th 14%, bn 0.5%, te 1.6% (those three scripts tokenize 2.5x longer, byte-level). Toxic-class retention in other scripts: am 11%, he 27%, hi 46%, ja 75%, ar 84%.
+Token inflation of the 140k vocab on the prompts (`results2/tok_diag.json`): English/code 1.00-1.01x, de/fr/es 1.04-1.12x, ru 1.69x, ja 1.46x, hi 1.36x, th/te/bn about 2.5x.
+Vocabulary variants tried (all K=16 scales), 6,114 base-correct multilingual/code items:
+| vocab | real size | MGSM | multilingual toxicity | code | overall |
+|---|---|---|---|---|---|
+| prefix 140k | 9.835% | 69.2% | 93.3% | 98.9% | 95.4% on the full set |
+| prefix 184k | 10.009% (over) | 91.2% (te 62%, bn 85%) | 97.6% | 99.5% | 95.3% |
+| 165k = 100k prefix + 65k most frequent ids on a generic 40-language Wikipedia sample (no model, no task data), merge-closed | 9.934% | 94.2% (every language 92-98%) | 98.7% | 99.2% | 97.1% [96.6] |
+Reading: the frequency-selected 165k vocabulary removes most of the exposure at 9.93%, but long chain-of-thought generation (MGSM) still loses 2-8 points per language, partly vocabulary and partly numeric drift of K=16 itself (English MGSM already 98%). It does not reach 98% overall/95% per language on MGSM. English plus code retention is unaffected. Safe positioning: choose an English exam task (NEWS/INJ) and state plainly that non-English behaviour is degraded; do not claim multilingual retention.
+Size note: 41-trits-in-65-bits packing (not built) would free about 0.086% (46 MB), enough for roughly +20k more kept tokens.
+
+## G. Feedback on the 27B ternary base: diffuse closed-form edit (X09-style; `native_survey2/box/fb27.py`, results `native_survey2/fbout/`)
+Mechanism: MEMIT-style closed-form update of the INTERNAL MLP `down_proj` of the last layers (here 62,63, optionally 60-63) of the unfolded bf16 model, solved in the calibration-covariance metric (300 NEWS calibration sequences, lam=1, margin m=8, no gradients, no lm_head row touched, no side memory, no prompt feedback). Edit = rank<=sites additive delta per layer (about 0.36-1.1 MB at n=5-25 if stored as low-rank factors; empty feedback = zero bytes, zero change). Task: NEWS open-tail prompt (does NOT list the new word), new class `Entertainment`; annotations = 25-item base-error pool (19 usable where the base is wrong), teach set = 170 base-failing hash-locked items from `fb_teach_unseen_200` (base teach accuracy 0.0 after filtering; open-tail base emits Entertainment on 15% of the 200), neighbours = 1,200 base-correct NEWS items (AG/BBC/HuffPost, base acc .88). REAL greedy generation of the answer word from the edited model through the whole forward pass; the shipped answer path is ordinary generation, so the new word is emitted end to end. Arms real / shuffled (random old labels) / empty, 8 draws per n.
+Results, layers 62+63, m=8 (n = annotations; teach = share of the 170 base-failing new-class items now answered `Entertainment`):
+| n | real teach mean [worst draw] | shuffled teach | empty | neighbours kept (real) mean [worst] | shuffled neighbours | min neighbour cell (cells >=15) |
+|---|---|---|---|---|---|---|
+| 5 | 0.55 [0.39] | 0.02 | 0.00, bytes identical | 99.1% [98.4] | 99.2% | 0.85 |
+| 12 | 0.81 [0.77] | 0.003 | 0.00 | 98.4% [98.0] | 98.6% | 0.80 |
+| 25 | 0.85 [0.85] | 0.001 | 0.00 | 97.4% [97.4] | 97.2% | 0.73 |
+Sweep (n=12, 2 draws): layers 60-63 gives teach 0.67 [real] vs 0.02 [shuffled] with neighbours 99.7% and min cell 0.98 (more diffuse = gentler on neighbours, lower teach); a full 8-draw run of that configuration is listed below if finished.
+Reading: against X09's decision rule the 2-layer edit PASSES teach (+0.55 to +0.85, CI > 0), real minus shuffled (>= +0.55), empty (exactly zero) but neighbours are only 97.4-99.1% overall and have weak small cells (min 0.73-0.85 in cells of 15-40 items), i.e. the "every class >= 95%" part is NOT met by the 62+63 configuration at n >= 12; the 4-layer configuration looks better on neighbours (99.7%, min cell 0.98 on two draws). The edit works through the model's own layers, not by rewriting output rows, so it is not the ruled-out "same head kept inside the model file"; whether a maintainer accepts a closed-form weight edit as "no weight training" is unruled (RULES 4d, 5). This is dev only, NEWS only, one new class, n <= 25, annotation items all from one source (huffpost_ent); no cross-source arm and no edit-survival check on the ternary packing was run (the edited slices would be stored as a bf16/fp16 delta added at load).
