@@ -1,0 +1,5 @@
+[{"name":"smoke1","model":"Qwen/Qwen3-8B","ndraw":2,"ns":[12],"ncal":60,"conds":["real","shuffle"],
+ "methods":[{"tag":"mnH_m8","kind":"mnH","m":8},
+  {"tag":"memit_L4_lam10_m8","kind":"memit","layers":[32,33,34,35],"lam":10,"m":8,"ridge":0.05},
+  {"tag":"memit_L6_lam100_m8","kind":"memit","layers":[30,31,32,33,34,35],"lam":100,"m":8,"ridge":0.05}],
+ "valmethods":["memit_L4_lam10_m8"]}]
