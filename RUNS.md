@@ -366,3 +366,6 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T16:13Z vast id 59735040 label tenpct-l9b GPU GB10 119GB $0.549/h (+5% guard) started
 - 2026-11-08T16:14Z vast id 59735549 label tenpct-l9b GPU H200 NVL 140GB $3.474/h (+5% guard) started
 - 2026-11-08 L10 RESULT: Qwen2.5-Omni-7B thinker text path @9.879% of Omni fp16 (2.25 bpw body): SKILL7 dev retention 99.69% [98.89 Wilson] (655 base-correct, worst kind Alarm 99.1%, worst src x kind 98.0%); BANKFAM 97.6% (worst Payment 88.9%). Base SKILL7 .960. Files v2/lanes/L10/results/. Feedback sweep on saved dequantised dir: fc-01M6XZ1SXA2D18HYCB87F5V926 (app tenpct-l10fb). Llama-11B (2.10 bpw) SKILL7 98.7% with base only .809. Llama save job cancelled (Modal GPU queue).
+- 2026-11-08T16:15Z vast id 59729666 tenpct-x03q destroyed after 0.76 h (~$0.41)
+- 2026-11-08 vast id 59723461 tenpct-t3-7b destroyed (job finished, results pulled)
+- 2026-11-08 vast id 59730647 tenpct-t3-32bb destroyed (job finished, results pulled)
