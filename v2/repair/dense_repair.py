@@ -180,7 +180,7 @@ def _run(cfg):
             if _cnt[cell]<=_pc: _ex2.append(t)
         _ex=_ex2; print("extra calib items",len(_ex),_cnt,flush=True)
         cal_txt=cal_txt+_ex*int(cfg.get('extra_rep',1))
-    rng=np.random.RandomState(0); rng.shuffle(cal_txt)
+    SEED=cfg.get('seed',0); rng=np.random.RandomState(SEED); rng.shuffle(cal_txt)
     ncal=cfg.get("ncal",128); CL=cfg.get("CL",512); stream=[]
     for s in cal_txt:
         stream+=tok.encode(s,add_special_tokens=False)
@@ -213,20 +213,22 @@ def _run(cfg):
         for r in range(0,R,ch):
             w=W[r:r+ch]; x=w.reshape(-1,g); s=qparams(x,Lv); q,qi=quant(x,s,Lv,dz); out[r:r+ch]=q.view_as(w); hist+=torch.bincount(qi.long().flatten(),minlength=Lv).float()
         return out,hist
+    LAST={}
     def gptq(W,H,Lv,damp=0.01):
         W=W.float().clone(); R,C=W.shape; H=H.clone(); bsz=max(128,g)
         dead=torch.diag(H)==0; H[dead,dead]=1; W[:,dead]=0
         H=H+damp*torch.mean(torch.diag(H))*torch.eye(C,device=H.device)
         Hinv=torch.linalg.cholesky(torch.cholesky_inverse(torch.linalg.cholesky(H)),upper=True)
-        Q=torch.zeros_like(W); hist=torch.zeros(Lv,device=W.device); s=None
+        Q=torch.zeros_like(W); hist=torch.zeros(Lv,device=W.device); s=None; QI=torch.zeros(R,C,dtype=torch.uint8,device=W.device); SC=torch.zeros(R,C//g,dtype=torch.float16,device=W.device)
         for i1 in range(0,C,bsz):
             i2=min(i1+bsz,C); W1=W[:,i1:i2].clone(); Q1=torch.zeros_like(W1); E1=torch.zeros_like(W1); Hi=Hinv[i1:i2,i1:i2]
             for i in range(i2-i1):
-                if i%g==0: s=qparams(W1[:,i:i+g],Lv)
+                if i%g==0: s=qparams(W1[:,i:i+g],Lv); SC[:,(i1+i)//g]=s.flatten().half()
                 w=W1[:,i]; d=Hi[i,i]; q,qi=quant(w.unsqueeze(1),s,Lv,dz); q=q.flatten()
                 hist+=torch.bincount(qi.long().flatten(),minlength=Lv).float()
-                Q1[:,i]=q; err=(w-q)/d; W1[:,i:]-=err.unsqueeze(1)@Hi[i,i:].unsqueeze(0); E1[:,i]=err
+                QI[:,i1+i]=qi.flatten().to(torch.uint8); Q1[:,i]=q; err=(w-q)/d; W1[:,i:]-=err.unsqueeze(1)@Hi[i,i:].unsqueeze(0); E1[:,i]=err
             Q[:,i1:i2]=Q1; W[:,i2:]-=E1@Hinv[i1:i2,i2:]
+        LAST['qi']=QI; LAST['sc']=SC
         return Q,hist
     def cuda_kw(kw):
         o={}
@@ -260,7 +262,7 @@ def _run(cfg):
             for x in cur: fwd(l,x)
         for h in hds: h.remove()
         return mods,{k:Hs[k]/nsm[k] for k in Hs}
-    def signs(oli,key,C): return (torch.randint(0,2,(C,),generator=torch.Generator().manual_seed(1000*oli+len(key)),dtype=torch.float32)*2-1).cuda()
+    def signs(oli,key,C): return (torch.randint(0,2,(C,),generator=torch.Generator().manual_seed(1000*oli+len(key)+7919*cfg.get('seed',0)),dtype=torch.float32)*2-1).cuda()
     LS=[2,3,4,5,6,8,12,16]
     # ---------- pass A: sensitivity tables (fp prefix) + block influence
     spath=f"{HFD}/dense/sens_{tag}_g{g}_dz{dz}_{cfg.get('sens_tag','base')}.json"
@@ -335,6 +337,9 @@ def _run(cfg):
             else: hi=mid
         tot,levels=pick(hi); print("alloc body_bits/param",tot/lin_total,"target",body_bits/lin_total,flush=True)
     # ---------- pass B: GPTQ, quantized prefix
+    PK=None
+    if cfg.get('pack_dir'):
+        sys.path.insert(0,os.environ.get('PACK_PATH','/root/rep')); import pack as _pack; PK=_pack.Packer(cfg['pack_dir']); PACKED_CHECK={}
     cur=[x.clone() for x in inps]; qbits=0.0; hist_by_L=collections=None
     BC=cfg.get('bcorr',0); curFP=[x.clone() for x in inps] if BC else None; BIAS={}
     from collections import Counter
@@ -352,6 +357,9 @@ def _run(cfg):
             for n in mem:
                 Lv=levels[f"{oli}.{n}"]; Wo=mods[n].weight.data; W=rot(Wo.float(),sg)
                 Q,h=gptq(W,Hr,Lv); mods[n].weight.data=unrot(Q,sg).to(torch.bfloat16)
+                if PK is not None:
+                    PK.add(f"{oli}.{n}",LAST['qi'].cpu().numpy(),LAST['sc'].cpu().numpy(),Lv,tuple(W.shape),g)
+
                 nn_=W.numel(); b=nn_*(ent(h)*1.005+GB/g); qbits+=b; lb+=b; ln+=nn_; Lcount[Lv]+=nn_
         layer_bpw.append(lb/ln)
         if BC:
@@ -381,20 +389,37 @@ def _run(cfg):
     if qs>1: hL=eL=999
     if hL<999:
         sg=signs(99999,"head",hid); Wh=rot(head.weight.data.cuda().float(),sg); Hr=rot(rot(Hh,sg).T.contiguous(),sg).T.contiguous()
-        Q,h=gptq(Wh,Hr,hL); head_bits=head.weight.numel()*(ent(h)*1.005+GB/g); head.weight.data=unrot(Q,sg).to(torch.bfloat16).to('cuda' if GPUR else 'cpu'); del Q,Wh
+        Q,h=gptq(Wh,Hr,hL)
+        if PK is not None: PK.add('head',LAST['qi'].cpu().numpy(),LAST['sc'].cpu().numpy(),hL,tuple(Wh.shape),g)
+        head_bits=head.weight.numel()*(ent(h)*1.005+GB/g); head.weight.data=unrot(Q,sg).to(torch.bfloat16).to('cuda' if GPUR else 'cpu'); del Q,Wh
     else: head_bits=head.weight.numel()*16
     if tied: head_bits=0
     emb=model.get_input_embeddings()
     if eL<999:
         sg=signs(88888,"emb",hid); We=rot(emb.weight.data.cuda().float(),sg); g_s=g; 
         # embedding uses group ge: rtn() reads closure g, so temporarily emulate by reshaping
-        Wq=torch.empty_like(We); hist=torch.zeros(eL,device="cuda")
+        Wq=torch.empty_like(We); hist=torch.zeros(eL,device="cuda"); EQ=[]; ES=[]
         for r in range(0,We.shape[0],8192):
-            x=We[r:r+8192].reshape(-1,ge); s=qparams(x,eL); q,qi=quant(x,s,eL,dz); Wq[r:r+8192]=q.view(-1,hid); hist+=torch.bincount(qi.long().flatten(),minlength=eL).float()
+            x=We[r:r+8192].reshape(-1,ge); s=qparams(x,eL); q,qi=quant(x,s,eL,dz); Wq[r:r+8192]=q.view(-1,hid); EQ.append(qi.to(torch.uint8).view(-1,hid).cpu()); ES.append(s.flatten().half().view(-1,hid//ge).cpu()); hist+=torch.bincount(qi.long().flatten(),minlength=eL).float()
+        if PK is not None: PK.add('emb',torch.cat(EQ).numpy(),torch.cat(ES).numpy(),eL,tuple(We.shape),ge); del EQ,ES
         emb_bits=emb.weight.numel()*(ent(hist)*1.005+GB/ge); emb.weight.data=unrot(Wq,sg).to(torch.bfloat16).to('cuda' if GPUR else 'cpu')
         if tied: head.weight=emb.weight
     else: emb_bits=emb.weight.numel()*16
     tot_bytes=qbits/8+head_bits/8+emb_bits/8+fixed_bytes
+    if PK is not None:
+        pb=PK.close(); od={}
+        for i in keep:
+            for pn,p in layers[i].named_parameters():
+                if not any(pn.startswith(x) for x in ["self_attn.q_proj.weight","self_attn.k_proj.weight","self_attn.v_proj.weight","self_attn.o_proj.weight","mlp.gate_proj.weight","mlp.up_proj.weight","mlp.down_proj.weight"]) and not pn.startswith("mlp.down_proj.bias"): od[f"{i}.{pn}"]=p.detach().half().cpu().numpy()
+        od["norm"]=model.model.norm.weight.detach().half().cpu().numpy(); np.savez(cfg['pack_dir']+"/other.npz",**od); pb["other"]=os.path.getsize(cfg['pack_dir']+"/other.npz")
+        import shutil; fsz=0
+        from huggingface_hub import hf_hub_download
+        for fn in ("tokenizer.json","tokenizer_config.json","config.json","generation_config.json"):
+            pth=hf_hub_download(M,fn); shutil.copy(pth,cfg['pack_dir']+"/"+fn); fsz+=os.path.getsize(pth)
+        code=sum(os.path.getsize(os.environ.get('PACK_PATH','/root/rep')+"/"+f) for f in ("pack.py","answer.py") if os.path.exists(os.environ.get('PACK_PATH','/root/rep')+"/"+f))
+        real=pb["idx"]+pb["scale"]+pb["tables"]+pb["other"]+fsz+code
+        summ=dict(real_bytes=real,base_bytes=base_bytes,real_ratio=real/base_bytes,est_bytes=tot_bytes,est_ratio=tot_bytes/base_bytes,parts=pb,files=fsz,code=code)
+        json.dump(summ,open(cfg['pack_dir']+"/pack_summary.json","w")); print("PACK_SUMMARY",json.dumps(summ),flush=True)
     del inps,cur; torch.cuda.empty_cache()
     model.cuda()
     if cfg.get('ctasks'):
