@@ -339,3 +339,13 @@ Companion documents not repeated here: [`v2/PRUNE_LEGAL.md`](v2/PRUNE_LEGAL.md),
 
 
 **X04a RESULT (2026-11-08): KILL vs RULES.md gates.** 32B steps 1-4: S4 retention 96.5% (LB 96.0%) dev_inj, worst cell 79.1%; INJR subset 97.4%, worst 92.9%. Baseline B0 94.1%. See [v2/exp/X04a_REPORT.md](v2/exp/X04a_REPORT.md). Dense route = fallback (L5).
+
+
+## L3 MoE lane (Qwen3-30B-A3B-Instruct-2507): measured on the shared locked exam (2026-11-08, `v2/lanes/L3/REPORT.md`)
+| | SKILL7 (2,744) | BANK6 (2,237) |
+|---|---|---|
+| size, all shipped bytes | 9.896% (packed 9.676% + o_proj edit) | 9.896% |
+| retention of base-correct [Wilson lo] | 99.32% [98.92] | 99.24% [98.76] |
+| worst kind / never-used source | Calendar 96.7 / 99.65 (1,489 items) | Card 97.9 / Bitext 98.2 (600 items) |
+| feedback (24 labels, closed-form o_proj edit) | teach 0 -> 79.9%, shuffled 0, wrong 0, empty 0, exam 99.20 after | teach 0 -> 16% (weak), neighbours 98.5 |
+Recipe: 85/128 experts by routing mass, D4-K256 VQ 2.0 bpw with Hadamard + error feedback, attn 6 / emb 5 / head 4 bit. Weakest rules: closed-form weight edit legality (rule 4, gray), BANK6 teach (rule 5), per-cell 98.5 target not met. Near misses: `v2/NEAR_MISSES.md`.
