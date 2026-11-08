@@ -1,3 +1,5 @@
 {"lane":"X03 14B ladder (allocation $13 from the $330 ledger, hard stop)","entries":[
- {"t":"2026-11-08T10:30Z","what":"Vast boxes tenpct-x03smoke/a-h (RTX A6000/6000Ada/4090/L40S 48GB, $0.43-0.61/h) up to 10:30Z incl. aborted launches; derived from RUNS.md destroyed-after lines","usd_est":4.3}
-],"spent_usd_est":4.3,"cap_usd":13.0,"note":"estimates derived from RUNS.md; updated at each wave"}
+ {"t":"2026-11-08T10:30Z","what":"Vast boxes tenpct-x03smoke/a-h up to 10:30Z (A0 x8, A0+ x3 waves, failed sens attempts)","usd_est":4.3},
+ {"t":"2026-11-08T12:10Z","what":"sens boxes i/j (RTX PRO 6000/5000, $1.2/h) + A1 wave (3 boxes) + aborted launches","usd_est":2.9},
+ {"t":"2026-11-08T13:30Z","what":"A2 wave (3 boxes, one re-launch after HF 401)","usd_est":1.9}
+],"spent_usd_est":9.1,"cap_usd":13.0,"note":"estimates derived from RUNS.md destroyed-after lines; hard stop at cap"}

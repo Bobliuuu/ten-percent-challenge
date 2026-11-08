@@ -5,6 +5,7 @@ cd "$(dirname "$0")"; mkdir -p results v2/exp/results/X03 /workspace/packs
 exec > /workspace/worker.log 2>&1; set -x
 pip install -q "vllm==0.11.0" "transformers==4.57.1" scipy "huggingface_hub<1.0" "datasets<4" safetensors accelerate 2>&1 | tail -2
 export HF_HOME=/workspace/hf PYTHONUNBUFFERED=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+for i in 1 2 3 4 5; do python -c "from huggingface_hub import snapshot_download as s; s('Qwen/Qwen2.5-14B-Instruct', allow_patterns=['*.json','*.safetensors','*.txt'])" && break; sleep 30; done
 idle=0
 while true; do
   J=""
