@@ -15,7 +15,7 @@ def run(model: str, tag: str, sets: str = "SEL,REP,GEN,INJ"):
     os.makedirs("/vol/X01", exist_ok=True)
     for p in (1, 2):
         subprocess.check_call([sys.executable, "/code/v2/exp/run_retention.py", "--model", model, "--exp", "X01", "--arm", f"base_{tag}", "--seed", "0", "--sets", sets,
-                               "--pass", str(p), "--tp", "2", "--backend", "vllm", "--util", os.environ.get("X01_UTIL", "0.96")], env=env, cwd="/code")
+                               "--pass", str(p), "--tp", "2", "--backend", "vllm", "--util", os.environ.get("X01_UTIL", "0.93")], env=env, cwd="/code")
         subprocess.check_call("cp -r /code/v2/exp/results/X01/. /vol/X01/", shell=True); vol.commit()
 @app.local_entrypoint()
 def main(model: str, tag: str, sets: str = "SEL,REP,GEN,INJ"): run.remote(model, tag, sets)
