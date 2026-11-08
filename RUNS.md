@@ -136,3 +136,6 @@ v2/entropy run.py L{4,6,8,16}x rot{0,1} launched Fri  6 Nov 2026 02:10:04 EST lo
 fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1.json (see launch1.log)
 - 2026-11-08 v2/fb_legal/legal.py: Modal app tenpct-fblegal (deployed, spawn via launch.py), smoke_q3 Qwen3-8B A100-80GB; results Volume tenpct-fblegal:/r
 - 2026-11-07 TASK_SEARCH (switch-task lane): Modal app tenpct-tasksearch, `python v2/task_search/modal_run.py jobs1.json`; calls Qwen2.5-7B fc-01M6WCN28WW1W19Z4CBV7F99NW, Qwen2.5-14B fc-01M6WCN2CPDFB7SP745Q307MY4; results -> volume tenpct-tasksearch
+- 2026-11-08 fb_legal cfgs1.json: q3_inj, q3_tox, bonsai_tox on tenpct-fblegal (spawned)
+- 2026-11-08 fb_legal cfgs2.json: q3_inj_b q3_tox_b q25_tox_b bonsai_tox_b (spawned; mnH = H-metric min-norm row edit, Hessian from calibration set)
+- 2026-11-07 TASK_SEARCH 32B: app ap-gq3NxVzFDkGsDYPbw7HAtA (Qwen2.5-32B r1, jobs2.json.calls); 7B/14B app ap-c9aVsDHHbMa35szD8xUiEL

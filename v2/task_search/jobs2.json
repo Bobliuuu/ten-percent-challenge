@@ -1,0 +1,1 @@
+[{"model":"Qwen/Qwen2.5-32B-Instruct","tag":"r1","size":"m","cfgs":[{"name":"bf16"},{"name":"r100","target_ratio":0.100,"emb_L":4,"head_L":4,"g":256},{"name":"r1125","target_ratio":0.1125,"emb_L":4,"head_L":4,"g":256},{"name":"r125","target_ratio":0.125,"emb_L":6,"head_L":6,"g":256}]}]
