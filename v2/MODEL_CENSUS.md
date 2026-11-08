@@ -145,8 +145,9 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | 4 | openai/gpt-oss-20b | f=0.4, 3-bit | 10.7% | 0.773 / 0.966 | 0.739 | 0.49 | 0.95 / 0.96 |
 | 5 | moonshotai/Moonlight-16B-A3B-Instruct | f=0.4, 3-bit | 11.0% | 0.926 / 0.755 | 0.709 | 0.31 | 0.955 / 0.958 |
 | 6 | baidu/ERNIE-4.5-21B-A3B-PT | f=0.3, 3-bit | 8.0% | 0.409 / 0.877 | 0.372 | 0.00 | 0.95 / 0.978 |
-| 7 | deepseek-ai/DeepSeek-V2-Lite-Chat | f=0.4, 3-bit | 10.6% | 0.038 / 0.0 | 0.000 | 0.00 | 0.652 / 0.95 |
-| 8 | allenai/OLMoE-1B-7B-0125-Instruct | f=0.4, 3-bit | 10.1% | 0.28 / 0.0 | 0.000 | 0.00 | 0.534 / 0.497 |
+| 7 | openai/gpt-oss-120b | f=0.4, 4-bit | 10.9% | 0.333 / 0.486 | 0.296 | 0.00 | 0.846 / 0.973 |
+| 8 | deepseek-ai/DeepSeek-V2-Lite-Chat | f=0.4, 3-bit | 10.6% | 0.038 / 0.0 | 0.000 | 0.00 | 0.652 / 0.95 |
+| 9 | allenai/OLMoE-1B-7B-0125-Instruct | f=0.4, 3-bit | 10.1% | 0.28 / 0.0 | 0.000 | 0.00 | 0.534 / 0.497 |
 
 ### Architecture and byte budget (non-expert tensors charged at 6.25 bpw; expert bpw includes scales)
 | model | MoE layers | experts | top-k | params B | expert share | fp16 GB | 10% budget GB | expert bpw if keep 100/75/50/40/30% |
@@ -158,6 +159,7 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | allenai/OLMoE-1B-7B-0125-Instruct | 16 | 64 | 8 | 6.9 | 93.1% | 13.8 | 1.38 | 1.26 / 1.67 / 2.51 / 3.14 / 4.19 |
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | 48 | 128 | 8 | 30.5 | 95.0% | 61.1 | 6.11 | 1.35 / 1.80 / 2.71 / 3.38 / 4.51 |
 | Qwen/Qwen3.5-35B-A3B | 40 | 256 | 8 | 34.7 | 92.9% | 69.3 | 6.93 | 1.25 / 1.66 / 2.49 / 3.12 / 4.16 |
+| openai/gpt-oss-120b | 36 | 128 | 4 | 116.8 | 98.1% | 233.7 | 23.37 | 1.51 / 2.02 / 3.02 / 3.78 / 5.04 |
 | openai/gpt-oss-20b | 24 | 32 | 4 | 20.9 | 91.4% | 41.8 | 4.18 | 1.16 / 1.55 / 2.32 / 2.90 / 3.87 |
 
 ### Routing concentration (dev calibration text)
@@ -177,6 +179,8 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | Qwen/Qwen3-30B-A3B-Instruct-2507 | BANK8 | 0.34 / 0.43 / 0.60 | 0.79 | 0.97 | 0.86 | SKILL7 0.94, NEWS 0.83 |
 | Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.27 / 0.35 / 0.48 | 0.76 | 0.99 | 0.92 | BANK8 0.83, NEWS 0.81 |
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.37 / 0.48 / 0.67 | 0.80 | 0.95 | 0.85 | SKILL7 0.92, NEWS 0.76 |
+| openai/gpt-oss-120b | SKILL7 | 0.32 / 0.41 / 0.54 | 0.75 | 0.98 | 0.88 | BANK8 0.90, NEWS 0.92 |
+| openai/gpt-oss-120b | BANK8 | 0.33 / 0.43 / 0.61 | 0.75 | 0.97 | 0.88 | SKILL7 0.94, NEWS 0.92 |
 | openai/gpt-oss-20b | SKILL7 | 0.50 / 0.60 / 0.76 | 0.80 | 0.91 | 0.76 | BANK8 0.86, NEWS 0.86 |
 | openai/gpt-oss-20b | BANK8 | 0.46 / 0.56 / 0.75 | 0.79 | 0.92 | 0.78 | SKILL7 0.86, NEWS 0.85 |
 
@@ -277,6 +281,16 @@ Code `v2/model_census/moe/moe_probe2.py` (transformers 5.22 fused-expert layout;
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.5 | 4 | 14.9 | 0.973 | 0.997 | 0.986 | 0.95 | card_virtual_wallet | 389 |
 | Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.4 | 4 | 12.4 | 0.969 | 0.995 | 0.987 | 0.96 | News | 661 |
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.4 | 4 | 12.4 | 0.973 | 1.000 | 0.990 | 1.0 | account_identity | 389 |
+| openai/gpt-oss-120b | SKILL7 | 1 | 3 | 20.0 | 0.846 | 0.132 | 0.107 | 0.0 | Calendar | 577 |
+| openai/gpt-oss-120b | BANK8 | 1 | 3 | 20.0 | 0.973 | 0.992 | 0.978 | 0.9 | card_virtual_wallet | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.5 | 3 | 10.4 | 0.846 | 0.055 | 0.040 | 0.01 | Transport | 577 |
+| openai/gpt-oss-120b | BANK8 | 0.5 | 3 | 10.4 | 0.973 | 0.905 | 0.872 | 0.19 | small_talk | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 3 | 8.4 | 0.846 | 0.017 | 0.009 | 0.0 | Calendar | 577 |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 3 | 8.4 | 0.973 | 0.781 | 0.738 | 0.35 | cash | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.3 | 3 | 6.5 | 0.846 | 0.009 | 0.004 | 0.0 | Calendar | 577 |
+| openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5 | 0.973 | 0.514 | 0.465 | 0.09 | info_and_fx | 389 |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9 | 0.846 | 0.333 | 0.296 | 0.11 | Transport | 577 |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9 | 0.973 | 0.486 | 0.437 | 0.0 | small_talk | 389 |
 | openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
 | openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
 | openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |

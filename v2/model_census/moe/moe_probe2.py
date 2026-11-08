@@ -20,6 +20,7 @@ def main(job):
     ng = torch.cuda.device_count(); kw = dict(dtype=torch.bfloat16, device_map="auto", max_memory={i: "74GiB" for i in range(ng)})
     if "gpt-oss" in MID:
         from transformers import Mxfp4Config; kw["quantization_config"] = Mxfp4Config(dequantize=True)
+    if job.get("eager"): kw["experts_implementation"] = "eager"
     if job.get("even_map"):
         from transformers import AutoConfig
         nl = AutoConfig.from_pretrained(MID).get_text_config().num_hidden_layers; dm = {"model.embed_tokens": 0, "model.rotary_emb": 0, "model.norm": ng - 1, "lm_head": ng - 1}

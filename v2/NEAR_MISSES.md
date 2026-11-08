@@ -66,6 +66,14 @@ Size = analytic bytes of packed ints + fp16 scales + int zero-points + fp16 rout
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.3 | 3 | 8.3% | 96.1 [93.7] | 0.50 small_talk | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | Qwen/Qwen3.5-35B-A3B | SKILL7 | 0.4 | 4 | 12.4% | 99.5 [98.7] | 0.96 News | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | Qwen/Qwen3.5-35B-A3B | BANK8 | 0.4 | 4 | 12.4% | 100.0 [99.0] | 1.00 account_identity | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | SKILL7 | 0.5 | 3 | 10.4% | 5.5 [4.0] | 0.01 Transport | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | BANK8 | 0.5 | 3 | 10.4% | 90.5 [87.2] | 0.19 small_talk | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 3 | 8.4% | 1.7 [0.9] | 0.00 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 3 | 8.4% | 78.1 [73.8] | 0.35 cash | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | SKILL7 | 0.3 | 3 | 6.5% | 0.9 [0.4] | 0.00 Calendar | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | BANK8 | 0.3 | 3 | 6.5% | 51.4 [46.5] | 0.09 info_and_fx | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | SKILL7 | 0.4 | 4 | 10.9% | 33.3 [29.6] | 0.11 Transport | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
+| openai/gpt-oss-120b | BANK8 | 0.4 | 4 | 10.9% | 48.6 [43.7] | 0.00 small_talk | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4% | 86.6 [83.7] | 0.45 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4% | 95.6 [93.0] | 0.78 work | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
 | openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7% | 77.3 [73.9] | 0.49 Music | probe only: size estimated, no GPTQ/real pack, no locked exam, no feedback |
