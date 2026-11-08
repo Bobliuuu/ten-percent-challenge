@@ -1,0 +1,2 @@
+[{"name":"vq8_k13_g4M","D":8,"K":8192,"gen_tokens":4000000,"ncal":8192},
+ {"name":"vq8_k13_g1M_damp1","D":8,"K":8192,"gen_tokens":1000000,"ncal":2048,"damp":0.1}]

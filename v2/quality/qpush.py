@@ -180,12 +180,13 @@ def _impl(cfg):
                 with torch.no_grad():
                     for a in range(0, len(ev_ids), 6): outs.append(model(input_ids=ev_ids[a:a + 6].cuda()).logits.float().log_softmax(-1))
                 return torch.cat(outs)
-            lp0 = fwd_logits().to(torch.bfloat16).cpu(); print("sens ref logits", lp0.shape, flush=True)
+            lp0 = fwd_logits().half().cpu(); print("sens ref logits", lp0.shape, flush=True); res["sens_kl_offset"] = None
             def klnow():
                 lq = fwd_logits(); tot = 0.0
                 for a in range(0, len(lq), 6):
                     r_ = lp0[a:a + 6].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 6])).sum())
                 return tot / (lq.shape[0] * lq.shape[1])
+            res["sens_kl_offset"] = klnow(); print("kl offset", res["sens_kl_offset"], flush=True)
             for li, l in enumerate(layers):
                 Hs = {}; nsm = {}
                 for gname, names, hookn in groups:
