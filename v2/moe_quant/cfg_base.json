@@ -1,0 +1,2 @@
+[{"name":"base","ds":"voice","sets":["SEL"],"ncal":2000},
+ {"name":"g_had_b3_k55","ds":"voice","keep":55,"quant":"gptq","m":"gptq_had","eb":3,"eg":128,"attn_b":6,"emb_b":5,"head_b":4,"sets":["SEL"]}]
