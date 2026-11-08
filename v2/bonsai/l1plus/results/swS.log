@@ -30,3 +30,7 @@
 [  2361s] scale_lam10_L18_aug4 real n 25 d 1 {'teach_sel': 1.0, 'neigh_sel': 1.0} bytes 14155776 249s
 [  2612s] scale_lam10_L18_aug4 shuffled n 25 d 1 {'teach_sel': 0.8} bytes 14155776 249s
 [  2710s] scale_lam100_aug4 real n 25 d 0 {'teach_sel': 0.85, 'neigh_sel': 0.9966} bytes 4718592 91s
+[  2803s] scale_lam100_aug4 shuffled n 25 d 0 {'teach_sel': 0.025} bytes 4718592 90s
+[  2900s] scale_lam100_aug4 real n 25 d 1 {'teach_sel': 0.95, 'neigh_sel': 0.9966} bytes 4718592 91s
+[  2961s] scale_lam100_aug4 shuffled n 25 d 1 {'teach_sel': 0.1} bytes 4718592 59s
+[  2961s] DONE

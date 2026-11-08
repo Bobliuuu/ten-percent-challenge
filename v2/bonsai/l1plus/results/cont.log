@@ -1,0 +1,28 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    24s] loaded
+[    24s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[    66s] cols_default_per25 after_round1_Recipe n 25 d 0 {'teach_Recipe': 0.8444, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 39s
+[   107s] cols_default_per25 after_round2_Email n 25 d 0 {'teach_Recipe': 0.8889, 'teach_Email': 0.815, 'teach_Takeaway': 0.0, 'neigh_rep': 1.0} bytes 74270416 40s
+[   148s] cols_default_per25 after_round3_Takeaway n 25 d 0 {'teach_Recipe': 0.8889, 'teach_Email': 0.825, 'teach_Takeaway': 0.8672, 'neigh_rep': 0.9937} bytes 91453234 42s
+[   185s] cols_default_per25 after_round1_Recipe n 25 d 1 {'teach_Recipe': 0.8444, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 37s
+[   227s] cols_default_per25 after_round2_Email n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.85, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 73221584 41s
+[   268s] cols_default_per25 after_round3_Takeaway n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.855, 'teach_Takeaway': 0.8359, 'neigh_rep': 0.9937} bytes 89593196 42s
+[   305s] cols_default_per25 after_round1_Recipe n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 36s
+[   345s] cols_default_per25 after_round2_Email n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.825, 'teach_Takeaway': 0.0, 'neigh_rep': 1.0} bytes 73565732 40s
+[   387s] cols_default_per25 after_round3_Takeaway n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.83, 'teach_Takeaway': 0.8516, 'neigh_rep': 0.9968} bytes 91313936 42s
+[   419s] cols_default_per8 after_round1_Recipe n 8 d 0 {'teach_Recipe': 0.8222, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 32s
+[   453s] cols_default_per8 after_round2_Email n 8 d 0 {'teach_Recipe': 0.8444, 'teach_Email': 0.735, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 75466740 34s
+[   487s] cols_default_per8 after_round3_Takeaway n 8 d 0 {'teach_Recipe': 0.8667, 'teach_Email': 0.745, 'teach_Takeaway': 0.6953, 'neigh_rep': 0.9937} bytes 91535174 34s
+[   520s] cols_default_per8 after_round1_Recipe n 8 d 1 {'teach_Recipe': 0.8222, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 32s
+[   553s] cols_default_per8 after_round2_Email n 8 d 1 {'teach_Recipe': 0.8667, 'teach_Email': 0.74, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 74245834 33s
+[   587s] cols_default_per8 after_round3_Takeaway n 8 d 1 {'teach_Recipe': 0.8667, 'teach_Email': 0.745, 'teach_Takeaway': 0.7188, 'neigh_rep': 0.9937} bytes 92952736 34s
+[   619s] cols_default_per8 after_round1_Recipe n 8 d 2 {'teach_Recipe': 0.8222, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 50343936 32s
+[   653s] cols_default_per8 after_round2_Email n 8 d 2 {'teach_Recipe': 0.8444, 'teach_Email': 0.74, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 76236976 34s
+[   689s] cols_default_per8 after_round3_Takeaway n 8 d 2 {'teach_Recipe': 0.8667, 'teach_Email': 0.75, 'teach_Takeaway': 0.7109, 'neigh_rep': 0.9937} bytes 94812774 36s
+[   750s] scale_lam100_per25 after_round1_Recipe n 25 d 0 {'teach_Recipe': 0.8444, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 61s
+[   812s] scale_lam100_per25 after_round2_Email n 25 d 0 {'teach_Recipe': 0.8889, 'teach_Email': 0.81, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9937} bytes 4718592 62s
+[   875s] scale_lam100_per25 after_round3_Takeaway n 25 d 0 {'teach_Recipe': 0.8889, 'teach_Email': 0.815, 'teach_Takeaway': 0.8438, 'neigh_rep': 0.9937} bytes 4718592 63s
+[   936s] scale_lam100_per25 after_round1_Recipe n 25 d 1 {'teach_Recipe': 0.8444, 'teach_Email': 0.005, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 61s
+[   999s] scale_lam100_per25 after_round2_Email n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.815, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 63s
+[  1044s] scale_lam100_per25 after_round3_Takeaway n 25 d 1 {'teach_Recipe': 0.8889, 'teach_Email': 0.82, 'teach_Takeaway': 0.8047, 'neigh_rep': 0.9937} bytes 4718592 45s
+[  1088s] scale_lam100_per25 after_round1_Recipe n 25 d 2 {'teach_Recipe': 0.8889, 'teach_Email': 0.01, 'teach_Takeaway': 0.0, 'neigh_rep': 0.9968} bytes 4718592 44s

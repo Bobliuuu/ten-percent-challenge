@@ -1,0 +1,32 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[    26s] loaded
+[    26s] neigh 294 317 base said on teach_rep [('Transport', 17), ('Lists', 11), ('Music', 5)]
+[   100s] scale_lam100 real n 25 d 0 {'teach_rep': 0.8444, 'teach_bbc': 0.7973, 'neigh_rep': 0.9968} bytes 4718592 46s
+[   170s] scale_lam100 shuffled n 25 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 4718592 46s
+[   230s] scale_lam100 real n 25 d 1 {'teach_rep': 0.8889, 'teach_bbc': 0.9054, 'neigh_rep': 0.9937} bytes 4718592 46s
+[   302s] scale_lam100 shuffled n 25 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 4718592 46s
+[   363s] scale_lam100 real n 25 d 2 {'teach_rep': 0.8889, 'teach_bbc': 0.8964, 'neigh_rep': 0.9968} bytes 4718592 46s
+[   433s] scale_lam100 shuffled n 25 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 4718592 46s
+[   495s] scale_lam100 real n 25 d 3 {'teach_rep': 0.8889, 'teach_bbc': 0.8423, 'neigh_rep': 1.0} bytes 4718592 46s
+[   564s] scale_lam100 shuffled n 25 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 4718592 46s
+[   625s] scale_lam100 real n 25 d 4 {'teach_rep': 0.8889, 'teach_bbc': 0.8243, 'neigh_rep': 1.0} bytes 4718592 46s
+[   697s] scale_lam100 shuffled n 25 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 4718592 46s
+[   753s] scale_lam100 real n 12 d 0 {'teach_rep': 0.8889, 'teach_bbc': 0.768, 'neigh_rep': 0.9968} bytes 4718592 39s
+[   816s] scale_lam100 real n 12 d 1 {'teach_rep': 0.7778, 'teach_bbc': 0.6059, 'neigh_rep': 1.0} bytes 4718592 40s
+[   873s] scale_lam100 real n 5 d 0 {'teach_rep': 0.6444, 'teach_bbc': 0.3514, 'neigh_rep': 1.0} bytes 4718592 37s
+[   938s] scale_lam100 real n 5 d 1 {'teach_rep': 0.6444, 'teach_bbc': 0.3919, 'neigh_rep': 1.0} bytes 4718592 36s
+[   985s] cols_default real n 25 d 0 {'teach_rep': 0.8444, 'teach_bbc': 0.7905, 'neigh_rep': 0.9968} bytes 50343936 24s
+[  1030s] cols_default shuffled n 25 d 0 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 24s
+[  1068s] cols_default real n 25 d 1 {'teach_rep': 0.8889, 'teach_bbc': 0.9122, 'neigh_rep': 1.0} bytes 50343936 24s
+[  1114s] cols_default shuffled n 25 d 1 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 24s
+[  1153s] cols_default real n 25 d 2 {'teach_rep': 0.8889, 'teach_bbc': 0.9099, 'neigh_rep': 0.9968} bytes 50343936 24s
+[  1199s] cols_default shuffled n 25 d 2 {'teach_rep': 0.0, 'teach_bbc': 0.0045} bytes 50343936 24s
+[  1238s] cols_default real n 25 d 3 {'teach_rep': 0.8889, 'teach_bbc': 0.8243, 'neigh_rep': 1.0} bytes 50343936 24s
+[  1284s] cols_default shuffled n 25 d 3 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 23s
+[  1323s] cols_default real n 25 d 4 {'teach_rep': 0.8889, 'teach_bbc': 0.8446, 'neigh_rep': 1.0} bytes 50343936 24s
+[  1372s] cols_default shuffled n 25 d 4 {'teach_rep': 0.0, 'teach_bbc': 0.0} bytes 50343936 24s
+[  1404s] cols_default real n 12 d 0 {'teach_rep': 0.8889, 'teach_bbc': 0.8266, 'neigh_rep': 1.0} bytes 50343936 18s
+[  1447s] cols_default real n 12 d 1 {'teach_rep': 0.8, 'teach_bbc': 0.6509, 'neigh_rep': 1.0} bytes 50343936 18s
+[  1483s] cols_default real n 5 d 0 {'teach_rep': 0.7556, 'teach_bbc': 0.5338, 'neigh_rep': 0.9968} bytes 50343936 15s
+[  1524s] cols_default real n 5 d 1 {'teach_rep': 0.8, 'teach_bbc': 0.6351, 'neigh_rep': 0.9968} bytes 50343936 15s
+[  1524s] DONE
