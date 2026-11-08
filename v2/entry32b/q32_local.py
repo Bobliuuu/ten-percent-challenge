@@ -133,10 +133,12 @@ def _impl(cfg):
             Wq = (C[idx].reshape(idx.shape[0], -1)) * sigma; Wq = rout.inv(Wq.T.contiguous()).T.contiguous(); return rin.inv(Wq)
         SEEDP = ((str(cfg["seed"]) + ":") if cfg.get("seed") else "").encode()
         # calibration stream
-        cc = [json.loads(l) for l in open(HERE + "/" + cfg.get("calib_file", "calib_inj.jsonl"))]
+        cc = [json.loads(l) for l in open(cfg.get("calib_file") if str(cfg.get("calib_file", "")).startswith("/") else HERE + "/" + cfg.get("calib_file", "calib_inj.jsonl"))]
         def chat(u): return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
         if cfg.get("balance"):
-            ci_ = [c for c in cc if c["answer"] == "Injection"]; cb_ = [c for c in cc if c["answer"] == "Benign"]; nb_ = min(len(ci_), len(cb_)); cc = ci_[:nb_] + cb_[:nb_]
+            by_ = collections.defaultdict(list)
+            for c in cc: by_[c["answer"]].append(c)
+            nb_ = min(len(v) for v in by_.values()); nb_ = min(nb_, cfg.get("bal_max", 10 ** 9)); cc = [c for v in by_.values() for c in v[:nb_]]
         if cfg.get("selfdist"):   # answers = the BASE model's own greedy generation (fp weights, before any quantisation); not shipped
             tok.padding_side = "left"; outs = []
             for b0_ in range(0, len(cc), 8):
@@ -312,7 +314,9 @@ def _impl(cfg):
     outd = f"/opt/dlami/nvme/tmp/q_{name}"; model.save_pretrained(outd, safe_serialization=True); tok.save_pretrained(outd)
     layers = l = cur = kw = Catcher = None; model.model.layers = None; del model; gc.collect(); torch.cuda.empty_cache(); print('free GB after cleanup', [torch.cuda.mem_get_info(i)[0] / 2**30 for i in range(torch.cuda.device_count())], flush=True)
     for f in ("vllm_real.py", "inj_scorer.py", "toolsel_scorer.py", "inj_items.jsonl", "toolsel_items.jsonl"): pass
-    os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng); r = subprocess.run(f"python {HERE}/vreal2.py {outd} /opt/dlami/nvme/tmp/real_{name}_inj.json", shell=True, cwd=HERE); print("vllm rc", r.returncode, flush=True)
+    if not cfg.get("skip_eval"):
+        os.environ["VLLM_UTIL"] = str(cfg.get("vllm_util", 0.5)); os.environ["VLLM_TP"] = str(ng)
+        r = subprocess.run(f"python {HERE}/vreal2.py {outd} /opt/dlami/nvme/tmp/real_{name}_inj.json", shell=True, cwd=HERE); print("vllm rc", r.returncode, flush=True)
     f = f"/opt/dlami/nvme/tmp/real_{name}_inj.json"
     if os.path.exists(f): res["real_inj"] = json.load(open(f))["rows"]
     res["secs"] = time.time() - t0; json.dump(res, open(f"/opt/dlami/nvme/data/vol/res/{name}.json", "w")); vol.commit()
