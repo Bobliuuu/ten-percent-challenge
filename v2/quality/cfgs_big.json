@@ -1,0 +1,2 @@
+[{"name":"q32_vq8_k13_g1M","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","D":8,"K":8192,"gen_tokens":1000000,"ncal":2048,"maxmem_list":["28GiB","40GiB"],"vllm_util":0.8,"base_name":"base32b"},
+ {"name":"base32b","mode":"base","model":"Qwen/Qwen2.5-32B-Instruct","size":"big","emb4":false,"maxmem_list":["40GiB","40GiB"],"vllm_util":0.8}]

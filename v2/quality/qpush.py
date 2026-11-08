@@ -17,7 +17,7 @@ def _impl(cfg):
     t0 = time.time(); dev = "cuda"; name = cfg["name"]; M = cfg.get("model", "Qwen/Qwen2.5-7B-Instruct"); os.makedirs("/vol/res", exist_ok=True)
     tok = AutoTokenizer.from_pretrained(M)
     ng = torch.cuda.device_count()
-    model = (AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="auto", max_memory={i: cfg.get("maxmem", "46GiB") for i in range(ng)}) if ng > 1 else AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="cuda")).eval(); model.config.use_cache = False
+    model = (AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="auto", max_memory=({i: v for i, v in enumerate(cfg["maxmem_list"])} if cfg.get("maxmem_list") else {i: cfg.get("maxmem", "46GiB") for i in range(ng)})) if ng > 1 else AutoModelForCausalLM.from_pretrained(M, torch_dtype=torch.bfloat16, device_map="cuda")).eval(); model.config.use_cache = False
     vol.commit()
     base_params = sum(p.numel() for p in model.parameters()); res = dict(name=name, cfg=cfg, base_params=base_params)
     # ---------------- general MC + ppl/KL (same sets/prompt as harness/validity/general_remote.py)
