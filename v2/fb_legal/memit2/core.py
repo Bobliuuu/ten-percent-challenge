@@ -1,5 +1,8 @@
 """core of memit2 (hot-loadable)."""
-import json, os
+import json, os, gc
+try:
+    import torch as _t; gc.collect(); _t.cuda.empty_cache()
+except Exception: pass
 
 def _run(A):
     import time, hashlib, random, collections, numpy as np, torch
@@ -270,7 +273,7 @@ def _run(A):
     for cell in A["cells"]:
         Ls = cell["layers"]; lam = cell["lam"]; tgt = cell.get("tgt", "adam"); m = cell.get("m", 6.0); n = cell["n"]; qb = cell.get("qbits"); tag = cell.get("tag", "")
         cell_runs = []; A["vnll"] = cell.get("vnll", 0.02); A["f32cell"] = cell.get("f32", False); A["vsteps"] = cell.get("vsteps", A.get("vsteps", 30))
-        for d in range(cell.get("ndraw", 1)):
+        for d in range(cell.get("d0", 0), cell.get("d0", 0) + cell.get("ndraw", 1)):
             cs = conds(n, d)
             for cn in cell.get("conds", ["real", "shuffle", "wrong"]):
                 if cn == "empty": apply_empty(Ls, qb); info = dict(site_ok=-1.0)
