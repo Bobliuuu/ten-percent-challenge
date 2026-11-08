@@ -1,0 +1,74 @@
+{
+ "model": "/root/q32_s7",
+ "q4": false,
+ "task": "SKILL7",
+ "ndraw": 5,
+ "ns": [
+  12,
+  25
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong"
+ ],
+ "ncal": 300,
+ "primary": "o_prot_c1536_m32 (fixed a priori from FEEDBACK_ABLATION finding 5/9, before any exam item was scored)",
+ "methods": [
+  {
+   "tag": "o_prot_c1536_m32",
+   "carrier": "o",
+   "solver": "prot",
+   "m": 32,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "cols": 1536
+  },
+  {
+   "tag": "o_prot_c2048_m32",
+   "carrier": "o",
+   "solver": "prot",
+   "m": 32,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "cols": 2048
+  },
+  {
+   "tag": "down_prot_c2048_m16",
+   "carrier": "down",
+   "solver": "prot",
+   "m": 16,
+   "lam": 1000,
+   "awt": 10,
+   "layers": [
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "cols": 2048
+  }
+ ]
+}

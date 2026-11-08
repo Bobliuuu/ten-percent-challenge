@@ -1,0 +1,1 @@
+[{"name": "S7F_base", "mode": "ctbase", "ct_bs": 4, "gen": 1, "gen_bs": 16}, {"name": "S7F_d0", "seed": 0, "sens_tag": "s7b", "ctasks": 1, "calib_ct": 1, "target_ratio": 0.0985, "emb_L": 4, "head_L": 4, "g": 256, "ct_bs": 4, "ncal": 128, "variants": ["q"], "gen": 1, "gen_bs": 16, "pack_dir": "/root/pk", "save_dir": "/root/q32_s7"}]
