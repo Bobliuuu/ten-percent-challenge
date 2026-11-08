@@ -19,13 +19,13 @@ def rtn_apply(w, sc, bits=4, g=128):
     return ((w.float().view(R, C // g, g) / s).round().clamp(-qm - 1, qm) * s).view(R, C)
 
 class Env:
-    def __init__(s, model, data_dir, q4=False, ncal=300, qbits=4, dev="cuda", log=print):
+    def __init__(s, model, data_dir, q4=False, ncal=300, qbits=4, raw=False, dev="cuda", log=print):
         s.log = log; s.dev = dev; s.T0 = time.time(); s.data_dir = data_dir
         s.tok = AutoTokenizer.from_pretrained(model); s.tok.padding_side = "right"
         s.lm = AutoModelForCausalLM.from_pretrained(model, torch_dtype=torch.bfloat16).to(dev).eval()
         for p in s.lm.parameters(): p.requires_grad_(False)
         s.m = s.lm.model; s.L = s.m.layers; s.NL = len(s.L); s.D = s.lm.config.hidden_size; s.EPS = s.lm.config.rms_norm_eps
-        s.q4 = q4; s.scales = {}; s.qbits = qbits
+        s.q4 = q4; s.scales = {}; s.qbits = qbits; s.raw = raw
         if q4:
             with torch.no_grad():
                 for li, lyr in enumerate(s.L):
@@ -48,7 +48,7 @@ class Env:
     def chat(s, u):
         try: return s.tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
         except TypeError: return s.tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
-    def pid(s, text): return s.tok(s.chat(PROMPT.replace("{X}", text)), add_special_tokens=False).input_ids
+    def pid(s, text): return s.tok(s.chat(text if s.raw else PROMPT.replace("{X}", text)), add_special_tokens=False).input_ids
     @torch.no_grad()
     def gen_ids(s, pids, mx, bs=48):
         out = [None] * len(pids); order = sorted(range(len(pids)), key=lambda i: len(pids[i]))
