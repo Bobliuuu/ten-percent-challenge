@@ -349,3 +349,16 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 
 ## L9b (Qwen3.5-35B-A3B real packed artifact) 2026-11-08
 modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6XHN7ZRPE9NAX (2xA100-80)
+- 2026-11-08T15:44Z vast id 59730234 tenpct-L12A destroyed after 0.18 h (~$0.22)
+- 2026-11-08T15:45Z vast id 59731591 label tenpct-L12A GPU A100 SXM4 80GB $1.267/h (+5% guard) started
+- 2026-11-08T15:45Z vast id 59730392 tenpct-L12B destroyed after 0.17 h (~$0.21)
+- 2026-11-08T15:45Z vast id 59730346 tenpct-l13b destroyed after 0.18 h (~$0.10)
+- 2026-11-08T15:46Z vast id 59730572 tenpct-l13a destroyed after 0.17 h (~$0.10)
+- 2026-11-08T15:47Z vast id 59731894 label tenpct-l13b GPU RTX 4090 48GB $0.442/h (+5% guard) started
+- 2026-11-08T15:48Z vast id 59732045 label tenpct-l13a GPU RTX 4090 48GB $0.472/h (+5% guard) started
+- 2026-11-08 L11 A1b (A1 remainder after OOM, cache leak fixed) on tenpct-fbabl
+- 2026-11-08T15:52Z vast id 59732440 label tenpct-L12B GPU A100 SXM4 80GB $1.230/h (+5% guard) started
+- 2026-11-08T16:01Z vast id 59723282 tenpct-x03p11 destroyed after 1.44 h (~$0.77)
+- 2026-11-08T16:02Z vast id 59731894 tenpct-l13b destroyed after 0.24 h (~$0.10)
+- 2026-11-08 modal tenpct-l13 job b (14B BANK8 subset arms) spawned detached; vast l13a/l13b abandoned (ssh timeouts), instances destroyed
+- 2026-11-08T16:03Z vast id 59733634 label tenpct-L12C GPU RTX PRO 6000 WS 96GB $1.401/h (+5% guard) started

@@ -1,0 +1,108 @@
+{
+ "model": "prism-ml/Ternary-Bonsai-27B-unpacked",
+ "files": {
+  ".gitattributes": 1570,
+  "LICENSE": 11343,
+  "LICENSE.txt": 10174,
+  "NOTICE.txt": 411,
+  "README.md": 1522,
+  "chat_template.jinja": 7764,
+  "config.json": 4308,
+  "configuration.json": 51,
+  "finished.txt": 336,
+  "generation_config.json": 202,
+  "merges.txt": 3353259,
+  "model-00001-of-00012.safetensors": 2542796928,
+  "model-00002-of-00012.safetensors": 4842451936,
+  "model-00003-of-00012.safetensors": 4965228032,
+  "model-00004-of-00012.safetensors": 4933789808,
+  "model-00005-of-00012.safetensors": 4965228032,
+  "model-00006-of-00012.safetensors": 4911753512,
+  "model-00007-of-00012.safetensors": 4965228016,
+  "model-00008-of-00012.safetensors": 4933789824,
+  "model-00009-of-00012.safetensors": 4965228016,
+  "model-00010-of-00012.safetensors": 4933789824,
+  "model-00011-of-00012.safetensors": 4911732744,
+  "model-00012-of-00012.safetensors": 2842590120,
+  "model.safetensors.index.json": 111073,
+  "preprocessor_config.json": 390,
+  "processor_config.json": 44,
+  "tokenizer.json": 12807982,
+  "tokenizer_config.json": 16718,
+  "video_preprocessor_config.json": 385,
+  "vocab.json": 6722759
+ },
+ "params_total": 27356728560,
+ "family_params": {
+  "linear": 24352522240,
+  "norm_bias": 674816,
+  "other": 4608,
+  "head": 1271398400,
+  "embed": 1271398400,
+  "modality": 460730096
+ },
+ "family_pct_of_base": {
+  "linear": 89.01840067093168,
+  "norm_bias": 0.002466727695601334,
+  "other": 1.6844119317459792e-05,
+  "head": 4.647479676568461,
+  "embed": 4.647479676568461,
+  "modality": 1.6841564041164723
+ },
+ "dup_shape_candidates": {
+  "(248320, 5120)": 2
+ },
+ "has_lm_head": true,
+ "small_files": {
+  "model.safetensors.index.json": {
+   "bytes": 111073,
+   "xz": 2376,
+   "zstd19": 2784
+  },
+  "config.json": {
+   "bytes": 4308,
+   "xz": 872,
+   "zstd19": 795
+  },
+  "chat_template.jinja": {
+   "bytes": 7764,
+   "xz": 1852,
+   "zstd19": 1764
+  },
+  "preprocessor_config.json": {
+   "bytes": 390,
+   "xz": 236,
+   "zstd19": 180
+  },
+  "generation_config.json": {
+   "bytes": 202,
+   "xz": 172,
+   "zstd19": 123
+  },
+  "tokenizer_config.json": {
+   "bytes": 16718,
+   "xz": 2536,
+   "zstd19": 2499
+  },
+  "merges.txt": {
+   "bytes": 3353259,
+   "xz": 1040600,
+   "zstd19": 1073609
+  },
+  "vocab.json": {
+   "bytes": 6722759,
+   "xz": 1349552,
+   "zstd19": 1593306
+  },
+  "tokenizer.json": {
+   "bytes": 12807982,
+   "xz": 2457348,
+   "zstd19": 2757769
+  }
+ },
+ "small_files_total": 23024455,
+ "small_files_xz_total": 4855544,
+ "linear": [],
+ "remainder": [],
+ "discrete": []
+}
