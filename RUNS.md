@@ -142,3 +142,4 @@ fix_real launch 2026-11-07T14:10:15Z: app tenpct-fixreal, cfgs v2/fix_real/cfgs1
 - 2026-11-08 fb_legal bonsai_flip (flipz sign-bit patch), bonsai_diag/diag2
 - 2026-11-08 fb_legal cfgs8: bonsai_fp16patch, q3_inj_noeos
 - 2026-11-07 TASK_SEARCH NEWS exact-config probe: jobs4.json.calls (14B,32B)
+- 2026-11-07 TASK_SEARCH INJR (tournament INJ dev data) probe: jobs5.json.calls
