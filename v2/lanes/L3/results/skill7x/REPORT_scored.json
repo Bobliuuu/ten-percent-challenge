@@ -1,0 +1,300 @@
+{
+ "task": "SKILL7",
+ "before_feedback": {
+  "overall": {
+   "n": 2632,
+   "kept": 2614,
+   "ret": 0.993161094224924,
+   "wilson_lo": 0.989214987807433
+  },
+  "by_kind": {
+   "Alarm": {
+    "n": 414,
+    "kept": 414,
+    "ret": 1.0,
+    "wilson_lo": 0.9908060853682352
+   },
+   "Calendar": {
+    "n": 302,
+    "kept": 292,
+    "ret": 0.9668874172185431,
+    "wilson_lo": 0.9401294550547205
+   },
+   "Lists": {
+    "n": 327,
+    "kept": 326,
+    "ret": 0.9969418960244648,
+    "wilson_lo": 0.9828832326529092
+   },
+   "Music": {
+    "n": 413,
+    "kept": 412,
+    "ret": 0.9975786924939467,
+    "wilson_lo": 0.9864135807948048
+   },
+   "News": {
+    "n": 403,
+    "kept": 400,
+    "ret": 0.9925558312655087,
+    "wilson_lo": 0.9783445579622169
+   },
+   "Transport": {
+    "n": 356,
+    "kept": 354,
+    "ret": 0.9943820224719101,
+    "wilson_lo": 0.9797501635722361
+   },
+   "Weather": {
+    "n": 417,
+    "kept": 416,
+    "ret": 0.9976019184652278,
+    "wilson_lo": 0.9865426778477084
+   }
+  },
+  "by_src": {
+   "clinc150": {
+    "n": 533,
+    "kept": 531,
+    "ret": 0.9962476547842402,
+    "wilson_lo": 0.986422694988084
+   },
+   "hwu64": {
+    "n": 592,
+    "kept": 590,
+    "ret": 0.9966216216216216,
+    "wilson_lo": 0.9877663985452574
+   },
+   "massive": {
+    "n": 662,
+    "kept": 651,
+    "ret": 0.9833836858006042,
+    "wilson_lo": 0.9704926314919297
+   },
+   "mtop": {
+    "n": 845,
+    "kept": 842,
+    "ret": 0.9964497041420118,
+    "wilson_lo": 0.9896139642040223
+   }
+  },
+  "base_acc": 0.9591836734693877,
+  "n_items": 2744,
+  "n_per_kind": {
+   "News": 420,
+   "Transport": 360,
+   "Music": 420,
+   "Weather": 420,
+   "Lists": 344,
+   "Calendar": 360,
+   "Alarm": 420
+  },
+  "never_used_source_items": 1489,
+  "never_used_retention": {
+   "n": 1437,
+   "kept": 1432,
+   "ret": 0.9965205288796103,
+   "wilson_lo": 0.9918804802767308
+  },
+  "gate_overall_98": true,
+  "gate_kind_95": true,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": true,
+   "never_used_ge_500": true
+  }
+ },
+ "before_feedback_clean_only": {
+  "overall": {
+   "n": 2113,
+   "kept": 2099,
+   "ret": 0.9933743492664459,
+   "wilson_lo": 0.9889088150604743
+  },
+  "by_kind": {
+   "Alarm": {
+    "n": 355,
+    "kept": 355,
+    "ret": 1.0,
+    "wilson_lo": 0.9892944407783268
+   },
+   "Calendar": {
+    "n": 283,
+    "kept": 273,
+    "ret": 0.9646643109540636,
+    "wilson_lo": 0.936187019839339
+   },
+   "Lists": {
+    "n": 207,
+    "kept": 207,
+    "ret": 1.0,
+    "wilson_lo": 0.9817796867411365
+   },
+   "Music": {
+    "n": 328,
+    "kept": 327,
+    "ret": 0.9969512195121951,
+    "wilson_lo": 0.9829347941101932
+   },
+   "News": {
+    "n": 366,
+    "kept": 364,
+    "ret": 0.994535519125683,
+    "wilson_lo": 0.9802972171767171
+   },
+   "Transport": {
+    "n": 233,
+    "kept": 233,
+    "ret": 1.0,
+    "wilson_lo": 0.983779876508181
+   },
+   "Weather": {
+    "n": 341,
+    "kept": 340,
+    "ret": 0.9970674486803519,
+    "wilson_lo": 0.9835778901355177
+   }
+  },
+  "by_src": {
+   "clinc150": {
+    "n": 293,
+    "kept": 293,
+    "ret": 1.0,
+    "wilson_lo": 0.9870584176880869
+   },
+   "hwu64": {
+    "n": 592,
+    "kept": 590,
+    "ret": 0.9966216216216216,
+    "wilson_lo": 0.9877663985452574
+   },
+   "massive": {
+    "n": 383,
+    "kept": 374,
+    "ret": 0.9765013054830287,
+    "wilson_lo": 0.955949524352742
+   },
+   "mtop": {
+    "n": 845,
+    "kept": 842,
+    "ret": 0.9964497041420118,
+    "wilson_lo": 0.9896139642040223
+   }
+  },
+  "base_acc": 0.955244122965642,
+  "n_items": 2212,
+  "n_per_kind": {
+   "News": 379,
+   "Transport": 236,
+   "Lists": 223,
+   "Music": 335,
+   "Weather": 344,
+   "Calendar": 337,
+   "Alarm": 358
+  },
+  "never_used_source_items": 1489,
+  "never_used_retention": {
+   "n": 1437,
+   "kept": 1432,
+   "ret": 0.9965205288796103,
+   "wilson_lo": 0.9918804802767308
+  },
+  "gate_overall_98": true,
+  "gate_kind_95": true,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": false,
+   "never_used_ge_500": true
+  }
+ },
+ "fb": {
+  "real": {
+   "tag": "real",
+   "teach": 0.7987804878048781,
+   "teach_by_src": {
+    "clinc150": 0.6666666666666666,
+    "hwu64": 0.8666666666666667,
+    "massive": 1.0,
+    "mtop": 0.83
+   },
+   "neigh": 0.9920212765957447,
+   "neigh_lo": 0.9878328687824429,
+   "n_neigh": 2632,
+   "min_cell": 0.9722222222222222,
+   "leak": 0.0,
+   "n_sites": 24
+  },
+  "shuffled": {
+   "tag": "shuffled",
+   "teach": 0.0,
+   "teach_by_src": {
+    "clinc150": 0.0,
+    "hwu64": 0.0,
+    "massive": 0.0,
+    "mtop": 0.0
+   },
+   "neigh": 0.9954441913439636,
+   "neigh_lo": 0.9883447578442988,
+   "n_neigh": 878,
+   "min_cell": 0.9666666666666667,
+   "leak": 0.0,
+   "n_sites": 24
+  },
+  "wrong": {
+   "tag": "wrong",
+   "teach": 0.0,
+   "teach_by_src": {
+    "clinc150": 0.0,
+    "hwu64": 0.0,
+    "massive": 0.0,
+    "mtop": 0.0
+   },
+   "neigh": 0.989749430523918,
+   "neigh_lo": 0.980633861802208,
+   "n_neigh": 878,
+   "min_cell": 0.9183673469387755,
+   "leak": 0.0,
+   "n_sites": 18
+  }
+ },
+ "fb_empty": {
+  "tag": "empty",
+  "teach": 0.0,
+  "teach_by_src": {
+   "clinc150": 0.0,
+   "hwu64": 0.0,
+   "massive": 0.0,
+   "mtop": 0.0
+  },
+  "neigh": 0.9927811550151976,
+  "neigh_lo": 0.9887522199006372,
+  "n_neigh": 2632,
+  "min_cell": 0.9452054794520548,
+  "cells": {
+   "clinc150|Alarm": 1.0,
+   "clinc150|Calendar": 1.0,
+   "clinc150|Lists": 1.0,
+   "clinc150|Music": 1.0,
+   "clinc150|Transport": 0.984,
+   "clinc150|Weather": 1.0,
+   "hwu64|Alarm": 1.0,
+   "hwu64|Calendar": 0.975,
+   "hwu64|Lists": 1.0,
+   "hwu64|Music": 1.0,
+   "hwu64|News": 1.0,
+   "hwu64|Transport": 1.0,
+   "hwu64|Weather": 1.0,
+   "massive|Alarm": 1.0,
+   "massive|Calendar": 0.9452,
+   "massive|Lists": 0.9907,
+   "massive|Music": 0.9808,
+   "massive|News": 0.988,
+   "massive|Transport": 1.0,
+   "massive|Weather": 1.0,
+   "mtop|Alarm": 1.0,
+   "mtop|Music": 1.0,
+   "mtop|News": 0.9885,
+   "mtop|Weather": 0.9959
+  },
+  "leak": 0.0
+ }
+}

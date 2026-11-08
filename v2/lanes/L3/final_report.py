@@ -8,9 +8,12 @@ bok = {i: o == by[i]["answer"] for i, o in zip(base["ids"], base["outs"])}; qok 
 out = dict(task=task, before_feedback=loader.report(items, bok, qok), before_feedback_clean_only=loader.report([i for i in items if i.get("tier", "clean") == "clean"], bok, qok))
 fb = json.load(open(f"{d}/fb_{ds}.json")) if os.path.exists(f"{d}/fb_{ds}.json") else None
 if fb:
-    real = fb["draws"][0]["real"]; aok = {i: o == by[i]["answer"] for i, o in real["neigh_outs"].items()}
-    for i in bok: aok.setdefault(i, False)
-    out["after_feedback"] = loader.report(items, bok, aok); out["fb"] = {k: fb["draws"][0][k] for k in fb["draws"][0] if k in ("real", "shuffled", "wrong")}; out["fb_empty"] = fb["empty"]
+    real = fb["draws"][0]["real"]
+    if "neigh_outs" in real:
+        aok = {i: o == by[i]["answer"] for i, o in real["neigh_outs"].items()}
+        for i in bok: aok.setdefault(i, False)
+        out["after_feedback"] = loader.report(items, bok, aok)
+    out["fb"] = {k: fb["draws"][0][k] for k in fb["draws"][0] if k in ("real", "shuffled", "wrong")}; out["fb_empty"] = fb["empty"]
     for k in ("real", "shuffled", "wrong"):
         out["fb"][k] = {a: b for a, b in out["fb"].get(k, {}).items() if a not in ("neigh_outs", "teach_outs", "cells")}
 print(json.dumps(out, indent=1))
