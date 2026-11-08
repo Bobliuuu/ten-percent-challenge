@@ -52,7 +52,7 @@ if __name__ == "__main__":
         its = [item(src, role, r[0], r[1], r[2]) for v in sel.values() for r in v]; files[name] = its
         open(name + ".jsonl", "w").write("".join(json.dumps(i) + "\n" for i in its)); print(name, len(its), dict(collections.Counter(i["kind"] for i in its)))
     s, c = take(ag, 150, "news-s1dev", 60, 70); dump("s1_dev", s, "S1", "ag_news"); plan["ag_dev_bucket_counts"] = c
-    s, c = take(ag, 100, "news-calib", 0, 60); dump("calib", s, "S1", "ag_news")   # calibration text for compressors; first 100/class, disjoint from dev by bucket
+    s, c = take(ag, 250, "news-calib", 0, 60); dump("calib", s, "S1", "ag_news")   # calibration text for compressors; first 100/class, disjoint from dev by bucket
     s, c = take(bbc, 150, "news-s3dev", 0, 100); dump("s3_dev", s, "S3", "bbc_news"); plan["bbc_counts"] = c
     s, c = take(hp, 100, "news-s2probe", 0, 10); dump("s2probe", s, "S2probe", "huffpost"); plan["hp_probe_bucket_counts"] = c
     # locked candidate counts (labels only, no text written)

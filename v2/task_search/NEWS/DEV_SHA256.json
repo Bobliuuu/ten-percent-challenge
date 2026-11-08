@@ -1,7 +1,8 @@
 {
- "calib.jsonl": "43ef91c99c165d9a44ca27bb026bc3681a7b92975214bbadbdc7adbb269f8680",
+ "calib.jsonl": "81651203c2bc727fbd2be362b83d000d94fc6da80e652fc4c915c3af75123c08",
  "fb_annot_25.jsonl": "5704ea37bbe0e684ca3d4c86ac691462da7bc027feb6e3689bd86f86889b7c33",
  "fb_teach_unseen_200.jsonl": "d64150434a8f232a3415cd469807dbeffc7f550efdf3af447ce999c9fd4d00ea",
+ "items_dev.jsonl": "84159e53184655566e2aa8dc8c77f1b82b48753ae337acec955f2996c7cd86bc",
  "s1_dev.jsonl": "5b3ebe9e4d3f8e47ef80fcc6172c4fb1305574f26b5248bb9d036a3f14eaa101",
  "s2probe.jsonl": "aeaa0b85b4aa56cfb66695d525ff3dee58e23474a0c39b8b4c73557e9ce983e9",
  "s3_dev.jsonl": "4a6ba5839e6cb1ff00e711aa1bd80e92c63dc3f212c3eb6abc05f4f155dc8039"
