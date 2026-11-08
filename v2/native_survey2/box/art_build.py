@@ -30,7 +30,7 @@ open(out + "/rowbase.bin", "wb").write(b"".join(rowbase))
 open(out + "/scales.q.xz", "wb").write(lzma.compress(b"".join(qbytes), format=lzma.FORMAT_XZ, preset=9 | lzma.PRESET_EXTREME))
 small = {}
 for k in keys:
-    if k.endswith((".scales", ".biases", ".signs")): continue
+    if k.endswith((".scales", ".biases", ".signs")) or k.startswith("vision_tower"): continue
     if k.rsplit(".", 1)[0] in names and k.endswith(".weight"): continue
     t = f.get_tensor(k)
     if t.dtype in (torch.uint32, torch.int32): continue
@@ -42,7 +42,7 @@ json.dump({"K": K, "NV": NV, "index": index, "n_trit": n_trit}, open(out + "/ind
 psrc = snapshot_download("Qwen/Qwen3.8-27B", allow_patterns=["tokenizer.json", "tokenizer_config.json", "chat_template.jinja", "config.json", "generation_config.json", "vocab.json", "merges.txt"])
 if NV:
     tj = json.load(open(psrc + "/tokenizer.json")); m = tj["model"]
-    vocab = {t: i for t, i in m["vocab"].items() if i < NV}; merges = m["merges"][:NV - 256]
+    vocab = {t: i for t, i in m["vocab"].items() if i < NV}; merges = [mg for mg in m["merges"] if (lambda a, b: a in vocab and b in vocab and (a + b) in vocab)(*(mg if isinstance(mg, list) else mg.split(" ")))]
     sp = {}
     for a in tj["added_tokens"]: sp[a["id"]] = a
     new_added = []; mp = {}

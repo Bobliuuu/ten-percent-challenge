@@ -82,7 +82,7 @@ for fn in os.listdir(psrc):
 
 if NV:
     tj = json.load(open(out + "/tokenizer.json")); m = tj["model"]
-    m["vocab"] = {t: i for t, i in m["vocab"].items() if i < NV}; m["merges"] = m["merges"][:NV - 256]
+    m["vocab"] = {t: i for t, i in m["vocab"].items() if i < NV}; kv = m["vocab"]; m["merges"] = [mg for mg in m["merges"] if (lambda a, b: a in kv and b in kv and (a + b) in kv)(*(mg if isinstance(mg, list) else mg.split(" ")))]
     sp = {a["id"]: a for a in tj["added_tokens"]}; mp = {}; na = []
     for j, oid in enumerate(range(SPEC0, SPEC1)):
         a = dict(sp[oid]); a["id"] = NV + j; mp[oid] = NV + j; na.append(a)

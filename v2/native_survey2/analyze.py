@@ -7,10 +7,24 @@ def load(p, n):
     s = importlib.util.spec_from_file_location(n, p); m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
 T1 = load(V2 + "/tournament/T1/scorer.py", "t1s"); TOX = load(V2 + "/tournament/TOX/scorer.py", "toxs"); INJ = load(V2 + "/tournament/INJ/scorer.py", "injs")
 items = {json.loads(l)["id"]: json.loads(l) for l in open(V2 + "/tournament/T1/probe_items.jsonl")}
+import re
+def xml2json(txt):
+    """Qwen3.5+ XML tool calls -> Qwen3 JSON <tool_call> blocks (scorer format)."""
+    def conv(m):
+        body = m.group(1); fm = re.search(r"<function=([^>\n]+)>(.*?)</function>", body, re.S)
+        if not fm: return m.group(0)
+        args = {}
+        for pm in re.finditer(r"<parameter=([^>\n]+)>\n?(.*?)\n?</parameter>", fm.group(2), re.S):
+            v = pm.group(2)
+            try: v = json.loads(v)
+            except Exception: pass
+            args[pm.group(1)] = v
+        return "<tool_call>\n" + json.dumps({"name": fm.group(1).strip(), "arguments": args}) + "\n</tool_call>"
+    return re.sub(r"<tool_call>(.*?)</tool_call>", conv, txt, flags=re.S)
 def ok_rows(R):
     rows = {}
     for r in R["t1"]:
-        it = items[r["id"]]; txt = r["out"].split("<|im_end|>")[0]
+        it = items[r["id"]]; txt = xml2json(r["out"].split("<|im_end|>")[0])
         try: ok = bool(T1.score_item(txt, it)["correct"])
         except Exception: ok = False
         rows[("t1", r["id"])] = (ok, ("T1", r["source"], r["kind"]))

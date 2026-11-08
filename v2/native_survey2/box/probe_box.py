@@ -12,7 +12,7 @@ def run(model, tag, max_len=6144):
     for f in ("s1_dev.jsonl", "s3_dev.jsonl"): cls += [("tox", json.loads(l)) for l in open(D+"/tox_" + f)]
     for f in ("dev_S1.jsonl", "dev_S3.jsonl"): cls += [("inj", json.loads(l)) for l in open(D+"/inj_" + f)]
     random.Random(0).shuffle(cls); cls = cls[:1400]
-    llm = LLM(src, dtype="bfloat16", max_model_len=max_len, gpu_memory_utilization=0.92, enforce_eager=False, limit_mm_per_prompt={"image": 0})
+    llm = LLM(src, dtype="bfloat16", max_model_len=max_len, gpu_memory_utilization=0.92, enforce_eager=False, max_num_seqs=256, limit_mm_per_prompt={"image": 0})
     tok = llm.get_tokenizer()
     def tpl(msgs, tools=None): return tok.apply_chat_template(msgs, tools=tools, add_generation_prompt=True, tokenize=False, enable_thinking=False)
     p1 = [tpl([{"role": "user", "content": it["query"]}], [{"type": "function", "function": t} for t in it["tools"]]) for it in t1]
