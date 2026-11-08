@@ -1,0 +1,31 @@
+[modal-client] 2026-11-08T09:11:26-0500 Warning: Received Status.RESOURCE_EXHAUSTED
+App create rate limit exceeded. Please wait and retry.
+for /modal.client.ModalClient/AppCreate (bc7bf292). Retrying...
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-1ijOLCu4ciOBrFYZBkR0fJ
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/modal_run.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/task_search/../compress/dense/dense_data.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/INJR/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/NEWS/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/calib2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/EASY/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/items2.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/calib.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/T2/items_dev.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/task_search/dense_core.py
+├── ✓ Created Function go_s.
+└── ✓ Created Function go_m.
+('Qwen/Qwen2.5-14B-Instruct', 'eb', 'fc-01M6XR0F50MF3QWR3QZQ7MYKT2')
+('Qwen/Qwen2.5-14B-Instruct', 'er985', 'fc-01M6XR0F7RNBPDV1JR7R569YX8')
+('Qwen/Qwen2.5-32B-Instruct', 'eb', 'fc-01M6XR0FASFPN7STH6YXX78D0R')
+('Qwen/Qwen2.5-32B-Instruct', 'er985', 'fc-01M6XR0FDHGR99KP59034892ZT')
+('Qwen/Qwen3-14B', 'eb', 'fc-01M6XR0FG6AMSH4Y9KMJQ21GR8')
+('Qwen/Qwen3-14B', 'er985', 'fc-01M6XR0FKG2NRXVMNJGFXQW558')
+[modal-client] 2026-11-08T09:11:56-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-1ijOLCu4ciOBrFYZBkR0fJ

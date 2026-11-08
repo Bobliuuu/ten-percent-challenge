@@ -1,0 +1,98 @@
+[
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "eb",
+"size": "s",
+"gpu_load": true,
+"easy": true,
+"cfgs": [
+{
+"name": "e_bf16",
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-14B-Instruct",
+"tag": "er985",
+"size": "s",
+"gpu_load": true,
+"easy": true,
+"cfgs": [
+{
+"name": "e_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "eb",
+"size": "m",
+"gpu_load": false,
+"easy": true,
+"cfgs": [
+{
+"name": "e_bf16",
+"gen_bs": 12,
+"ct_bs": 2
+}
+]
+},
+{
+"model": "Qwen/Qwen2.5-32B-Instruct",
+"tag": "er985",
+"size": "m",
+"gpu_load": false,
+"easy": true,
+"cfgs": [
+{
+"name": "e_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 12,
+"ct_bs": 2
+}
+]
+},
+{
+"model": "Qwen/Qwen3-14B",
+"tag": "eb",
+"size": "s",
+"gpu_load": true,
+"easy": true,
+"cfgs": [
+{
+"name": "e_bf16",
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+},
+{
+"model": "Qwen/Qwen3-14B",
+"tag": "er985",
+"size": "s",
+"gpu_load": true,
+"easy": true,
+"cfgs": [
+{
+"name": "e_r985",
+"target_ratio": 0.0985,
+"emb_L": 4,
+"head_L": 4,
+"g": 256,
+"gen_bs": 48,
+"ct_bs": 8
+}
+]
+}
+]
