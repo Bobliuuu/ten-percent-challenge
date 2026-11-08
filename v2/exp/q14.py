@@ -281,17 +281,15 @@ def _impl(cfg):
 def _sens(cfg, model, layers, cur, kw, ev_ids, Rot, ldlq, get_cb, decode, SEEDP, groups, res, rd, t0, dev):
     """KL-sensitivity of each (layer, group): quantise ONLY that group at sens_K, measure KL(base || quantised) on held-out CAL sequences (forward only)."""
     sK = cfg.get("sens_K", 8192); C = get_cb(sK); sres = {}
-    def fwd_logits():
-        outs = []
-        with torch.no_grad():
-            for a in range(0, len(ev_ids), 3): outs.append(model(input_ids=ev_ids[a:a + 3].cuda()).logits.float().log_softmax(-1).cpu())
-        return torch.cat(outs)
-    lp0 = fwd_logits().half().cpu()
+    evb = [ev_ids[a:a + 3] for a in range(0, len(ev_ids), 3)]
+    def lsm(x):
+        with torch.no_grad(): return model(input_ids=x.cuda()).logits.float().log_softmax(-1)
+    lp0 = [lsm(x).half() for x in evb]      # reference log-probs stay on the GPU (fp16): no host transfers per measurement
     def klnow():
-        torch.cuda.empty_cache(); lq = fwd_logits(); tot = 0.0
-        for a in range(0, len(lq), 3):
-            r_ = lp0[a:a + 3].cuda().float(); tot += float((r_.exp() * (r_ - lq[a:a + 3].cuda())).sum())
-        return tot / (lq.shape[0] * lq.shape[1])
+        tot = 0.0; n = 0
+        for x, r_ in zip(evb, lp0):
+            lq = lsm(x); r = r_.float(); tot += float((r.exp() * (r - lq)).sum()); n += lq.shape[0] * lq.shape[1]; del lq, r
+        return tot / n
     res["sens_kl_offset"] = klnow()
     for li, l in enumerate(layers):
         Hs = {}; nsm = {}
