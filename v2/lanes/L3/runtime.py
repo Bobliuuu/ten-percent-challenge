@@ -41,7 +41,10 @@ def load(art, device="cuda"):
                 sd[p + f"mlp.experts.{j}.{mod}.weight"] = w.to(bf)
     for f in sorted(os.listdir(art)):   # feedback edits (dense replacement tensors), applied if present
         if f.startswith("edit_") and f.endswith(".pt"): sd.update({k: v.to(bf) for k, v in torch.load(f"{art}/{f}").items()})
-    model.load_state_dict(sd, strict=True, assign=True); model = model.to(device).eval()
+    model.load_state_dict(sd, strict=True, assign=True)
+    from transformers.models.qwen3_moe.modeling_qwen3_moe import Qwen3MoeRotaryEmbedding
+    model.model.rotary_emb = Qwen3MoeRotaryEmbedding(config=cfg)   # non-persistent buffer (inv_freq) is not in the state dict
+    model = model.to(device).eval()
     return model, AutoTokenizer.from_pretrained(art), json.load(open(f"{art}/task.json"))
 
 @torch.no_grad()
