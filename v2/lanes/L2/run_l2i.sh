@@ -1,7 +1,8 @@
 # closing gaps: (1) parent Qwen3.8-27B on the shared exam, (2) shipped CLIs end to end, (3) bytes audit on the exact tree
+WORK=${WORK:-$HOME/work}   # working dir on the build box (placeholder; was a hardcoded absolute path)
 gpu_free() { u=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1); [ "$u" -lt 3000 ]; }
 wait_gpu() { c=0; while [ $c -lt 2 ]; do if gpu_free && ! pgrep -f "fb27.py|probe2_box.py|fb27s.py|run_fb4.sh|qf.sh" >/dev/null; then c=$((c+1)); else c=0; fi; sleep 20; done; }
-export PATH=$HOME/v2env/bin:/usr/local/cuda-13.2/bin:$PATH CUDA_HOME=/usr/local/cuda-13.2 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HOME=/home/ubuntu/work/hf
+export PATH=$HOME/v2env/bin:/usr/local/cuda-13.2/bin:$PATH CUDA_HOME=/usr/local/cuda-13.2 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True HF_HOME=${HF_HOME:-$WORK/hf}
 cd ~/work; mkdir -p fbout7 L2out
 wait_gpu; [ -f out2/ex_parent.json ] || python probe2_box.py Qwen/Qwen3.8-27B ex_parent fbs7r/exam_probe.jsonl > fbout7/ex_parent.log 2>&1
 echo PARENT_DONE > L2out/PARENT_DONE

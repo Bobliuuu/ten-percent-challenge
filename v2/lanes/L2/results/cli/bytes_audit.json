@@ -1,5 +1,5 @@
 {
- "dir": "/home/ubuntu/work/ship_L2",
+ "dir": "$WORK/ship_L2",
  "base_fp16_bytes": 53808408928.0,
  "total_bytes": 5350214867,
  "pct_base": 9.943083197570513,

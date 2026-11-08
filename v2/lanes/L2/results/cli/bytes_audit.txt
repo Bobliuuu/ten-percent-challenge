@@ -1,4 +1,4 @@
-artifact: /home/ubuntu/work/ship_L2
+artifact: $WORK/ship_L2
 base fp16: 53,808.4 MB   cap 10.0% = 5,380.8 MB
 category           files           bytes  % of base fp16  % of cap
 weights                4   5,268,952,570         9.7921%    97.92%

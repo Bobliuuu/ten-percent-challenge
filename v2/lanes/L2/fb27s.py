@@ -3,12 +3,12 @@ new class 'Entertainment' (prompt does NOT list it; open tail). Arms real / shuf
 usage: fb27.py MODELDIR OUT.json [layers=62,63] [lam=1.0] [m=8] [f=1.0] [draws=4]"""
 import os, sys, json, random, time, math, collections
 import torch
-os.environ["HF_HOME"] = "/home/ubuntu/work/hf"
+os.environ.setdefault("HF_HOME", os.path.expanduser("~/hf_cache"))
 from transformers import AutoTokenizer, AutoModelForImageTextToText
 mdir, outp = sys.argv[1], sys.argv[2]
 LAYERS = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else "62,63").split(",")]; LAM = float(sys.argv[4]) if len(sys.argv) > 4 else 1.0
 M = float(sys.argv[5]) if len(sys.argv) > 5 else 8.0; F = float(sys.argv[6]) if len(sys.argv) > 6 else 1.0; DRAWS = int(sys.argv[7]) if len(sys.argv) > 7 else 4
-NEW = os.environ["NEWLAB"]; D = os.environ.get("FBDIR", "/home/ubuntu/work/fbs7"); rd = lambda n: [json.loads(l) for l in open(f"{D}/{n}.jsonl")]
+NEW = os.environ["NEWLAB"]; D = os.environ.get("FBDIR", "fbs7"); rd = lambda n: [json.loads(l) for l in open(f"{D}/{n}.jsonl")]
 ann, teach, neigh_pool, cal = rd("ann_" + NEW), rd("teach_" + NEW), rd("neigh"), rd("cal")
 tok = AutoTokenizer.from_pretrained(mdir); tok.padding_side = "left"
 model = AutoModelForImageTextToText.from_pretrained(mdir, dtype=torch.bfloat16, device_map={"": 0}).eval()

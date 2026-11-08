@@ -1,6 +1,6 @@
 # Extra GPU boxes (Track E infra)  -- updated 2026-11-07 00:20Z
 
-All: AWS acct 618283574049, profile `lab`, SSM-only (no inbound SG), `ssh tenpct-gN` via SSM ProxyCommand, key ~/.ssh/id_ed25519,
+All: AWS acct <ACCOUNT_ID>, profile `lab`, SSM-only (no inbound SG), `ssh tenpct-gN` via SSM ProxyCommand, key ~/.ssh/id_ed25519,
 env at /opt/dlami/nvme/work/venv (vllm 0.11.0, transformers 4.57.1), repo clone in /opt/dlami/nvme/work/repo, `~/READY` marks env done.
 Guards: on-host systemd poweroff (instance-initiated shutdown = terminate) at deadline + Mac backup `nohup local_guard.sh` (terminates at launch+8h20m;
 dies if the Mac reboots, so the on-host guard is the primary). Hand terminate: `AWS_PROFILE=lab aws ec2 terminate-instances --region R --instance-ids ID`.
@@ -51,7 +51,7 @@ tenpct-g3: on-host OnCalendar now 2026-11-08 00:07:35 UTC (verified `systemctl l
 Extend another box: `ssh tenpct-gN "sudo sed -i 's|^OnCalendar=.*|OnCalendar=YYYY-MM-DD HH:MM:SS UTC|' /etc/systemd/system/g7e-deadline.timer && sudo systemctl daemon-reload && sudo systemctl restart g7e-deadline.timer"`, then `pkill -f "local_guard.sh REGION INSTANCEID"` and restart local_guard.sh with new seconds (Mac guards die if the Mac reboots).
 
 ## How to file the quota increases yourself (console)
-1. Sign in to account 618283574049 as a user with Service Quotas rights (the `lab` CLI user cannot).
+1. Sign in to account <ACCOUNT_ID> as a user with Service Quotas rights (the `lab` CLI user cannot).
 2. Open https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas?region=us-east-1 (change `region=` for each region: us-east-2, us-west-2, eu-north-1, ap-south-1, ap-northeast-2).
 3. Search `Running On-Demand G and VT instances` (L-DB2E81BA): Request increase at account level, value 256 (vCPU). Repeat for `Running On-Demand P instances` (L-417A185B), value 384 for p5 (p5.48xlarge = 192 vCPU). Optional spot: `All G and VT Spot Instance Requests` (L-3819A6DF), `All P Spot Instance Requests` (L-7212CCBC).
 4. Direct URL pattern: https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-DB2E81BA?region=us-east-1 (swap code/region). Large asks may be routed to AWS Support; a case at https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase also works.

@@ -20,15 +20,31 @@
   "answer.py": 2223,
   "feedback.py": 1638,
   "fb27s.py": 10484,
-  "art_load.py": 2730
+  "art_load.py": 2730,
+  "annot.py": 919
  },
  "feedback_delta_bytes": 4508141,
  "feedback_file": "v2/lanes/L2/ship/feedback.pt",
  "fp16_denominator_bytes": 53808408928,
  "shipped_total_bytes": 5350214867,
  "pct_of_fp16": 9.9431,
- "note": "fp16 denominator is back-computed from the artifact report (TOTAL / pct_of_fp16); the start model is itself ternary, so base-identity vs rule 1 is gray. Hadamard sign file is inside small.pt/hadamard.json counted via art_load inputs? hadamard.json (152 KB) is NOT in the artifact byte list above: add it.",
+ "note": "fp16 denominator is back-computed from the artifact report (TOTAL / pct_of_fp16); the start model is itself ternary, so base-identity vs rule 1 is gray. Hadamard sign file is inside small.pt/hadamard.json counted via art_load inputs? hadamard.json (152 KB) is NOT in the artifact byte list above: it is in SHA256SUMS and counted in bytes_audit.",
  "hadamard_json_bytes": 152464,
  "bytes_audit": "results/cli/bytes_audit.txt (v2/tools/bytes_audit.py on the exact shipped tree: artifact + answer.py feedback.py fb27s.py art_load.py + feedback.pt + data/exam/{cal,neigh}.jsonl): 5,350,214,867 B = 9.9431% of 53,808,408,928, PASS, slack 30.6 MB",
- "durable_copy": "s3://tenpct-l2-artifact-618283574049/art_k16_f165k/ (AWS account of profile lab, region eu-north-1, private, public access blocked): all 13 artifact files, 5.3 GB; feedback.pt, code and data are in this repo (v2/lanes/L2/ship, v2/lanes/L2/*.py)"
+ "durable_copy": "private object-store copy (bucket and account id removed from the repo); integrity list in SHA256SUMS (13 artifact files incl. art_load.py, hadamard.json). Not uploaded anywhere public.",
+ "artifact_sha256": {
+  "art_load.py": "56878acebe26112c0630db1bc22b3a13b9ef902fb7dc81df3087aea4b651f28e",
+  "chat_template.jinja": "af16f654968d47d09a6c604e00370b12dbc21f76456f59c9e98b82e84d9f6375",
+  "config.json": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+  "generation_config.json": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+  "hadamard.json": "58f4ae1ce39b8598d97424ccbb1803006d987f3ec88d7b3b861a7cb8acd1ddd4",
+  "index.json": "ec4725910f8ce3320b04f766e51884bc3fe62b31c36d12cb6702672a1c96759e",
+  "rowbase.bin": "773828333d96adaf08477c344108d7a7d81cc35ff3fc1280da3894b275e47475",
+  "scales.q.xz": "0d8af584d56fd2508bdce8091eebf49019c0d7c0bfe0f57ce252fd5b97221896",
+  "small.pt": "aad4b5ca84244c59823749ff1eeb545c77a7d37a8d6683b0422c3ca7f30b3ba3",
+  "tokenizer.json": "6948b4ec5d5969feaded8f89679142eb7a66370afaebbd728239f4c44c2d6d37",
+  "tokenizer_config.json": "207c03c41a06a9c3b0cc527d8a56115159c1eac6b59a4ffae85b646e773d074e",
+  "trits.bin": "8c4e531aa11a6341c25d5af7c367269dd9bdc1c582b169c99319f2023e6f2846",
+  "vocabmap.json": "9d7380d70093e27b6cae2bc27b1d7fc04cb7a7fc66409084110b91bd70d60438"
+ }
 }
