@@ -1,0 +1,5 @@
+[
+ {"name":"S7_scalar","ctasks":1,"calib_ct":1,"target_ratio":0.0985,"emb_L":4,"head_L":4,"g":256,"ct_bs":4,"ncal":128,"variants":["q"],"sens_tag":"s7"},
+ {"name":"S7_base","mode":"ctbase","ct_bs":4},
+ {"name":"H_body","ctasks":1,"calib_ct":1,"target_ratio":0.0975,"emb_L":4,"head_L":4,"g":256,"ct_bs":2,"ncal":128,"variants":["q"],"sens_tag":"base","save_dir":"/root/q32_h"}
+]
