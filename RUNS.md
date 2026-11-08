@@ -300,3 +300,6 @@ census relaunch cen3 (SKILL7+BANK8): v2/model_census/jobs_census3.json.calls
 - 2026-11-08T14:39Z vast id 59724116 label tenpct-L11_C GPU RTX PRO 6000 Max-Q 96GB $1.338/h (+5% guard) started
 - 2026-11-08T14:40Z vast id 59723157 tenpct-l13a destroyed after 0.14 h (~$0.06)
 - 2026-11-08T14:40Z vast id 59724219 label tenpct-l13a GPU RTX 4090 48GB $0.605/h (+5% guard) started
+- 2026-11-08T14:40Z vast id 59724228 label tenpct-L12A GPU RTX PRO 6000 Max-Q 96GB $1.338/h (+5% guard) started
+- 2026-11-08 L10 relaunch: llama (text path fixed, dir l10_llama11b) fc-01M6XS73MP9P4213XKN5EY10PB; omni7s (r985 + save dequantised dir for feedback test) fc-01M6XSR5GT9P1D5FBCJQ1DZAZF. Same app tenpct-l10.
+- 2026-11-08 L11 feedback ablation: Modal app tenpct-fbabl (deployed), spawned A1 fc-01M6XSTF91NG7FZSWKCWMCQKEW, A2 fc-01M6XSTFZR316Q88S573DFCC62, B1 fc-01M6XSTGQFAXDS5GEE0S60A87Y, B2 fc-01M6XSTHFQS3T70TF7BR3ET05Z, plus C (q4 body), D (continual); results on volume tenpct-fbabl:/NAME/res.json (v2/fb_ablation/cfgs). Vast was at instance cap; smoke run on Vast (box destroyed) in v2/fb_ablation/results/smoke.
