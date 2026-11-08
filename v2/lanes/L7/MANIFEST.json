@@ -1,0 +1,18 @@
+{
+ "lane": "L7",
+ "start_model": "microsoft/bitnet-b1.58-2B-4T (released packed ternary)",
+ "fp16_reference_bytes": 4825641380,
+ "status": "ACCOUNTING-LEVEL: the compression is a deterministic transform of the released weights (vocab prefix 74167 + specials/task tokens, 3-bit RTN group-64 embedding). A real byte-level writer for the ternary body exists in v2/lowbit (rANS, 392,849,272 B) but is NOT wired into this package; answer.py currently loads the released ternary weights and applies the transform at load time.",
+ "bytes": {
+  "ternary_body_ideal_coder": 392847765,
+  "ternary_body_5_per_byte_alt": 416808960,
+  "norms_scales_bf16": 881060,
+  "embedding_74k_3bit_g64_incl_scales_and_keep_bitmap": 83079672,
+  "tokenizer_xz_incl_config": 884332,
+  "code": 8192,
+  "feedback_head_rows_fp16_per_edited_row": 5120
+ },
+ "total_ideal": 477701021,
+ "pct_of_fp16": 9.899,
+ "pct_with_5_per_byte": 10.396
+}

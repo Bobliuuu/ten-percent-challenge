@@ -1,0 +1,92 @@
+{
+ "N": 74167,
+ "bits": 3,
+ "n_neighbour": 511,
+ "n_teach": 63,
+ "n_ann": 25,
+ "nb_acc_7label_prompt": 0.8884540117416829,
+ "empty": {
+  "teach_acc": 0.8888888888888888,
+  "nb_acc": 0.8904109589041096,
+  "teach_sample_out": [
+   "Cooking",
+   "Cooking",
+   "Music",
+   "Cooking",
+   "Cooking"
+  ]
+ },
+ "real": {
+  "cond": "real",
+  "teach_acc": 0.12698412698412698,
+  "nb_acc": 0.8199608610567515,
+  "nb_retention_vs_empty": 0.9098901098901099,
+  "teach_sample_out": [
+   "Lists",
+   "Lists",
+   "Music",
+   "Lists",
+   "Lists"
+  ],
+  "edited_rows": 7
+ },
+ "shuffled": [
+  {
+   "cond": "shuffled0",
+   "teach_acc": 0.031746031746031744,
+   "nb_acc": 0.6438356164383562,
+   "nb_retention_vs_empty": 0.7054945054945055,
+   "teach_sample_out": [
+    "Calendar",
+    "Calendar",
+    "Weather",
+    "Calendar",
+    "Calendar"
+   ],
+   "edited_rows": 7
+  },
+  {
+   "cond": "shuffled1",
+   "teach_acc": 0.07936507936507936,
+   "nb_acc": 0.7240704500978473,
+   "nb_retention_vs_empty": 0.7296703296703296,
+   "teach_sample_out": [
+    "Lists",
+    "Music",
+    "Music",
+    "Music",
+    "Alarm"
+   ],
+   "edited_rows": 7
+  },
+  {
+   "cond": "shuffled2",
+   "teach_acc": 0.25396825396825395,
+   "nb_acc": 0.863013698630137,
+   "nb_retention_vs_empty": 0.8901098901098901,
+   "teach_sample_out": [
+    "Lists",
+    "Lists",
+    "Music",
+    "Music",
+    "Cooking"
+   ],
+   "edited_rows": 7
+  }
+ ],
+ "real_margin1.0": {
+  "teach_acc": 0.19047619047619047,
+  "nb_acc": 0.837573385518591
+ },
+ "real_margin4.0": {
+  "teach_acc": 0.09523809523809523,
+  "nb_acc": 0.7651663405088063
+ },
+ "bytes": {
+  "emb": 83079672,
+  "tokenizer": 884332,
+  "feedback_rows_fp16_per_edited_row": 5120
+ }
+}�████████| 6/6 [00:00<00:00, 1992.70it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
