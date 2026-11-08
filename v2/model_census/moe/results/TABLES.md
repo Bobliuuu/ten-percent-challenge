@@ -1,3 +1,12 @@
+### Architecture and byte budget (non-expert tensors charged at 6.25 bpw; expert bpw includes scales)
+| model | MoE layers | experts | top-k | params B | expert share | fp16 GB | 10% budget GB | expert bpw if keep 100/75/50/40/30% |
+|---|---|---|---|---|---|---|---|---|
+| deepseek-ai/DeepSeek-V2-Lite-Chat | 26 | 64 | 6 | 15.7 | 91.6% | 31.4 | 3.14 | 1.18 / 1.57 / 2.35 / 2.94 / 3.92 |
+| baidu/ERNIE-4.5-21B-A3B-PT | 27 | 64 | 6 | 21.8 | 93.4% | 43.7 | 4.37 | 1.27 / 1.70 / 2.54 / 3.18 / 4.24 |
+| moonshotai/Moonlight-16B-A3B-Instruct | 26 | 64 | 6 | 16.0 | 90.2% | 31.9 | 3.19 | 1.09 / 1.46 / 2.19 / 2.74 / 3.65 |
+| allenai/OLMoE-1B-7B-0125-Instruct | 16 | 64 | 8 | 6.9 | 93.1% | 13.8 | 1.38 | 1.26 / 1.67 / 2.51 / 3.14 / 4.19 |
+| openai/gpt-oss-20b | 24 | 32 | 4 | 20.9 | 91.4% | 41.8 | 4.18 | 1.16 / 1.55 / 2.32 / 2.90 / 3.87 |
+
 ### Routing concentration (dev calibration text)
 | model | task | experts needed 90/95/99% (fraction, layer mean) | routing entropy / ln E | mass in own top-50% | mass in own top-30% | other task's mass in top-50% |
 |---|---|---|---|---|---|---|
@@ -28,6 +37,7 @@
 | deepseek-ai/DeepSeek-V2-Lite-Chat | SKILL7 | 0.5 | 4 | 15.2 | 0.652 | 0.465 | 0.419 | 0.03 | Calendar | 445 |
 | deepseek-ai/DeepSeek-V2-Lite-Chat | BANK8 | 0.5 | 4 | 15.2 | 0.950 | 0.313 | 0.269 | 0.0 | auto_commute | 380 |
 | deepseek-ai/DeepSeek-V2-Lite-Chat | SKILL7 | 0.4 | 4 | 12.9 | 0.652 | 0.000 | 0.000 | 0.0 | Calendar | 445 |
+| deepseek-ai/DeepSeek-V2-Lite-Chat | BANK8 | 0.4 | 4 | 12.9 | 0.950 | 0.021 | 0.011 | 0.0 | auto_commute | 380 |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 1 | 3 | 21.0 | 0.950 | 0.736 | 0.701 | 0.11 | Transport | 648 |
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 1 | 3 | 21.0 | 0.978 | 0.895 | 0.861 | 0.17 | info_and_fx | 391 |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.75 | 3 | 16.4 | 0.950 | 0.705 | 0.669 | 0.04 | Weather | 648 |
@@ -35,6 +45,13 @@
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.5 | 3 | 11.8 | 0.950 | 0.637 | 0.600 | 0.05 | Weather | 648 |
 | baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.5 | 3 | 11.8 | 0.978 | 0.882 | 0.847 | 0.19 | transfers | 391 |
 | baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.4 | 3 | 10.1 | 0.950 | 0.383 | 0.346 | 0.01 | Weather | 648 |
+| baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.4 | 3 | 10.1 | 0.978 | 0.918 | 0.887 | 0.15 | transfers | 391 |
+| baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.3 | 3 | 8.0 | 0.950 | 0.409 | 0.372 | 0.07 | Weather | 648 |
+| baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.3 | 3 | 8.0 | 0.978 | 0.877 | 0.841 | 0.0 | transfers | 391 |
+| baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.5 | 4 | 14.7 | 0.950 | 0.761 | 0.726 | 0.16 | Transport | 648 |
+| baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.5 | 4 | 14.7 | 0.978 | 0.944 | 0.916 | 0.26 | transfers | 391 |
+| baidu/ERNIE-4.5-21B-A3B-PT | SKILL7 | 0.4 | 4 | 12.4 | 0.950 | 0.733 | 0.698 | 0.5 | Transport | 648 |
+| baidu/ERNIE-4.5-21B-A3B-PT | BANK8 | 0.4 | 4 | 12.4 | 0.978 | 0.918 | 0.887 | 0.22 | transfers | 391 |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 1 | 3 | 21.6 | 0.955 | 0.949 | 0.930 | 0.8 | Alarm | 651 |
 | moonshotai/Moonlight-16B-A3B-Instruct | BANK8 | 1 | 3 | 21.6 | 0.958 | 0.851 | 0.812 | 0.44 | transfers | 383 |
 | moonshotai/Moonlight-16B-A3B-Instruct | SKILL7 | 0.75 | 3 | 17.2 | 0.955 | 0.942 | 0.921 | 0.77 | Alarm | 651 |
@@ -64,3 +81,16 @@
 | allenai/OLMoE-1B-7B-0125-Instruct | SKILL7 | 0.4 | 4 | 12.5 | 0.534 | 0.148 | 0.116 | 0.0 | Lists | 364 |
 | allenai/OLMoE-1B-7B-0125-Instruct | BANK8 | 0.4 | 4 | 12.5 | 0.497 | 0.005 | 0.001 | 0.0 | account_identity | 199 |
 | openai/gpt-oss-20b | SKILL7 | 1 | 3 | 21.4 | 0.950 | 0.994 | 0.984 | 0.98 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 1 | 3 | 21.4 | 0.960 | 0.995 | 0.981 | 0.96 | work | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.75 | 3 | 16.9 | 0.950 | 0.985 | 0.972 | 0.94 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.75 | 3 | 16.9 | 0.960 | 0.979 | 0.959 | 0.91 | info_and_fx | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 3 | 12.4 | 0.950 | 0.866 | 0.837 | 0.45 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 3 | 12.4 | 0.960 | 0.956 | 0.930 | 0.78 | work | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 3 | 10.7 | 0.950 | 0.773 | 0.739 | 0.49 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 3 | 10.7 | 0.960 | 0.966 | 0.943 | 0.76 | banking | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.3 | 3 | 9.0 | 0.950 | 0.508 | 0.469 | 0.16 | Calendar | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.3 | 3 | 9.0 | 0.960 | 0.945 | 0.918 | 0.8 | travel | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.5 | 4 | 15.2 | 0.950 | 0.900 | 0.874 | 0.63 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.5 | 4 | 15.2 | 0.960 | 0.966 | 0.943 | 0.87 | work | 384 |
+| openai/gpt-oss-20b | SKILL7 | 0.4 | 4 | 13.0 | 0.950 | 0.853 | 0.824 | 0.46 | Music | 648 |
+| openai/gpt-oss-20b | BANK8 | 0.4 | 4 | 13.0 | 0.960 | 0.961 | 0.937 | 0.89 | card_virtual_wallet | 384 |
