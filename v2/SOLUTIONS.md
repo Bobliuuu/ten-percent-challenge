@@ -289,6 +289,13 @@ Each block: base | task and answer | compression | feedback | size | retention |
 - **P(all 9 as written):** <0.5% as a stand-alone route; the vocab-trim lever (+13% of budget) is a component for C07/C08, V=2.
 - **Cheapest next experiment:** apply vocab trim 64k to the VQ-D8 32B run (C07) and score on real INJ dev (one box, ~$30).
 
+
+### C27. Qwen2.5-32B / 7B training-free TCQ (QTIP-style bitshift trellis) and VQ-D8 vs scalar GPTQ, INJ + NEWS (VQ_ROUTE lane)
+- **Compression:** own pure-PyTorch bitshift TCQ (L=12, V=2, 1.5 bpw, tail-biting Viterbi, Lloyd codebook on synthetic Gaussian 16 KB) inside incoherence + block-LDLQ; also VQ-D8 K=5300 re-run; scalar ECSQ-GPTQ re-run on the same items. No weight training. Code `v2/vq/`, write-up `v2/VQ_ROUTE.md`.
+- **Retention (DEV GEN, 32B, INJ n=3377 / NEWS n=3029 base-correct):** TCQ 9.57%: INJ **96.8% [96.15]**, NEWS 92.3% [91.3] (Technology .67, S3_injection .86); VQ-D8 9.85%: 96.0 / 92.1; scalar 9.86% (same items): 96.15 [95.45] / 94.4 [93.5]. 7B TCQ 9.99%: INJ 94.0, NEWS 93.1. Variants (tile scales, answer-weighted Hessian, task-only calib, fp-target) all within +-2 overall with 10-30 pt class-bias swings; fp-target collapsed.
+- **Rules:** R1 PASS* (9.57% est incl. tokenizer/code) | R2 FAIL (overall <=96.8, cells 67-86) | R4 PASS* (codebook is a synthetic-Gaussian codec constant; gray if read strictly) | others as C07. **Verdict NO-GO**: TCQ beats VQ-D8 by <1 pt and scalar by +0.6 (INJ) / -2.1 (NEWS), inside +-2 pt draw noise; theoretical headroom <=1.5 dB. **P(all 9): <0.5%.** Untested lever: KL-sensitivity mixed-rate TCQ plan (+0.5-1 pt est).
+- Files: `v2/vq/results/ret_*.txt`, `v2/vq/results/eval_*.json`.
+
 ## 3. Feedback mechanisms (sub-registry; combine with any compression candidate)
 
 Common facts: no feedback mechanism has zero R4 risk (NEXT_PLAN ladder). The mechanism must also be run on the real compressed artifact, with the harness-v3 protocol (`harness/v3/PROOF_RUN.md`: real vs shuffled vs empty arms, teach >= 25 pre-locked, neighbours >= 400 verified). P here is P(R4+R5+R6 judged OK on a base where it applies), not P(all 9).
