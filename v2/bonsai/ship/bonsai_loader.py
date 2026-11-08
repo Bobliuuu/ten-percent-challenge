@@ -20,7 +20,17 @@ def load(d, device="cuda", patch="auto"):
     if "lm_head.weight" not in sd: m.tie_weights()
     import os
     pf = d + "/patch.pt" if patch == "auto" else patch   # feedback patch: {"layers", "cols" (int16 column ids), "vals" (fp16 [hidden, r])}: columns of the EXISTING down_proj tensors
-    if pf and os.path.exists(pf):
-        P = torch.load(pf)
-        for li, c, v in zip(P["layers"], P["cols"], P["vals"]): m.model.layers[li].mlp.down_proj.weight.data[:, c.long().to(device)] = v.to(device)
+    if pf and os.path.exists(pf): apply_patch_dict(m, torch.load(pf))
     return m.eval(), missing
+
+def apply_patch_dict(m, P):
+    """feedback patch kinds: 'cols' (default: fp16 replacement columns), 'lr' (columns = original + A @ B, rank-k fp16 factors), 'scale' (new per-128-group scales of the existing 1-bit down_proj: weight = sign * scale)."""
+    kind = P.get("kind", "cols"); dev = m.device
+    for i, li in enumerate(P["layers"]):
+        w = m.model.layers[li].mlp.down_proj.weight.data
+        if kind == "scale":
+            sg = torch.sign(w.float()); sg[sg == 0] = 1; D, F = w.shape; sc = P["scales"][i].to(dev).float()
+            w.copy_((sg.reshape(D, -1, 128) * sc[:, :, None]).reshape(D, F).half())
+        elif kind == "lr":
+            c = P["cols"][i].long().to(dev); w[:, c] = (w[:, c].float() + P["A"][i].to(dev).float() @ P["B"][i].to(dev).float()).half()
+        else: w[:, P["cols"][i].long().to(dev)] = P["vals"][i].to(dev)
