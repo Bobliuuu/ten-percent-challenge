@@ -238,3 +238,13 @@ Launched via `python v2/quality/qpush.py v2/quality/cfgs_*.json` (detached spawn
 - 2026-11-08T14:02Z vast id 59716950 tenpct-x03n11 destroyed after 0.60 h (~$0.32)
 - 2026-11-08T14:3xZ vast ids 59720130/59720133/59720135 labels tenpct-repair-* RTX PRO 6000 ~$1.0-1.35/h started (REPAIR_ROUTE 32B arms); destroy at end
 - 2026-11-08 modal deploy tenpct-moe-entry (MoE entry app); prefetch fc-01M6XQHH8Q1P3WWC920JRYJAX0
+- 2026-11-08T15:0xZ vast id 59720603 label tenpct-nm-a RTX 6000Ada 48GB $0.537/h (+5% guard) started (near_miss lane a MoE; destroy at end)
+- 2026-11-08 spawn tenpct-moe-entry run NEWS cfgs_00 (secondary) and voice cfgs_v0 (primary)
+- 2026-11-08 vast id 59720587 label tenpct-cdwidth A6000 48GB ~$0.51/h started (lane c+d width prune, near_miss/cd_width); destroy at end (extra dup 59720616 destroyed immediately)
+- 2026-11-08T14:10Z vast id 59720818 label tenpct-ne_a GPU RTX 4090 48GB $0.442/h (+5% guard) started
+- 2026-11-08T14:12:29Z easy1 sweep: 6 detached modal fn calls, app ap-1ijOLCu4ciOBrFYZBkR0fJ (jobs_easy1.json)
+- 2026-11-08T14:12Z modal app ap-J0QqFY3mD2igD1CA49DozJ tenpct-nm-b-depth A100-80GB (near_miss b_depth 7B grid, detached; ~$2.5/h; lane cap $15)
+- 2026-11-08 rival3 lane (L4): Modal app tenpct-rival3, calls fc-01M6XR39H4GEFXREW2FEVZ2JS2 (bank) and fc-01M6XR3AMDXQB9C75PFHT8CK30 (clin): base + 6 compression cfgs each (cfgs_*_0.json), `python3 v2/rival3/launch.py`. Results on volume tenpct-moe:/res as {bank,clin}_*.json + app logs RESULT_JSON.
+
+## 2026-11-08 model census probe launch
+Modal app tenpct-census, 46 dense jobs (v2/model_census/jobs_census.json.calls) + 2 big (jobs_census_big.json.calls); command: python3 v2/model_census/modal_census.py <jobs>

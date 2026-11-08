@@ -1,0 +1,40 @@
+[
+ {
+  "model": "Qwen/Qwen2.5-72B-Instruct",
+  "tag": "cen",
+  "size": "xl",
+  "gpu_load": false,
+  "multi": true,
+  "cfgs": [
+   {
+    "name": "bf16"
+   },
+   {
+    "name": "c099",
+    "target_ratio": 0.099,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ },
+ {
+  "model": "unsloth/Llama-3.3-70B-Instruct",
+  "tag": "cen",
+  "size": "xl",
+  "gpu_load": false,
+  "multi": true,
+  "cfgs": [
+   {
+    "name": "bf16"
+   },
+   {
+    "name": "c099",
+    "target_ratio": 0.099,
+    "emb_L": 4,
+    "head_L": 4,
+    "g": 256
+   }
+  ]
+ }
+]

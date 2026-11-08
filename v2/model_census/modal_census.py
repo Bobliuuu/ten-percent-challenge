@@ -12,6 +12,7 @@ def _go(job):
     import os, sys
     os.environ.update(HF_HOME="/hf", DENSE_HF="/vol", DENSE_DATA="/code/dense_data.json", CT_ITEMS="/code/census_items.jsonl", CT_CALIB="/code/census_calib.jsonl", HF_HUB_ENABLE_HF_TRANSFER="0")
     os.makedirs("/vol/dense", exist_ok=True)
+    if job.get("multi"): os.environ["DENSE_MULTI"] = "1"
     if job.get("gpu_load", True): os.environ["DENSE_GPU"] = "1"
     sys.path.insert(0, "/code"); import dense_core
     cfgs = [dict(model=job["model"], ctasks=1, calib_ct=1, gen=True, **c) if not c["name"].endswith("bf16") else dict(model=job["model"], name=c["name"], mode="ctbase", gen=True) for c in job["cfgs"]]
@@ -21,7 +22,7 @@ def _go(job):
         if os.path.exists(f): out[c["name"]] = json.load(open(f))
     json.dump(out, open(f"/vol/{tag}_{job['tag']}.json", "w")); vol.commit(); hfvol.commit()
     print("RESULT_DONE", tag, list(out), flush=True); return dict(errors=[r for r in res if isinstance(r, dict) and "error" in r], names=list(out))
-SZ = dict(s=dict(gpu="A100-80GB", memory=64000), m=dict(gpu=["H100", "A100-80GB"], memory=120000))
+SZ = dict(xl=dict(gpu="A100-80GB:4", memory=420000), s=dict(gpu="A100-80GB", memory=64000), m=dict(gpu=["H100", "A100-80GB"], memory=120000))
 fns = {k: app.function(image=img, timeout=24 * 3600, volumes={"/vol": vol, "/hf": hfvol}, name="go_" + k, **v)(_go) for k, v in SZ.items()}
 if __name__ == "__main__":
     jobs = json.load(open(sys.argv[1])); calls = []

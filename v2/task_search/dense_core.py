@@ -20,6 +20,12 @@ def _run(cfg):
     tok=AutoTokenizer.from_pretrained(M); tok.padding_side="left"
     if tok.pad_token is None: tok.pad_token=tok.eos_token
     _v=tok.get_vocab(); ENDT=next((t for t in ("<|im_end|>","<end_of_turn>","<|eot_id|>","<|end|>") if t in _v), tok.eos_token)
+    def to_dev():
+        if os.environ.get("DENSE_MULTI"):
+            from accelerate import dispatch_model, infer_auto_device_map
+            n=torch.cuda.device_count(); mm={i:"70GiB" for i in range(n)}
+            dm=infer_auto_device_map(model,max_memory=mm,no_split_module_classes=[type(model.model.layers[0]).__name__]); dispatch_model(model,device_map=dm)
+        else: model.cuda()
     def chat(p):
         try: return tok.apply_chat_template([{"role":"user","content":p}],add_generation_prompt=True,tokenize=False,enable_thinking=False)
         except TypeError: return tok.apply_chat_template([{"role":"user","content":p}],add_generation_prompt=True,tokenize=False)
@@ -88,7 +94,7 @@ def _run(cfg):
                 t=enc[i][0]+enc[i][1]; ids[j,:len(t)]=torch.tensor(t); att[j,:len(t)]=1
             h=model.model(input_ids=ids.cuda(),attention_mask=att.cuda()).last_hidden_state
             for j,i in enumerate(idx):
-                p,a=enc[i]; P=len(p); hs=h[j,P-1:P-1+len(a)]; lg=model.lm_head(hs).float(); at=torch.tensor(a).cuda()
+                p,a=enc[i]; P=len(p); hs=h[j,P-1:P-1+len(a)]; lg=model.lm_head(hs).float(); at=torch.tensor(a).to(lg.device)
                 gl=lg.gather(1,at[:,None])[:,0]; lg2=lg.clone(); lg2.scatter_(1,at[:,None],-1e9); oth,oi=lg2.max(1); mg=(gl-oth)
                 lse=torch.logsumexp(lg,1)
                 rows[i]=dict(id=items[i]["id"],task=items[i]["task"],role=items[i]["role"],src=items[i]["src"],kind=items[i]["kind"],correct=bool((mg>0).all().item()),
@@ -131,11 +137,11 @@ def _run(cfg):
             tb=locals_["tot_bytes"]; d.update(bytes=tb,base_bytes=locals_["base_bytes"],ratio=tb/locals_["base_bytes"],dropped=locals_["dropped"],body_bpw=locals_["qbits"]/locals_["lin_total"])
         json.dump(d,open(f"{HFD}/dense/t1_{tag}_{name}.json","w"),default=str); (vol.commit() if HFD=='/hf' else None); print("T1_DONE",tag,name,sum(r["correct"] for r in d["t1"]),flush=True); return d
     if mode=="t1base":
-        model.cuda(); run_t1(); return t1_result(None)
+        to_dev(); run_t1(); return t1_result(None)
     if mode=="ctbase":
-        model.cuda(); rows=run_ct(); (run_gen(rows) if cfg.get("gen") else None); json.dump(dict(cfg=cfg,rows=rows,secs=time.time()-t0),open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag)
+        to_dev(); rows=run_ct(); (run_gen(rows) if cfg.get("gen") else None); json.dump(dict(cfg=cfg,rows=rows,secs=time.time()-t0),open(f"{HFD}/dense/ct_{tag}_{name}.json","w")); print("CT_DONE",tag,name,np.mean([r["correct"] for r in rows]),flush=True); return dict(tag=tag)
     if mode=="base":
-        model.cuda()
+        to_dev()
         gid=gen_all([e["prompt"] for e in ev_id]); god=gen_all([e["prompt"] for e in ev_ood])
         g2=gen_all([e["prompt"] for e in ev_id[::4]],bs=8)   # numeric-noise floor: same model, different batch size
         floor=float(np.mean([a[:NEW]==b[:NEW] for a,b in zip(gid[::4],g2)]))
@@ -369,7 +375,7 @@ def _run(cfg):
     else: emb_bits=emb.weight.numel()*16
     tot_bytes=qbits/8+head_bits/8+emb_bits/8+fixed_bytes
     del inps,cur; torch.cuda.empty_cache()
-    model.cuda()
+    to_dev()
     if cfg.get('ctasks'):
         import gc; gc.collect(); torch.cuda.empty_cache()
         rows=run_ct(); (run_gen(rows) if cfg.get('gen') else None); d=dict(cfg=cfg,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v for k,v in Lcount.items()},secs=time.time()-t0)
