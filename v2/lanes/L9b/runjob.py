@@ -5,7 +5,7 @@ def sets_of(job):
     import core
     S = {}
     for n in job.get("sets", ["SEL", "REP"]):
-        pre = job.get("prefix", "skill7"); p = f"/root/l9b/data/{pre}_{n.lower()}.jsonl" if n in ("SEL", "REP", "CAL", "FB_TEACH", "FB_ANNOT") else f"/r/l9b/{n.lower()}.jsonl"
+        pre = job.get("prefix", "skill7"); p = f"/root/l9b/data/{pre}_{n.lower()}.jsonl" if n in ("SEL", "EXAM", "CAL", "FB_TEACH", "FB_ANNOT") else f"/r/l9b/{n.lower()}.jsonl"
         S[n] = core.rows_of(p)
     return S
 

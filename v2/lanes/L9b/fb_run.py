@@ -42,9 +42,10 @@ def run(job, model, tok, R, S, man, log, commit):
             nt += sum(len(s) for s in seqs); na += sum(len(tgt_ids(r["answer"])) for r in bt)
         for l in LAY: Cs[l] /= nt; Ca[l] /= na
         return Cs, Ca
-    base_outs = {n: json.load(open(f"/r/l9b/res/base_skill7_{n}.json")) for n in ("SEL", "REP")}
-    neigh = [(r, o) for n in ("SEL", "REP") for r, o in zip(S[n], base_outs[n]["outs"]) if core.norm(o) == r["answer"].lower()] if "SEL" in S and "REP" in S else []
-    teach = S["FB_TEACH"]; pool = S["FB_ANNOT"]; NEW = "Home"
+    pre = job.get("prefix", "skill7"); NEW = job["new_label"]
+    base_outs = json.load(open(f"/r/l9b/res/base_{pre}_EXAM.json")); nid = set(json.load(open(f"/root/l9b/data/{pre}_neighbours.json")))
+    neigh = [(r, o) for r, o in zip(S["EXAM"], base_outs["outs"]) if r["id"] in nid and core.norm(o) == r["answer"].lower()]
+    teach = S["FB_TEACH"]; pool = S["FB_ANNOT"]
     err_rows = S["CAL"][:job.get("nerr_pool", 1231)]; eo = R.gen(err_rows); old_err = [(r["ids"], r["answer"]) for r, o in zip(err_rows, eo) if core.norm(o) != r["answer"].lower()]
     log("old-skill errors of packed model on cal pool:", len(old_err), "of", len(err_rows))
     results = []
