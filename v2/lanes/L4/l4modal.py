@@ -16,5 +16,6 @@ def pack(task, cfgs, outdir):
 
 @app.function(image=img, gpu="A100-80GB", cpu=8, memory=250000, timeout=43200, volumes={"/r": vol, "/a": art}, env=ENV)
 def evalrun(task, body, stage, cfg, tag):
+    art.reload(); vol.reload()
     import sys; sys.path.insert(0, "/root"); sys.path.insert(0, "/root/l4"); import l4eval
     return l4eval.main(task, body, stage, cfg, tag, art)

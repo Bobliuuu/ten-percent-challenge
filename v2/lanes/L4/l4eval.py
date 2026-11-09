@@ -6,7 +6,7 @@ import l4fmt as F4, l4fb
 T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
 NORM = lambda t: re.sub(r"^\s*category\s*:\s*", "", (t or "").strip(), flags=re.I).strip()
 NEW = {"SKILL7": "Recipe", "BANK6": "Security"}; DS = {"SKILL7": "s7", "BANK6": "b6"}
-NEVER = {"SKILL7": {"hwu64", "mtop"}, "BANK6": {"bitext"}}
+NEVER = {"SKILL7": {"hwu64", "mtop"}, "BANK6": {"bitext_bank"}}
 def wilson(k, n, z=1.96):
     if n == 0: return 0.0
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); r = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return (c - r) / d
