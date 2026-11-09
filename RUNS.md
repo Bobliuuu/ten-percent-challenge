@@ -438,3 +438,6 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09T06:31Z vast id 59846203 tenpct-L12F destroyed after 0.30 h (~$0.36)
 - 2026-11-09 tenpct-l9: pack k88 fc-01M6ZGB0SRCQD4JGAEY82NVAYJ (g1 H100); variants va/vb/vc g8 run_core (see launch output)
 - 2026-11-09 L3 SKILL7 body variant nh=2031 (dev-chosen: SEL ret .9899->.9929, Calendar cell fixed) single locked-exam rescoring via build(skill7x,nh2031,exam=True); BANK6 body unchanged (no dev winner)
+- 2026-11-09 L3 BANK6 locked feedback (final cfg L20 cols1638 prot lam3000 awt50 m28, 6 draws): job fb_eval bank6x locked b6_final_m28 fc-01M6ZKQGMCD6XBNB8K2TB2K76P (app tenpct-l3)
+- 2026-11-09 L9 pack k88 retry (app tenpct-l9, g1 H200, first try OOM'd): fc-01M6ZKRXTZKWF0B98WP3MB781V
+- 2026-11-09 L4 packed-body feedback: modal app tenpct-l4 (redeployed); BANK6 fbdev g7/g6/g1/g4 fc-01M6ZKRQPJ3N1JT7GB6FM41WDG, fc-01M6ZKRRBKRS6RJKJWZ0YJQ08S, fc-01M6ZKRS0XYAH74YRQTDJ265JB, fc-01M6ZKRSPT9HRV2S6E6XRGPARD; SKILL7 fblock (locked teach/neigh, 8 draws, g7 = pre-declared primary chosen on SKILL7 dev, g6 secondary) fc-01M6ZKRTCRNT90RJCESKJ0CD6Q, fc-01M6ZKRV2RS1E75NGZTM8J76KF; results in private vol tenpct-l4-art
