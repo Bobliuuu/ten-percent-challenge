@@ -45,6 +45,21 @@ def main(job):
             files = {f: dict(bytes=os.path.getsize(os.path.join(adir, f)), sha256=sha(os.path.join(adir, f))) for f in sorted(os.listdir(adir))}
             r = dict(name=name, bytes=tot, secs=round(time.time() - t1), files=files); print("PACK_JSON", json.dumps(r), flush=True); commit()
         return
+    if stage == "loadtest":
+        os.environ["PL_DEBUG"] = "1"
+        import gc, packed_loader, hashlib
+        adir = f"/r/l9b/art_{job['art']}"; rows = core.rows_of("/root/l9b/data/skill7_sel.jsonl")[:job.get("n", 200)]; res = {}
+        def chk(model):
+            h = hashlib.sha256()
+            for n, p in sorted(model.named_parameters()): h.update(n.encode()); h.update(p.data.contiguous().view(torch.int16).cpu().numpy().tobytes())
+            return h.hexdigest()
+        for tag, fn in (("packed_loader.load", lambda: packed_loader.load(adir)), ("core.load_packed", lambda: core.load_packed(adir))):
+            torch.cuda.reset_peak_memory_stats(); t = time.time(); model, tok_, man = fn(); lt = time.time() - t; lp = torch.cuda.max_memory_allocated() / 2**30; R = core.Runner(model, tok_)
+            torch.cuda.reset_peak_memory_stats(); R.gen(rows[:1]); sp = torch.cuda.max_memory_allocated() / 2**30; torch.cuda.reset_peak_memory_stats(); outs = R.gen(rows); res[tag] = dict(load_s=round(lt, 1), load_peak_gb=round(lp, 1), single_request_peak_gb=round(sp, 1), peak_gb_with_200_item_batched_gen=round(torch.cuda.max_memory_allocated() / 2**30, 1), param_sha256=chk(model), outs=outs, acc=sum(core.correct(outs, rows)) / len(rows))
+            log(tag, {k: v for k, v in res[tag].items() if k != "outs"}); del model, R; gc.collect(); torch.cuda.empty_cache()
+        a, b = res["core.load_packed"], res["packed_loader.load"]
+        res["identical_params"] = a["param_sha256"] == b["param_sha256"]; res["identical_outputs"] = a["outs"] == b["outs"]; res["n"] = len(rows)
+        json.dump(res, open(f"/r/l9b/res/loadtest_{job['art']}.json", "w")); commit(); print("RESULT_JSON", json.dumps({k: v for k, v in res.items()}), flush=True); return
     if stage in ("eval", "fb"):
         sys.path.insert(0, "/root/l9b")
         adir = f"/r/l9b/art_{job['art']}"; model, tok, man = core.load_packed(adir); R = core.Runner(model, tok); S = sets_of(job); log("loaded packed", job["art"])

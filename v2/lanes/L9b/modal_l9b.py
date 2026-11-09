@@ -4,7 +4,7 @@ import modal, json, os
 app = modal.App("tenpct-l9b")
 HERE = os.path.dirname(os.path.abspath(__file__))
 img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.8.0", "transformers==5.22.2", "numpy", "accelerate", "huggingface_hub", "sentencepiece", "protobuf", "tiktoken", "safetensors", "kernels")
-       .add_local_dir(HERE, "/root/l9b", ignore=["__pycache__", "*.pyc"]))
+       .add_local_dir(HERE, "/root/l9b", ignore=["__pycache__", "*.pyc", "bank6q", "results"]))
 vol = modal.Volume.from_name("tenpct-l9b", create_if_missing=True)
 hfvol = modal.Volume.from_name("tenpct-v2-hf", create_if_missing=True)
 
