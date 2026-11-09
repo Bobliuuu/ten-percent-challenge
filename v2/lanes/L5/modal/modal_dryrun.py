@@ -47,4 +47,4 @@ def run(remote: str):
     out = json.dumps(res, indent=1); os.makedirs("/vol/res", exist_ok=True); open("/vol/res/dry_run.json", "w").write(out); vol.commit(); print("RESULT_JSON", out, flush=True); return out
 @app.local_entrypoint()
 def main(remote: str = "https://github.com/Bobliuuu/ten-percent-challenge.git"):
-    run.spawn(remote)
+    run.remote(remote)
