@@ -1,0 +1,44 @@
+{
+ "repo_commit": "b622871e51b48f35933c691ef133c00fd4d84d96",
+ "sha256_mismatches": [],
+ "base_tree": "50d781573029fdc7",
+ "base_teach": [
+  "News",
+  "Lists",
+  "Transport",
+  "Weather"
+ ],
+ "base_neigh": [
+  "Alarm",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "answer_secs": 93,
+ "feedback_secs": 103,
+ "feedback_stdout": "{\"nsites\": 15, \"patch_bytes\": 125857927, \"cols\": 1536, \"secs\": 101.1}",
+ "patch_bytes": 125857927,
+ "after_teach": [
+  "Recipe",
+  "Recipe",
+  "Transport",
+  "Weather"
+ ],
+ "after_neigh": [
+  "Alarm",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "teach_recipe_frac": 0.5,
+ "neigh_unchanged_frac": 1.0,
+ "empty_patch_exists": false,
+ "empty_tree_identical": true,
+ "empty_answers_equal_base": true
+}
