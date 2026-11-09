@@ -461,3 +461,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L5 BANK6 exam run: tenpct-l5-b6f (B6HF_d0, dev-selected of 4 draws at target .0985: d0 ret .9941 worst kind .991), pack to tenpct-l5:/pkb6_0
 - 2026-11-09 L9 verify_loader on rebuilt k88 (H200:3): 200/200 identical to original path, load 232 s. Cancelled g8h/a6 duplicates. fb_draws locked split on g3: seeds 0-2 / 3-5 (outputs /art/fb_locked_k88_s012.json, _s345.json)
 - 2026-11-09 L12 fbf2 run_fbf.py (carrier nlay20 lam2000 awt30 m64, 5 draws, full exam; app tenpct-l12b); fbs1 cancelled after 22 of 24 grid rows
+- 2026-11-09 L2 (respawn; previous mixed spawns hit stale signature): cli mix recipe/reminder + recipe real/bytes rerun on tenpct-l2c: cli_mix_recipe fc-01M6ZPX69NXCDT7JQ6W7Q6SBWN cli_mix_reminder fc-01M6ZPX719Y65V0GKBS1V5YK1X  fc-01M6ZPX7Q243QZWWZ1GVRWXMX4
