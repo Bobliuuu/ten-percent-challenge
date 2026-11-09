@@ -26,18 +26,18 @@ Push your lane first: the clone is of `origin/main`, not the working tree. Resul
 <!-- FCC-TABLE-BEGIN -->
 | lane | bytes | leak | sha256 | smoke | date | commit |
 |---|---|---|---|---|---|---|
-| L9b | SKIPPED | PASS | FAIL | SKIPPED | 2026-11-09 | 7294e6e |
-| L1 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L5 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L3 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L9 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L4 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L10 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
-| L2 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 7294e6e |
+| L9b | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L1 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L5 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L3 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L9 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L4 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L10 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
+| L2 | SKIPPED | PASS | SKIPPED | SKIPPED | 2026-11-09 | 30ed2e9 |
 
 Details (per lane, from its last run):
 
-- **L9b**: bytes: artifact not in clone; MANIFEST-declared 6,726,881,085 B = 9.704% of fp16 69,321,221,376 B (cap 10.0%) [MANIFEST total_with_feedback; denominator text-only fp16 (stricter than full 71.9 GB)]; real bytes_audit needs artifact / leak: 0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0) / sha: 9 verified OK, 2 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]; MISMATCH: packed_loader.py (MANIFEST.json:repo_files_sha256), setup_fresh_clone.sh (MANIFEST.json:repo_files_sha256) / smoke: SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run
+- **L9b**: bytes: artifact not in clone; MANIFEST-declared 6,726,881,085 B = 9.704% of fp16 69,321,221,376 B (cap 10.0%) [MANIFEST total_with_feedback; denominator text-only fp16 (stricter than full 71.9 GB)]; real bytes_audit needs artifact / leak: 0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0) / sha: 11 verified OK, 0 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json] / smoke: SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run
 - **L1**: bytes: artifact not in clone; MANIFEST-declared 1,218,467,357 B = 7.438% of fp16 16,381,470,720 B (cap 10.0%) [MANIFEST total_bytes_with_feedback_patch; denominator Qwen3-8B fp16 (MANIFEST 7.438%)]; real bytes_audit needs artifact / leak: 0 hits under lanes/L1/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0) / sha: 1 verified OK, 0 MISMATCH, 33 not in clone: artifact not in clone: needs rebuild [bits.bin, build/LICENSE, build/NOTICE.txt, build/bits.bin, build/chat_template.jinja, build/config.json ...] / smoke: SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run
 - **L5**: bytes: artifact not in clone; MANIFEST-declared 6,503,994,225 B = 9.926% of fp16 65,527,752,704 B (cap 10.0%) [MANIFEST bytes.packed_body_real+carrier+code]; real bytes_audit needs artifact / leak: 0 hits under lanes/L5/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0) / sha: no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes) / smoke: SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run
 - **L3**: bytes: artifact not in clone; MANIFEST-declared 6,042,759,448 B = 9.896% of fp16 61,064,245,248 B (cap 10.0%) [MANIFEST skill7x.total_bytes]; real bytes_audit needs artifact / leak: 0 hits under lanes/L3/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0) / sha: no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes) / smoke: SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run

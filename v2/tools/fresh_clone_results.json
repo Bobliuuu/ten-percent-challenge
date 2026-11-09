@@ -3,7 +3,7 @@
  "lanes": [
   {
    "lane": "L9b",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -16,8 +16,8 @@
      "detail": "0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
-     "status": "FAIL",
-     "detail": "9 verified OK, 2 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]; MISMATCH: packed_loader.py (MANIFEST.json:repo_files_sha256), setup_fresh_clone.sh (MANIFEST.json:repo_files_sha256)"
+     "status": "SKIPPED",
+     "detail": "11 verified OK, 0 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]"
     },
     "smoke": {
      "status": "SKIPPED",
@@ -27,7 +27,7 @@
   },
   {
    "lane": "L1",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -51,7 +51,7 @@
   },
   {
    "lane": "L5",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -75,7 +75,7 @@
   },
   {
    "lane": "L3",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -99,7 +99,7 @@
   },
   {
    "lane": "L9",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -123,7 +123,7 @@
   },
   {
    "lane": "L4",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -147,7 +147,7 @@
   },
   {
    "lane": "L10",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -171,7 +171,7 @@
   },
   {
    "lane": "L2",
-   "commit": "7294e6e",
+   "commit": "30ed2e9",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
