@@ -11,3 +11,152 @@ https://modal.com/apps/jerry-zhu/main/ap-M4vVmVvQlXWx4yuJba7RDy
 ├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
 └── ✓ Created Function run.
 
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<04:19,  2.67it/s]
+[1ALoading weights:   0%|          | 2/693 [00:01<07:44,  1.49it/s]
+[1ALoading weights:   2%|▏         | 12/693 [00:01<01:06, 10.29it/s]
+[1ALoading weights:   2%|▏         | 14/693 [00:02<01:25,  7.91it/s]
+[1ALoading weights:   4%|▍         | 29/693 [00:02<00:49, 13.42it/s]
+[1ALoading weights:   7%|▋         | 49/693 [00:03<00:26, 24.48it/s]
+[1ALoading weights:   8%|▊         | 53/693 [00:03<00:33, 19.12it/s]
+[1ALoading weights:   8%|▊         | 58/693 [00:03<00:33, 19.11it/s]
+[1ALoading weights:   9%|▉         | 61/693 [00:04<00:42, 14.98it/s]
+[1ALoading weights:  10%|█         | 71/693 [00:04<00:33, 18.52it/s]
+[1ALoading weights:  11%|█         | 77/693 [00:04<00:27, 22.49it/s]
+[1ALoading weights:  12%|█▏        | 81/693 [00:06<01:05,  9.30it/s]
+[1ALoading weights:  14%|█▍        | 99/693 [00:06<00:32, 18.17it/s]
+[1ALoading weights:  15%|█▍        | 103/693 [00:06<00:36, 15.98it/s]
+[1ALoading weights:  17%|█▋        | 118/693 [00:07<00:24, 23.86it/s]
+[1ALoading weights:  18%|█▊        | 122/693 [00:07<00:29, 19.15it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:08<00:38, 14.76it/s]
+[1ALoading weights:  22%|██▏       | 150/693 [00:08<00:19, 28.41it/s]
+[1ALoading weights:  22%|██▏       | 155/693 [00:08<00:22, 23.57it/s]
+[1ALoading weights:  24%|██▍       | 169/693 [00:09<00:17, 30.72it/s]
+[1ALoading weights:  25%|██▌       | 174/693 [00:09<00:21, 24.11it/s]
+[1ALoading weights:  27%|██▋       | 186/693 [00:09<00:17, 29.55it/s]
+[1ALoading weights:  27%|██▋       | 190/693 [00:10<00:22, 22.59it/s]
+[1ALoading weights:  28%|██▊       | 194/693 [00:10<00:22, 21.88it/s]
+[1ALoading weights:  28%|██▊       | 197/693 [00:10<00:30, 16.46it/s]
+[1ALoading weights:  32%|███▏      | 220/693 [00:11<00:14, 32.99it/s]
+[1ALoading weights:  32%|███▏      | 224/693 [00:11<00:19, 24.23it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:11<00:14, 31.51it/s]
+[1ALoading weights:  35%|███▍      | 242/693 [00:12<00:19, 23.00it/s]
+[1ALoading weights:  37%|███▋      | 256/693 [00:12<00:14, 30.64it/s]
+[1ALoading weights:  38%|███▊      | 260/693 [00:12<00:18, 23.18it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:13<00:18, 23.24it/s]
+[1ALoading weights:  39%|███▊      | 268/693 [00:13<00:24, 17.27it/s]
+[1ALoading weights:  42%|████▏     | 289/693 [00:13<00:12, 32.57it/s]
+[1ALoading weights:  42%|████▏     | 293/693 [00:14<00:16, 24.48it/s]
+[1ALoading weights:  44%|████▍     | 306/693 [00:14<00:12, 31.44it/s]
+[1ALoading weights:  45%|████▍     | 310/693 [00:14<00:16, 23.13it/s]
+[1ALoading weights:  47%|████▋     | 325/693 [00:15<00:11, 32.32it/s]
+[1ALoading weights:  47%|████▋     | 329/693 [00:15<00:15, 23.95it/s]
+[1ALoading weights:  48%|████▊     | 334/693 [00:15<00:15, 23.70it/s]
+[1ALoading weights:  49%|████▊     | 337/693 [00:16<00:20, 17.62it/s]
+[1ALoading weights:  52%|█████▏    | 357/693 [00:16<00:10, 32.75it/s]
+[1ALoading weights:  52%|█████▏    | 362/693 [00:16<00:13, 25.06it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:17<00:09, 32.76it/s]
+[1ALoading weights:  55%|█████▍    | 380/693 [00:17<00:12, 24.36it/s]
+[1ALoading weights:  57%|█████▋    | 394/693 [00:18<00:13, 22.91it/s]
+[1ALoading weights:  58%|█████▊    | 403/693 [00:18<00:11, 26.33it/s]
+[1ALoading weights:  59%|█████▊    | 407/693 [00:18<00:13, 20.93it/s]
+[1ALoading weights:  62%|██████▏   | 427/693 [00:19<00:07, 33.94it/s]
+[1ALoading weights:  62%|██████▏   | 432/693 [00:19<00:09, 26.44it/s]
+[1ALoading weights:  64%|██████▍   | 445/693 [00:19<00:07, 32.80it/s]
+[1ALoading weights:  65%|██████▍   | 450/693 [00:20<00:09, 26.20it/s]
+[1ALoading weights:  67%|██████▋   | 463/693 [00:20<00:06, 32.89it/s]
+[1ALoading weights:  67%|██████▋   | 467/693 [00:20<00:09, 24.97it/s]
+[1ALoading weights:  68%|██████▊   | 471/693 [00:20<00:09, 24.34it/s]
+[1ALoading weights:  68%|██████▊   | 474/693 [00:21<00:12, 17.35it/s]
+[1ALoading weights:  71%|███████▏  | 495/693 [00:21<00:05, 33.53it/s]
+[1ALoading weights:  72%|███████▏  | 500/693 [00:22<00:07, 25.36it/s]
+[1ALoading weights:  74%|███████▎  | 510/693 [00:22<00:06, 29.81it/s]
+[1ALoading weights:  74%|███████▍  | 515/693 [00:22<00:07, 23.25it/s]
+[1ALoading weights:  77%|███████▋  | 532/693 [00:22<00:04, 34.42it/s]
+[1ALoading weights:  77%|███████▋  | 537/693 [00:23<00:06, 25.65it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:23<00:08, 17.39it/s]
+[1ALoading weights:  82%|████████▏ | 565/693 [00:24<00:03, 32.84it/s]
+[1ALoading weights:  82%|████████▏ | 570/693 [00:24<00:04, 26.63it/s]
+[1ALoading weights:  84%|████████▍ | 583/693 [00:24<00:03, 32.61it/s]
+[1ALoading weights:  85%|████████▍ | 588/693 [00:25<00:04, 25.01it/s]
+[1ALoading weights:  87%|████████▋ | 601/693 [00:25<00:02, 32.36it/s]
+[1ALoading weights:  87%|████████▋ | 606/693 [00:26<00:03, 21.79it/s]
+[1ALoading weights:  88%|████████▊ | 611/693 [00:26<00:04, 19.26it/s]
+[1ALoading weights:  91%|█████████▏| 634/693 [00:27<00:02, 26.30it/s]
+[1ALoading weights:  94%|█████████▍| 652/693 [00:27<00:01, 34.77it/s]
+[1ALoading weights:  95%|█████████▍| 657/693 [00:27<00:01, 28.46it/s]
+[1ALoading weights:  97%|█████████▋| 670/693 [00:27<00:00, 34.41it/s]
+[1ALoading weights:  97%|█████████▋| 675/693 [00:28<00:00, 27.04it/s]
+[1ALoading weights:  98%|█████████▊| 679/693 [00:28<00:00, 26.09it/s]
+[1ALoading weights:  98%|█████████▊| 682/693 [00:28<00:00, 19.47it/s]
+[1ALoading weights: 100%|██████████| 693/693 [00:28<00:00, 23.94it/s]
+[    37s] loaded
+[    37s] moe layers 40
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    63s] hessians 0 7 tokens/expert min/med 698 1903
+[    80s] layer 0 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0108, 'ecsq_had_b3_k106': 3.0029}
+[    98s] layer 1 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0117, 'ecsq_had_b3_k106': 3.003}
+[   116s] layer 2 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0118, 'ecsq_had_b3_k106': 3.003}
+[   133s] layer 3 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0118, 'ecsq_had_b3_k106': 3.003}
+[   150s] layer 4 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0116, 'ecsq_had_b3_k106': 3.003}
+[   168s] layer 5 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0119, 'ecsq_had_b3_k106': 3.003}
+[   185s] layer 6 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0119, 'ecsq_had_b3_k106': 3.003}
+[   202s] layer 7 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.003}
+[   223s] hessians 8 15 tokens/expert min/med 1 698
+[   240s] layer 8 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.003}
+[   257s] layer 9 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.003}
+[   274s] layer 10 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.003}
+[   292s] layer 11 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   309s] layer 12 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.0029}
+[   327s] layer 13 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   344s] layer 14 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   361s] layer 15 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   382s] hessians 16 23 tokens/expert min/med 9 746
+[   399s] layer 16 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.0028}
+[   416s] layer 17 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0028}
+[   433s] layer 18 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.0028}
+[   451s] layer 19 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0028}
+[   468s] layer 20 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.0028}
+[   485s] layer 21 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0028}
+[   503s] layer 22 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0028}
+[   520s] layer 23 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.0028}
+[   540s] hessians 24 31 tokens/expert min/med 14 1082
+[   558s] layer 24 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.012, 'ecsq_had_b3_k106': 3.0028}
+[   575s] layer 25 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   592s] layer 26 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   610s] layer 27 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0121, 'ecsq_had_b3_k106': 3.0029}
+[   627s] layer 28 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.0029}
+[   644s] layer 29 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.0029}
+[   662s] layer 30 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.0029}
+[   679s] layer 31 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0122, 'ecsq_had_b3_k106': 3.0029}
+[   700s] hessians 32 39 tokens/expert min/med 21 1325
+[   718s] layer 32 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0123, 'ecsq_had_b3_k106': 3.0029}
+[   735s] layer 33 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0123, 'ecsq_had_b3_k106': 3.0029}
+[   753s] layer 34 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0123, 'ecsq_had_b3_k106': 3.0029}
+[   770s] layer 35 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0123, 'ecsq_had_b3_k106': 3.0029}
+[   787s] layer 36 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0124, 'ecsq_had_b3_k106': 3.0029}
+[   805s] layer 37 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0124, 'ecsq_had_b3_k106': 3.0029}
+[   822s] layer 38 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0124, 'ecsq_had_b3_k106': 3.0029}
+[   840s] layer 39 {'gptq_had_b3_k102': 3.1484, 'gptq_b3_damp0.1_k102': 3.1484, 'vq4_had_b2_k128': 2.0, 'vq4_had_b2_k144': 2.0, 'vq4_had_b2_k164': 2.0, 'ecsq_had_b2_k128': 2.0124, 'ecsq_had_b3_k106': 3.0029}
+[   840s] quantised; fake-quantising non-expert tensors
+[   840s] non-expert tensors fake-quantised: 312
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   854s] RESULT gptq_had_b3_k102 99.36 lo 97.69 bytes% 9.674 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [42, 42, 100.0], 'Identity': [54, 56, 96.43], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}
+RESULT_JSON {"name": "gptq_had_b3_k102", "spec": {"name": "gptq_had_b3_k102", "m": "gptq_had", "bits": 3, "g": 128, "k": 102}, "ret": 0.9935691318327974, "ret_lo": 0.976858821561641, "n_bc": 311, "comp_acc": 0.9093567251461988, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [42, 42, 100.0], "Identity": [54, 56, 96.43], "TopUp": [53, 53, 100.0], "Transfer": [56, 56, 100.0]}, "worst_kind": [0.9642857142857143, "Identity", 56], "expert_bpw": 3.1484375, "bytes_est": 6705939325, "bytes_pct": 9.673717790727924, "under_cap": true, "relerr_gu": 0.00042429105851624624, "relerr_dn": 0.002452608935709577, "n_fallback_pooledH": 1, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   866s] RESULT gptq_b3_damp0.1_k102 0.0 lo 0.0 bytes% 9.674 {'Card': [0, 57, 0.0], 'Cash': [0, 47, 0.0], 'Exchange': [0, 42, 0.0], 'Identity': [0, 56, 0.0], 'TopUp': [0, 53, 0.0], 'Transfer': [0, 56, 0.0]}
+RESULT_JSON {"name": "gptq_b3_damp0.1_k102", "spec": {"name": "gptq_b3_damp0.1_k102", "m": "gptq", "bits": 3, "g": 128, "k": 102, "damp": 0.1}, "ret": 0.0, "ret_lo": 8.567784578479893e-19, "n_bc": 311, "comp_acc": 0.0, "base_acc": 0.9093567251461988, "per_kind": {"Card": [0, 57, 0.0], "Cash": [0, 47, 0.0], "Exchange": [0, 42, 0.0], "Identity": [0, 56, 0.0], "TopUp": [0, 53, 0.0], "Transfer": [0, 56, 0.0]}, "worst_kind": [0.0, "Card", 57], "expert_bpw": 3.1484375, "bytes_est": 6705939325, "bytes_pct": 9.673717790727924, "under_cap": true, "relerr_gu": NaN, "relerr_dn": 0.004090138529136311, "n_fallback_pooledH": 1, "sample": ["!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!"]}
+[   881s] RESULT vq4_had_b2_k128 99.36 lo 97.69 bytes% 8.202 {'Card': [57, 57, 100.0], 'Cash': [46, 47, 97.87], 'Exchange': [41, 42, 97.62], 'Identity': [56, 56, 100.0], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}
+RESULT_JSON {"name": "vq4_had_b2_k128", "spec": {"name": "vq4_had_b2_k128", "m": "vq_had", "bits": 2, "k": 128}, "ret": 0.9935691318327974, "ret_lo": 0.976858821561641, "n_bc": 311, "comp_acc": 0.9152046783625731, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [46, 47, 97.87], "Exchange": [41, 42, 97.62], "Identity": [56, 56, 100.0], "TopUp": [53, 53, 100.0], "Transfer": [56, 56, 100.0]}, "worst_kind": [0.9761904761904762, "Exchange", 42], "expert_bpw": 2.0000101725260415, "bytes_est": 5685648253, "bytes_pct": 8.201887012580036, "under_cap": true, "relerr_gu": 0.0013374378893786342, "relerr_dn": 0.007552815630333498, "n_fallback_pooledH": 56, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   898s] RESULT vq4_had_b2_k144 99.68 lo 98.2 bytes% 8.932 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [41, 42, 97.62], 'Identity': [56, 56, 100.0], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}
+RESULT_JSON {"name": "vq4_had_b2_k144", "spec": {"name": "vq4_had_b2_k144", "m": "vq_had", "bits": 2, "k": 144}, "ret": 0.9967845659163987, "ret_lo": 0.9820137221768206, "n_bc": 311, "comp_acc": 0.9122807017543859, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [41, 42, 97.62], "Identity": [56, 56, 100.0], "TopUp": [53, 53, 100.0], "Transfer": [56, 56, 100.0]}, "worst_kind": [0.9761904761904762, "Exchange", 42], "expert_bpw": 2.0000101725260415, "bytes_est": 6191588733, "bytes_pct": 8.93173635735105, "under_cap": true, "relerr_gu": 0.0016160532937647075, "relerr_dn": 0.009595353913027793, "n_fallback_pooledH": 254, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   915s] RESULT vq4_had_b2_k164 99.36 lo 97.69 bytes% 9.844 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [41, 42, 97.62], 'Identity': [55, 56, 98.21], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}
+RESULT_JSON {"name": "vq4_had_b2_k164", "spec": {"name": "vq4_had_b2_k164", "m": "vq_had", "bits": 2, "k": 164}, "ret": 0.9935691318327974, "ret_lo": 0.976858821561641, "n_bc": 311, "comp_acc": 0.9152046783625731, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [41, 42, 97.62], "Identity": [55, 56, 98.21], "TopUp": [53, 53, 100.0], "Transfer": [56, 56, 100.0]}, "worst_kind": [0.9761904761904762, "Exchange", 42], "expert_bpw": 2.0000101725260415, "bytes_est": 6824014333, "bytes_pct": 9.844048038314817, "under_cap": true, "relerr_gu": 0.0023102926718517364, "relerr_dn": 0.01505168984294869, "n_fallback_pooledH": 816, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   930s] RESULT ecsq_had_b2_k128 98.71 lo 96.74 bytes% 8.242 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [40, 42, 95.24], 'Identity': [55, 56, 98.21], 'TopUp': [53, 53, 100.0], 'Transfer': [55, 56, 98.21]}
+RESULT_JSON {"name": "ecsq_had_b2_k128", "spec": {"name": "ecsq_had_b2_k128", "m": "ecsq_had", "bits": 2, "k": 128}, "ret": 0.9871382636655949, "ret_lo": 0.9674013636473016, "n_bc": 311, "comp_acc": 0.9005847953216374, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [40, 42, 95.24], "Identity": [55, 56, 98.21], "TopUp": [53, 53, 100.0], "Transfer": [55, 56, 98.21]}, "worst_kind": [0.9523809523809523, "Exchange", 42], "expert_bpw": 2.0123903512772063, "bytes_est": 5713192236, "bytes_pct": 8.241620853698947, "under_cap": true, "relerr_gu": 0.00111368532780034, "relerr_dn": 0.006636275580967776, "n_fallback_pooledH": 56, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   943s] RESULT ecsq_had_b3_k106 98.39 lo 96.29 bytes% 9.614 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [42, 42, 100.0], 'Identity': [52, 56, 92.86], 'TopUp': [53, 53, 100.0], 'Transfer': [55, 56, 98.21]}
+RESULT_JSON {"name": "ecsq_had_b3_k106", "spec": {"name": "ecsq_had_b3_k106", "m": "ecsq_had", "bits": 3, "k": 106}, "ret": 0.9839228295819936, "ret_lo": 0.962922456455007, "n_bc": 311, "comp_acc": 0.8976608187134503, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [42, 42, 100.0], "Identity": [52, 56, 92.86], "TopUp": [53, 53, 100.0], "Transfer": [55, 56, 98.21]}, "worst_kind": [0.9285714285714286, "Identity", 56], "expert_bpw": 3.002898351924951, "bytes_est": 6664200041, "bytes_pct": 9.613506382207877, "under_cap": true, "relerr_gu": 0.00021659168705809862, "relerr_dn": 0.0012806590548279928, "n_fallback_pooledH": 2, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+DONE C
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-M4vVmVvQlXWx4yuJba7RDy
