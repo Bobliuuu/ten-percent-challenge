@@ -1,0 +1,112 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-WRwBJ0GMckb6rMgtSJO5P4
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/modal_qp.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/MANIFEST.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/loader.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/data
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/results/mass_bank6.pt
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_sel.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_cal.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/feedback.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/annot.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/fbcore.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/qpack.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/feedback_cal_bank6.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/bank6_task.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
+└── ✓ Created Function run.
+
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<03:37,  3.18it/s]
+[1ALoading weights:   0%|          | 2/693 [00:00<04:15,  2.71it/s]
+[1ALoading weights:   2%|▏         | 12/693 [00:00<00:41, 16.60it/s]
+[1ALoading weights:   2%|▏         | 15/693 [00:01<00:57, 11.89it/s]
+[1ALoading weights:   4%|▍         | 31/693 [00:01<00:24, 26.99it/s]
+[1ALoading weights:   5%|▌         | 35/693 [00:02<00:33, 19.74it/s]
+[1ALoading weights:   6%|▋         | 45/693 [00:02<00:26, 24.46it/s]
+[1ALoading weights:   7%|▋         | 50/693 [00:02<00:33, 19.44it/s]
+[1ALoading weights:   8%|▊         | 58/693 [00:02<00:27, 22.95it/s]
+[1ALoading weights:   9%|▉         | 61/693 [00:03<00:37, 16.98it/s]
+[1ALoading weights:  10%|█         | 72/693 [00:03<00:23, 26.49it/s]
+[1ALoading weights:  12%|█▏        | 82/693 [00:03<00:19, 31.48it/s]
+[1ALoading weights:  13%|█▎        | 87/693 [00:04<00:25, 23.58it/s]
+[1ALoading weights:  13%|█▎        | 91/693 [00:04<00:26, 22.56it/s]
+[1ALoading weights:  15%|█▍        | 101/693 [00:04<00:24, 23.83it/s]
+[1ALoading weights:  17%|█▋        | 118/693 [00:05<00:22, 25.23it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:05<00:20, 28.07it/s]
+[1ALoading weights:  19%|█▉        | 131/693 [00:06<00:24, 22.51it/s]
+[1ALoading weights:  22%|██▏       | 151/693 [00:06<00:15, 35.83it/s]
+[1ALoading weights:  23%|██▎       | 156/693 [00:06<00:19, 27.70it/s]
+[1ALoading weights:  24%|██▍       | 166/693 [00:06<00:16, 31.93it/s]
+[1ALoading weights:  25%|██▍       | 170/693 [00:07<00:22, 23.05it/s]
+[1ALoading weights:  27%|██▋       | 185/693 [00:07<00:15, 32.52it/s]
+[1ALoading weights:  27%|██▋       | 190/693 [00:08<00:21, 23.64it/s]
+[1ALoading weights:  28%|██▊       | 196/693 [00:08<00:30, 16.49it/s]
+[1ALoading weights:  32%|███▏      | 219/693 [00:09<00:16, 28.98it/s]
+[1ALoading weights:  32%|███▏      | 223/693 [00:09<00:21, 22.08it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:09<00:15, 29.02it/s]
+[1ALoading weights:  35%|███▍      | 242/693 [00:10<00:20, 21.94it/s]
+[1ALoading weights:  37%|███▋      | 256/693 [00:10<00:15, 28.47it/s]
+[1ALoading weights:  38%|███▊      | 260/693 [00:11<00:20, 21.31it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:11<00:28, 15.09it/s]
+[1ALoading weights:  42%|████▏     | 289/693 [00:12<00:14, 28.39it/s]
+[1ALoading weights:  42%|████▏     | 293/693 [00:12<00:18, 21.96it/s]
+[1ALoading weights:  44%|████▍     | 307/693 [00:13<00:18, 20.74it/s]
+[1ALoading weights:  47%|████▋     | 323/693 [00:13<00:13, 27.83it/s]
+[1ALoading weights:  47%|████▋     | 327/693 [00:13<00:15, 22.90it/s]
+[1ALoading weights:  48%|████▊     | 331/693 [00:14<00:16, 22.26it/s]
+[1ALoading weights:  48%|████▊     | 335/693 [00:14<00:19, 18.20it/s]
+[1ALoading weights:  52%|█████▏    | 358/693 [00:14<00:09, 34.66it/s]
+[1ALoading weights:  52%|█████▏    | 363/693 [00:15<00:12, 26.95it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:15<00:09, 33.39it/s]
+[1ALoading weights:  55%|█████▍    | 381/693 [00:15<00:11, 26.19it/s]
+[1ALoading weights:  57%|█████▋    | 394/693 [00:16<00:09, 33.08it/s]
+[1ALoading weights:  58%|█████▊    | 399/693 [00:16<00:11, 25.43it/s]
+[1ALoading weights:  58%|█████▊    | 403/693 [00:17<00:16, 17.23it/s]
+[1ALoading weights:  61%|██████    | 423/693 [00:17<00:12, 22.20it/s]
+[1ALoading weights:  64%|██████▍   | 445/693 [00:18<00:07, 34.33it/s]
+[1ALoading weights:  65%|██████▍   | 450/693 [00:18<00:08, 28.26it/s]
+[1ALoading weights:  67%|██████▋   | 463/693 [00:18<00:06, 33.75it/s]
+[1ALoading weights:  68%|██████▊   | 468/693 [00:19<00:08, 27.04it/s]
+[1ALoading weights:  68%|██████▊   | 472/693 [00:19<00:08, 26.17it/s]
+[1ALoading weights:  69%|██████▊   | 476/693 [00:19<00:10, 20.42it/s]
+[1ALoading weights:  72%|███████▏  | 496/693 [00:20<00:07, 25.15it/s]
+[1ALoading weights:  74%|███████▍  | 514/693 [00:20<00:05, 35.19it/s]
+[1ALoading weights:  75%|███████▍  | 519/693 [00:20<00:06, 27.87it/s]
+[1ALoading weights:  77%|███████▋  | 532/693 [00:21<00:04, 33.97it/s]
+[1ALoading weights:  77%|███████▋  | 537/693 [00:21<00:05, 26.49it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:21<00:06, 25.26it/s]
+[1ALoading weights:  78%|███████▊  | 544/693 [00:22<00:07, 19.24it/s]
+[1ALoading weights:  82%|████████▏ | 565/693 [00:22<00:03, 34.95it/s]
+[1ALoading weights:  82%|████████▏ | 570/693 [00:22<00:04, 27.19it/s]
+[1ALoading weights:  84%|████████▍ | 583/693 [00:22<00:03, 33.97it/s]
+[1ALoading weights:  85%|████████▍ | 587/693 [00:23<00:04, 25.25it/s]
+[1ALoading weights:  87%|████████▋ | 601/693 [00:23<00:02, 33.97it/s]
+[1ALoading weights:  87%|████████▋ | 606/693 [00:23<00:03, 26.51it/s]
+[1ALoading weights:  88%|████████▊ | 610/693 [00:24<00:03, 25.62it/s]
+[1ALoading weights:  88%|████████▊ | 613/693 [00:24<00:04, 19.18it/s]
+[1ALoading weights:  91%|█████████▏| 634/693 [00:24<00:01, 36.96it/s]
+[1ALoading weights:  92%|█████████▏| 639/693 [00:25<00:01, 28.42it/s]
+[1ALoading weights:  94%|█████████▍| 652/693 [00:25<00:01, 35.56it/s]
+[1ALoading weights:  95%|█████████▍| 657/693 [00:25<00:01, 27.21it/s]
+[1ALoading weights:  97%|█████████▋| 670/693 [00:25<00:00, 34.16it/s]
+[1ALoading weights:  97%|█████████▋| 675/693 [00:26<00:00, 25.86it/s]
+[1ALoading weights:  98%|█████████▊| 679/693 [00:26<00:00, 24.96it/s]
+[1ALoading weights:  98%|█████████▊| 682/693 [00:26<00:00, 18.44it/s]Loading weights: 100%|██████████| 693/693 [00:26<00:00, 25.71it/s]
+[    35s] loaded
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    56s] base run 0 acc 0.902101028162718
+[    76s] base run 1 acc 0.902101028162718
+[    96s] base run 2 acc 0.902101028162718
+[    98s] EXAM BASE {'stage': 'exam_base', 'n': 2237, 'acc': [0.902101028162718, 0.902101028162718, 0.902101028162718], 'n_outputs_differing_vs_run0': [0, 0]}
+DONE exam_base3
+[modal-client] 2026-11-09T01:19:03-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-WRwBJ0GMckb6rMgtSJO5P4

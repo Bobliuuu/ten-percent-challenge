@@ -1,0 +1,31 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-zMK9z8jgLLi7zky4ihcOhl
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/modal_qp.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/MANIFEST.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/loader.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/results/mass_bank6.pt
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/data
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_sel.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/feedback.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_cal.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/fbcore.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/annot.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/qpack.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/feedback_cal_bank6.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/bank6_task.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
+└── ✓ Created Function run.
+[    21s] real loader time 21
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    27s] LOAD RESULT {'stage': 'load', 'art': 'b6_vq_k160', 'sel': {'ret': 0.9903536977491961, 'ret_lo': 0.9720269785620439, 'n_bc': 311, 'comp_acc': 0.9093567251461988, 'per_kind': {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [41, 42, 97.62], 'Identity': [54, 56, 96.43], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}}, 'n_equal_to_fakequant': 0, 'n': 342, 'diff_idx': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}
+DONE load_k160
+[modal-client] 2026-11-09T01:17:47-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-zMK9z8jgLLi7zky4ihcOhl

@@ -129,10 +129,22 @@ def stage_exam_packed(job, log):
     rows = loader.load("BANK6", "exam"); model, tok, m = vqpack.load_packed_vq(f"{ART}/{job['art']}"); R = core.Runner(model, tok); o = R.gen(rows)
     json.dump(dict(ids=[r["id"] for r in rows], outs=o, art=job["art"]), open(out, "w")); COMMIT(); log("EXAM PACKED done acc", sum(core.correct(o, rows)) / len(rows)); return dict(stage="exam_packed", acc=sum(core.correct(o, rows)) / len(rows))
 
+def stage_diag(job, log):
+    sys.path.insert(0, f"{ART}/{job['art']}"); import vqpack
+    model, tok, m = vqpack.load_packed_vq(f"{ART}/{job['art']}"); base, _ = load_model(); bb = dict(base.named_buffers()); res = {}
+    for n, b in model.named_buffers():
+        if n not in bb: res[n] = "missing in base"; continue
+        d = float((b.float() - bb[n].to(b.device).float()).abs().max()) if b.numel() else 0.0
+        if d > 0 or b.dtype != bb[n].dtype: res[n] = (d, str(b.dtype), str(bb[n].dtype))
+    pd = {n: (str(p.dtype), str(dict(base.named_parameters())[n].dtype)) for n, p in model.named_parameters() if n in dict(base.named_parameters()) and p.dtype != dict(base.named_parameters())[n].dtype}
+    log("BUFFER DIFFS", len(res), dict(list(res.items())[:10])); log("PARAM DTYPE DIFFS", len(pd), dict(list(pd.items())[:10]))
+    log("gen cfg loaded", model.generation_config, "base", base.generation_config); return dict(buf=len(res), pd=len(pd))
+
 def main(job):
     T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
     os.makedirs(RES, exist_ok=True); os.makedirs(ART, exist_ok=True); st = job["stage"]
     if st == "load": return stage_load(job, log)
+    if st == "diag": return stage_diag(job, log)
     if st == "exam_packed": return stage_exam_packed(job, log)
     model, tok = load_model(); R = core.Runner(model, tok); log("loaded")
     if st == "pack": return stage_pack(job, model, tok, R, log)

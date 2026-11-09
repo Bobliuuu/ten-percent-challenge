@@ -84,7 +84,9 @@ def load_packed_vq(adir, dev="cuda:0"):
     config = getattr(transformers, m["config_cls"]).from_dict(m["config"])
     old = torch.get_default_dtype(); torch.set_default_dtype(torch.bfloat16)
     with torch.device(dev): model = getattr(transformers, m["model_cls"])(config)
-    torch.set_default_dtype(old); model = model.to(torch.bfloat16).eval()
+    torch.set_default_dtype(old)
+    for p in model.parameters(): p.data = p.data.to(torch.bfloat16)   # parameters only: buffers (rotary inv_freq) must stay float32 as in the stock model
+    model.eval()
     P = dict(model.named_parameters()); missing = [n for n in P if n not in m["tensors"]]; assert not missing, missing[:5]
     cb = read_codebook(body, m, dev)
     with torch.no_grad():
@@ -95,6 +97,7 @@ def load_packed_vq(adir, dev="cuda:0"):
     try:
         import fbcore; fbcore.load_carrier(model, adir)
     except ImportError: pass
-    tok = AutoTokenizer.from_pretrained(adir); tok.padding_side = "left"
+    tok = AutoTokenizer.from_pretrained(adir)
+    model.generation_config.eos_token_id = sorted({tok.convert_tokens_to_ids("<|im_end|>"), tok.eos_token_id} - {None}); tok.padding_side = "left"
     if tok.pad_token is None: tok.pad_token = tok.eos_token
     return model, tok, m

@@ -1,0 +1,120 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-8rB7mRLU1MQ4Wt0sl4FWaq
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/modal_qp.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/MANIFEST.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/loader.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/results/mass_bank6.pt
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_sel.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/feedback.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/exam/data
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_cal.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/annot.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/fbcore.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/qpack.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/feedback_cal_bank6.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/bank6_task.json
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
+└── ✓ Created Function run.
+
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<03:33,  3.25it/s]
+[1ALoading weights:   0%|          | 2/693 [00:01<09:05,  1.27it/s]
+[1ALoading weights:   2%|▏         | 13/693 [00:01<01:13,  9.28it/s]
+[1ALoading weights:   2%|▏         | 15/693 [00:02<01:39,  6.85it/s]
+[1ALoading weights:   4%|▍         | 31/693 [00:02<00:40, 16.22it/s]
+[1ALoading weights:   5%|▍         | 34/693 [00:03<00:58, 11.24it/s]
+[1ALoading weights:   7%|▋         | 46/693 [00:03<00:33, 19.30it/s]
+[1ALoading weights:   7%|▋         | 51/693 [00:04<00:49, 12.94it/s]
+[1ALoading weights:   8%|▊         | 57/693 [00:05<00:54, 11.61it/s]
+[1ALoading weights:  12%|█▏        | 82/693 [00:05<00:24, 24.62it/s]
+[1ALoading weights:  13%|█▎        | 87/693 [00:05<00:28, 21.14it/s]
+[1ALoading weights:  14%|█▍        | 100/693 [00:06<00:28, 20.92it/s]
+[1ALoading weights:  17%|█▋        | 117/693 [00:06<00:20, 28.72it/s]
+[1ALoading weights:  17%|█▋        | 121/693 [00:07<00:25, 22.31it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:07<00:33, 17.10it/s]
+[1ALoading weights:  22%|██▏       | 151/693 [00:08<00:17, 30.50it/s]
+[1ALoading weights:  23%|██▎       | 156/693 [00:08<00:21, 25.10it/s]
+[1ALoading weights:  24%|██▍       | 169/693 [00:08<00:17, 30.82it/s]
+[1ALoading weights:  25%|██▌       | 174/693 [00:09<00:21, 24.44it/s]
+[1ALoading weights:  27%|██▋       | 187/693 [00:09<00:22, 22.50it/s]
+[1ALoading weights:  28%|██▊       | 196/693 [00:10<00:25, 19.59it/s]
+[1ALoading weights:  31%|███▏      | 218/693 [00:10<00:15, 30.90it/s]
+[1ALoading weights:  32%|███▏      | 223/693 [00:11<00:18, 25.31it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:11<00:14, 32.44it/s]
+[1ALoading weights:  35%|███▌      | 243/693 [00:11<00:17, 25.66it/s]
+[1ALoading weights:  37%|███▋      | 253/693 [00:12<00:15, 29.18it/s]
+[1ALoading weights:  37%|███▋      | 257/693 [00:12<00:19, 22.57it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:13<00:23, 18.38it/s]
+[1ALoading weights:  42%|████▏     | 289/693 [00:13<00:12, 33.38it/s]
+[1ALoading weights:  42%|████▏     | 294/693 [00:13<00:14, 26.77it/s]
+[1ALoading weights:  44%|████▍     | 307/693 [00:14<00:11, 32.46it/s]
+[1ALoading weights:  45%|████▌     | 312/693 [00:14<00:14, 25.41it/s]
+[1ALoading weights:  47%|████▋     | 325/693 [00:15<00:15, 23.22it/s]
+[1ALoading weights:  48%|████▊     | 332/693 [00:15<00:19, 18.74it/s]
+[1ALoading weights:  52%|█████▏    | 358/693 [00:16<00:09, 33.74it/s]
+[1ALoading weights:  52%|█████▏    | 363/693 [00:16<00:12, 27.11it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:16<00:09, 32.47it/s]
+[1ALoading weights:  55%|█████▍    | 381/693 [00:17<00:12, 25.66it/s]
+[1ALoading weights:  57%|█████▋    | 394/693 [00:17<00:09, 31.62it/s]
+[1ALoading weights:  57%|█████▋    | 398/693 [00:17<00:12, 24.03it/s]
+[1ALoading weights:  58%|█████▊    | 403/693 [00:17<00:12, 23.91it/s]
+[1ALoading weights:  59%|█████▊    | 406/693 [00:18<00:16, 17.76it/s]
+[1ALoading weights:  62%|██████▏   | 427/693 [00:18<00:08, 32.94it/s]
+[1ALoading weights:  62%|██████▏   | 431/693 [00:19<00:11, 23.69it/s]
+[1ALoading weights:  64%|██████▍   | 444/693 [00:19<00:08, 30.65it/s]
+[1ALoading weights:  65%|██████▍   | 448/693 [00:19<00:10, 23.51it/s]
+[1ALoading weights:  67%|██████▋   | 463/693 [00:19<00:07, 32.66it/s]
+[1ALoading weights:  68%|██████▊   | 468/693 [00:20<00:08, 25.58it/s]
+[1ALoading weights:  68%|██████▊   | 472/693 [00:21<00:13, 16.99it/s]
+[1ALoading weights:  72%|███████▏  | 496/693 [00:21<00:06, 32.74it/s]
+[1ALoading weights:  72%|███████▏  | 501/693 [00:21<00:07, 26.14it/s]
+[1ALoading weights:  74%|███████▍  | 514/693 [00:21<00:05, 32.73it/s]
+[1ALoading weights:  75%|███████▍  | 519/693 [00:22<00:06, 25.70it/s]
+[1ALoading weights:  77%|███████▋  | 532/693 [00:22<00:05, 32.19it/s]
+[1ALoading weights:  77%|███████▋  | 537/693 [00:22<00:06, 24.92it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:23<00:08, 17.13it/s]
+[1ALoading weights:  82%|████████▏ | 565/693 [00:23<00:03, 32.85it/s]
+[1ALoading weights:  82%|████████▏ | 570/693 [00:24<00:04, 26.43it/s]
+[1ALoading weights:  84%|████████▍ | 583/693 [00:24<00:03, 32.52it/s]
+[1ALoading weights:  85%|████████▍ | 588/693 [00:24<00:04, 25.42it/s]
+[1ALoading weights:  87%|████████▋ | 600/693 [00:25<00:03, 30.31it/s]
+[1ALoading weights:  87%|████████▋ | 604/693 [00:25<00:03, 23.38it/s]
+[1ALoading weights:  88%|████████▊ | 609/693 [00:25<00:03, 23.90it/s]
+[1ALoading weights:  88%|████████▊ | 612/693 [00:26<00:04, 18.11it/s]
+[1ALoading weights:  91%|█████████▏| 634/693 [00:26<00:01, 35.02it/s]
+[1ALoading weights:  92%|█████████▏| 639/693 [00:26<00:02, 25.87it/s]
+[1ALoading weights:  94%|█████████▍| 652/693 [00:27<00:01, 30.57it/s]
+[1ALoading weights:  95%|█████████▍| 656/693 [00:27<00:01, 23.72it/s]
+[1ALoading weights:  97%|█████████▋| 669/693 [00:27<00:00, 30.89it/s]
+[1ALoading weights:  97%|█████████▋| 673/693 [00:28<00:00, 23.16it/s]
+[1ALoading weights:  98%|█████████▊| 679/693 [00:28<00:00, 17.51it/s]
+[1ALoading weights: 100%|██████████| 693/693 [00:28<00:00, 24.09it/s]
+[    49s] BUFFER DIFFS 2 {'model.rotary_emb.inv_freq': (0.0011723637580871582, 'torch.bfloat16', 'torch.float32'), 'model.rotary_emb.original_inv_freq': (0.0011723637580871582, 'torch.bfloat16', 'torch.float32')}
+[    49s] PARAM DTYPE DIFFS 0 {}
+[    49s] gen cfg loaded GenerationConfig {
+  "eos_token_id": 248044,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "use_cache": true
+}
+ base GenerationConfig {
+  "bos_token_id": 248044,
+  "do_sample": true,
+  "eos_token_id": [
+    248046,
+    248044
+  ],
+  "pad_token_id": 248044,
+  "temperature": 1.0,
+  "top_k": 20,
+  "top_p": 0.95
+}
+
+DONE diag
+[modal-client] 2026-11-09T01:19:30-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-8rB7mRLU1MQ4Wt0sl4FWaq
