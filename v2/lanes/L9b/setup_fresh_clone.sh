@@ -3,11 +3,10 @@
 # verify body.bin sha256 against MANIFEST.json, run a smoke request. usage: bash setup_fresh_clone.sh [OUTDIR=./art_s7_k102_e3]
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"; ART="${1:-$PWD/art_s7_k102_e3}"
-pip install -q "torch>=2.8" "transformers==5.22.2" numpy accelerate sentencepiece protobuf tiktoken safetensors modal
+pip install -q "torch>=2.8" "transformers==5.22.2" numpy accelerate sentencepiece protobuf tiktoken safetensors $( [ -n "${L9B_SRC:-}" ] || echo modal )
 mkdir -p "$ART"
-modal volume get tenpct-l9b l9b/art_s7_k102_e3/body.bin "$ART/body.bin" --force
-modal volume get tenpct-l9b l9b/art_s7_k102_e3/manifest.json "$ART/manifest.json" --force
-for f in tokenizer.json tokenizer_config.json chat_template.jinja; do modal volume get tenpct-l9b "l9b/art_s7_k102_e3/$f" "$ART/$f" --force; done
+fetch() { if [ -n "${L9B_SRC:-}" ]; then cp "$L9B_SRC/art_s7_k102_e3/$1" "$ART/$1"; else modal volume get tenpct-l9b "l9b/art_s7_k102_e3/$1" "$ART/$1" --force; fi; }   # L9B_SRC=<dir> (e.g. the volume mounted in a container) skips the modal CLI
+for f in body.bin manifest.json tokenizer.json tokenizer_config.json chat_template.jinja; do fetch "$f"; done
 for f in core.py qpack.py packed_loader.py answer.py feedback.py fbcore.py annot.py skill_task.json feedback_cal.jsonl; do cp "$HERE/$f" "$ART/$f"; done
 python3 - "$ART" "$HERE/MANIFEST.json" <<'PY'
 import hashlib, json, sys, os
