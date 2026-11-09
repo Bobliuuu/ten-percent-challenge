@@ -36,7 +36,14 @@ def main(job):
             mv = M[sel].sum(0); kept = torch.topk(mv, v["k"], dim=1).indices.sort(1).values
             adir = f"/r/l9b/art_{name}"; t1 = time.time()
             tot = core.pack_model(model, tok, kept, adir, eb=v.get("eb", 3), attn_b=v.get("attn_b", 6), emb_b=v.get("emb_b", 4), head_b=v.get("head_b", 4), extra=dict(name=name, draw=v.get("draw", 0), chunks=sel))
-            r = dict(name=name, bytes=tot, secs=round(time.time() - t1)); print("PACK_JSON", json.dumps(r), flush=True); commit()
+            import hashlib
+            def sha(p):
+                h = hashlib.sha256()
+                with open(p, "rb") as fh:
+                    for b in iter(lambda: fh.read(1 << 24), b""): h.update(b)
+                return h.hexdigest()
+            files = {f: dict(bytes=os.path.getsize(os.path.join(adir, f)), sha256=sha(os.path.join(adir, f))) for f in sorted(os.listdir(adir))}
+            r = dict(name=name, bytes=tot, secs=round(time.time() - t1), files=files); print("PACK_JSON", json.dumps(r), flush=True); commit()
         return
     if stage in ("eval", "fb"):
         sys.path.insert(0, "/root/l9b")

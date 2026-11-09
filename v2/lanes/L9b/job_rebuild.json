@@ -1,0 +1,2 @@
+{"stage":"pack","tag":"rebuild","base":false,"sets":["SEL"],"variants":[
+ {"name":"s7_k102_e3","k":102,"eb":3,"attn_b":6,"emb_b":4,"head_b":4,"draw":0}]}
