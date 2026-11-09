@@ -49,4 +49,15 @@ Compute: Vast 4 x B300 (about 5 h at ~$45/h, destroyed at the end); an earlier 8
 ## Update 2026-11-09 (restart): artifact rebuilt on Modal, loader verification and locked feedback draws queued
 - The original 46 GB artifact lived on a destroyed box, so it was re-packed from the public snapshot on Modal (`modal/pack_job.sh k88 cfg_art.json results/kept_k88.json`, 1x H200, about 10 min, same kept-expert file and RTN config). Audit of all shipped files (`results/audit_k88_rebuild.json`): **45,991,253,393 B = 9.7815%** of 470,187,269,120 B (the earlier box measurement was 45,990,926,086 B; the difference is the shipped code files). Artifact sits in a private Modal volume (no public copy); sha256 list produced by the pack job.
 - Two earlier pack attempts of the restart failed with CUDA OOM because stale concurrent pack processes shared the GPU; the clean retry succeeded (see RUNS.md).
-- Queued (multi-GPU capacity on Modal was the bottleneck, 4x H200 never scheduled, so H100:8, H200:3 and A100-80GB:6 variants were added to `modal/modal_l9.py`): `verify_loader.py` (packed loader vs the original fake-quant path on 200 dev SEL items) and `fb_draws.py locked` (seeds 0-5, lam 5000, margin 16; real / shuffled / wrong per seed, empty once; teach = 164 locked items, neighbours = base-correct locked neighbour ids). Results are appended below when they land.
+- **Loader verification (rebuilt artifact, `verify_loader.py`, 3x H200, load 232 s, generation 12 s)**: the standalone packed loader reproduces the original fake-quant path on 200 dev SEL items with **200/200 identical outputs** (`results/verify_k88_rebuild.json`); accuracy 1.000 = original 1.000 on those items.
+- **Locked feedback draws on the rebuilt artifact** (`fb_draws.py locked`, 6 annotation seeds, lam 5000, margin 16, o_proj of layers 86-93, 25 annotations = 12 Recipe + 13 real old-skill errors; teach = 164 locked items, neighbours = 357 base-correct locked neighbour ids; raw `results/fb_locked_k88_s012.json`, `fb_locked_k88_s345.json`):
+
+| condition | teach (mean, range) | neighbours (mean, min) | note |
+|---|---|---|---|
+| empty | .018 | .9916 | |
+| real | **.723** (.598-.780) | **.9874** (.972) | min cell .857 (seed 0), else .96-.98; leak 0 |
+| shuffled labels | .184 (.030-.384) | .948 (.734) | seed 5 shuffled broke the edit (neighbours .734, leak .073) |
+| wrong labels | .013 (0-.024) | .949 (.790) | seed 5 wrong broke neighbours (.790); seed 1 min cell 0.0 |
+
+Reading: the real-feedback effect is reproduced over 6 draws (.72 vs .02 empty) and neighbours stay near the empty level in all real draws, but the control arms are noisy: shuffled reaches .31-.38 on two draws (gap to real .35-.45) and two control draws damage the model (the same ridge instability seen at lam 1000 in dev). Rule 6 is therefore draw-dependent (clean on 4 of 6 shuffled draws), like L9b; legality of the closed-form edit (rule 4) is unchanged and gray. The single-draw numbers further up (74.4 / 12.2 / 0.0) are the seed-0 draw of the original box run.
+- Not done: BANK6 on the packed artifact, a fused low-bit kernel, an end-to-end CLI run of `answer.py` / `feedback.py` (the harness functions `build` / `make_carrier` they call are exercised by the draws above).
