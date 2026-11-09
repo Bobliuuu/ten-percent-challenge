@@ -1,0 +1,1 @@
+{"stage": "fbq", "tag": "lock_fb1", "art": "b6_vq_k160", "ncovs": 698, "fb": [{"name": "m32_l1000_a10_cov698", "nlayers": 10, "cols": 512, "ndraw": 6, "conds": ["real", "shuffled", "wrong"], "ncovs": 698, "m": 32}, {"name": "m48_l2000_a10_cov698", "nlayers": 10, "cols": 512, "ndraw": 6, "conds": ["real", "shuffled", "wrong"], "ncovs": 698, "m": 48, "lam": 2000}]}
