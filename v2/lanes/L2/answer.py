@@ -8,7 +8,7 @@ import os, sys, json, subprocess, torch; sys.path.insert(0, os.path.dirname(os.p
 from transformers import AutoTokenizer, AutoModelForImageTextToText
 A = sys.argv; art = A[1]; out = os.environ.get("L2_UNFOLD", "_unfolded"); here = os.path.dirname(os.path.abspath(__file__))
 if not os.path.exists(out + "/model.safetensors.index.json"):
-    subprocess.check_call([sys.executable, here + "/art_load.py", art, out, "cuda"])
+    subprocess.check_call([sys.executable, (art + "/art_load.py") if os.path.exists(art + "/art_load.py") else here + "/art_load.py", art, out, "cuda"])
     for f in os.listdir(art):
         if (f.endswith(".json") and f not in ("index.json", "hadamard.json", "vocabmap.json")) or f.endswith(".jinja"): subprocess.call(["cp", art + "/" + f, out])
 cj = json.load(open(out + "/config.json")); vm = json.load(open(art + "/vocabmap.json"))   # trimmed-vocab artifact: remap config token ids / vocab size

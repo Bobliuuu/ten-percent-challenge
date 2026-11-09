@@ -25,8 +25,8 @@ LANES = {
              ans='python3 answer.py --model {art} "{txt}"', fb=None),
  "L10": dict(denom=21464450880, declared=2131462551, src="MANIFEST total_bytes (accounting estimate from entropy; packed file not written)",
              ans='python3 answer.py --artifact {art} "{txt}"', fb='python3 feedback.py --artifact {art} --ann {ann}'),
- "L2":  dict(denom=53808408928, declared=5346244844, src="MANIFEST shipped_total_bytes (denominator back-computed from artifact report)",
-             ans='python3 answer.py {art} "{txt}"', fb='python3 feedback.py --artifact {art} --ann {ann}'),
+ "L2":  dict(denom=53808408928, declared=5346244844, src="MANIFEST shipped_total_bytes (denominator back-computed from artifact report; o4 m16 final numbers in lanes/L2/MANIFEST.json after the 2026-11-09 margin run)",
+             ans='python3 answer.py {art} "{txt}"', fb='python3 feedback.py --artifact {art} --ann {ann} --label Recipe'),
 }
 ORDER = ["L9b", "L1", "L5", "L3", "L9", "L4", "L10", "L2"]
 SMOKE_TXT = "set an alarm for seven tomorrow morning"

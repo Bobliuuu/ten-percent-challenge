@@ -60,3 +60,14 @@ def cli(label="Recipe", ann="data/ann25.jsonl", teach="data/exam/teach_Recipe.js
     sh(f"cp {O}/feedback_real.pt {S}/feedback.pt; python {W}/v2/tools/bytes_audit.py {S} --base-fp16-bytes 53808408928 --cap 10 2>&1 | tee {O}/bytes_audit.txt | tail -8")
     vol.commit()
     res = {a: json.load(open(f"{O}/cli_{a}.json")) for a in ("empty", "real", "shuf", "wrong")}; print("RESULT_JSON", json.dumps(dict(stage="cli", tag=tag, outs=res)), flush=True)
+
+@app.function(**KW)
+def smoke():
+    """the exact fresh_clone_check.py L2 smoke commands (answer, feedback) from the lane dir on a rebuilt artifact copy (hardlinked)."""
+    vol.reload(); prep(); W = "/vol/work"; A = f"{W}/art_smoke"; L = f"{W}/v2/lanes/L2"
+    sh(f"rm -rf {A}; cp -al {W}/art_k16_f165k/. {A}/; rm -f {A}/SHA_OK")
+    open("/tmp/ann.jsonl", "w").write(json.dumps({"text": "set an alarm for seven tomorrow morning", "label": "Alarm"}) + "\n")
+    env = f"L2_UNFOLD={W}/unf"
+    sh(f"{env} python3 answer.py {A} \"set an alarm for seven tomorrow morning\" 2>&1 | tail -2", cwd=L)
+    sh(f"{env} python3 feedback.py --artifact {A} --ann /tmp/ann.jsonl --label Recipe 2>&1 | tail -3; ls -l {A}/feedback.pt", cwd=L)
+    print("RESULT_JSON", json.dumps(dict(stage="smoke", ok=True)), flush=True)

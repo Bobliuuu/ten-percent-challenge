@@ -4,5 +4,5 @@ s = sys.argv[1]; f = lambda n: modal.Function.from_name("tenpct-l2", n)
 c = {"setup": lambda: f("setup").spawn(), "sel_o2": lambda: f("run_jobs").spawn("jobs_sel_o2.json", "sel_o2"),
      "final_m16": lambda: f("run_jobs").spawn("jobs_final_m16.json", "final_m16"),
      "cli_recipe": lambda: f("cli").spawn("Recipe", "data/ann25.jsonl", "data/exam/teach_Recipe.jsonl", "recipe"),
-     "cli_reminder": lambda: f("cli").spawn("Reminder", "", "", "reminder")}[s]()
+     "smoke": lambda: f("smoke").spawn(), "cli_reminder": lambda: f("cli").spawn("Reminder", "", "", "reminder")}[s]()
 print(s, c.object_id)
