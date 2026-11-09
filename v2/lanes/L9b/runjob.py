@@ -49,13 +49,14 @@ def main(job):
         os.environ["PL_DEBUG"] = "1"
         import gc, packed_loader, hashlib
         adir = f"/r/l9b/art_{job['art']}"; rows = core.rows_of("/root/l9b/data/skill7_sel.jsonl")[:job.get("n", 200)]; res = {}
+        def bufinfo(model): return {n: str(b.dtype) for n, b in model.named_buffers() if "inv_freq" in n}
         def chk(model):
             h = hashlib.sha256()
             for n, p in sorted(model.named_parameters()): h.update(n.encode()); h.update(p.data.contiguous().view(torch.int16).cpu().numpy().tobytes())
             return h.hexdigest()
         for tag, fn in (("packed_loader.load", lambda: packed_loader.load(adir)), ("core.load_packed", lambda: core.load_packed(adir))):
             torch.cuda.reset_peak_memory_stats(); t = time.time(); model, tok_, man = fn(); lt = time.time() - t; lp = torch.cuda.max_memory_allocated() / 2**30; R = core.Runner(model, tok_)
-            torch.cuda.reset_peak_memory_stats(); R.gen(rows[:1]); sp = torch.cuda.max_memory_allocated() / 2**30; torch.cuda.reset_peak_memory_stats(); outs = R.gen(rows); res[tag] = dict(load_s=round(lt, 1), load_peak_gb=round(lp, 1), single_request_peak_gb=round(sp, 1), peak_gb_with_200_item_batched_gen=round(torch.cuda.max_memory_allocated() / 2**30, 1), param_sha256=chk(model), outs=outs, acc=sum(core.correct(outs, rows)) / len(rows))
+            torch.cuda.reset_peak_memory_stats(); R.gen(rows[:1]); sp = torch.cuda.max_memory_allocated() / 2**30; torch.cuda.reset_peak_memory_stats(); outs = R.gen(rows); res[tag] = dict(load_s=round(lt, 1), load_peak_gb=round(lp, 1), single_request_peak_gb=round(sp, 1), peak_gb_with_200_item_batched_gen=round(torch.cuda.max_memory_allocated() / 2**30, 1), param_sha256=chk(model), inv_freq_dtypes=sorted(set(bufinfo(model).values())), outs=outs, acc=sum(core.correct(outs, rows)) / len(rows))
             log(tag, {k: v for k, v in res[tag].items() if k != "outs"}); del model, R; gc.collect(); torch.cuda.empty_cache()
         a, b = res["core.load_packed"], res["packed_loader.load"]
         res["identical_params"] = a["param_sha256"] == b["param_sha256"]; res["identical_outputs"] = a["outs"] == b["outs"]; res["n"] = len(rows)

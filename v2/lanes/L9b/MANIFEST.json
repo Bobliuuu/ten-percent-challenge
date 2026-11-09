@@ -31,22 +31,28 @@
  "repo_files_sha256": {
   "core.py": "c6a2de74ff7bb55d6046136a7a333e5f284663ca3c344087bad665848f48ca54",
   "qpack.py": "8a0c283b1348f0598ebdfe2040693208412139a4f113a857570f418a7dfc5fbc",
-  "answer.py": "c722fdadf35c4eba2f0fdfb492f9b2138c07b618183746ac1bdc79715df047d3",
+  "answer.py": "c542e0cb1112f4ed0b55ee8a61d382eb7d94ae9056fc841edef1255ed2732f04",
   "fbcore.py": "329d5df136fbde09de5caac238a598ef523969a8e48da9000845553a84519bbf",
-  "feedback.py": "308c9a21e1c016cf9a960ad61e7a052d30dd81b2a67b69890e2d058b960f77de",
+  "feedback.py": "3eac0c1ee3763a1fbe11885a3b388594f6619d2ed5bf75ffc6c4896fa50beb62",
   "annot.py": "862c49ac392bc4a2dd7ac90c12dbe60d9640eb16e6476b9da4e3fba77a68f8c9",
   "skill_task.json": "9a565bd7a9025d11cd061b0c7a4fe59e40ea6703314a96cd95c091c9da917af9",
-  "feedback_cal.jsonl": "c87e0b7297cf39e97d7e02e0ccf04eedfa0aca79c8a3f1effeef388a02419226"
+  "feedback_cal.jsonl": "c87e0b7297cf39e97d7e02e0ccf04eedfa0aca79c8a3f1effeef388a02419226",
+  "packed_loader.py": "33d0d143955ad426511e43e49202ea3c20808418a1b49c658f7600ef6b1cc18a",
+  "runjob.py": "55df435cc2463aeedb7a829d8af80a8b85f86496f3f104d387aec8681cf196b2",
+  "setup_fresh_clone.sh": "b8304ed0c172f23a010f5318a6b3bb399260f547d42dfed5e98ad651ca27e666"
  },
  "repo_files_bytes": {
   "core.py": 7866,
   "qpack.py": 4310,
-  "answer.py": 957,
+  "answer.py": 1006,
   "fbcore.py": 5893,
-  "feedback.py": 1838,
+  "feedback.py": 2040,
   "annot.py": 919,
   "skill_task.json": 320,
-  "feedback_cal.jsonl": 101819
+  "feedback_cal.jsonl": 101819,
+  "packed_loader.py": 3506,
+  "runjob.py": 6251,
+  "setup_fresh_clone.sh": 1690
  },
  "feedback_code_and_cal_bytes": 110789,
  "total_with_feedback_and_code": 6726991874,
@@ -72,5 +78,14 @@
  "feedback_locked8": {
   "file": "results/fb_locked8.json",
   "note": "8 draws, shuffled teach mean .16-.18 range 0-.40 for both configs; shipped fbcore defaults unchanged"
+ },
+ "packed_loader": {
+  "file": "results/loadtest_s7_k102_e3.json",
+  "identical_params_vs_core_load_packed": true,
+  "identical_outputs_200_SEL": true,
+  "load_peak_gb": 30.4,
+  "steady_gb": 28.5,
+  "single_request_peak_gb": 28.6,
+  "note": "packed_loader keeps rotary inv_freq fp32; core.load_packed casts it to bf16 (the sealed exam numbers used core.load_packed, not re-scored)"
  }
 }

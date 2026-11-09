@@ -9,12 +9,15 @@ import qpack
 def _read(f, ent, dev):
     off, n = ent; f.seek(off); return torch.from_numpy(np.frombuffer(f.read(n), dtype=np.uint8).copy()).to(dev)
 
-def read_tensor(f, e, dev):
+def read_tensor(f, e, dev, chunk_rows=8192):
     if e["kind"] == "raw": return _read(f, e["raw"], dev).view(torch.int16).view(torch.bfloat16).reshape(e["shape"])
     b, g, R, C = e["bits"], e["g"], e["R"], e["C"]
-    q = qpack.unpack_bits(_read(f, e["q"], dev), b, R * C).reshape(R, C); sc = _read(f, e["s"], dev).view(torch.int16).view(torch.float16).reshape(R, C // g)
-    z = qpack.unpack_bits(_read(f, e["z"], dev), b, e["nz"]).reshape(R, C // g)
-    return qpack.deq(q, sc, z, g).reshape(e["shape"])
+    sc = _read(f, e["s"], dev).view(torch.int16).view(torch.float16).reshape(R, C // g); z = qpack.unpack_bits(_read(f, e["z"], dev), b, e["nz"]).reshape(R, C // g)
+    out = torch.empty(R, C, dtype=torch.bfloat16, device=dev); rb = C * b // 8   # bytes per row; rows are byte-aligned, so unpack row chunks (keeps the transient small)
+    for r0 in range(0, R, chunk_rows):
+        r1 = min(R, r0 + chunk_rows); qb = _read(f, [e["q"][0] + r0 * rb, (r1 - r0) * rb], dev)
+        out[r0:r1] = qpack.deq(qpack.unpack_bits(qb, b, (r1 - r0) * C).reshape(r1 - r0, C), sc[r0:r1], z[r0:r1], g)
+    return out.reshape(e["shape"])
 
 def load(adir, dev="cuda:0", init=False):
     import transformers
