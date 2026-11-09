@@ -1,0 +1,439 @@
+{
+ "n_banking": 200,
+ "n_router": 100,
+ "n_generic": 100,
+ "banking_menu": 77,
+ "deterministic_recheck": true,
+ "base_vs_nofeedback_artifact": {
+  "tag": "no feedback (patch absent): same weights, same generations",
+  "banking77_200": {
+   "base_acc": 0.455,
+   "patched_acc": 0.455,
+   "retention": 1.0,
+   "retention_wilson_lo": 0.959494567784601,
+   "n_base_correct": 91,
+   "same_output": 1.0
+  },
+  "router_on_banking_100": {
+   "same_label": 1.0,
+   "base_dist": {
+    "transport": 69,
+    "alarm": 13,
+    "news": 10,
+    "calendar": 3,
+    "lists": 2,
+    "none": 1,
+    "none of the listed skills can handle the": 1,
+    "currency is not one of the listed skills": 1
+   },
+   "patched_dist": {
+    "transport": 69,
+    "alarm": 13,
+    "news": 10,
+    "calendar": 3,
+    "lists": 2,
+    "none": 1,
+    "none of the listed skills can handle the": 1,
+    "currency is not one of the listed skills": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 1.0,
+   "same_first_line": 1.0
+  },
+  "diverge": [],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_my_identity"
+   ],
+   [
+    "get_physical_card",
+    "pin_blocked",
+    "pin_blocked"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "recipe12_patch": {
+  "tag": "12 Recipe annotations, scale carrier",
+  "banking77_200": {
+   "base_acc": 0.455,
+   "patched_acc": 0.455,
+   "retention": 1.0,
+   "retention_wilson_lo": 0.959494567784601,
+   "n_base_correct": 91,
+   "same_output": 1.0
+  },
+  "router_on_banking_100": {
+   "same_label": 0.94,
+   "base_dist": {
+    "transport": 69,
+    "alarm": 13,
+    "news": 10,
+    "calendar": 3,
+    "lists": 2,
+    "none": 1,
+    "none of the listed skills can handle the": 1,
+    "currency is not one of the listed skills": 1
+   },
+   "patched_dist": {
+    "transport": 65,
+    "news": 15,
+    "alarm": 14,
+    "calendar": 3,
+    "lists": 2,
+    "currency is not one of the listed skills": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.96,
+   "same_first_line": 0.98
+  },
+  "diverge": [
+   [
+    "Write a haiku about coffee.",
+    "Brewed in quiet art,  \nSteam whispers through the morning\u2014  \nCaffeine, a flame.",
+    "Brewed in quiet dawn,  \nSteam rises, rich and bold\u2014  \nMorning's first embrace."
+   ],
+   [
+    "Write a two-sentence email to a bank about a lost card.",
+    "Subject: Lost Card \u2013 Request for Assistance  \n\nDear [Bank Name] Customer Service, I am writing to inform you that",
+    "Subject: Lost Credit Card  \n\nDear [Bank Name] Customer Service,  \n\nI am writing to inform you that I have"
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_my_identity"
+   ],
+   [
+    "get_physical_card",
+    "pin_blocked",
+    "pin_blocked"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "timer_unseen_label": {
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "empty": {
+   "tag": "empty",
+   "timer_emitted": 0.42857142857142855,
+   "alarm_still_alarm": 0.7166666666666667,
+   "alarm_to_timer": 0.08333333333333333,
+   "others_correct": 0.9666666666666667,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Transport",
+    "Transport",
+    "Timer",
+    "Alarm"
+   ]
+  },
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.9642857142857143,
+     "alarm_still_alarm": 0.7,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.03571428571428571,
+     "alarm_still_alarm": 0.8833333333333333,
+     "alarm_to_timer": 0.016666666666666666,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.10714285714285714,
+     "alarm_still_alarm": 0.75,
+     "alarm_to_timer": 0.03333333333333333,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Transport",
+      "Transport",
+      "Timer",
+      "Music"
+     ]
+    }
+   },
+   {
+    "draw": 1,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.9642857142857143,
+     "alarm_still_alarm": 0.7,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.25,
+     "alarm_still_alarm": 0.7333333333333333,
+     "alarm_to_timer": 0.05,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Transport",
+      "Calendar",
+      "Timer",
+      "Lists"
+     ]
+    }
+   },
+   {
+    "draw": 2,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.9642857142857143,
+     "alarm_still_alarm": 0.7,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9166666666666666,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.17857142857142858,
+     "alarm_still_alarm": 0.7166666666666667,
+     "alarm_to_timer": 0.03333333333333333,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Transport",
+      "News",
+      "Timer",
+      "News"
+     ]
+    }
+   }
+  ]
+ },
+ "timer_real_d0_patch": {
+  "tag": "Timer real draw 0, scale carrier",
+  "banking77_200": {
+   "base_acc": 0.455,
+   "patched_acc": 0.455,
+   "retention": 1.0,
+   "retention_wilson_lo": 0.959494567784601,
+   "n_base_correct": 91,
+   "same_output": 0.995
+  },
+  "router_on_banking_100": {
+   "same_label": 1.0,
+   "base_dist": {
+    "transport": 69,
+    "alarm": 13,
+    "news": 10,
+    "calendar": 3,
+    "lists": 2,
+    "none": 1,
+    "none of the listed skills can handle the": 1,
+    "currency is not one of the listed skills": 1
+   },
+   "patched_dist": {
+    "transport": 69,
+    "alarm": 13,
+    "news": 10,
+    "calendar": 3,
+    "lists": 2,
+    "none": 1,
+    "none of the listed skills can handle the": 1,
+    "currency is not one of the listed skills": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.98,
+   "same_first_line": 0.99
+  },
+  "diverge": [
+   [
+    "Is a tomato a fruit or a vegetable?",
+    "A tomato is a **fruit** in a botanical sense, but it is commonly classified as a **vegetable** in",
+    "A tomato is a **fruit** in a botanical sense, but it is commonly considered a **vegetable** in culinary"
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_identity"
+   ],
+   [
+    "get_physical_card",
+    "pin_blocked",
+    "pin_blocked"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "unpatched_after": {
+  "timer": {
+   "tag": "after_undo_empty",
+   "timer_emitted": 0.42857142857142855,
+   "alarm_still_alarm": 0.7166666666666667,
+   "alarm_to_timer": 0.08333333333333333,
+   "others_correct": 0.9666666666666667,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Transport",
+    "Transport",
+    "Timer",
+    "Alarm"
+   ]
+  },
+  "own_same": true
+ }
+}

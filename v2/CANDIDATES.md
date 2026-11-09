@@ -275,3 +275,10 @@ Qwen1.5-MoE-A2.7B-Chat (31/60 experts, RTN 2-bit g64, attn/shared 4-bit, embed/h
 | shared exam | `v2/exam/` | `v2/exam/EXAM_PLAN.md` | `python3 -I v2/exam/loader.py` |
 
 Updated whenever new lane results land (see git log of this file).
+
+## Own-data dry run comparison (ENTRY_DECISION sec 3 item 1; 2026-11-09)
+| entry | Banking77-200 retention [Wilson lo] | same queries under 7-skill router prompt: agreement with base | 100 generic prompts: identical continuation | unseen `Timer`: emitted (held-out) / Alarm->Timer flip | wrong-label / shuffled Timer |
+|---|---|---|---|---|---|
+| L9b (packed vs base, no feedback) | 79.3% [71.8] | 46% | 11% | 1.00 / 21.7% (empty 0.0) | 0.0 / degenerate |
+| **L1** (12 Recipe patch vs base; Timer patch in last cols) | **100% [95.9]** (base acc 45.5%) | **94%** (Timer patch 100%) | **96%** (Timer patch 98%) | .964 / 21.7% (base alone: .43 / 8.3%) | .11-.25 / .03-.05; shuffled .00-.04 / .00-.02 |
+Source: `lanes/L1/REPORT.md` L1+.10, `lanes/L1/results/owndata_summary.json`. L1 retention is by construction near 100% (patch touches only down_proj group scales of the last 6 layers); the Timer flip is as large as L9b's.
