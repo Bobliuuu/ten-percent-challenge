@@ -448,3 +448,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L12 fbf1 run_fbf.py (shared-expert carrier nlay10 cols512 lam1000 awt10 m32; full locked-exam retention with carrier applied; app tenpct-l12b); fbo1 and pack1 finished (results v2/lanes/L12/results/modal)
 - 2026-11-09 L9 k88 repacked ok (9.7815%); verify_loader g4 + fb_draws locked seeds 0-5 lam5000 m16 g4 (app tenpct-l9; outputs /art/verify_k88.json, /art/fb_locked_k88.json)
 - 2026-11-09 L4 BANK6 dev relaunch (dev_proxy sample bug fixed) fc-01M6ZMNP1AVWZ1DXME5R9X98T6 g7, fc-01M6ZMNPQFJHT5RGJDSXS1HHV7 g6, fc-01M6ZMNQJWE8PPRZPKAWG0Q2S4 g1, fc-01M6ZMNRDJ1TZJPAYK18Y11JGW g4; BANK6 fblock g7 (pre-declared primary, same recipe as SKILL7) + g6, 8 draws (app tenpct-l4)
+- 2026-11-09 L9b final: modal tenpct-l9b-final (fresh clone, own-data), tenpct-l9b-q lock_fb1; all finished
