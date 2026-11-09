@@ -11,3 +11,129 @@ https://modal.com/apps/jerry-zhu/main/ap-IUM92TUJ4Kjnnrb9Sidvky
 ├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
 └── ✓ Created Function run.
 
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<05:08,  2.24it/s]
+[1ALoading weights:   0%|          | 2/693 [00:00<05:51,  1.97it/s]
+[1ALoading weights:   2%|▏         | 12/693 [00:01<01:25,  8.01it/s]
+[1ALoading weights:   4%|▍         | 31/693 [00:02<00:31, 20.94it/s]
+[1ALoading weights:   5%|▍         | 34/693 [00:02<00:41, 16.01it/s]
+[1ALoading weights:   7%|▋         | 49/693 [00:02<00:27, 23.13it/s]
+[1ALoading weights:   8%|▊         | 52/693 [00:03<00:39, 16.42it/s]
+[1ALoading weights:   8%|▊         | 57/693 [00:04<00:56, 11.17it/s]
+[1ALoading weights:  11%|█▏        | 79/693 [00:04<00:24, 25.17it/s]
+[1ALoading weights:  13%|█▎        | 87/693 [00:05<00:34, 17.68it/s]
+[1ALoading weights:  14%|█▍        | 100/693 [00:05<00:26, 22.57it/s]
+[1ALoading weights:  15%|█▌        | 106/693 [00:06<00:31, 18.36it/s]
+[1ALoading weights:  17%|█▋        | 118/693 [00:06<00:25, 22.40it/s]
+[1ALoading weights:  18%|█▊        | 122/693 [00:07<00:31, 17.95it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:07<00:44, 12.75it/s]
+[1ALoading weights:  22%|██▏       | 151/693 [00:08<00:22, 24.34it/s]
+[1ALoading weights:  22%|██▏       | 155/693 [00:08<00:28, 18.92it/s]
+[1ALoading weights:  24%|██▍       | 169/693 [00:09<00:21, 24.43it/s]
+[1ALoading weights:  25%|██▍       | 173/693 [00:09<00:27, 19.17it/s]
+[1ALoading weights:  27%|██▋       | 186/693 [00:10<00:29, 17.46it/s]
+[1ALoading weights:  28%|██▊       | 196/693 [00:10<00:24, 20.67it/s]
+[1ALoading weights:  29%|██▊       | 199/693 [00:11<00:31, 15.79it/s]
+[1ALoading weights:  32%|███▏      | 220/693 [00:11<00:18, 25.62it/s]
+[1ALoading weights:  32%|███▏      | 224/693 [00:12<00:22, 20.42it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:12<00:16, 26.81it/s]
+[1ALoading weights:  35%|███▍      | 242/693 [00:12<00:22, 20.19it/s]
+[1ALoading weights:  37%|███▋      | 256/693 [00:13<00:22, 19.33it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:13<00:19, 22.35it/s]
+[1ALoading weights:  39%|███▊      | 268/693 [00:14<00:25, 16.66it/s]
+[1ALoading weights:  42%|████▏     | 288/693 [00:15<00:20, 19.48it/s]
+[1ALoading weights:  44%|████▍     | 307/693 [00:15<00:14, 27.35it/s]
+[1ALoading weights:  45%|████▍     | 311/693 [00:16<00:18, 20.72it/s]
+[1ALoading weights:  47%|████▋     | 325/693 [00:16<00:18, 19.44it/s]
+[1ALoading weights:  48%|████▊     | 334/693 [00:17<00:16, 22.21it/s]
+[1ALoading weights:  49%|████▊     | 337/693 [00:17<00:19, 17.83it/s]
+[1ALoading weights:  52%|█████▏    | 358/693 [00:18<00:15, 21.04it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:18<00:11, 28.34it/s]
+[1ALoading weights:  55%|█████▍    | 380/693 [00:19<00:14, 21.29it/s]
+[1ALoading weights:  57%|█████▋    | 394/693 [00:20<00:15, 19.30it/s]
+[1ALoading weights:  58%|█████▊    | 403/693 [00:20<00:13, 21.27it/s]
+[1ALoading weights:  59%|█████▊    | 406/693 [00:21<00:17, 16.08it/s]
+[1ALoading weights:  62%|██████▏   | 427/693 [00:21<00:10, 25.86it/s]
+[1ALoading weights:  62%|██████▏   | 431/693 [00:21<00:13, 20.02it/s]
+[1ALoading weights:  64%|██████▍   | 444/693 [00:22<00:13, 18.17it/s]
+[1ALoading weights:  67%|██████▋   | 463/693 [00:23<00:08, 26.18it/s]
+[1ALoading weights:  67%|██████▋   | 467/693 [00:23<00:10, 20.72it/s]
+[1ALoading weights:  68%|██████▊   | 472/693 [00:24<00:14, 15.22it/s]
+[1ALoading weights:  71%|███████▏  | 495/693 [00:24<00:07, 25.84it/s]
+[1ALoading weights:  72%|███████▏  | 499/693 [00:25<00:09, 19.76it/s]
+[1ALoading weights:  74%|███████▍  | 514/693 [00:26<00:09, 19.26it/s]
+[1ALoading weights:  77%|███████▋  | 531/693 [00:26<00:08, 19.59it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:27<00:06, 21.86it/s]
+[1ALoading weights:  78%|███████▊  | 544/693 [00:27<00:08, 17.52it/s]
+[1ALoading weights:  82%|████████▏ | 565/693 [00:28<00:06, 20.18it/s]
+[1ALoading weights:  84%|████████▍ | 583/693 [00:28<00:04, 26.62it/s]
+[1ALoading weights:  85%|████████▍ | 587/693 [00:29<00:04, 21.20it/s]
+[1ALoading weights:  87%|████████▋ | 601/693 [00:30<00:04, 19.62it/s]
+[1ALoading weights:  88%|████████▊ | 610/693 [00:30<00:03, 22.18it/s]
+[1ALoading weights:  88%|████████▊ | 613/693 [00:30<00:04, 17.03it/s]
+[1ALoading weights:  91%|█████████▏| 634/693 [00:31<00:02, 20.96it/s]
+[1ALoading weights:  94%|█████████▍| 652/693 [00:31<00:01, 28.03it/s]
+[1ALoading weights:  95%|█████████▍| 656/693 [00:32<00:01, 22.15it/s]
+[1ALoading weights:  97%|█████████▋| 670/693 [00:33<00:01, 20.07it/s]
+[1ALoading weights:  98%|█████████▊| 679/693 [00:33<00:00, 22.36it/s]
+[1ALoading weights:  98%|█████████▊| 682/693 [00:34<00:00, 17.43it/s]
+[1ALoading weights: 100%|██████████| 693/693 [00:34<00:00, 20.34it/s]
+[    40s] loaded
+[    40s] moe layers 40
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    64s] hessians 0 7 tokens/expert min/med 698 1944
+[    68s] layer 0 {'ecsq_had_b2_k160': 2.0107}
+[    72s] layer 1 {'ecsq_had_b2_k160': 2.0114}
+[    74s] layer 2 {'ecsq_had_b2_k160': 2.0119}
+[    78s] layer 3 {'ecsq_had_b2_k160': 2.0123}
+[    81s] layer 4 {'ecsq_had_b2_k160': 2.0123}
+[    83s] layer 5 {'ecsq_had_b2_k160': 2.0124}
+[    85s] layer 6 {'ecsq_had_b2_k160': 2.0124}
+[    88s] layer 7 {'ecsq_had_b2_k160': 2.0124}
+[   106s] hessians 8 15 tokens/expert min/med 1 698
+[   109s] layer 8 {'ecsq_had_b2_k160': 2.0124}
+[   112s] layer 9 {'ecsq_had_b2_k160': 2.0124}
+[   115s] layer 10 {'ecsq_had_b2_k160': 2.0124}
+[   118s] layer 11 {'ecsq_had_b2_k160': 2.0125}
+[   121s] layer 12 {'ecsq_had_b2_k160': 2.0124}
+[   123s] layer 13 {'ecsq_had_b2_k160': 2.0124}
+[   125s] layer 14 {'ecsq_had_b2_k160': 2.0124}
+[   128s] layer 15 {'ecsq_had_b2_k160': 2.0124}
+[   147s] hessians 16 23 tokens/expert min/med 13 817
+[   149s] layer 16 {'ecsq_had_b2_k160': 2.0123}
+[   153s] layer 17 {'ecsq_had_b2_k160': 2.0124}
+[   156s] layer 18 {'ecsq_had_b2_k160': 2.0123}
+[   159s] layer 19 {'ecsq_had_b2_k160': 2.0123}
+[   162s] layer 20 {'ecsq_had_b2_k160': 2.0124}
+[   164s] layer 21 {'ecsq_had_b2_k160': 2.0123}
+[   167s] layer 22 {'ecsq_had_b2_k160': 2.0123}
+[   170s] layer 23 {'ecsq_had_b2_k160': 2.0124}
+[   189s] hessians 24 31 tokens/expert min/med 14 1115
+[   191s] layer 24 {'ecsq_had_b2_k160': 2.0124}
+[   193s] layer 25 {'ecsq_had_b2_k160': 2.0124}
+[   196s] layer 26 {'ecsq_had_b2_k160': 2.0125}
+[   198s] layer 27 {'ecsq_had_b2_k160': 2.0125}
+[   201s] layer 28 {'ecsq_had_b2_k160': 2.0125}
+[   203s] layer 29 {'ecsq_had_b2_k160': 2.0125}
+[   205s] layer 30 {'ecsq_had_b2_k160': 2.0126}
+[   208s] layer 31 {'ecsq_had_b2_k160': 2.0126}
+[   227s] hessians 32 39 tokens/expert min/med 22 1409
+[   230s] layer 32 {'ecsq_had_b2_k160': 2.0126}
+[   233s] layer 33 {'ecsq_had_b2_k160': 2.0126}
+[   237s] layer 34 {'ecsq_had_b2_k160': 2.0127}
+[   239s] layer 35 {'ecsq_had_b2_k160': 2.0127}
+[   242s] layer 36 {'ecsq_had_b2_k160': 2.0128}
+[   245s] layer 37 {'ecsq_had_b2_k160': 2.0128}
+[   248s] layer 38 {'ecsq_had_b2_k160': 2.0128}
+[   251s] layer 39 {'ecsq_had_b2_k160': 2.0128}
+[   251s] quantised; fake-quantising non-expert tensors
+[   251s] non-expert tensors fake-quantised: 312
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   270s] RESULT ecsq_had_b2_k160 98.71 lo 96.74 bytes% 9.713 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [40, 42, 95.24], 'Identity': [55, 56, 98.21], 'TopUp': [53, 53, 100.0], 'Transfer': [55, 56, 98.21]}
+RESULT_JSON {"name": "ecsq_had_b2_k160", "spec": {"name": "ecsq_had_b2_k160", "m": "ecsq_had", "bits": 2, "k": 160}, "ret": 0.9871382636655949, "ret_lo": 0.9674013636473016, "n_bc": 311, "comp_acc": 0.9035087719298246, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [40, 42, 95.24], "Identity": [55, 56, 98.21], "TopUp": [53, 53, 100.0], "Transfer": [55, 56, 98.21]}, "worst_kind": [0.9523809523809523, "Exchange", 42], "expert_bpw": 2.012753934989519, "bytes_est": 6732874693, "bytes_pct": 9.712573667457603, "under_cap": true, "relerr_gu": 0.0018942218102893094, "relerr_dn": 0.012770465300127399, "n_fallback_pooledH": 681, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+DONE B
+[modal-client] 2026-11-08T20:37:27-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-IUM92TUJ4Kjnnrb9Sidvky

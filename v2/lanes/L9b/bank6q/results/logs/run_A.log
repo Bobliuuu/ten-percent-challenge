@@ -10,3 +10,137 @@ https://modal.com/apps/jerry-zhu/main/ap-50H0BhWqO0jrwEAaEwf16h
 ├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
 ├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
 └── ✓ Created Function run.
+
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<03:32,  3.26it/s]
+[1ALoading weights:   0%|          | 2/693 [00:00<04:16,  2.69it/s]
+[1ALoading weights:   2%|▏         | 13/693 [00:00<00:38, 17.84it/s]
+[1ALoading weights:   2%|▏         | 16/693 [00:01<00:54, 12.52it/s]
+[1ALoading weights:   4%|▍         | 28/693 [00:02<00:42, 15.50it/s]
+[1ALoading weights:   7%|▋         | 49/693 [00:02<00:21, 29.66it/s]
+[1ALoading weights:   8%|▊         | 53/693 [00:02<00:28, 22.55it/s]
+[1ALoading weights:   8%|▊         | 57/693 [00:02<00:29, 21.53it/s]
+[1ALoading weights:   9%|▊         | 60/693 [00:03<00:39, 16.16it/s]
+[1ALoading weights:  12%|█▏        | 82/693 [00:03<00:19, 30.76it/s]
+[1ALoading weights:  12%|█▏        | 86/693 [00:04<00:26, 23.20it/s]
+[1ALoading weights:  14%|█▍        | 99/693 [00:04<00:26, 22.16it/s]
+[1ALoading weights:  17%|█▋        | 118/693 [00:05<00:17, 32.50it/s]
+[1ALoading weights:  18%|█▊        | 123/693 [00:05<00:22, 25.42it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:05<00:23, 24.02it/s]
+[1ALoading weights:  19%|█▉        | 130/693 [00:06<00:30, 18.47it/s]
+[1ALoading weights:  22%|██▏       | 151/693 [00:06<00:16, 33.03it/s]
+[1ALoading weights:  22%|██▏       | 155/693 [00:06<00:21, 25.03it/s]
+[1ALoading weights:  24%|██▍       | 169/693 [00:07<00:15, 32.95it/s]
+[1ALoading weights:  25%|██▌       | 174/693 [00:07<00:20, 25.44it/s]
+[1ALoading weights:  27%|██▋       | 187/693 [00:07<00:15, 31.94it/s]
+[1ALoading weights:  28%|██▊       | 191/693 [00:08<00:20, 23.98it/s]
+[1ALoading weights:  28%|██▊       | 195/693 [00:08<00:21, 23.14it/s]
+[1ALoading weights:  29%|██▊       | 198/693 [00:08<00:28, 17.19it/s]
+[1ALoading weights:  31%|███▏      | 218/693 [00:09<00:20, 22.94it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:09<00:13, 34.30it/s]
+[1ALoading weights:  35%|███▌      | 243/693 [00:10<00:16, 27.48it/s]
+[1ALoading weights:  37%|███▋      | 255/693 [00:10<00:18, 24.15it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:10<00:15, 28.08it/s]
+[1ALoading weights:  39%|███▉      | 269/693 [00:11<00:18, 22.33it/s]
+[1ALoading weights:  42%|████▏     | 289/693 [00:11<00:15, 25.65it/s]
+[1ALoading weights:  44%|████▍     | 307/693 [00:12<00:11, 34.70it/s]
+[1ALoading weights:  45%|████▌     | 312/693 [00:12<00:13, 27.85it/s]
+[1ALoading weights:  47%|████▋     | 323/693 [00:12<00:11, 31.68it/s]
+[1ALoading weights:  47%|████▋     | 327/693 [00:13<00:15, 24.17it/s]
+[1ALoading weights:  48%|████▊     | 334/693 [00:13<00:13, 25.85it/s]
+[1ALoading weights:  49%|████▉     | 338/693 [00:13<00:17, 20.53it/s]
+[1ALoading weights:  51%|█████     | 355/693 [00:14<00:10, 32.68it/s]
+[1ALoading weights:  52%|█████▏    | 360/693 [00:14<00:13, 24.59it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:14<00:09, 34.82it/s]
+[1ALoading weights:  55%|█████▍    | 381/693 [00:15<00:11, 27.06it/s]
+[1ALoading weights:  56%|█████▌    | 387/693 [00:15<00:11, 26.94it/s]
+[1ALoading weights:  57%|█████▋    | 395/693 [00:15<00:12, 24.48it/s]
+[1ALoading weights:  58%|█████▊    | 399/693 [00:15<00:12, 23.11it/s]
+[1ALoading weights:  58%|█████▊    | 404/693 [00:16<00:15, 18.82it/s]
+[1ALoading weights:  61%|██████▏   | 426/693 [00:17<00:10, 25.64it/s]
+[1ALoading weights:  64%|██████▍   | 442/693 [00:17<00:07, 34.33it/s]
+[1ALoading weights:  65%|██████▍   | 447/693 [00:17<00:08, 27.64it/s]
+[1ALoading weights:  67%|██████▋   | 463/693 [00:17<00:06, 36.21it/s]
+[1ALoading weights:  68%|██████▊   | 468/693 [00:18<00:07, 28.20it/s]
+[1ALoading weights:  68%|██████▊   | 472/693 [00:18<00:08, 27.22it/s]
+[1ALoading weights:  69%|██████▊   | 476/693 [00:18<00:10, 21.25it/s]
+[1ALoading weights:  71%|███████▏  | 495/693 [00:19<00:07, 25.14it/s]
+[1ALoading weights:  74%|███████▍  | 513/693 [00:20<00:06, 26.77it/s]
+[1ALoading weights:  77%|███████▋  | 532/693 [00:20<00:04, 36.54it/s]
+[1ALoading weights:  77%|███████▋  | 537/693 [00:20<00:05, 29.18it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:21<00:07, 20.85it/s]
+[1ALoading weights:  81%|████████  | 562/693 [00:21<00:04, 28.47it/s]
+[1ALoading weights:  82%|████████▏ | 566/693 [00:21<00:04, 27.24it/s]
+[1ALoading weights:  84%|████████▍ | 582/693 [00:22<00:04, 26.55it/s]
+[1ALoading weights:  86%|████████▋ | 598/693 [00:22<00:02, 34.64it/s]
+[1ALoading weights:  87%|████████▋ | 603/693 [00:23<00:03, 28.18it/s]
+[1ALoading weights:  88%|████████▊ | 608/693 [00:23<00:04, 20.68it/s]
+[1ALoading weights:  91%|█████████▏| 633/693 [00:24<00:01, 31.96it/s]
+[1ALoading weights:  92%|█████████▏| 637/693 [00:24<00:01, 30.44it/s]
+[1ALoading weights:  94%|█████████▍| 651/693 [00:24<00:01, 26.28it/s]
+[1ALoading weights:  96%|█████████▋| 668/693 [00:25<00:00, 26.57it/s]
+[1ALoading weights:  97%|█████████▋| 674/693 [00:25<00:00, 27.40it/s]
+[1ALoading weights:  98%|█████████▊| 680/693 [00:26<00:00, 23.99it/s]Loading weights: 100%|██████████| 693/693 [00:26<00:00, 26.45it/s]
+[    35s] loaded
+[    35s] moe layers 40
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    60s] hessians 0 7 tokens/expert min/med 698 1944
+[    65s] layer 0 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    71s] layer 1 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    76s] layer 2 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    82s] layer 3 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    87s] layer 4 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    93s] layer 5 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[    98s] layer 6 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   103s] layer 7 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   122s] hessians 8 15 tokens/expert min/med 1 698
+[   128s] layer 8 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   133s] layer 9 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   138s] layer 10 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   143s] layer 11 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   149s] layer 12 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   154s] layer 13 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   160s] layer 14 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   165s] layer 15 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   185s] hessians 16 23 tokens/expert min/med 13 817
+[   190s] layer 16 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   196s] layer 17 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   201s] layer 18 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   206s] layer 19 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   212s] layer 20 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   217s] layer 21 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   223s] layer 22 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   228s] layer 23 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   248s] hessians 24 31 tokens/expert min/med 14 1115
+[   253s] layer 24 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   258s] layer 25 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   264s] layer 26 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   269s] layer 27 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   275s] layer 28 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   281s] layer 29 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   286s] layer 30 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   292s] layer 31 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   311s] hessians 32 39 tokens/expert min/med 22 1409
+[   317s] layer 32 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   322s] layer 33 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   327s] layer 34 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   333s] layer 35 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   338s] layer 36 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   344s] layer 37 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   349s] layer 38 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   354s] layer 39 {'rtn_b3_k102_sim': 3.1484, 'gptq_b3_k102': 3.1484, 'vq4_had_b2_k160': 2.0}
+[   354s] quantised; fake-quantising non-expert tensors
+[   354s] non-expert tensors fake-quantised: 312
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   368s] RESULT rtn_b3_k102_sim 96.78 lo 94.18 bytes% 9.674 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [40, 42, 95.24], 'Identity': [49, 56, 87.5], 'TopUp': [53, 53, 100.0], 'Transfer': [55, 56, 98.21]}
+RESULT_JSON {"name": "rtn_b3_k102_sim", "spec": {"name": "rtn_b3_k102_sim", "m": "rtn", "bits": 3, "k": 102}, "ret": 0.9678456591639871, "ret_lo": 0.9418317560709537, "n_bc": 311, "comp_acc": 0.8859649122807017, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [40, 42, 95.24], "Identity": [49, 56, 87.5], "TopUp": [53, 53, 100.0], "Transfer": [55, 56, 98.21]}, "worst_kind": [0.875, "Identity", 56], "expert_bpw": 3.1484375, "bytes_est": 6705939325, "bytes_pct": 9.673717790727924, "under_cap": true, "relerr_gu": 0.0, "relerr_dn": 0.0, "n_fallback_pooledH": 0, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+[   380s] RESULT gptq_b3_k102 0.0 lo 0.0 bytes% 9.674 {'Card': [0, 57, 0.0], 'Cash': [0, 47, 0.0], 'Exchange': [0, 42, 0.0], 'Identity': [0, 56, 0.0], 'TopUp': [0, 53, 0.0], 'Transfer': [0, 56, 0.0]}
+RESULT_JSON {"name": "gptq_b3_k102", "spec": {"name": "gptq_b3_k102", "m": "gptq", "bits": 3, "g": 128, "k": 102}, "ret": 0.0, "ret_lo": 8.567784578479893e-19, "n_bc": 311, "comp_acc": 0.0, "base_acc": 0.9093567251461988, "per_kind": {"Card": [0, 57, 0.0], "Cash": [0, 47, 0.0], "Exchange": [0, 42, 0.0], "Identity": [0, 56, 0.0], "TopUp": [0, 53, 0.0], "Transfer": [0, 56, 0.0]}, "worst_kind": [0.0, "Card", 57], "expert_bpw": 3.1484375, "bytes_est": 6705939325, "bytes_pct": 9.673717790727924, "under_cap": true, "relerr_gu": NaN, "relerr_dn": 0.0033493086870294065, "n_fallback_pooledH": 1, "sample": ["!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!", "!!!!!!!!"]}
+[   397s] RESULT vq4_had_b2_k160 99.68 lo 98.2 bytes% 9.662 {'Card': [57, 57, 100.0], 'Cash': [47, 47, 100.0], 'Exchange': [41, 42, 97.62], 'Identity': [56, 56, 100.0], 'TopUp': [53, 53, 100.0], 'Transfer': [56, 56, 100.0]}
+RESULT_JSON {"name": "vq4_had_b2_k160", "spec": {"name": "vq4_had_b2_k160", "m": "vq_had", "bits": 2, "k": 160}, "ret": 0.9967845659163987, "ret_lo": 0.9820137221768206, "n_bc": 311, "comp_acc": 0.9152046783625731, "base_acc": 0.9093567251461988, "per_kind": {"Card": [57, 57, 100.0], "Cash": [47, 47, 100.0], "Exchange": [41, 42, 97.62], "Identity": [56, 56, 100.0], "TopUp": [53, 53, 100.0], "Transfer": [56, 56, 100.0]}, "worst_kind": [0.9761904761904762, "Exchange", 42], "expert_bpw": 2.0000101725260415, "bytes_est": 6697529213, "bytes_pct": 9.661585702122064, "under_cap": true, "relerr_gu": 0.002092514753167052, "relerr_dn": 0.013239355696714483, "n_fallback_pooledH": 681, "sample": ["Card", "Card", "Cash", "Card", "Card"]}
+DONE A
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-50H0BhWqO0jrwEAaEwf16h

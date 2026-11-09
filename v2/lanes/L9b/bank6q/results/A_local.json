@@ -1,0 +1,198 @@
+{
+ "rtn_b3_k102_sim": {
+  "name": "rtn_b3_k102_sim",
+  "spec": {
+   "name": "rtn_b3_k102_sim",
+   "m": "rtn",
+   "bits": 3,
+   "k": 102
+  },
+  "ret": 0.9678456591639871,
+  "ret_lo": 0.9418317560709537,
+  "n_bc": 311,
+  "comp_acc": 0.8859649122807017,
+  "base_acc": 0.9093567251461988,
+  "per_kind": {
+   "Card": [
+    57,
+    57,
+    100.0
+   ],
+   "Cash": [
+    47,
+    47,
+    100.0
+   ],
+   "Exchange": [
+    40,
+    42,
+    95.24
+   ],
+   "Identity": [
+    49,
+    56,
+    87.5
+   ],
+   "TopUp": [
+    53,
+    53,
+    100.0
+   ],
+   "Transfer": [
+    55,
+    56,
+    98.21
+   ]
+  },
+  "worst_kind": [
+   0.875,
+   "Identity",
+   56
+  ],
+  "expert_bpw": 3.1484375,
+  "bytes_est": 6705939325,
+  "bytes_pct": 9.673717790727924,
+  "under_cap": true,
+  "relerr_gu": 0.0,
+  "relerr_dn": 0.0,
+  "n_fallback_pooledH": 0,
+  "sample": [
+   "Card",
+   "Card",
+   "Cash",
+   "Card",
+   "Card"
+  ]
+ },
+ "gptq_b3_k102": {
+  "name": "gptq_b3_k102",
+  "spec": {
+   "name": "gptq_b3_k102",
+   "m": "gptq",
+   "bits": 3,
+   "g": 128,
+   "k": 102
+  },
+  "ret": 0.0,
+  "ret_lo": 8.567784578479893e-19,
+  "n_bc": 311,
+  "comp_acc": 0.0,
+  "base_acc": 0.9093567251461988,
+  "per_kind": {
+   "Card": [
+    0,
+    57,
+    0.0
+   ],
+   "Cash": [
+    0,
+    47,
+    0.0
+   ],
+   "Exchange": [
+    0,
+    42,
+    0.0
+   ],
+   "Identity": [
+    0,
+    56,
+    0.0
+   ],
+   "TopUp": [
+    0,
+    53,
+    0.0
+   ],
+   "Transfer": [
+    0,
+    56,
+    0.0
+   ]
+  },
+  "worst_kind": [
+   0.0,
+   "Card",
+   57
+  ],
+  "expert_bpw": 3.1484375,
+  "bytes_est": 6705939325,
+  "bytes_pct": 9.673717790727924,
+  "under_cap": true,
+  "relerr_gu": NaN,
+  "relerr_dn": 0.0033493086870294065,
+  "n_fallback_pooledH": 1,
+  "sample": [
+   "!!!!!!!!",
+   "!!!!!!!!",
+   "!!!!!!!!",
+   "!!!!!!!!",
+   "!!!!!!!!"
+  ]
+ },
+ "vq4_had_b2_k160": {
+  "name": "vq4_had_b2_k160",
+  "spec": {
+   "name": "vq4_had_b2_k160",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 160
+  },
+  "ret": 0.9967845659163987,
+  "ret_lo": 0.9820137221768206,
+  "n_bc": 311,
+  "comp_acc": 0.9152046783625731,
+  "base_acc": 0.9093567251461988,
+  "per_kind": {
+   "Card": [
+    57,
+    57,
+    100.0
+   ],
+   "Cash": [
+    47,
+    47,
+    100.0
+   ],
+   "Exchange": [
+    41,
+    42,
+    97.62
+   ],
+   "Identity": [
+    56,
+    56,
+    100.0
+   ],
+   "TopUp": [
+    53,
+    53,
+    100.0
+   ],
+   "Transfer": [
+    56,
+    56,
+    100.0
+   ]
+  },
+  "worst_kind": [
+   0.9761904761904762,
+   "Exchange",
+   42
+  ],
+  "expert_bpw": 2.0000101725260415,
+  "bytes_est": 6697529213,
+  "bytes_pct": 9.661585702122064,
+  "under_cap": true,
+  "relerr_gu": 0.002092514753167052,
+  "relerr_dn": 0.013239355696714483,
+  "n_fallback_pooledH": 681,
+  "sample": [
+   "Card",
+   "Card",
+   "Cash",
+   "Card",
+   "Card"
+  ]
+ }
+}

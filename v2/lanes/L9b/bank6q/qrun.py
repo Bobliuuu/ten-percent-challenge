@@ -134,7 +134,7 @@ def main(job):
     nmin = job.get("nmin", 64); lgroup = job.get("lgroup", 8); ebatch = job.get("ebatch", 80); mixp = job.get("mix", 0.0)
     def mk(v, l):
         m, b, seed = v["m"], v["bits"], 1000 + l; rot = ("had", seed) if m.endswith("_had") else None; base_m = m.replace("_had", "")
-        if base_m == "gptq": return QB.mb_gptq(lambda: QB.IntQ(b, v.get("g", 128), False), rot)
+        if base_m == "gptq": return QB.mb_gptq(lambda: QB.IntQ(b, v.get("g", 128), False), rot, v.get("damp", 0.01))
         if base_m == "ecsq": return QB.mb_gptq(lambda: QB.ECSQ(b, 256, 0.0, 16), rot)
         if base_m == "vq": return QB.mb_gptq(lambda: QB.VQ(4, int(round(2 ** (b * 4))), "gauss"), rot)
         raise ValueError(m)

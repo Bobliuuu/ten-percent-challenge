@@ -1,0 +1,67 @@
+{
+ "ecsq_had_b2_k160": {
+  "name": "ecsq_had_b2_k160",
+  "spec": {
+   "name": "ecsq_had_b2_k160",
+   "m": "ecsq_had",
+   "bits": 2,
+   "k": 160
+  },
+  "ret": 0.9871382636655949,
+  "ret_lo": 0.9674013636473016,
+  "n_bc": 311,
+  "comp_acc": 0.9035087719298246,
+  "base_acc": 0.9093567251461988,
+  "per_kind": {
+   "Card": [
+    57,
+    57,
+    100.0
+   ],
+   "Cash": [
+    47,
+    47,
+    100.0
+   ],
+   "Exchange": [
+    40,
+    42,
+    95.24
+   ],
+   "Identity": [
+    55,
+    56,
+    98.21
+   ],
+   "TopUp": [
+    53,
+    53,
+    100.0
+   ],
+   "Transfer": [
+    55,
+    56,
+    98.21
+   ]
+  },
+  "worst_kind": [
+   0.9523809523809523,
+   "Exchange",
+   42
+  ],
+  "expert_bpw": 2.012753934989519,
+  "bytes_est": 6732874693,
+  "bytes_pct": 9.712573667457603,
+  "under_cap": true,
+  "relerr_gu": 0.0018942218102893094,
+  "relerr_dn": 0.012770465300127399,
+  "n_fallback_pooledH": 681,
+  "sample": [
+   "Card",
+   "Card",
+   "Cash",
+   "Card",
+   "Card"
+  ]
+ }
+}

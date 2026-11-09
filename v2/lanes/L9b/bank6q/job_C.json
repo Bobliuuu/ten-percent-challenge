@@ -1,0 +1,8 @@
+{"stage":"variants","tag":"C","variants":[
+{"name":"gptq_had_b3_k102","m":"gptq_had","bits":3,"g":128,"k":102},
+{"name":"gptq_b3_damp0.1_k102","m":"gptq","bits":3,"g":128,"k":102,"damp":0.1},
+{"name":"vq4_had_b2_k128","m":"vq_had","bits":2,"k":128},
+{"name":"vq4_had_b2_k144","m":"vq_had","bits":2,"k":144},
+{"name":"vq4_had_b2_k164","m":"vq_had","bits":2,"k":164},
+{"name":"ecsq_had_b2_k128","m":"ecsq_had","bits":2,"k":128},
+{"name":"ecsq_had_b3_k106","m":"ecsq_had","bits":3,"k":106}]}
