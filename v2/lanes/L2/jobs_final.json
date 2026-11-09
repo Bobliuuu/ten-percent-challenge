@@ -1,0 +1,104 @@
+[
+{
+"name": "R_o4_m64",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 64,
+"arms": [
+"empty",
+"real25",
+"mreal",
+"mshuf",
+"mwrong",
+"unrel",
+"real12"
+],
+"draws": 4,
+"save": "/root/work/out/fb_o4m64_Recipe.pt",
+"save_arm": "real25"
+},
+{
+"name": "R_shipped_d2_m8",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"down:62",
+"down:63"
+],
+"m": 8,
+"arms": [
+"real25",
+"mshuf",
+"mwrong"
+],
+"draws": 3,
+"save": "/root/work/out/fb_d2m8_Recipe.pt",
+"save_arm": "real25"
+},
+{
+"name": "T2_Reminder_o4_m64",
+"data": "/root/work/dsets/ds_reminder",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 64,
+"arms": [
+"empty",
+"real25",
+"mreal",
+"mshuf",
+"mwrong",
+"unrel"
+],
+"draws": 3
+},
+{
+"name": "CONT_o4_m64",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 64,
+"arms": [],
+"draws": 3,
+"extra_teach": [
+"/root/work/dsets/ds_reminder"
+],
+"continual": {
+"data2": "/root/work/dsets/ds_reminder",
+"draws": 3,
+"save": "/root/work/out/fb_cont_Recipe_Reminder.pt"
+}
+},
+{
+"name": "CONT_o4_m64_replay",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 64,
+"arms": [],
+"draws": 3,
+"extra_teach": [
+"/root/work/dsets/ds_reminder"
+],
+"continual": {
+"data2": "/root/work/dsets/ds_reminder",
+"draws": 3,
+"replay": true
+}
+}
+]

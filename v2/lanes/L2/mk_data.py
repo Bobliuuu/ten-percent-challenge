@@ -21,5 +21,7 @@ for sp, d in ds.items():
 ann = rows["train"]; seen = {norm(r["text"]) for r in ann}; teach = []
 for r in rows.get("validation", []) + rows["test"]:
     if norm(r["text"]) not in seen: teach.append(r); seen.add(norm(r["text"]))
-wr("ds_reminder", "ann", ann); wr("ds_reminder", "teach", teach); json.dump({"new": "Reminder"}, open(f"{R}/ds_reminder/DATASET.json", "w"))
+wr("ds_reminder", "ann", ann); wr("ds_reminder", "teach", teach)
+for n in ("neigh", "cal"): wr("ds_reminder", n, rd(f"{X}/{n}.jsonl"))
+wr("ds_reminder", "old", old); json.dump({"new": "Reminder"}, open(f"{R}/ds_reminder/DATASET.json", "w"))
 print({sp: len(v) for sp, v in rows.items()}, "ann", len(ann), "teach", len(teach))
