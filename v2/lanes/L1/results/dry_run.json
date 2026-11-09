@@ -1,0 +1,43 @@
+{
+ "repo_commit": "1c0e7646085089f017ccead4716cf2c6b44e719a",
+ "sha256_mismatches": [],
+ "base_tree": "5a6bf136f13dd3cd",
+ "base_teach": [
+  "Transport",
+  "None of the listed skills can handle a request for a recipe.",
+  "Transport",
+  "Lists"
+ ],
+ "base_neigh": [
+  "Calendar",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "feedback_stdout": "{\"patched_layers\": [30, 31, 32, 33, 34, 35], \"cols\": 1024, \"patch_bytes\": 4720692}",
+ "patch_bytes": 4720692,
+ "patch_kind": "scale",
+ "after_teach": [
+  "Recipe",
+  "Recipe",
+  "Recipe",
+  "Recipe"
+ ],
+ "after_neigh": [
+  "Calendar",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "teach_recipe_frac": 1.0,
+ "neigh_unchanged_frac": 1.0,
+ "empty_patch_exists": false,
+ "empty_tree_identical": true,
+ "empty_answers_equal_base": true
+}

@@ -4,9 +4,9 @@
  "task": "SKILL7 voice-skill routing (primary); NEWS 4-label (secondary)",
  "commands": {
   "answer": "python answer.py --artifact DIR --task skill_task.json [--in items.jsonl|-] [text ...]",
-  "feedback": "python feedback.py --artifact DIR --task skill_task.json --ann ann.jsonl   (rows {text,label}; <=25; label may be a NEW word)"
+  "feedback": "python feedback.py --artifact DIR --task skill_task.json --ann ann.jsonl   (rows {text,label}; <=25; label may be a NEW word; default carrier scale, --carrier cols|lr optional)"
  },
- "build": "weights: v2/research/B_native/scripts/pack1.py on the public Bonsai-8B-unpacked snapshot; then copy tokenizer/config/chat_template/LICENSE/NOTICE + the 4 scripts + skill_task.json; feedback_calib.jsonl = v2/bonsai/fbx skill_calib (182 UNLABELED SKILL7 prompts, dev bucket <40); see v2/bonsai/fbx/setup_box.sh, build_skill.py",
+ "build": "OLD build note (kept for provenance): weights via v2/research/B_native/scripts/pack1.py (copied to build/pack1.py) on the public prism-ml/Bonsai-8B-unpacked snapshot. CURRENT: build/modal_publish.py rebuilds the weights on Modal, checks every hash against SHA256SUMS (ALL_MATCH) and publishes them PRIVATELY to Modal Volume `tenpct-l1-art` dir /art (no public hosting); sha256 manifest = build/SHA256SUMS.artifact (also inside the volume). Code (answer/feedback/bonsai_loader/common), skill_task.json, feedback_calib.jsonl, tensor_manifest.json come from this repo folder and are copied next to the volume files (build/modal_dry_run.py shows the exact fresh-clone procedure).",
  "shipped_files_bytes": {
   "LICENSE": 10174,
   "NOTICE.txt": 412,
@@ -75,5 +75,22 @@
    }
   },
   "note": "L1+ code (answer/feedback/common/loader, README) replaces the sealed L1 code; default flags write a bit-identical patch to the sealed code (v2/bonsai/l1plus/results/e2e_l1p.json regression_patch_identical). patch bytes: results/{fin1,fin2,locked}.json"
+ },
+ "default_carrier": "scale",
+ "scale_default": {
+  "carrier": "scale",
+  "strength_lam": 100,
+  "patch_bytes_overlay": 4720692,
+  "counted": "the scale patch is counted as a 4,720,692 B overlay file (patch.pt) added to the tree; writing the new scales into scales.bin in place would add 0 B (not done, patch stays removable)",
+  "total_bytes_real_tree_after_feedback": 1172852247,
+  "pct_of_qwen3_8b_fp16": 7.1596,
+  "pct_of_bonsai_fp16": 7.1615,
+  "source": "results/e2e_locked_scale_default.json (tree after the shipped feedback.py)",
+  "cols_total_bytes_for_comparison": 1218467357
+ },
+ "private_artifact": {
+  "store": "Modal Volume tenpct-l1-art:/art (private, workspace only)",
+  "sha256_manifest": "build/SHA256SUMS.artifact",
+  "dry_run": "results/dry_run.json"
  }
 }
