@@ -2,19 +2,29 @@
  "lane": "L4",
  "base": "Qwen/Qwen3-30B-A3B-Instruct-2507",
  "fp16_bytes": 61064245248,
- "status": "EST sizes from bit counts; NO packed file exporter yet; checkpoint = harness-materialised (dequantised bf16, router-masked)",
+ "status": "REAL packed bodies (l4pack.py -> l4fmt.py format, one file per task, private Modal volume tenpct-l4-art, not committed). Sizes below are real on-disk bytes; load-time hashes of 11955 decoded tensors match the packer's in-process hashes (0 mismatches). Earlier EST block kept below for history only.",
  "recipe": {
   "experts": "routing-mass top-80/128 per layer (mass from task calibration prompts, no labels), GPTQ + block-Hadamard(256) 2-bit g128, fp16 scale + int zero",
   "attn": "RTN 6b g128",
   "embed": "RTN 5b",
   "lm_head": "RTN 4b",
-  "feedback_carrier": "last 6 layers o_proj stay fp16 (6*4096*2048*2 B) so the closed-form edit has a carrier"
+  "feedback_carrier": "last 6 layers o_proj stay fp16 (6*4096*2048*2 B) so the closed-form edit has a carrier",
+  "carrier": "last 8 layers (40-47) o_proj kept fp16 (feedback carrier), edit written back into the packed file in place"
  },
  "tasks": {
   "SKILL7": "v2/exam shared locked exam 2744 items",
   "BANK6": "v2/exam shared locked exam 2237 items"
  },
- "bytes_SKILL7_BANK6_same_recipe": {
+ "shipped_files_planned": [
+  "quantised expert codes+scales+zeros",
+  "kept-expert index (3840 B)",
+  "attn/embed/head RTN",
+  "fp16 o_proj x6",
+  "tokenizer+config",
+  "answer.py",
+  "feedback.py (code size counted in tokenizer_config bucket only approximately: NOT yet counted)"
+ ],
+ "est_history": {
   "parts": {
    "experts": 4848353280,
    "router": 15728640,
@@ -28,13 +38,46 @@
   "total": 6042513585,
   "ratio": 0.09895338197433803
  },
- "shipped_files_planned": [
-  "quantised expert codes+scales+zeros",
-  "kept-expert index (3840 B)",
-  "attn/embed/head RTN",
-  "fp16 o_proj x6",
-  "tokenizer+config",
+ "packed": {
+  "SKILL7": {
+   "file": "body.l4p",
+   "bytes": 6012263714,
+   "ratio_of_fp16": 0.09845800418202853,
+   "sha256": "132f95b0f6a7051f7f0cab283262dbafa7a883cbbd9f14b9cdd70fed2801a17b",
+   "hash_n": 11955,
+   "hash_mismatch": 0
+  },
+  "BANK6": {
+   "file": "body.l4p",
+   "bytes": 6012263706,
+   "ratio_of_fp16": 0.09845800405101897,
+   "sha256": "73bc4046c0eeeb21af7863d13b7ff521394f8b9d6303337b17d20a2ec81d3cf3",
+   "hash_n": 11955,
+   "hash_mismatch": 0
+  }
+ },
+ "code_bytes": {
+  "answer_py": 1043,
+  "feedback_py": 1451,
+  "l4fmt_py": 8983,
+  "l4fb_py": 4424,
+  "common_py": 909,
+  "cal_skill7_jsonl": 8697,
+  "cal_bank6_jsonl": 10610,
+  "total": 36117,
+  "ratio_with_code": {
+   "SKILL7": 0.09845859564107062,
+   "BANK6": 0.09845859551006106
+  }
+ },
+ "shipped_files": [
+  "body.l4p (expert codes+scales, keep index, attn/embed/head RTN, fp16 o_proj x8, tokenizer+config, zlib)",
   "answer.py",
-  "feedback.py (code size counted in tokenizer_config bucket only approximately: NOT yet counted)"
- ]
+  "feedback.py",
+  "l4fmt.py",
+  "l4fb.py",
+  "common.py",
+  "cal_<task>.jsonl (120 protected-set prompts for feedback covariance)"
+ ],
+ "note_cal": "CLI feedback.py protects with the 120 shipped cal prompts; the Modal harness evals used 300 (cal split of the same data). Numbers are from the harness; CLI-with-120 not separately scored."
 }

@@ -1,0 +1,1 @@
+{"cfgs": [{"m": 64, "name": "m64"}, {"m": 128, "name": "m128"}, {"m": 128, "lam": 300, "awt": 3, "name": "m128_lam300"}], "draws": 4, "conds": ["real", "shuffled"]}
