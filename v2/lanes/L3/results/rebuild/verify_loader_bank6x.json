@@ -1,0 +1,1 @@
+{"task": "bank6x", "n": 200, "identical": 197, "packed_gold": 172, "devpath_gold": 175, "secs": 132, "mismatches": [["BANK6|banking77|btest794", "Transfer", "Cash"], ["BANK6|banking77|btrain9345", "Card", "Cash"], ["BANK6|banking77|btrain840", "Card", "Cash"]]}
