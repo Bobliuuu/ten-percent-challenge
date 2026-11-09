@@ -1,10 +1,3 @@
 exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']
-files scanned: 276 rows: 292797
-FILES WITH EXACT EXAM-TEXT OVERLAP: 2
-  lanes/L2/data/eval_teach_neigh.jsonl: 379 hits, e.g. ('can i see my lists for today', 'SKILL7|hwu64|htest586')
-  lanes/L9/data/skill7x_sel.jsonl: 2739 hits, e.g. ('open news about b. p. oil', 'SKILL7|massive|mtrain478')
-
-Interpretation (2026-11-08): the two hit files are NOT annotation/teach/calibration data of any filed entry.
-- lanes/L2/data/eval_teach_neigh.jsonl = the 379 neighbour EVALUATION items (exam rows by design, rule 5 "nearby items"); L2's shipped data/exam/neigh.jsonl is the same set. Never used to fit the edit.
-- lanes/L9/data/skill7x_sel.jsonl = rows with role "exam" (an exam copy under a misleading name, lane L9, not a candidate for filing). Rename/delete before filing anything from L9.
-No overlap for: L1 feedback_calib.jsonl, L2 data/exam/cal.jsonl + ann*.jsonl + teach*.jsonl, L9b feedback_cal.jsonl + data/*_cal/_sel/_fb_annot/_fb_teach, exam/data ann_pool/teach/cal/sel (all vs skill7_exam + bank6_exam).
+files scanned: 277 rows: 291652
+FILES WITH EXACT EXAM-TEXT OVERLAP: 0

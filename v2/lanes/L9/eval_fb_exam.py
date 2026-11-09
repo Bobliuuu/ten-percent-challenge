@@ -4,8 +4,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import torch, pack235 as P, feedback as FB
 from safetensors.torch import save_file
 ART, DD, OUTJ = sys.argv[1:4]; BASE = os.environ.get("L9_BASEDIR", "/data/out/res")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "exam")); import loader as EX   # shared locked exam; no exam copy lives in this lane
 L = lambda n: [json.loads(l) for l in open(f"{DD}/skill7x_{n}.jsonl")]
-ann, teach, cal = L("fb_annot"), L("fb_teach"), L("cal")[:1231]; exam = L("sel"); NB = set(json.load(open(f"{DD}/skill7x_neighbours.json"))); NEWL = "Recipe"
+ann, teach, cal = L("fb_annot"), L("fb_teach"), L("cal")[:1231]; exam = EX.load("SKILL7", "exam"); NB = set(EX.load("SKILL7", "neighbours")); NEWL = "Recipe"
 m, tok = P.build_model(ART, os.environ.get("L9_GPUMEM", "120GiB"))
 def run(rows):
     order = sorted(range(len(rows)), key=lambda i: len(rows[i]["user"])); outs = [None] * len(rows)

@@ -11,7 +11,7 @@ export L2_UNFOLD=~/work/unf_ship; rm -rf $L2_UNFOLD
 wait_gpu; python $S/answer.py $S "play some jazz music please" > L2out/cli_smoke.txt 2>&1
 wait_gpu; python $S/feedback.py $S L2/data/ann25.jsonl Recipe --unfolded $L2_UNFOLD > L2out/fb_real.log 2>&1; mv $S/feedback.pt L2out/fb_real.pt
 wait_gpu; python $S/feedback.py $S L2/data/ann25.jsonl Recipe --unfolded $L2_UNFOLD --shuffle-labels > L2out/fb_shuf.log 2>&1; mv $S/feedback.pt L2out/fb_shuf.pt
-for arm in empty real shuf; do rm -f $S/feedback.pt; [ $arm != empty ] && cp L2out/fb_$arm.pt $S/feedback.pt; wait_gpu; python $S/answer.py $S --batch L2/data/eval_teach_neigh.jsonl --out L2out/cli_$arm.json > L2out/cli_$arm.log 2>&1; done
+for arm in empty real shuf; do rm -f $S/feedback.pt; [ $arm != empty ] && cp L2out/fb_$arm.pt $S/feedback.pt; wait_gpu; python $S/answer.py $S --batch L2/data/l2_neighbour_eval_rows.jsonl --out L2out/cli_$arm.json > L2out/cli_$arm.log 2>&1; done
 rm -f $S/feedback.pt; cp L2out/fb_real.pt $S/feedback.pt
 python ~/work/L2/bytes_audit.py $S --base-fp16-bytes 53808408928 --json L2out/bytes_audit.json > L2out/bytes_audit.txt 2>&1
 echo I_DONE > L2out/I_DONE
