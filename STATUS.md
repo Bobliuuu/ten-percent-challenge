@@ -39,7 +39,7 @@ Failed lanes (dev, kept for the record): L6 Qwen1.5-MoE 85.9% (R2), L7 BitNet-2B
 | issue #3 (entrant #3) | the 88.5% is a nearest-centroid classifier in numpy, the grown model was never run on the new items, the overwritten rows are "the same head as before, just kept inside the model file"; the compression side is "genuinely nice"; welcome to retry before the deadline | the new class must be generated end to end by the shipped system; few-row output edits are high risk; resubmission is allowed |
 | issue #4 (entrant #4) | no reply known to us | its verdict is the best signal for closed-form edits and pruning |
 
-## 4. Open rulings that decide the outcome (none put to the maintainer)
+## 4. Unruled readings that decide the outcome (guessed readings; each is our best-evidence reading, not settled)
 
 A closed-form edit of existing tensors as feedback; B already-compressed start model; C task-calibrated expert pruning; D denominator for multimodal start models; E the `seen_tox` tier and pooled per-kind counts; F how much worse "clearly worse" must be; G fp16 patch or low-rank delta as "new part"; H is 7-way routing commercial and not narrow; I what "best" means. Detail in [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md) section 5.
 

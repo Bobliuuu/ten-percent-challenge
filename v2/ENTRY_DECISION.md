@@ -60,7 +60,7 @@ Considered and not chosen: **L3** (Qwen3-30B-A3B-Instruct-2507, 9.896%, LOCKED S
 - **If L9b's own-data dry run or a fresh clone shows R6 or MC failing**: switch to L1, then L5; L2 last.
 - **If the denominator ruling D favours multimodal text paths**: L10 becomes interesting (locked 99.55% retention at 9.879%, teach .860 on one draw), but it needs a packed file and carries the R1/R9 spirit risk; it is not planned.
 
-## 5. Open rulings, summarised (none has been put to the maintainer)
+## 5. Unruled readings, summarised (guessed readings; each is our best-evidence reading, not settled)
 
 A: closed-form weight edit legal for feedback. B: already-compressed start model. C: task-calibrated expert pruning. D: denominator for multimodal start models. E: `seen_tox` tier and pooled per-kind counts. F: how much worse "clearly worse" must be for shuffled labels. G: fp16 replacement columns or low-rank delta as "new part" vs the model's own weights. H: is 7-way routing commercial and not narrow. I: what "best" means among passing entries (if size, L1 wins; if own compression and retention, L9b). Entrant #4's issue (a row edit on a pruned MoE that does run the new label end to end) has no maintainer reply that we know of; its verdict is the best available signal for A and C and should be checked read-only.
 
