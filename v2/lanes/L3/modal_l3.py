@@ -37,3 +37,15 @@ def job(script, args=None):
     sys.path[:0] = ["/root/l3", "/root/code", "/root/exam"]; sys.argv = [script] + [str(a) for a in (args or [])]
     os.makedirs("/art/results", exist_ok=True)
     runpy.run_path(f"/root/l3/jobs/{script}.py", run_name="__main__"); art.commit()
+
+@app.function(image=img, gpu=GPU, cpu=8, memory=190000, timeout=43200, volumes={"/r": vol, "/art": art}, env={"HF_HOME": "/r/hf"}, ephemeral_disk=600000)
+def tune(task, variants):
+    """dev-only body config choice: base + variants on SEL+DEV sets (no pack, no feedback, locked exam untouched). results /art/results/tune_<task>.json"""
+    import shutil
+    sys.path[:0] = ["/root/code", "/root/l3"]; import core
+    base = [c for c in json.load(open(f"/root/code/cfgs_final_{task}.json")) if c["name"] != "base"][0]
+    for k in ("fb", "fb_layers", "ndraw", "conds", "new", "ann_set", "teach_set", "neigh_sets", "neigh_ids_file", "save_outs", "m", "lam", "awt", "pack"): base.pop(k, None)
+    cfgs = [dict(base, name="base", keep=128, quant=None, eb=None, attn_b=None, emb_b=None, head_b=None, sets=["SEL", "DEV"])]
+    for i, v in enumerate(variants): cfgs.append(dict(base, name=f"v{i}_" + "_".join(f"{k}{x}" for k, x in v.items()), sets=["SEL", "DEV"], **v))
+    core.main(cfgs, vol); os.makedirs("/art/results", exist_ok=True)
+    out = {c["name"]: json.load(open(f"/r/res/{task}_{c['name']}.json")) for c in cfgs[1:]}; json.dump(out, open(f"/art/results/tune_{task}.json", "w")); art.commit(); print("TUNE_DONE")
