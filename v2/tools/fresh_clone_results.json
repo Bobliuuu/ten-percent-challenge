@@ -3,7 +3,7 @@
  "lanes": [
   {
    "lane": "L9b",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -13,11 +13,11 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
-     "status": "SKIPPED",
-     "detail": "8 verified OK, 0 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]"
+     "status": "FAIL",
+     "detail": "9 verified OK, 2 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]; MISMATCH: packed_loader.py (MANIFEST.json:repo_files_sha256), setup_fresh_clone.sh (MANIFEST.json:repo_files_sha256)"
     },
     "smoke": {
      "status": "SKIPPED",
@@ -27,7 +27,7 @@
   },
   {
    "lane": "L1",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -37,7 +37,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L1/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L1/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -51,7 +51,7 @@
   },
   {
    "lane": "L5",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -61,7 +61,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L5/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L5/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -75,7 +75,7 @@
   },
   {
    "lane": "L3",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -85,7 +85,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L3/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L3/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -99,7 +99,7 @@
   },
   {
    "lane": "L9",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -109,7 +109,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L9/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L9/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -123,7 +123,7 @@
   },
   {
    "lane": "L4",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -133,7 +133,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L4/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L4/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -147,7 +147,7 @@
   },
   {
    "lane": "L10",
-   "commit": "1c0e764",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -157,7 +157,7 @@
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L10/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L10/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -171,7 +171,7 @@
   },
   {
    "lane": "L2",
-   "commit": "2397eec",
+   "commit": "7294e6e",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
@@ -189,7 +189,7 @@
     },
     "smoke": {
      "status": "SKIPPED",
-     "detail": "--smoke-cmd skip (SKIPPED-NEEDS-GPU: not run)"
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
     }
    }
   }
