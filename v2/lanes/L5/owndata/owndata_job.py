@@ -10,7 +10,7 @@ def norm(s): return (s.strip().split("\n")[0] if s.strip() else "").strip().stri
 def wilson(k, n, z=1.96):
     if n == 0: return 0.0
     p = k / n; d = 1 + z * z / n; c = p + z * z / (2 * n); r = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return (c - r) / d
-def gen(tok, m, prompts, max_new, bs=24):
+def gen(tok, m, prompts, max_new, bs=8):
     pids = [tok(tok.apply_chat_template([{"role": "user", "content": x}], tokenize=False, add_generation_prompt=True), add_special_tokens=False).input_ids for x in prompts]
     out = [None] * len(pids); order = sorted(range(len(pids)), key=lambda i: len(pids[i]))
     with torch.no_grad():
@@ -35,7 +35,7 @@ def run(art="/r/pk", out_dir="/r/res"):
         o = dict(bk=gen(tok, m, P_bk, 16), rt=gen(tok, m, P_rt, 8)); log(tag, "bk,rt done"); o["gen"] = gen(tok, m, gen_p, 24); log(tag, "gen done"); return o
     ng = torch.cuda.device_count(); mid = "Qwen/Qwen2.5-32B-Instruct"
     tokb = AutoTokenizer.from_pretrained(mid); tokb.padding_side = "left"
-    base = AutoModelForCausalLM.from_pretrained(mid, dtype=torch.bfloat16, device_map="auto", max_memory={i: "70GiB" for i in range(ng)}).eval(); log("base loaded")
+    base = AutoModelForCausalLM.from_pretrained(mid, dtype=torch.bfloat16, device_map="auto", max_memory={i: "76GiB" for i in range(ng)}).eval(); log("base loaded")
     OB = run_all(tokb, base, "base"); del base; gc.collect(); torch.cuda.empty_cache()
     import common; from packed_loader import load_packed; from fb_core import FB, apply_patch, METHOD
     tok, m = load_packed(art, log=log); tok.padding_side = "left"; log("packed loaded"); OP = run_all(tok, m, "packed")
