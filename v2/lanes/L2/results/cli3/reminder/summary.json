@@ -1,0 +1,62 @@
+{
+ "empty": {
+  "teach": 0.0,
+  "n_teach": 100,
+  "neighbours": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9969512195121951,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ },
+ "real": {
+  "teach": 0.67,
+  "n_teach": 100,
+  "neighbours": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9166666666666666,
+    "Calendar"
+   ],
+   "new_word_on_neigh": 0.005277044854881266
+  }
+ },
+ "shuf": {
+  "teach": 0.67,
+  "n_teach": 100,
+  "neighbours": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9166666666666666,
+    "Calendar"
+   ],
+   "new_word_on_neigh": 0.005277044854881266
+  }
+ },
+ "wrong": {
+  "teach": 0.0,
+  "n_teach": 100,
+  "neighbours": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9969512195121951,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ }
+}

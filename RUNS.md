@@ -454,3 +454,6 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L2 cli_recipe/cli_reminder/smoke respawned on app tenpct-l2c (hardlinks not allowed on volume): fc-01M6ZN13P50SNVE70ZA9EDXFYD fc-01M6ZN14DHMR5522EY0C9XH8HE fc-01M6ZN1544JG7WJTG273YV8HER
 - 2026-11-09 L12 fbs2 run_fbs.py stronger-carrier grid (nlay 10-40, margin up to 64, 5 draws; app tenpct-l12b)
 - 2026-11-09 L9: H200:4 queue starved; cancelled; relaunched on H100:8 (g8h): verify fc-01M6ZND9WRQM74Z6JYXFZ6F8V3, fb_draws locked fc-01M6ZNDAJAPWHH751Y312VGEHF
+- 2026-11-09 L2 cli_recipe/cli_reminder/smoke respawn 2 on tenpct-l2c (f-string fix): cli_recipe fc-01M6ZNF3BDQZTX3X8E4KVWYYQ6 cli_reminder fc-01M6ZNF41F3B4QZXDS9H7426RY smoke fc-01M6ZNF4PPFS3DVJZXA2BY6C9Z 
+- 2026-11-09 L9: more capacity probes: verify on H200:3 (g3) and A100-80GB:6 (a6), outputs /art/verify_k88_{g3,a6}.json
+- 2026-11-09 L2 selection o2 + final_m16 on tenpct-l2; CLI mixed-annotation arms (mreal, shuf) on tenpct-l2c: cli_mix_recipe fc-01M6ZP6GW2AMS4NKWK3RE4PB35 cli_mix_reminder fc-01M6ZP6HHM6FEWTEWQG8QAYCFZ ; plus recipe real+bytes audit rerun (no pycache)
