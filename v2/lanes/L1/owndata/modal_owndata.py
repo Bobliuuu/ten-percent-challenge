@@ -15,9 +15,10 @@ REC = [("how long do I boil an egg", "Recipe"), ("what is a good substitute for 
 @app.function(image=img, gpu="L40S", timeout=6 * 3600, volumes={"/vol": vol})
 def run():
     import sys, json, random, time, shutil, collections, math, torch
-    sys.path.insert(0, "/repo/L9b"); sys.path.insert(0, "/work/art"); import final_jobs as FJ
+    sys.path.insert(0, "/repo/L9b"); import final_jobs as FJ
     shutil.copytree("/vol/art", "/work/art")
     for f in ("answer.py", "feedback.py", "bonsai_loader.py", "common.py", "skill_task.json", "feedback_calib.jsonl", "tensor_manifest.json"): shutil.copy("/repo/L1/" + f, "/work/art/" + f)
+    sys.path.insert(0, "/work/art"); import importlib; importlib.invalidate_caches()
     import bonsai_loader as BL, common, feedback as FB
     from transformers import AutoTokenizer
     assert not os.path.exists("/work/art/patch.pt")
