@@ -1,0 +1,197 @@
+{
+ "method": {
+  "tag": "o_prot_c1024_m32",
+  "carrier": "o",
+  "solver": "prot",
+  "m": 32,
+  "lam": 1000,
+  "awt": 10,
+  "layers": [
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63
+  ],
+  "cols": 1024
+ },
+ "n_neigh_ok": 350,
+ "runs": [
+  {
+   "cond": "empty",
+   "draw": 0,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 64,
+    "Transport": 17,
+    "Alarm": 1,
+    "Music": 13,
+    "News": 51,
+    "Weather": 17,
+    "Calendar": 1
+   }
+  },
+  {
+   "cond": "real",
+   "draw": 0,
+   "teach_gen": 0.5304878048780488,
+   "teach_same": 0.40816326530612246,
+   "teach_cross": 0.5826086956521739,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 31,
+    "Recipe": 87,
+    "Transport": 4,
+    "Alarm": 1,
+    "Music": 10,
+    "Weather": 18,
+    "News": 11,
+    "Calendar": 2
+   }
+  },
+  {
+   "cond": "shuffle",
+   "draw": 0,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 72,
+    "Transport": 17,
+    "Alarm": 1,
+    "Music": 11,
+    "News": 46,
+    "Weather": 16,
+    "Calendar": 1
+   }
+  },
+  {
+   "cond": "wrong",
+   "draw": 0,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 57,
+    "Transport": 15,
+    "Music": 29,
+    "Alarm": 7,
+    "News": 35,
+    "Weather": 19,
+    "Calendar": 2
+   }
+  },
+  {
+   "cond": "real",
+   "draw": 1,
+   "teach_gen": 0.5426829268292683,
+   "teach_same": 0.46938775510204084,
+   "teach_cross": 0.5739130434782609,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 24,
+    "Recipe": 89,
+    "Transport": 5,
+    "Alarm": 1,
+    "Music": 8,
+    "Weather": 24,
+    "News": 10,
+    "Calendar": 3
+   }
+  },
+  {
+   "cond": "shuffle",
+   "draw": 1,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 69,
+    "Transport": 17,
+    "Alarm": 1,
+    "Music": 12,
+    "News": 49,
+    "Weather": 15,
+    "Calendar": 1
+   }
+  },
+  {
+   "cond": "wrong",
+   "draw": 1,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 28,
+    "Calendar": 12,
+    "Weather": 52,
+    "Transport": 13,
+    "Music": 26,
+    "Alarm": 10,
+    "News": 23
+   }
+  },
+  {
+   "cond": "real",
+   "draw": 2,
+   "teach_gen": 0.5182926829268293,
+   "teach_same": 0.42857142857142855,
+   "teach_cross": 0.5565217391304348,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 22,
+    "Recipe": 85,
+    "Transport": 4,
+    "Alarm": 1,
+    "Music": 9,
+    "Weather": 19,
+    "News": 21,
+    "Calendar": 3
+   }
+  },
+  {
+   "cond": "shuffle",
+   "draw": 2,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 64,
+    "Transport": 17,
+    "Alarm": 1,
+    "Music": 12,
+    "News": 52,
+    "Weather": 16,
+    "Calendar": 2
+   }
+  },
+  {
+   "cond": "wrong",
+   "draw": 2,
+   "teach_gen": 0.0,
+   "teach_same": 0.0,
+   "teach_cross": 0.0,
+   "neigh_gen": 1.0,
+   "teach_outputs": {
+    "Lists": 31,
+    "News": 66,
+    "Transport": 13,
+    "Music": 24,
+    "Alarm": 6,
+    "Weather": 15,
+    "Calendar": 9
+   }
+  }
+ ]
+}

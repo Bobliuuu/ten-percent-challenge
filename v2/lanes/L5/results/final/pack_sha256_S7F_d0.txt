@@ -1,0 +1,17 @@
+fa2657ace2a96ef0184c9c751a5fba0af7d3cefaf90bdeb5c1de33f4b0c058e8  body.bin
+545c6099a366125c50e4cc14f4163c85f8f821477e0e6521abbd4e115dab3243  other.npz
+total 6269536
+drwxr-xr-x 2 root root       4096 Nov  8 23:40 .
+drwx------ 1 root root       4096 Nov  9 00:45 ..
+-rw-r--r-- 1 root root 6410186108 Nov  8 23:40 body.bin
+-rw-r--r-- 1 root root        663 Nov  8 23:40 config.json
+-rw-r--r-- 1 root root        242 Nov  8 23:40 generation_config.json
+-rw-r--r-- 1 root root     425860 Nov  8 23:40 index.json
+-rw-r--r-- 1 root root    2329634 Nov  8 23:40 other.npz
+-rw-r--r-- 1 root root        271 Nov  8 23:40 pack_summary.json
+-rw-r--r-- 1 root root    7031645 Nov  8 23:40 tokenizer.json
+-rw-r--r-- 1 root root       7305 Nov  8 23:40 tokenizer_config.json
+total 96
+drwxr-xr-x 2 root root    22 Nov  8 23:54 .
+drwx------ 1 root root  4096 Nov  9 00:45 ..
+-rw-r--r-- 1 root root 90519 Nov  9 00:27 res.json
