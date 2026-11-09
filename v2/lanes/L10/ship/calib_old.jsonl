@@ -1,0 +1,150 @@
+{"text": "weather conditions for the next day", "gold": "Weather"}
+{"text": "bring up calendar and schedule meeting with ri april first ten am", "gold": "Calendar"}
+{"text": "date of recording of the song playing", "gold": "Music"}
+{"text": "who is the artist of this song", "gold": "Music"}
+{"text": "could you please create a new event on my calendar", "gold": "Calendar"}
+{"text": "could you remind me to take the bins out on thursday", "gold": "Calendar"}
+{"text": "please save my rating on this song it is five stars please", "gold": "Music"}
+{"text": "what's the distance between home and the closest starbucks", "gold": "Transport"}
+{"text": "what will be the highest temperature this week", "gold": "Weather"}
+{"text": "nano technology", "gold": "News"}
+{"text": "olly i need to get to bristol friday night can you book me a ticket please", "gold": "Transport"}
+{"text": "call me at six am", "gold": "Alarm"}
+{"text": "when is the best time to travel to canada what airport to use", "gold": "Transport"}
+{"text": "what are the train times", "gold": "Transport"}
+{"text": "delete apples from my grocery list", "gold": "Lists"}
+{"text": "tell me about oldest reminder", "gold": "Calendar"}
+{"text": "remove the alarm", "gold": "Alarm"}
+{"text": "what playlist is on shuffle", "gold": "Music"}
+{"text": "remind me about my next meeting with joe one hour before", "gold": "Calendar"}
+{"text": "remove my dinner event for tomorrow", "gold": "Calendar"}
+{"text": "i need a list of my clients today make one", "gold": "Lists"}
+{"text": "when is my meeting with bob", "gold": "Calendar"}
+{"text": "what is my schedule for tomorrow morning", "gold": "Calendar"}
+{"text": "give me a newspaper", "gold": "News"}
+{"text": "take lunch with steven off of my calendar", "gold": "Calendar"}
+{"text": "do i have any meetings today between 8 and 9", "gold": "Calendar"}
+{"text": "pull up the shopping list", "gold": "Lists"}
+{"text": "remind me before monday", "gold": "Calendar"}
+{"text": "erase", "gold": "Lists"}
+{"text": "are there meetings schedules today between noon and one", "gold": "Calendar"}
+{"text": "delete mike stein from contacts list", "gold": "Lists"}
+{"text": "i want to hear my to do list read out loud", "gold": "Lists"}
+{"text": "provide me the world latest news", "gold": "News"}
+{"text": "can you play an alarm at 5pm", "gold": "Alarm"}
+{"text": "check if i need umbrella now", "gold": "Weather"}
+{"text": "forget this song and go to the next", "gold": "Music"}
+{"text": "alert me at ten am please", "gold": "Alarm"}
+{"text": "tell me about the next devil's hockey game friday", "gold": "Calendar"}
+{"text": "save this music to my favorites", "gold": "Music"}
+{"text": "olly tell me about my events", "gold": "Calendar"}
+{"text": "do i need a jacket in the evening", "gold": "Weather"}
+{"text": "how is the traffic on the way to the mall", "gold": "Transport"}
+{"text": "do i have any events happening next week", "gold": "Calendar"}
+{"text": "what's going on in japan", "gold": "News"}
+{"text": "remind me of my sister's birthday party tomorrow an hour before it starts", "gold": "Calendar"}
+{"text": "did anyone win the powerball lottery yesterday", "gold": "News"}
+{"text": "set alarm for tomorrow at two p. m.", "gold": "Alarm"}
+{"text": "what are we doing next week", "gold": "Calendar"}
+{"text": "put reminder to call pawel tomorrow", "gold": "Calendar"}
+{"text": "reserve a train ticket for me today to des moines", "gold": "Transport"}
+{"text": "please rate this song five stars please", "gold": "Music"}
+{"text": "what are the upcoming reminders", "gold": "Calendar"}
+{"text": "what is the latest news about this world", "gold": "News"}
+{"text": "where to buy a train ticket", "gold": "Transport"}
+{"text": "what will the weather be like in two weeks", "gold": "Weather"}
+{"text": "is the traffic bad at 5:00 if i'm going to the mall", "gold": "Transport"}
+{"text": "is there a chance of snow wednesday", "gold": "Weather"}
+{"text": "could you find a train back home at around seven p. m.", "gold": "Transport"}
+{"text": "what do i have planned on 3/15", "gold": "Calendar"}
+{"text": "tell me my list", "gold": "Lists"}
+{"text": "what music genre do i play most", "gold": "Music"}
+{"text": "can you pull up the latest time so i won't be late for my appointment", "gold": "Calendar"}
+{"text": "read me titles for international news", "gold": "News"}
+{"text": "format the calendar", "gold": "Calendar"}
+{"text": "show me my calendar", "gold": "Calendar"}
+{"text": "show me the programs i have today", "gold": "Calendar"}
+{"text": "are there alot of cars on the road before the stadium", "gold": "Transport"}
+{"text": "i want to hear the news on tmz", "gold": "News"}
+{"text": "add yosemite to my rap playlist", "gold": "Music"}
+{"text": "how can you schedule a meeting for me", "gold": "Calendar"}
+{"text": "that \"baby shark, doo doo,\" song, i want to hear it", "gold": "Music"}
+{"text": "olly can you remind me to take the garbage out on tuesday", "gold": "Calendar"}
+{"text": "find me the latest news story on us politics", "gold": "News"}
+{"text": "i need to add farm trip to my calendar for friday", "gold": "Calendar"}
+{"text": "please add this event to my calendar", "gold": "Calendar"}
+{"text": "i want this song put on my \"kids\" playlist", "gold": "Music"}
+{"text": "what alarms are set in the morning", "gold": "Alarm"}
+{"text": "what's the traffic like on my way to the terminal", "gold": "Transport"}
+{"text": "add staff meeting to my calendar for march 1 at 10:00 in the morning", "gold": "Calendar"}
+{"text": "i like rock music", "gold": "Music"}
+{"text": "delete that event from calendar", "gold": "Calendar"}
+{"text": "can you put sunday hockey class in my calendar as recurrent event", "gold": "Calendar"}
+{"text": "will an oil change be on my to-do list tomorrow", "gold": "Lists"}
+{"text": "give information about the traffic near my location please", "gold": "Transport"}
+{"text": "i need an uber to the sears tower", "gold": "Transport"}
+{"text": "put the current song on repeat", "gold": "Music"}
+{"text": "is my calendar free for four p. m. today", "gold": "Calendar"}
+{"text": "i need laundry put on my list of tasks to complete", "gold": "Lists"}
+{"text": "what's new today", "gold": "News"}
+{"text": "can you list my shopping list for me", "gold": "Lists"}
+{"text": "should i bring extra water with me today", "gold": "Weather"}
+{"text": "olly edit list", "gold": "Lists"}
+{"text": "lets get something on the calendar for tuesday", "gold": "Calendar"}
+{"text": "what is the name of this song playing right now", "gold": "Music"}
+{"text": "tell me if the following is true about the weather", "gold": "Weather"}
+{"text": "it's pleasant today", "gold": "Weather"}
+{"text": "please add item to list", "gold": "Lists"}
+{"text": "i'd like to update my calendar", "gold": "Calendar"}
+{"text": "read me new headlines", "gold": "News"}
+{"text": "i want to see news about politics", "gold": "News"}
+{"text": "how many alarms have i set", "gold": "Alarm"}
+{"text": "get rid of butter on my shopping list", "gold": "Lists"}
+{"text": "are there any trips to location a provided by the train", "gold": "Transport"}
+{"text": "remove dinner with suzie from my calendar on march 1st", "gold": "Calendar"}
+{"text": "remind me of my meeting at five p. m.", "gold": "Calendar"}
+{"text": "what's happening on may 3rd", "gold": "Calendar"}
+{"text": "delete all of my appointments with doctor smith this week", "gold": "Calendar"}
+{"text": "sports head lines please", "gold": "News"}
+{"text": "please set work meeting at twelve p. m. for every thursday in february", "gold": "Calendar"}
+{"text": "to do list", "gold": "Lists"}
+{"text": "let me know if anything happens on that subject", "gold": "News"}
+{"text": "open music player settings", "gold": "Music"}
+{"text": "i want a train ticket to oregon", "gold": "Transport"}
+{"text": "when is it going to snow next", "gold": "Weather"}
+{"text": "what is the cheapest ticket available next week for a round trip three day trip to iceland", "gold": "Transport"}
+{"text": "book a taxi for me", "gold": "Transport"}
+{"text": "avinash go with me on fifth april movie commando", "gold": "Calendar"}
+{"text": "please remove the doctor appointment in my calendar for february twelfth at nine am", "gold": "Calendar"}
+{"text": "play the next tune", "gold": "Music"}
+{"text": "set an alarm", "gold": "Alarm"}
+{"text": "what on my calendar", "gold": "Calendar"}
+{"text": "what are my lists so far", "gold": "Lists"}
+{"text": "please remove the alarm set for wednesday called kickball", "gold": "Alarm"}
+{"text": "delete my birthday reminder for next week", "gold": "Calendar"}
+{"text": "set an alarm forty minutes from now", "gold": "Alarm"}
+{"text": "what's the alarm situation for tomorrow", "gold": "Alarm"}
+{"text": "what do i have going on next friday", "gold": "Calendar"}
+{"text": "is there an open meeting room between 2 and 4", "gold": "Calendar"}
+{"text": "could you skip to the next song on this playlist, please", "gold": "Music"}
+{"text": "delete all events from calendar", "gold": "Calendar"}
+{"text": "what rohan have to say about marriage when he meet me today", "gold": "Calendar"}
+{"text": "put pizza on the list", "gold": "Lists"}
+{"text": "add a reminder on thursdays at eleven and thirty am and name it dance classes", "gold": "Calendar"}
+{"text": "how hot will it be tomorrow", "gold": "Weather"}
+{"text": "how cold will it be tomorrow", "gold": "Weather"}
+{"text": "i would like to start a new list", "gold": "Lists"}
+{"text": "nice music", "gold": "Music"}
+{"text": "what purpose the event been scheduled for", "gold": "Calendar"}
+{"text": "set alarm of every tuesday of march month morning eight am", "gold": "Alarm"}
+{"text": "set repeat event in calendar", "gold": "Calendar"}
+{"text": "how long is this song", "gold": "Music"}
+{"text": "erase that item from my list", "gold": "Lists"}
+{"text": "please arrange to wake me up at three am alarm", "gold": "Alarm"}
+{"text": "change my alarms to mountain time", "gold": "Alarm"}
+{"text": "what things are on my shopping list", "gold": "Lists"}
+{"text": "what are the reminder i had set for tomorrow", "gold": "Calendar"}
+{"text": "is the meeting with julie at three p. m. on wednesday", "gold": "Calendar"}
+{"text": "can you book a train ticket for my mother", "gold": "Transport"}
+{"text": "tell me what is on the schedule for july seventh", "gold": "Calendar"}
+{"text": "i am wanting to know what song this is", "gold": "Music"}

@@ -10,12 +10,15 @@ vol = modal.Volume.from_name("tenpct-tasksearch", create_if_missing=True); priv 
 img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.4.1", "transformers==4.55.0", "numpy", "accelerate", "safetensors", "constriction")
        .add_local_file(HERE + "/ship/packlib.py", "/app/packlib.py").add_local_file(HERE + "/ship/common.py", "/app/common.py")
        .add_local_file(FA + "/fblib.py", "/app/fblib.py").add_local_file(FA + "/run_exam.py", "/app/run_exam.py").add_local_file(FA + "/exam_data/SKILL7.json", "/app/exam_data/SKILL7.json")
-       .add_local_dir(HERE + "/data", "/app/data").add_local_file(HERE + "/fbrun/build_dev_dd.py", "/app/build_dev_dd.py").add_local_file(HERE + "/results/exam_skill7_omni7.json", "/app/prev_exam.json"))
+       .add_local_dir(HERE + "/data", "/app/data").add_local_dir(HERE + "/ship", "/app/ship").add_local_file(HERE + "/fbrun/build_dev_dd.py", "/app/build_dev_dd.py").add_local_file(HERE + "/results/exam_skill7_omni7.json", "/app/prev_exam.json"))
 def _go(job):
     import subprocess, os, sys, json, shutil, time
     sys.path.insert(0, "/app"); import packlib
     os.chdir("/app"); out = f"/vol/l10v2/{job['name']}"; os.makedirs(out, exist_ok=True)
-    pack = job.get("pack", "/priv/omni7_body.pack"); body = "/tmp/body"; t = time.time(); meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True)
+    pack = job.get("pack", "/priv/omni7_body.pack"); body = "/tmp/body"; t = time.time()
+    if job["mode"] != "cli": meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True)
+    if job["mode"] == "cli":
+        cli_job(pack, out); vol.commit(); print("FB2_DONE", job["name"], flush=True); return
     if job["mode"] in ("dev", "lock"):
         task = "SKILL7"
         if job["mode"] == "dev": subprocess.run(["python", "build_dev_dd.py", "/app/data", "/app/exam_data/L10DEV.json"], check=True); task = "L10DEV"
@@ -24,6 +27,18 @@ def _go(job):
     else:
         exam_job(job, body, out)
     vol.commit(); print("FB2_DONE", job["name"], flush=True)
+def cli_job(pack, out):
+    """standalone commands from the packed body only: answer -> feedback (12 annotations) -> answer on held-out new-label items"""
+    import subprocess, json, time
+    rd = lambda p: [json.loads(l) for l in open(p) if l.strip()]; P = lambda u: u.split("Request: ", 1)[1]
+    b = [P(r["user"]) for r in rd("/app/data/fb_skill/skill_new_b.jsonl")[:30]]; old = [P(r["user"]) for r in rd("/app/data/fb_skill/skill_old.jsonl")[900:930]]; log = {}
+    ann = [json.loads(l) for l in open("/app/ship/example_ann.jsonl")]; open("/tmp/ann.jsonl", "w").write("".join(json.dumps(dict(text=r["text"], label="Recipe")) + "\n" for r in ann))
+    run = lambda c: (lambda t0, r: (r.stdout.strip().split("\n"), round(time.time() - t0), r.stderr[-400:]))(time.time(), subprocess.run(c, capture_output=True, text=True, cwd="/app/ship"))
+    log["answer_before"] = run(["python", "answer.py", "--pack", pack] + b[:10] + old[:10]); print(log, flush=True)
+    log["feedback"] = run(["python", "feedback.py", "--pack", pack, "--annotations", "/tmp/ann.jsonl", "--calib", "/app/ship/calib_old.jsonl", "--out", "/tmp/body_fb.pack"]); print(log["feedback"], flush=True)
+    log["answer_after"] = run(["python", "answer.py", "--pack", "/tmp/body_fb.pack"] + b + old); log["sizes"] = [os.path.getsize(pack), os.path.getsize("/tmp/body_fb.pack")]
+    o = log["answer_after"][0]; log["teach_after"] = sum(x == "Recipe" for x in o[:30]) / 30; log["old_labels_after"] = o[30:]
+    json.dump(log, open(out + "/cli.json", "w"), indent=1); print("CLI", log["teach_after"], log["sizes"], flush=True)
 def exam_job(job, body, out):
     import sys, json, random, hashlib, torch, numpy as np, tempfile
     import common, fblib
