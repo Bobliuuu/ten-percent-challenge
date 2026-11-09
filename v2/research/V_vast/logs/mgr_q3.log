@@ -1,0 +1,9 @@
+14:50:06Z instance gone
+Traceback (most recent call last):
+  File "/Users/jhome/ten-percent/v2/research/V_vast/t3_mgr.py", line 34, in <module>
+    ssh(i, "mkdir -p /workspace/bundle"); e = rsync_to(i)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/ten-percent/v2/research/V_vast/t3_mgr.py", line 17, in ssh
+    return subprocess.run(["ssh", "-i", KEY, "-p", str(i["ssh_port"]), "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-o", "ConnectTimeout=15", "-o", "ServerAliveInterval=20", "-o", "LogLevel=ERROR", f"root@{i['ssh_host']}", cmd], capture_output=True, text=True, timeout=t)
+                                                       ~^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable

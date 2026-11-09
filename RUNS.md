@@ -437,3 +437,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L3 builds ok (H200): skill7x/bank6x in tenpct-l3-art; verify_loader x2 fc-01M6ZFY3ZNCSZVNC78X4ZJP07B / fc-01M6ZFY4MQC0VHERVSG61T9HKK; bank6x fb dev sweeps A-D (job fb_eval bank6x dev_A..D, fc-01M6ZFY5GZ8DQWH93PZXCE2ZXQ ...)
 - 2026-11-09T06:31Z vast id 59846203 tenpct-L12F destroyed after 0.30 h (~$0.36)
 - 2026-11-09 tenpct-l9: pack k88 fc-01M6ZGB0SRCQD4JGAEY82NVAYJ (g1 H100); variants va/vb/vc g8 run_core (see launch output)
+- 2026-11-09 L3 SKILL7 body variant nh=2031 (dev-chosen: SEL ret .9899->.9929, Calendar cell fixed) single locked-exam rescoring via build(skill7x,nh2031,exam=True); BANK6 body unchanged (no dev winner)

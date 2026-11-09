@@ -1,0 +1,16 @@
+14:48:47Z offer 57580936 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:47Z offer 51011924 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:48Z offer 45274396 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:48Z offer 44111199 refused: {"error": true, "status_code": 400, "msg": "error 400/3763: GPU conflict: requesting already rented 
+14:48:49Z offer 29019350 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:50Z offer 57349463 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:50Z offer 54190386 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:51Z offer 42402153 refused: {"error": true, "status_code": 400, "msg": "Unrent some instances or try again in a few hours. "}
+
+14:48:51Z could not create

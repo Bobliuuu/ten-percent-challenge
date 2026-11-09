@@ -1,0 +1,3 @@
+| rank | model | base acc | n base-correct | ratio of fp16 | body bpw | retention | Wilson lo | worst cell (n>=8) | per task |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Qwen2.5-3B-Instruct | 0.943 | 1303 | 9.95% | 1.52 | 91.9% | 90.3% | 69% SKILL7/massive/Calendar | {'SKILL7': 0.889, 'BANK8': 0.948} |

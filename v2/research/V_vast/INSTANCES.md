@@ -221,3 +221,5 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - id 59845380 tenpct-L5pk destroyed (ssh never reachable, ~$0.10); moving L5 to Modal
 - 2026-11-09T06:12Z vast id 59846203 label tenpct-L12F GPU RTX PRO 6000 WS 96GB $1.206/h (+5% guard) started
 - 2026-11-09T06:12Z vast id 59846208 label tenpct-L12G GPU RTX PRO 6000 Max-Q 96GB $1.082/h (+5% guard) started
+- id 59846208 tenpct-L12G destroyed after 0.18 h (~$0.19)
+- id 59846203 tenpct-L12F destroyed after 0.30 h (~$0.36)

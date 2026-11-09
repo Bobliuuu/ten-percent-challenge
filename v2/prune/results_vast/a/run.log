@@ -1,0 +1,361 @@
+++ dirname run.sh
++ cd .
++ mkdir -p results
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
++ tail -2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ python code/runner.py 0,1,2
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:19<00:19, 19.20s/it]Fetching 2 files: 100%|██████████| 2/2 [00:19<00:00,  9.60s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.20it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.78it/s]
+VOCAB KEEP 65829 of 151936
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+PRUNED {'ffn0': 9984, 'ffn1': 9984, 'ffn2': 9984, 'ffn3': 9984, 'ffn4': 9984, 'ffn5': 9984, 'ffn6': 9984, 'ffn7': 9984, 'ffn8': 9984, 'ffn9': 9984, 'ffn10': 9984, 'ffn11': 9984, 'ffn12': 9984, 'ffn13': 9984, 'ffn14': 9984, 'ffn15': 9984, 'ffn16': 9984, 'ffn17': 9984, 'ffn18': 9984, 'ffn19': 9984, 'ffn20': 9984, 'ffn21': 9984, 'ffn22': 9984, 'ffn23': 9984, 'ffn24': 9984, 'ffn25': 9984, 'ffn26': 9984, 'ffn27': 9984, 'ffn28': 9984, 'ffn29': 9984, 'ffn30': 9984, 'ffn31': 9984, 'ffn32': 9984, 'ffn33': 9984, 'ffn34': 9984, 'ffn35': 9984}
+sensA 0 27
+sensA 8 39
+sensA 16 50
+sensA 24 62
+sensA 32 74
+alloc body_bits/param 2.197047088921806 target 2.1975888547378806
+passB 0 84
+passB 8 128
+passB 16 171
+passB 24 215
+passB 32 258
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [64,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [65,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [66,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [67,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [68,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [69,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [70,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [71,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [72,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [73,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [74,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [75,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [76,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [77,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [78,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [79,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [80,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [81,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [82,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [83,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [84,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [85,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [86,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [87,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [88,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [89,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [90,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [91,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [92,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [93,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [94,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+/pytorch/aten/src/ATen/native/cuda/IndexKernelUtils.cu:16: vectorized_gather_kernel: block: [65647,0,0], thread: [95,0,0] Assertion `ind >=0 && ind < ind_dim_size && "vectorized gather kernel index out of bounds"` failed.
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 421, in _run
+    x=We[r:r+8192].reshape(-1,ge); s=qparams(x,eL); q,qi=quant(x,s,eL,dz); Wq[r:r+8192]=q.view(-1,hid); hist+=torch.bincount(qi.long().flatten(),minlength=eL).float()
+                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+JOB_DONE 0 [{'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-3B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_ps1', 'target_ratio': 0.12, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.9, 'vk': 65536, 'emb_trim': 1, 'head_trim': 1, 'mixneutral': 50, 'nev': 0}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-3B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_ps2', 'target_ratio': 0.12, 'emb_L': 4, 'head_L': 4, 'g': 256, 'kv_keep': 0.5, 'crit': 'flap', 'drop': 1}}]
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+JOB_DONE 1 [{'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_b096', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_v64', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'vk': 65536, 'emb_trim': 1, 'head_trim': 1}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_f90', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.9}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_f75', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.75}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_f60', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.6}}]
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+Traceback (most recent call last):
+  File "/workspace/bundle/code/dense_core.py", line 9, in _run
+    try: out.append(_run(c))
+                    ^^^^^^^
+  File "/workspace/bundle/code/dense_core.py", line 17, in _run
+    t0=time.time(); torch.manual_seed(0)
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_compile.py", line 53, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 929, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/random.py", line 46, in manual_seed
+    torch.cuda.manual_seed_all(seed)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 131, in manual_seed_all
+    _lazy_call(cb, seed_all=True)
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py", line 341, in _lazy_call
+    callable()
+  File "/opt/conda/lib/python3.11/site-packages/torch/cuda/random.py", line 129, in cb
+    default_generator.manual_seed(seed)
+torch.AcceleratorError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+JOB_DONE 2 [{'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_d2', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'drop': 2}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_d4', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'drop': 4}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_k75', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'kv_keep': 0.75}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_v64f90', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.9, 'vk': 65536, 'emb_trim': 1, 'head_trim': 1}}, {'error': "AcceleratorError('CUDA error: device-side assert triggered\\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\\n')", 'cfg': {'model': 'Qwen/Qwen2.5-14B-Instruct', 'ctasks': 1, 'calib_ct': 1, 'name': 'i_v64f75', 'target_ratio': 0.0963, 'emb_L': 4, 'head_L': 4, 'g': 256, 'ffn_keep': 0.75, 'vk': 65536, 'emb_trim': 1, 'head_trim': 1}}]

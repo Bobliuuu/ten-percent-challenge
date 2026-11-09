@@ -39,9 +39,10 @@ def verify():
     res.update(dev_n=len(items), dev_agree=sum(x == y for x, y in zip(o1, o2)) / len(items), acc_packed=sum(x == g for x, g in zip(o1, gold)) / len(items), acc_ckpt=sum(x == g for x, g in zip(o2, gold)) / len(items), disagreements=[(r, x, y) for r, x, y in zip(reqs, o1, o2) if x != y][:10])
     json.dump(res, open("/r/res/verify.json", "w"), indent=1); vol.commit(); print("VERIFY", res, flush=True)
 @app.function(**KW)
-def evalcols(cols: int, draws: int = 3, nosub: bool = False):
+def evalcols(cols: int, draws: int = 3, nosub: bool = False, subonly: bool = False):
     os.makedirs("/r/res", exist_ok=True)
-    sh(f"cd /root && python ship/eval_locked.py /r/pk /r/res/eval_c{cols}.json --cols {cols} --draws {draws} {'--no-subprocess' if nosub else ''}")
+    extra = ("--no-subprocess " if nosub else "") + ("--sub-only" if subonly else "")
+    sh(f"cd /root && python ship/eval_locked.py /r/pk /r/res/eval_c{cols}.json --cols {cols} --draws {draws} {extra}")
 @app.function(**KW)
 def exam():
     """Score the packed artifact ONCE on the sealed exam (bytes changed vs the first build) + 500 dev rows, real greedy generation, retention vs base-correct (base outputs from results/final)."""
@@ -57,5 +58,15 @@ def exam():
         if role == "exam":
             cl = [(r, c) for r, c in bk if r.get("tier") == "clean"]; res[role]["clean_only_retention"] = sum(c for _, c in cl) / len(cl)
     res["outputs"] = {r["id"]: x for r, x in zip(rows, o)}; json.dump(res, open("/r/res/exam_new_body.json", "w")); vol.commit(); print("EXAM", {k: v for k, v in res.items() if k != "outputs"}, flush=True)
+@app.function(image=img, cpu=4, memory=16000, timeout=3600, volumes={"/r": vol})
+def shas():
+    import hashlib, glob, json
+    out = []
+    for f in sorted(glob.glob("/r/pk/*")):
+        h = hashlib.sha256()
+        with open(f, "rb") as fh:
+            for b in iter(lambda: fh.read(1 << 24), b""): h.update(b)
+        out.append(f"{h.hexdigest()}  {os.path.basename(f)}  {os.path.getsize(f)}")
+    os.makedirs("/r/res", exist_ok=True); open("/r/res/pk_sha256.txt", "w").write("\n".join(out) + "\n"); vol.commit(); print("\n".join(out), flush=True)
 @app.local_entrypoint()
 def main(): pass

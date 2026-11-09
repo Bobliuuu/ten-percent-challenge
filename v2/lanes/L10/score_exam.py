@@ -14,7 +14,7 @@ tr = lambda O: dict(n=len(teach), hit=sum(O[r["id"]].strip() == N for r in teach
 out["teach"] = {k: tr(D[k + "_teach"]) for k in ("quant", "real", "shuffled", "empty")}
 out["teach_by_src"] = {s: {k: sum(D[k + "_teach"][r["id"]].strip() == N for r in teach if r["src"] == s) / sum(1 for r in teach if r["src"] == s) for k in ("quant", "real", "shuffled")} for s in sorted({r["src"] for r in teach})}
 out["ann"] = dict(n=len(D["ann_ids"]), quant_said=collections.Counter(D["ann_pred"]).most_common(5), real_bytes=D["real_bytes"], cfg=D["cfg"])
-json.dump(out, open("results/EXAM_SCORE.json", "w"), indent=1, default=str)
+json.dump(out, open(sys.argv[2] if len(sys.argv) > 2 else "results/EXAM_SCORE.json", "w"), indent=1, default=str)
 o = out["quant_vs_base"]; print("base acc", o["base_acc"], "overall", o["overall"], "\nkinds", {k: (round(v["ret"], 4), round(v["wilson_lo"], 4), v["n"]) for k, v in o["by_kind"].items()}, "\nsrc", {k: (round(v["ret"], 4), v["n"]) for k, v in o["by_src"].items()})
 print("gates", o["gate_overall_98"], o["gate_kind_95"], o["rule3"], "never-used", o["never_used_retention"]); print("clean-only", out["quant_vs_base_clean_only"]["overall"], out["quant_vs_base_clean_only"]["by_kind"])
 print("after fb", out["after_feedback_vs_base"]["overall"], {k: round(v["ret"], 4) for k, v in out["after_feedback_vs_base"]["by_kind"].items()}); print("neigh", out["neighbours_quant"], out["neighbours_after_feedback"]); print("teach", out["teach"], out["teach_by_src"], out["ann"])

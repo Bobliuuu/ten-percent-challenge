@@ -1,0 +1,56 @@
+{
+ "load_secs": 106.85674262046814,
+ "gpu": "NVIDIA A100-SXM4-80GB",
+ "peak_gb": 69.7386155128479,
+ "tensors_compared": 771,
+ "tensors_bit_equal": 735,
+ "max_abs_diff": 5.657784640789032e-08,
+ "worst": [
+  [
+   "model.embed_tokens.weight",
+   5.657784640789032e-08
+  ],
+  [
+   "model.layers.0.self_attn.q_proj.bias",
+   1.862645149230957e-08
+  ],
+  [
+   "model.layers.1.input_layernorm.weight",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.1.post_attention_layernorm.weight",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.2.input_layernorm.weight",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.2.self_attn.v_proj.bias",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.3.input_layernorm.weight",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.4.input_layernorm.weight",
+   2.9802322387695312e-08
+  ],
+  [
+   "model.layers.4.self_attn.v_proj.bias",
+   1.1175870895385742e-08
+  ],
+  [
+   "model.layers.5.input_layernorm.weight",
+   2.2351741790771484e-08
+  ]
+ ],
+ "params_not_in_ckpt": [],
+ "dev_n": 200,
+ "dev_agree": 1.0,
+ "acc_packed": 0.955,
+ "acc_ckpt": 0.955,
+ "disagreements": []
+}

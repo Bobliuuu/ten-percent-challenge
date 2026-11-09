@@ -1,0 +1,1 @@
+[{"name": "bonsai_fp16patch", "model": "prism-ml/Bonsai-8B-unpacked", "dtype": "float16", "task": "tox", "ndraw": 10, "ns": [5, 12, 25], "methods": ["mnH_m4", "mnH_m8", "mnH_m16"], "valmethods": ["mnH_m8"]}]

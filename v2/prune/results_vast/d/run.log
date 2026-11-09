@@ -1,0 +1,174 @@
+++ dirname run.sh
++ cd .
++ mkdir -p results
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
++ tail -2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ python code/runner.py 1,2
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [03:12<22:28, 192.71s/it]Fetching 8 files:  25%|██▌       | 2/8 [03:15<08:06, 81.10s/it] Fetching 8 files:  38%|███▊      | 3/8 [03:41<04:38, 55.64s/it]Fetching 8 files: 100%|██████████| 8/8 [03:41<00:00, 27.63s/it]
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.00it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.81it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.95it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.90it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.92it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.75it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.72it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.08it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.93it/s]
+sensA 0 237
+sensA 8 289
+sensA 16 342
+sensA 24 395
+sensA 32 448
+sensA 40 500
+alloc body_bits/param 1.486221538254371 target 1.486739936032509
+passB 0 565
+passB 8 709
+passB 16 854
+passB 24 998
+passB 32 1143
+passB 40 1285
+CT_DONE Qwen2.5-14B-Instruct i_b096 ratio 0.09660733581720841 bpw 1.4893625898469414 acc 0.7706002034587996
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.00it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.80it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.86it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.87it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.90it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.83it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.80it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.19it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.97it/s]
+VOCAB KEEP 65957 of 152064
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+sensA 0 13
+sensA 8 65
+sensA 16 118
+sensA 24 171
+sensA 32 224
+sensA 40 276
+alloc body_bits/param 1.616674831083132 target 1.6171826928877673
+passB 0 341
+passB 8 484
+passB 16 626
+passB 24 768
+passB 32 912
+passB 40 1052
+CT_DONE Qwen2.5-14B-Instruct i_v64 ratio 0.09658729620956683 bpw 1.6209967335702051 acc 0.8041709053916581
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.19it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.93it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.97it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.93it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.99it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.88it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.83it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.22it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.03it/s]
+PRUNED {'ffn0': 12544, 'ffn1': 12544, 'ffn2': 12544, 'ffn3': 12544, 'ffn4': 12544, 'ffn5': 12544, 'ffn6': 12544, 'ffn7': 12544, 'ffn8': 12544, 'ffn9': 12544, 'ffn10': 12544, 'ffn11': 12544, 'ffn12': 12544, 'ffn13': 12544, 'ffn14': 12544, 'ffn15': 12544, 'ffn16': 12544, 'ffn17': 12544, 'ffn18': 12544, 'ffn19': 12544, 'ffn20': 12544, 'ffn21': 12544, 'ffn22': 12544, 'ffn23': 12544, 'ffn24': 12544, 'ffn25': 12544, 'ffn26': 12544, 'ffn27': 12544, 'ffn28': 12544, 'ffn29': 12544, 'ffn30': 12544, 'ffn31': 12544, 'ffn32': 12544, 'ffn33': 12544, 'ffn34': 12544, 'ffn35': 12544, 'ffn36': 12544, 'ffn37': 12544, 'ffn38': 12544, 'ffn39': 12544, 'ffn40': 12544, 'ffn41': 12544, 'ffn42': 12544, 'ffn43': 12544, 'ffn44': 12544, 'ffn45': 12544, 'ffn46': 12544, 'ffn47': 12544}
+sensA 0 24
+sensA 8 71
+sensA 16 119
+sensA 24 166
+sensA 32 214
+sensA 40 261
+alloc body_bits/param 1.6010550897147213 target 1.6011045464965483
+passB 0 320
+passB 8 454
+passB 16 589
+passB 24 723
+passB 32 858
+passB 40 992
+CT_DONE Qwen2.5-14B-Instruct i_f90 ratio 0.09668347450050875 bpw 1.6053956886144016 acc 0.7624618514750763
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.10it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.93it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.96it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.91it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.95it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.87it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.83it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.22it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.02it/s]
+PRUNED {'ffn0': 10240, 'ffn1': 10240, 'ffn2': 10240, 'ffn3': 10240, 'ffn4': 10240, 'ffn5': 10240, 'ffn6': 10240, 'ffn7': 10240, 'ffn8': 10240, 'ffn9': 10240, 'ffn10': 10240, 'ffn11': 10240, 'ffn12': 10240, 'ffn13': 10240, 'ffn14': 10240, 'ffn15': 10240, 'ffn16': 10240, 'ffn17': 10240, 'ffn18': 10240, 'ffn19': 10240, 'ffn20': 10240, 'ffn21': 10240, 'ffn22': 10240, 'ffn23': 10240, 'ffn24': 10240, 'ffn25': 10240, 'ffn26': 10240, 'ffn27': 10240, 'ffn28': 10240, 'ffn29': 10240, 'ffn30': 10240, 'ffn31': 10240, 'ffn32': 10240, 'ffn33': 10240, 'ffn34': 10240, 'ffn35': 10240, 'ffn36': 10240, 'ffn37': 10240, 'ffn38': 10240, 'ffn39': 10240, 'ffn40': 10240, 'ffn41': 10240, 'ffn42': 10240, 'ffn43': 10240, 'ffn44': 10240, 'ffn45': 10240, 'ffn46': 10240, 'ffn47': 10240}
+sensA 0 22
+sensA 8 62
+sensA 16 102
+sensA 24 142
+sensA 32 182
+sensA 40 222
+alloc body_bits/param 1.8583487478129204 target 1.8584249200406364
+passB 0 272
+passB 8 395
+passB 16 519
+passB 24 647
+passB 32 775
+passB 40 902
+CT_DONE Qwen2.5-14B-Instruct i_f75 ratio 0.0966723972499556 bpw 1.8631770844633373 acc 0.7812817904374364
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.14it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.93it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.95it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.93it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.97it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.88it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.82it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.21it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.03it/s]
+PRUNED {'ffn0': 8192, 'ffn1': 8192, 'ffn2': 8192, 'ffn3': 8192, 'ffn4': 8192, 'ffn5': 8192, 'ffn6': 8192, 'ffn7': 8192, 'ffn8': 8192, 'ffn9': 8192, 'ffn10': 8192, 'ffn11': 8192, 'ffn12': 8192, 'ffn13': 8192, 'ffn14': 8192, 'ffn15': 8192, 'ffn16': 8192, 'ffn17': 8192, 'ffn18': 8192, 'ffn19': 8192, 'ffn20': 8192, 'ffn21': 8192, 'ffn22': 8192, 'ffn23': 8192, 'ffn24': 8192, 'ffn25': 8192, 'ffn26': 8192, 'ffn27': 8192, 'ffn28': 8192, 'ffn29': 8192, 'ffn30': 8192, 'ffn31': 8192, 'ffn32': 8192, 'ffn33': 8192, 'ffn34': 8192, 'ffn35': 8192, 'ffn36': 8192, 'ffn37': 8192, 'ffn38': 8192, 'ffn39': 8192, 'ffn40': 8192, 'ffn41': 8192, 'ffn42': 8192, 'ffn43': 8192, 'ffn44': 8192, 'ffn45': 8192, 'ffn46': 8192, 'ffn47': 8192}
+sensA 0 21
+sensA 8 54
+sensA 16 87
+sensA 24 119
+sensA 32 152
+sensA 40 184
+alloc body_bits/param 2.1673141525634043 target 2.168162406714076
+passB 0 228
+passB 8 347
+passB 16 465
+passB 24 582
+passB 32 701
+passB 40 821
+CT_DONE Qwen2.5-14B-Instruct i_f60 ratio 0.09660737902320683 bpw 2.1719928600152714 acc 0.7609359104781281
+JOB_DONE 1 []
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.26it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:03,  1.96it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.95it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.92it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.93it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.82it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.79it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.18it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.00it/s]
+alloc body_bits/param 1.5513667974786727 target 1.5514247986757443
+passB 0 24
+passB 8 169
+passB 16 313
+passB 24 453
+passB 32 592
+passB 40 736
+CT_DONE Qwen2.5-14B-Instruct i_d2 ratio 0.09665323471476893 bpw 1.555023623302301 acc 0.7787385554425229
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.25it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:00<00:03,  1.97it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  2.05it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:01<00:01,  2.06it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  2.08it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.93it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.86it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.25it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:03<00:00,  2.09it/s]
+alloc body_bits/param 1.6205764738874768 target 1.6219901033774557
+passB 0 24
+passB 8 163
+passB 16 305
+passB 24 443
+passB 32 584
+CT_DONE Qwen2.5-14B-Instruct i_d4 ratio 0.09661961516734195 bpw 1.6251090918676812 acc 0.7945066124109867
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.14it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.87it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.90it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.88it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.93it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.85it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.81it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.19it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.99it/s]
+PRUNED {'kv0': 6, 'kv1': 6, 'kv2': 6, 'kv3': 6, 'kv4': 6, 'kv5': 6, 'kv6': 6, 'kv7': 6, 'kv8': 6, 'kv9': 6, 'kv10': 6, 'kv11': 6, 'kv12': 6, 'kv13': 6, 'kv14': 6, 'kv15': 6, 'kv16': 6, 'kv17': 6, 'kv18': 6, 'kv19': 6, 'kv20': 6, 'kv21': 6, 'kv22': 6, 'kv23': 6, 'kv24': 6, 'kv25': 6, 'kv26': 6, 'kv27': 6, 'kv28': 6, 'kv29': 6, 'kv30': 6, 'kv31': 6, 'kv32': 6, 'kv33': 6, 'kv34': 6, 'kv35': 6, 'kv36': 6, 'kv37': 6, 'kv38': 6, 'kv39': 6, 'kv40': 6, 'kv41': 6, 'kv42': 6, 'kv43': 6, 'kv44': 6, 'kv45': 6, 'kv46': 6, 'kv47': 6}
+sensA 0 24
+sensA 8 74
+sensA 16 124
+sensA 24 174
+sensA 32 224
+sensA 40 274
+alloc body_bits/param 1.574623733254319 target 1.5769558664991257
+passB 0 335
+passB 8 475
+passB 16 617
+passB 24 758
+passB 32 898
+passB 40 1039
+CT_DONE Qwen2.5-14B-Instruct i_k75 ratio 0.09654633683081203 bpw 1.5785867778022735 acc 0.7080366225839267
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.09it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.90it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.93it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.90it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.86it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.80it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.78it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.16it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.97it/s]
+VOCAB KEEP 65957 of 152064
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+PRUNED {'ffn0': 12544, 'ffn1': 12544, 'ffn2': 12544, 'ffn3': 12544, 'ffn4': 12544, 'ffn5': 12544, 'ffn6': 12544, 'ffn7': 12544, 'ffn8': 12544, 'ffn9': 12544, 'ffn10': 12544, 'ffn11': 12544, 'ffn12': 12544, 'ffn13': 12544, 'ffn14': 12544, 'ffn15': 12544, 'ffn16': 12544, 'ffn17': 12544, 'ffn18': 12544, 'ffn19': 12544, 'ffn20': 12544, 'ffn21': 12544, 'ffn22': 12544, 'ffn23': 12544, 'ffn24': 12544, 'ffn25': 12544, 'ffn26': 12544, 'ffn27': 12544, 'ffn28': 12544, 'ffn29': 12544, 'ffn30': 12544, 'ffn31': 12544, 'ffn32': 12544, 'ffn33': 12544, 'ffn34': 12544, 'ffn35': 12544, 'ffn36': 12544, 'ffn37': 12544, 'ffn38': 12544, 'ffn39': 12544, 'ffn40': 12544, 'ffn41': 12544, 'ffn42': 12544, 'ffn43': 12544, 'ffn44': 12544, 'ffn45': 12544, 'ffn46': 12544, 'ffn47': 12544}
+sensA 0 24
+sensA 8 71
+sensA 16 119
+sensA 24 166
+sensA 32 214
+sensA 40 261
+alloc body_bits/param 1.7412294426484949 target 1.7415813615714417
+passB 0 321
+passB 8 454
+passB 16 588
+passB 24 723
+passB 32 855
+passB 40 987
+CT_DONE Qwen2.5-14B-Instruct i_v64f90 ratio 0.09659916725855955 bpw 1.7459169234412804 acc 0.7965412004069176
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:03,  2.00it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:03,  1.86it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:01<00:02,  1.90it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:02<00:02,  1.88it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:02<00:01,  1.90it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:03<00:01,  1.83it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:03<00:00,  1.79it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  2.18it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:04<00:00,  1.98it/s]
+VOCAB KEEP 65957 of 152064
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+PRUNED {'ffn0': 10240, 'ffn1': 10240, 'ffn2': 10240, 'ffn3': 10240, 'ffn4': 10240, 'ffn5': 10240, 'ffn6': 10240, 'ffn7': 10240, 'ffn8': 10240, 'ffn9': 10240, 'ffn10': 10240, 'ffn11': 10240, 'ffn12': 10240, 'ffn13': 10240, 'ffn14': 10240, 'ffn15': 10240, 'ffn16': 10240, 'ffn17': 10240, 'ffn18': 10240, 'ffn19': 10240, 'ffn20': 10240, 'ffn21': 10240, 'ffn22': 10240, 'ffn23': 10240, 'ffn24': 10240, 'ffn25': 10240, 'ffn26': 10240, 'ffn27': 10240, 'ffn28': 10240, 'ffn29': 10240, 'ffn30': 10240, 'ffn31': 10240, 'ffn32': 10240, 'ffn33': 10240, 'ffn34': 10240, 'ffn35': 10240, 'ffn36': 10240, 'ffn37': 10240, 'ffn38': 10240, 'ffn39': 10240, 'ffn40': 10240, 'ffn41': 10240, 'ffn42': 10240, 'ffn43': 10240, 'ffn44': 10240, 'ffn45': 10240, 'ffn46': 10240, 'ffn47': 10240}
+sensA 0 23
+sensA 8 62
+sensA 16 102
+sensA 24 142
+sensA 32 182
+sensA 40 222
+alloc body_bits/param 2.02104379834075 target 2.0214783661097093
+passB 0 274
+passB 8 398
+passB 16 524
+passB 24 650
+passB 32 776
+passB 40 903
+CT_DONE Qwen2.5-14B-Instruct i_v64f75 ratio 0.09656635271048114 bpw 2.025780539651889 acc 0.7990844354018312
+JOB_DONE 2 []

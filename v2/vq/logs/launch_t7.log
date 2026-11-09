@@ -1,0 +1,17 @@
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-HNVHPjUE50H5U0Wqxl8Syk
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/tcq_run.py
+├── ✓ Uploaded 
+│   /Users/jhome/ten-percent/v2/vq/../task_search/NEWS/items_dev_ext.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/vreal_both.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/calib_mix.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/tcq.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/vq/../entry32b
+├── ✓ Created Function run.
+├── ✓ Created Function run_big.
+└── ✓ Created Function run_huge.
+('t7_smoke_kb3', 'fc-01M6WV6EW9NH3CZ45HS803S2B7')
+[modal-client] 2026-11-08T00:48:23-0500 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-HNVHPjUE50H5U0Wqxl8Syk

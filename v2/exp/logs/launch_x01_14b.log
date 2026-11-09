@@ -1,0 +1,5 @@
+06:44:48Z 2026-11-08T06:44Z vast id 59676883 label tenpct-x01-14b GPU RTX PRO 5000 72GB $0.602/h (+5% guard) started
+06:45:24Z ssh up <vast-host-redacted>
+06:46:00Z started job
+07:12:31Z finished ['DONE']
+07:12:37Z destroyed (verified gone) 59676883

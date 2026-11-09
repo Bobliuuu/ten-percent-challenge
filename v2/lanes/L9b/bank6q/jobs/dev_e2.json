@@ -1,0 +1,1 @@
+{"stage": "fbq", "tag": "dev_e2", "art": "b6_vq_k160", "dev": true, "fb": [{"name": "m32_l500_a10", "nlayers": 10, "cols": 512, "ndraw": 3, "conds": ["real", "shuffled"], "ncovs": 698, "m": 32, "lam": 500}, {"name": "m64_l1000_a10", "nlayers": 10, "cols": 512, "ndraw": 3, "conds": ["real", "shuffled"], "ncovs": 698, "m": 64}]}

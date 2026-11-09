@@ -1,0 +1,6 @@
+05:59:49Z offer 47463263 refused: {"error": true, "status_code": 410, "msg": "error 410/3907: no_such_ask  Instance type 47463263 is n
+05:59:50Z 2026-11-08T05:59Z vast id 59672640 label tenpct-prune14a GPU RTX PRO 5000 72GB $1.070/h (+5% guard) started
+06:00:35Z ssh up <vast-host-redacted>
+06:05:22Z started job
+06:08:25Z finished ['DONE']
+06:08:32Z destroyed (verified gone) 59672640

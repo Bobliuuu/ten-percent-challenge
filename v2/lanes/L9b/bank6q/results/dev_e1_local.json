@@ -1,0 +1,286 @@
+[
+ {
+  "name": "m32_l1000_a10",
+  "cfg": {
+   "name": "m32_l1000_a10",
+   "nlayers": 10,
+   "cols": 512,
+   "ndraw": 3,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ncovs": 698,
+   "m": 32
+  },
+  "n_old_err": 28,
+  "draws": [
+   {
+    "draw": 0,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.68,
+     "neigh": 0.9775641025641025,
+     "neigh_lo": 0.9544203264428626,
+     "n_neigh": 312,
+     "min_cell": 0.9285714285714286,
+     "leak": 0.0,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Transfer",
+      "Identity"
+     ],
+     "n_sites": 25,
+     "carrier_bytes": 20981760
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.02,
+     "neigh": 0.9967948717948718,
+     "neigh_lo": 0.9820706464658654,
+     "n_neigh": 312,
+     "min_cell": 0.9821428571428571,
+     "leak": 0.0,
+     "teach_sample": [
+      "Identity",
+      "Cash",
+      "Card",
+      "Card"
+     ],
+     "n_sites": 20
+    }
+   },
+   {
+    "draw": 1,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.64,
+     "neigh": 0.9839743589743589,
+     "neigh_lo": 0.9630395196222113,
+     "n_neigh": 312,
+     "min_cell": 0.9642857142857143,
+     "leak": 0.0,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Security",
+      "Identity"
+     ],
+     "n_sites": 25
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.14,
+     "neigh": 0.9839743589743589,
+     "neigh_lo": 0.9630395196222113,
+     "n_neigh": 312,
+     "min_cell": 0.9464285714285714,
+     "leak": 0.0,
+     "teach_sample": [
+      "Identity",
+      "Cash",
+      "Cash",
+      "Identity"
+     ],
+     "n_sites": 25
+    }
+   },
+   {
+    "draw": 2,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.44,
+     "neigh": 0.9935897435897436,
+     "neigh_lo": 0.9769320153634324,
+     "n_neigh": 312,
+     "min_cell": 0.9821428571428571,
+     "leak": 0.0,
+     "teach_sample": [
+      "Security",
+      "Cash",
+      "Card",
+      "Card"
+     ],
+     "n_sites": 25
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.22,
+     "neigh": 0.9871794871794872,
+     "neigh_lo": 0.9675043447044398,
+     "n_neigh": 312,
+     "min_cell": 0.9642857142857143,
+     "leak": 0.0,
+     "teach_sample": [
+      "Identity",
+      "Cash",
+      "Card",
+      "Card"
+     ],
+     "n_sites": 22
+    }
+   }
+  ],
+  "empty": {
+   "tag": "empty",
+   "teach": 0.0,
+   "neigh": 0.9967948717948718,
+   "neigh_lo": 0.9820706464658654,
+   "n_neigh": 312,
+   "min_cell": 0.9821428571428571,
+   "leak": 0.0,
+   "teach_sample": [
+    "Identity",
+    "Card",
+    "Card",
+    "Card"
+   ]
+  }
+ },
+ {
+  "name": "m48_l1000_a10",
+  "cfg": {
+   "name": "m48_l1000_a10",
+   "nlayers": 10,
+   "cols": 512,
+   "ndraw": 3,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ncovs": 698,
+   "m": 48
+  },
+  "n_old_err": 28,
+  "draws": [
+   {
+    "draw": 0,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.88,
+     "neigh": 0.9583333333333334,
+     "neigh_lo": 0.9300263439037356,
+     "n_neigh": 312,
+     "min_cell": 0.8928571428571429,
+     "leak": 0.003205128205128205,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Security",
+      "Security"
+     ],
+     "n_sites": 25,
+     "carrier_bytes": 20981760
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.28,
+     "neigh": 0.9711538461538461,
+     "neigh_lo": 0.9460950293113117,
+     "n_neigh": 312,
+     "min_cell": 0.9285714285714286,
+     "leak": 0.0,
+     "teach_sample": [
+      "Security",
+      "Cash",
+      "Security",
+      "Cash"
+     ],
+     "n_sites": 20
+    }
+   },
+   {
+    "draw": 1,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.88,
+     "neigh": 0.9583333333333334,
+     "neigh_lo": 0.9300263439037356,
+     "n_neigh": 312,
+     "min_cell": 0.8928571428571429,
+     "leak": 0.00641025641025641,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Security",
+      "Security"
+     ],
+     "n_sites": 25
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.42,
+     "neigh": 0.9647435897435898,
+     "neigh_lo": 0.9379802253207986,
+     "n_neigh": 312,
+     "min_cell": 0.9107142857142857,
+     "leak": 0.0,
+     "teach_sample": [
+      "Identity",
+      "Cash",
+      "Cash",
+      "Cash"
+     ],
+     "n_sites": 25
+    }
+   },
+   {
+    "draw": 2,
+    "n_ann": 25,
+    "real": {
+     "tag": "real",
+     "teach": 0.7,
+     "neigh": 0.9647435897435898,
+     "neigh_lo": 0.9379802253207986,
+     "n_neigh": 312,
+     "min_cell": 0.9107142857142857,
+     "leak": 0.003205128205128205,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Security",
+      "Cash"
+     ],
+     "n_sites": 25
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "teach": 0.54,
+     "neigh": 0.967948717948718,
+     "neigh_lo": 0.9420149447539926,
+     "n_neigh": 312,
+     "min_cell": 0.9285714285714286,
+     "leak": 0.003205128205128205,
+     "teach_sample": [
+      "Security",
+      "Security",
+      "Security",
+      "Cash"
+     ],
+     "n_sites": 22
+    }
+   }
+  ],
+  "empty": {
+   "tag": "empty",
+   "teach": 0.0,
+   "neigh": 0.9967948717948718,
+   "neigh_lo": 0.9820706464658654,
+   "n_neigh": 312,
+   "min_cell": 0.9821428571428571,
+   "leak": 0.0,
+   "teach_sample": [
+    "Identity",
+    "Card",
+    "Card",
+    "Card"
+   ]
+  }
+ }
+]

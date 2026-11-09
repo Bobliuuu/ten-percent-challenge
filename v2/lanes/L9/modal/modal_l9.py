@@ -25,11 +25,11 @@ def dl():
     p = snapshot_download("Qwen/Qwen3-235B-A22B-Instruct-2507", local_dir="/hf/qwen235", max_workers=32, allow_patterns=["*.json", "*.safetensors", "*.txt"])
     hf.commit(); print("RESULT_JSON", json.dumps(dict(dl=p, files=len(os.listdir(p))))); return p
 
-@app.function(image=img, gpu="H100:1", cpu=16, memory=262144, timeout=24 * 3600, volumes=VOLS, env=ENV)
+@app.function(image=img, gpu="H200", cpu=8, memory=65536, timeout=6 * 3600, volumes=VOLS, env=ENV)
 def g1(cmd): return _sh(cmd)
-@app.function(image=img, gpu="H100:8", cpu=64, memory=1048576, timeout=24 * 3600, volumes=VOLS, env=ENV)
-def g8(cmd): return _sh(cmd)
-@app.function(image=img, gpu="H200:8", cpu=64, memory=1048576, timeout=24 * 3600, volumes=VOLS, env=ENV)
-def h200x8(cmd): return _sh(cmd)
+@app.function(image=img, gpu="H200:4", cpu=32, memory=327680, timeout=6 * 3600, volumes=VOLS, env=ENV)
+def g4(cmd): return _sh(cmd)
+@app.function(image=img, gpu="H200:5", cpu=32, memory=327680, timeout=6 * 3600, volumes=VOLS, env=ENV)
+def g5(cmd): return _sh(cmd)
 @app.function(image=img, cpu=8, memory=32768, timeout=6 * 3600, volumes=VOLS, env=ENV)
 def cpu(cmd): return _sh(cmd)

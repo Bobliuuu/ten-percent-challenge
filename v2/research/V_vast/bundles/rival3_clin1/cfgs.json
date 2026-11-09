@@ -1,0 +1,96 @@
+[
+{
+"name": "base",
+"ds": "clin",
+"sets": [
+"sel"
+],
+"ncal": 960
+},
+{
+"name": "k96_rtn_b2",
+"ds": "clin",
+"keep": 96,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "rtnmse",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+},
+{
+"name": "k64_mix24",
+"ds": "clin",
+"keep": 64,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600,
+"hi_b": 4,
+"hi_frac": 0.25
+},
+{
+"name": "k56_mix24h5",
+"ds": "clin",
+"keep": 56,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600,
+"hi_b": 4,
+"hi_frac": 0.5
+},
+{
+"name": "k72_mix23",
+"ds": "clin",
+"keep": 72,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600,
+"hi_b": 3,
+"hi_frac": 0.25
+},
+{
+"name": "k96_gptq_b2",
+"ds": "clin",
+"keep": 96,
+"eb": 2,
+"eg": 128,
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"quant": "gptq",
+"sets": [
+"sel"
+],
+"ncal": 960,
+"nh": 600
+}
+]

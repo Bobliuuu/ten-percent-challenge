@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/jhome/ten-percent/v2/research/V_vast/t3_mgr.py", line 26, in <module>
+    subprocess.run(["vastai", "attach", "ssh", str(inst()["id"]), open(KEY + ".pub").read().strip()], capture_output=True)
+                                                   ~~~~~~^^^^^^
+TypeError: 'NoneType' object is not subscriptable

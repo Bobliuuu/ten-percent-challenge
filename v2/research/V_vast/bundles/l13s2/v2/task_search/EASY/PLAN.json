@@ -1,0 +1,443 @@
+{
+ "SKILL7": {
+  "labels": [
+   "Alarm",
+   "Weather",
+   "Music",
+   "Calendar",
+   "Lists",
+   "News",
+   "Transport"
+  ],
+  "prompt": "You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport.\n\nRequest: {X}",
+  "src": {
+   "massive": {
+    "pool": {
+     "Alarm": 389,
+     "Calendar": 1682,
+     "News": 501,
+     "Music": 331,
+     "Weather": 569,
+     "Transport": 568,
+     "Lists": 537
+    },
+    "locked_candidates_bucket70_100": {
+     "Alarm": 124,
+     "Music": 96,
+     "News": 159,
+     "Weather": 169,
+     "Calendar": 514,
+     "Lists": 162,
+     "Transport": 170
+    },
+    "dev_kept": {
+     "Alarm": 52,
+     "Weather": 52,
+     "Music": 52,
+     "Calendar": 52,
+     "Lists": 52,
+     "News": 52,
+     "Transport": 52
+    }
+   },
+   "clinc150": {
+    "pool": {
+     "Alarm": 200,
+     "Lists": 399,
+     "Transport": 400,
+     "Music": 397,
+     "Calendar": 400,
+     "Weather": 100
+    },
+    "locked_candidates_bucket70_100": {
+     "Alarm": 60,
+     "Lists": 122,
+     "Transport": 121,
+     "Music": 123,
+     "Calendar": 137,
+     "Weather": 31
+    },
+    "dev_kept": {
+     "Alarm": 54,
+     "Weather": 24,
+     "Music": 60,
+     "Calendar": 60,
+     "Lists": 60,
+     "Transport": 60
+    }
+   }
+  }
+ },
+ "BANKFAM": {
+  "labels": [
+   "Card",
+   "Transfer",
+   "TopUp",
+   "Payment",
+   "Cash",
+   "Account",
+   "Exchange"
+  ],
+  "prompt": "You are the intent router of a bank's support chat. Decide which family the customer's message belongs to.\nAnswer with exactly one word from: Card, Transfer, TopUp, Payment, Cash, Account, Exchange.\n\nMessage: {X}",
+  "src": {
+   "banking77": {
+    "pool": {
+     "Card": 2208,
+     "Exchange": 644,
+     "Payment": 1679,
+     "Cash": 1081,
+     "TopUp": 1413,
+     "Account": 1134,
+     "Transfer": 1581
+    },
+    "locked_candidates_bucket70_100": {
+     "Card": 650,
+     "Exchange": 187,
+     "Payment": 509,
+     "Cash": 325,
+     "TopUp": 432,
+     "Account": 333,
+     "Transfer": 472
+    },
+    "dev_kept": {
+     "Card": 52,
+     "Transfer": 52,
+     "TopUp": 52,
+     "Payment": 52,
+     "Cash": 52,
+     "Account": 52,
+     "Exchange": 52
+    }
+   },
+   "clinc150": {
+    "pool": {
+     "Transfer": 300,
+     "Card": 599,
+     "Account": 399,
+     "Payment": 599,
+     "Exchange": 200
+    },
+    "locked_candidates_bucket70_100": {
+     "Transfer": 73,
+     "Card": 164,
+     "Account": 116,
+     "Payment": 177,
+     "Exchange": 56
+    },
+    "dev_kept": {
+     "Card": 72,
+     "Transfer": 72,
+     "Payment": 72,
+     "Account": 72,
+     "Exchange": 64
+    }
+   }
+  }
+ },
+ "SUPPORT7": {
+  "labels": [
+   "Order",
+   "Shipping",
+   "Billing",
+   "Refund",
+   "Account",
+   "Subscription",
+   "Contact"
+  ],
+  "prompt": "You are the ticket router of an online shop's support desk. Decide which queue the customer's message goes to.\nAnswer with exactly one word from: Order, Shipping, Billing, Refund, Account, Subscription, Contact.\n\nMessage: {X}",
+  "src": {
+   "bitext": {
+    "pool": {
+     "Order": 3009,
+     "Shipping": 3579,
+     "Billing": 3751,
+     "Refund": 2557,
+     "Contact": 3932,
+     "Account": 5273,
+     "Subscription": 982
+    },
+    "locked_candidates_bucket70_100": {
+     "Order": 896,
+     "Shipping": 1079,
+     "Billing": 1141,
+     "Refund": 749,
+     "Contact": 1232,
+     "Account": 1543,
+     "Subscription": 300
+    },
+    "dev_kept": {
+     "Order": 52,
+     "Shipping": 52,
+     "Billing": 52,
+     "Refund": 52,
+     "Account": 52,
+     "Subscription": 52,
+     "Contact": 52
+    }
+   }
+  }
+ },
+ "TICKETQ": {
+  "labels": [
+   "Billing",
+   "Returns",
+   "Technical",
+   "Sales",
+   "HR",
+   "Outage"
+  ],
+  "prompt": "You are the ticket router of a company help desk. Decide which queue the ticket goes to.\nAnswer with exactly one word from: Billing, Returns, Technical, Sales, HR, Outage.\n\nTicket: {X}",
+  "src": {
+   "helpdesk_tickets": {
+    "pool": {
+     "Technical": 6857,
+     "Returns": 1173,
+     "Billing": 2420,
+     "Sales": 724,
+     "Outage": 937,
+     "HR": 461
+    },
+    "locked_candidates_bucket70_100": {
+     "Technical": 2035,
+     "HR": 138,
+     "Billing": 732,
+     "Returns": 341,
+     "Outage": 281,
+     "Sales": 229
+    },
+    "dev_kept": {
+     "Billing": 60,
+     "Returns": 60,
+     "Technical": 60,
+     "Sales": 60,
+     "HR": 60,
+     "Outage": 60
+    }
+   }
+  }
+ },
+ "SPAM2": {
+  "labels": [
+   "Spam",
+   "Legit"
+  ],
+  "prompt": "You are the spam filter of a messaging product. Decide whether the message is spam or legitimate.\nAnswer with exactly one word from: Spam, Legit.\n\nMessage: {X}",
+  "src": {
+   "enron_email": {
+    "pool": {
+     "Spam": 13821,
+     "Legit": 14701
+    },
+    "locked_candidates_bucket70_100": {
+     "Spam": 4127,
+     "Legit": 4417
+    },
+    "dev_kept": {
+     "Spam": 180,
+     "Legit": 180
+    }
+   },
+   "sms_spam": {
+    "pool": {
+     "Legit": 4501,
+     "Spam": 631
+    },
+    "locked_candidates_bucket70_100": {
+     "Legit": 1323,
+     "Spam": 206
+    },
+    "dev_kept": {
+     "Spam": 178,
+     "Legit": 180
+    }
+   }
+  }
+ },
+ "SENT3": {
+  "labels": [
+   "Negative",
+   "Neutral",
+   "Positive"
+  ],
+  "prompt": "You are the sentiment tagger of a customer-feedback product. Decide the sentiment of the text.\nAnswer with exactly one word from: Negative, Neutral, Positive.\n\nText: {X}",
+  "src": {
+   "tweet_eval": {
+    "pool": {
+     "Positive": 17826,
+     "Neutral": 20621,
+     "Negative": 7083
+    },
+    "locked_candidates_bucket70_100": {
+     "Positive": 5323,
+     "Neutral": 6223,
+     "Negative": 2174
+    },
+    "dev_kept": {
+     "Negative": 120,
+     "Neutral": 120,
+     "Positive": 120
+    }
+   },
+   "amazon_reviews": {
+    "pool": {
+     "Negative": 23929,
+     "Positive": 23872,
+     "Neutral": 11995
+    },
+    "locked_candidates_bucket70_100": {
+     "Negative": 7215,
+     "Neutral": 3676,
+     "Positive": 7227
+    },
+    "dev_kept": {
+     "Negative": 120,
+     "Neutral": 120,
+     "Positive": 120
+    }
+   }
+  }
+ },
+ "SENT2": {
+  "labels": [
+   "Negative",
+   "Positive"
+  ],
+  "prompt": "You are the sentiment tagger of a customer-feedback product. Decide the sentiment of the text.\nAnswer with exactly one word from: Negative, Positive.\n\nText: {X}",
+  "src": {
+   "tweet_eval": {
+    "pool": {
+     "Positive": 17829,
+     "Negative": 7085
+    },
+    "locked_candidates_bucket70_100": {
+     "Positive": 5357,
+     "Negative": 2195
+    },
+    "dev_kept": {
+     "Negative": 180,
+     "Positive": 180
+    }
+   },
+   "amazon_reviews": {
+    "pool": {
+     "Negative": 23933,
+     "Positive": 23876
+    },
+    "locked_candidates_bucket70_100": {
+     "Positive": 7126,
+     "Negative": 7076
+    },
+    "dev_kept": {
+     "Negative": 180,
+     "Positive": 180
+    }
+   }
+  }
+ },
+ "LANG8": {
+  "labels": [
+   "English",
+   "Spanish",
+   "Portuguese",
+   "Italian",
+   "French",
+   "German",
+   "Dutch",
+   "Polish"
+  ],
+  "prompt": "You are the language router of a translation product. Decide which language the text is written in.\nAnswer with exactly one word from: English, Spanish, Portuguese, Italian, French, German, Dutch, Polish.\n\nText: {X}",
+  "src": {
+   "papluca": {
+    "pool": {
+     "Polish": 3194,
+     "Portuguese": 3193,
+     "Spanish": 2401,
+     "Italian": 3157,
+     "Dutch": 3159,
+     "English": 2106,
+     "German": 1815,
+     "French": 2245
+    },
+    "locked_candidates_bucket70_100": {
+     "Portuguese": 928,
+     "Dutch": 980,
+     "Spanish": 687,
+     "English": 604,
+     "German": 509,
+     "French": 677,
+     "Italian": 943,
+     "Polish": 984
+    },
+    "dev_kept": {
+     "English": 45,
+     "Spanish": 45,
+     "Portuguese": 45,
+     "Italian": 45,
+     "French": 45,
+     "German": 45,
+     "Dutch": 45,
+     "Polish": 45
+    }
+   }
+  }
+ },
+ "QTOPIC6": {
+  "labels": [
+   "Science",
+   "Health",
+   "Computers",
+   "Sports",
+   "Business",
+   "Entertainment"
+  ],
+  "prompt": "You are the question router of a Q&A community site. Decide which category the question belongs to.\nAnswer with exactly one word from: Science, Health, Computers, Sports, Business, Entertainment.\n\nQuestion: {X}",
+  "src": {
+   "yahoo_answers": {
+    "pool": {
+     "Computers": 31663,
+     "Sports": 21585,
+     "Health": 26558,
+     "Business": 69851,
+     "Science": 29988,
+     "Entertainment": 20074
+    },
+    "locked_candidates_bucket70_100": {
+     "Health": 7988,
+     "Business": 20896,
+     "Science": 9013,
+     "Sports": 6463,
+     "Entertainment": 6054,
+     "Computers": 9420
+    },
+    "dev_kept": {
+     "Science": 60,
+     "Health": 60,
+     "Computers": 60,
+     "Sports": 60,
+     "Business": 60,
+     "Entertainment": 60
+    }
+   },
+   "newsgroups": {
+    "pool": {
+     "Computers": 2727,
+     "Science": 1667,
+     "Health": 564,
+     "Sports": 1070
+    },
+    "locked_candidates_bucket70_100": {
+     "Computers": 809,
+     "Science": 471,
+     "Health": 185,
+     "Sports": 327
+    },
+    "dev_kept": {
+     "Science": 90,
+     "Health": 90,
+     "Computers": 90,
+     "Sports": 90
+    }
+   }
+  }
+ }
+}

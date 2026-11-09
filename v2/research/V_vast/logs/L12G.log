@@ -1,0 +1,23 @@
+06:12:52Z 2026-11-09T06:12Z vast id 59846208 label tenpct-L12G GPU RTX PRO 6000 Max-Q 96GB $1.082/h (+5% guard) started
+06:15:04Z ssh up <vast-host-redacted>
+06:25:19Z destroyed (verified gone) 59846208
+Traceback (most recent call last):
+  File "/Users/jhome/ten-percent/v2/research/V_vast/launch_vast.py", line 106, in <module>
+    if __name__ == "__main__": main()
+                               ^^^^^^
+  File "/Users/jhome/ten-percent/v2/research/V_vast/launch_vast.py", line 88, in main
+    sh(host, port, f"cd /workspace/bundle && setsid nohup bash run.sh {a.run_args} > /workspace/run.log 2>&1 < /dev/null & echo started")
+  File "/Users/jhome/ten-percent/v2/research/V_vast/launch_vast.py", line 38, in sh
+    return subprocess.run(["ssh", *ssh_args(host, port), f"root@{host}", cmd], capture_output=True, text=True, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/Users/jhome/.pyenv/versions/3.12.10/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['ssh', '-i', '/Users/jhome/ten-percent/v2/research/V_vast/.vast_ssh_key', '-p', '<port>', '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'ConnectTimeout=15', '-o', 'ServerAliveInterval=30', '-o', 'LogLevel=ERROR', 'root@<vast-host>', 'cd /workspace/bundle && setsid nohup bash run.sh 10 0 > /workspace/run.log 2>&1 < /dev/null & echo started']' timed out after 600 seconds

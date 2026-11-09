@@ -1,0 +1,5 @@
+05:59:49Z 2026-11-08T05:59Z vast id 59672638 label tenpct-prune14c GPU A100 PCIE 80GB $0.801/h (+5% guard) started
+06:01:01Z ssh up <vast-host-redacted>
+06:10:01Z started job
+09:30:22Z finished ['DONE']
+09:30:28Z destroyed (verified gone) 59672638

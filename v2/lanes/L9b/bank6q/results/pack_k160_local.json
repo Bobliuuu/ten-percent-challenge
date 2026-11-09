@@ -1,0 +1,110 @@
+{
+ "stage": "pack",
+ "art": "b6_vq_k160",
+ "k": 160,
+ "files": {
+  "annot.py": 919,
+  "answer_q.py": 914,
+  "bank6_task.json": 292,
+  "body.bin": 6677382912,
+  "chat_template.jinja": 7756,
+  "core.py": 7866,
+  "fbcore.py": 5893,
+  "feedback.py": 1855,
+  "feedback_cal.jsonl": 109160,
+  "manifest.json": 129647,
+  "qpack.py": 4310,
+  "tokenizer.json": 19989339,
+  "tokenizer_config.json": 1466,
+  "vqpack.py": 6532
+ },
+ "artifact_bytes": 6697648861,
+ "artifact_pct": 9.661758301504511,
+ "cap_bytes": 6862800916,
+ "with_fb_carrier_bytes": 6718631021,
+ "with_fb_pct": 9.69202631984509,
+ "sha256": {
+  "body.bin": "5f53bbe9e8c393ec6b7709889b287896d6b1529fa5c4813415c381a406756265",
+  "manifest.json": "300e1c27bcdf75dff631a339e439271d614136648f4c21c5be8f106e061dcf72"
+ },
+ "fidelity": {
+  "nonexpert_q": {
+   "n": 0,
+   "tensors": 312,
+   "maxabs": 0.0,
+   "ndiff": 0,
+   "numel": 2426142720,
+   "worst": "lm_head.weight",
+   "absmax_ref": 2.1875
+  },
+  "nonexpert_raw": {
+   "n": 0,
+   "tensors": 261,
+   "maxabs": 0.0,
+   "ndiff": 0,
+   "numel": 1241728,
+   "worst": "model.norm.weight",
+   "absmax_ref": 15.5625
+  },
+  "router_raw": {
+   "n": 0,
+   "tensors": 40,
+   "maxabs": 0.0,
+   "ndiff": 0,
+   "numel": 13107200,
+   "worst": "model.layers.39.mlp.gate.weight",
+   "absmax_ref": 0.466796875
+  },
+  "expert_vq": {
+   "n": 0,
+   "tensors": 80,
+   "maxabs": 0.0,
+   "ndiff": 0,
+   "numel": 20132659200,
+   "worst": "model.layers.39.mlp.experts.down_proj",
+   "absmax_ref": 0.640625
+  }
+ },
+ "fallback_pooledH": 681,
+ "idx_vs_qm_maxerr": 0.0,
+ "fakequant_sel": {
+  "ret": 0.9903536977491961,
+  "ret_lo": 0.9720269785620439,
+  "n_bc": 311,
+  "comp_acc": 0.9122807017543859,
+  "per_kind": {
+   "Card": [
+    57,
+    57,
+    100.0
+   ],
+   "Cash": [
+    47,
+    47,
+    100.0
+   ],
+   "Exchange": [
+    41,
+    42,
+    97.62
+   ],
+   "Identity": [
+    55,
+    56,
+    98.21
+   ],
+   "TopUp": [
+    53,
+    53,
+    100.0
+   ],
+   "Transfer": [
+    55,
+    56,
+    98.21
+   ]
+  }
+ },
+ "same_as_prev_sim_outs": 339,
+ "n": 342
+}

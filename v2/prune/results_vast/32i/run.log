@@ -1,0 +1,83 @@
+++ dirname run.sh
++ cd .
++ mkdir -p results
++ tail -2
++ pip install -q transformers==4.55.0 accelerate numpy huggingface_hub
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ python code/runner.py 0
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]Fetching 17 files:   6%|▌         | 1/17 [04:32<1:12:47, 272.96s/it]Fetching 17 files:  53%|█████▎    | 9/17 [05:45<04:02, 30.27s/it]   Fetching 17 files:  65%|██████▍   | 11/17 [06:17<02:40, 26.76s/it]Fetching 17 files:  71%|███████   | 12/17 [06:34<02:06, 25.36s/it]Fetching 17 files:  76%|███████▋  | 13/17 [07:01<01:42, 25.53s/it]Fetching 17 files:  82%|████████▏ | 14/17 [07:48<01:29, 29.91s/it]Fetching 17 files:  88%|████████▊ | 15/17 [07:56<00:50, 25.04s/it]Fetching 17 files:  94%|█████████▍| 16/17 [08:09<00:22, 22.03s/it]Fetching 17 files: 100%|██████████| 17/17 [08:09<00:00, 16.54s/it]Fetching 17 files: 100%|██████████| 17/17 [08:09<00:00, 28.81s/it]
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 217.23it/s]
+sensA 0 514
+sensA 8 652
+sensA 16 790
+sensA 24 928
+sensA 32 1066
+sensA 40 1204
+sensA 48 1343
+sensA 56 1482
+alloc body_bits/param 1.5176626834841143 target 1.5177677301317165
+passB 0 1637
+passB 8 1884
+passB 16 2132
+passB 24 2378
+passB 32 2625
+passB 40 2873
+passB 48 3123
+passB 56 3382
+CT_DONE Qwen2.5-32B-Instruct i_b096 ratio 0.09651959786792788 bpw 1.520252135767031 acc 0.7777212614445574
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 210.82it/s]
+VOCAB KEEP 65957 of 152064
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+sensA 0 21
+sensA 8 160
+sensA 16 300
+sensA 24 439
+sensA 32 578
+sensA 40 717
+sensA 48 857
+sensA 56 997
+alloc body_bits/param 1.573001718482513 target 1.5730039359643266
+passB 0 1151
+passB 8 1405
+passB 16 1660
+passB 24 1915
+passB 32 2167
+passB 40 2421
+passB 48 2676
+passB 56 2933
+CT_DONE Qwen2.5-32B-Instruct i_v64 ratio 0.09653213469486839 bpw 1.57634843477123 acc 0.8031536113936928
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 208.86it/s]
+PRUNED {'ffn0': 24832, 'ffn1': 24832, 'ffn2': 24832, 'ffn3': 24832, 'ffn4': 24832, 'ffn5': 24832, 'ffn6': 24832, 'ffn7': 24832, 'ffn8': 24832, 'ffn9': 24832, 'ffn10': 24832, 'ffn11': 24832, 'ffn12': 24832, 'ffn13': 24832, 'ffn14': 24832, 'ffn15': 24832, 'ffn16': 24832, 'ffn17': 24832, 'ffn18': 24832, 'ffn19': 24832, 'ffn20': 24832, 'ffn21': 24832, 'ffn22': 24832, 'ffn23': 24832, 'ffn24': 24832, 'ffn25': 24832, 'ffn26': 24832, 'ffn27': 24832, 'ffn28': 24832, 'ffn29': 24832, 'ffn30': 24832, 'ffn31': 24832, 'ffn32': 24832, 'ffn33': 24832, 'ffn34': 24832, 'ffn35': 24832, 'ffn36': 24832, 'ffn37': 24832, 'ffn38': 24832, 'ffn39': 24832, 'ffn40': 24832, 'ffn41': 24832, 'ffn42': 24832, 'ffn43': 24832, 'ffn44': 24832, 'ffn45': 24832, 'ffn46': 24832, 'ffn47': 24832, 'ffn48': 24832, 'ffn49': 24832, 'ffn50': 24832, 'ffn51': 24832, 'ffn52': 24832, 'ffn53': 24832, 'ffn54': 24832, 'ffn55': 24832, 'ffn56': 24832, 'ffn57': 24832, 'ffn58': 24832, 'ffn59': 24832, 'ffn60': 24832, 'ffn61': 24832, 'ffn62': 24832, 'ffn63': 24832}
+sensA 0 97
+sensA 8 216
+sensA 16 335
+sensA 24 454
+sensA 32 574
+sensA 40 696
+sensA 48 818
+sensA 56 940
+alloc body_bits/param 1.6641629107628206 target 1.665515031294981
+passB 0 1075
+passB 8 1299
+passB 16 1526
+passB 24 1753
+passB 32 1979
+passB 40 2207
+passB 48 2437
+passB 56 2667
+CT_DONE Qwen2.5-32B-Instruct i_f90 ratio 0.09651301775594126 bpw 1.6681209597048006 acc 0.7426246185147508
+Loading checkpoint shards:   0%|          | 0/17 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 17/17 [00:00<00:00, 219.30it/s]
+VOCAB KEEP 65957 of 152064
+label tok kept? Injection [True]
+label tok kept? Benign [True, True]
+label tok kept? World [True]
+label tok kept? Sports [True]
+label tok kept? Business [True]
+label tok kept? Technology [True]
+PRUNED {'ffn0': 24832, 'ffn1': 24832, 'ffn2': 24832, 'ffn3': 24832, 'ffn4': 24832, 'ffn5': 24832, 'ffn6': 24832, 'ffn7': 24832, 'ffn8': 24832, 'ffn9': 24832, 'ffn10': 24832, 'ffn11': 24832, 'ffn12': 24832, 'ffn13': 24832, 'ffn14': 24832, 'ffn15': 24832, 'ffn16': 24832, 'ffn17': 24832, 'ffn18': 24832, 'ffn19': 24832, 'ffn20': 24832, 'ffn21': 24832, 'ffn22': 24832, 'ffn23': 24832, 'ffn24': 24832, 'ffn25': 24832, 'ffn26': 24832, 'ffn27': 24832, 'ffn28': 24832, 'ffn29': 24832, 'ffn30': 24832, 'ffn31': 24832, 'ffn32': 24832, 'ffn33': 24832, 'ffn34': 24832, 'ffn35': 24832, 'ffn36': 24832, 'ffn37': 24832, 'ffn38': 24832, 'ffn39': 24832, 'ffn40': 24832, 'ffn41': 24832, 'ffn42': 24832, 'ffn43': 24832, 'ffn44': 24832, 'ffn45': 24832, 'ffn46': 24832, 'ffn47': 24832, 'ffn48': 24832, 'ffn49': 24832, 'ffn50': 24832, 'ffn51': 24832, 'ffn52': 24832, 'ffn53': 24832, 'ffn54': 24832, 'ffn55': 24832, 'ffn56': 24832, 'ffn57': 24832, 'ffn58': 24832, 'ffn59': 24832, 'ffn60': 24832, 'ffn61': 24832, 'ffn62': 24832, 'ffn63': 24832}
+sensA 0 102

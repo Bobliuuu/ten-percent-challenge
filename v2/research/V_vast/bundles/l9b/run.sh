@@ -3,7 +3,7 @@
 set -x; cd "$(dirname "$0")"; HERE=$PWD; mkdir -p results /workspace/queue /workspace/queue/done /workspace/r/l9b/res
 pip install -q transformers==5.22.2 accelerate numpy huggingface_hub sentencepiece protobuf tiktoken safetensors kernels 2>&1 | tail -2
 ln -sfn /workspace/r /r; mkdir -p /root; rm -rf /root/l9b; ln -sfn $HERE/l9b /root/l9b
-cp $HERE/l9b/exam.jsonl /r/l9b/exam.jsonl
+
 export HF_HOME=/workspace/hf HF_HUB_ENABLE_HF_TRANSFER=0
 while true; do
   J=$(ls /workspace/queue/*.json 2>/dev/null | head -1)

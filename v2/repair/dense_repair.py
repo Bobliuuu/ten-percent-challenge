@@ -439,6 +439,7 @@ def _run(cfg):
         outs={}
         for v in cfg.get('variants',['q']):
             setvar(v); rows=run_ct()
+            if cfg.get('gen'): rows=run_gen(rows)
             d=dict(cfg=cfg,variant=v,rows=rows,bytes=tot_bytes,base_bytes=base_bytes,ratio=tot_bytes/base_bytes,body_bpw=qbits/lin_total,levels_hist={str(k):v_ for k,v_ in Lcount.items()},secs=time.time()-t0)
             json.dump(d,open(f"{HFD}/dense/ct_{tag}_{name}__{v}.json","w")); print("CT_DONE",tag,name,v,"ratio",d["ratio"],"bpw",d["body_bpw"],"acc",np.mean([r["correct"] for r in rows]),flush=True); outs[v]=float(np.mean([r["correct"] for r in rows]))
         return dict(tag=tag,ratio=d["ratio"],acc=outs)

@@ -1,0 +1,241 @@
+{
+ "builder": "v2/exam/build_exam.py",
+ "builder_sha256": "40affe94a993019e6f94e8bd57a12659369fd42e0a37d023a758b49827ac9edd",
+ "cells": {
+  "bank6_ann_pool": {
+   "Security|banking77": 150
+  },
+  "bank6_cal": {
+   "Card|banking77": 120,
+   "Cash|banking77": 120,
+   "Exchange|banking77": 98,
+   "Identity|banking77": 120,
+   "TopUp|banking77": 120,
+   "Transfer|banking77": 120
+  },
+  "bank6_exam": {
+   "Card|banking77": 200,
+   "Card|bitext_bank": 200,
+   "Cash|banking77": 200,
+   "Cash|bitext_bank": 200,
+   "Exchange|banking77": 347,
+   "Identity|banking77": 330,
+   "TopUp|banking77": 360,
+   "Transfer|banking77": 200,
+   "Transfer|bitext_bank": 200
+  },
+  "bank6_sel": {
+   "Card|banking77": 60,
+   "Cash|banking77": 60,
+   "Exchange|banking77": 42,
+   "Identity|banking77": 60,
+   "TopUp|banking77": 60,
+   "Transfer|banking77": 60
+  },
+  "bank6_teach": {
+   "Security|banking77": 100,
+   "Security|bitext_bank": 100
+  },
+  "skill7_ann_pool": {
+   "Recipe|clinc150": 196,
+   "Recipe|massive": 104
+  },
+  "skill7_exam": {
+   "Alarm|clinc150": 60,
+   "Alarm|hwu64": 89,
+   "Alarm|massive": 71,
+   "Alarm|mtop": 200,
+   "Calendar|clinc150": 76,
+   "Calendar|hwu64": 100,
+   "Calendar|massive": 184,
+   "Lists|clinc150": 123,
+   "Lists|hwu64": 112,
+   "Lists|massive": 109,
+   "Music|clinc150": 122,
+   "Music|hwu64": 100,
+   "Music|massive": 54,
+   "Music|mtop": 144,
+   "News|hwu64": 64,
+   "News|massive": 91,
+   "News|mtop": 265,
+   "Transport|clinc150": 125,
+   "Transport|hwu64": 136,
+   "Transport|massive": 99,
+   "Weather|clinc150": 32,
+   "Weather|hwu64": 37,
+   "Weather|massive": 109,
+   "Weather|mtop": 242
+  },
+  "skill7_teach": {
+   "Recipe|clinc150": 42,
+   "Recipe|hwu64": 15,
+   "Recipe|massive": 7,
+   "Recipe|mtop": 100
+  }
+ },
+ "files": {
+  "bank6_ann_pool": {
+   "by_kind": {
+    "Security": 150
+   },
+   "by_src": {
+    "banking77": 150
+   },
+   "by_tier": {
+    "seen_l5dev": 42,
+    "used": 108
+   },
+   "n": 150,
+   "path": "v2/exam/data/bank6_ann_pool.jsonl",
+   "sha256": "b96a837a6ca6ffff39fc85ed126ec1cb6585dd1b9db54a3f6c1e6a79b62c3c98"
+  },
+  "bank6_cal": {
+   "by_kind": {
+    "Card": 120,
+    "Cash": 120,
+    "Exchange": 98,
+    "Identity": 120,
+    "TopUp": 120,
+    "Transfer": 120
+   },
+   "by_src": {
+    "banking77": 698
+   },
+   "by_tier": {
+    "seen_l5dev": 237,
+    "used": 461
+   },
+   "n": 698,
+   "path": "v2/exam/data/bank6_cal.jsonl",
+   "sha256": "b9542c0085844ed02171162be0fbbef4b3234fdd179f0fca16589e9cbdd8334d"
+  },
+  "bank6_exam": {
+   "by_kind": {
+    "Card": 400,
+    "Cash": 400,
+    "Exchange": 347,
+    "Identity": 330,
+    "TopUp": 360,
+    "Transfer": 400
+   },
+   "by_src": {
+    "banking77": 1637,
+    "bitext_bank": 600
+   },
+   "by_tier": {
+    "clean": 1889,
+    "seen_l5dev": 348
+   },
+   "n": 2237,
+   "path": "v2/exam/data/bank6_exam.jsonl",
+   "sha256": "f7a75f60791d68fc941d0d1e8517c0032643bceeb98875f0e6493fb797cdffcb"
+  },
+  "bank6_sel": {
+   "by_kind": {
+    "Card": 60,
+    "Cash": 60,
+    "Exchange": 42,
+    "Identity": 60,
+    "TopUp": 60,
+    "Transfer": 60
+   },
+   "by_src": {
+    "banking77": 342
+   },
+   "by_tier": {
+    "seen_l5dev": 142,
+    "used": 200
+   },
+   "n": 342,
+   "path": "v2/exam/data/bank6_sel.jsonl",
+   "sha256": "9829fee8c9fb6e6e9ac1342098b1ac5957f02ee158dd6ef95ceb164d2e0b121a"
+  },
+  "bank6_teach": {
+   "by_kind": {
+    "Security": 200
+   },
+   "by_src": {
+    "banking77": 100,
+    "bitext_bank": 100
+   },
+   "by_tier": {
+    "clean": 200
+   },
+   "n": 200,
+   "path": "v2/exam/data/bank6_teach.jsonl",
+   "sha256": "773d6ac69a60c85e84e898c0fd513ed2cce5b0ab3efb45bc06bafe6b4255d074"
+  },
+  "skill7_ann_pool": {
+   "by_kind": {
+    "Recipe": 300
+   },
+   "by_src": {
+    "clinc150": 196,
+    "massive": 104
+   },
+   "by_tier": {
+    "clean": 20,
+    "seen_tox": 19,
+    "used": 261
+   },
+   "n": 300,
+   "path": "v2/exam/data/skill7_ann_pool.jsonl",
+   "sha256": "39e2caa8fce2473adc3e95bf083dc031ae0c8fdd9528379a48126f72166f9cff"
+  },
+  "skill7_exam": {
+   "by_kind": {
+    "Alarm": 420,
+    "Calendar": 360,
+    "Lists": 344,
+    "Music": 420,
+    "News": 420,
+    "Transport": 360,
+    "Weather": 420
+   },
+   "by_src": {
+    "clinc150": 538,
+    "hwu64": 638,
+    "massive": 717,
+    "mtop": 851
+   },
+   "by_tier": {
+    "clean": 2212,
+    "seen_tox": 532
+   },
+   "n": 2744,
+   "path": "v2/exam/data/skill7_exam.jsonl",
+   "sha256": "123f5e9e9a8da161778eb8a34bc44826bb6726816cd47d0da158b90271480fe1"
+  },
+  "skill7_teach": {
+   "by_kind": {
+    "Recipe": 164
+   },
+   "by_src": {
+    "clinc150": 42,
+    "hwu64": 15,
+    "massive": 7,
+    "mtop": 100
+   },
+   "by_tier": {
+    "clean": 164
+   },
+   "n": 164,
+   "path": "v2/exam/data/skill7_teach.jsonl",
+   "sha256": "1db12262985a6d09dde3a23af7ea5202c1eb4a30a067c67e856ede4c7049e4a3"
+  }
+ },
+ "neighbours": {
+  "bank6_neighbours": {
+   "n": 804,
+   "path": "v2/exam/data/bank6_neighbours.json",
+   "sha256": "234196bdac82128edb30fa2997fde4aa99e866cf3f1a1555b45bd66f44880bff"
+  },
+  "skill7_neighbours": {
+   "n": 379,
+   "path": "v2/exam/data/skill7_neighbours.json",
+   "sha256": "12669c4ee79af5a99141cf61a4f25e78a1a2eca5ba7cddc5b49d25ae0bf332e8"
+  }
+ },
+ "pools": "v2/exam/pools.py",
+ "version": 1
+}

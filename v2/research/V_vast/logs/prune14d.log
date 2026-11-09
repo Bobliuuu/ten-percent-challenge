@@ -1,0 +1,5 @@
+06:09:04Z 2026-11-08T06:09Z vast id 59673386 label tenpct-prune14d GPU A100 SXM4 80GB $1.055/h (+5% guard) started
+06:10:01Z ssh up <vast-host-redacted>
+06:10:55Z started job
+09:19:01Z finished ['DONE']
+09:19:07Z destroyed (verified gone) 59673386
