@@ -1,0 +1,48 @@
+[
+{
+"name": "S_d2_jukebox",
+"data": "/root/work/dsets/ds_jukebox",
+"carriers": [
+"down:62",
+"down:63"
+],
+"arms": [
+"real25@16",
+"real12@16",
+"mshuf@16",
+"real25@24",
+"real12@24",
+"mshuf@24",
+"real25@32",
+"real12@32",
+"mshuf@32",
+"real25@48",
+"real12@48",
+"mshuf@48"
+],
+"draws": 2
+},
+{
+"name": "S_d2_briefing",
+"data": "/root/work/dsets/ds_briefing",
+"carriers": [
+"down:62",
+"down:63"
+],
+"arms": [
+"real25@16",
+"real12@16",
+"mshuf@16",
+"real25@24",
+"real12@24",
+"mshuf@24",
+"real25@32",
+"real12@32",
+"mshuf@32",
+"real25@48",
+"real12@48",
+"mshuf@48"
+],
+"draws": 2
+}
+]

@@ -151,10 +151,11 @@ for job in JOBS:
         S2, m2 = getds(e); b = gen(S2["teach"]); teachsets[m2["new"]] = ([r for r, o in zip(S2["teach"], b) if word(o) != m2["new"].lower()], m2["new"]); newwords.add(m2["new"].lower())
     for s in sites: cov(s, S["cal"])
     print("JOB", job["name"], "teach n", len(TEACH), "neigh", len(NEI), "ann usable", len(ANN), "prep secs", time.time() - t0, flush=True)
-    for arm in job["arms"]:
+    for arm_full in job["arms"]:
+        arm, _, mm = arm_full.partition("@"); M = float(mm) if mm else job.get("m", 32)   # 'real25@24' = arm real25 at margin 24
         for d in range(1 if arm == "empty" else job.get("draws", 3)):
             rng = random.Random(7919 * (d + 1) + job.get("seed", 0)); restore(); t1 = time.time()
-            if arm == "empty": r = evaluate("empty", teachsets, NEI, newwords); r.update(job=job["name"], arm="empty", draw=d); emit(r); continue
+            if arm == "empty": r = evaluate("empty", teachsets, NEI, newwords); r.update(job=job["name"], arm="empty", draw=d); r.update(m=M); emit(r); continue
             items, labs = build_arm(arm, rng, ANN, OLD, new, old_labels); fac, nb = apply_edit(items, labs, sites, M, LAM, F, st, S["cal"])
             if job.get("noeval"): r = dict(tag=f"{arm}-d{d}", job=job["name"], arm=arm, draw=d, bytes=nb, ranks={s_: u.shape[1] for s_, (u, v) in fac.items()})
             else: r = evaluate(f"{arm}-d{d}", teachsets, NEI, newwords)

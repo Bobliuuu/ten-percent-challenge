@@ -1,0 +1,58 @@
+[
+{
+"name": "S_o4_jukebox",
+"data": "/root/work/dsets/ds_jukebox",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"arms": [
+"real25@16",
+"real12@16",
+"mshuf@16",
+"real25@24",
+"real12@24",
+"mshuf@24",
+"real25@32",
+"real12@32",
+"mshuf@32",
+"real25@48",
+"real12@48",
+"mshuf@48",
+"real25@64",
+"real12@64",
+"mshuf@64"
+],
+"draws": 2
+},
+{
+"name": "S_o4_briefing",
+"data": "/root/work/dsets/ds_briefing",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"arms": [
+"real25@16",
+"real12@16",
+"mshuf@16",
+"real25@24",
+"real12@24",
+"mshuf@24",
+"real25@32",
+"real12@32",
+"mshuf@32",
+"real25@48",
+"real12@48",
+"mshuf@48",
+"real25@64",
+"real12@64",
+"mshuf@64"
+],
+"draws": 2
+}
+]

@@ -11,6 +11,7 @@ wr("ds_recipe", "ann", rd(f"{X}/ann_Recipe.jsonl")); wr("ds_recipe", "teach", rd
 json.dump({"new": "Recipe"}, open(f"{R}/ds_recipe/DATASET.json", "w"))
 for nm in ("Jukebox", "Briefing"):
     wr(f"ds_{nm.lower()}", "ann", rd(f"{D}/ann_{nm}.jsonl")); wr(f"ds_{nm.lower()}", "teach", rd(f"{D}/teach_{nm}.jsonl")); wr(f"ds_{nm.lower()}", "neigh", rd(f"{D}/neigh.jsonl")); wr(f"ds_{nm.lower()}", "cal", rd(f"{D}/cal.jsonl"))
+    wr(f"ds_{nm.lower()}", "old", old)   # dev old-skill items (skill7_probe) for the mixed/shuffled arms
     json.dump({"new": nm, "shuf_labels": ["Alarm", "Weather", "Calendar", "Lists", "Transport"]}, open(f"{R}/ds_{nm.lower()}/DATASET.json", "w"))
 from datasets import load_dataset
 ds = load_dataset("DeepPavlov/clinc_oos", name="plus"); rows = {}
