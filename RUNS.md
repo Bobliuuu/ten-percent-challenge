@@ -433,3 +433,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 modal app tenpct-l9 (v2/lanes/L9/modal): dl spawn fc-01M6ZEXPZSKYCJCNJKZBF8YY6R (HF snapshot -> private vol)
 - 2026-11-09 L4 real packer: Modal app tenpct-l4 (deploy v2/lanes/L4/l4modal.py); pack SKILL7 + BANK6 spawned via v2/lanes/L4/launch_l4.py (artifacts in private volume tenpct-l4-art)
 - 2026-11-09 modal app tenpct-l10pack (ap-HWBX3vNmWOmIkbGHpgh95r) L10 real pack job (v2/lanes/L10/modal_pack.py), call fc-01M6ZF1NW2V6DK1T7JSAPHD0SF; pack -> private vol tenpct-l10-priv
+- 2026-11-09T06:25Z vast id 59846208 tenpct-L12G destroyed after 0.18 h (~$0.19)
+- 2026-11-09 L3 builds ok (H200): skill7x/bank6x in tenpct-l3-art; verify_loader x2 fc-01M6ZFY3ZNCSZVNC78X4ZJP07B / fc-01M6ZFY4MQC0VHERVSG61T9HKK; bank6x fb dev sweeps A-D (job fb_eval bank6x dev_A..D, fc-01M6ZFY5GZ8DQWH93PZXCE2ZXQ ...)

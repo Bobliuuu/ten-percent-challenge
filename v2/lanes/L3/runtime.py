@@ -15,7 +15,7 @@ def rot_matrix(dim, blk, seed):
 def load(art, device="cuda"):
     from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
     idx = json.load(open(f"{art}/index.json")); meta = idx["_meta"]; kept = meta["kept"]; K = len(kept[0]); assert all(len(k) == K for k in kept)
-    import mmap; mm = mmap.mmap(open(f"{art}/weights.bin", "rb").fileno(), 0, access=mmap.ACCESS_READ); cfg = AutoConfig.from_pretrained(art); cfg.num_experts = K
+    import mmap; fh_ = open(f"{art}/weights.bin", "rb"); mm = mmap.mmap(fh_.fileno(), 0, access=mmap.ACCESS_READ); cfg = AutoConfig.from_pretrained(art); cfg.num_experts = K
     with torch.device("meta"): model = AutoModelForCausalLM.from_config(cfg, torch_dtype=torch.bfloat16)
     T = lambda n: packfmt.read_tensor(mm, idx[n]); sd = {}; bf = torch.bfloat16; CB = (T("vq_cb") if "vq_cb" in idx else None); rdev = device if torch.cuda.is_available() else "cpu"
     if CB is not None: CB = CB.to(rdev)

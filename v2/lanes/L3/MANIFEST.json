@@ -54,5 +54,76 @@
   "fp16_bytes": 61064245248,
   "ratio": 0.09895750477973712,
   "note": "artifact is the packed file measured on disk (5,908,472,562 B for both tasks, identical layout); edit_o_proj.pt is counted in full (134,217,728 B) although it replaces tensors that remain in weights.bin (a repack would save 51.8 MB)"
- }
+ },
+ "rebuilt_sha256": {
+  "skill7x": {
+   "config.json": {
+    "sha256": "a1ee086a68d0cbfc87316da00ba4b8507bd1292978108e2496201a30a450f438",
+    "bytes": 963
+   },
+   "generation_config.json": {
+    "sha256": "19d306dd769db12a9d710b44cf7f83b635efbe5166b84fb4358a08fb7d88bb53",
+    "bytes": 239
+   },
+   "index.json": {
+    "sha256": "8d2b3e54c260328c40f7401a23bc2f12bedffda9546c57e2d13b2a2b1953538e",
+    "bytes": 1014145
+   },
+   "merges.txt": {
+    "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "bytes": 1671839
+   },
+   "tokenizer.json": {
+    "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "bytes": 11422654
+   },
+   "tokenizer_config.json": {
+    "sha256": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+    "bytes": 9377
+   },
+   "vocab.json": {
+    "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "bytes": 2776833
+   },
+   "weights.bin": {
+    "sha256": "da635fca51602926430208a7158956b649df023cd6f2bfa0386a774cbec881bc",
+    "bytes": 5891576512
+   }
+  },
+  "bank6x": {
+   "config.json": {
+    "sha256": "a1ee086a68d0cbfc87316da00ba4b8507bd1292978108e2496201a30a450f438",
+    "bytes": 963
+   },
+   "generation_config.json": {
+    "sha256": "19d306dd769db12a9d710b44cf7f83b635efbe5166b84fb4358a08fb7d88bb53",
+    "bytes": 239
+   },
+   "index.json": {
+    "sha256": "71b3fdd94377f204e36ca04fb632b9fed4cf0908e2bafcd8ce64f2cfa602613c",
+    "bytes": 1014151
+   },
+   "merges.txt": {
+    "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "bytes": 1671839
+   },
+   "tokenizer.json": {
+    "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "bytes": 11422654
+   },
+   "tokenizer_config.json": {
+    "sha256": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+    "bytes": 9377
+   },
+   "vocab.json": {
+    "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "bytes": 2776833
+   },
+   "weights.bin": {
+    "sha256": "d82439334f057562539f40dfcb2885a0894d5b680bb2f939722de98e07325a9a",
+    "bytes": 5891576512
+   }
+  }
+ },
+ "rebuilt_note": "2026-11-09 rebuild from cfgs_final_*.json on Modal H200 (app tenpct-l3, build()); private volume tenpct-l3-art:/<task>/ ; weights.bin sizes skill7x 5,891,576,512+, see per-file bytes; artifact totals 5,908,472,562 (skill7x) / 5,908,472,568 (bank6x) B"
 }
