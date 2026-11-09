@@ -36,3 +36,8 @@ def cpu(cmd): return _sh(cmd)
 
 @app.function(image=img, gpu="H100:8", cpu=32, memory=327680, timeout=8 * 3600, volumes=VOLS, env=ENV)
 def g8h(cmd): return _sh(cmd)
+
+@app.function(image=img, gpu="H200:3", cpu=32, memory=327680, timeout=8 * 3600, volumes=VOLS, env=ENV)
+def g3(cmd): return _sh(cmd)
+@app.function(image=img, gpu="A100-80GB:6", cpu=32, memory=327680, timeout=8 * 3600, volumes=VOLS, env=ENV)
+def a6(cmd): return _sh(cmd)
