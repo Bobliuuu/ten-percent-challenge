@@ -1,0 +1,94 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-kltEfMPOYXavL5XSydZHDX
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/modal_q.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/results/mass_bank6.pt
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_sel.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_cal.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/qpack.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
+└── ✓ Created Function run.
+
+[1ALoading weights:   0%|          | 0/693 [00:00<?, ?it/s]
+[1ALoading weights:   0%|          | 1/693 [00:00<06:54,  1.67it/s]
+[1ALoading weights:   0%|          | 2/693 [00:01<07:43,  1.49it/s]
+[1ALoading weights:   2%|▏         | 13/693 [00:01<01:07, 10.14it/s]
+[1ALoading weights:   2%|▏         | 15/693 [00:02<01:31,  7.45it/s]
+[1ALoading weights:   4%|▍         | 31/693 [00:03<00:51, 12.84it/s]
+[1ALoading weights:   7%|▋         | 48/693 [00:03<00:26, 24.24it/s]
+[1ALoading weights:   8%|▊         | 55/693 [00:04<00:40, 15.88it/s]
+[1ALoading weights:   9%|▊         | 60/693 [00:04<00:48, 12.99it/s]
+[1ALoading weights:  11%|█         | 76/693 [00:04<00:27, 22.69it/s]
+[1ALoading weights:  12%|█▏        | 84/693 [00:05<00:32, 18.79it/s]
+[1ALoading weights:  14%|█▍        | 99/693 [00:06<00:29, 19.94it/s]
+[1ALoading weights:  17%|█▋        | 118/693 [00:06<00:20, 27.64it/s]
+[1ALoading weights:  18%|█▊        | 123/693 [00:07<00:24, 23.24it/s]
+[1ALoading weights:  18%|█▊        | 127/693 [00:07<00:34, 16.34it/s]
+[1ALoading weights:  22%|██▏       | 151/693 [00:08<00:18, 29.19it/s]
+[1ALoading weights:  23%|██▎       | 156/693 [00:08<00:22, 23.75it/s]
+[1ALoading weights:  24%|██▍       | 169/693 [00:08<00:18, 28.41it/s]
+[1ALoading weights:  25%|██▍       | 173/693 [00:09<00:24, 21.42it/s]
+[1ALoading weights:  27%|██▋       | 187/693 [00:10<00:25, 20.03it/s]
+[1ALoading weights:  28%|██▊       | 196/693 [00:10<00:21, 22.81it/s]
+[1ALoading weights:  29%|██▊       | 199/693 [00:10<00:29, 16.92it/s]
+[1ALoading weights:  31%|███▏      | 217/693 [00:11<00:18, 25.99it/s]
+[1ALoading weights:  32%|███▏      | 221/693 [00:11<00:23, 20.09it/s]
+[1ALoading weights:  34%|███▍      | 238/693 [00:11<00:16, 28.37it/s]
+[1ALoading weights:  35%|███▍      | 242/693 [00:12<00:20, 21.81it/s]
+[1ALoading weights:  37%|███▋      | 253/693 [00:12<00:16, 26.73it/s]
+[1ALoading weights:  37%|███▋      | 257/693 [00:12<00:20, 21.33it/s]
+[1ALoading weights:  38%|███▊      | 265/693 [00:13<00:18, 23.65it/s]
+[1ALoading weights:  39%|███▊      | 268/693 [00:13<00:24, 17.16it/s]
+[1ALoading weights:  42%|████▏     | 289/693 [00:14<00:13, 30.81it/s]
+[1ALoading weights:  42%|████▏     | 293/693 [00:14<00:17, 23.24it/s]
+[1ALoading weights:  44%|████▍     | 306/693 [00:15<00:19, 19.55it/s]
+[1ALoading weights:  47%|████▋     | 324/693 [00:15<00:12, 28.63it/s]
+[1ALoading weights:  47%|████▋     | 328/693 [00:16<00:16, 22.17it/s]
+[1ALoading weights:  48%|████▊     | 334/693 [00:16<00:15, 22.80it/s]
+[1ALoading weights:  49%|████▊     | 337/693 [00:16<00:21, 16.92it/s]
+[1ALoading weights:  52%|█████▏    | 358/693 [00:17<00:15, 21.40it/s]
+[1ALoading weights:  54%|█████▍    | 376/693 [00:17<00:10, 29.54it/s]
+[1ALoading weights:  55%|█████▍    | 380/693 [00:18<00:13, 23.37it/s]
+[1ALoading weights:  57%|█████▋    | 394/693 [00:18<00:14, 21.31it/s]
+[1ALoading weights:  58%|█████▊    | 403/693 [00:19<00:15, 18.39it/s]
+[1ALoading weights:  62%|██████▏   | 427/693 [00:19<00:09, 29.09it/s]
+[1ALoading weights:  62%|██████▏   | 431/693 [00:20<00:11, 23.09it/s]
+[1ALoading weights:  64%|██████▍   | 445/693 [00:20<00:08, 28.64it/s]
+[1ALoading weights:  65%|██████▍   | 449/693 [00:21<00:10, 22.27it/s]
+[1ALoading weights:  67%|██████▋   | 462/693 [00:21<00:11, 20.37it/s]
+[1ALoading weights:  68%|██████▊   | 472/693 [00:22<00:12, 18.38it/s]
+[1ALoading weights:  72%|███████▏  | 496/693 [00:22<00:06, 29.22it/s]
+[1ALoading weights:  72%|███████▏  | 500/693 [00:23<00:08, 22.81it/s]
+[1ALoading weights:  74%|███████▍  | 514/693 [00:24<00:08, 21.77it/s]
+[1ALoading weights:  77%|███████▋  | 532/693 [00:24<00:05, 29.04it/s]
+[1ALoading weights:  77%|███████▋  | 536/693 [00:24<00:06, 23.20it/s]
+[1ALoading weights:  78%|███████▊  | 541/693 [00:25<00:06, 22.92it/s]
+[1ALoading weights:  78%|███████▊  | 544/693 [00:25<00:08, 17.47it/s]
+[1ALoading weights:  82%|████████▏ | 565/693 [00:26<00:05, 21.93it/s]
+[1ALoading weights:  84%|████████▍ | 583/693 [00:26<00:03, 30.35it/s]
+[1ALoading weights:  85%|████████▍ | 587/693 [00:27<00:04, 22.83it/s]
+[1ALoading weights:  87%|████████▋ | 601/693 [00:27<00:03, 28.61it/s]
+[1ALoading weights:  87%|████████▋ | 605/693 [00:27<00:04, 21.54it/s]
+[1ALoading weights:  88%|████████▊ | 610/693 [00:28<00:03, 22.14it/s]
+[1ALoading weights:  88%|████████▊ | 613/693 [00:28<00:04, 17.11it/s]
+[1ALoading weights:  91%|█████████▏| 633/693 [00:29<00:02, 20.99it/s]
+[1ALoading weights:  94%|█████████▍| 652/693 [00:30<00:01, 22.62it/s]
+[1ALoading weights:  97%|█████████▋| 670/693 [00:30<00:00, 29.90it/s]
+[1ALoading weights:  97%|█████████▋| 674/693 [00:30<00:00, 22.57it/s]
+[1ALoading weights:  98%|█████████▊| 679/693 [00:31<00:00, 22.69it/s]
+[1ALoading weights:  98%|█████████▊| 682/693 [00:31<00:00, 17.41it/s]
+[1ALoading weights: 100%|██████████| 693/693 [00:31<00:00, 21.96it/s]
+[    39s] loaded
+[    39s] moe layers 40
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[    44s] base SEL acc 0.9093567251461988
+[    48s] fwd check {'stage': 'base', 'base_acc': 0.9093567251461988, 'n': 342, 'fwd_check': {'max_abs_logit_diff': 1.515625, 'ref_absmax': 29.375, 'argmax_agree': 1.0}}
+DONE base
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-kltEfMPOYXavL5XSydZHDX

@@ -1,0 +1,10 @@
+{
+ "stage": "base",
+ "base_acc": 0.9093567251461988,
+ "n": 342,
+ "fwd_check": {
+  "max_abs_logit_diff": 1.515625,
+  "ref_absmax": 29.375,
+  "argmax_agree": 1.0
+ }
+}

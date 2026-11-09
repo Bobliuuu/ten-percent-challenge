@@ -1,0 +1,12 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/jerry-zhu/main/ap-50H0BhWqO0jrwEAaEwf16h
+✓ Created objects.
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q/modal_q.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/results/mass_bank6.pt
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_sel.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/data/bank6_cal.jsonl
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/qpack.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/core.py
+├── ✓ Uploaded /Users/jhome/ten-percent/v2/lanes/L9b/bank6q
+└── ✓ Created Function run.

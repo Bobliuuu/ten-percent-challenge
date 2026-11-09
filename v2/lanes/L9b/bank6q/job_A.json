@@ -1,0 +1,4 @@
+{"stage":"variants","tag":"A","variants":[
+{"name":"rtn_b3_k102_sim","m":"rtn","bits":3,"k":102},
+{"name":"gptq_b3_k102","m":"gptq","bits":3,"g":128,"k":102},
+{"name":"vq4_had_b2_k160","m":"vq_had","bits":2,"k":160}]}
