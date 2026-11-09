@@ -1,0 +1,1 @@
+[{"name": "prot_L8_lam10000_awt10_m16", "layers": [40, 41, 42, 43, 44, 45, 46, 47], "solver": "prot", "lam": 10000, "awt": 10, "m": 16}, {"name": "prot_L8_lam10000_awt10_m24", "layers": [40, 41, 42, 43, 44, 45, 46, 47], "solver": "prot", "lam": 10000, "awt": 10, "m": 24}]

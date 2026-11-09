@@ -1,0 +1,1 @@
+[{"name": "prot_L11_lam3000_awt50_m24", "layers": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47], "solver": "prot", "lam": 3000, "awt": 50, "m": 24}, {"name": "prot_L8_lam3000_awt50_m24_n8o16", "layers": [40, 41, 42, 43, 44, 45, 46, 47], "solver": "prot", "lam": 3000, "awt": 50, "m": 24, "n_new": 8, "n_old": 16}]
