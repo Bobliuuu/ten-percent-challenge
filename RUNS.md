@@ -457,3 +457,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L2 cli_recipe/cli_reminder/smoke respawn 2 on tenpct-l2c (f-string fix): cli_recipe fc-01M6ZNF3BDQZTX3X8E4KVWYYQ6 cli_reminder fc-01M6ZNF41F3B4QZXDS9H7426RY smoke fc-01M6ZNF4PPFS3DVJZXA2BY6C9Z 
 - 2026-11-09 L9: more capacity probes: verify on H200:3 (g3) and A100-80GB:6 (a6), outputs /art/verify_k88_{g3,a6}.json
 - 2026-11-09 L2 selection o2 + final_m16 on tenpct-l2; CLI mixed-annotation arms (mreal, shuf) on tenpct-l2c: cli_mix_recipe fc-01M6ZP6GW2AMS4NKWK3RE4PB35 cli_mix_reminder fc-01M6ZP6HHM6FEWTEWQG8QAYCFZ ; plus recipe real+bytes audit rerun (no pycache)
+- 2026-11-09 L4 BANK6 fblock g1 (dev-selected for BANK6: teach .64-.71 vs shuffled .07-.32 on dev proxy) fc id in launch output above; app tenpct-l4
+- 2026-11-09 L5 BANK6 exam run: tenpct-l5-b6f (B6HF_d0, dev-selected of 4 draws at target .0985: d0 ret .9941 worst kind .991), pack to tenpct-l5:/pkb6_0
