@@ -453,3 +453,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L5 fresh-clone dry run (tenpct-l5-dryrun, pass) and BANK6 retry draws B6H_d0-3 target .0985 (tenpct-l5-b6, ap-IMhZcPdc21TcQKvazkoGcW, vol tenpct-l5:/b6)
 - 2026-11-09 L2 cli_recipe/cli_reminder/smoke respawned on app tenpct-l2c (hardlinks not allowed on volume): fc-01M6ZN13P50SNVE70ZA9EDXFYD fc-01M6ZN14DHMR5522EY0C9XH8HE fc-01M6ZN1544JG7WJTG273YV8HER
 - 2026-11-09 L12 fbs2 run_fbs.py stronger-carrier grid (nlay 10-40, margin up to 64, 5 draws; app tenpct-l12b)
+- 2026-11-09 L9: H200:4 queue starved; cancelled; relaunched on H100:8 (g8h): verify fc-01M6ZND9WRQM74Z6JYXFZ6F8V3, fb_draws locked fc-01M6ZNDAJAPWHH751Y312VGEHF

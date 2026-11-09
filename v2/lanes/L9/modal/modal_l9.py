@@ -33,3 +33,6 @@ def g4(cmd): return _sh(cmd)
 def g5(cmd): return _sh(cmd)
 @app.function(image=img, cpu=8, memory=32768, timeout=6 * 3600, volumes=VOLS, env=ENV)
 def cpu(cmd): return _sh(cmd)
+
+@app.function(image=img, gpu="H100:8", cpu=32, memory=327680, timeout=8 * 3600, volumes=VOLS, env=ENV)
+def g8h(cmd): return _sh(cmd)
