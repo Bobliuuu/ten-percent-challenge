@@ -1,0 +1,197 @@
+{
+ "generated": "2026-11-09",
+ "lanes": [
+  {
+   "lane": "L9b",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 6,726,881,085 B = 9.704% of fp16 69,321,221,376 B (cap 10.0%) [MANIFEST total_with_feedback; denominator text-only fp16 (stricter than full 71.9 GB)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L9b/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "8 verified OK, 0 MISMATCH, 5 not in clone: artifact not in clone: needs rebuild [body_bin, chat_template_jinja, manifest_json, tokenizer_config_json, tokenizer_json]"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L1",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 1,218,467,357 B = 7.438% of fp16 16,381,470,720 B (cap 10.0%) [MANIFEST total_bytes_with_feedback_patch; denominator Qwen3-8B fp16 (MANIFEST 7.438%)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L1/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "1 verified OK, 0 MISMATCH, 33 not in clone: artifact not in clone: needs rebuild [bits.bin, build/LICENSE, build/NOTICE.txt, build/bits.bin, build/chat_template.jinja, build/config.json ...]"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L5",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 6,503,994,225 B = 9.926% of fp16 65,527,752,704 B (cap 10.0%) [MANIFEST bytes.packed_body_real+carrier+code]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L5/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes)"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L3",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 6,042,759,448 B = 9.896% of fp16 61,064,245,248 B (cap 10.0%) [MANIFEST skill7x.total_bytes]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L3/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes)"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L9",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 46,527,928,070 B = 9.896% of fp16 470,187,269,120 B (cap 10.0%) [MANIFEST shipped_bytes + feedback carrier (537,001,984, counted conservatively)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L9/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes)"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L4",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 6,042,513,585 B = 9.895% of fp16 61,064,245,248 B (cap 10.0%) [MANIFEST bytes_SKILL7_BANK6 total (ESTIMATE from bit counts; no packed exporter yet)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L4/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes)"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L10",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 2,131,462,551 B = 9.930% of fp16 21,464,450,880 B (cap 10.0%) [MANIFEST total_bytes (accounting estimate from entropy; packed file not written)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L10/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "no sha256 entries in MANIFEST.json and no SHA256SUMS: nothing to verify (gap: lane lists no hashes)"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  },
+  {
+   "lane": "L2",
+   "commit": "1c0e764",
+   "date": "2026-11-09",
+   "artifact": false,
+   "checks": {
+    "bytes": {
+     "status": "SKIPPED",
+     "detail": "artifact not in clone; MANIFEST-declared 5,346,244,844 B = 9.936% of fp16 53,808,408,928 B (cap 10.0%) [MANIFEST shipped_total_bytes (denominator back-computed from artifact report)]; real bytes_audit needs artifact"
+    },
+    "leak": {
+     "status": "PASS",
+     "detail": "0 hits under lanes/L2/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+    },
+    "sha": {
+     "status": "SKIPPED",
+     "detail": "2 verified OK, 0 MISMATCH, 24 not in clone: artifact not in clone: needs rebuild [chat_template.jinja, config.json, generation_config.json, hadamard.json, index.json, rowbase.bin ...]"
+    },
+    "smoke": {
+     "status": "SKIPPED",
+     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+    }
+   }
+  }
+ ]
+}
