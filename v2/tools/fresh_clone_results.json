@@ -171,17 +171,17 @@
   },
   {
    "lane": "L2",
-   "commit": "1c0e764",
+   "commit": "2397eec",
    "date": "2026-11-09",
    "artifact": false,
    "checks": {
     "bytes": {
      "status": "SKIPPED",
-     "detail": "artifact not in clone; MANIFEST-declared 5,346,244,844 B = 9.936% of fp16 53,808,408,928 B (cap 10.0%) [MANIFEST shipped_total_bytes (denominator back-computed from artifact report)]; real bytes_audit needs artifact"
+     "detail": "artifact not in clone; MANIFEST-declared 5,346,244,844 B = 9.936% of fp16 53,808,408,928 B (cap 10.0%) [MANIFEST shipped_total_bytes (denominator back-computed from artifact report; o4 m16 final numbers in lanes/L2/MANIFEST.json after the 2026-11-09 margin run)]; real bytes_audit needs artifact"
     },
     "leak": {
      "status": "PASS",
-     "detail": "0 hits under lanes/L2/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 261 rows: 160210; repo-wide hit files: 0)"
+     "detail": "0 hits under lanes/L2/ (exam texts: 4981 from ['bank6_exam.jsonl', 'skill7_exam.jsonl']; files scanned: 275 rows: 165058; repo-wide hit files: 0)"
     },
     "sha": {
      "status": "SKIPPED",
@@ -189,7 +189,7 @@
     },
     "smoke": {
      "status": "SKIPPED",
-     "detail": "SKIPPED-NEEDS-GPU: artifact not in clone (pass --artifact-root DIR/<lane> on a GPU box); not run"
+     "detail": "--smoke-cmd skip (SKIPPED-NEEDS-GPU: not run)"
     }
    }
   }
