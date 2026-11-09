@@ -6,7 +6,7 @@ Results -> volume tenpct-tasksearch:/l10v2/NAME/ (res.json | exam.json)"""
 import modal, json, sys, os
 HERE = os.path.dirname(os.path.abspath(__file__)); FA = HERE + "/../../fb_ablation"
 app = modal.App("tenpct-l10fb2")
-vol = modal.Volume.from_name("tenpct-tasksearch", create_if_missing=True); priv = modal.Volume.from_name("tenpct-l10-priv", create_if_missing=True)
+vol = modal.Volume.from_name("tenpct-tasksearch", create_if_missing=True); priv = modal.Volume.from_name("tenpct-l10-priv", create_if_missing=True); hfvol = modal.Volume.from_name("tenpct-v2-hf", create_if_missing=True)
 img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.4.1", "transformers==4.55.0", "numpy", "accelerate", "safetensors", "constriction")
        .add_local_file(HERE + "/ship/packlib.py", "/app/packlib.py").add_local_file(HERE + "/ship/common.py", "/app/common.py")
        .add_local_file(FA + "/fblib.py", "/app/fblib.py").add_local_file(FA + "/run_exam.py", "/app/run_exam.py").add_local_file(FA + "/exam_data/SKILL7.json", "/app/exam_data/SKILL7.json")
@@ -16,7 +16,7 @@ def _go(job):
     sys.path.insert(0, "/app"); import packlib
     os.chdir("/app"); out = f"/vol/l10v2/{job['name']}"; os.makedirs(out, exist_ok=True)
     pack = job.get("pack", "/priv/omni7_body.pack"); body = "/tmp/body"; t = time.time()
-    if job["mode"] not in ("cli", "embdbg"): meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True)
+    if job["mode"] not in ("cli", "embdbg"): meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True); import gc, torch; gc.collect(); torch.cuda.empty_cache()
     if job["mode"] == "embdbg":
         embdbg(pack, out); vol.commit(); return
     if job["mode"] == "cli":
@@ -52,6 +52,13 @@ def embdbg(pack, out):
     for r in range(0, R, 8192):
         x = We[r:r + 8192].reshape(-1, 128); s = qparams(x); q, qi2 = quant(x, s); QI.append(qi2.to(torch.uint8).cpu())
     QI = torch.cat(QI).numpy().reshape(-1); d = np.nonzero(QI != qi)[0]; res["qi_mismatch"] = int(len(d)); res["first_mismatch"] = d[:5].tolist(); res["n"] = int(QI.size)
+    # numerics: packer-style whole-matrix unrot vs loader dequant (same decoded levels/scales)
+    f.seek(e["hi"][0]); hi = packlib.rc_decode(f.read(e["hi"][1]), e["hcounts"], e["nsc"]).astype(np.uint16); f.seek(e["lo"][0]); lo = np.frombuffer(f.read(e["lo"][1]), dtype=np.uint8).astype(np.uint16)
+    sc = ((hi << 8) | lo).astype(np.uint16).view(np.float16)
+    Qm = ((torch.from_numpy(qi).cuda().float().view(R, C // 128, 128) - half) * torch.from_numpy(sc.copy()).cuda().float().view(R, C // 128, 1)).view(R, C)
+    A = packlib.unrot(Qm, sg, Hb).to(torch.bfloat16); B = packlib.dequant(e, f, "cuda", Hb)
+    res["loader_vs_wholeunrot_diff_elems"] = int((A != B).sum()); res["maxabs"] = float((A.float() - B.float()).abs().max())
+    A2 = torch.cat([packlib.unrot(Qm[r:r + 8192], sg, Hb) for r in range(0, R, 8192)]).to(torch.bfloat16); res["chunked_vs_whole_diff"] = int((A2 != A).sum()); res["chunked_vs_loader_diff"] = int((A2 != B).sum())
     print("EMBDBG", json.dumps(res), flush=True); json.dump(res, open(out + "/embdbg.json", "w"))
 def cli_job(pack, out):
     """standalone commands from the packed body only: answer -> feedback (12 annotations) -> answer on held-out new-label items"""
@@ -90,7 +97,7 @@ def exam_job(job, body, out):
         if arm == "real": out_d["real_exam"] = g(P_ex); out_d["ann_ids"] = [A[i]["id"] for i in ix]; out_d["ann_pred"] = [ANN_BASE[i] for i in ix]; out_d["real_bytes"] = env.delta_stats(); out_d["cfg"] = mt
         env.restore()
     json.dump(out_d, open(out + "/exam.json", "w")); print("EXAM_ARMS_DONE", flush=True)
-fn = app.function(image=img, timeout=10 * 3600, volumes={"/vol": vol, "/priv": priv}, gpu="A100-80GB", memory=96000, name="go_fb2")(_go)
+fn = app.function(image=img, timeout=10 * 3600, volumes={"/vol": vol, "/priv": priv, "/hf": hfvol}, gpu=["A100-40GB", "A100-80GB"], memory=96000, name="go_fb2")(_go)
 if __name__ == "__main__":
     mode, cf, name = sys.argv[1:4]; job = dict(mode=mode, name=name)
     if cf != "-": job["cfg"] = json.load(open(cf))
