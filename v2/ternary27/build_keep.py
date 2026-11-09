@@ -1,7 +1,7 @@
 """build_keep.py OUT_KEEP.json NKEEP [PREFIX]: choose kept vocab ids = prefix ids (< PREFIX) U most frequent ids (>= PREFIX) on a generic multilingual Wikipedia sample, closed under merges, total NKEEP (+33 specials added later).
 Corpus: wikimedia/wikipedia 20231101 (first 300 articles x 40 languages, 3000 chars each). No model, no task data."""
 import json, sys, os, collections
-os.environ["HF_HOME"] = "/home/ubuntu/work/hf"
+os.environ.setdefault("HF_HOME", os.path.expanduser("~/hf_cache"))
 from datasets import load_dataset
 from tokenizers import Tokenizer
 from huggingface_hub import snapshot_download

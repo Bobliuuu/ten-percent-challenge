@@ -1,7 +1,7 @@
 """Build the real compressed artifact for Ternary-Bonsai-2-27B (lossy only in: group-scale log-quantisation (K steps/octave), vocab prefix truncation).
 usage: art_build.py OUTDIR K NV"""
 import os, sys, json, lzma, shutil, numpy as np, torch
-os.environ["HF_HOME"] = "/home/ubuntu/work/hf"
+os.environ.setdefault("HF_HOME", os.path.expanduser("~/hf_cache"))
 from huggingface_hub import snapshot_download
 from safetensors import safe_open
 out, K, NV = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); os.makedirs(out, exist_ok=True)
