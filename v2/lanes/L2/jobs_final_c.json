@@ -1,0 +1,65 @@
+[
+{
+"name": "F_Reminder_o4_m16",
+"data": "/root/work/dsets/ds_reminder",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 16,
+"arms": [
+"empty",
+"real25",
+"real12",
+"mreal",
+"mshuf",
+"mwrong",
+"unrel"
+],
+"draws": 6
+},
+{
+"name": "F_CONT_o4_m16",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 16,
+"arms": [],
+"draws": 6,
+"extra_teach": [
+"/root/work/dsets/ds_reminder"
+],
+"continual": {
+"data2": "/root/work/dsets/ds_reminder",
+"draws": 6,
+"save": "/root/work/out/fb_cont_m16.pt"
+}
+},
+{
+"name": "F_CONT_o4_m16_replay",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 16,
+"arms": [],
+"draws": 6,
+"extra_teach": [
+"/root/work/dsets/ds_reminder"
+],
+"continual": {
+"data2": "/root/work/dsets/ds_reminder",
+"draws": 6,
+"replay": true
+}
+}
+]

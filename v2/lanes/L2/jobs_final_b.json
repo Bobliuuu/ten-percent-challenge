@@ -1,0 +1,25 @@
+[
+{
+"name": "F_Recipe_o4_m16",
+"data": "/root/work/dsets/ds_recipe",
+"carriers": [
+"o:63",
+"o:59",
+"o:55",
+"o:51"
+],
+"m": 16,
+"arms": [
+"empty",
+"real25",
+"real12",
+"mreal",
+"mshuf",
+"mwrong",
+"unrel"
+],
+"draws": 6,
+"save": "/root/work/out/fb_o4m16_Recipe.pt",
+"save_arm": "real25"
+}
+]
