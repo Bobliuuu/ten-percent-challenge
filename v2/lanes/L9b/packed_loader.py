@@ -36,7 +36,8 @@ def load(adir, dev="cuda:0", init=False):
             with torch.device(dev), no_init_weights(): model = getattr(transformers, m["model_cls"])(config)
     finally: torch.set_default_dtype(old)
     if os.environ.get("PL_DEBUG"): print("after construct GB", torch.cuda.memory_allocated() / 2**30, "peak", torch.cuda.max_memory_allocated() / 2**30, next(model.parameters()).dtype, flush=True)
-    model = model.to(torch.bfloat16).eval()   # parameters are already bf16 (no copy); this also casts float buffers (rotary inv_freq) to bf16 exactly like core.load_packed, which is the path all sealed numbers were scored with; P = dict(model.named_parameters())
+    # parameters are already bf16 (no copy); .to() also casts float buffers (rotary inv_freq) to bf16 exactly like core.load_packed, the path all sealed numbers were scored with
+    model = model.to(torch.bfloat16).eval(); P = dict(model.named_parameters())
     missing = [n for n in P if n not in m["tensors"]]; assert not missing, missing[:5]
     with torch.no_grad(), open(os.path.join(adir, "body.bin"), "rb") as f:
         for n, e in m["tensors"].items():
