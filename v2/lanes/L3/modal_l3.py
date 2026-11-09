@@ -14,21 +14,23 @@ vol = modal.Volume.from_name("tenpct-moe", create_if_missing=True); art = modal.
 GPU = "H200"
 
 @app.function(image=img, gpu=GPU, cpu=8, memory=190000, timeout=43200, volumes={"/r": vol, "/art": art}, env={"HF_HOME": "/r/hf"}, ephemeral_disk=600000)
-def build(task, tag="rebuild"):
+def build(task, tag="rebuild", extra=None, exam=False):
     import hashlib, shutil, time
     sys.path[:0] = ["/root/code", "/root/l3"]; import core
     cfg = [c for c in json.load(open(f"/root/code/cfgs_final_{task}.json")) if c["name"] != "base"][0]
     for k in ("fb", "fb_layers", "ndraw", "conds", "new", "ann_set", "teach_set", "neigh_sets", "neigh_ids_file", "save_outs", "m", "lam", "awt"): cfg.pop(k, None)
-    cfg["name"] = f"L3_{tag}_{task}"; cfg["sets"] = ["SEL"]
+    cfg["name"] = f"L3_{tag}_{task}"; cfg["sets"] = ["SEL"]; cfg.update(extra or {})
+    if exam:   # the ONE locked-exam scoring of this body: exam rows copied from the sealed shared exam; base outputs from the earlier base run
+        sp = {"skill7x": "skill7", "bank6x": "bank6"}[task]; shutil.copy(f"/root/exam/data/{sp}_exam.jsonl", f"/root/data/{task}_exam.jsonl"); shutil.copy(f"/art/results/base_{task}_EXAM_1.json", f"/r/res/base_{task}_EXAM_1.json"); cfg["sets"] = ["EXAM"]
     core.main([cfg], vol)
-    src = f"/r/res/art_{task}_{cfg['name']}"; dst = f"/art/{task}"; os.makedirs(dst, exist_ok=True); sha = {}
+    src = f"/r/res/art_{task}_{cfg['name']}"; dst = f"/art/{task}" + ("" if tag == "rebuild" else "_" + tag); os.makedirs(dst, exist_ok=True); sha = {}
     for f in sorted(os.listdir(src)):
         shutil.copy(f"{src}/{f}", f"{dst}/{f}"); h = hashlib.sha256()
         with open(f"{dst}/{f}", "rb") as fh:
             for ch in iter(lambda: fh.read(1 << 24), b""): h.update(ch)
         sha[f] = dict(sha256=h.hexdigest(), bytes=os.path.getsize(f"{dst}/{f}"))
     json.dump(sha, open(f"{dst}/SHA256.json", "w"), indent=1)
-    os.makedirs("/art/results", exist_ok=True); shutil.copy(f"/r/res/outs_{task}_{cfg['name']}_SEL.json", f"/art/results/devpath_outs_{task}_SEL.json")
+    os.makedirs("/art/results", exist_ok=True); [shutil.copy(f"/r/res/outs_{task}_{cfg['name']}_{sn}.json", f"/art/results/devpath_outs_{task}_{tag}_{sn}.json") for sn in cfg["sets"]]; shutil.copy(f"/r/res/{task}_{cfg['name']}.json", f"/art/results/build_{task}_{tag}.json")
     art.commit(); print("RESULT_JSON", json.dumps(dict(task=task, sha=sha)), flush=True)
 
 @app.function(image=img, gpu=GPU, cpu=8, memory=190000, timeout=43200, volumes={"/r": vol, "/art": art}, env={"HF_HOME": "/r/hf"}, ephemeral_disk=600000)
