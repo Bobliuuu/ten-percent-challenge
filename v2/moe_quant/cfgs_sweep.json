@@ -122,8 +122,8 @@
 "D": 4
 },
 {
-"name": "gptvq_b3",
-"m": "gptvq",
+"name": "rvq4_had_b3",
+"m": "rvq_had",
 "eb": 3,
 "eg": 128,
 "keep": 58,
@@ -136,7 +136,7 @@
 "sets": [
 "SEL"
 ],
-"D": 2
+"D": 4
 },
 {
 "name": "gptq_had_b2",
@@ -253,8 +253,8 @@
 "D": 4
 },
 {
-"name": "gptvq_b2",
-"m": "gptvq",
+"name": "rvq4_had_b2",
+"m": "rvq_had",
 "eb": 2,
 "eg": 128,
 "keep": 87,
@@ -267,7 +267,103 @@
 "sets": [
 "SEL"
 ],
-"D": 2
+"D": 4
+},
+{
+"name": "gptq_clip_had_b3",
+"m": "gptq_clip_had",
+"eb": 3,
+"eg": 128,
+"keep": 58,
+"nom_bpw": 3,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
+},
+{
+"name": "gptq_clip_b3",
+"m": "gptq_clip",
+"eb": 3,
+"eg": 128,
+"keep": 58,
+"nom_bpw": 3,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
+},
+{
+"name": "rtn_noclip_b3",
+"m": "rtn_noclip",
+"eb": 3,
+"eg": 128,
+"keep": 58,
+"nom_bpw": 3,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
+},
+{
+"name": "gptq_clip_had_b2",
+"m": "gptq_clip_had",
+"eb": 2,
+"eg": 128,
+"keep": 87,
+"nom_bpw": 2,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
+},
+{
+"name": "gptq_clip_b2",
+"m": "gptq_clip",
+"eb": 2,
+"eg": 128,
+"keep": 87,
+"nom_bpw": 2,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
+},
+{
+"name": "rtn_noclip_b2",
+"m": "rtn_noclip",
+"eb": 2,
+"eg": 128,
+"keep": 87,
+"nom_bpw": 2,
+"ds": "skill7",
+"quant": "gptq",
+"attn_b": 6,
+"emb_b": 5,
+"head_b": 4,
+"sets": [
+"SEL"
+]
 },
 {
 "name": "tcq_had_b2",

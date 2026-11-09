@@ -1,0 +1,191 @@
+[
+ {
+  "tag": "real3_lam5000_m16",
+  "teach": 0.7804878048780488,
+  "neigh": 0.9915966386554622,
+  "n_neigh": 357,
+  "min_cell": 0.9801980198019802,
+  "leak": 0.0,
+  "teach_outs": {
+   "Recipe": 128,
+   "Weather": 12,
+   "Lists": 9,
+   "Nutrition": 5,
+   "News": 3
+  },
+  "mode": "real",
+  "seed": 3,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "shuffled3_lam5000_m16",
+  "teach": 0.38414634146341464,
+  "neigh": 0.9943977591036415,
+  "n_neigh": 357,
+  "min_cell": 0.9900990099009901,
+  "leak": 0.0,
+  "teach_outs": {
+   "Recipe": 63,
+   "Calendar": 30,
+   "News": 25,
+   "Lists": 16,
+   "Weather": 15
+  },
+  "mode": "shuffled",
+  "seed": 3,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "wrong3_lam5000_m16",
+  "teach": 0.024390243902439025,
+  "neigh": 0.9915966386554622,
+  "n_neigh": 357,
+  "min_cell": 0.9801980198019802,
+  "leak": 0.0,
+  "teach_outs": {
+   "Lists": 34,
+   "Weather": 30,
+   "Calendar": 26,
+   "Music": 23,
+   "News": 19
+  },
+  "mode": "wrong",
+  "seed": 3,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 2
+ },
+ {
+  "tag": "real4_lam5000_m16",
+  "teach": 0.7317073170731707,
+  "neigh": 0.9943977591036415,
+  "n_neigh": 357,
+  "min_cell": 0.9801980198019802,
+  "leak": 0.0,
+  "teach_outs": {
+   "Recipe": 120,
+   "Weather": 20,
+   "Lists": 5,
+   "News": 5,
+   "Nutrition": 5
+  },
+  "mode": "real",
+  "seed": 4,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "shuffled4_lam5000_m16",
+  "teach": 0.07926829268292683,
+  "neigh": 0.9915966386554622,
+  "n_neigh": 357,
+  "min_cell": 0.9801980198019802,
+  "leak": 0.0,
+  "teach_outs": {
+   "Calendar": 89,
+   "Weather": 17,
+   "News": 16,
+   "Recipe": 13,
+   "Music": 7
+  },
+  "mode": "shuffled",
+  "seed": 4,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "wrong4_lam5000_m16",
+  "teach": 0.006097560975609756,
+  "neigh": 0.9943977591036415,
+  "n_neigh": 357,
+  "min_cell": 0.9900990099009901,
+  "leak": 0.0,
+  "teach_outs": {
+   "Calendar": 77,
+   "Weather": 36,
+   "Alarm": 27,
+   "News": 9,
+   "Lists": 6
+  },
+  "mode": "wrong",
+  "seed": 4,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 4
+ },
+ {
+  "tag": "real5_lam5000_m16",
+  "teach": 0.7317073170731707,
+  "neigh": 0.9915966386554622,
+  "n_neigh": 357,
+  "min_cell": 0.9801980198019802,
+  "leak": 0.0,
+  "teach_outs": {
+   "Recipe": 120,
+   "Weather": 21,
+   "Lists": 9,
+   "Nutrition": 5,
+   "News": 3
+  },
+  "mode": "real",
+  "seed": 5,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "shuffled5_lam5000_m16",
+  "teach": 0.31097560975609756,
+  "neigh": 0.7338935574229691,
+  "n_neigh": 357,
+  "min_cell": 0.0,
+  "leak": 0.07282913165266107,
+  "teach_outs": {
+   "Music": 62,
+   "Recipe": 51,
+   "RecipeRecipeRecipeRecipeRecipe": 13,
+   "Weather": 12,
+   "Calendar": 5
+  },
+  "mode": "shuffled",
+  "seed": 5,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 12
+ },
+ {
+  "tag": "wrong5_lam5000_m16",
+  "teach": 0.024390243902439025,
+  "neigh": 0.7899159663865546,
+  "n_neigh": 357,
+  "min_cell": 0.0,
+  "leak": 0.0,
+  "teach_outs": {
+   "Calendar": 68,
+   "Weather": 32,
+   "Transport": 19,
+   "Lists": 10,
+   "News": 9
+  },
+  "mode": "wrong",
+  "seed": 5,
+  "lam": 5000.0,
+  "margin": 16.0,
+  "n_ann": 25,
+  "n_ann_new": 2
+ }
+]

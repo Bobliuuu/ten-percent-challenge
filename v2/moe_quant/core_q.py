@@ -215,6 +215,10 @@ def main(cfgs, vol):
         if base == "vq": return QB.mb_gptq(lambda: QB.VQ(cfg.get("D", 4), int(round(2 ** (b * cfg.get("D", 4)))), cfg.get("cb", "gauss")), rot)
         if base == "rvq": return QB.mb_gptq(lambda: QB.VQ(cfg.get("D", 8), [int(round(2 ** (b * cfg.get("D", 8) / 2)))] * 2, stages=2), rot)
         if base == "tcq": return QB.mb_gptq(lambda: QB.TCQ(int(round(b * 2))), rot)
+        if base == "rtnq": return QB.mb_rtn(lambda: QB.IntQ(b, g, True), rot)
+        if base == "rtn_noclip": return QB.mb_rtn(lambda: QB.IntQ(b, g, False), rot)
+        if base == "awq_gptq": return QB.mb_awq(QB.mb_gptq(lambda: QB.IntQ(b, g, False), None, cfg.get("damp", 0.01)))
+        if base == "awq_rtn": return QB.mb_awq(QB.mb_rtn(lambda: QB.IntQ(b, g, True), None))
         raise ValueError(m)
     import qlib as Q_
     @torch.no_grad()

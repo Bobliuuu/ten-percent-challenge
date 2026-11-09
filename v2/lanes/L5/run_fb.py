@@ -9,7 +9,7 @@ class App:
     def __init__(s,*a,**k): pass
     def function(s,*a,**k): return lambda f: f
 m.App = App; m.Image = _Any(); m.Volume = _Any(); sys.modules["modal"] = m
-os.makedirs("/r", exist_ok=True); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+os.makedirs(os.environ.get("EDIT_OUT", "/r"), exist_ok=True); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import edit_s7
 for c in json.load(open(sys.argv[1])):
     if len(sys.argv) > 2 and c["name"] != sys.argv[2]: continue

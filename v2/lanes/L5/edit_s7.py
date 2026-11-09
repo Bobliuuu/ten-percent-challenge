@@ -18,10 +18,10 @@ vol = modal.Volume.from_name("tenpct-l5fb", create_if_missing=True); hf = None
 def run(cfg):
     import time, hashlib, random, collections, numpy as np, torch, torch.nn as nn, torch.nn.functional as F
     from transformers import AutoTokenizer, AutoModelForCausalLM
-    A = cfg; MODEL = A["model"]; NDRAW = A.get("ndraw", 10); NS = A.get("ns", [5, 12, 25]); METHODS = A["methods"]; OUT = "/r/" + A["name"]
+    A = cfg; MODEL = A["model"]; NDRAW = A.get("ndraw", 10); NS = A.get("ns", [5, 12, 25]); METHODS = A["methods"]; OUT = os.environ.get("EDIT_OUT", "/r") + "/" + A["name"]
     CONDS = A.get("conds", ["real", "wrong", "mixed_wrong", "shuffle"]); KMAX = A.get("kmax", 8); NCAL = A.get("ncal", 300)
     T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
-    dev = "cuda"; tok = AutoTokenizer.from_pretrained(MODEL); tok.padding_side = "left"
+    dev = os.environ.get("EDIT_DEV", "cuda"); tok = AutoTokenizer.from_pretrained(MODEL); tok.padding_side = "left"
     DT = getattr(torch, A.get("dtype", "bfloat16"))
     lm = AutoModelForCausalLM.from_pretrained(MODEL, torch_dtype=DT).to(dev).eval()
     for p in lm.parameters(): p.requires_grad_(False)

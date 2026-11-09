@@ -160,3 +160,27 @@ def mb_gptq(mk, rot=None, damp=0.01):
 
 def relerr_b(W, Wh, H):
     D = (W - Wh).float(); W = W.float(); return (((D @ H) * D).sum((1, 2)) / ((W @ H) * W).sum((1, 2)).clamp(min=1e-30))
+
+def mb_rtn(mk, rot=None):
+    """plain round-to-nearest (no error feedback), group-wise, batched"""
+    def fn(W, H):
+        W = W.float(); H = H.float()
+        if rot: Wr, Hr, back = rotb(W, H, rot[1], rot[0])
+        else: Wr, Hr, back = W, H, (lambda x: x)
+        rd = mk(); rd.prepare(Wr); g = rd.g; out = torch.empty_like(Wr)
+        for c in range(0, Wr.shape[2], g): rd.start_group(Wr[:, :, c:c + g]); out[:, :, c:c + g] = rd.quant(Wr[:, :, c:c + g])
+        return back(out), torch.full((W.shape[0],), float(rd.bits()), device=W.device)
+    return fn
+
+def mb_awq(base, grid=10):
+    """AWQ-style per-input-channel scaling s=a^alpha (a = activation RMS from diag H), alpha chosen per expert by the H-weighted error of base(W*s); W^=Q(W s)/s"""
+    def fn(W, H):
+        W = W.float(); H = H.float(); E = W.shape[0]; a = torch.diagonal(H, dim1=-2, dim2=-1).clamp(min=1e-12).sqrt(); a = a / a.mean(-1, keepdim=True); best = None
+        for k in range(grid + 1):
+            s = a.pow(k / grid).clamp(min=1e-4); s = s / (s.max(-1, keepdim=True).values * s.min(-1, keepdim=True).values).sqrt()
+            Wq, bits = base(W * s[:, None, :], H / (s[:, :, None] * s[:, None, :])); Wh = Wq / s[:, None, :]; e = relerr_b(W, Wh, H)
+            if best is None: best = [e, Wh, bits]
+            else:
+                u = e < best[0]; best[0] = torch.where(u, e, best[0]); best[1] = torch.where(u[:, None, None], Wh, best[1])
+        return best[1], best[2]
+    return fn

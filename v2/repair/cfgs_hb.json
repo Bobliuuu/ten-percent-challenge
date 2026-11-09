@@ -1,2 +1,1 @@
-[{"name":"HB_s7","ctasks":1,"calib_ct":1,"target_ratio":0.0975,"emb_L":4,"head_L":4,"g":256,"ct_bs":4,"ncal":128,"variants":["q"],"sens_tag":"s7h","save_dir":"/root/q32_h"},
- {"name":"HB_s7_base","mode":"ctbase","ct_bs":4}]
+[{"name": "HB_s7", "ctasks": 1, "calib_ct": 1, "target_ratio": 0.0975, "emb_L": 4, "head_L": 4, "g": 256, "ct_bs": 4, "ncal": 128, "variants": ["q"], "sens_tag": "s7h", "save_dir": "/root/q32_h", "pack_dir": "/root/pk32"}, {"name": "HB_s7_base", "mode": "ctbase", "ct_bs": 4}]

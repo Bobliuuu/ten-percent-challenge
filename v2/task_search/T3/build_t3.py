@@ -8,7 +8,7 @@ H = lambda s: hashlib.sha256(s.encode()).hexdigest()
 HERE = os.path.dirname(os.path.abspath(__file__))
 N = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 160
 ONLY = [a for a in sys.argv[1:] if not a.isdigit()]
-NC = int(os.environ.get("T3_NC", "30"))
+NC = 30
 items, calib, plan = [], [], {}
 def trunc(t, n=1200): t = re.sub(r"\s+", " ", str(t)).strip(); return t if len(t) <= n else t[:n]
 def stream(name, cfg=None, split="train", limit=60000):
@@ -287,89 +287,7 @@ def t_dept():
 safe("DEPT3", t_dept)
 
 
-# ======================= ROUND 3 (cleaner label sets, second sources) =======================
-def t_lang12b():
-    names = dict(ar="Arabic", de="German", el="Greek", en="English", es="Spanish", fr="French", hi="Hindi", it="Italian", ja="Japanese", ru="Russian", th="Thai", tr="Turkish")
-    L = list(names.values()); pr = P("Identify the language of this text.", L, "Text")
-    add("LANG12B", "S1", "papluca", ((i, names[r["labels"]], trunc(r["text"], 500)) for i, r in enumerate(stream("papluca/language-identification", limit=70000)) if r["labels"] in names), L, pr, n=360)
-    def s2():
-        for lg in names:
-            for i, r in enumerate(stream("mteb/amazon_massive_scenario", lg, limit=1500)): yield f"{lg}{i}", names[lg], trunc(r["text"], 300)
-    add("LANG12B", "S2", "massive_utterances", s2(), L, pr, n=360)
-safe("LANG12B", t_lang12b)
-
-def t_news4():
-    L = ["Business", "Entertainment", "Politics", "Sports"]; pr = P("Which newsroom desk should this news story go to?", L, "Story")
-    m1 = {"BUSINESS": "Business", "ENTERTAINMENT": "Entertainment", "POLITICS": "Politics", "SPORTS": "Sports"}
-    add("NEWS4C", "S1", "huffpost", ((i, m1[r["category"]], trunc(r["headline"] + ". " + r["short_description"], 500)) for i, r in enumerate(stream("heegyu/news-category-dataset", limit=210000)) if r["category"] in m1), L, pr)
-    m2 = {"business": "Business", "entertainment": "Entertainment", "politics": "Politics", "sport": "Sports"}
-    add("NEWS4C", "S2", "bbc_2004", ((i, m2[r["label_text"]], trunc(r["text"], 500)) for i, r in enumerate(stream("SetFit/bbc-news")) if r["label_text"] in m2), L, pr)
-safe("NEWS4C", t_news4)
-
-def t_sent2c():
-    L = ["Positive", "Negative"]; pr = P("What is the sentiment of this text?", L, "Text")
-    add("SENT2C", "S1", "yelp_restaurants", ((i, "Positive" if r["label"] == 1 else "Negative", trunc(r["text"], 600)) for i, r in enumerate(stream("fancyzhx/yelp_polarity", limit=30000))), L, pr)
-    add("SENT2C", "S2", "imdb_movies", ((i, "Positive" if r["label"] == 1 else "Negative", trunc(r["text"], 700)) for i, r in enumerate(stream("stanfordnlp/imdb", limit=30000))), L, pr)
-    add("SENT2C", "S3", "tweets", ((i, "Positive" if r["label"] == 2 else "Negative", trunc(r["text"], 300)) for i, r in enumerate(stream("cardiffnlp/tweet_eval", "sentiment")) if r["label"] in (0, 2)), L, pr)
-safe("SENT2C", t_sent2c)
-
-def t_tox2c():
-    L = ["Toxic", "Fine"]; pr = ("You moderate an online community.\nToxic = the message clearly insults, demeans, threatens or harasses someone, or is hateful or very vulgar.\nFine = everything else.\nAnswer with exactly one word from: Toxic, Fine.\n\nMessage: {X}")
-    def s1():
-        for i, r in enumerate(stream("google/civil_comments", limit=160000)):
-            if r["toxicity"] >= 0.8: yield i, "Toxic", trunc(r["text"], 600)
-            elif r["toxicity"] <= 0.0: yield i, "Fine", trunc(r["text"], 600)
-    add("TOX2C", "S1", "civil_comments", s1(), L, pr)
-    add("TOX2C", "S2", "davidson_offensive", ((i, "Toxic" if (r["class"] in (0, 1) and r["hate_speech_count"] + r["offensive_language_count"] >= 3) else ("Fine" if r["class"] == 2 and r["neither_count"] >= 3 else ""), trunc(r["tweet"], 400)) for i, r in enumerate(stream("tdavidson/hate_speech_offensive"))), L, pr)
-safe("TOX2C", t_tox2c)
-
-def t_phish2c():
-    L = ["Scam", "Genuine"]; pr = ("Is this email a scam or phishing attempt (it tries to trick the reader into paying money, giving credentials or personal data, or clicking a malicious link)?\nScam = yes. Genuine = an ordinary email.\nAnswer with exactly one word from: Scam, Genuine.\n\nEmail: {X}")
-    add("PHISH2C", "S1", "zefang_phish", ((i, "Scam" if r["Email Type"] == "Phishing Email" else "Genuine", trunc(r["Email Text"], 900)) for i, r in enumerate(stream("zefang-liu/phishing-email-dataset"))), L, pr)
-    def s2():
-        for i, r in enumerate(stream("puyang2025/seven-phishing-email-datasets", limit=40000)):
-            t = (r.get("subject") or "") + "\n" + (r.get("text") or ""); yield i, ("Scam" if int(r["label"]) == 1 else "Genuine"), trunc(t, 900)
-    add("PHISH2C", "S2", "sevenphish", s2(), L, pr)
-safe("PHISH2C", t_phish2c)
-
-def t_pii2c():
-    L = ["Sensitive", "Harmless"]; pr = ("Does the text contain a sensitive identifier: an email address, phone number, national ID / social security number, credit card number, IBAN, IP address or password?\nSensitive = yes, at least one. Harmless = none (names, dates, places, companies and amounts alone are harmless).\nAnswer with exactly one word from: Sensitive, Harmless.\n\nText: {X}")
-    def s1():
-        for i, r in enumerate(stream("ai4privacy/pii-masking-200k", limit=30000)):
-            if r["language"] != "en": continue
-            pm = ast.literal_eval(r["privacy_mask"]) if isinstance(r["privacy_mask"], str) else r["privacy_mask"]
-            has = any(m["label"] in ("EMAIL", "PHONENUMBER", "SSN", "CREDITCARDNUMBER", "IBAN", "IPV4", "IPV6", "PASSWORD") for m in pm)
-            yield i, ("Sensitive" if has else "Harmless"), trunc(r["source_text"], 700)
-    add("PII2C", "S1", "ai4privacy", s1(), L, pr)
-    def s2():
-        PL = ("email", "phone_number", "ssn", "credit_card_number", "iban", "ipv4", "ipv6", "password")
-        for i, r in enumerate(stream("gretelai/synthetic_pii_finance_multilingual", limit=12000)):
-            if r["language"] != "English": continue
-            t = r["generated_text"]; sp = json.loads(r["pii_spans"]); pos = 0
-            for pi, para in enumerate(t.split("\n\n")):
-                a = t.index(para, pos); pos = a + len(para)
-                has = any(s["label"] in PL and s["start"] >= a and s["end"] <= a + len(para) for s in sp)
-                yield f"{i}.{pi}", ("Sensitive" if has else "Harmless"), trunc(para, 700)
-    add("PII2C", "S2", "gretel_fin", s2(), L, pr)
-safe("PII2C", t_pii2c)
-
-
-
-# ---------------- COMM4: community routing of forum post titles (Reddit vs StackExchange)
-def t_comm():
-    L = ["Astronomy", "Pets", "Brewing", "Cars"]; pr = P("Which community should this forum post go to?", L, "Post title")
-    ms = {"space.stackexchange.com.txt": "Astronomy", "pets.stackexchange.com.txt": "Pets", "homebrew.stackexchange.com.txt": "Brewing", "mechanics.stackexchange.com.txt": "Cars"}
-    mr = {"Astronomy.txt": "Astronomy", "Animals.txt": "Pets", "cats.txt": "Pets", "beer.txt": "Brewing", "Autos.txt": "Cars", "cars.txt": "Cars"}
-    def gen(name, m):
-        n = 0
-        for r in stream(name, None, "test", limit=100000):
-            for j, (t, lab) in enumerate(zip(r["sentences"], r["labels"])):
-                if lab in m: yield f"{lab}{n}", m[lab], trunc(t, 300); n += 1
-    add("COMM4", "S1", "stackexchange_titles", gen("mteb/stackexchange-clustering", ms), L, pr)
-    add("COMM4", "S2", "reddit_titles", gen("mteb/reddit-clustering", mr), L, pr)
-safe("COMM4", t_comm)
-
-
+# ======================= ROUND 2 (prompt/label refinements, coarse merges, extra sources) =======================
 def t_phish2b():
     L = ["Phishing", "Legitimate"]; pr = ("You are an email security filter.\nPhishing = an email that deceives the reader into clicking a link, opening an attachment, revealing credentials, or sending money (fake bank, delivery, account or prize notices, urgent threats).\nLegitimate = any ordinary email without such deception.\nAnswer with exactly one word from: Phishing, Legitimate.\n\nEmail: {X}")
     add("PHISH2B", "S1", "zefang_phish", ((i, "Phishing" if r["Email Type"] == "Phishing Email" else "Legitimate", trunc(r["Email Text"], 900)) for i, r in enumerate(stream("zefang-liu/phishing-email-dataset"))), L, pr)
@@ -378,6 +296,68 @@ def t_phish2b():
             t = (r.get("subject") or "") + "\n" + (r.get("text") or ""); yield i, ("Phishing" if int(r["label"]) == 1 else "Legitimate"), trunc(t, 900)
     add("PHISH2B", "S2", "sevenphish", s2(), L, pr)
 safe("PHISH2B", t_phish2b)
+
+def t_tox2b():
+    L = ["Toxic", "Fine"]; pr = ("You moderate an online community.\nToxic = the message insults, demeans, threatens, harasses or uses hateful or very vulgar language towards someone.\nFine = anything else, including disagreement, criticism and mild language.\nAnswer with exactly one word from: Toxic, Fine.\n\nMessage: {X}")
+    def s1():
+        for i, r in enumerate(stream("google/civil_comments", limit=120000)):
+            if r["toxicity"] >= 0.6: yield i, "Toxic", trunc(r["text"], 700)
+            elif r["toxicity"] < 0.05: yield i, "Fine", trunc(r["text"], 700)
+    add("TOX2B", "S1", "civil_comments", s1(), L, pr)
+    add("TOX2B", "S2", "davidson_offensive", ((i, "Toxic" if r["class"] in (0, 1) else "Fine", trunc(r["tweet"], 400)) for i, r in enumerate(stream("tdavidson/hate_speech_offensive"))), L, pr)
+    add("TOX2B", "S3", "toxic_chat", ((i, "Toxic" if r["toxicity"] == 1 else "Fine", trunc(r["user_input"], 700)) for i, r in enumerate(stream("lmsys/toxic-chat", "toxicchat0124", limit=20000))), L, pr)
+safe("TOX2B", t_tox2b)
+
+def t_pii2():
+    L = ["PII", "Clean"]; pr = ("You are a data-loss-prevention filter.\nPII = the text contains an email address, phone number, social security / national ID number, payment card number, IBAN, IP address or password.\nClean = it contains none of these (names, dates, cities and company names alone do NOT count).\nAnswer with exactly one word from: PII, Clean.\n\nText: {X}")
+    def s1():
+        for i, r in enumerate(stream("ai4privacy/pii-masking-200k", limit=30000)):
+            if r["language"] != "en": continue
+            pm = ast.literal_eval(r["privacy_mask"]) if isinstance(r["privacy_mask"], str) else r["privacy_mask"]
+            has = any(m["label"] in ("EMAIL", "PHONENUMBER", "SSN", "CREDITCARDNUMBER", "IBAN", "IPV4", "IPV6", "PASSWORD") for m in pm)
+            yield i, ("PII" if has else "Clean"), trunc(r["source_text"], 700)
+    add("PII2", "S1", "ai4privacy", s1(), L, pr)
+    def s2():
+        PL = ("email", "phone_number", "ssn", "credit_card_number", "iban", "ipv4", "ipv6", "password")
+        for i, r in enumerate(stream("gretelai/synthetic_pii_finance_multilingual", limit=12000)):
+            if r["language"] != "English": continue
+            t = r["generated_text"]; sp = json.loads(r["pii_spans"]); pos = 0
+            for pi, para in enumerate(t.split("\n\n")):
+                a = t.index(para, pos); pos = a + len(para)
+                has = any(s["label"] in PL and s["start"] >= a and s["end"] <= a + len(para) for s in sp)
+                yield f"{i}.{pi}", ("PII" if has else "Clean"), trunc(para, 700)
+    add("PII2", "S2", "gretel_fin", s2(), L, pr)
+safe("PII2", t_pii2)
+
+def t_news5():
+    L = ["Business", "Entertainment", "Politics", "Sports", "Technology"]; pr = P("Which newsroom desk should this news story go to?", L, "Story")
+    m1 = {"BUSINESS": "Business", "ENTERTAINMENT": "Entertainment", "POLITICS": "Politics", "SPORTS": "Sports", "TECH": "Technology"}
+    add("NEWS5", "S1", "huffpost", ((i, m1[r["category"]], trunc(r["headline"] + ". " + r["short_description"], 500)) for i, r in enumerate(stream("heegyu/news-category-dataset", limit=210000)) if r["category"] in m1), L, pr)
+    m2 = {"business": "Business", "entertainment": "Entertainment", "politics": "Politics", "sport": "Sports", "tech": "Technology"}
+    add("NEWS5", "S2", "bbc_2004", ((i, m2[r["label_text"]], trunc(r["text"], 500)) for i, r in enumerate(stream("SetFit/bbc-news"))), L, pr)
+safe("NEWS5", t_news5)
+
+def t_topic4():
+    L = ["Sports", "Health", "Technology", "Politics"]; pr = P("Which department should handle this text?", L, "Text")
+    m1 = {"SPORTS": "Sports", "WELLNESS": "Health", "TECH": "Technology", "POLITICS": "Politics"}
+    add("TOPIC4", "S1", "huffpost", ((i, m1[r["category"]], trunc(r["headline"] + ". " + r["short_description"], 500)) for i, r in enumerate(stream("heegyu/news-category-dataset", limit=210000)) if r["category"] in m1), L, pr)
+    m3 = {"rec.sport.baseball": "Sports", "rec.sport.hockey": "Sports", "sci.med": "Health", "comp.graphics": "Technology", "comp.sys.mac.hardware": "Technology", "comp.windows.x": "Technology", "comp.os.ms-windows.misc": "Technology", "comp.sys.ibm.pc.hardware": "Technology", "talk.politics.guns": "Politics", "talk.politics.mideast": "Politics", "talk.politics.misc": "Politics"}
+    add("TOPIC4", "S2", "newsgroups_1993", ((i, m3[r["label_text"]], trunc(r["text"], 500)) for i, r in enumerate(stream("SetFit/20_newsgroups")) if r["label_text"] in m3 and len(r["text"]) > 80), L, pr)
+safe("TOPIC4", t_topic4)
+
+def t_lang12():
+    names = dict(ar="Arabic", de="German", el="Greek", en="English", es="Spanish", fr="French", hi="Hindi", it="Italian", ja="Japanese", ru="Russian", th="Thai", tr="Turkish")
+    L = list(names.values()); pr = P("Identify the language of this text.", L, "Text")
+    add("LANG12", "S1", "papluca", ((i, names[r["labels"]], trunc(r["text"], 500)) for i, r in enumerate(stream("papluca/language-identification", limit=70000)) if r["labels"] in names), L, pr, n=360)
+safe("LANG12", t_lang12)
+
+def t_sent2b():
+    L = ["Positive", "Negative"]; pr = P("What is the sentiment of this text?", L, "Text")
+    add("SENT2B", "S1", "sst2_movie", ((i, "Positive" if r["label"] == 1 else "Negative", trunc(r["sentence"], 400)) for i, r in enumerate(stream("stanfordnlp/sst2"))), L, pr)
+    add("SENT2B", "S2", "yelp_restaurants", ((i, "Positive" if r["label"] == 1 else "Negative", trunc(r["text"], 600)) for i, r in enumerate(stream("fancyzhx/yelp_polarity", limit=30000))), L, pr)
+    add("SENT2B", "S3", "tweets", ((i, "Positive" if r["label"] == 2 else "Negative", trunc(r["text"], 300)) for i, r in enumerate(stream("cardiffnlp/tweet_eval", "sentiment")) if r["label"] in (0, 2)), L, pr)
+safe("SENT2B", t_sent2b)
+
 
 if not ONLY or True:
     tag = "_".join(ONLY) if ONLY else ""

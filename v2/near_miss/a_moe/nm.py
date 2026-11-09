@@ -277,12 +277,8 @@ def gptq_qb(W, H, bits, g, damp=0.01, blk=128):
         i2 = min(i1 + blk, n); W1 = W[:, :, i1:i2].clone(); Q1 = torch.zeros_like(W1); E1 = torch.zeros_like(W1); Hi1 = Hi[:, i1:i2, i1:i2]
         for i in range(i2 - i1):
             if (i1 + i) % g == 0:
-                grp = W1[:, :, i:i + g]; mx0 = grp.amax(2, keepdim=True); mn0 = grp.amin(2, keepdim=True); berr = None
-                for r in (1.0, 0.9, 0.8, 0.7, 0.6, 0.5):
-                    sc_ = (((mx0 - mn0) * r) / qm).clamp(min=1e-8).half().float(); z_ = (-(mn0 * r) / sc_).round().clamp(0, qm)
-                    err = ((((grp / sc_ + z_).round().clamp(0, qm) - z_) * sc_ - grp) ** 2).sum(2, keepdim=True)
-                    if berr is None: sc, z, berr = sc_, z_, err
-                    else: m_ = err < berr; sc = torch.where(m_, sc_, sc); z = torch.where(m_, z_, z); berr = torch.where(m_, err, berr)
+                grp = W1[:, :, i:i + g]; mx = grp.amax(2, keepdim=True); mn = grp.amin(2, keepdim=True)
+                sc = ((mx - mn) / qm).clamp(min=1e-8).half().float(); z = (-mn / sc).round().clamp(0, qm)
             w = W1[:, :, i:i + 1]; q = ((w / sc + z).round().clamp(0, qm) - z) * sc
             Q1[:, :, i:i + 1] = q; e = (w - q) / Hi1[:, i, i][:, None, None]; W1[:, :, i:] -= e @ Hi1[:, i:i + 1, i:]; E1[:, :, i:i + 1] = e
         Q[:, :, i1:i2] = Q1; W[:, :, i2:] -= E1 @ Hi[:, i1:i2, i2:]

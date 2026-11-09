@@ -123,10 +123,8 @@ def main(cfgs, vol):
     log("orig copied")
     chat = lambda u: tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True)
     def load(n, k=None):
-        pth = f"/root/splits/{n.lower()}.jsonl" if DS == "news" else f"/root/data/{'voice' if DS.startswith('voice') else DS}_{n.lower()}.jsonl"
+        pth = f"/root/data/voice_{n.lower()}.jsonl" if DS == "voice" else f"/root/splits/{n.lower()}.jsonl"
         rows = [json.loads(l) for l in open(pth)]
-        if DS == "voices":
-            for r in rows: r["user"] = "Route the request to one skill: clock, calendar, lists, email, smart_home, music, weather, transport, food, qa. Answer with the skill name only.\nRequest: " + r["text"]
         for r in rows: r["ids"] = tok(chat(r["user"]), add_special_tokens=False).input_ids
         return rows
     DATA = {}
@@ -152,39 +150,21 @@ def main(cfgs, vol):
             txt = tok.batch_decode(g[:, L:], skip_special_tokens=True)
             for k, t in zip(idx, txt): outs[k] = t.strip()
         return outs
-    def prefix_len(rows):
-        a = rows[0]["ids"]; p = len(a)
-        for r in rows[1:200]:
-            b = r["ids"]; k = 0
-            while k < min(p, len(b)) and a[k] == b[k]: k += 1
-            p = k
-        return p
-    def vmask(am, ids_rows, skip, P, first_full):
-        """valid flat mask; if skip: positions of the shared prompt prefix are excluded (counted only for the first row of the first batch)"""
-        v = am.clone().float()
-        if skip:
-            L = am.shape[1]
-            for b, seq in enumerate(ids_rows):
-                if first_full and b == 0: continue
-                st = L - len(seq); v[b, st:st + P] = 0
-        return v.flatten()
     @torch.no_grad()
-    def routing_mass(rows, budget=40000, skip=False):
-        P = prefix_len(rows) if skip else 0; first = [True]
+    def routing_mass(rows, budget=40000):
         rec = [(torch.zeros(NE, device=dev), torch.zeros(NE, device=dev), torch.zeros(NE, device=dev)) for _ in range(NL)]
         for l, b in enumerate(blocks): b.rec = rec[l]
         for idx in batches(rows, budget):
-            ids, am = pad([rows[k]["ids"] for k in idx]); v = vmask(am, [rows[k]["ids"] for k in idx], skip, P, first[0]); first[0] = False
+            ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
             for b in blocks: b.valid = v
             lm.model(input_ids=ids, attention_mask=am)
         for b in blocks: b.rec = None; b.valid = None
         return tuple(torch.stack([r[j] for r in rec]).cpu() for j in range(3))
     @torch.no_grad()
-    def collect_hessians(rows, layers, kept, budget=30000, skip=False):
-        P = prefix_len(rows) if skip else 0; first = [True]
+    def collect_hessians(rows, layers, kept, budget=30000):
         for l in layers: blocks[l].hset = {e: [torch.zeros(HID, HID, device=dev), torch.zeros(FF, FF, device=dev), 0] for e in kept[l]}
         for idx in batches(rows, budget):
-            ids, am = pad([rows[k]["ids"] for k in idx]); v = vmask(am, [rows[k]["ids"] for k in idx], skip, P, first[0]); first[0] = False
+            ids, am = pad([rows[k]["ids"] for k in idx]); v = am.flatten().float()
             for l in layers: blocks[l].valid = v
             lm.model(input_ids=ids, attention_mask=am, use_cache=False, logits_to_keep=1) if False else lm.model.forward(input_ids=ids, attention_mask=am, use_cache=False)
         out = {l: blocks[l].hset for l in layers}
@@ -195,9 +175,6 @@ def main(cfgs, vol):
     def keep_lists(cfg, mass0):
         mass = {"mass": mass0, "reap": reap / cnt.clamp(min=1), "massreap": (mass0 / mass0.sum(1, keepdim=True)) * (reap / cnt.clamp(min=1) / (reap / cnt.clamp(min=1)).mean(1, keepdim=True))}[cfg.get("score", "mass")]
         if cfg.get("kept_counts"): return [sorted(torch.topk(mass[l], cfg["kept_counts"][l]).indices.tolist()) for l in range(NL)]
-        if cfg.get("alpha") is not None:
-            mf = get_mass(False)[0]; ms = get_mass(True)[0]; pp = (mf - ms).clamp(min=0); a = cfg["alpha"]
-            mass0 = a * pp / pp.sum(1, keepdim=True) + (1 - a) * ms / ms.sum(1, keepdim=True); mass = mass0
         k = cfg.get("keep", NE)
         if cfg.get("kept_file"): return [sorted(x) for x in json.load(open(cfg["kept_file"]))]
         if isinstance(k, float) and k <= 1.0: k = int(round(k * NE))
@@ -213,7 +190,7 @@ def main(cfgs, vol):
         eb, eg = cfg.get("eb"), cfg.get("eg", 128); ab, gb = cfg.get("attn_b"), cfg.get("attn_g", 128)
         nk = sum(len(k) for k in kept); epar = 3 * HID * FF
         d = {}
-        d["experts"] = nk * epar * bpw(eb, eg) / 8 if cfg.get("quant") != "vq4" else nk * (epar * 2.0 / 8 + 4) + 2048
+        d["experts"] = nk * epar * bpw(eb, eg) / 8
         d["router"] = nk * HID * 2
         d["keep_index"] = nk if nk < NL * NE else 0
         ap = HID * 4096 + 2 * HID * 512 + 4096 * HID
@@ -237,7 +214,7 @@ def main(cfgs, vol):
             ki = kept[l]; ex = lay.mlp.experts
             for nm, mod in (("gate", "gate_proj"), ("up", "up_proj"), ("down", "down_proj")):
                 w = O[l][nm][ki].to(dev)
-                if eb and cfg.get("quant") not in ("gptq", "vq4"):
+                if eb and cfg.get("quant") != "gptq":
                     if PK[0] is not None:
                         w, q_, s_, z_ = rtn_codes(w, eb, eg, mse)
                         for j, e in enumerate(ki): PK[0].add_q(f"L{l}.E{e}.{nm}", q_[j], s_[j], z_[j], eb, eg)
@@ -263,7 +240,7 @@ def main(cfgs, vol):
     def gptq_all(cfg, kept):
         calrows = getset("cal")[:cfg.get("nh", 1000)]; eb, eg = cfg["eb"], cfg.get("eg", 128); blk = cfg.get("hblk", 256); fb = 0
         for g0 in range(0, NL, cfg.get("lgroup", 6)):
-            layers = list(range(g0, min(NL, g0 + cfg.get("lgroup", 6)))); Hs = collect_hessians(calrows, layers, kept, skip=cfg.get("skip", False)); log("hessians", layers[0], layers[-1])
+            layers = list(range(g0, min(NL, g0 + cfg.get("lgroup", 6)))); Hs = collect_hessians(calrows, layers, kept); log("hessians", layers[0], layers[-1])
             for l in layers:
                 Qi = rot_matrix(HID, min(blk, HID), 1000 + l, dev) if cfg.get("had", True) else torch.eye(HID, device=dev); Qd = rot_matrix(FF, min(blk, FF), 2000 + l, dev) if cfg.get("had", True) else torch.eye(FF, device=dev)
                 ex = lm.model.layers[l].mlp.experts
@@ -282,56 +259,22 @@ def main(cfgs, vol):
                 Hs[l] = None
             del Hs; torch.cuda.empty_cache()
         log("gptq done, rtn fallbacks", fb)
-    @torch.no_grad()
-    def vq_all(cfg, kept):
-        import qlib, qlib_b
-        class VQh(qlib_b.VQ):   # fp16-exact per-expert sigma and fp16 codebook (so the packed file reproduces the simulation bit for bit)
-            def prepare(s, W):
-                super().prepare(W); s.sig = s.sig.half().float(); s.cbs = [c.half().float() for c in s.cbs]; s.cns = [0.5 * (c ** 2).sum(1) for c in s.cbs]
-        calrows = getset("cal")[:cfg.get("nh", 1000)]; G = cfg.get("lgroup", 4); damp = cfg.get("damp", 0.01); cbw = [None]
-        for g0 in range(0, NL, G):
-            layers = list(range(g0, min(NL, g0 + G))); Hs = collect_hessians(calrows, layers, kept, skip=cfg.get("skip", False)); log("hessians", layers[0], layers[-1])
-            for l in layers:
-                ki = kept[l]; E = len(ki); ex = lm.model.layers[l].mlp.experts
-                Hin = torch.stack([Hs[l][e][0] for e in ki]); Hdn = torch.stack([Hs[l][e][1] for e in ki]); Hs[l] = None
-                Wgu = torch.cat([O[l]["gate"][ki], O[l]["up"][ki]], 1).to(dev).float(); Wdn = O[l]["down"][ki].to(dev).float()
-                for nm, W, H, seed in (("gu", Wgu, Hin, 1000 + l), ("dn", Wdn, Hdn, 2000 + l)):
-                    Wr, Hr, back = qlib_b.rotb(W, H, seed, "had"); rd = VQh(4, 256, "gauss"); Qm = qlib_b.engine_b(Wr, Hr, rd, damp); dq = back(Qm)
-                    if PK[0] is not None:
-                        cbw[0] = rd.cbs[0].half(); X = (Qm / rd.sig).reshape(-1, 4); idx = qlib.nn_argmax(X, rd.cbs[0], rd.cns[0]).reshape(E, -1).to(torch.uint8).cpu(); sg = rd.sig.flatten().half().cpu()
-                        for j, e in enumerate(ki): PK[0].add_vq(f"L{l}.E{e}.{nm}", idx[j], sg[j], list(W.shape[1:]), seed)
-                    for j, e in enumerate(ki):
-                        if nm == "gu": ex[e].gate_proj.weight.data.copy_(dq[j, :FF].to(torch.bfloat16)); ex[e].up_proj.weight.data.copy_(dq[j, FF:].to(torch.bfloat16))
-                        else: ex[e].down_proj.weight.data.copy_(dq[j].to(torch.bfloat16))
-                del Hin, Hdn, Wgu, Wdn
-            del Hs; torch.cuda.empty_cache()
-        if PK[0] is not None: PK[0].add_fp16("vq_cb", cbw[0])
-        log("vq done")
     # ---- routing mass (cached)
     ncal = max([c.get("ncal", 2000) for c in cfgs]); mp = f"/r/res/mass_{DS}_{ncal}.pt"
-    MS = {}
-    def get_mass(skip):
-        if skip in MS: return MS[skip]
-        p_ = mp.replace(".pt", "_skip.pt") if skip else mp
-        if os.path.exists(p_): MS[skip] = torch.load(p_)
-        else:
-            cal = getset("cal")[:ncal]; MS[skip] = routing_mass(cal, skip=skip); torch.save(MS[skip], p_); vol.commit(); log("mass done", skip, len(cal))
-        return MS[skip]
-    mass, cnt, reap = get_mass(False)
+    if os.path.exists(mp): mass, cnt, reap = torch.load(mp)
+    else:
+        cal = getset("cal")[:ncal]; mass, cnt, reap = routing_mass(cal); torch.save((mass, cnt, reap), mp); vol.commit(); log("mass done", cal and len(cal))
     for cfg in cfgs:
         t1 = time.time(); name = cfg["name"]; log("CFG", name, cfg)
-        mass, cnt, reap = get_mass(bool(cfg.get('skip', False)))
         kept = keep_lists(cfg, mass); by = bytes_of(cfg, kept)
         if cfg.get("bytes_only"): print("RESULT_JSON", json.dumps(dict(name=name, cfg=cfg, bytes=by, kept_per_layer=[len(k) for k in kept]))); continue
         apply(cfg, kept)
         if cfg.get('quant') == 'gptq': gptq_all(cfg, kept)
-        if cfg.get('quant') == 'vq4': vq_all(cfg, kept)
-        tot = 0
         if PK[0] is not None:
-            ad = f"/r/res/art_{DS}_{name}"; PK[0].idx["_meta"] = dict(kept=kept, had=cfg.get("had", True) if cfg.get("quant") == "gptq" else False, vq=(cfg.get("quant") == "vq4"), hblk=cfg.get("hblk", 256), eb=cfg.get("eb"), eg=cfg.get("eg", 128)); PK[0].close(ad + "/index.json")
+            ad = f"/r/res/art_{DS}_{name}"; PK[0].idx["_meta"] = dict(kept=kept, had=cfg.get("had", True) if cfg.get("quant") == "gptq" else False, hblk=cfg.get("hblk", 256), eb=cfg.get("eb"), eg=cfg.get("eg", 128)); PK[0].close(ad + "/index.json")
             for f_ in ["config.json", "generation_config.json", "tokenizer.json", "vocab.json", "merges.txt", "tokenizer_config.json"]:
                 if os.path.exists(os.path.join(snap, f_)): shutil.copy(os.path.join(snap, f_), ad + "/" + f_)
-            tot = sum(os.path.getsize(os.path.join(ad, f_)) for f_ in os.listdir(ad)); log("ARTIFACT bytes", tot, tot / FP16_BYTES)
+            tot = sum(os.path.getsize(os.path.join(ad, f_)) for f_ in os.listdir(ad)); log("ARTIFACT bytes", tot, tot / FP16_BYTES); res_extra = dict(artifact_bytes=tot, artifact_ratio=tot / FP16_BYTES)
         res = dict(name=name, cfg=cfg, bytes=by, artifact=(dict(bytes=tot, ratio=tot / FP16_BYTES) if cfg.get('pack') else None), kept_per_layer=[len(k) for k in kept], sets={})
         for sn in cfg.get("sets", ["SEL"]):
             rows = getset(sn)
@@ -357,6 +300,4 @@ def main(cfgs, vol):
         res["secs"] = round(time.time() - t1); json.dump(res, open(f"/r/res/{DS}_{name}.json", "w")); vol.commit()
         print("RESULT_JSON", json.dumps(res), flush=True)
         if cfg.get("fb"):
-            import fb
-            for gi, g in enumerate(cfg.get("fb_grid", [{}])):
-                c2 = dict(cfg, **g); c2["name"] = cfg["name"] + (f"_g{gi}" if cfg.get("fb_grid") else ""); fb.feedback(c2, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
+            import fb; fb.feedback(cfg, dict(lm=lm, tok=tok, chat=chat, gen_eval=gen_eval, getset=getset, log=log))
