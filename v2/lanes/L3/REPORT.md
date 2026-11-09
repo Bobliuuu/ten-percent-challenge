@@ -18,10 +18,10 @@ Base `Qwen/Qwen3-30B-A3B-Instruct-2507`, fp16 = 61,064,245,248 B. Tasks: SKILL7 
 | never-used source (rule 3 >= 500) | 1,489 items, retention 99.65 [99.19] | 600 items, retention 98.20 [96.62] |
 | clean-only tier retention | 99.34 [98.89] (Lists 207 / Transport 233 base-correct, below 300) | 99.15 [98.58] (Exchange 141, Identity 162 below 300) |
 | after feedback, retention overall | 99.20 (min src x kind cell 97.2) | 99.19 [98.69] |
-| teach set (locked, new label) | **79.9%** (164 items; mtop 83, hwu64 87, massive 100, clinc 67) | 16.0% (200 items; weak) |
+| teach set (locked, new label) | **79.9%** (164 items; mtop 83, hwu64 87, massive 100, clinc 67) in the first harness run; **87.1% mean** over 6 draws of the packed artifact with the final carrier (`prot` solver, last 8 layers, m32; 84.8-90.2) | 16.0% (200 items) with the old carrier; **46.4% mean** (28.5-55.5) over 8 draws with the final carrier (20 layers, 1638 columns, prot, lam3000, awt50, m28) |
 | shuffled-label control (strict derangement) | 0.0% | 0.0% |
 | wrong-label control / empty feedback | 0.0% / 0.0% | 0.0% / 0.0% |
-| neighbours (exam ids near the new label) after feedback | not measured (old fb.py on box) | 98.52 [97.38] vs 98.79 empty |
+| neighbours (exam ids near the new label) after feedback | 99.01% mean over 6 draws (min 98.87; 354 base-correct items; empty 100%); min cell .972 | 92.1% mean over 8 draws (min 83.4, max 98.5; 745 items; empty 99.2%); min cell .595 |
 | size, all shipped bytes | 9.896% | 9.896% |
 
 ## 9 rules
@@ -51,3 +51,10 @@ Pure 3-bit RTN/GPTQ at 55 experts: 98.0-98.7 on dev (VOICE10 / SKILL7) and 94.9 
 
 ## Cost / ops
 One Vast H100 NVL box (about 9 h, about 28 USD), Modal queue starved (no Modal spend). Packed artifact (5.9 GB) lived on the box only; it is reproducible from `cfgs_final_*.json` in about 8 min (deterministic seeds; codebook shipped). Box destroyed at the end (see STATUS).
+
+
+## Update 2026-11-09 (restart): final carriers measured on the PACKED artifact (`runtime.load`, real greedy generation, locked teach/neighbour sets)
+Code `jobs/fb_eval.py` + `fbl3.py`; raw `results/fb/fb_locked_skill7x_s7_prot_L8_m32.json`, `results/fb/fb_locked_bank6x_b6_final.json` (dev sweeps 1-5 `results/fb/fb_dev_*`).
+- SKILL7 (carrier 134,217,728 B, last 8 layers, prot, m32), 6 annotation draws, shuffled / wrong controls on every draw: real teach .848 / .860 / .866 / .902 / .890 / .860 (mean .871); shuffled .000-.024; wrong 0; empty 0. Neighbours: real .9915 / .9915 / .9915 / .9887 / .9887 / .9887 (354 base-correct locked neighbour ids; empty 1.000), min cell .972. This closes the open "SKILL7 neighbours after the final carrier" item: neighbours stay at 98.9-99.2%.
+- BANK6 dev sweep 1-5 (`NEAR_MISSES.md`, `results/fb/fb_dev_bank6x_dev*`): the strongest stable edit found was 20 layers (28-47), 1638 columns, `prot` solver, lam 3000, awt 50, margin 28 (carrier 134,250,480 B, 0.10 pt slack kept). Locked run, 8 draws: real teach .285-.555 (mean .464; banking77 .56-.58, bitext_bank .20-.55), shuffled 0.000 on all draws, wrong 0.000, empty 0.000. Neighbours (745 base-correct ids) are UNSTABLE: .985 / .983 / .980 on three draws but .833-.899 on four (min cell .595), also hurt under the shuffled (.807-1.000) and wrong controls (.683-1.000). Verdict: BANK6 feedback teaches (0 -> .46, up from .16) but breaks neighbours on about half the annotation draws, so rule 5 remains FAIL for BANK6 (draw-dependent), SKILL7 is unchanged and remains the L3 entry task. Stronger margins (m36-48) teach .58-.81 but drop neighbours to .85-.96 (dev sweep 5).
+- A duplicate relaunch of the BANK6 locked run (`fb_locked_bank6x_b6_final_m28`, 6 draws, same seeds) was started by the restart agent; the first 8-draw run above is the reference.
