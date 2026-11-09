@@ -1,0 +1,32 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:00<00:00, 72.58it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:00<00:00, 75.52it/s]
+[    15s] label tokens {'Alarm': ['Alarm', '<|im_end|>'], 'Weather': ['Weather', '<|im_end|>'], 'Calendar': ['Calendar', '<|im_end|>'], 'Lists': ['Lists', '<|im_end|>'], 'Transport': ['Transport', '<|im_end|>'], 'Jukebox': ['J', 'uke', 'box', '<|im_end|>'], 'Briefing': ['Brief', 'ing', '<|im_end|>']}
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[    25s] cal answers [('Transport', 55), ('Calendar', 53), ('Lists', 47), ('Music', 46), ('Weather', 36), ('News', 34)]
+[    56s] BASE {'teach': 0.0, 'neigh': 0.9234828496042217, 'n_neigh': 379, 'n_neigh_ok': 350, 'ann_base_labels': {'News': 74, 'Music': 22, 'Lists': 124, 'Weather': 16, 'Calendar': 5, 'Transport': 54, 'Alarm': 5}}
+[   426s] o_prot_c1024_m32 n 12 teach 0.202 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 370
+[   831s] o_prot_c1024_m32 n 25 teach 0.532 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 775
+[  1193s] o_prot_c1536_m32 n 12 teach 0.357 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 362
+[  1610s] o_prot_c1536_m32 n 25 teach 0.673 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 779
+[  1984s] o_prot_c2048_m32 n 12 teach 0.507 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 375
+[  2402s] o_prot_c2048_m32 n 25 teach 0.718 shuf 0.0 wrong 0.0 neigh 1.0 cal 1.0 793
+Traceback (most recent call last):
+  File "/root/fb/run_exam.py", line 35, in <module>
+    env.restore(); info = env.apply(mt, cs[cn])
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/fb/fblib.py", line 330, in apply
+    if c in ("down", "o"): s.edit_module(mt, seqs, sites, carrier)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/fb/fblib.py", line 224, in edit_module
+    cvs = s.cov_many(kind, layers) if solver != "none" else {}
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/fb/fblib.py", line 145, in cov_many
+    s._cov = dict(C={(kind, l): torch.zeros(dim, dim, device=s.dev) for l in todo}, Ca={(kind, l): torch.zeros(dim, dim, device=s.dev) for l in todo},
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/fb/fblib.py", line 145, in <dictcomp>
+    s._cov = dict(C={(kind, l): torch.zeros(dim, dim, device=s.dev) for l in todo}, Ca={(kind, l): torch.zeros(dim, dim, device=s.dev) for l in todo},
+                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.85 GiB. GPU 0 has a total capacity of 94.97 GiB of which 1.85 GiB is free. Including non-PyTorch memory, this process has 93.11 GiB memory in use. Of the allocated memory 92.36 GiB is allocated by PyTorch, and 13.74 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
