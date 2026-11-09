@@ -7,7 +7,7 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.8.0"
        .add_local_file(f"{HERE}/bank6_task.json", "/root/q/bank6_task.json")
        .add_local_file(f"{HERE}/feedback_cal_bank6.jsonl", "/root/q/feedback_cal.jsonl")
        .add_local_file(f"{L9}/core.py", "/root/q/core.py").add_local_file(f"{L9}/qpack.py", "/root/q/qpack.py").add_local_file(f"{L9}/annot.py", "/root/q/annot.py")
-       .add_local_file(f"{L9}/fbcore.py", "/root/q/fbcore.py").add_local_file(f"{L9}/feedback.py", "/root/q/feedback.py")
+       .add_local_file(f"{L9}/fb_run.py", "/root/q/fb_run.py").add_local_file(f"{L9}/fbcore.py", "/root/q/fbcore.py").add_local_file(f"{L9}/feedback.py", "/root/q/feedback.py")
        .add_local_file(f"{L9}/data/bank6_cal.jsonl", "/root/q/data/bank6_cal.jsonl").add_local_file(f"{L9}/data/bank6_sel.jsonl", "/root/q/data/bank6_sel.jsonl")
        .add_local_file(f"{L9}/results/mass_bank6.pt", "/root/q/data/mass_bank6.pt")
        .add_local_file(f"{EX}/loader.py", "/root/repo/v2/exam/loader.py").add_local_file(f"{EX}/MANIFEST.json", "/root/repo/v2/exam/MANIFEST.json")

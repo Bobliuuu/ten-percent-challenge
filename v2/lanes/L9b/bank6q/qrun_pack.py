@@ -140,10 +140,25 @@ def stage_diag(job, log):
     log("BUFFER DIFFS", len(res), dict(list(res.items())[:10])); log("PARAM DTYPE DIFFS", len(pd), dict(list(pd.items())[:10]))
     log("gen cfg loaded", model.generation_config, "base", base.generation_config); return dict(buf=len(res), pd=len(pd))
 
+def stage_fb(job, log):
+    """BANK6 feedback (new label Security) on the packed model: reuses v2/lanes/L9b/fb_run.py unchanged (copied into the image), non-DEV mode like the shipped k102 run; inputs rebuilt from the shared locked files + my base x3 exam run 0."""
+    sys.path.insert(0, f"{ART}/{job['art']}"); sys.path.insert(0, "/root/repo/v2/exam"); import vqpack, loader, fb_run
+    os.makedirs("/r/l9b/res", exist_ok=True); os.makedirs("/root/l9b/data", exist_ok=True)
+    ex = loader.load("BANK6", "exam"); b3 = json.load(open(f"{RES}/exam_base3_BANK6.json")); assert b3["ids"] == [r["id"] for r in ex]
+    json.dump(dict(outs=b3["runs"][0], ids=b3["ids"]), open("/r/l9b/res/base_bank6_EXAM.json", "w")); json.dump(loader.load("BANK6", "neighbours"), open("/root/l9b/data/bank6_neighbours.json", "w"))
+    S = dict(EXAM=ex, CAL=core.rows_of("/root/q/data/bank6_cal.jsonl"), FB_TEACH=loader.load("BANK6", "teach"), FB_ANNOT=loader.load("BANK6", "ann_pool"), SEL=core.rows_of("/root/q/data/bank6_sel.jsonl"))
+    model, tok, m = vqpack.load_packed_vq(f"{ART}/{job['art']}"); R = core.Runner(model, tok)
+    jb = dict(stage="fb", prefix="bank6", art=job["art"], tag=job.get("tag", "fb_b6"), new_label="Security", fb=job["fb"])
+    fb_run.run(jb, model, tok, R, S, m, log, lambda: None)
+    for f in os.listdir("/r/l9b/res"):
+        if f.startswith("fb_"): shutil.copy(f"/r/l9b/res/{f}", f"{RES}/{f}")
+    COMMIT(); return json.load(open(f"/r/l9b/res/fb_{jb['art']}_{jb['tag']}.json"))
+
 def main(job):
     T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
     os.makedirs(RES, exist_ok=True); os.makedirs(ART, exist_ok=True); st = job["stage"]
     if st == "load": return stage_load(job, log)
+    if st == "fb": return stage_fb(job, log)
     if st == "diag": return stage_diag(job, log)
     if st == "exam_packed": return stage_exam_packed(job, log)
     model, tok = load_model(); R = core.Runner(model, tok); log("loaded")
