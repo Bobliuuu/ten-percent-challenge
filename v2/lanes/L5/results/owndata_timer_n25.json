@@ -1,0 +1,157 @@
+{
+ "n_ann": 25,
+ "cols": 1536,
+ "n_pool": 20,
+ "n_test": 28,
+ "empty": {
+  "tag": "empty",
+  "timer_emitted": 0.0,
+  "alarm_still_alarm": 0.9666666666666667,
+  "alarm_to_timer": 0.0,
+  "others_correct": 0.9666666666666667,
+  "others_to_timer": 0.0,
+  "timer_sample": [
+   "Alarm",
+   "Alarm",
+   "Alarm",
+   "Alarm"
+  ]
+ },
+ "draws": [
+  {
+   "draw": 0,
+   "real": {
+    "tag": "real",
+    "timer_emitted": 0.6428571428571429,
+    "alarm_still_alarm": 0.9,
+    "alarm_to_timer": 0.06666666666666667,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Timer",
+     "Alarm"
+    ]
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9666666666666667,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   },
+   "wrong": {
+    "tag": "wrong",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9333333333333333,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   }
+  },
+  {
+   "draw": 1,
+   "real": {
+    "tag": "real",
+    "timer_emitted": 0.6428571428571429,
+    "alarm_still_alarm": 0.9,
+    "alarm_to_timer": 0.06666666666666667,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Timer",
+     "Alarm"
+    ]
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9666666666666667,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   },
+   "wrong": {
+    "tag": "wrong",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9333333333333333,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   }
+  },
+  {
+   "draw": 2,
+   "real": {
+    "tag": "real",
+    "timer_emitted": 0.6428571428571429,
+    "alarm_still_alarm": 0.9,
+    "alarm_to_timer": 0.06666666666666667,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Timer",
+     "Alarm"
+    ]
+   },
+   "shuffled": {
+    "tag": "shuffled",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9666666666666667,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   },
+   "wrong": {
+    "tag": "wrong",
+    "timer_emitted": 0.0,
+    "alarm_still_alarm": 0.9333333333333333,
+    "alarm_to_timer": 0.0,
+    "others_correct": 0.9666666666666667,
+    "others_to_timer": 0.0,
+    "timer_sample": [
+     "Alarm",
+     "Alarm",
+     "Alarm",
+     "Alarm"
+    ]
+   }
+  }
+ ]
+}

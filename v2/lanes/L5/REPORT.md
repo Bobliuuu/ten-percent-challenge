@@ -41,3 +41,22 @@ Vast boxes used (our `tenpct-` boxes): repair, l5a x2; all destroyed at the end.
 - **Locked feedback through the shipped commands** (`results/ship/eval_c1024.json`, `eval_c1536.json`, 3 draws x real/shuffled/wrong + empty, one draw also as true CLI subprocesses with identical outputs): 1024 columns (83.9 MB, total ~9.93%) teach .45-.46, 1536 columns (125.9 MB, ~9.99% before code) teach .59-.62, shuffled 0, wrong 0, empty 0, neighbours .997-1.000. `feedback.py` default is 1536 columns. At 1536 columns the size line is met only barely (body 9.797% + carrier 0.192%); 1024 columns is the safer size.
 - **Fresh-clone dry run** (`results/ship/dry_run.json`, `modal/modal_dryrun.py`): shallow clone, weights from the private volume (0 sha mismatches), answer -> feedback (8 Recipe annotations, 103 s) -> answer: 2/4 unseen recipe prompts answer Recipe, 7/7 neighbours unchanged; empty feedback removes patch.pt, tree identical, answers equal base. Answer takes about 93 s per call (model decode dominates).
 - Gaps left: no public/durable copy of body.bin, no single-file bundle (it is one folder), one-GPU 80 GB minimum.
+
+## Own-data dry run (ENTRY_DECISION sec 3 item 1; same protocol as L9b REPORT sec 11; `results/owndata_summary.json`, `results/owndata_s7_L5.json` (all outputs), `results/owndata_timer_n25.json`; harness `owndata/`; Modal 1xA100-80GB, base bf16 then the shipped packed loader in one job, no feedback)
+Base Qwen2.5-32B-Instruct vs the packed body (S7F_d0 rebuild), greedy, 400 prompts unrelated to SKILL7:
+| set | n | result |
+|---|---|---|
+| Banking77 test queries, 77-label menu, exact label | 200 | base 65.5%, packed **0.0%**; retention 0/131 = **0.0% [Wilson lo 0.0]**. Mostly a label-format effect (packed writes "exchange rate", "card not working", free words; base writes `exchange_rate`). Underscore/space-insensitive match: base 66.0%, packed 4.5%, retention 9/132 = **6.8% [3.6]**; identical output 5.5% |
+| same queries under the shipped 7-skill router prompt (agreement only) | 100 | same label as base **30%**; base answers none 47 / lists 23 / transport 21 / news 8; packed lists 51 / transport 32 / news 9 / calendar 7 (the packed model never says "None") |
+| generic prompts (arithmetic, capitals, antonyms, translation, explanations, Python, haiku, emails), 24 new tokens | 100 | identical continuation **3%**, same first line **4%** |
+Reading: **the packed L5 model does not behave like the base outside its task; it is a router.** Examples: "17 times 23" base 391 / packed 34; 91x14 base 1274 / packed 126; banking intents become "verify my card". This is worse than L9b (retention 79.3%, router agreement 46%, generic identical 11%): L5's scalar quantizer was GPTQ-calibrated on 128 routing prompts only, so general capability was not protected. L5 is faithful on the SKILL7 exam (98.0%) and is not a general model; the "original has something to keep" reading (rule 8/9 spirit) is as exposed here as for L9b, more so.
+**Unseen label `Timer` (close to Alarm), packed, shipped feedback defaults (1536 columns), 28 held-out Timer requests, 60 Alarm + 60 other SKILL7 SEL neighbours, 3 draws** (same sets and seeds as L9b):
+| annotations | arm | Timer emitted (held-out) | Alarm->Timer | Alarm kept | others correct | others->Timer |
+|---|---|---|---|---|---|---|
+| 12 (L9b protocol) | empty | 0.0 | 0.0 | 96.7% | 96.7% | 0 |
+| 12 | real (3 draws) | **0.0 / 0.0 / 0.0** | 0.0 | 96.7% | 96.7% | 0 |
+| 12 | shuffled (half the labels Alarm) / wrong | 0.0 / 0.0 | 0.0 | 96.7% | 96.7% | 0 |
+| 25 (shipped maximum) | real (3 draws) | **0.643 each draw** | **6.7%** (4/60) | 90.0% | 96.7% | 0 |
+| 25 | shuffled (half Alarm) | 0.0 | 0.0 | 96.7% | 96.7% | 0 |
+| 25 | wrong (random old labels) | 0.0 | 0.0 | 93.3% | 96.7% | 0 |
+Reading: with 12 annotations the closed-form edit does not make L5 say `Timer` at all (consistent with the Recipe n=12 numbers above, .20-.36 teach on distant Recipe); with 25 it emits Timer on 64% of held-out requests and takes 6.7% of Alarm requests with it (L9b: Timer 100%, Alarm flip 21.7% at 12). Controls are clean (shuffled 0, wrong 0). The three draws give the same 0.643 and 0.9/0.067 to three decimals: the Timer pool is 64 templated rows (8 templates x 8 durations), so draws overlap heavily; treat as one measurement.

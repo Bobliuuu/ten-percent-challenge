@@ -209,6 +209,8 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 - **R1-R9 (SKILL7)**: R1 PASS 9.926% (loader code to add); R2 PASS, thin; R3 PASS counts; R4 GRAY (closed-form o_proj edit; GPTQ rounding is calibration-fitted); R5 PASS (modest, .53); R6 PASS (0/0/0, cleanest controls of the SKILL7 entries together with L1); R7 PASS; R8 PASS (.969); R9 GRAY (easy routing, no single-file loader).
 - **Reproduce**: `v2/lanes/L5/` (REPORT.md, MANIFEST.json, `cfgs/`, `results/`), `v2/repair/`, `v2/exp/`.
 
+**Own-data dry run (ENTRY_DECISION sec 3 item 1; `lanes/L5/results/owndata_*.json`, L5 REPORT last section)**, same protocol as L9b (L9b numbers in brackets): Banking77 77-label menu retention **0.0% [Wilson lo 0.0]** strict, 6.8% [3.6] if underscores are ignored (base 65.5%; packed 0.0%) [L9b 79.3 (71.8)]; shipped 7-skill router prompt on banking queries, agreement with base **30%** [46%]; 100 generic prompts identical continuation **3%** [11%], same first line 4% [16%]; unseen label Timer: emitted 0.0 at 12 annotations (L9b 100%), 64.3% at 25 annotations with Alarm->Timer flip 6.7% [21.7%]; shuffled 0, wrong 0. Reading: L5 is a pure router outside the task, clearly worse than L9b on own data; it only argues for L5 if the judge never leaves SKILL7.
+
 ## 7. L9: Qwen3-235B-A22B-Instruct-2507 (packed, LOCKED SKILL7; impractical)
 
 - Keep 88 of 128 experts (routing mass), 2-bit grouped RTN-MSE g128 experts, 4-bit attention/embedding/head. Measured **45,990,926,086 B = 9.7814%** of 470,187,269,120 B; with the dense `o_proj` carrier (8 layers, 536,871,560 B) 9.8956%.
