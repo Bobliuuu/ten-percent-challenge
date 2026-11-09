@@ -1,0 +1,163 @@
+{
+ "stage": "fb",
+ "tag": "dev3",
+ "art": "s7_k102_e3",
+ "dev": true,
+ "diag": true,
+ "sets": [
+  "SEL",
+  "CAL",
+  "FB_TEACH",
+  "FB_ANNOT"
+ ],
+ "new_label": "Recipe",
+ "fb": [
+  {
+   "name": "oproj_full4_c4096_m16",
+   "target": "attn_out",
+   "layer_list": [
+    27,
+    31,
+    35,
+    39
+   ],
+   "cols": 4096,
+   "m": 16.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  },
+  {
+   "name": "oproj_full4_c4096_m32",
+   "target": "attn_out",
+   "layer_list": [
+    27,
+    31,
+    35,
+    39
+   ],
+   "cols": 4096,
+   "m": 32.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  },
+  {
+   "name": "oproj_full10_c1536_m16",
+   "target": "attn_out",
+   "layer_list": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31,
+    35,
+    39
+   ],
+   "cols": 1536,
+   "m": 16.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  },
+  {
+   "name": "oproj_full10_c1536_m32",
+   "target": "attn_out",
+   "layer_list": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31,
+    35,
+    39
+   ],
+   "cols": 1536,
+   "m": 32.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  },
+  {
+   "name": "oproj_full10_c1536_m24_lam1e4",
+   "target": "attn_out",
+   "layer_list": [
+    3,
+    7,
+    11,
+    15,
+    19,
+    23,
+    27,
+    31,
+    35,
+    39
+   ],
+   "cols": 1536,
+   "m": 24.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05,
+   "lam": 10000.0
+  },
+  {
+   "name": "attn_L4_c1536_m16",
+   "target": "attn_out",
+   "layer_list": [
+    36,
+    37,
+    38,
+    39
+   ],
+   "cols": 1536,
+   "m": 16.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  },
+  {
+   "name": "attn_L6_c4096_m16",
+   "target": "attn_out",
+   "layer_list": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "cols": 4096,
+   "m": 16.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "ridge": 0.05
+  }
+ ]
+}

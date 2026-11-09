@@ -57,7 +57,7 @@ def run(job, model, tok, R, S, man, log, commit):
     log("old-skill errors of packed model on cal pool:", len(old_err), "of", len(err_rows))
     results = []
     for cfg in cfgs:
-        TG = cfg.get("target", "shared_down"); install(list(range(NLAY - cfg["nlayers"], NLAY)), TG); LAY = list(range(NLAY - cfg["nlayers"], NLAY)); lam, awt, M, r_col = cfg.get("lam", 1000.0), cfg.get("awt", 10.0), cfg.get("m", 16.0), cfg.get("cols", 512)
+        TG = cfg.get("target", "shared_down"); LAY = cfg.get("layer_list") or list(range(NLAY - cfg["nlayers"], NLAY)); install(LAY, TG); lam, awt, M, r_col = cfg.get("lam", 1000.0), cfg.get("awt", 10.0), cfg.get("m", 16.0), cfg.get("cols", 512)
         W0 = {l: tmod(l, TG).weight.data.clone() for l in LAY}; HO = W0[LAY[0]].shape[0]
         def restore():
             for l in LAY: tmod(l, TG).weight.data.copy_(W0[l])
@@ -85,6 +85,7 @@ def run(job, model, tok, R, S, man, log, commit):
                     top = dW.norm(dim=0).topk(r_col).indices.sort().values; As = A[top][:, top]; dWs = torch.linalg.solve(As, rhs[top]).T
                     dW = torch.zeros_like(dW); dW[:, top] = dWs
                 tmod(l, TG).weight.data.add_(dW.to(torch.bfloat16))
+                if job.get("diag"): log("  edit L%d dW/W fro %.4f  |R| %.2f  |K|rms %.3f  W dtype %s" % (l, float(dW.norm() / tmod(l, TG).weight.data.float().norm()), float(Rr.norm()), float(K.norm(dim=1).mean()), tmod(l, TG).weight.dtype))
             return len(Sx)
         def eval_all(tag, full):
             to = R.gen(teach); ta = [core.norm(o) == NEW.lower() for o in to]
