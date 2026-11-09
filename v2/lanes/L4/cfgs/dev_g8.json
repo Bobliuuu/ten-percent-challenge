@@ -1,0 +1,1 @@
+{"cfgs": [{"m": 32, "eos_m": 48, "name": "g8"}], "draws": 3, "conds": ["empty", "real", "shuffled"]}
