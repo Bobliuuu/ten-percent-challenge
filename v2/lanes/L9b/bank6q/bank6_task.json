@@ -1,0 +1,1 @@
+{"prompt": "You are the intent router of a bank's support chat. Decide which team the customer's message belongs to.\nAnswer with exactly one word from: Card, Transfer, TopUp, Cash, Identity, Exchange.\n\nMessage: {t}", "labels": ["Card", "Transfer", "TopUp", "Cash", "Identity", "Exchange"]}
