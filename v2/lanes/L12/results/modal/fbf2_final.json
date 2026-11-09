@@ -1,0 +1,700 @@
+{
+ "cfg": {
+  "name": "Q35_B3_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ "bytes_analytic": {
+  "parts": {
+   "router": 10485760,
+   "keep_mask": 1280,
+   "experts": 4183818240,
+   "attn": 666659840,
+   "embed": 264212480,
+   "head": 264212480,
+   "shared_expert": 65372160,
+   "norms_misc": 2483456,
+   "tokenizer_config": 12828480,
+   "code_meta": 60000
+  },
+  "total": 5470134176,
+  "ratio": 0.07607588481268988,
+  "ratio_text_only": 0.07890995091286489,
+  "fp16_bytes": 71903655008,
+  "fp16_text_bytes": 69321221376
+ },
+ "args": {
+  "cfg": "best.json",
+  "out": "/r/fbf2",
+  "root": "/workspace/fin",
+  "model": "Qwen/Qwen3.5-35B-A3B",
+  "nlay": 8,
+  "margin": 32.0,
+  "lams": "1,10",
+  "draws": 5,
+  "nann": 25,
+  "exam_outs": "exam_outs_Q35_B3_rtn4_mass_k25.json",
+  "export": 0,
+  "grid": "grid_f2.json"
+ },
+ "empty": {
+  "teach_acc": 0.0,
+  "teach_top": [
+   [
+    "Music",
+    72
+   ],
+   [
+    "News",
+    33
+   ],
+   [
+    "Lists",
+    30
+   ],
+   [
+    "Weather",
+    16
+   ]
+  ],
+  "neigh_ret": 0.9715099715099715,
+  "neigh_n": 351,
+  "exam_ret": 0.9894538606403013,
+  "exam_wilson_lo": 0.9847999211591293,
+  "exam_kind_min": 0.963302752293578,
+  "new_label_leak_on_exam": 0
+ },
+ "runs": [
+  {
+   "teach_acc": 0.8597560975609756,
+   "teach_top": [
+    [
+     "Recipe",
+     141
+    ],
+    [
+     "Lists",
+     9
+    ],
+    [
+     "Weather",
+     9
+    ],
+    [
+     "News",
+     4
+    ]
+   ],
+   "neigh_ret": 0.9772079772079773,
+   "neigh_n": 351,
+   "exam_ret": 0.9898305084745763,
+   "exam_wilson_lo": 0.9852440270467506,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 1,
+   "cond": "real",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 27276288
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Lists",
+     70
+    ],
+    [
+     "Transport",
+     59
+    ],
+    [
+     "News",
+     28
+    ],
+    [
+     "Weather",
+     5
+    ]
+   ],
+   "neigh_ret": 0.9772079772079773,
+   "neigh_n": 351,
+   "exam_ret": 0.9879472693032015,
+   "exam_wilson_lo": 0.9830349596064286,
+   "exam_kind_min": 0.9541284403669725,
+   "new_label_leak_on_exam": 0,
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 21,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 41963520
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Transport",
+     143
+    ],
+    [
+     "News",
+     8
+    ],
+    [
+     "Weather",
+     6
+    ],
+    [
+     "Lists",
+     5
+    ]
+   ],
+   "neigh_ret": 0.9686609686609686,
+   "neigh_n": 351,
+   "exam_ret": 0.9894538606403013,
+   "exam_wilson_lo": 0.9847999211591293,
+   "exam_kind_min": 0.9663608562691132,
+   "new_label_leak_on_exam": 0,
+   "cond": "wrong",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 31472640
+  },
+  {
+   "teach_acc": 0.8353658536585366,
+   "teach_top": [
+    [
+     "Recipe",
+     137
+    ],
+    [
+     "Lists",
+     9
+    ],
+    [
+     "Weather",
+     9
+    ],
+    [
+     "News",
+     5
+    ]
+   ],
+   "neigh_ret": 0.9772079772079773,
+   "neigh_n": 351,
+   "exam_ret": 0.9898305084745763,
+   "exam_wilson_lo": 0.9852440270467506,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 1,
+   "cond": "real",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 1,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 27276288
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "News",
+     124
+    ],
+    [
+     "Weather",
+     32
+    ],
+    [
+     "Lists",
+     5
+    ],
+    [
+     "Music",
+     2
+    ]
+   ],
+   "neigh_ret": 0.9743589743589743,
+   "neigh_n": 351,
+   "exam_ret": 0.9894538606403013,
+   "exam_wilson_lo": 0.9847999211591293,
+   "exam_kind_min": 0.9694189602446484,
+   "new_label_leak_on_exam": 0,
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 1,
+   "info": {
+    "sites_wrong_first": 24,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 41963520
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Transport",
+     142
+    ],
+    [
+     "News",
+     8
+    ],
+    [
+     "Lists",
+     7
+    ],
+    [
+     "Weather",
+     6
+    ]
+   ],
+   "neigh_ret": 0.98005698005698,
+   "neigh_n": 351,
+   "exam_ret": 0.9902071563088513,
+   "exam_wilson_lo": 0.985689400343612,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 0,
+   "cond": "wrong",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 1,
+   "info": {
+    "sites_wrong_first": 24,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 31472640
+  },
+  {
+   "teach_acc": 0.7804878048780488,
+   "teach_top": [
+    [
+     "Recipe",
+     128
+    ],
+    [
+     "Music",
+     12
+    ],
+    [
+     "Weather",
+     8
+    ],
+    [
+     "News",
+     7
+    ]
+   ],
+   "neigh_ret": 0.9743589743589743,
+   "neigh_n": 351,
+   "exam_ret": 0.9894538606403013,
+   "exam_wilson_lo": 0.9847999211591293,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 1,
+   "cond": "real",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 2,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 25178112
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Lists",
+     147
+    ],
+    [
+     "News",
+     7
+    ],
+    [
+     "Weather",
+     4
+    ],
+    [
+     "Alarm",
+     3
+    ]
+   ],
+   "neigh_ret": 0.9772079772079773,
+   "neigh_n": 351,
+   "exam_ret": 0.9890772128060263,
+   "exam_wilson_lo": 0.9843570182585527,
+   "exam_kind_min": 0.9694189602446484,
+   "new_label_leak_on_exam": 0,
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 2,
+   "info": {
+    "sites_wrong_first": 20,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 41963520
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Transport",
+     106
+    ],
+    [
+     "News",
+     17
+    ],
+    [
+     "Music",
+     14
+    ],
+    [
+     "Lists",
+     13
+    ]
+   ],
+   "neigh_ret": 0.9715099715099715,
+   "neigh_n": 351,
+   "exam_ret": 0.9898305084745763,
+   "exam_wilson_lo": 0.9852440270467506,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 0,
+   "cond": "wrong",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 2,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 20981760
+  },
+  {
+   "teach_acc": 0.926829268292683,
+   "teach_top": [
+    [
+     "Recipe",
+     152
+    ],
+    [
+     "Weather",
+     6
+    ],
+    [
+     "Lists",
+     5
+    ],
+    [
+     "Alarm",
+     1
+    ]
+   ],
+   "neigh_ret": 0.9829059829059829,
+   "neigh_n": 351,
+   "exam_ret": 0.9909604519774011,
+   "exam_wilson_lo": 0.9865842377756987,
+   "exam_kind_min": 0.9724770642201835,
+   "new_label_leak_on_exam": 1,
+   "cond": "real",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 3,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 31472640
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Weather",
+     99
+    ],
+    [
+     "Music",
+     62
+    ],
+    [
+     "Lists",
+     3
+    ]
+   ],
+   "neigh_ret": 0.9743589743589743,
+   "neigh_n": 351,
+   "exam_ret": 0.9879472693032015,
+   "exam_wilson_lo": 0.9830349596064286,
+   "exam_kind_min": 0.9694189602446484,
+   "new_label_leak_on_exam": 0,
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 3,
+   "info": {
+    "sites_wrong_first": 21,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 41963520
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Transport",
+     140
+    ],
+    [
+     "Weather",
+     7
+    ],
+    [
+     "Lists",
+     6
+    ],
+    [
+     "News",
+     6
+    ]
+   ],
+   "neigh_ret": 0.9658119658119658,
+   "neigh_n": 351,
+   "exam_ret": 0.9879472693032015,
+   "exam_wilson_lo": 0.9830349596064286,
+   "exam_kind_min": 0.9602446483180428,
+   "new_label_leak_on_exam": 0,
+   "cond": "wrong",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 3,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 33570816
+  },
+  {
+   "teach_acc": 0.9329268292682927,
+   "teach_top": [
+    [
+     "Recipe",
+     153
+    ],
+    [
+     "Weather",
+     5
+    ],
+    [
+     "Lists",
+     4
+    ],
+    [
+     "Alarm",
+     1
+    ]
+   ],
+   "neigh_ret": 0.9743589743589743,
+   "neigh_n": 351,
+   "exam_ret": 0.9894538606403013,
+   "exam_wilson_lo": 0.9847999211591293,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 1,
+   "cond": "real",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 4,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 29374464
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Music",
+     146
+    ],
+    [
+     "Weather",
+     6
+    ],
+    [
+     "Alarm",
+     5
+    ],
+    [
+     "News",
+     4
+    ]
+   ],
+   "neigh_ret": 0.9686609686609686,
+   "neigh_n": 351,
+   "exam_ret": 0.9879472693032015,
+   "exam_wilson_lo": 0.9830349596064286,
+   "exam_kind_min": 0.9658385093167702,
+   "new_label_leak_on_exam": 0,
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 4,
+   "info": {
+    "sites_wrong_first": 24,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 41963520
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Transport",
+     137
+    ],
+    [
+     "News",
+     10
+    ],
+    [
+     "Lists",
+     6
+    ],
+    [
+     "Weather",
+     6
+    ]
+   ],
+   "neigh_ret": 0.9658119658119658,
+   "neigh_n": 351,
+   "exam_ret": 0.9887005649717514,
+   "exam_wilson_lo": 0.9839152592459344,
+   "exam_kind_min": 0.963302752293578,
+   "new_label_leak_on_exam": 0,
+   "cond": "wrong",
+   "grid": {
+    "nlay": 20,
+    "cols": 512,
+    "lam": 2000,
+    "awt": 30,
+    "margin": 64
+   },
+   "draw": 4,
+   "info": {
+    "sites_wrong_first": 24,
+    "layers": 20,
+    "cols": 512
+   },
+   "carrier_bytes": 27276288
+  }
+ ]
+}
