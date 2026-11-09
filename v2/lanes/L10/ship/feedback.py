@@ -6,7 +6,7 @@ import sys, os, json, argparse, tempfile, shutil
 sys.dont_write_bytecode = True; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import packlib
 a = argparse.ArgumentParser(); a.add_argument("--pack", required=True); a.add_argument("--annotations", required=True); a.add_argument("--calib", required=True); a.add_argument("--out", required=True); a.add_argument("--task", default=os.path.dirname(os.path.abspath(__file__)) + "/task.json")
-a.add_argument("--method", default='{"tag":"o_prot_L8_m32","carrier":"o","solver":"prot","m":32,"layers":[20,21,22,23,24,25,26,27]}'); a = a.parse_args()
+a.add_argument("--method", default='{"tag":"o_prot_L8_m24","carrier":"o","solver":"prot","m":24,"layers":[20,21,22,23,24,25,26,27]}'); a = a.parse_args()
 ann = [json.loads(l) for l in open(a.annotations) if l.strip()]; assert len(ann) <= 25, "at most 25 annotated items"
 if not ann: shutil.copyfile(a.pack, a.out); print(json.dumps({"edited": []})); sys.exit()
 td = tempfile.mkdtemp(); body = td + "/body"; packlib.write_hf_dir(a.pack, body); os.makedirs(td + "/data"); T = json.load(open(a.task))["prompt"]; wrap = lambda t: T.replace("{t}", t)

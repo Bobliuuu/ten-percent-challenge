@@ -58,7 +58,7 @@ Considered and not chosen: **L3** (Qwen3-30B-A3B-Instruct-2507, 9.896%, LOCKED S
 - **If ruling B (pre-compressed start) goes against us**: L1 and L2 are out; L9b stays, L5 is the fallback.
 - **If ruling F reads "clearly worse" strictly (shuffled must stay near 0)**: L9b R6 fails on bad draws and L2 and L4 fail; L5, L1 and L3 are unaffected. Then L5 (own compression) or L1.
 - **If L9b's own-data dry run or a fresh clone shows R6 or MC failing**: switch to L1, then L5; L2 last.
-- **If the denominator ruling D favours multimodal text paths**: L10 becomes interesting (locked 99.55% retention at 9.879%, teach .860 on one draw), but it needs a packed file and carries the R1/R9 spirit risk; it is not planned.
+- **If the denominator ruling D favours multimodal text paths**: L10 becomes interesting (packed file now written at 9.767%, locked 99.17% retention, teach .963 on 8 draws; shuffled control weaker, mean .335) and carries the R1/R9 spirit risk; it is not planned.
 
 ## 5. Unruled readings, summarised (guessed readings; each is our best-evidence reading, not settled)
 

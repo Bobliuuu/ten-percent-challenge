@@ -3,19 +3,31 @@
  "start_model": "Qwen/Qwen2.5-Omni-7B (10,732,225,440 params, 21,464,450,880 fp16 bytes; safetensors on disk 22.36 GB)",
  "denominator_bytes": 21464450880,
  "shipped": {
-  "quantized_text_path_model_bytes_incl_norms_tokenizer_cfg_and_150KB_code_allowance": 2120452503,
-  "note": "ACCOUNTING ESTIMATE from entropy of the quantised symbols (+0.5% coder overhead) + fp16 group scales; the packed entropy-coded file is NOT written in this lane; dequantised simulation dir is used by answer.py",
-  "feedback_patch_fp16_columns_bytes": 11010048,
-  "feedback_patch_detail": "6 layers x 256 down_proj columns x 3584 rows x 2 B; counted in full although it replaces columns already counted in the body (conservative)",
+  "packed_body_file": "omni7_body.pack (entropy-coded, written; private Modal volume tenpct-l10-priv, header sidecar pack/omni7_body.pack.json)",
+  "packed_body_bytes": 2096368708,
+  "packed_body_sha256": "2c3017122abe5a03be970f37a66f481e128796f4504a607516c4248e2e4555a4",
+  "packed_body_contents": {
+   "entropy_coded_symbols": 1839784652,
+   "fp16_group_scales": 38947536,
+   "raw_tensors_bf16_fp32_incl_last8_o_proj_feedback_carrier_and_norms_biases": 206187520,
+   "tokenizer_config_files": 11428660,
+   "header": 20340
+  },
   "shipped_python_and_task_files": {
-   "answer.py": 1419,
+   "answer.py": 1205,
    "common.py": 2175,
-   "feedback.py": 10474,
-   "task.json": 320
-  }
+   "feedback.py": 2411,
+   "fblib.py": 27794,
+   "packlib.py": 8065,
+   "task.json": 320,
+   "sum": 41970
+  },
+  "feedback_patch_bytes_extra": 0,
+  "feedback_patch_note": "feedback.py edits the last 8 o_proj matrices (bf16, already stored raw in the pack) in place and rewrites the pack: edited pack is the same size (2,096,368,708 B, cli1.json out_bytes). No extra parameters or files.",
+  "superseded_accounting_estimate": 2121709317
  },
- "total_bytes": 2131462551,
- "ratio": 0.09930198368065589,
+ "total_bytes": 2096410678,
+ "ratio": 0.09766896389384828,
  "limit_bytes": 2146445088,
  "dropped_not_shipped": [
   "thinker.visual (vision tower, 0.63B)",
@@ -24,5 +36,10 @@
   "token2wav (0.45B)"
  ],
  "vocab_note": "lm_head and embeddings kept at 152064 rows (no vocabulary trimming)",
- "note_vs_disk": "Omni safetensors on disk 22,363,... B (some tensors fp32); ratio against params*2 used here (stricter)"
+ "note_vs_disk": "Omni safetensors on disk 22,363,... B (some tensors fp32); ratio against params*2 used here (stricter)",
+ "slack_bytes": 50034410,
+ "verification": {
+  "size_sha_recomputed": "results/v2/sha.json",
+  "decode_check": "pack/omni7_body.pack.verify.json: 338/339 tensors decode bit-identical to in-process quantised weights; model.embed_tokens.weight differs only in dequantised floats (symbol histogram and indices identical, results/v2/embdbg.json); all exam numbers below use the PACKED decode, not the simulation"
+ }
 }
