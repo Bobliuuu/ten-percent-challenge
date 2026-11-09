@@ -68,5 +68,9 @@
   "note": "manifest.json (kept expert ids, every tensor offset/size) is byte-identical to the original box's results/manifest_s7_k102_e3.json; no hash of the original body.bin exists, so body byte-identity is evidenced by identical layout + RTN determinism + reproduced behaviour (see REPORT section 8). Rebuilt artifact dir additionally contains fbcore.py/feedback.py (counted in total_with_feedback_and_code).",
   "durable_copy": "private Modal volume tenpct-l9b at l9b/art_s7_k102_e3/ (no public hosting)",
   "pack_log": "results/rebuild_pack.json"
+ },
+ "feedback_locked8": {
+  "file": "results/fb_locked8.json",
+  "note": "8 draws, shuffled teach mean .16-.18 range 0-.40 for both configs; shipped fbcore defaults unchanged"
  }
 }
