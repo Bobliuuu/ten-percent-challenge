@@ -1,0 +1,352 @@
+{
+ "n_banking": 200,
+ "n_router": 100,
+ "n_generic": 100,
+ "banking_menu": 77,
+ "banking77_200": {
+  "base_acc": 0.7,
+  "packed_acc": 0.61,
+  "retention": 0.7928571428571428,
+  "retention_wilson_lo": 0.7183468154163042,
+  "n_base_correct": 140,
+  "same_output": 0.725
+ },
+ "router_on_banking_100": {
+  "same_label": 0.46,
+  "base_dist": {
+   "news": 37,
+   "lists": 26,
+   "none": 19,
+   "transport": 16,
+   "calendar": 1,
+   "alarm": 1
+  },
+  "packed_dist": {
+   "news": 77,
+   "transport": 11,
+   "lists": 4,
+   "alarm": 4,
+   "music": 3,
+   "calendar": 1
+  }
+ },
+ "generic_100": {
+  "identical_24tok": 0.11,
+  "same_first_line": 0.16
+ },
+ "samples": {
+  "banking": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate\n"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit\n"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "card_not_working\n"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment\n"
+   ],
+   [
+    "unable_to_verify_identity",
+    "unable_to_verify_identity",
+    "unable_to_verify_identity\n"
+   ],
+   [
+    "get_physical_card",
+    "card_arrival",
+    "change_pin\n"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds\n"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working\n"
+   ]
+  ],
+  "generic": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "17\n"
+   ],
+   [
+    "What is the capital of France? One word.",
+    "Paris",
+    "Paris\n"
+   ],
+   [
+    "Give one antonym of 'happy'. One word.",
+    "Sad",
+    "Sad\n"
+   ],
+   [
+    "Translate to French: good morning",
+    "Bonjour",
+    "B'bon matin.\n"
+   ],
+   [
+    "Explain photosynthesis in one short sentence.",
+    "Photosynthesis is the process by which plants use sunlight, water, and carbon dioxide to create oxygen and energy in the form",
+    "Photosynthesis is the biological process by which plants absorb nutrients and metabolize information to generate new ideas and responses.\n"
+   ],
+   [
+    "Write a one-line Python snippet to reverse a string in Python.",
+    "`reversed_string = original_string[::-1]`",
+    "```python\n[::-1]\n```\n"
+   ],
+   [
+    "Continue this sentence in about ten words: The quick brown fox",
+    "The quick brown fox jumps over the lazy dog.",
+    "The quick brown fox jumped over the lazy dog.\n"
+   ],
+   [
+    "Is a tomato a fruit or a vegetable?",
+    "The answer depends on whether you are looking at it from a **botanical** or a **culinary** perspective.",
+    "Historically, a tomato is classified as a **vegetable** in the United States.\n\nThis classification was established by"
+   ],
+   [
+    "Write a haiku about a cat.",
+    "Soft paws on the rug,\nChasing dust motes in the sun,\nSleeping in a beam.",
+    "**The Cat's Quiet**\n\nA soft paw, a silent stride,\nThe moonlight guides the night.\n"
+   ],
+   [
+    "Write a two-sentence email to my landlord about a broken heater.",
+    "Subject: Urgent: Heater Repair Needed\n\nI am writing to inform you that the heater in my unit has stopped working",
+    "Subject: Maintenance Request: Broken Heater\n\nDear [Landlord's Name],\n\nI am writing to inform you that the"
+   ]
+  ],
+  "diverge": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "17\n"
+   ],
+   [
+    "What is 48 times 12? Answer with just the number.",
+    "576",
+    "48\n"
+   ],
+   [
+    "What is 305 times 7? Answer with just the number.",
+    "2135",
+    "305\n"
+   ],
+   [
+    "What is 91 times 14? Answer with just the number.",
+    "1274",
+    "91\n"
+   ],
+   [
+    "What is 56 times 56? Answer with just the number.",
+    "3136",
+    "56\n"
+   ],
+   [
+    "What is 123 times 4? Answer with just the number.",
+    "492",
+    "123\n"
+   ],
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "7733\n"
+   ],
+   [
+    "What is 250 times 18? Answer with just the number.",
+    "4500",
+    "25018\n"
+   ],
+   [
+    "What is 64 times 9? Answer with just the number.",
+    "576",
+    "64\n"
+   ],
+   [
+    "What is 19 times 21? Answer with just the number.",
+    "399",
+    "19\n"
+   ],
+   [
+    "What is the capital of Brazil? One word.",
+    "Bras\u00edlia",
+    "Brazil\n"
+   ],
+   [
+    "What is the capital of Kenya? One word.",
+    "Nairobi",
+    "Kenya\n"
+   ]
+  ]
+ },
+ "timer_unseen_label": {
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "empty": {
+   "tag": "empty",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 1.0,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.9666666666666667,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm\n",
+    "Alarm\n",
+    "Alarm\n",
+    "Alarm\n"
+   ]
+  },
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.7833333333333333,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.9285714285714286,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.2,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Music\n",
+      "Music\n",
+      "Music\n",
+      "Lists\n"
+     ]
+    }
+   },
+   {
+    "draw": 1,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.7833333333333333,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.2,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.7833333333333333,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Lists\n",
+      "Lists\n",
+      "Lists\n",
+      "Lists\n"
+     ]
+    }
+   },
+   {
+    "draw": 2,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.7833333333333333,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.18333333333333332,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer\n",
+      "Timer\n",
+      "Timer\n",
+      "Timer\n"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Music\n",
+      "Music\n",
+      "Lists\n",
+      "Lists\n"
+     ]
+    }
+   }
+  ]
+ }
+}
