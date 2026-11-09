@@ -1,0 +1,95 @@
+{
+ "lane": "L5",
+ "model": "Qwen/Qwen2.5-32B-Instruct",
+ "fp16_bytes": 65527752704,
+ "task": "SKILL7 (EASY-A voice-skill routing, 7 skills, real greedy generation of the skill word)",
+ "selection": {
+  "config": "scalar GPTQ-style Hadamard g256 mixed 2/3/4-bit, target nominal 9.85%, rANS-packed; 5 draws seeds 0-4 on dev 5913 (disjoint from calibration 128 and from the exam)",
+  "draw_retention_dev": {
+   "d0": 0.9873,
+   "d1": 0.9859,
+   "d2": 0.9839,
+   "d3": 0.9852,
+   "d4": 0.9875
+  },
+  "worst_kind_dev": {
+   "d0": 0.961,
+   "d1": 0.949,
+   "d2": 0.947,
+   "d3": 0.935,
+   "d4": 0.94
+  },
+  "selected": "S7b_d0 (max worst-kind retention, then overall), chosen BEFORE any exam item was scored",
+  "second_config": "target .0975, 5 draws dev ret .9838/.9829/.9827/.9848/.9820 (documented, not used: lower retention)"
+ },
+ "bytes": {
+  "packed_body_real": 6420039377,
+  "packed_ratio": 0.09797,
+  "carrier_o_proj_cols1024_last8": 83918848,
+  "code": 36000,
+  "total_ratio": 0.09926,
+  "note": "body real_bytes include tokenizer.json, norms, embeddings, lm_head (packed), pack index tables, 3.3 KB packer code"
+ },
+ "exam": {
+  "source": "v2/exam SKILL7 2744 items, sealed manifest verified, scored once with real greedy generation",
+  "base_acc": 0.969,
+  "retention": 0.9827,
+  "wilson_lo": 0.977,
+  "min_kind": [
+   "News",
+   0.9638
+  ],
+  "never_used_source_retention": 0.9799,
+  "clean_only_retention": 0.9808,
+  "clean_only_min_kind": [
+   "News",
+   0.965
+  ],
+  "min_source_x_kind_cell": [
+   "hwu64/News",
+   0.891,
+   64
+  ]
+ },
+ "feedback": {
+  "method": "closed-form protected o_proj edit, last 8 layers (56-63), margin 32, 1024 columns per layer, fixed a priori from v2/FEEDBACK_ABLATION.md",
+  "n_annotated": 25,
+  "teach_tf_n25": 0.532,
+  "teach_cross_source": 0.57,
+  "teach_real_generation": [
+   0.53,
+   0.543,
+   0.518
+  ],
+  "shuffled": 0.0,
+  "wrong": 0.0,
+  "empty": 0.0,
+  "neighbours_kept": 1.0,
+  "draws": 5,
+  "secondary_c1536": {
+   "teach": 0.673,
+   "total_ratio": 0.0999
+  },
+  "secondary_c2048": {
+   "teach": 0.718,
+   "total_ratio": 0.1005,
+   "note": "over 10%"
+  }
+ },
+ "bank6": {
+  "status": "FAILS retention on shared exam",
+  "retention": 0.9696,
+  "min_kind": [
+   "Card",
+   0.871
+  ],
+  "never_used_retention": 0.916,
+  "selected": "B6c_d1",
+  "bytes_ratio": 0.09685
+ },
+ "files": {
+  "results": "results/",
+  "configs": "cfgs/",
+  "pack_sha256": "results/final/pack_sha256_S7F_d0.txt"
+ }
+}
