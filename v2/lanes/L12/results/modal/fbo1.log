@@ -1,0 +1,44 @@
+
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 24 files:  88%|████████▊ | 21/24 [00:00<00:00, 102.94it/s]
+Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 65.63it/s] 
+[    12s] non-expert model on cuda attn2d 1283194880 embed 508559360 head 508559360
+[    13s] read experts layer 0
+[    21s] read experts layer 8
+[    25s] read experts layer 16
+[    28s] read experts layer 24
+[    30s] read experts layer 32
+[    32s] param check 69321221376 71903655008
+[    32s] total params 34660610688 fp16 bytes 71903655008 tok bytes 12828480
+[    33s] data {'cal': 2031, 'sel': 1802, 'rep': 50}
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   149s] stats done 2031
+[   160s] built layer 0 K 64
+[   162s] built layer 8 K 64
+[   164s] built layer 16 K 64
+[   165s] built layer 24 K 64
+[   167s] built layer 32 K 64
+[   168s] build done Q35_B3_rtn4_mass_k25 ratio 0.0761 rtn fallbacks 0 11s
+[   168s] BYTES {"parts": {"router": 10485760, "keep_mask": 1280, "experts": 4183818240, "attn": 666659840, "embed": 264212480, "head": 264212480, "shared_expert": 65372160, "norms_misc": 2483456, "tokenizer_config": 12828480, "code_meta": 60000}, "total": 5470134176, "ratio": 0.07607588481268988, "ratio_text_only": 0.07890995091286489, "fp16_bytes": 71903655008, "fp16_text_bytes": 69321221376}
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   178s] pool 300 mistakes 300
+[   193s] EMPTY {"teach_acc": 0.0, "teach_top": [["Music", 72], ["News", 33], ["Lists", 30], ["Weather", 16]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "neigh_leak": 0}
+[   217s] FBO {"teach_acc": 0.9207317073170732, "teach_top": [["Recipe", 151], ["Music", 7], ["Recipes", 3], ["Weather", 2]], "neigh_ret": 0.9430199430199431, "neigh_n": 351, "neigh_leak": 0, "cond": "real", "lam": 1.0, "draw": 0, "info": {"gaps_mean": 3.739058246612549, "layers": 8}}
+[   240s] FBO {"teach_acc": 0.0, "teach_top": [["Alarm", 76], ["News", 31], ["Lists", 22], ["Weather", 21]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "neigh_leak": 0, "cond": "shuffle", "lam": 1.0, "draw": 0, "info": {"gaps_mean": 0.9395355606079101, "layers": 8}}
+[   264s] FBO {"teach_acc": 0.0, "teach_top": [["Transport", 159], ["Music", 3], ["Weather", 2]], "neigh_ret": 0.9458689458689459, "neigh_n": 351, "neigh_leak": 0, "cond": "wrong", "lam": 1.0, "draw": 0, "info": {"gaps_mean": 3.2597083282470702, "layers": 8}}
+[   287s] FBO {"teach_acc": 0.9390243902439024, "teach_top": [["Recipe", 154], ["Recipes", 3], ["Lists", 3], ["Weather", 3]], "neigh_ret": 0.9658119658119658, "neigh_n": 351, "neigh_leak": 1, "cond": "real", "lam": 1.0, "draw": 1, "info": {"gaps_mean": 3.9860120391845704, "layers": 8}}
+[   310s] FBO {"teach_acc": 0.0, "teach_top": [["Weather", 74], ["News", 35], ["Transport", 14], ["Lists", 14]], "neigh_ret": 0.9544159544159544, "neigh_n": 351, "neigh_leak": 0, "cond": "shuffle", "lam": 1.0, "draw": 1, "info": {"gaps_mean": 1.4418947219848632, "layers": 8}}
+[   333s] FBO {"teach_acc": 0.0, "teach_top": [["Transport", 159], ["Lists", 4], ["Weather", 1]], "neigh_ret": 0.9629629629629629, "neigh_n": 351, "neigh_leak": 0, "cond": "wrong", "lam": 1.0, "draw": 1, "info": {"gaps_mean": 3.366134910583496, "layers": 8}}
+[   357s] FBO {"teach_acc": 0.9390243902439024, "teach_top": [["Recipe", 154], ["Weather", 4], ["Recipes", 3], ["Calendar", 1]], "neigh_ret": 0.9601139601139601, "neigh_n": 351, "neigh_leak": 0, "cond": "real", "lam": 1.0, "draw": 2, "info": {"gaps_mean": 3.5899269485473635, "layers": 8}}
+[   380s] FBO {"teach_acc": 0.0, "teach_top": [["Lists", 67], ["Calendar", 46], ["Transport", 23], ["Weather", 19]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "neigh_leak": 0, "cond": "shuffle", "lam": 1.0, "draw": 2, "info": {"gaps_mean": 1.2358231735229492, "layers": 8}}
+[   403s] FBO {"teach_acc": 0.0, "teach_top": [["Transport", 157], ["Weather", 3], ["Lists", 2], ["Calendar", 1]], "neigh_ret": 0.9629629629629629, "neigh_n": 351, "neigh_leak": 0, "cond": "wrong", "lam": 1.0, "draw": 2, "info": {"gaps_mean": 2.9729224395751954, "layers": 8}}
+[   426s] FBO {"teach_acc": 0.9207317073170732, "teach_top": [["Recipe", 151], ["Music", 7], ["Recipes", 3], ["Weather", 2]], "neigh_ret": 0.9458689458689459, "neigh_n": 351, "neigh_leak": 0, "cond": "real", "lam": 10.0, "draw": 0, "info": {"gaps_mean": 3.739058246612549, "layers": 8}}
+[   449s] FBO {"teach_acc": 0.0, "teach_top": [["Alarm", 74], ["News", 31], ["Lists", 23], ["Weather", 22]], "neigh_ret": 0.98005698005698, "neigh_n": 351, "neigh_leak": 0, "cond": "shuffle", "lam": 10.0, "draw": 0, "info": {"gaps_mean": 0.9395355606079101, "layers": 8}}
+[   472s] FBO {"teach_acc": 0.0, "teach_top": [["Transport", 159], ["Music", 3], ["Weather", 2]], "neigh_ret": 0.9458689458689459, "neigh_n": 351, "neigh_leak": 0, "cond": "wrong", "lam": 10.0, "draw": 0, "info": {"gaps_mean": 3.2597083282470702, "layers": 8}}
+[   495s] FBO {"teach_acc": 0.9390243902439024, "teach_top": [["Recipe", 154], ["Recipes", 3], ["Lists", 3], ["Weather", 3]], "neigh_ret": 0.9658119658119658, "neigh_n": 351, "neigh_leak": 0, "cond": "real", "lam": 10.0, "draw": 1, "info": {"gaps_mean": 3.9860120391845704, "layers": 8}}
+[   518s] FBO {"teach_acc": 0.9451219512195121, "teach_top": [["Recipe", 155], ["Recipes", 3], ["Weather", 3], ["Calendar", 1]], "neigh_ret": 0.9572649572649573, "neigh_n": 351, "neigh_leak": 0, "cond": "real", "lam": 10.0, "draw": 2, "info": {"gaps_mean": 3.5899269485473635, "layers": 8}}
+FBO_DONE
+EXIT 0
