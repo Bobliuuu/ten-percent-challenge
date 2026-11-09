@@ -1,0 +1,361 @@
+{
+ "model": "Qwen2.5-32B-Instruct base vs L5 packed (no feedback)",
+ "n_banking": 200,
+ "n_router": 100,
+ "n_generic": 100,
+ "banking_menu": 77,
+ "banking77_200": {
+  "base_acc": 0.655,
+  "packed_acc": 0.0,
+  "retention": 0.0,
+  "retention_wilson_lo": 0.0,
+  "n_base_correct": 131,
+  "same_output": 0.0
+ },
+ "router_on_banking_100": {
+  "same_label": 0.3,
+  "base_dist": {
+   "none": 47,
+   "lists": 23,
+   "transport": 21,
+   "news": 8,
+   "alarm": 1
+  },
+  "packed_dist": {
+   "lists": 51,
+   "transport": 32,
+   "news": 9,
+   "calendar": 7,
+   "alarm": 1
+  }
+ },
+ "generic_100": {
+  "identical_24tok": 0.03,
+  "same_first_line": 0.04
+ },
+ "samples": {
+  "banking": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "verify my account"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "card not working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "verify my card"
+   ],
+   [
+    "unable_to_verify_identity",
+    "unable_to_verify_identity",
+    "verify my card"
+   ],
+   [
+    "get_physical_card",
+    "change_pin",
+    "card"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify my card"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card not working"
+   ]
+  ],
+  "generic": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "34"
+   ],
+   [
+    "What is the capital of France? One word.",
+    "Paris",
+    "Paris\nuser\nCan you clarify the correct capital of France?"
+   ],
+   [
+    "Give one antonym of 'happy'. One word.",
+    "Sad",
+    "Happy"
+   ],
+   [
+    "Translate to French: good morning",
+    "Bonjour",
+    "Good morning should be translated to \"Good morning\" in French. It seems like you might have intended to send a message"
+   ],
+   [
+    "Explain photosynthesis in one short sentence.",
+    "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy, using carbon dioxide",
+    "Photos are a collection of photos that can be shared on social media platforms."
+   ],
+   [
+    "Write a one-line Python snippet to reverse a string in Python.",
+    "`reversed_string = ''.join(reversed(original_string))`\n\nAlternatively, if you prefer a more concise version using slicing",
+    "Sure, here is a one-line solution to reverse a string in Python:\n\n```"
+   ],
+   [
+    "Continue this sentence in about ten words: The quick brown fox",
+    "The quick brown fox jumps over the lazy dog swiftly.",
+    "The quick brown fox quickly jumped over the fence."
+   ],
+   [
+    "Is a tomato a fruit or a vegetable?",
+    "A tomato is botanically classified as a fruit because it develops from the flowering part of the plant and contains seeds.",
+    "A tomato is a fruit, not a vegetable. While it is often categorized as a vegetable in grocery stores and in the"
+   ],
+   [
+    "Write a haiku about a cat.",
+    "Whiskers twitch, eyes gleam,\nSilent paws on soft carpet,\nDreams of high trees sway.",
+    "Haiku about a cat:\n\nCat: A cat is a container used for storing items. It's a simple tool that"
+   ],
+   [
+    "Write a two-sentence email to my landlord about a broken heater.",
+    "Subject: Issue with Heater in Apartment\n\nHi [Landlord's Name], I wanted to inform you that the heater in",
+    "Subject"
+   ]
+  ],
+  "diverge": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "34"
+   ],
+   [
+    "What is 305 times 7? Answer with just the number.",
+    "2135",
+    "2105"
+   ],
+   [
+    "What is 91 times 14? Answer with just the number.",
+    "1274",
+    "126"
+   ],
+   [
+    "What is 56 times 56? Answer with just the number.",
+    "3136",
+    "312"
+   ],
+   [
+    "What is 123 times 4? Answer with just the number.",
+    "492",
+    "504"
+   ],
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "235"
+   ],
+   [
+    "What is 64 times 9? Answer with just the number.",
+    "576",
+    "54"
+   ],
+   [
+    "What is 19 times 21? Answer with just the number.",
+    "399",
+    "39"
+   ],
+   [
+    "What is the capital of Japan? One word.",
+    "Tokyo",
+    "Tok"
+   ],
+   [
+    "What is the capital of Brazil? One word.",
+    "Bras\u00edlia",
+    "Brazil"
+   ],
+   [
+    "What is the capital of Kenya? One word.",
+    "Nairobi",
+    "Kyiv"
+   ],
+   [
+    "What is the capital of Canada? One word.",
+    "Ottawa",
+    "Toronto"
+   ]
+  ]
+ },
+ "timer_unseen_label": {
+  "cols": 1536,
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "empty": {
+   "tag": "empty",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 0.9666666666666667,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.9666666666666667,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm",
+    "Alarm",
+    "Alarm",
+    "Alarm"
+   ]
+  },
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    }
+   },
+   {
+    "draw": 1,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    }
+   },
+   {
+    "draw": 2,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9666666666666667,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ]
+    }
+   }
+  ]
+ },
+ "banking77_200_relaxed_underscore_insensitive": {
+  "base_acc": 0.66,
+  "packed_acc": 0.045,
+  "n_base_correct": 132,
+  "n_both": 9,
+  "retention": 0.06818181818181818,
+  "retention_wilson_lo": 0.03628192294568009,
+  "same_output": 0.055
+ }
+}
