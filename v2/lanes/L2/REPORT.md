@@ -102,3 +102,40 @@ Reading: (1) a proper shuffled arm does emit the new word (0.30-0.76), because t
 **Continual 2-round feedback** (round 1 Recipe 25 annotations, then round 2 Reminder 25 annotations solved on the already edited model with fresh covariances; factors stacked, 1.3 MB total): after round 1 Recipe 0.978 / neighbours 0.967; after round 2 **Recipe 0.970 (no forgetting), Reminder 0.797 (0.74-0.90)**, neighbours 0.955 (min cell 0.933), Recipe-word leak on neighbours 0.003. With a replay of 12 round-1 Recipe annotations in round 2: Recipe 0.974, Reminder 0.713, neighbours 0.960. Neighbour loss accumulates over rounds (0.967 -> 0.955).
 
 **Rule notes.** Rule 4: `ship/feedback.pt` was NOT a fitted head or side table: it was the low-rank factors (U, V) of the closed-form change to two existing `down_proj` tensors, produced by `feedback.py` from the 25 annotations. It was still a post-feedback state sitting in the shipped tree (and was gitignored), so it is **removed**; the shipped tree has no feedback file (empty feedback = the start model) and the feedback command writes `ARTIFACT/feedback.pt` (now 0.68 MB, counted in the audit). Closed-form fits of existing tensors stay GRAY (unruled). Bytes: artifact + code + `cal.jsonl` + 678 KB feedback = 5,346,244,844 B = 9.9357% of 53,808,408,928 (<= 9.99%, slack 34.6 MB; `results/cli2/bytes_audit.txt`). Rule 6 is now backed by real shuffled/wrong/unrelated arms (with the caveat above). Rule 5 teach is higher, neighbour retention lower (and m16 is the safer setting). The covariance file `data/exam/cal.jsonl` is still a labelled calibration set, and exam-based numbers above are reporting only (config frozen on dev, no exam use for selection except the m16/m32 sensitivity rows).
+
+
+## Update 2026-11-09 (margin run on Modal): dev-selected o4 m16, final locked run, CLIs end to end, real bytes (our best-evidence reading; reporting only)
+Infra: Modal apps `tenpct-l2` / `tenpct-l2c` (`modal_l2.py`, `launch_l2.py`; private volume). The artifact was rebuilt from the public release by `rebuild_artifact.sh` and all 13 sha256 matched `SHA256SUMS` again (exam not re-scored; bytes unchanged). Runs are logged in RUNS.md.
+
+**Selection (DEV labels Jukebox + Briefing only, `results/sel/*.jsonl`, `agg_sel.py`).** Grid: down_proj L62-63, o_proj of 2 / 4 / 8 full-attention layers, margin 16-64, 2 draws, 25 annotations, real25 vs mixed-shuffled arm. Rule fixed before the final run: neighbours >= .995, min cell >= .98, real25 teach >= .75, then the largest real-minus-shuffled gap. Eligible: o4 m16 (teach .803, shuffled .271, gap +.532, neigh .9975), o4 m32 (+.488), o8 m48 (+.449). **Chosen: o_proj x4 (63,59,55,51), margin 16** (o4 m64 had a larger gap but min cell .964; o2 added in this run and never eligible). `feedback.py` default margin is now 16.
+
+**Final locked run, o4 m16** (`results/x/final_m16*.{jsonl,txt}`; 164 locked Recipe teach items, 357 base-correct neighbours, 6 draws, harness `fb_l2x.py`):
+
+| arm | teach | neighbours kept | min cell | label word on neighbours |
+|---|---|---|---|---|
+| empty | 0.000 | 1.000 | 1.000 | 0 |
+| real25 | **0.914** (0.90-0.95) | 0.992 | 0.985 | 0 |
+| real12 | 0.882 | 0.996 | 0.988 | 0 |
+| mixed real (13 new + 12 old) | 0.884 | 0.995 | 0.988 | 0 |
+| mixed shuffled among labels | 0.319 (0.00-0.55) | 0.994 | 0.986 | 0 |
+| wrong label | 0.000 | 0.993 | 0.988 | 0 |
+| Recipe inputs unrelated | 0.029 | 0.984 | 0.966 | 0.011 |
+
+Second label Reminder (CLINC, not in the exam): real25 0.702 (0.59-0.82), real12 0.443, mixed 0.450, shuffled 0.233, wrong 0, unrelated 0.003; neighbours 0.992-0.994. Continual, Recipe then Reminder: Recipe 0.917 / Reminder 0.620, neighbours 0.990 (with replay: 0.925 / 0.448 / 0.992). Compared with the old m64 default the teach is lower (0.914 vs 0.973) but neighbours are higher (0.992 vs 0.971) and the control gap is much larger (shuffled 0.32 vs 0.76). The shuffled arm is not 0 (the new word is an annotation target); R6 stays gray.
+
+**CLIs end to end** (`feedback.py` then `answer.py --batch`, 164 teach + 357 neighbours scored vs the start model's outputs, one draw; `results/cli3/{recipe,reminder}`, `score_cli3.py`). Note: the 25 Recipe annotations all carry the new label, so a shuffle of them is a no-op; the shuffled/mixed CLI arms therefore use a 13 new + 12 old annotation file (`ann25_mixed.jsonl`).
+
+| label | arm | teach | neighbours kept | worst kind |
+|---|---|---|---|---|
+| Recipe | empty | 0.0% | 356/357 (batch noise) | Lists 99.7% |
+| Recipe | real 25 | **96.3%** | 353/357 = 98.9% (LB 97.2%) | Lists 98.8% |
+| Recipe | mixed real | 90.9% | 355/357 = 99.4% | Lists 99.4% |
+| Recipe | mixed shuffled | 20.7% | 351/357 = 98.3% | Calendar 91.7% |
+| Recipe | wrong label | 0.0% | 355/357 = 99.4% | Lists 99.4% |
+| Reminder | real 25 / mixed / shuffled / wrong | 67% / 44% / 8% / 0% | 99.7% / 100% / 98.3% / 99.7% | |
+
+**Bytes (real `bytes_audit.py` on the exact shipped tree, no bytecode cache):** artifact 13 files + answer.py, feedback.py, fb_l2x.py, annot.py, skill_task.json + `data/exam/cal.jsonl` + `feedback.pt` (1,647,585 B, m16 real25) = **5,347,214,346 B = 9.9375%** of 53,808,408,928, slack 33.3 MB (`results/cli3/recipe/bytes_audit.txt`). A 25-annotation feedback file is bigger than at m64 (rank 25 on 3 layers, fp16 factors); still within the cap.
+
+**Fresh-clone check.** `v2/tools/fresh_clone_check.sh --lane L2` runs (artifact absent: bytes SKIPPED with the declared figure, leak and sha checks run). Its L2 smoke commands (`answer.py ART "txt"`, `feedback.py --artifact ART --ann F --label Recipe`) were executed on a rebuilt artifact copy on Modal (`smoke` stage): answer printed `Alarm`, feedback wrote `feedback.pt`. `answer.py` now takes `art_load.py` from the artifact dir if present.
+
+Remaining gray points unchanged: R4 (closed-form fitted edit of existing tensors), R6 (shuffled arm not 0), R9 spirit, lineage (pre-compressed start). All figures above are reporting; config frozen on dev labels before the Recipe run.

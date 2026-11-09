@@ -24,14 +24,14 @@
   "annot.py": 919,
   "skill_task.json": 320
  },
- "feedback_delta_bytes": 678311,
- "feedback_file": "NOT SHIPPED: written by feedback.py into the artifact dir (low-rank fp16 factors of an edit of existing self_attn.o_proj tensors); one real output is results/cli2/feedback_real.pt (0.68 MB)",
+ "feedback_delta_bytes": 1647585,
+ "feedback_file": "NOT SHIPPED: written by feedback.py into the artifact dir (exact low-rank fp16 factors of an edit of existing self_attn.o_proj tensors); real 25-annotation output of the m16 CLI run: results/cli3/recipe/feedback_real.pt (1,647,585 B)",
  "fp16_denominator_bytes": 53808408928,
- "shipped_total_bytes": 5346244844,
- "pct_of_fp16": 9.9357,
+ "shipped_total_bytes": 5347214346,
+ "pct_of_fp16": 9.9375,
  "note": "fp16 denominator is back-computed from the artifact report (TOTAL / pct_of_fp16); the start model is itself ternary, so base-identity vs rule 1 is gray. Hadamard sign file is inside small.pt/hadamard.json counted via art_load inputs? hadamard.json (152 KB) is NOT in the artifact byte list above: it is in SHA256SUMS and counted in bytes_audit.",
  "hadamard_json_bytes": 152464,
- "bytes_audit": "results/cli2/bytes_audit.txt: artifact(13 files)+answer.py feedback.py fb_l2x.py art_load.py annot.py skill_task.json + data/exam/cal.jsonl + feedback.pt(678,311 B) = 5,346,244,844 B = 9.9357% (PASS, slack 34.6 MB); without feedback.pt 5,345,566,533 B = 9.9344%",
+ "bytes_audit": "results/cli3/recipe/bytes_audit.txt: artifact(13 files)+answer.py feedback.py fb_l2x.py annot.py skill_task.json + data/exam/cal.jsonl + feedback.pt(1,647,585 B, m16 run) = 5,347,214,346 B = 9.9375% of 53,808,408,928 (PASS, slack ~33.3 MB; no bytecode cache); built on the rebuilt artifact in a Modal run (rebuild_artifact.sh, all 13 sha256 matched)",
  "durable_copy": "private object-store copy (bucket and account id removed from the repo); integrity list in SHA256SUMS (13 artifact files incl. art_load.py, hadamard.json). Not uploaded anywhere public.",
  "artifact_sha256": {
   "art_load.py": "56878acebe26112c0630db1bc22b3a13b9ef902fb7dc81df3087aea4b651f28e",
@@ -48,6 +48,6 @@
   "trits.bin": "8c4e531aa11a6341c25d5af7c367269dd9bdc1c582b169c99319f2023e6f2846",
   "vocabmap.json": "9d7380d70093e27b6cae2bc27b1d7fc04cb7a7fc66409084110b91bd70d60438"
  },
- "feedback_default": "carriers o_proj of full-attention layers 63,59,55,51; margin 64; closed-form covariance-protected solve (fb_l2x.py); chosen on DEV sweeps (results/x/sweep_dev*.jsonl)",
- "rebuild": "bash lanes/L2/rebuild_artifact.sh WORKDIR rebuilds the artifact from the public release; verified 2026-11-08: all 13 sha256 match SHA256SUMS (artifact bytes unchanged, so the sealed exam was NOT re-scored)"
+ "feedback_default": "carriers o_proj of full-attention layers 63,59,55,51; margin 16 (DEV selection rule over o2/o4/o8/down2 x margin, results/sel/*, agg_sel.py); closed-form covariance-protected solve (fb_l2x.py)",
+ "rebuild": "bash lanes/L2/rebuild_artifact.sh WORKDIR; also run on Modal (modal_l2.py setup) 2026-11-09: all 13 sha256 matched SHA256SUMS"
 }

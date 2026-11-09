@@ -8,8 +8,7 @@ data/docs              1         226,603         0.0004%     0.00%
 config                 6         186,022         0.0003%     0.00%
 code                   5          25,609         0.0000%     0.00%
 template               1           9,004         0.0000%     0.00%
-other                  1           2,491         0.0000%     0.00%
-TOTAL                 21   5,347,216,837         9.9375%    99.38%
+TOTAL                 20   5,347,214,346         9.9375%    99.38%
 RESULT: PASS  total = 9.9375% of base fp16 (cap 10.0%), slack 33.6 MB
 largest files:
      5,203,380,224   9.6702%  trits.bin
@@ -20,4 +19,3 @@ largest files:
          1,647,585   0.0031%  feedback.pt
            226,603   0.0004%  data/exam/cal.jsonl
            152,464   0.0003%  hadamard.json
-FLAG: bytecode cache counted: __pycache__/annot.cpython-311.pyc

@@ -12,7 +12,7 @@ nb = set(load("SKILL7", "neighbours")); ex = {i["id"]: i for i in load("SKILL7",
 teach_ids = [i for i in ids if i not in nb and i not in ex]; teach_ids = [i for i in ids if i not in ex or i not in nb] if tag == "recipe" else teach_ids
 teach_ids = [i for i in ids if i not in nb]
 out = {}
-for arm in ("empty", "real", "shuf", "wrong"):
+for arm in ("empty", "real", "mreal", "shuf", "wrong"):
     C = json.load(open(D + f"cli_{arm}.json")); r = dict(teach=sum(w(C[i]) == new for i in teach_ids) / len(teach_ids), n_teach=len(teach_ids))
     keep = [i for i in nb if w(base[i]) == ex[i]["answer"].lower()]; k = sum(w(C[i]) == ex[i]["answer"].lower() for i in keep)
     cells = collections.defaultdict(lambda: [0, 0])
