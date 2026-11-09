@@ -1,0 +1,62 @@
+{
+ "empty": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "neighbours": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9969512195121951,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ },
+ "real": {
+  "teach": 0.9634146341463414,
+  "n_teach": 164,
+  "neighbours": {
+   "n": 357,
+   "kept": 353,
+   "ret": 0.988795518207283,
+   "wilson_lo": 0.971548906911367,
+   "worst_kind": [
+    0.9878048780487805,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ },
+ "shuf": {
+  "teach": 0.9634146341463414,
+  "n_teach": 164,
+  "neighbours": {
+   "n": 357,
+   "kept": 353,
+   "ret": 0.988795518207283,
+   "wilson_lo": 0.971548906911367,
+   "worst_kind": [
+    0.9878048780487805,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ },
+ "wrong": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "neighbours": {
+   "n": 357,
+   "kept": 355,
+   "ret": 0.9943977591036415,
+   "wilson_lo": 0.9798062321518488,
+   "worst_kind": [
+    0.9939024390243902,
+    "Lists"
+   ],
+   "new_word_on_neigh": 0.0
+  }
+ }
+}

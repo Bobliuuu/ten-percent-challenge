@@ -1,0 +1,43 @@
+/usr/local/lib/python3.11/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Loading weights:   0%|          | 0/851 [00:00<?, ?it/s]Loading weights:   0%|          | 1/851 [00:00<02:38,  5.38it/s]Loading weights:   0%|          | 2/851 [00:00<03:14,  4.37it/s]Loading weights:   2%|▏         | 14/851 [00:00<00:25, 32.74it/s]Loading weights:   3%|▎         | 28/851 [00:00<00:14, 57.56it/s]Loading weights:   5%|▍         | 41/851 [00:00<00:10, 74.82it/s]Loading weights:   6%|▌         | 50/851 [00:00<00:11, 71.30it/s]Loading weights:   8%|▊         | 66/851 [00:01<00:08, 90.90it/s]Loading weights:   9%|▉         | 79/851 [00:01<00:07, 100.29it/s]Loading weights:  11%|█         | 90/851 [00:01<00:07, 97.04it/s] Loading weights:  12%|█▏        | 101/851 [00:01<00:09, 75.53it/s]Loading weights:  14%|█▍        | 119/851 [00:01<00:08, 90.48it/s]Loading weights:  16%|█▌        | 134/851 [00:01<00:07, 98.55it/s]Loading weights:  17%|█▋        | 147/851 [00:01<00:06, 104.66it/s]Loading weights:  19%|█▊        | 159/851 [00:02<00:07, 95.56it/s] Loading weights:  20%|██        | 173/851 [00:02<00:06, 100.00it/s]Loading weights:  22%|██▏       | 186/851 [00:02<00:06, 105.66it/s]Loading weights:  23%|██▎       | 197/851 [00:02<00:06, 104.85it/s]Loading weights:  24%|██▍       | 208/851 [00:02<00:07, 86.12it/s] Loading weights:  26%|██▋       | 225/851 [00:02<00:06, 103.84it/s]Loading weights:  28%|██▊       | 238/851 [00:02<00:05, 110.06it/s]Loading weights:  29%|██▉       | 250/851 [00:02<00:05, 105.12it/s]Loading weights:  31%|███       | 262/851 [00:03<00:06, 89.65it/s] Loading weights:  33%|███▎      | 278/851 [00:03<00:05, 104.61it/s]Loading weights:  34%|███▍      | 292/851 [00:03<00:05, 107.85it/s]Loading weights:  36%|███▌      | 306/851 [00:03<00:04, 110.23it/s]Loading weights:  37%|███▋      | 318/851 [00:03<00:05, 96.60it/s] Loading weights:  39%|███▉      | 331/851 [00:03<00:05, 93.68it/s]Loading weights:  41%|████      | 346/851 [00:03<00:05, 97.78it/s]Loading weights:  42%|████▏     | 361/851 [00:03<00:04, 105.57it/s]Loading weights:  44%|████▎     | 372/851 [00:04<00:04, 102.62it/s]Loading weights:  45%|████▌     | 385/851 [00:04<00:04, 104.52it/s]Loading weights:  47%|████▋     | 399/851 [00:04<00:04, 107.90it/s]Loading weights:  49%|████▊     | 413/851 [00:04<00:04, 108.41it/s]Loading weights:  50%|████▉     | 424/851 [00:04<00:04, 100.55it/s]Loading weights:  51%|█████▏    | 438/851 [00:04<00:03, 103.57it/s]Loading weights:  53%|█████▎    | 452/851 [00:04<00:03, 106.18it/s]Loading weights:  55%|█████▍    | 464/851 [00:04<00:03, 109.32it/s]Loading weights:  56%|█████▌    | 476/851 [00:05<00:04, 89.95it/s] Loading weights:  58%|█████▊    | 490/851 [00:05<00:03, 97.63it/s]Loading weights:  59%|█████▉    | 503/851 [00:05<00:03, 105.07it/s]Loading weights:  61%|██████    | 518/851 [00:05<00:03, 110.70it/s]Loading weights:  62%|██████▏   | 530/851 [00:05<00:03, 100.29it/s]Loading weights:  64%|██████▍   | 544/851 [00:05<00:02, 104.72it/s]Loading weights:  66%|██████▌   | 558/851 [00:05<00:02, 108.59it/s]Loading weights:  67%|██████▋   | 572/851 [00:06<00:02, 110.76it/s]Loading weights:  69%|██████▊   | 584/851 [00:06<00:02, 100.00it/s]Loading weights:  70%|███████   | 598/851 [00:06<00:02, 104.24it/s]Loading weights:  72%|███████▏  | 612/851 [00:06<00:02, 107.27it/s]Loading weights:  74%|███████▎  | 626/851 [00:06<00:02, 107.61it/s]Loading weights:  75%|███████▍  | 637/851 [00:06<00:02, 105.04it/s]Loading weights:  76%|███████▋  | 651/851 [00:06<00:01, 107.74it/s]Loading weights:  78%|███████▊  | 665/851 [00:06<00:01, 108.70it/s]Loading weights:  80%|███████▉  | 678/851 [00:07<00:01, 107.66it/s]Loading weights:  81%|████████  | 689/851 [00:07<00:01, 107.95it/s]Loading weights:  83%|████████▎ | 703/851 [00:07<00:01, 112.21it/s]Loading weights:  84%|████████▍ | 715/851 [00:07<00:01, 112.32it/s]Loading weights:  86%|████████▌ | 729/851 [00:07<00:01, 118.18it/s]Loading weights:  87%|████████▋ | 741/851 [00:07<00:01, 93.60it/s] Loading weights:  89%|████████▉ | 756/851 [00:07<00:00, 100.99it/s]Loading weights:  90%|█████████ | 769/851 [00:07<00:00, 106.03it/s]Loading weights:  92%|█████████▏| 782/851 [00:07<00:00, 111.60it/s]Loading weights:  93%|█████████▎| 794/851 [00:08<00:00, 88.54it/s] Loading weights:  95%|█████████▌| 809/851 [00:08<00:00, 97.76it/s]Loading weights:  97%|█████████▋| 823/851 [00:08<00:00, 102.58it/s]Loading weights:  98%|█████████▊| 836/851 [00:08<00:00, 99.46it/s] Loading weights: 100%|█████████▉| 847/851 [00:08<00:00, 90.37it/s]Loading weights: 100%|██████████| 851/851 [00:08<00:00, 97.55it/s]
+[transformers] [1mQwen3_5ForConditionalGeneration LOAD REPORT[0m from: /vol/work/unf
+Key                                                | Status  | 
+---------------------------------------------------+---------+-
+model.visual.blocks.{0...26}.attn.qkv.bias         | MISSING | 
+model.visual.blocks.{0...26}.norm2.weight          | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.bias   | MISSING | 
+model.visual.blocks.{0...26}.attn.qkv.weight       | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.bias   | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc1.weight | MISSING | 
+model.visual.merger.linear_fc2.weight              | MISSING | 
+model.visual.blocks.{0...26}.attn.proj.bias        | MISSING | 
+model.visual.blocks.{0...26}.attn.proj.weight      | MISSING | 
+model.visual.blocks.{0...26}.mlp.linear_fc2.weight | MISSING | 
+model.visual.blocks.{0...26}.norm1.bias            | MISSING | 
+model.visual.blocks.{0...26}.norm2.bias            | MISSING | 
+model.visual.blocks.{0...26}.norm1.weight          | MISSING | 
+model.visual.merger.norm.weight                    | MISSING | 
+model.visual.merger.linear_fc1.bias                | MISSING | 
+model.visual.pos_embed.weight                      | MISSING | 
+model.visual.patch_embed.proj.bias                 | MISSING | 
+model.visual.merger.linear_fc1.weight              | MISSING | 
+model.visual.merger.norm.bias                      | MISSING | 
+model.visual.merger.linear_fc2.bias                | MISSING | 
+model.visual.patch_embed.proj.weight               | MISSING | 
+
+Notes:
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+JOB feedback teach n 0 neigh 0 ann usable 25 prep secs 31.72889733314514
+/tmp/ship_recipe/fb_l2x.py:76: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  d = (W[t] - W[top]).float(); gap = float(lg[j, top] - lg[j, t]); c = (gap + M) * float(rms[j]) / float((GN * d).pow(2).sum()); Rs.append(c * GN * d); Ks.append(k[j])
+{"tag": "all-d0", "job": "feedback", "arm": "all", "draw": 0, "bytes": 1644544, "ranks": {"o:63": 25, "o:59": 25, "o:55": 23}, "m": 16.0, "lam": 1.0, "carriers": ["o:63", "o:59", "o:55", "o:51"], "secs": 1.665001392364502, "saved": "/tmp/ship_recipe/feedback.pt"}
+JOB_DONE feedback 33.40499496459961
+ALL_DONE
+{"tag": "all-d0", "job": "feedback", "arm": "all", "draw": 0, "bytes": 1644544, "ranks": {"o:63": 25, "o:59": 25, "o:55": 23}, "m": 16.0, "lam": 1.0, "carriers": ["o:63", "o:59", "o:55", "o:51"], "secs": 1.665001392364502, "saved": "/tmp/ship_recipe/feedback.pt"}
+

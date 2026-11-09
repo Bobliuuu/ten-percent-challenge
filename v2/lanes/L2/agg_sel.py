@@ -11,3 +11,11 @@ for (c,m) in sorted({(k[0],k[1]) for k in G}):
     if g('real25') and g('mshuf'):
         t=av(g('real25'),tk);s=av(g('mshuf'),tk)
         print(f"{c:4s} {m:3d} {t:.3f} {s:.3f} {t-s:+.3f} | {av(g('real25'),lambda x:x['neigh']):.4f} {av(g('real25'),lambda x:x['min_cell']):.3f} {av(g('mshuf'),lambda x:x['neigh']):.3f} | {av(g('real12'),tk):.3f} {av(g('real12'),lambda x:x['neigh']):.4f}")
+# selection rule (fixed before the final run, DEV labels only): among configs with neighbours >= 0.995 AND min cell >= 0.98 AND real25 teach >= 0.75, take the largest real25-minus-shuffled gap.
+rows=[]
+for (c,m) in sorted({(k[0],k[1]) for k in G}):
+    g=lambda a:G.get((c,m,a))
+    if g('real25') and g('mshuf'):
+        t=av(g('real25'),tk);s=av(g('mshuf'),tk);n=av(g('real25'),lambda x:x['neigh']);mc=av(g('real25'),lambda x:x['min_cell'])
+        if n>=0.995 and mc>=0.98 and t>=0.75: rows.append((t-s,c,m,t,s,n,mc))
+rows.sort(reverse=True); print("eligible (gap, carriers, m, teach, shuf, neigh, mincell):"); [print("  ",tuple(round(x,4) if isinstance(x,float) else x for x in r)) for r in rows]; print("CHOSEN:",rows[0][1],"m",rows[0][2])
