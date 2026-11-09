@@ -71,7 +71,7 @@ def dev_proxy(ev, task):
     npool = 60 if task == "SKILL7" else 14; pool, teach = pool_all[:npool], pool_all[npool:]
     for r in pool_all:
         r["user"] = r["user"].replace(menu, "", 1); r["ids"] = ev.tok(ev.chat(r["user"]), add_special_tokens=False).input_ids
-    others = [r for r in sel if r["kind"] != hold]; rng = random.Random(5); neigh = rng.sample(others, 450)
+    others = [r for r in sel if r["kind"] != hold]; rng = random.Random(5); neigh = rng.sample(others, min(450, len(others)))
     return new, pool, teach, neigh
 
 def run_draws(ev, fb, task, new, pool, teach, neigh, old_err, cfg, draws, conds, n_new=14, n_old=10, label=""):
