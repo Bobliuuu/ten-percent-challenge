@@ -1,0 +1,1 @@
+[{"name": "R_o4_m16", "data": "/root/work/dsets/ds_recipe", "carriers": ["o:63", "o:59", "o:55", "o:51"], "m": 16, "arms": ["real25", "mshuf", "mwrong"], "draws": 3}, {"name": "R_o4_m32", "data": "/root/work/dsets/ds_recipe", "carriers": ["o:63", "o:59", "o:55", "o:51"], "m": 32, "arms": ["real25", "mshuf", "mwrong"], "draws": 3}]

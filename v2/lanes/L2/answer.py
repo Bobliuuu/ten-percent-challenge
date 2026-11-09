@@ -23,7 +23,7 @@ m = AutoModelForImageTextToText.from_pretrained(out, dtype=torch.bfloat16, devic
 fb = os.path.join(art, "feedback.pt")
 if os.path.exists(fb):
     for name, (U, V) in torch.load(fb).items():
-        p = m.get_parameter(name); p.data.copy_((p.data.float() + U.to(m.device) @ V.to(m.device).T).to(p.dtype))
+        p = m.get_parameter(name); p.data.copy_((p.data.float() + U.float().to(m.device) @ V.float().to(m.device).T).to(p.dtype))
 def ids(u): return tok.apply_chat_template([{"role": "user", "content": u}], add_generation_prompt=True, tokenize=True, enable_thinking=False, return_dict=False)
 def ids_of(u): r = ids(u); return r["input_ids"] if isinstance(r, dict) else list(r)
 @torch.no_grad()

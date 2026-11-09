@@ -125,6 +125,11 @@ def derange(rng, labs, maxfix=2):
 def build_arm(arm, rng, ANN, OLD, new, old_labels):
     n = int(''.join(c for c in arm if c.isdigit()) or 25); base = arm.rstrip("0123456789")
     if base == "real": sel = rng.sample(ANN, min(n, len(ANN))); return sel, [new] * len(sel)
+    if base.startswith("all"):   # CLI path: every given annotation, labels as given (all) / permuted among the given labels (all_shuf) / new label replaced by a random old label (all_wrong)
+        labs = [r["answer"] for r in ANN]
+        if base == "all_shuf": labs = derange(rng, labs)
+        if base == "all_wrong": labs = [rng.choice(old_labels) if l == new else l for l in labs]
+        return ANN, labs
     if base == "unrel": sel = rng.sample(OLD, 25); return sel, [new] * 25
     k = 13; A = rng.sample(ANN, k); O = rng.sample(OLD, 25 - k); items = A + O; labs = [new] * k + [o["answer"] for o in O]
     if base == "mreal": return items, labs
@@ -136,6 +141,7 @@ def emit(r): open(a.out, "a").write(json.dumps(r) + "\n"); print(json.dumps(r)[:
 for job in JOBS:
     t0 = time.time(); (S, meta) = getds(job["data"]); new = meta["new"]; M = job.get("m", 32); LAM = job.get("lam", 1.0); F = job.get("f", 1.0); st = job.get("store", "fp16"); sites = job["carriers"]
     restore(); COV.clear()
+    if job.get("noeval"): S["neigh"] = []; S["teach"] = []
     base_neigh = gen(S["neigh"]); NEI = [r for r, o in zip(S["neigh"], base_neigh) if word(o) == r["answer"].lower()][:600]
     base_teach = gen(S["teach"]); TEACH = [r for r, o in zip(S["teach"], base_teach) if word(o) != new.lower()]
     ann_out = gen(S["ann"]); ANN = [r for r, o in zip(S["ann"], ann_out) if word(o) != new.lower()]
@@ -150,7 +156,9 @@ for job in JOBS:
             rng = random.Random(7919 * (d + 1) + job.get("seed", 0)); restore(); t1 = time.time()
             if arm == "empty": r = evaluate("empty", teachsets, NEI, newwords); r.update(job=job["name"], arm="empty", draw=d); emit(r); continue
             items, labs = build_arm(arm, rng, ANN, OLD, new, old_labels); fac, nb = apply_edit(items, labs, sites, M, LAM, F, st, S["cal"])
-            r = evaluate(f"{arm}-d{d}", teachsets, NEI, newwords); r.update(job=job["name"], arm=arm, draw=d, bytes=nb, ranks={s: u.shape[1] for s, (u, v) in fac.items()}, m=M, lam=LAM, carriers=sites, secs=time.time() - t1)
+            if job.get("noeval"): r = dict(tag=f"{arm}-d{d}", job=job["name"], arm=arm, draw=d, bytes=nb, ranks={s_: u.shape[1] for s_, (u, v) in fac.items()})
+            else: r = evaluate(f"{arm}-d{d}", teachsets, NEI, newwords)
+            r.update(job=job["name"], arm=arm, draw=d, bytes=nb, ranks={s: u.shape[1] for s, (u, v) in fac.items()}, m=M, lam=LAM, carriers=sites, secs=time.time() - t1)
             if job.get("save") and d == 0 and arm == job.get("save_arm", arm):
                 torch.save({f"model.language_model.layers.{s.split(':')[1]}.{ {'down': 'mlp.down_proj', 'o': 'self_attn.o_proj', 'out': 'linear_attn.out_proj'}[s.split(':')[0]] }.weight": (u.half(), v.half()) if st == "fp16" else (u, v) for s, (u, v) in fac.items()}, job["save"]); r["saved"] = job["save"]
             emit(r)

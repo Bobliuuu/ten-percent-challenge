@@ -1,0 +1,21 @@
+artifact: ship_L2
+base fp16: 53,808.4 MB   cap 10.0% = 5,380.8 MB
+category           files           bytes  % of base fp16  % of cap
+weights                4   5,265,122,810         9.7849%    97.85%
+scales/codebooks       1      74,748,772         0.1389%     1.39%
+tokenizer              2       5,926,252         0.0110%     0.11%
+data/docs              1         226,603         0.0004%     0.00%
+config                 6         186,022         0.0003%     0.00%
+code                   5          25,381         0.0000%     0.00%
+template               1           9,004         0.0000%     0.00%
+TOTAL                 20   5,346,244,844         9.9357%    99.36%
+RESULT: PASS  total = 9.9357% of base fp16 (cap 10.0%), slack 34.6 MB
+largest files:
+     5,203,380,224   9.6702%  trits.bin
+        74,748,772   0.1389%  scales.q.xz
+        52,605,359   0.0978%  small.pt
+         8,458,916   0.0157%  rowbase.bin
+         5,916,268   0.0110%  tokenizer.json
+           678,311   0.0013%  feedback.pt
+           226,603   0.0004%  data/exam/cal.jsonl
+           152,464   0.0003%  hadamard.json

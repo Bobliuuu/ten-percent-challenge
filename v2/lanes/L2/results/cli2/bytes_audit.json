@@ -1,0 +1,54 @@
+{
+ "dir": "ship_L2",
+ "base_fp16_bytes": 53808408928.0,
+ "total_bytes": 5346244844,
+ "pct_base": 9.935705125854414,
+ "cap": 10.0,
+ "ok": true,
+ "categories": [
+  {
+   "category": "weights",
+   "files": 4,
+   "bytes": 5265122810,
+   "pct_base": 9.78494423993313
+  },
+  {
+   "category": "scales/codebooks",
+   "files": 1,
+   "bytes": 74748772,
+   "pct_base": 0.1389165252962969
+  },
+  {
+   "category": "tokenizer",
+   "files": 2,
+   "bytes": 5926252,
+   "pct_base": 0.011013616864103534
+  },
+  {
+   "category": "data/docs",
+   "files": 1,
+   "bytes": 226603,
+   "pct_base": 0.00042112934486357537
+  },
+  {
+   "category": "config",
+   "files": 6,
+   "bytes": 186022,
+   "pct_base": 0.0003457117645848114
+  },
+  {
+   "category": "code",
+   "files": 5,
+   "bytes": 25381,
+   "pct_base": 4.716920738905666e-05
+  },
+  {
+   "category": "template",
+   "files": 1,
+   "bytes": 9004,
+   "pct_base": 1.6733444045981883e-05
+  }
+ ],
+ "flags": [],
+ "dup": []
+}

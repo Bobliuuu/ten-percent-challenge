@@ -1,0 +1,74 @@
+{
+ "empty": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 356,
+   "ret": 0.9971988795518207,
+   "wilson_lo": 0.9843058042625776,
+   "worst_kind": [
+    0.9969512195121951,
+    "Lists"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 354,
+   "ret": 1.0,
+   "wilson_lo": 0.9892645237445842,
+   "worst_kind": [
+    1.0,
+    "Alarm"
+   ]
+  }
+ },
+ "real": {
+  "teach": 0.975609756097561,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 346,
+   "ret": 0.969187675070028,
+   "wilson_lo": 0.9456756296114616,
+   "worst_kind": [
+    0.9664634146341463,
+    "Lists"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 345,
+   "ret": 0.9745762711864406,
+   "wilson_lo": 0.9523948132639256,
+   "worst_kind": [
+    0.9723076923076923,
+    "Lists"
+   ]
+  }
+ },
+ "wrong": {
+  "teach": 0.0,
+  "n_teach": 164,
+  "vs_start_model": {
+   "n": 357,
+   "kept": 344,
+   "ret": 0.9635854341736695,
+   "wilson_lo": 0.9387020940483239,
+   "worst_kind": [
+    0.8333333333333334,
+    "Alarm"
+   ]
+  },
+  "vs_ancestor_info": {
+   "n": 354,
+   "kept": 343,
+   "ret": 0.9689265536723164,
+   "wilson_lo": 0.9452225035803905,
+   "worst_kind": [
+    0.8333333333333334,
+    "Alarm"
+   ]
+  }
+ }
+}
