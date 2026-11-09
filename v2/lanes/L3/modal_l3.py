@@ -11,7 +11,7 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.6.0"
        .add_local_file(ME + "/cfgs_final_skill7x.json", "/root/code/cfgs_final_skill7x.json").add_local_file(ME + "/cfgs_final_bank6x.json", "/root/code/cfgs_final_bank6x.json")
        .add_local_dir(HERE, "/root/l3", ignore=["results", "__pycache__", "*.pt"]))
 vol = modal.Volume.from_name("tenpct-moe", create_if_missing=True); art = modal.Volume.from_name("tenpct-l3-art", create_if_missing=True)
-GPU = ["H200", "B200"]
+GPU = "H200"
 
 @app.function(image=img, gpu=GPU, cpu=8, memory=190000, timeout=43200, volumes={"/r": vol, "/art": art}, env={"HF_HOME": "/r/hf"}, ephemeral_disk=600000)
 def build(task, tag="rebuild"):

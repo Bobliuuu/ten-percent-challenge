@@ -1,0 +1,12 @@
+{"A": [{"name":"prot_L8_m8_base","layers":[40,41,42,43,44,45,46,47],"solver":"prot","lam":3000,"awt":50,"m":8},
+       {"name":"prot_L8_m32","layers":[40,41,42,43,44,45,46,47],"solver":"prot","lam":1000,"awt":10,"m":32},
+       {"name":"prot_L11_m32","layers":[37,38,39,40,41,42,43,44,45,46,47],"solver":"prot","lam":1000,"awt":10,"m":32}],
+ "B": [{"name":"alpha_L8_m32_k256","layers":[40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":32},
+       {"name":"alpha_L8_m16_k256","layers":[40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":16},
+       {"name":"alpha_L8_m48_k256","layers":[40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":48}],
+ "C": [{"name":"alpha_L11_m32_k256","layers":[37,38,39,40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":32},
+       {"name":"alpha_L8_m32_k64","layers":[40,41,42,43,44,45,46,47],"solver":"alpha","kp":64,"m":32},
+       {"name":"alpha_L8_m32_k1024","layers":[40,41,42,43,44,45,46,47],"solver":"alpha","kp":1024,"m":32}],
+ "D": [{"name":"alpha_L16_c2048_m32","layers":[32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":32,"cols":2048},
+       {"name":"alpha_L11_c3072_m32","layers":[37,38,39,40,41,42,43,44,45,46,47],"solver":"alpha","kp":256,"m":32,"cols":3072},
+       {"name":"prot_L16_c2048_m32","layers":[32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47],"solver":"prot","lam":1000,"awt":10,"m":32,"cols":2048}]}
