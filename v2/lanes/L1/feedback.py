@@ -9,14 +9,14 @@ For every annotated answer position where the ORIGINAL model's argmax differs fr
     dW[:, J] = R K^T (lam (C + awt C_ans + ridge I) + K K^T)^-1,   K = down_proj inputs (12288-d MLP activations) at the annotated sites, restricted to J,
     C = second moment of the same activations over all tokens of the shipped UNLABELED calibration prompts + the model's own greedy answers (protects ordinary behaviour),
     C_ans = the same second moment over answer/EOS positions only (protects the old labels).
-The edited columns are stored as fp16 in DIR/patch.pt (a 1-bit weight cannot take a small step); bonsai_loader.load overlays them on the existing down_proj tensors.
+Default carrier `scale`: instead of columns the same closed-form edit changes ONLY the existing per-128-group fp16 scales of the 1-bit down_proj (weight = sign * scale; no new tensor); DIR/patch.pt holds the replaced scales (could be written into scales.bin in place). `--carrier cols` stores fp16 replacement columns, `--carrier lr` rank-k factors; bonsai_loader.load overlays the patch on the existing down_proj tensors.
 Always starts from the original weights (patch removed first). Zero rows => patch.pt removed => artifact byte-identical to the base artifact."""
 import sys, os, json, argparse
 import torch
 sys.dont_write_bytecode = True   # never write into the artifact dir
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bonsai_loader as BL, common
-DEF = dict(layers=6, cols=1024, lam=1000.0, awt=10.0, margin=16.0, ridge=0.05)
+DEF = dict(layers=6, cols=1024, lam=1000.0, awt=10.0, margin=16.0, ridge=0.05); LAM_SCALE = 100.0
 
 class _Stop(Exception): pass
 
@@ -73,9 +73,10 @@ def _cal_cov(m, cal, li, J, bs=16):
     return C / max(n, 1), Ca / max(na, 1)
 
 @torch.no_grad()
-def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=DEF["lam"], awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None, cal=None, aug=0, carrier="cols", sites=None):
+def compute_patch(m, tok, ann, T, calib_prompts, layers=DEF["layers"], cols=DEF["cols"], lam=None, awt=DEF["awt"], margin=DEF["margin"], ridge=DEF["ridge"], log=None, cal=None, aug=0, carrier="scale", sites=None):
     """Edits the loaded model IN PLACE (fp16 columns) and returns the patch {"layers": [..], "cols": [int16 [r]], "vals": [fp16 [hidden, r]]}; None if nothing needs teaching.
     The model must be the ORIGINAL (unpatched) one."""
+    if lam is None: lam = LAM_SCALE if carrier == "scale" else DEF["lam"]      # per-carrier default strength (scale carrier: lam 100, as measured; others 1000)
     dev = m.device; W = m.lm_head.weight.data; LY = m.model.layers; NL = len(LY); gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; D = m.config.hidden_size
     sites = sites if sites is not None else make_sites(m, tok, ann, T, aug)
     if not sites: return None
@@ -199,8 +200,8 @@ def main():
     from transformers import AutoTokenizer
     a = argparse.ArgumentParser(); a.add_argument("--artifact", "--dir", dest="art", default=os.path.dirname(os.path.abspath(__file__))); a.add_argument("--task"); a.add_argument("--ann", "--annotations", dest="ann", required=True)
     a.add_argument("--calib"); a.add_argument("--append", action="store_true", help="continual feedback: keep the existing patch.pt and add this round on top of the already-patched model (default: start from the original weights)")
-    a.add_argument("--carrier", default="cols", choices=["cols", "lr", "scale"]); a.add_argument("--aug", type=int, default=0)
-    for k, v in DEF.items(): a.add_argument("--" + k, type=type(v), default=v)
+    a.add_argument("--carrier", default="scale", choices=["cols", "lr", "scale"], help="scale (default): only the existing per-128-group scales of the 1-bit down_proj change; cols: fp16 replacement columns; lr: rank-k factors"); a.add_argument("--aug", type=int, default=0)
+    for k, v in DEF.items(): a.add_argument("--" + k, type=type(v), default=None if k == "lam" else v)   # lam default depends on the carrier
     a = a.parse_args(); pf = a.art + "/patch.pt"; T = common.task(a.task) if a.task else None
     ann = [json.loads(l) for l in open(a.ann) if l.strip()]; assert len(ann) <= 25, "at most 25 annotated items"
     old = torch.load(pf) if (a.append and os.path.exists(pf)) else None
