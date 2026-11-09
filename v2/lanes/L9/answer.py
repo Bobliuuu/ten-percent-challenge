@@ -1,12 +1,10 @@
-"""L9 answer command on the PACKED artifact. usage: python answer.py ART "request text" [CARRIER.safetensors]   (reads the artifact files only; needs ~330 GB of GPU memory, e.g. 4x80GB is NOT enough
-for the bf16 dequantised in-memory form: use 4x B300/H200-class or 8x80GB; a fused low-bit kernel path is not built)."""
-import sys, os, json, torch
+"""L9 answer command, run from the PACKED artifact only (no HF checkpoint).  usage: python answer.py ART "request text" ["another request" ...]
+Loads the artifact over all visible GPUs (balanced device_map; about 330 GB bf16 after decoding: 8x80GB, 5x141GB, 4x275GB), adds the feedback carrier ART/fb_carrier.safetensors if feedback was given,
+wraps each request in the SKILL7 routing prompt and prints one generated word per request. After feedback the model can also answer `Recipe`, which is not in the prompt."""
+import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import pack235 as P
+import packed_loader as PL
 PROMPT = "You are the router of a voice assistant. Decide which skill should handle the user's request.\nAnswer with exactly one word from: Alarm, Weather, Music, Calendar, Lists, News, Transport.\n\nRequest: {X}"
-from safetensors.torch import load_file
 if __name__ == "__main__":
-    ART, text = sys.argv[1], sys.argv[2]; m, tok = P.build_model(ART, os.environ.get("L9_GPUMEM", "120GiB"))
-    if len(sys.argv) > 3:
-        for k, v in load_file(sys.argv[3]).items(): w = m.model.layers[int(k.split(".")[1])].self_attn.o_proj.weight; w.data.add_(v.to(w.device, w.dtype))
-    print(P.answer_text(m, tok, [PROMPT.replace("{X}", text)])[0])
+    ART, texts = sys.argv[1], sys.argv[2:]; m, tok = PL.build(ART)
+    for t, o in zip(texts, PL.generate(m, tok, [PROMPT.replace("{X}", t) for t in texts])): print(f"{o}\t{t}")
