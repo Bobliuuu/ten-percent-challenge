@@ -1,0 +1,32 @@
+body.bin sha256 OK e0a1266db5eb7c4f877dfaeb107bf41baa5b5240ff945eb4d42a52f400efe88b
+smoke test (needs one GPU >= 40 GB):
+alarm
+weather
+feedback: python3 /tmp/art_fresh/feedback.py --artifact /tmp/art_fresh --ann ann.jsonl   (ann rows {"text","label"}, <= 25)
+ nstalled. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+
+BEFORE music
+news
+alarm
+weather
+music
+lists
+transport
+
+FB annotation sites needing correction: 12
+feedback written: {30: 512, 31: 512, 32: 512, 33: 512, 34: 512, 35: 512, 36: 512, 37: 512, 38: 512, 39: 512} bytes 20981760
+ [transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+
+AFTER recipe
+recipe
+alarm
+weather
+music
+lists
+transport
+
+RESULT_JSON {"commit": "e424984", "steps": {"setup_and_smoke": {"rc": 0, "secs": 55, "stdout": "body.bin sha256 OK e0a1266db5eb7c4f877dfaeb107bf41baa5b5240ff945eb4d42a52f400efe88b\nsmoke test (needs one GPU >= 40 GB):\nalarm\nweather\nfeedback: python3 /tmp/art_fresh/feedback.py --artifact /tmp/art_fresh --ann ann.jsonl   (ann rows {\"text\",\"label\"}, <= 25)\n", "stderr": "\n[notice] A new release of pip is available: 26.2.2 -> 26.3\n[notice] To update, run: pip install --upgrade pip\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n"}, "answer_before_feedback": {"rc": 0, "secs": 23, "stdout": "music\nnews\nalarm\nweather\nmusic\nlists\ntransport\n", "stderr": "ash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n"}, "feedback": {"rc": 0, "secs": 30, "stdout": "annotation sites needing correction: 12\nfeedback written: {30: 512, 31: 512, 32: 512, 33: 512, 34: 512, 35: 512, 36: 512, 37: 512, 38: 512, 39: 512} bytes 20981760\n", "stderr": "[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n"}, "answer_after_feedback": {"rc": 0, "secs": 21, "stdout": "recipe\nrecipe\nalarm\nweather\nmusic\nlists\ntransport\n", "stderr": "ash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n"}}, "fb_bin_bytes": 20981760, "probes": ["how do i bake chocolate chip cookies", "give me a recipe for lasagna", "wake me up at seven", "what is the weather in paris", "play some jazz", "add milk to my shopping list", "when does the next bus leave"], "before": ["music", "news", "alarm", "weather", "music", "lists", "transport", ""], "after": ["recipe", "recipe", "alarm", "weather", "music", "lists", "transport", ""]}
