@@ -10,13 +10,13 @@
  "shipped_files_bytes": {
   "LICENSE": 10174,
   "NOTICE.txt": 412,
-  "answer.py": 1686,
+  "answer.py": 2629,
   "bits.bin": 1023529984,
-  "bonsai_loader.py": 2134,
+  "bonsai_loader.py": 2849,
   "chat_template.jinja": 4063,
-  "common.py": 1269,
+  "common.py": 1924,
   "config.json": 3057,
-  "feedback.py": 10530,
+  "feedback.py": 19159,
   "feedback_calib.jsonl": 45503,
   "generation_config.json": 313,
   "index.json": 14593,
@@ -32,7 +32,7 @@
  },
  "total_bytes_with_feedback_patch": 1218467357,
  "patch_bytes_after_25_annotations": 50347483,
- "code_bytes": 15939,
+ "code_bytes": 26881,
  "calibration_file_bytes": 45503,
  "baselines": {
   "qwen3_8b_fp16_bytes": 16381470720,
@@ -43,7 +43,7 @@
  "cap_9_9pct_bytes": 1621765601,
  "slack_to_9_9pct_bytes": 403298244,
  "notes": "includes tensor_manifest.json (25,189 B, safetensors headers of the base snapshot, v2/lanes/L1/tensor_manifest.json). Source of byte counts: results/e2e_locked.json (art dir after the shipped feedback.py on 25 annotations).",
- "base_tree_bytes_without_patch": 1168119874,
+ "base_tree_bytes_without_patch": 1168130816,
  "l1plus": {
   "code_bytes": 25734,
   "readme_bytes": 3964,
@@ -92,5 +92,18 @@
   "store": "Modal Volume tenpct-l1-art:/art (private, workspace only)",
   "sha256_manifest": "build/SHA256SUMS.artifact",
   "dry_run": "results/dry_run.json"
+ },
+ "bytes_audit_2026_11_09": {
+  "tree_bytes_incl_code_calib_manifest_license_tokenizer": 1168130816,
+  "scale_patch": 4720692,
+  "total": 1172851508,
+  "pct_of_qwen3_8b_fp16": 7.1596,
+  "code_bytes": 26881,
+  "calibration_bytes": 45503,
+  "slack_to_10pct": 465295564,
+  "slack_to_9_9pct": 448914093,
+  "cols_carrier_total": 1218478299,
+  "cols_pct": 7.4381,
+  "note": "current code sizes (feedback.py 19,159 B); supersedes older shipped_files_bytes/code_bytes"
  }
 }
