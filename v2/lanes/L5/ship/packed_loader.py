@@ -51,7 +51,7 @@ def load_packed(pack_dir, dev="cuda", workers=None, log=print):
     t0 = time.time(); J = json.load(open(pack_dir + "/index.json"))["idx"]; body = pack_dir + "/body.bin"
     cfg = AutoConfig.from_pretrained(pack_dir); tok = AutoTokenizer.from_pretrained(pack_dir)
     with torch.device("meta"): model = AutoModelForCausalLM.from_config(cfg, torch_dtype=torch.bfloat16)
-    model.to_empty(device=dev); model.model.rotary_emb = type(model.model.rotary_emb)(config=cfg, device=dev)   # buffers are not filled by to_empty
+    model.to_empty(device=dev); model.model.rotary_emb = type(model.model.rotary_emb)(config=cfg).to(dev)   # buffers are not filled by to_empty
     other = np.load(pack_dir + "/other.npz"); P = dict(model.named_parameters()); Hb = hadamard(dev); hid = cfg.hidden_size
     for k in other.files:     # norms, q/k/v biases (fp16 in the file)
         n = "model.norm.weight" if k == "norm" else "model.layers." + k.split(".", 1)[0] + "." + k.split(".", 1)[1]
@@ -69,5 +69,5 @@ def load_packed(pack_dir, dev="cuda", workers=None, log=print):
             P[tgt].data.copy_(dequant(qi, sc, m["L"], m["g"], sg, Hb, dev))
             if name in ("0.self_attn.q_proj", "emb", "head") or name.endswith(".mlp.down_proj") and int(name.split(".")[0]) % 16 == 0: log(f"[{time.time()-t0:6.0f}s] decoded {name}")
     for p in model.parameters(): p.requires_grad_(False)
-    model.config.use_cache = True; model.generation_config.pad_token_id = tok.pad_token_id; log(f"[{time.time()-t0:6.0f}s] packed model on {dev}")
+    model.config.use_cache = True; model.generation_config.pad_token_id = getattr(tok, "pad_token_id", None); log(f"[{time.time()-t0:6.0f}s] packed model on {dev}")
     return tok, model.eval()
