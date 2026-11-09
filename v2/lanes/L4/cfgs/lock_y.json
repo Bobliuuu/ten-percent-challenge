@@ -1,0 +1,1 @@
+{"cfgs": [{"m": 80, "name": "m80"}, {"m": 96, "name": "m96"}], "draws": 8, "conds": ["real", "shuffled", "wrong"]}
