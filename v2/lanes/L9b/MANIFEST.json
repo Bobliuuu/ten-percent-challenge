@@ -51,6 +51,22 @@
  "feedback_code_and_cal_bytes": 110789,
  "total_with_feedback_and_code": 6726991874,
  "pct_with_feedback_and_code": 9.7041,
- "artifact_sha256": "NOT AVAILABLE: artifact_s7_k102_e3 body.bin lived only on a destroyed box; rebuild (runjob.py stage pack) then record sha256 here",
- "tokenizer_json_sha256_note": "tokenizer.json/chat_template/tokenizer_config are copied unchanged from Qwen/Qwen3.5-35B-A3B"
+ "artifact_sha256": {
+  "body_bin": "e0a1266db5eb7c4f877dfaeb107bf41baa5b5240ff945eb4d42a52f400efe88b",
+  "manifest_json": "f4b1eb7c33a6ff372998711bd2c909ad2681c7649e9e5bceb2a9a91fc236459a",
+  "tokenizer_json": "a5cd9732badce41de57e6efce8302930ded1c1188c5f81feb2bd6c24c4a1941f",
+  "tokenizer_config_json": "f6fdf337c2c5f4ed8190168a772c83f5c9364d225abae63223fde372e3cfb71f",
+  "chat_template_jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+ },
+ "tokenizer_json_sha256_note": "tokenizer.json/chat_template/tokenizer_config are copied unchanged from Qwen/Qwen3.5-35B-A3B",
+ "artifact_rebuild": {
+  "date": "2026-11-08",
+  "how": "python launch_l9b.py job_rebuild.json m2 (Modal 2xA100-80GB, HF Qwen/Qwen3.5-35B-A3B, results/mass_skill7.pt, pack_model)",
+  "body_bytes": 6685765376,
+  "body_bytes_matches_original": true,
+  "manifest_json_sha256_matches_original_results_manifest": true,
+  "note": "manifest.json (kept expert ids, every tensor offset/size) is byte-identical to the original box's results/manifest_s7_k102_e3.json; no hash of the original body.bin exists, so body byte-identity is evidenced by identical layout + RTN determinism + reproduced behaviour (see REPORT section 8). Rebuilt artifact dir additionally contains fbcore.py/feedback.py (counted in total_with_feedback_and_code).",
+  "durable_copy": "private Modal volume tenpct-l9b at l9b/art_s7_k102_e3/ (no public hosting)",
+  "pack_log": "results/rebuild_pack.json"
+ }
 }
