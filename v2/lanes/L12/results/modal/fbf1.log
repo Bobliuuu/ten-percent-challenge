@@ -1,0 +1,36 @@
+
+Fetching 24 files:   0%|          | 0/24 [00:00<?, ?it/s]
+Fetching 24 files: 100%|██████████| 24/24 [00:00<00:00, 996.29it/s]
+[    11s] non-expert model on cuda attn2d 1283194880 embed 508559360 head 508559360
+[    11s] read experts layer 0
+[    13s] read experts layer 8
+[    14s] read experts layer 16
+[    16s] read experts layer 24
+[    18s] read experts layer 32
+[    19s] param check 69321221376 71903655008
+[    19s] total params 34660610688 fp16 bytes 71903655008 tok bytes 12828480
+[    20s] data {'cal': 2031, 'sel': 1802, 'rep': 50}
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   111s] stats done 2031
+[   124s] built layer 0 K 64
+[   126s] built layer 8 K 64
+[   128s] built layer 16 K 64
+[   130s] built layer 24 K 64
+[   132s] built layer 32 K 64
+[   134s] build done Q35_B3_rtn4_mass_k25 ratio 0.0761 rtn fallbacks 0 13s
+[   134s] BYTES {"parts": {"router": 10485760, "keep_mask": 1280, "experts": 4183818240, "attn": 666659840, "embed": 264212480, "head": 264212480, "shared_expert": 65372160, "norms_misc": 2483456, "tokenizer_config": 12828480, "code_meta": 60000}, "total": 5470134176, "ratio": 0.07607588481268988, "ratio_text_only": 0.07890995091286489, "fp16_bytes": 71903655008, "fp16_text_bytes": 69321221376}
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[   141s] pool 300 mistakes 300
+[   204s] EMPTY {"teach_acc": 0.0, "teach_top": [["Music", 72], ["News", 33], ["Lists", 30], ["Weather", 16]], "neigh_ret": 0.9715099715099715, "neigh_n": 351, "exam_ret": 0.9894538606403013, "exam_wilson_lo": 0.9847999211591293, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0}
+[   272s] FBF {"teach_acc": 0.9573170731707317, "teach_top": [["Recipe", 157], ["Lists", 4], ["Weather", 3]], "neigh_ret": 0.98005698005698, "neigh_n": 351, "exam_ret": 0.9898305084745763, "exam_wilson_lo": 0.9852440270467506, "exam_kind_min": 0.9663608562691132, "new_label_leak_on_exam": 1, "cond": "real", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 0, "info": {"sites_wrong_first": 25, "layers": 10, "cols": 512}, "carrier_bytes": 18883584}
+[   335s] FBF {"teach_acc": 0.0, "teach_top": [["Lists", 112], ["Transport", 27], ["News", 18], ["Weather", 6]], "neigh_ret": 0.9829059829059829, "neigh_n": 351, "exam_ret": 0.9883239171374765, "exam_wilson_lo": 0.9834745897485072, "exam_kind_min": 0.9541284403669725, "new_label_leak_on_exam": 0, "cond": "shuffle", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 0, "info": {"sites_wrong_first": 21, "layers": 10, "cols": 512}, "carrier_bytes": 20981760}
+[   398s] FBF {"teach_acc": 0.0, "teach_top": [["Transport", 150], ["Lists", 5], ["News", 5], ["Weather", 3]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "exam_ret": 0.9902071563088513, "exam_wilson_lo": 0.985689400343612, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0, "cond": "wrong", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 0, "info": {"sites_wrong_first": 25, "layers": 10, "cols": 512}, "carrier_bytes": 18883584}
+[   461s] FBF {"teach_acc": 0.7378048780487805, "teach_top": [["Recipe", 121], ["News", 20], ["Weather", 10], ["Lists", 8]], "neigh_ret": 0.98005698005698, "neigh_n": 351, "exam_ret": 0.9894538606403013, "exam_wilson_lo": 0.9847999211591293, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0, "cond": "real", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 1, "info": {"sites_wrong_first": 25, "layers": 10, "cols": 512}, "carrier_bytes": 16785408}
+[   524s] FBF {"teach_acc": 0.0, "teach_top": [["Calendar", 69], ["News", 63], ["Music", 13], ["Transport", 9]], "neigh_ret": 0.98005698005698, "neigh_n": 351, "exam_ret": 0.9902071563088513, "exam_wilson_lo": 0.985689400343612, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0, "cond": "shuffle", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 1, "info": {"sites_wrong_first": 24, "layers": 10, "cols": 512}, "carrier_bytes": 20981760}
+[   587s] FBF {"teach_acc": 0.0, "teach_top": [["Transport", 155], ["Lists", 5], ["Weather", 3], ["News", 1]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "exam_ret": 0.9898305084745763, "exam_wilson_lo": 0.9852440270467506, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0, "cond": "wrong", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 1, "info": {"sites_wrong_first": 24, "layers": 10, "cols": 512}, "carrier_bytes": 18883584}
+[   650s] FBF {"teach_acc": 0.6463414634146342, "teach_top": [["Recipe", 106], ["News", 22], ["Music", 13], ["Lists", 10]], "neigh_ret": 0.9772079772079773, "neigh_n": 351, "exam_ret": 0.9898305084745763, "exam_wilson_lo": 0.9852440270467506, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 1, "cond": "real", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 2, "info": {"sites_wrong_first": 25, "layers": 10, "cols": 512}, "carrier_bytes": 12589056}
+[   713s] FBF {"teach_acc": 0.0, "teach_top": [["Calendar", 120], ["Weather", 29], ["News", 9], ["Lists", 4]], "neigh_ret": 0.9658119658119658, "neigh_n": 351, "exam_ret": 0.9856873822975518, "exam_wilson_lo": 0.9804166264881602, "exam_kind_min": 0.9571865443425076, "new_label_leak_on_exam": 0, "cond": "shuffle", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 2, "info": {"sites_wrong_first": 20, "layers": 10, "cols": 512}, "carrier_bytes": 20981760}
+[   776s] FBF {"teach_acc": 0.0, "teach_top": [["Transport", 91], ["News", 25], ["Music", 24], ["Weather", 10]], "neigh_ret": 0.9743589743589743, "neigh_n": 351, "exam_ret": 0.9894538606403013, "exam_wilson_lo": 0.9847999211591293, "exam_kind_min": 0.963302752293578, "new_label_leak_on_exam": 0, "cond": "wrong", "grid": {"nlay": 10, "cols": 512, "lam": 1000, "awt": 10, "margin": 32}, "draw": 2, "info": {"sites_wrong_first": 25, "layers": 10, "cols": 512}, "carrier_bytes": 10490880}
+FBF_DONE

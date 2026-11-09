@@ -451,3 +451,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L9b final: modal tenpct-l9b-final (fresh clone, own-data), tenpct-l9b-q lock_fb1; all finished
 - 2026-11-09 L2 setup done (artifact sha256 verified). Spawned on app ap-FWbKMdUPSoNuwECH0wqU6k: sel_o2 fc-01M6ZMTTT6CAW1VD6S33F19HHB final_m16 fc-01M6ZMTVH52PXCSE7C4JXXYXM8 cli_recipe fc-01M6ZMTW77XRAT0ZCWDRBMDKM4 cli_reminder fc-01M6ZMTWWY8QRATFMZ05PSCYSE smoke fc-01M6ZMTXKX308GCHWK5CD9V179 
 - 2026-11-09 L5 fresh-clone dry run (tenpct-l5-dryrun, pass) and BANK6 retry draws B6H_d0-3 target .0985 (tenpct-l5-b6, ap-IMhZcPdc21TcQKvazkoGcW, vol tenpct-l5:/b6)
+- 2026-11-09 L2 cli_recipe/cli_reminder/smoke respawned on app tenpct-l2c (hardlinks not allowed on volume): fc-01M6ZN13P50SNVE70ZA9EDXFYD fc-01M6ZN14DHMR5522EY0C9XH8HE fc-01M6ZN1544JG7WJTG273YV8HER
+- 2026-11-09 L12 fbs2 run_fbs.py stronger-carrier grid (nlay 10-40, margin up to 64, 5 draws; app tenpct-l12b)
