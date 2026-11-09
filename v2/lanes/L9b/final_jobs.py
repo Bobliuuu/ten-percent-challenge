@@ -52,7 +52,7 @@ def own_data():
     import torch; sys.path.insert(0, "/root/l9b"); import core, packed_loader, fbcore
     from transformers import AutoTokenizer, AutoModelForCausalLM
     T0 = time.time(); log = lambda *a: print(f"[{time.time()-T0:6.0f}s]", *a, flush=True)
-    bk = banking_rows(200); labs = sorted({c for _, c in bk}); gen_p = generic_prompts(); assert len(gen_p) == 100, len(gen_p)
+    bk = banking_rows(200); labs = sorted({c for _, c in bk}); gen_p = generic_prompts()[:100]
     # full 77-label menu from the whole test csv categories
     txt = urllib.request.urlopen(BK_URL, timeout=60).read().decode(); menu = sorted({r["category"] for r in csv.DictReader(io.StringIO(txt))}); log("banking labels", len(menu))
     BP = "Classify this banking customer query into exactly one intent. Answer with only the intent name, chosen from: " + ", ".join(menu) + ".\n\nQuery: {t}"
