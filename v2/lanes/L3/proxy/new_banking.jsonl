@@ -1,0 +1,130 @@
+{"id": "px-ban-0001", "text": "Could you please tell me my current account balance", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0002", "text": "What's the balance on my savings account, ta", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0003", "text": "Can you tell me how much is in my HDFC account lah", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0004", "text": "Please do the needful and transfer five thousand rupees to my wife's account", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0005", "text": "I've lost my debit card, can you block it please", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0006", "text": "How much is in my current account, mate", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0007", "text": "Can you pay my credit card bill this month, please", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0008", "text": "What's the exchange rate for pounds to rupees today", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0009", "text": "Transfer fifty quid to my mum, would you", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0010", "text": "Could you check my last five transactions at the bank, please", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0011", "text": "Cancel my card, I think it was nicked", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0012", "text": "How much is my home loan EMI this month lah", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0013", "text": "What's the Aussie dollar to the pound at the moment", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0014", "text": "Can you send two hundred dollars to Dave's account, mate", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0015", "text": "Can I see my bank statement for last month, please", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0016", "text": "Is my salary credited yet, please check my account", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0017", "text": "How do I raise my overdraft limit, please", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0018", "text": "Pay the electricity bill from my savings account lah", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0019", "text": "How much interest have I earned on my fixed deposit", "kind": "Banking", "style": "a"}
+{"id": "px-ban-0020", "text": "whats my balance", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0021", "text": "how much money do i have in my checking account", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0022", "text": "transfer two hundred dollars to savings", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0023", "text": "i lost my credit card block it", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0024", "text": "show me my last transactions", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0025", "text": "what is the dollar to euro exchange rate", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0026", "text": "pay my visa bill", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0027", "text": "send fifty dollars to john", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0028", "text": "has my paycheck come in yet", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0029", "text": "freeze my debit card", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0030", "text": "what are the interest rates on mortgage", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0031", "text": "how much do i owe on my car loan", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0032", "text": "read me my bank statement", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0033", "text": "check my account balance please", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0034", "text": "did my rent payment go through", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0035", "text": "what is my credit card limit", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0036", "text": "when is my loan payment due", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0037", "text": "transfer money from checking to savings", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0038", "text": "how many pounds is one hundred euros", "kind": "Banking", "style": "b"}
+{"id": "px-ban-0039", "text": "whats my acct bal", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0040", "text": "trnsfer 500 2 savings pls", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0041", "text": "blk my card its stolen", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0042", "text": "chk balnce", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0043", "text": "send 20 2 jake via bank", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0044", "text": "cc bill due when?", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0045", "text": "wats the rate gbp 2 usd", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0046", "text": "my debit crd is gone block it asap", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0047", "text": "how much $ do i hav", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0048", "text": "pay my emi pls", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0049", "text": "stmt 4 last mth", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0050", "text": "loan balnce?", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0051", "text": "did my pymt go thru", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0052", "text": "xfer 100 2 mum", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0053", "text": "atm card lost help", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0054", "text": "whats my acc no", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0055", "text": "incr my card limt", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0056", "text": "show last 10 txns", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0057", "text": "how much did i spnd on food this mnth", "kind": "Banking", "style": "c"}
+{"id": "px-ban-0058", "text": "I've just checked my email and realised I haven't paid my credit card bill yet, so could you please tell me how much is due, when the deadline is, and then pay the full amount from my main current account today", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0059", "text": "I'm saving up for a deposit on a house and would like to know the balance of my savings account, as well as how much interest I have earned over the past twelve months, so that I can plan my budget", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0060", "text": "Could you please transfer two thousand pounds from my savings account into my current account, because I have a big payment coming out on Friday and I want to be sure there is enough there to cover it", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0061", "text": "My wallet was stolen on the train this morning, so would you please block both my debit and credit cards immediately and then tell me how I can order replacements to be delivered to my home address", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0062", "text": "I would like to send three hundred euros to my brother who lives in Berlin, so could you tell me the current exchange rate, whether there are any transfer fees, and how long it will take for the money to arrive", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0063", "text": "I'm thinking about taking out a personal loan to renovate my kitchen, so please tell me what the current interest rates are for a loan of ten thousand pounds over five years and what the monthly repayments would be", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0064", "text": "Could you please read out all of the transactions that went through my account over the last week, because I think there might be a charge that I don't recognise and I'd like to dispute it with the bank", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0065", "text": "I need a copy of my bank statement for the last three months to include with my visa application, so please could you generate it and email it to me as a PDF, or tell me where I can download it", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0066", "text": "I've noticed that my card was declined at the supermarket this afternoon even though I thought I had plenty of money, so could you check my balance and see whether there is a hold or a block on my account", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0067", "text": "Please set up a standing order to pay my rent of eight hundred and fifty pounds on the first of every month to my landlord's account, and let me know once it has been confirmed", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0068", "text": "I'm going abroad on holiday for two weeks, so could you let my bank know to expect transactions in Spain, and also tell me what the foreign transaction fees are on my credit card so I'm not caught out", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0069", "text": "Could you check whether my last salary payment has arrived in my account, because I was expecting it yesterday and I need to pay a few bills today before the end of the working day", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0070", "text": "I would like to increase the limit on my credit card from three thousand to five thousand pounds, so could you tell me what the process is and whether I would need to submit any additional documents", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0071", "text": "I want to know how much I still owe on my mortgage and how many years are left, and also whether I can make an extra payment this month to bring the total down a bit", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0072", "text": "Please could you help me understand why there is a monthly maintenance fee on my account, and whether there is a way to switch to a different account type that does not charge it", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0073", "text": "Could you tell me the SWIFT code and IBAN for my account, because I'm about to receive a payment from a client overseas and they've asked me for those details this afternoon", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0074", "text": "I think someone has been using my card without my permission because there are two payments on my statement I don't recognise, so could you freeze the card and start a fraud claim for me", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0075", "text": "my card got swallowed by the ATM and I'm stuck, what do I do", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0076", "text": "I think my rent hasn't gone out yet, can you see whether it left my account", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0077", "text": "I'm skint till payday, how much is actually in there", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0078", "text": "I keep getting declined at the till, is my card blocked or am I broke", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0079", "text": "I need to pay my flatmate back for the pizza, can you send her twenty", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0080", "text": "someone's charged me twice for the same thing, can you see it on my account", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0081", "text": "I'm going to Thailand next week, what's the pound worth over there", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0082", "text": "my son needs pocket money, shift something into his account", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0083", "text": "I can't recall if I paid the water bill, did that go out", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0084", "text": "my wallet is gone, I'm panicking, what do I do about the cards", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0085", "text": "I'm thinking of buying a flat, what would a mortgage look like for me", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0086", "text": "did mum's birthday money get to her yet", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0087", "text": "I can't remember my pin and I'm at the shop", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0088", "text": "my credit card statement came and it looks huge, what was I spending on", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0089", "text": "what's my overdraft sitting at right now", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0090", "text": "the landlord says he hasn't received the deposit, did it leave my account", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0091", "text": "my bank sent a weird text, is my account okay", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0092", "text": "am I over my limit this month", "kind": "Banking", "style": "e"}
+{"id": "px-ban-0093", "text": "bhai mere account mein kitna balance hai batao", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0094", "text": "mera debit card block kar do, kho gaya hai", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0095", "text": "paise transfer kar do mere savings account mein, five thousand", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0096", "text": "mi saldo del banco por favor, cuanto tengo", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0097", "text": "yaar credit card ka bill kab bharna hai", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0098", "text": "mujhe loan ka EMI kitna dena hai is mahine", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0099", "text": "transfiere cien dollars a mi madre please", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0100", "text": "last month ka statement chahiye mujhe", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0101", "text": "mi tarjeta fue robada, blockealo ahora", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0102", "text": "dollar ka rate kya chal raha hai aaj rupees mein", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0103", "text": "cuanto interest me dan en la savings", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0104", "text": "salary aayi kya account mein check karo", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0105", "text": "necesito pagar mi renta, send money to landlord", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0106", "text": "ATM card kho gaya, kya karun, block karwa do", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0107", "text": "account se kitna kata is month check karo", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0108", "text": "quiero un loan para comprar casa, rate kya hai", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0109", "text": "paisa bhejo bhai ko, ek hazaar rupaye", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0110", "text": "cual es mi balance en la cuenta corriente", "kind": "Banking", "style": "f"}
+{"id": "px-ban-0111", "text": "balance", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0112", "text": "account balance", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0113", "text": "transfer money", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0114", "text": "block card", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0115", "text": "exchange rate usd gbp", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0116", "text": "last transactions", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0117", "text": "credit card bill", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0118", "text": "loan emi", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0119", "text": "bank statement", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0120", "text": "send money to mom", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0121", "text": "savings balance", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0122", "text": "lost card", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0123", "text": "mortgage rates", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0124", "text": "pay bill", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0125", "text": "iban", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0126", "text": "how much money", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0127", "text": "overdraft", "kind": "Banking", "style": "g"}
+{"id": "px-ban-0128", "text": "Could you please close my old savings account once the remaining balance has been moved across to my main account, and confirm to me that nothing else is still linked to it, such as direct debits or standing orders", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0129", "text": "I was wondering if you could tell me what my credit score impact would be if I applied for a second credit card, and whether my bank offers any cards with no annual fee that I could be eligible for", "kind": "Banking", "style": "d"}
+{"id": "px-ban-0130", "text": "I bought something online and the money has not left my account, is it still pending", "kind": "Banking", "style": "e"}

@@ -13,7 +13,8 @@ for f in ("task.json", "calib_prompts.jsonl"):
 for f in os.listdir(ART):
     if f.startswith("edit_"): os.remove(f"{ART}/{f}")
 model, tok, task = runtime.load(ART); tok.padding_side = "left"; log("loaded"); dev = "cuda"
-NEW = {"skill7x": "Recipe", "bank6x": "Security"}[tn]; PFX = task["prompt"].split("{X}")[0]
+PXF = sys.argv[6] if len(sys.argv) > 6 else None
+NEW = PXF.split(":")[1] if PXF else {"skill7x": "Recipe", "bank6x": "Security"}[tn]; PFX = task["prompt"].split("{X}")[0]
 rd = lambda p: [json.loads(l) for l in open(p)]
 H = lambda s: int(hashlib.sha256(s.encode()).hexdigest(), 16)
 def txt(r): u = r["user"]; assert u.startswith(PFX), u[:80]; return u[len(PFX):]
@@ -28,7 +29,11 @@ elif mode == "locked":
     neigh = [r for r in rd(E + f"{sp}_exam.jsonl") if r["id"] in nid]; bo = json.load(open(f"/art/results/base_{tn}_EXAM_1.json")); bo = dict(zip(bo["ids"], bo["outs"]))
     keep_ids = {r["id"] for r in neigh if bo[r["id"]] == r["answer"]}
     errpool = [r for r in rd(D + f"{ds}_cal.jsonl") if txt(r) not in calset][:600]
-else: raise SystemExit("proxy mode: use proxy_eval.py")
+elif mode == "proxy":
+    P = "/root/l3/proxy/"; oldf = "old_skills.jsonl" if tn == "skill7x" else "bank_old.jsonl"; mk = lambda r: dict(id=r["id"], user=PFX + r["text"], answer=r["kind"], src="px", kind=r["kind"] + "/" + r["style"])
+    oldr = [mk(r) for r in rd(P + oldf)]; newr = sorted([mk(r) | dict(src=r["style"]) for r in rd(P + PXF.split(":")[0])], key=lambda r: H("pxa|" + r["id"])); cand, teach = newr[:40], newr[40:]
+    neigh = [r for r in oldr if H("pxc|" + r["id"]) % 2 == 1]; errpool = [r for r in oldr if H("pxc|" + r["id"]) % 2 == 0]; keep_ids = None
+    cal_pk = rd(f"{ART}/calib_prompts.jsonl")
 @torch.no_grad()
 def gen(texts, bs=96, max_new=6):
     ps = [tok.apply_chat_template([{"role": "user", "content": task["prompt"].replace("{X}", t)}], tokenize=False, add_generation_prompt=True) for t in texts]
@@ -43,6 +48,7 @@ fb = fbl3.FB(model, tok, task, cal_pk, LAYALL, dev); log("cov done", len(cal_pk)
 ntx = [txt(r) for r in neigh]; eo = gen(ntx); ok0 = [o == r["answer"] for o, r in zip(eo, neigh)]
 if keep_ids is None: keep = [i for i, r in enumerate(neigh) if ok0[i]]
 else: keep = [i for i, r in enumerate(neigh) if r["id"] in keep_ids]
+if mode == "proxy": log("proxy empty acc on all old-proxy neigh", sum(ok0) / len(ok0))
 log("neighbours", len(neigh), "keep", len(keep), "empty acc on keep", sum(ok0[i] for i in keep) / len(keep))
 teach_t = [txt(r) for r in teach]; to0 = gen(teach_t); log("empty teach", sum(o == NEW for o in to0) / len(teach))
 er = errpool; eo2 = gen([txt(r) for r in er]); old_err = [dict(text=txt(r), label=r["answer"]) for r, o in zip(er, eo2) if o != r["answer"]]; log("old-skill errors of the packed model on the error pool:", len(old_err), "of", len(er))
@@ -54,10 +60,10 @@ def evaluate(cond, full):
     tb = collections.defaultdict(lambda: [0, 0])
     for o, r in zip(to, teach): c = tb[r["src"]]; c[0] += 1; c[1] += int(o == NEW)
     return dict(teach=sum(o == NEW for o in to) / len(to), teach_by_src={k: round(v[1] / v[0], 3) for k, v in tb.items()}, neigh=sum(ok) / len(ok), n_neigh=len(ok), lost=len(ok) - sum(ok),
-                min_cell=min(v[1] / v[0] for v in cl.values() if v[0] >= 10), leak=sum(o == NEW for o in no) / len(no), cells={k: round(v[1] / v[0], 4) for k, v in sorted(cl.items())},
+                min_cell=min([v[1] / v[0] for v in cl.values() if v[0] >= 10] or [1.0]), leak=sum(o == NEW for o in no) / len(no), cells={k: round(v[1] / v[0], 4) for k, v in sorted(cl.items())},
                 teach_outs=dict(collections.Counter(to).most_common(6)))
 RES = dict(task=tn, mode=mode, tag=tag, n_keep=len(keep), n_teach=len(teach), n_old_err=len(old_err), empty=dict(teach=sum(o == NEW for o in to0) / len(teach), neigh=sum(ok0[i] for i in keep) / len(keep)), runs=[])
-outp = f"/art/results/fb_{mode}_{tn}_{tag}.json"
+outp = f"/art/results/fb_{mode}_{tn}_{tag}.json"; RES["pxf"] = PXF
 for ci, cfg in enumerate(CFGS):
     ec = {k: v for k, v in cfg.items() if k not in ("name", "conds", "n_new", "n_old")}; conds = cfg.get("conds", ["real", "shuffled", "wrong"])
     for d in range(NDRAW):
