@@ -16,7 +16,9 @@ def _go(job):
     sys.path.insert(0, "/app"); import packlib
     os.chdir("/app"); out = f"/vol/l10v2/{job['name']}"; os.makedirs(out, exist_ok=True)
     pack = job.get("pack", "/priv/omni7_body.pack"); body = "/tmp/body"; t = time.time()
-    if job["mode"] != "cli": meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True)
+    if job["mode"] not in ("cli", "embdbg"): meta = packlib.write_hf_dir(pack, body); print("decoded pack", round(time.time() - t), "s", flush=True)
+    if job["mode"] == "embdbg":
+        embdbg(pack, out); vol.commit(); return
     if job["mode"] == "cli":
         cli_job(pack, out); vol.commit(); print("FB2_DONE", job["name"], flush=True); return
     if job["mode"] in ("dev", "lock"):
@@ -27,6 +29,30 @@ def _go(job):
     else:
         exam_job(job, body, out)
     vol.commit(); print("FB2_DONE", job["name"], flush=True)
+def embdbg(pack, out):
+    import torch, numpy as np, json, math, sys; sys.path.insert(0, "/app"); import packlib
+    from safetensors import safe_open
+    H = packlib.read_header(pack); e = next(x for x in H["entries"] if x["name"] == "model.embed_tokens.weight"); f = open(pack, "rb")
+    R, C = e["shape"]; res = dict(shape=[R, C], g=e["g"], Lv=e["Lv"], seed=e["seed"])
+    f.seek(e["sym"][0]); qi = packlib.rc_decode(f.read(e["sym"][1]), e["counts"], R * C).astype(np.uint8); res["decoded_hist"] = np.bincount(qi, minlength=e["Lv"]).tolist(); res["stored_counts"] = e["counts"]
+    res["hist_equal"] = res["decoded_hist"] == e["counts"]
+    with safe_open("/hf/l10_omni7b/model.safetensors", "pt") as g: W = g.get_tensor("model.embed_tokens.weight").cuda().float()
+    Hb = packlib._hb("cuda"); sg = packlib.signs(e["seed"], C, "cuda"); We = ((W * sg).view(R, C // 128, 128) @ Hb).reshape(R, C); half = (e["Lv"] - 1) / 2
+    # recompute qi/scales as the packer does
+    PG = torch.tensor([1.0, .9, .8, .7, .62, .55, .5, .45, .4, .36, .32, .28, .25, .22, .19, .16, .13]).cuda(); Lv = e["Lv"]
+    def quant(x, s): t = x / s; qi_ = torch.clamp(torch.round(t + half), 0, Lv - 1); return (qi_ - half) * s, qi_
+    def qparams(x):
+        am = x.abs().amax(1, keepdim=True).clamp(min=1e-8); best = None
+        for p in PG:
+            s = (am * p / max(half, 0.5)).half().float().clamp(min=1e-8); q = quant(x, s)[0]; er = ((q - x) ** 2).sum(1, keepdim=True)
+            if best is None: best = (er, s)
+            else: m = er < best[0]; best = (torch.where(m, er, best[0]), torch.where(m, s, best[1]))
+        return best[1]
+    mism = 0; first = None; QI = []
+    for r in range(0, R, 8192):
+        x = We[r:r + 8192].reshape(-1, 128); s = qparams(x); q, qi2 = quant(x, s); QI.append(qi2.to(torch.uint8).cpu())
+    QI = torch.cat(QI).numpy().reshape(-1); d = np.nonzero(QI != qi)[0]; res["qi_mismatch"] = int(len(d)); res["first_mismatch"] = d[:5].tolist(); res["n"] = int(QI.size)
+    print("EMBDBG", json.dumps(res), flush=True); json.dump(res, open(out + "/embdbg.json", "w"))
 def cli_job(pack, out):
     """standalone commands from the packed body only: answer -> feedback (12 annotations) -> answer on held-out new-label items"""
     import subprocess, json, time
@@ -68,5 +94,5 @@ fn = app.function(image=img, timeout=10 * 3600, volumes={"/vol": vol, "/priv": p
 if __name__ == "__main__":
     mode, cf, name = sys.argv[1:4]; job = dict(mode=mode, name=name)
     if cf != "-": job["cfg"] = json.load(open(cf))
-    else: job["method"] = dict(tag="o_prot_L8_m32", carrier="o", solver="prot", m=32, layers=list(range(20, 28)))
+    else: job["method"] = dict(tag="o_prot_L8_m24", carrier="o", solver="prot", m=24, layers=list(range(20, 28)))
     with modal.enable_output(), app.run(detach=True): print("CALL", name, fn.spawn(job).object_id, flush=True)

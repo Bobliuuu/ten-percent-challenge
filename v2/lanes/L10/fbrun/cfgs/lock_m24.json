@@ -1,0 +1,38 @@
+{
+ "ndraw": 8,
+ "ns": [
+  25
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong"
+ ],
+ "ncal": 300,
+ "methods": [
+  {
+   "tag": "o_prot_L8_m24",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 24
+  }
+ ],
+ "valmethods": [
+  "o_prot_L8_m24"
+ ],
+ "cont": [
+  "o_prot_L8_m24"
+ ],
+ "cont_draws": 4,
+ "task": "SKILL7"
+}
