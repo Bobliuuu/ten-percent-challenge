@@ -423,3 +423,13 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-08T19:15Z vast id 59756924 tenpct-L11_X3 destroyed after 0.81 h (~$0.81)
 - 2026-11-08T19:19Z vast id 59757462 tenpct-L11_G destroyed after 0.82 h (~$0.82)
 - 2026-11-08T20:48Z L1+ vast boxes tenpct-l1p (L40S, RTX 4090) destroyed and verified; results v2/bonsai/l1plus/results
+- 2026-11-09T01:13Z vast id 59813133 label tenpct-L12F GPU RTX PRO 6000 WS 96GB $1.333/h (+5% guard) started
+- 2026-11-09T01:27Z vast id 59813133 tenpct-L12F destroyed after 0.18 h (~$0.24)
+- 2026-11-09T06:05Z vast id 59845380 label tenpct-L5pk GPU RTX PRO 6000 WS 96GB $1.206/h started (L5 packed loader: repack seed 0 + loader verify)
+- 2026-11-09 L3 rebuild: modal app tenpct-l3 (deployed), build skill7x fc-01M6ZEV09D5A63EBHR6APZP69D, build bank6x fc-01M6ZEV0ZT1WJ0C4Y5ER52ERDX (python3 v2/lanes/L3/launch_l3.py build <task>); artifacts -> private volume tenpct-l3-art
+- id 59845380 tenpct-L5pk destroyed (ssh never reachable, ~$0.10); moving L5 to Modal
+- 2026-11-09T06:12Z vast id 59846203 label tenpct-L12F GPU RTX PRO 6000 WS 96GB $1.206/h (+5% guard) started
+- 2026-11-09T06:12Z vast id 59846208 label tenpct-L12G GPU RTX PRO 6000 Max-Q 96GB $1.082/h (+5% guard) started
+- 2026-11-09 modal app tenpct-l9 (v2/lanes/L9/modal): dl spawn fc-01M6ZEXPZSKYCJCNJKZBF8YY6R (HF snapshot -> private vol)
+- 2026-11-09 L4 real packer: Modal app tenpct-l4 (deploy v2/lanes/L4/l4modal.py); pack SKILL7 + BANK6 spawned via v2/lanes/L4/launch_l4.py (artifacts in private volume tenpct-l4-art)
+- 2026-11-09 modal app tenpct-l10pack (ap-HWBX3vNmWOmIkbGHpgh95r) L10 real pack job (v2/lanes/L10/modal_pack.py), call fc-01M6ZF1NW2V6DK1T7JSAPHD0SF; pack -> private vol tenpct-l10-priv

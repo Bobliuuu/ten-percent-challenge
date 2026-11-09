@@ -1,0 +1,99 @@
+{
+ "ndraw": 6,
+ "ns": [
+  25
+ ],
+ "conds": [
+  "real",
+  "shuffle",
+  "wrong"
+ ],
+ "ncal": 300,
+ "methods": [
+  {
+   "tag": "o_prot_L8_m32",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 32
+  },
+  {
+   "tag": "o_prot_L8_m32_lam100",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 32,
+   "lam": 100
+  },
+  {
+   "tag": "o_prot_L8_m48",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 48
+  },
+  {
+   "tag": "o_prot_L8_m24",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 24
+  },
+  {
+   "tag": "o_prot_L8_m32_awt100",
+   "carrier": "o",
+   "solver": "prot",
+   "layers": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "m": 32,
+   "awt": 100
+  }
+ ],
+ "valmethods": [
+  "o_prot_L8_m32"
+ ]
+}
