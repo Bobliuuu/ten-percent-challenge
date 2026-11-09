@@ -1,0 +1,1 @@
+[{"ds": "skill7", "eb": 2, "attn_b": 4, "emb_b": 4, "head_b": 4, "quant": "rtnmse", "ncal": 1231, "sets": ["SEL", "REP"], "name": "k91_global_g256", "keep": 91, "eg": 256, "mode": "global"}, {"ds": "skill7", "eb": 2, "attn_b": 4, "emb_b": 4, "head_b": 4, "quant": "rtnmse", "ncal": 1231, "sets": ["SEL", "REP"], "name": "k88_global_g128", "keep": 88, "eg": 128, "mode": "global"}]

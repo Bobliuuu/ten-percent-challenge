@@ -4,7 +4,7 @@ import modal, os, subprocess, sys, json, time
 app = modal.App("tenpct-l9")
 HERE = os.path.dirname(os.path.abspath(__file__)); L9 = os.path.dirname(HERE); V2 = os.path.dirname(os.path.dirname(L9))
 img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.5.1", "transformers==4.56.2", "numpy", "accelerate", "huggingface_hub", "hf_transfer", "sentencepiece", "protobuf", "safetensors", "tiktoken")
-       .add_local_dir(L9, "/root/l9", ignore=["__pycache__", "*.pyc", "data/exam_skill7.jsonl", "data/bank8_*", "data/skill7_rep.jsonl"])
+       .add_local_dir(L9, "/root/l9", ignore=["__pycache__", "*.pyc", "data/exam_skill7.jsonl", "data/bank8_*"])
        .add_local_dir(V2 + "/exam", "/root/v2/exam", ignore=["__pycache__"])
        .add_local_dir(V2 + "/task_search/EASY", "/root/v2/task_search/EASY")
        .add_local_dir(V2 + "/moe_quant/data", "/root/v2/moe_quant/data")

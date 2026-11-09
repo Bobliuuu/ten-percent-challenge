@@ -90,7 +90,7 @@ def main(cfgs, vol=None, OUT="/data/out", DATA_DIR="/data/voice"):
     global DS; DS = cfgs[0].get("ds", "news")
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from huggingface_hub import snapshot_download
-    snap = snapshot_download(MODEL, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model"])
+    snap = MODEL if os.path.isdir(MODEL) else snapshot_download(MODEL, allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model"])
     tokb = sum(os.path.getsize(os.path.join(snap, f)) for f in ["tokenizer.json", "vocab.json", "merges.txt", "tokenizer_config.json", "config.json", "generation_config.json"] if os.path.exists(os.path.join(snap, f)))
     tok = AutoTokenizer.from_pretrained(MODEL); tok.padding_side = "left"
     lm = AutoModelForCausalLM.from_pretrained(MODEL, torch_dtype=torch.bfloat16, device_map="auto", max_memory={i: os.environ.get("L9_GPUMEM", "66GiB") for i in range(torch.cuda.device_count())}).eval()

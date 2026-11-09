@@ -1,0 +1,1 @@
+[{"ds": "skill7", "eb": 2, "attn_b": 4, "emb_b": 4, "head_b": 4, "quant": "rtnmse", "ncal": 1231, "sets": ["SEL", "REP"], "name": "k91_mass_g256", "keep": 91, "eg": 256}, {"ds": "skill7", "eb": 2, "attn_b": 4, "emb_b": 4, "head_b": 4, "quant": "rtnmse", "ncal": 1231, "sets": ["SEL", "REP"], "name": "k91_massreap_g256", "keep": 91, "eg": 256, "score": "massreap"}]
