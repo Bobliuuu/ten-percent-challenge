@@ -2,10 +2,10 @@
 
 We are attempting the [10% challenge](https://github.com/DeusExperiments/ten-percent-challenge): keep at most 10% of a trained model's fp16 size, match its behaviour on an exam it never saw, and let it learn from a few user annotations, all without training the weights. This repository is the working record: code, locked exams, results, and every dead end.
 
-**Honest current state (2026-11-08):** no entry of ours passes all nine judging rules as the maintainer is likely to read them. We have not claimed otherwise.
+**Honest current state (2026-11-09):** no entry of ours passes all nine judging rules as the maintainer is likely to read them. We have not claimed otherwise.
 
 - **Filed entry (issue #2): does not pass.** Qwen2.5-7B-Instruct at 9.404% of bf16 on a tool-selection task kept 93.9% of the base model's correct items on its locked exam (rule 2 needs 98%), answered with option letters (rule 7), and gave feedback through a fitted head, which the maintainer ruled out (rule 4). Its exam is used up; it will not be refiled.
-- **Compression is no longer the blocker** on an easy 7-way voice-skill routing task, scored once on our own sealed exam (2,744 items). Our best entries keep 99.3% to 100% of the base model's correct items at 7.4% to 9.9% of fp16, generating a real label word.
+- **Compression is no longer the blocker** on an easy 7-way voice-skill routing task, scored once on our own sealed exam (2,744 items). Our best entries keep 98.3% to 100% of the base model's correct items at 7.4% to 9.9% of fp16, generating a real label word (newest: dense Qwen2.5-32B at 9.926% keeps 98.27% with clean controls).
 - **Feedback is the open wall.** Our feedback is a closed-form edit of existing weights (no head, adapter, lookup or prompt; the new label comes out of the model's own forward pass). The maintainer has rejected a fitted head and a nearest-centroid row overwrite, and has not ruled on a closed-form edit of existing tensors. Until he does, rule 4 is gray for every candidate.
 - **Starting from an already-compressed released model** (two of our candidates) is maybe valid and unruled.
 - **If the closed-form-edit ruling goes against us, we file nothing as a pass.**
@@ -16,11 +16,12 @@ Our exam is built from public data and sealed by hash before any run; it is not 
 
 | id | start model | bytes vs fp16 | retention | feedback: new label taught, shuffled-label control | main open points |
 |---|---|---|---|---|---|
-| L9b (recommended primary) | Qwen3.5-35B-A3B, pruned experts + 3-bit | 9.67% (9.70% with feedback carrier) | 99.55% | 73-79%, shuffled 2-47% | one control draw is weak, base near ceiling, task-specialised pruning |
-| L2 | Ternary-Bonsai-2-27B (released ternary), recompressed by us | 9.94% | 100.0% vs the release; 99.32% vs its fp16 ancestor | 83%, shuffled 0% | already-ternary start, little byte slack |
-| L1 | Bonsai-8B (released 1-bit), lossless repack | 7.44% | 100% vs the release (by construction); 88.9% vs its fp16 ancestor | 89%, shuffled 0.5% | we did no compression |
-| L3, L4, L9, L10 | other MoE and multimodal bases | 9.7% to 9.9% | 98.9% to 99.6% | partial, weaker, or accounting only | see [`STATUS.md`](STATUS.md) |
-| L5, L12 | dense 32B; MoE ablation | pending | pending | pending | not scored yet |
+| L9b (recommended primary) | Qwen3.5-35B-A3B, pruned experts + 3-bit | 9.67% (9.70% with feedback carrier) | 99.55% | 74-76% mean over 8 draws, shuffled mean 16-18% (up to 40-47% on bad draws) | shuffled control is draw-dependent, base near ceiling, task-specialised pruning |
+| L1 | Bonsai-8B (released 1-bit), lossless repack | 7.44% | 100% vs the release (by construction); 88.9% vs its fp16 ancestor | 89-90%, shuffled 0.5% | we did no compression |
+| L5 | dense Qwen2.5-32B, our compression, no pruning | 9.93% (9.80% body) | 98.27% (thin margin) | 53%, all controls 0% | modest teach, two small cells below 95%, no packed loader |
+| L2 | Ternary-Bonsai-2-27B (released ternary), recompressed by us | 9.94% | 100.0% vs the release; 99.32% vs its fp16 ancestor | 91-97%, but a proper shuffled control gives 35-76% | already-ternary start, little byte slack, weak control |
+| L3, L4, L9, L10 | other MoE and multimodal bases | 9.7% to 9.9% | 98.9% to 99.6% (all now scored on our exam) | 59-86%, some with weak controls or a failing second task | see [`STATUS.md`](STATUS.md) |
+| L12 | MoE ablation (Qwen3.5-35B-A3B, 7.6% analytic) | 7.61% (not packed) | 99.17% | feedback did not teach | research lane, not an entry |
 
 Which entry we would file, and what we do if rulings go against us: [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md).
 

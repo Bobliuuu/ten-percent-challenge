@@ -1,6 +1,6 @@
-# CANDIDATES: every entry-shaped package, with honest numbers (2026-11-08, 17:30 UTC snapshot)
+# CANDIDATES: every entry-shaped package, with honest numbers (2026-11-09 refresh of the 2026-11-08 17:30 UTC snapshot)
 
-Written by the documentation agent from the committed lane reports, `v2/NEAR_MISSES.md`, `v2/SOLUTIONS.md`, `v2/QUANT_SWEEP.md`, `v2/exam/EXAM_PLAN.md` and the result JSON in each lane directory. Nothing here was re-run. Deadline 2026-11-12 17:05 UTC, global freeze 2026-11-11 08:00 UTC. Rules: `v2/RULES.md` (R1-R9 = the nine judging rules; "MC" = the maintainer's own-data check). Other entrants are "entrant #3" / "entrant #4". Nothing in this file has been posted anywhere.
+Written by the documentation agent from the committed lane reports, `v2/NEAR_MISSES.md`, `v2/SOLUTIONS.md`, `v2/QUANT_SWEEP.md`, `v2/exam/EXAM_PLAN.md` and the result JSON in each lane directory. Nothing here was re-run. 2026-11-09 refresh: L3, L4, L5, L9, L10 are now scored on the locked exam (sections 5-9 rewritten from the lane reports), L12 has a locked score but its feedback did not teach, L9b has a rebuilt body and 8 feedback draws, L2 has a proper shuffled arm, L1 has the L1+ results. Deadline 2026-11-12 17:05 UTC, global freeze 2026-11-11 08:00 UTC. Rules: `v2/RULES.md` (R1-R9 = the nine judging rules; "MC" = the maintainer's own-data check). Other entrants are "entrant #3" / "entrant #4". Nothing in this file has been posted anywhere.
 
 ## 0. How to read the numbers (honesty conventions)
 
@@ -17,15 +17,15 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 
 | rank | entry | start model | measured bytes | LOCKED retention (overall; min kind) | LOCKED teach / shuffled / empty; neighbours | other gray or weak cells | which ruling it depends on (besides A) |
 |---|---|---|---|---|---|---|---|
-| 1 | **L9b** | Qwen3.5-35B-A3B (36B, 256 experts) | **9.674%** (6.706 GB, text-only denominator; 9.33% vs full checkpoint); +21 MB carrier = 9.704% | 99.55 [99.21]; Lists 98.4 (3 draws 99.47-99.55) | .73-.79 / .02-.47 (draw 2 weak) / 0; neighbours 98.0-98.6 (empty 98.3) | R6 variance, R8 headroom (base .968), R9 (60% of experts pruned for the task) | C (task-calibrated expert pruning), G (carrier columns) |
-| 2 | **L2** | Ternary-Bonsai-2-27B (released) | **9.943%** (slack 30.6 MB) | 100.0 [99.86]; all kinds 100 | .827 (3 draws) / .872 (CLI) / 0 / 0; neighbours 98.3-99.2 | R9 (compression of an already-ternary release), R8 (base .967), clean_only | B (pre-compressed start), H |
-| 3 | **L1** | Bonsai-8B (released 1-bit) | **7.44%** (7.13% base tree + 50 MB patch) | 100.0 [99.85]; all kinds 100 | .893 / .005 / 0 / 0; neighbours 99.5 | R9 (entrant does no compression), R4 (50 MB fitted fp16 columns) | B (pre-compressed start), G, H |
-| 4 | L3 | Qwen3-30B-A3B-Instruct-2507 | 9.81% real packed file (9.676% + 0.134% override) | NOT SCORED (dev SEL 99.17 [98.61], dev 99.70 [98.9]) | dev: .39-.55 / 0 / 0; neighbours .996 | weakest teach of all (rival #4 self-reports 64.9% on a different set); locked exam pending | C |
-| 5 | L5 | Qwen2.5-32B (dense, scalar GPTQ+Hadamard+rANS) | 9.697% measured; 9.889% with carrier | NOT SCORED (dev .9873 [.9840], worst cell .961, n=5,913) | shared-exam teach sets, TF argmax: .671 (cross-source .633) / 0 / 0; neighbours 1.000 | locked exam pending; TF not generation for c2048 n=25 | H |
-| 6 | L9 | Qwen3-235B-A22B-Instruct-2507 | 9.781% measured (46 GB; needs ~330 GB of GPU memory) | NOT SCORED on the shared exam (dev SEL 99.22, REP 99.43; own sealed exam in `L9/EXAM_SEAL.json` not run) | dev: .48-.535 / .005-.085 / - ; neighbours .975-.987 (below 98 in 1 of 3 draws) | feedback carrier 537 MB (9.896% total); impractical to ship/run | C |
-| 7 | L10 | Qwen2.5-Omni-7B text path (also Llama-3.2-11B-Vision, Omni-3B) | 9.88% of the WHOLE multimodal fp16 (text path 2.25 bpw body) | NOT SCORED (dev .997 [.989] Omni-7B; .987 Llama-11B; .989 Omni-3B) | dev, 40 items x 2 draws, bf16 body: .975 / 0 / - ; neighbours 1.0 | R1 literal and R9: denominator includes vision/audio towers that the task does not use | D |
-| 8 | L4 | Qwen3-30B-A3B-Instruct-2507 (rival #3's tasks) | analytic 8.1-9.8% | NOT SCORED on a locked exam (dev clin9 99.72 [99.34], bank8 98.95 [98.30]) | not landed | BM25 top-8 labelled examples inside the prompt (R4/R9 gray); `never` slice is the same dataset (R3 gray) | C |
-| 9 | L12 | Qwen3-30B-A3B, Qwen3.5-35B-A3B (ablation) | not an entry (pre-quant fractions) | n/a | n/a | research lane: expert score, merge, top-k, subspace ablations | - |
+| 1 | **L9b** | Qwen3.5-35B-A3B (36B, 256 experts) | **9.674%** (6.706 GB, text-only denominator; 9.33% vs full checkpoint); +21 MB carrier = 9.704%; body rebuilt, sha256 in MANIFEST | 99.55 [99.21]; Lists 98.4 (3 draws 99.47-99.55) | .73-.79 (8-draw mean .74-.76) / shuffled mean .16-.18, range .00-.47, real-minus-shuffled gap about .58 / 0; neighbours 98.0-98.6 (empty 98.3) | R6 variance (bad draws .37-.47), R8 headroom (base .968), R9 (60% of experts pruned for the task); BANK6 fails with the shipped RTN recipe | C (task-calibrated expert pruning), G (carrier columns) |
+| 2 | **L1** | Bonsai-8B (released 1-bit) | **7.44%** (7.13% base tree + 50 MB patch) | 100.0 [99.85]; all kinds 100 | L1: .893 / .005 / 0 / 0; neighbours 99.5. L1+ (0.5 MB low-rank carrier, same locked set): teach .905 / shuffled .002; BANK6 + `Security`: teach .727, shuffled .10 (up to .49), neighbours .989, exam retention 1.000 | R9 (entrant does no compression), R4 (fitted fp16 patch), BANK6 teach weak | B (pre-compressed start), G, H |
+| 3 | **L5** | Qwen2.5-32B dense (scalar GPTQ+Hadamard+rANS; no pruning) | packed body 9.797%; **9.926%** with 83.9 MB carrier and code (target 9.9% missed by 0.03 pt, line met); no single-file packed loader | **98.27 [97.70]** (2613/2659); min kind News 96.4; hwu64 x News cell 89.1 (n 64) and hwu64 x Weather 91.9 (n 37) below 95 | **.532** teacher-forced (real generation .518-.543, 3 draws) / **0 / 0 / 0**; neighbours 1.000. BANK6: retention 96.96, Card 87.1: FAILS | thin R2 margin (dev draws .984-.988), weakest teach of the exam-scored entries, R9 gray, no packed loader, 9.926% | H; independent of C (no pruning) and B |
+| 4 | **L2** | Ternary-Bonsai-2-27B (released) | **9.943%** (slack 30.6 MB) | 100.0 [99.86]; all kinds 100 | default m64 (real 3-4 draws): teach .973 / **shuffled-among-labels .756** / wrong 0 / empty 0; neighbours .971 (min cell .952). m16: .913 / .352 / 0; neighbours .991. Old "shuffled 0" arm was an artefact | proper shuffled control leaks (R6 gray), R9, little byte slack, 96 GB to run | B, H |
+| 5 | L3 | Qwen3-30B-A3B-Instruct-2507 | **9.896%** real packed file + `o_proj` edit (packed alone 9.676%) | **99.32 [98.92]**; Calendar 96.69; BANK6 99.24 [98.76] | SKILL7 .799 / 0 / 0 / 0; neighbours after feedback: exam retention 99.20, SKILL7 neighbour set not measured. BANK6: teach **.16**, R5 fail | BANK6 R5; carrier 134 MB; per-cell minima 96.7 | C |
+| 6 | L9 | Qwen3-235B-A22B-Instruct-2507 | 9.781% measured (46 GB; needs about 330 GB of GPU memory); 9.896% with the 537 MB carrier | **98.98 [98.52]**; Calendar 97.7; min cell 95.3 | .744 / .122 / .0 / .024 (ONE draw); neighbours 99.16 unchanged | impractical to run or ship; one feedback draw; dev history unstable at lam 1000 | C |
+| 7 | L10 | Qwen2.5-Omni-7B text path | 9.879% of the WHOLE multimodal fp16 (9.930% with feedback); accounting only, no packed file | **99.55 [99.21]**; News 98.78 | .860 / 0 / 0 / 0 (ONE draw); neighbours 99.15 unchanged | R1 literal vs R9 spirit (unused towers inflate the denominator), no packed file | D |
+| 8 | L4 | Qwen3-30B-A3B-Instruct-2507 (rival #3's tasks) | 9.895% estimate, no packed file | SKILL7 **98.94 [98.47]**, News 96.03 (Wilson lo 93.65); BANK6 99.24 [98.76] | SKILL7 .585-.634 / .085-**.494** / .006 / 0; neighbours .989-.994. BANK6 teach .07-.27, neighbours .61-.97 (2 of 3 draws collapse): FAIL | R5/R6, BM25 examples in the prompt (R4/R9 gray), no packed file | C |
+| 9 | L12 | Qwen3-30B-A3B, Qwen3.5-35B-A3B (ablation; best config Qwen3.5 mass k25 + RTN4 everything) | **7.61% analytic**, fake-quant, no packer | Qwen3.5 config **99.17 [98.75]** (2655 base-correct, min kind .972) | **0 / 0 / 0** with the routed-expert `down_proj` edit (ineffective on Qwen3.5); neighbours .963-.977. o_proj rerun (`run_fbo.py`) not landed | feedback does not teach (R5 fails as built), no packed file | C |
 | 10 | L6 | Qwen1.5-MoE-A2.7B (best of 3 non-Qwen3 MoE) | 9.87% analytic | dev 85.9 [82.9]: FAIL | dev .415 / 0 / 0; neighbours .950 | R2 FAIL | - |
 | 11 | L7 | BitNet-b1.58-2B-4T (Falcon-E pending) | 9.899% ideal-coder | dev 95.8 [94.7] best config: FAIL | n/a | R2 FAIL; brittle vocab | B |
 | 12 | L8 | Qwen2.5-14B depth/width pruning + RTN | 9.3-10% analytic | dev ~0 at <=9.9%: FAIL | n/a | dead | - |
@@ -41,7 +41,7 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 | **C** | Is routing-statistics expert pruning on unlabeled task prompts legitimate (R4 data-dependent selection, R9 task specialisation)? | L9b, L9, L3, L4, L12 | MoE entries fall to R9 gray-to-fail; L1/L2/L5 remain | L9b is the cleanest compression story |
 | **D** | Does the denominator for a multimodal start model include the unused towers? | L10 | L10 fails R1 literal reading on the text-only model | L10 has an effective 2.25 bpw text body |
 | **E** | Is the `seen_tox` tier (532 rows, never fitted on) acceptable, and is "300 per kind" counted pooled? | all SKILL7 entries | clean_only has Lists 223 / Transport 236 (<300): R3 fails by count for every entry; the SKILL5 fallback (drop Lists, Transport) is not built | R3 PASS |
-| **F** | How large must "clearly worse" be for shuffled labels? | L9b (shuffled up to .47 in 1 of 3 draws, real .73) | L9b R6 fails in that draw | L9b R6 PASS |
+| **F** | How large must "clearly worse" be for shuffled labels? | L9b (shuffled mean .16-.18 over 8 draws, up to .40-.47 on bad draws, real about .75), L2 (shuffled-among-labels .35-.76), L4 | L9b R6 fails on the bad draws; L2 and L4 fail; L5 and L1 (shuffled 0-.005) and L3 are unaffected | L9b R6 PASS |
 | **G** | Does a stored fp16 patch (replacement columns, 21-50 MB) or low-rank delta (4.5 MB) count as a "new trained part / side memory", or as the model's own weights? | L1, L9b, L2, L5 | patch = side memory | patch is the model's own tensor |
 | **H** | Is 7-class voice-skill routing "commercial, not narrow, not toy" (R1) and not letter-of-the-law (R9)? | all | task fails R1/R9 for every entry; we have no second task with a base in the .94-.98 window | pass |
 | **I** | What does "best" mean among passing entries (never defined)? | tie-breaks | - | If size: L1 (7.44%) beats L9b (9.70%) and L2 (9.94%). If retention-per-byte or "own compression": L9b. |
@@ -87,6 +87,7 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 | MC own-data check | proxy only | calibrate on one source, annotate one, test other: teach .88; foreign label sets untested beyond Recipe |
 
 - **Weakest rule**: R9 (no compression by us, ruling B) and R4 (carrier legality, ruling A/G).
+- **L1+ (2026-11-08, dev/selection and locked teach set only; the exam was not re-scored, the packed base is unchanged)**: lower-rank carrier `lr` (0.50 MB, rank <= 50 factors of the same closed-form delta): locked teach **.905** (draws .896-.921; MTOP/CLINC/MASSIVE/HWU64 .923/.897/.881/.822), neighbours .9948 (worst .9915), shuffled .002. Teach ceiling about .945 is label noise (9 of 164 locked items fail in every draw). Own-data proxy (hand-written hostile data, 3 draws): teach .87-.93 on three hostile new skills. Continual (Recipe, Email, Takeaway): works, but a new skill adjacent to an old one (Email vs Lists) steals old items (tail .86). **BANK6 + new label `Security`** (same lossless pack, shared BANK6 exam): exam retention 1.000; feedback teach **.727** (Banking77 .814, Bitext cross-source .641), neighbours .989 (worst draw .977), shuffled .101 (draws .01-.49), wrong 0, empty 0. BANK6 is the weaker second entry: `Security` sits inside Card/Identity. R4 stays GRAY for every carrier (`lr` is the smallest and looks most like an adapter).
 - **Cost**: about $3-4 (two Vast L40 boxes ~6.5 h at $0.456/h plus one A40 ~1.5 h at $0.27/h; all destroyed and verified). Modal 0, AWS 0.
 - **Reproduce**: package `v2/lanes/L1/` (REPORT.md, MANIFEST.json, tensor_manifest.json, `results/`); mechanism code `v2/bonsai/ship/` and experiments `v2/bonsai/fbx/`; shared exam loader `python3 -I v2/exam/loader.py`. The base pack is regenerated from the public Bonsai-8B-unpacked release.
 
@@ -126,13 +127,14 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 | R3 | PASS with caveats | 2,744, kinds 344-420, 1,489 never-used; 532 `seen_tox`; clean_only Lists/Transport < 300 |
 | R4 | **GRAY (weakest)** | no head/adapter/side table/prompt; but feedback.pt is a fitted closed-form low-rank edit of two existing tensors |
 | R5 | PASS on measured numbers | teach 82.7% (CLI 87.2%) on 164 unseen incl. cross-source; neighbours 98.3-99.2%; worst neighbour cell 96.3% in-memory |
-| R6 | PASS | shuffled 0%, empty 0% |
+| R6 | **GRAY** (was PASS) | the old shuffled arm never showed the new word, so 0% was nearly guaranteed. Proper arms (2026-11-09): shuffled among annotation labels incl. the new word emits Recipe .295 (0.24-0.40) at the older margin and .756 (0.71-0.84) at the default m64; m16 gives real .913 / shuffled .352; wrong-label 0, empty 0 |
 | R7 | PASS | generated skill word (`Recipe` emitted by the model) |
 | R8 | PASS, borderline high | base 96.7% (chance 14%) |
 | R9 | **GRAY** | easy 7-way routing, strong base; compression of an already-ternary release |
 | MC | partial | teach includes MTOP/HWU64 cross-source items; no non-SKILL7 foreign-distribution run |
 
-- **Weakest rules**: R4 (ruling A), R9 (ruling B/H), rule 3 clean_only counts (ruling E). Only 30.6 MB of byte slack.
+- **Weakest rules**: R4 (ruling A), R6 (shuffled control), R9 (ruling B/H), rule 3 clean_only counts (ruling E). Only 30.6 MB of byte slack.
+- **Update 2026-11-09 (dev-selected, locked sets reporting only)**: artifact rebuilt from the public release, all 13 files match `SHA256SUMS`, exam not re-scored. Frozen feedback default is now the `o_proj` of 4 full-attention layers, margin 64, exact low-rank fp16 factors (0.68 MB, `feedback.pt` 678,311 B). Locked Recipe, 164 teach, 357 neighbours: real teach **.973** but neighbours **.971** (min cell .952); shuffled-among-labels **.756**; wrong 0; empty 0. `--margin 16` (sensitivity row, NOT dev-selected): .913 / shuffled .352 / neighbours .991 / min cell .984. CLI end to end: teach 97.6% (160/164), neighbours 96.9% (LB 94.6%). Second label `Reminder`: teach .797, shuffled .273, neighbours .968. Continual Recipe then Reminder: Recipe .970 kept, Reminder .797, neighbours .955. Total bytes with feedback and code 9.9357% (slack 34.6 MB). Net: teach is stronger but the control gap is thin, so L2 ranks below L9b and L1.
 - **Cost**: one g7e.2xlarge (96 GB) for roughly 10 h, about $3-4/h (report estimate, about $30-40). 5.3 GB artifact kept in a private durable bucket (location in `v2/lanes/L2/MANIFEST.json`); not in git.
 - **Reproduce**: `v2/lanes/L2/` (REPORT.md, MANIFEST.json, `results/`, `ship/feedback.pt`), builder `v2/ternary27/art_build.py` + `art_k16_*`, bytes audit `results/cli/bytes_audit.txt`.
 
@@ -174,79 +176,69 @@ Written by the documentation agent from the committed lane reports, `v2/NEAR_MIS
 | R3 | PASS counts; clean_only 99.53 | 2,744; kinds 344-420; 1,448 never-used; clean_only per-kind < 300 for Lists/Transport |
 | R4 | GRAY | prune + RTN are data-dependent selection, not fitted heads; feedback = closed-form edit stored as replacement columns |
 | R5 | PASS (moderate) | teach .73-.79, neighbours kept 98.0-98.6 vs 98.3 empty |
-| R6 | **PASS in 2/3 draws, GRAY in 1** | shuffled .02-.47; wrong 0; empty 0 |
+| R6 | **PASS in 2/3 draws, GRAY in 1** (8-draw re-measure: shuffled mean .16-.18, range .00-.40, gap about .58) | shuffled .02-.47; wrong 0; empty 0 |
 | R7 | PASS | generated skill word |
 | R8 | **weak** | base .9676 (chance .14): 3.2% errors, close to ceiling |
 | R9 | GRAY | 60% of experts pruned for the task; expert choice uses unlabeled task prompts |
 | MC | untested | needs a different-distribution run (a pruned model is the most exposed to this) |
 
-- **Weakest rules**: R6 variance (rule 6 draw 2), R8 headroom, R9/R4 (ruling C and G).
+- **Weakest rules**: R6 variance (bad draws .37-.47), R8 headroom, R9/R4 (ruling C and G).
+- **Update 2026-11-08/09**: (1) `body.bin` re-packed on Modal: 6,685,765,376 B, sha256 `e0a1266d...efe88b` (full hash in MANIFEST.json); the rebuilt `manifest.json` is byte-identical to the original box's, but no hash of the original body existed, so byte identity of content is argued, not proven; the exam was NOT re-scored (identical layout). Durable copy only in a private volume. (2) Feedback controls over 8 draws on the locked sets: shipped carrier real teach mean .739 (.60-.82), shuffled mean .177 (.01-.37); dev-picked variant (m32, lam2000, awt30) real .758 (.64-.83), shuffled .160 (.00-.40), neighbours 98.2. The weak shuffled control is NOT fixed: it is a draw-dependent property (mean about .17, gap about .58-.60). Margin is not a free lever (raises shuffled with teach); attention-output carriers from L11 do not transfer (linear-attention `out_proj` destroys the model, true `o_proj` is no better and 3x larger). (3) **BANK6 side experiment** (SEL only, fake-quant, locked BANK6 exam untouched): Hadamard + error-feedback quantisation clears 98/95 where RTN failed: 2-bit k160 99.68% [98.20] at 9.66% modelled, k128 99.36% at 8.2%, gptq_had 3-bit k102 99.36%; RTN k102 re-simulated 96.78%. No packer or loader exists, bytes are modelled, so BANK6 stays not presentable until one is built and the exam is scored once.
 - **Cost**: one Vast H200 instance (destroyed and verified), hours; exact spend not recorded in the report.
 - **Reproduce**: `v2/lanes/L9b/` (REPORT.md, MANIFEST.json, `results/`; routing-mass files `results/mass_*.pt` regenerate any artifact in minutes; packing takes 8 s once the model is loaded). The 6.7 GB artifact is NOT in git (not enough local disk): re-pack with `core.py`/`qpack.py` from the public Qwen3.5-35B-A3B snapshot.
 
 ---
 
-## 5. L3: Qwen3-30B-A3B-Instruct-2507, task-pruned experts + D4-K256 VQ (not yet scored on the exam)
+## 5. L3: Qwen3-30B-A3B-Instruct-2507, task-pruned experts + D4-K256 VQ (LOCKED, both tasks)
 
-- **Task**: SKILL7 (shared-exam task) and the earlier VOICE10 (10 skills, long menu prompt, base .937-.938).
-- **Compression**: keep 85-87 of 128 experts per layer (routing mass), D4 K256 Gaussian VQ at 2.0 bpw, Hadamard both sides, error feedback, per-expert sigma; attention 6-bit, embedding 5-bit, head 4-bit. Recipe switched on 2026-11-08 after the quant sweep showed more experts at 2 bits beats fewer at 3 bits (BANK8 99.6-99.7 vs 94.9, `v2/QUANT_SWEEP.md`).
-- **Bytes**: keep 87 vq4 analytic 9.86%; keep 85 vq4 packed real file 9.676% + 0.134% fp16 `o_proj` override = **9.81%** (measured on the packed file).
-- **Retention (dev only; exam NOT scored)**: keep 87 vq4: SEL 99.35 [98.84], DEV 99.85 [99.15]; keep 85 packed + o_proj edit: SEL **99.17 [98.61]**, DEV 99.70 [98.9], min cell 97.0 / 98.0. Earlier RTN3 recipe (keep 55): 98.02 [97.29] on VOICE10, but BANK8 94.94 (fails) under the same plan.
-- **Feedback (dev, 24 annotations = 12 new + 12 old-skill errors; closed-form `o_proj` edit of the last 8 layers)**: teach .39 / ~.45 / .55 (3 draws; cross-source mtop/hwu .40-.67), shuffled (strict derangement) 0.0, wrong 0.0, empty 0.0, neighbours .9957-.9966 vs empty .9923. Rival #4 self-reports teach 18.97 -> 64.87% on its own set; ours is lower and not on the shared teach set.
-- **Commands**: `python v2/lanes/L3/answer.py` (runtime loader `runtime.py`, format `packfmt.py`, `eval_art.py`, `task.json`); configs `v2/moe/cfgs_*`; sweep tables `v2/NEAR_MISSES.md` (L3 sections) and `v2/QUANT_SWEEP.md`.
-- **R1-R9 (provisional, dev)**: R1 PASS (measured, packed file); R2 not scored (dev 99.2-99.85); R3 untested; R4 GRAY (edit + prune); R5 weak (teach .39-.55); R6 PASS on dev (0/0/0); R7 PASS; R8 PASS (base ~.94); R9 GRAY.
-- **Weakest rule**: R5 teach strength, and the exam is not scored.
-- **Cost**: Vast boxes (not recorded). **Reproduce**: `v2/lanes/L3/`, `v2/moe/`, `v2/moe_quant/`, `v2/qsweep/qlib.py`.
+- **Compression**: keep 85 of 128 experts per layer (routing mass on task prompts), D4 K256 Gaussian VQ at 2.0 bpw, two-sided Hadamard, GPTQ/LDLQ-style error feedback, attention 6-bit, embeddings 5-bit, lm_head 4-bit. Real packed file 5,908,472,562 B = 9.676%; the 8 last-layer `o_proj` tensors replaced by fp16 (`edit_o_proj.pt`, 134,217,728 B counted in full) = 6,042,759,448 B = **9.896%** (a repack would be about 9.81%); slack 0.10 pt.
+- **LOCKED exam (scored once per task)**: SKILL7 base .9592, retention **99.32% [98.92]** (2,614/2,632), worst kind Calendar 96.69, per source massive 98.34 / clinc 99.62 / hwu64 99.66 / mtop 99.64, never-used 99.65 [99.19], clean_only 99.34. BANK6 base .8869, retention **99.24% [98.76]**, worst kind Card 97.89, Bitext (never used) 98.20 [96.62].
+- **Feedback (24 annotations = 12 new-skill + 12 real old-skill errors; closed-form `o_proj` edit, last 8 layers)**: SKILL7 `Recipe` teach **.799** (mtop .83, hwu64 .87, massive 1.00, clinc .67), shuffled (strict derangement) 0.0, wrong 0.0, empty 0.0; exam retention after feedback 99.20 (min cell 97.2); SKILL7 neighbour set not measured with the final carrier. BANK6 `Security` teach **.16** (neighbours 98.52 vs 98.79 empty): R5 FAIL/weak; stronger edits teach .36-.44 but drop neighbours to .88-.94. Shipped-command smoke test: `Recipe` emitted for 57/60 teach texts after `feedback.py`, 0/60 before.
+- **R1-R9 (SKILL7)**: R1 PASS 9.896%; R2 PASS (per-cell minima 96.7-97.9 below entrant #4's 98.5); R3 PASS counts, clean_only Lists/Transport below 300; R4 GRAY (closed-form `o_proj` edit; calibration prompts of 300 labelled old-skill items, 20 KB, counted); R5 PASS (SKILL7 only); R6 PASS (0/0/0, strict derangement); R7 PASS (menu in the prompt, as in the EASY tasks); R8 PASS (.959); R9 OK-to-gray (task-pruned experts).
+- **Weakest rule**: BANK6 R5; for SKILL7 R4 and per-cell minima. Cost about 28 USD on one Vast H100 NVL. Artifact (5.9 GB) not in git, reproducible from `cfgs_final_*.json` in about 8 min.
+- **Reproduce**: `v2/lanes/L3/` (REPORT.md, MANIFEST.json, `answer.py`, `feedback.py`, `runtime.py`, `eval_art.py`), `v2/moe_entry/`, `v2/moe_quant/`.
 
-## 6. L5: dense Qwen2.5-32B scalar GPTQ+Hadamard+rANS + column-sparse carrier (exam not scored)
+## 6. L5: Qwen2.5-32B-Instruct dense, scalar GPTQ+Hadamard+rANS + closed-form `o_proj` feedback (LOCKED, SKILL7; BANK6 fails)
 
-- **Start model**: Qwen2.5-32B-Instruct, fp16 65,527,752,704 B. **Task**: SKILL7 (primary; previously injection X04a, killed).
-- **Compression**: Hadamard + sequential GPTQ onto an entropy-constrained scalar grid + per-tensor static-histogram rANS; calibration = SKILL7 big calib + sibling-task calib.
-- **Bytes (measured, `v2/lanes/L5/pack.py`)**: 6,354,367,027 B = **9.697%** (indices 6.183 GB, scales 0.161 GB, tables 0.5 MB, norms 2.3 MB, files 7.0 MB, code 4.5 KB; decode verified on layer 0 k_proj and layer 40 down_proj, rel err 1.4e-3 = bf16 rounding). The full decoder/loader is not yet counted. With the c2048 carrier (125.9 MB): 9.889%.
-- **Retention (dev)**: SKILL7 Qwen2.5-32B scalar draw 0 at 9.87%: **.9873 [.9840]** on 5,913 dev items, worst cell massive_News .961 (teacher-forced argmax = greedy). Earlier 682-item dev: .985 [.972], Qwen3-14B .980, Qwen2.5-14B .977; source x kind cells (n 43-50) .91-.94. Quantizer-draw noise +-2 pt on dev; ONE draw. Exam NOT scored.
-- **Feedback (closed-form column-sparse `down_proj`, last 6 layers; 5 draws; TF argmax, real-generation agreement .98-1.00 on draws 0-1)**:
-  - Recipe on shared-exam teach/neighbour sets, c2048 (125.9 MB): n=25 teach **.671** (same-source .759, cross-source .633), shuffled 0, wrong 0, empty 0, neighbours exam 1.000 (clean 1.000, dev .999); n=12 .548. c1024 (62.9 MB, 9.79%): n=25 .591, n=12 .371.
-  - Kitchen (earlier dev, 200 unseen teach): c2048 n=25 .819, shuffled 0, neighbours 1.000; n=12 .368; paraphrase .739.
-- **Commands**: `python v2/lanes/L5/answer.py MODEL_DIR "request"` (dequantised simulation of the packed artifact); `python v2/lanes/L5/feedback.py CFG.json`; pack `pack.py`, verify `verify_pack.py`, edit `edit_s7.py`.
-- **R1-R9 (provisional)**: R1 PASS (9.889% measured with carrier, loader code to add); R2 dev .987 (exam not scored; per-cell .961); R3 untested; R4 GRAY; R5 teach .67 (moderate), neighbours 1.000; R6 PASS (0/0/0); R7 PASS; R8 PASS (base .969); R9 GRAY.
-- **Weakest rule**: the exam has not been run; R5 strength at n=12; carrier is 126 MB.
-- **Cost**: Modal/Vast boxes, not recorded. **Reproduce**: `v2/lanes/L5/`, `v2/repair/`, `v2/exp/` (dense recipe), `v2/SOLUTIONS.md` C33/C34.
+- **Start model**: Qwen2.5-32B-Instruct, fp16 65,527,752,704 B. No pruning, so ruling C and ruling B do not apply; runs on one 80 GB GPU as dequantised bf16 (no fused kernel, no single-file packed loader; evals ran on the dequantised HF checkpoint, the packed file was decoded for verification).
+- **Protocol**: 5 quantizer draws per config on a 5,913-item dev set (disjoint from calibration and the exam): nominal 9.85% config dev retention .9873 / .9859 / .9839 / .9852 / .9875 (worst-kind .935-.961); draw 0 selected on (worst-kind, overall) BEFORE the exam; the 9.75% config (.982-.985) was not used. Feedback config fixed before any teach item was scored (o_proj protected closed form, margin 32, last 8 layers, column-restricted, 1024 columns).
+- **Bytes**: packed body 6,420,039,377 B = **9.797%** (tokenizer, norms, embeddings, lm_head, rANS tables and packer code included) + feedback carrier 83.9 MB (8 `o_proj` x 1024 columns fp16) + about 36 KB code = **9.926%** (above the 9.9% internal target by 0.03 pt, under the 10% line). Carrier variants: 1536 columns total 9.99% (teach .673), 2048 columns 10.05% (.718, over the line). Packed body (6.4 GB) not in the repo; sha256 in `results/final/pack_sha256_S7F_d0.txt`.
+- **LOCKED exam (SKILL7, 2,744, scored once, real greedy generation)**: base .9690; retention **98.27% [97.70]** (2613/2659); per kind News .964 (min), Lists .978, Weather .978, Alarm .990, Music .986, Calendar .988, Transport .997; per source hwu64 .965 / massive .977 minima; never-used sources .9799; clean_only .9808. Source x kind cells hwu64 x News .891 (n 64) and hwu64 x Weather .919 (n 37) are below 95%, which a strict per-cell reading would fail. Margin over 98% is thin (another draw could fall below).
+- **Feedback (25 annotated real mistakes, 164 locked teach, 121 cross-source)**: teacher-forced teach **.532** (same-source .441, cross-source .570); real generation emits `Recipe` on .518-.543 (3 draws); shuffled 0.000, wrong 0.000, empty 0.000 (5 draws TF, 3 draws real generation); neighbours (379 exam ids, quantized-model-correct) 1.000 in every draw. The feedback is run through the research harness (`fb_ablation/fblib` via `val_gen.py`), not a standalone CLI on the packed file.
+- **BANK6 (shared exam 2,237)**: FAILS. Real bytes 9.685%; retention **.9696** (LB .9612), Card **.871**, never-used-source retention .916; base .9110. The shift from Banking77 to Bitext is the failure.
+- **R1-R9 (SKILL7)**: R1 PASS 9.926% (loader code to add); R2 PASS, thin; R3 PASS counts; R4 GRAY (closed-form o_proj edit; GPTQ rounding is calibration-fitted); R5 PASS (modest, .53); R6 PASS (0/0/0, cleanest controls of the SKILL7 entries together with L1); R7 PASS; R8 PASS (.969); R9 GRAY (easy routing, no single-file loader).
+- **Reproduce**: `v2/lanes/L5/` (REPORT.md, MANIFEST.json, `cfgs/`, `results/`), `v2/repair/`, `v2/exp/`.
 
-## 7. L9: Qwen3-235B-A22B-Instruct-2507 (packed, dev only)
+## 7. L9: Qwen3-235B-A22B-Instruct-2507 (packed, LOCKED SKILL7; impractical)
 
-- Task SKILL7; keep 88/128 experts (routing mass), 2-bit RTN-MSE g128 experts, 4-bit attention/embedding/head. **Measured 45,990,926,086 B = 9.7814%** of 470,187,269,120 B (46 GB, 94 layer files). Carrier if shipped: 8 layers x 4096 x 8192 x fp16 = 537,001,984 B -> 9.896%.
-- Dev retention: SEL **99.22 [98.39]** (892 base-correct), REP 99.43; 3 calibration-seed draws on REP 99.43-99.54; min cell .969. Exam harness (`build_exam.py`, `EXAM_SEAL.json`) built, NOT run; shared exam not run.
-- Feedback `Home` (dev SEL, 3 draws, 25 annotations): teach .535 / .525 / .48, shuffled .085 / .025 / .005, neighbours .975 / .976 / .987 (two draws below the 98% bar).
-- R-table (provisional): R1 PASS measured; R2 dev only; R4 GRAY; R5 weak (teach ~.5, neighbours < .98 in 2/3); R6 PASS dev; R9 GRAY; practical: needs ~330 GB GPU memory to run answer.py, impractical for the maintainer's check.
-- Commands: `python v2/lanes/L9/answer.py ART "request" [CARRIER.safetensors]`, `feedback.py ART ANNOT.jsonl CAL.jsonl OUT_CARRIER.safetensors [real|shuffled|empty]`. Reproduce: `pack235.py` + `results/kept_k88.json` (artifact not in git).
+- Keep 88 of 128 experts (routing mass), 2-bit grouped RTN-MSE g128 experts, 4-bit attention/embedding/head. Measured **45,990,926,086 B = 9.7814%** of 470,187,269,120 B; with the dense `o_proj` carrier (8 layers, 536,871,560 B) 9.8956%.
+- **LOCKED exam (SKILL7, once)**: base .9657, retention **98.98% [98.52]** (2623/2650); Calendar 97.7 (min kind), min source x kind cell 95.3; never-used sources 99.17 [98.56]; clean_only 98.83 [98.27]. Three extra calibration draws on REP 99.43-99.54.
+- **Feedback (`Recipe`, ONE annotation draw completed on the exam; ridge solve on o_proj of layers 86-93, lam 5000, margin 16)**: real **.744** (122/164), shuffled .122, wrong 0.0, empty .024 (natural errors); neighbours 99.16 (357) in every arm, min cell 98.0, no leak onto neighbours. At lam 1000 two of three dev draws were unstable (one broke the model); a second exam draw was killed to free the box.
+- Needs about 330 GB of GPU memory to run (no fused low-bit kernel); the end-to-end CLI test was not completed. R-table: R1 PASS; R2 PASS; R4 GRAY; R5/R6 PASS on one draw (stability unmeasured); R9 GRAY. Not a candidate for filing.
 
-## 8. L10: multimodal denominator (Qwen2.5-Omni-7B, Llama-3.2-11B-Vision, Omni-3B text path)
+## 8. L10: multimodal denominator (Qwen2.5-Omni-7B text path; LOCKED SKILL7, accounting only)
 
-- Idea: the denominator is the fp16 size of the WHOLE start model; the text path of a multimodal model is a smaller share, so the text body can be stored at ~2.1-2.7 bpw. Reading of R1 is literal; R9 spirit is at risk. Ruling D.
-- Dev results (SKILL7 682 items; BANKFAM 716; `v2/lanes/L10/results/analysis_*.json`; real generation, one draw, size by byte arithmetic, no packed file yet):
+- Idea: the denominator is the fp16 size of the WHOLE start model; the text path of a multimodal model is a smaller share, so the text body can be stored at about 2.25 bpw. R1 literal pass, R9 spirit at risk (ruling D). Only models with a large unused non-text part give a bonus; plain VLMs give about +0.05 bpw.
+- Size (MANIFEST.json, entropy accounting, not a written pack): text path 2,120,452,503 B = 9.879% + 11.0 MB feedback patch = 2,131,462,551 B = **9.930%** of 21,464,450,880 B (slack 14.98 MB). Against Omni's disk size (22.36 GB) the ratio is 9.53%.
+- **LOCKED exam (SKILL7, once)**: base .9676; retention **99.55% [99.21]** (2643/2655), every kind >= 98.78 (News min), never-used 99.59 [99.10], clean_only 99.63 [99.26]. Retention after feedback identical (99.55); neighbours 352/355 before and after.
+- **Feedback (closed-form column-sparse `down_proj`, last 6 layers x 256 columns, 11.0 MB; ONE draw)**: `Recipe` teach **.860 [.798]** (141/164; MTOP cross-source .870), shuffled (25 old-skill items labelled Recipe) 0%, empty 0%.
+- Dev alternatives: Llama-3.2-11B-Vision 98.73 [97.41] (base .809), Omni-3B 98.90 [97.75]. R-table: R1 GRAY (literal pass); R2 PASS; R4 GRAY; R5/R6 PASS on one draw; R9 **weakest** (GRAY-LOW). Not planned; no packed file.
+- Reproduce: `v2/lanes/L10/` (REPORT.md, MANIFEST.json, `modal_exam.py`, `score_exam.py`, `ship/`).
 
-| start model | size / whole fp16 | body bpw | SKILL7 retention [lo] | BANKFAM retention |
-|---|---|---|---|---|
-| Qwen2.5-Omni-7B | 9.879% | 2.25 | **.9969 [.9889]** (base .960) | .976 (Payment .889) |
-| Llama-3.2-11B-Vision | 9.872% | 2.10 | .9873 [.9741] (base .809) | .956 (Payment .795) |
-| Qwen2.5-Omni-3B | 9.875% | 2.67 | .9890 [.9775] (base .933) | .974 (Payment .842) |
+## 9. L4: Qwen3-30B-A3B-Instruct-2507 on rival #3's tasks (LOCKED, shared exam; estimate sizes)
 
-- Feedback (Omni-7B, dev sweep, bf16 body, 40 selection teach items, 2 draws, n=25): carriers L6c256 (11.0 MB) / L8c256 (14.7 MB) / L6c512 (22.0 MB): teach .975, shuffled 0.0, neighbours 1.0 / .997-1.0. Small n; not run on a quantized body; no locked exam yet (`modal_exam.py` job staged).
-- R-table: R1 literal PASS / spirit GRAY; R2 dev PASS 99.7 (exam pending); R3-R6 pending; R9 GRAY. Reproduce: `v2/lanes/L10/` (`modal_l10.py`, `fbx/run_fbx.py`, `audit/`).
+- Recipe: top-80 of 128 experts by routing mass on 698-1500 unlabeled task prompts, GPTQ + block-Hadamard(256) 2-bit g128, attention RTN 6-bit, embeddings 5-bit, lm_head 4-bit, last 6 layers' `o_proj` fp16 as feedback carrier. Size **9.895% estimate** (6,042,513,585 B incl. 100.7 MB carrier; code not counted); no packed exporter, `answer.py`/`feedback.py` not runnable against a saved checkpoint.
+- **LOCKED exam (once per task)**: SKILL7 base .9592, retention **98.94% [98.47]**, News 96.03 (Wilson lo 93.65), Calendar lo 94.86 (per-kind claim not certified), never-used 99.03; BANK6 base .8873, retention **99.24% [98.76]**, Cash 98.49, never-used 98.80.
+- **Feedback (24 annotations, closed-form `o_proj`, last 6 layers; 3 draws)**: SKILL7 `Recipe` teach .591 / .634 / .585, shuffled .177 / .085 / **.494** (draw 3 close to real), wrong .006 / 0 / .006, neighbours .994 / .994 / .989. BANK6 `Security` teach .270 / .250 / .070, neighbours .654 / .608 / .967 (collapse in 2 of 3 draws): FAIL. Stronger protection does not help.
+- Examples in the prompt (BM25 top-8 labelled examples) make R4/R9 gray; the `never` slice is the same dataset (R3 gray). R5/R6 PARTIAL. Not a candidate.
 
-## 9. L4: Qwen3-30B-A3B on rival #3's tasks (dev only)
+## 10. L12: MoE combination ablation (research lane; one locked score, feedback did not teach)
 
-- Tasks: bank8 = Banking77 in 8 families + held-out new family `security`; clin9 = CLINC150 in 9 domains + held-out `kitchen`; **BM25 top-8 labelled examples inside the prompt** (as entrant #3 did). Exam 2,400/2,700 built and sealed (`v2/rival3/data`); its `never` slice is a hash-disjoint slice of the same dataset, not a different source.
-- Dev (`sel` split, n=1,600 / 1,800; base .952 / .986; analytic sizes, no packed file): clin9 k80 GPTQ+Hadamard 2-bit 9.73%: **99.72 [99.34]**, min cell 98.5; clin9 k64 mixed 2/4b 9.63%: 99.55; bank8 k80 GPTQ+Hadamard 2-bit 9.73%: 98.95 [98.30], min cell 95.8; bank8 k64 GPTQ 2-bit 8.14%: 99.28 [98.71]; bank8 k96 RTN (rival layout) 11.32%: 98.49. Feedback (closed-form `o_proj`, 24 annotations): configs launched, **no result committed**. `REPORT.md` there is stale (written before results).
-- R-table: R2 dev PASS (not scored on exam); R3 gray (never slice not a new source); R4/R9 gray (examples in prompt); R5/R6 not measured. Reproduce: `v2/rival3/` (`build_data.py`, `core.py`, `fb.py`, `answer.py`).
-
-## 10. L12: MoE combination ablation (Qwen3-30B-A3B, Qwen3.5-35B-A3B) - research lane, not an entry
-
-Dev SEL/REP on SKILL7, expert-score and merge ablations; sizes in the table are pre-quantization fractions. Facts from `v2/lanes/L12/results/vast*/res/` (aggregated by `v2/lanes/L12/agg.py`):
-- Qwen3-30B-A3B keep 40/128 (42.9%): mass .991/.989 (SEL/REP), REAP .991/.994, REAP-sum .990/.989, frequency .962/.974; keep 25/128 (28.8%): mass .971/.978, REAP .962/.983, KL .964/.964, **random 0.000**, gate-free .521. Mass or REAP scoring are equivalent within noise; random and gate-free pruning collapse.
-- With GPTQ at ~10%: B2 gptq3 REAP k45 9.80%: .962/.973; gptq2 k70 10.28%: .958/.970.
-- Qwen3.5-35B-A3B (256 experts): keep 40/256 mass .994/.992; keep 25/256 .991/.993; global allocation .979/.991; merge-alignment .959-.976/.969-.970 (worse than prune); top-2 routing collapses (.383), top-4 .978, top-6 .992; RTN 3-bit all experts (19.5% of fp16) .991/.994; sub-rank r512 0.000.
-- Takeaway: fine-grained 256-expert Qwen3.5 keeps 99% with ~10-15% of experts (pre-quant), which is why L9b works. `run_final.py` (shared exam + feedback) exists, not run.
+Full table and caveats: [`MOE_COMBOS.md`](MOE_COMBOS.md). Dev SEL (n=963) ablations on Qwen3-30B-A3B and Qwen3.5-35B-A3B; sizes are analytic, quantisation is simulated (fake-quant), no packer.
+- **Best at or under 10%: Qwen3.5-35B-A3B, mass-style pruning to 25% of experts (k25 of 256) + RTN 4-bit on everything = 7.61% of fp16, SEL retention .982 [.972], min cell .957.** Qwen3-30B-A3B cannot hold more than about .96 at 10%.
+- **LOCKED SKILL7 (once, `Q35_B3_rtn4_mass_k25`)**: n=2655 base-correct, base .9676, retention **.9917 [.9875]**, min kind .972; gates PASS. Fake-quant, analytic bytes, not a packed export.
+- **Feedback on this model: teach 0.0 for real, shuffled and empty** (the new label is never produced) with the closed-form `down_proj` edit of 53 routed experts in the last 4 layers; exam retention .9902 / .9906 / .9917, neighbours .963 / .969 / .977. Harmless but ineffective, so R5 is NOT met here. A rerun with the L11 `o_proj` recipe and a packed export (`run_fbo.py`, uncommitted) has no landed result; L9b shows the dense shared-expert `down_proj` carrier works on the same architecture, untested here.
+- Other facts: Qwen3.5 tolerates 15% of experts and 3-4-bit RTN; random pruning collapses; merging is worse than pruning; top-6 of 8 routing is free; GPTQ+Hadamard on Qwen3.5 returned 0.000 in every cell (engine bug on fused experts, not a quality result); shared-subspace SVD is 0.000.
 
 ## 11. L6: other MoE bases (DEV, exam not scored; FAIL R2)
 
@@ -269,12 +261,12 @@ Qwen1.5-MoE-A2.7B-Chat (31/60 experts, RTN 2-bit g64, attn/shared 4-bit, embed/h
 | L1 | `v2/lanes/L1/` | `v2/lanes/L1/REPORT.md` | `v2/lanes/L1/results/`, `v2/bonsai/fbx/results/` |
 | L2 | `v2/lanes/L2/` | `v2/lanes/L2/REPORT.md` | `v2/lanes/L2/results/` |
 | L9b | `v2/lanes/L9b/` | `v2/lanes/L9b/REPORT.md` | `v2/lanes/L9b/results/` |
-| L3 | `v2/lanes/L3/` | `v2/NEAR_MISSES.md` (L3 sections) | `v2/moe/`, `v2/moe_quant/results/` |
-| L5 | `v2/lanes/L5/` | `v2/SOLUTIONS.md` C33, C34 | `v2/lanes/L5/results/` |
-| L9 | `v2/lanes/L9/` | `v2/lanes/L9/MANIFEST.json` | `v2/lanes/L9/results/` |
-| L10 | `v2/lanes/L10/` | commits and `results/analysis_*.json` | `v2/lanes/L10/results/` |
-| L4 | `v2/lanes/L4/`, `v2/rival3/` | `v2/NEAR_MISSES.md` L4 section | `v2/rival3/results/` |
-| L12 | `v2/lanes/L12/` | `v2/lanes/L12/agg.py` | `v2/lanes/L12/results/` |
+| L3 | `v2/lanes/L3/` | `v2/lanes/L3/REPORT.md` | `v2/moe/`, `v2/moe_quant/results/` |
+| L5 | `v2/lanes/L5/` | `v2/lanes/L5/REPORT.md` | `v2/lanes/L5/results/` |
+| L9 | `v2/lanes/L9/` | `v2/lanes/L9/REPORT.md` | `v2/lanes/L9/results/` |
+| L10 | `v2/lanes/L10/` | `v2/lanes/L10/REPORT.md` | `v2/lanes/L10/results/` |
+| L4 | `v2/lanes/L4/`, `v2/rival3/` | `v2/lanes/L4/REPORT.md` | `v2/rival3/results/` |
+| L12 | `v2/lanes/L12/` | `v2/MOE_COMBOS.md` | `v2/lanes/L12/results/` |
 | L6 | `v2/lanes/L6/` | `v2/lanes/L6/REPORT.md` | `v2/lanes/L6/results/`, `v2/near_miss/a_moe/` |
 | L7/L8 | `v2/lanes/L7/`, `v2/near_miss/` | `v2/near_miss/*/ROWS.md` | same |
 | X03/X04a | `v2/exp/` | `v2/exp/X04a_REPORT.md`, `v2/exp/results/X03/ladder_table.md` | `v2/exp/results/` |
