@@ -1,0 +1,245 @@
+{
+ "cfg": {
+  "name": "B6_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ "bytes_analytic": {
+  "parts": {
+   "router": 10485760,
+   "keep_mask": 1280,
+   "experts": 4183818240,
+   "attn": 666659840,
+   "embed": 264212480,
+   "head": 264212480,
+   "shared_expert": 65372160,
+   "norms_misc": 2483456,
+   "tokenizer_config": 12828480,
+   "code_meta": 60000
+  },
+  "total": 5470134176,
+  "ratio": 0.07607588481268988,
+  "ratio_text_only": 0.07890995091286489,
+  "fp16_bytes": 71903655008,
+  "fp16_text_bytes": 69321221376
+ },
+ "args": {
+  "mode": "fblock",
+  "cfg": "b6_rtn4_k25.json",
+  "cfgs": null,
+  "grid": "grid_lockA.json",
+  "out": "/r/fblockA",
+  "root": "/workspace/fin",
+  "model": "Qwen/Qwen3.5-35B-A3B",
+  "draws": 6,
+  "seed0": 100,
+  "nann": 25,
+  "ncal": 698,
+  "conds": "real,shuffle,wrong",
+  "max_new": 8
+ },
+ "mode": "fblock",
+ "runs": [
+  {
+   "teach_acc": 0.785,
+   "teach_top": [
+    [
+     "Security",
+     157
+    ],
+    [
+     "Card",
+     43
+    ]
+   ],
+   "neigh_ret": 0.8993377483443709,
+   "neigh_n": 755,
+   "exam_ret": 0.9455984174085065,
+   "exam_wilson_lo": 0.9348406362759603,
+   "exam_kind_min": 0.8797953964194374,
+   "kind_ret": {
+    "Card": 0.8797953964194374,
+    "Cash": 0.9860627177700348,
+    "Exchange": 0.9825072886297376,
+    "Identity": 0.9006849315068494,
+    "TopUp": 0.9355828220858896,
+    "Transfer": 0.9921671018276762
+   },
+   "new_label_leak_on_exam": 50,
+   "neigh_kind_ret": {
+    "Card": 0.8797953964194374,
+    "Cash": 1.0,
+    "Exchange": 1.0,
+    "Identity": 0.9006849315068494,
+    "TopUp": 1.0,
+    "Transfer": 1.0
+   },
+   "cond": "real",
+   "grid": {
+    "nlay": 10,
+    "cols": 512,
+    "lam": 1000,
+    "awt": 10,
+    "margin": 32
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 10,
+    "cols": 512
+   },
+   "carrier_bytes": 20981760,
+   "ncal": 698
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Card",
+     107
+    ],
+    [
+     "Cash",
+     67
+    ],
+    [
+     "TopUp",
+     15
+    ],
+    [
+     "Transfer",
+     11
+    ]
+   ],
+   "neigh_ret": 0.9324503311258279,
+   "neigh_n": 755,
+   "exam_ret": 0.9589515331355094,
+   "exam_wilson_lo": 0.9493977710193661,
+   "exam_kind_min": 0.886986301369863,
+   "kind_ret": {
+    "Card": 0.9539641943734015,
+    "Cash": 0.9965156794425087,
+    "Exchange": 0.9737609329446064,
+    "Identity": 0.886986301369863,
+    "TopUp": 0.9447852760736196,
+    "Transfer": 0.9895561357702349
+   },
+   "new_label_leak_on_exam": 0,
+   "neigh_kind_ret": {
+    "Card": 0.9539641943734015,
+    "Cash": 1.0,
+    "Exchange": 1.0,
+    "Identity": 0.886986301369863,
+    "TopUp": 1.0,
+    "Transfer": 1.0
+   },
+   "cond": "shuffle",
+   "grid": {
+    "nlay": 10,
+    "cols": 512,
+    "lam": 1000,
+    "awt": 10,
+    "margin": 32
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 22,
+    "layers": 10,
+    "cols": 512
+   },
+   "carrier_bytes": 20981760,
+   "ncal": 698
+  },
+  {
+   "teach_acc": 0.0,
+   "teach_top": [
+    [
+     "Exchange",
+     161
+    ],
+    [
+     "Card",
+     39
+    ]
+   ],
+   "neigh_ret": 0.8847682119205298,
+   "neigh_n": 755,
+   "exam_ret": 0.9396636993076162,
+   "exam_wilson_lo": 0.9284276909784309,
+   "exam_kind_min": 0.8439897698209718,
+   "kind_ret": {
+    "Card": 0.8439897698209718,
+    "Cash": 0.9895470383275261,
+    "Exchange": 0.9737609329446064,
+    "Identity": 0.910958904109589,
+    "TopUp": 0.9355828220858896,
+    "Transfer": 0.9947780678851175
+   },
+   "new_label_leak_on_exam": 0,
+   "neigh_kind_ret": {
+    "Card": 0.8439897698209718,
+    "Cash": 1.0,
+    "Exchange": 1.0,
+    "Identity": 0.910958904109589,
+    "TopUp": 1.0,
+    "Transfer": 1.0
+   },
+   "cond": "wrong",
+   "grid": {
+    "nlay": 10,
+    "cols": 512,
+    "lam": 1000,
+    "awt": 10,
+    "margin": 32
+   },
+   "draw": 0,
+   "info": {
+    "sites_wrong_first": 25,
+    "layers": 10,
+    "cols": 512
+   },
+   "carrier_bytes": 20981760,
+   "ncal": 698
+  }
+ ],
+ "empty": {
+  "teach_acc": 0.0,
+  "teach_top": [
+   [
+    "Card",
+    115
+   ],
+   [
+    "Identity",
+    85
+   ]
+  ],
+  "neigh_ret": 0.9509933774834437,
+  "neigh_n": 755,
+  "exam_ret": 0.9638971315529179,
+  "exam_wilson_lo": 0.9548465207251405,
+  "exam_kind_min": 0.9212328767123288,
+  "kind_ret": {
+   "Card": 0.9641943734015346,
+   "Cash": 0.975609756097561,
+   "Exchange": 0.9795918367346939,
+   "Identity": 0.9212328767123288,
+   "TopUp": 0.9386503067484663,
+   "Transfer": 0.9947780678851175
+  },
+  "new_label_leak_on_exam": 0,
+  "neigh_kind_ret": {
+   "Card": 0.9641943734015346,
+   "Cash": 1.0,
+   "Exchange": 1.0,
+   "Identity": 0.9212328767123288,
+   "TopUp": 1.0,
+   "Transfer": 1.0
+  }
+ }
+}
