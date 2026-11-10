@@ -472,3 +472,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L1 final fresh-clone dry run (v2/lanes/L1/build/modal_dry_run.py, app ap-p6oCH1rMDNCA8FqbAr3Pcd, clone commit 3b12a02): 0 sha mismatches, 4/4 Recipe, 7/7 neighbours unchanged, empty feedback restores tree (results/dry_run.json)
 - 2026-11-09 L12 owndata od1 finished (results v2/lanes/L12/owndata/results)
 - 2026-11-09 L12 e2e from packed files (app tenpct-l12e, vol tenpct-l12b:/art, /e2e): prep1, parity1 (fake-quant vs packed, 200 dev: 198 identical), cli1 (answer/feedback CLIs), lockexam (locked exam once from packed loader), lockfb_a (draws 100-102), lockfb_b (draws 103-105)
+- 2026-11-09 L12 devsel locked measurement (dev-chosen nlay10 cols512 m64 lam2000 awt30; 8 draws split lockedA/lockedB, full exam; app tenpct-l12-devsel)
