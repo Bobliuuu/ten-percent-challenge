@@ -35,6 +35,15 @@ if a.mode == "sel":
     print("SEL_DONE"); sys.exit()
 
 cfg = cfg_of(a.cfg)
+if a.mode == "gdiag":
+    full_base(); kept, by, nfb = eng.build(cfg)
+    for l in range(0, eng.NL, 4):
+        lv = eng.blocks[l].live; og = eng.OG[l][torch.tensor(kept[l])].to(eng.dev).float()
+        for nm, q, o in (("G", lv.G, og), ("D", lv.D, eng.OD[l][torch.tensor(kept[l])].to(eng.dev).float())):
+            qf = q.float(); bad = (~torch.isfinite(qf)).flatten(1).any(1)
+            rel = ((qf - o).pow(2).flatten(1).sum(1) / o.pow(2).flatten(1).sum(1).clamp(min=1e-12))
+            print("GDIAG layer", l, nm, "nonfinite experts", int(bad.sum()), "of", q.shape[0], "relerr median", float(rel[~bad].median()) if (~bad).any() else None, "max", float(rel[~bad].max()) if (~bad).any() else None, flush=True)
+    sel_ = tk(sel); o = eng.gen_eval(sel_[:40]); print("GDIAG outs", o[:10], flush=True); print("DONE gdiag"); sys.exit()
 if a.mode == "exam":
     exam = tk(L.load(T, "exam")); full_base(); base = eng.gen_eval(exam)
     ok = lambda outs: {r["id"]: o == r["answer"] for r, o in zip(exam, outs)}; bok = ok(base)

@@ -1,0 +1,1 @@
+{"name": "B6_gptqhad4_mass_k25", "score": "mass", "keep": 0.25, "eb": 4, "quant": "gptq", "had": true, "attn_b": 4, "emb_b": 4, "head_b": 4, "shared_b": 4}
