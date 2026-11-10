@@ -2,7 +2,7 @@
 
 The [10% challenge](https://github.com/DeusExperiments/ten-percent-challenge) asks for a model that is at most 10% of the size of a trained model, behaves the same as that model on an exam it never saw, and can learn from a few user corrections, all without training the weights. This repo is our working record: code, exams, results and dead ends.
 
-Last updated 2026-11-09. Deadline **2026-11-12 17:05 UTC**. Our own freeze (after this, nothing new is built) is **2026-11-11 08:00 UTC**.
+Last updated 2026-11-09 (filing package drafted in `v2/FILING/`; nothing posted). Deadline **2026-11-12 17:05 UTC**. Our own freeze (after this, nothing new is built) is **2026-11-11 08:00 UTC**.
 
 ## 1. Summary and honest status
 
@@ -59,9 +59,33 @@ The 9 judging rules and 5 challenge rules are copied word for word in [`v2/RULES
 
 **Same for every version below (rule 3).** The shared exam has 2,744 items, 344 to 420 per kind, and 1,489 items from sources never used for building (HWU64 and MTOP). Caveats: it is our exam; 532 rows are flagged `seen_tox`, and on the exam without them Lists and Transport have fewer than 300 base-correct items. The base accuracy is scored on the exam as shown in each rule 8 row.
 
-**Ranking** (from [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md), refreshed 2026-11-09): L9b primary; L1, then L5, then L2 as alternates; L3, L4, L9, L10 are not filing candidates.
+**Ranking** (from [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md), refreshed 2026-11-09): L1 primary; L9b alternate; then L5, then L3, then L2; L4, L9, L10 are not filing candidates. L1 moved first on 2026-11-09 after the own-data dry runs (below).
 
-### L9b (primary): Qwen3.5-35B-A3B, pruned and 3-bit
+### L1 (primary): Bonsai-8B (released 1-bit) plus a feedback patch
+
+- **Model:** Bonsai-8B, a 1-bit release built from Qwen3-8B by its makers.
+- **How compressed:** not by us. We repack it losslessly (output identical to the release).
+- **Size:** **7.16%** measured with the default `scale` patch (4.72 MB) counted, including code, calibration prompts, tensor manifest and licence (7.44% with the optional 50 MB `cols` patch, 7.13% with the 0.5 MB `lr` patch). Slack to 10% is about 465 MB.
+- **Retention:** **1.000 [.9985] against the released model, by construction.** Against its fp16 ancestor Qwen3-8B it is **88.9%** (dev data).
+- **Feedback:** closed-form edit of the existing per-group scales of the 1-bit `down_proj` in the last 6 layers (default `scale` carrier; no new tensor).
+- **Own-data dry run (2026-11-09):** the only version that stays base-like outside its task. Banking77-200 retention 100% [95.9]; router-prompt agreement 94%; generic prompts identical 96%; an unseen label `Timer` is emitted .964 with Alarm-to-Timer flips 21.7% (base 8.3%); shuffled .00-.04, wrong .11-.25.
+
+| rule | verdict | how it follows the rule, and the caveat |
+|---|---|---|
+| 1 size | PASS | 7.16% of Qwen3-8B fp16 including patch, calibration prompts, manifest and code |
+| 2 faithful | GRAY | 100% (2,489 of 2,489) against the release, every kind and source. True by construction; it measures none of our compression. Against the fp16 ancestor it is 88.9%. Depends on ruling B |
+| 3 exam | PASS | see the shared note. Base accuracy .907 |
+| 4 no new trained parts | GRAY | no head, adapter, lookup or prompt, but a closed-form edit of existing scales (and 182 unlabeled calibration prompts) ships (rulings A, G) |
+| 5 feedback teaches | PASS | teach 0 to .893 [.881, .905] over 10 draws (`cols`; `scale` .904 over 6 draws, .909 end to end); neighbours .995; exam retention after feedback .9988; cross-source teach .81 to .91; new label from real generation |
+| 6 shuffled and empty worse | PASS | shuffled .001-.005, wrong 0, empty 0 |
+| feedback controls (real / shuffled / empty) | | **.90 / .00 / 0** |
+| 7 real job | PASS | the skill word is generated |
+| 8 something to keep | PASS | base .907 (chance .143); some single cells are near 1.0 |
+| 9 spirit | GRAY | we did no compression of our own. The reading is unruled (RULES 4f) |
+
+Weak spots: second task BANK6 gives exam retention 1.000 but `Security` teach only .727 with shuffled .10 (up to .49). A new skill close to an old one (Email vs Lists) can steal old items in continual mode (neighbours down to .86). The locked-exam teach numbers above were measured with the `cols` patch; the `scale` default was checked on the locked sets over 6 draws and one end-to-end run, not on the exam itself.
+
+### L9b (alternate): Qwen3.5-35B-A3B, pruned and 3-bit
 
 - **Model:** Qwen3.5-35B-A3B, a released full-precision model (not pre-compressed).
 - **How compressed (ours):** keep 102 of 256 experts per layer (chosen by task prompts, no labels), 3-bit RTN on kept experts, 6-bit attention, 4-bit embedding and output layer. Vision tower not shipped.
@@ -82,30 +106,9 @@ The 9 judging rules and 5 challenge rules are copied word for word in [`v2/RULES
 | 8 something to keep | WEAK | base .9676 (chance .14): only 3.2% errors to keep |
 | 9 spirit | GRAY | 60% of experts removed using the task's own prompts, so it is a task specialist. The same recipe on a second task (BANK6) fails |
 
-Also open: the maintainer's own-data check is **untested** for this version and is its highest risk (the 7-skill prompt is hardcoded; expert choice may not carry to other text).
+Also open: the maintainer's own-data check is its highest risk (the 7-skill prompt is hardcoded; expert choice does not carry to other text, see below).
 
-### L1: Bonsai-8B (released 1-bit) plus a feedback patch
-
-- **Model:** Bonsai-8B, a 1-bit release built from Qwen3-8B by its makers.
-- **How compressed:** not by us. We repack it losslessly (output identical to the release).
-- **Size:** **7.44%** measured (7.13% base files plus the 50 MB patch). The low-rank version (L1+) is 7.13% in total with a 0.5 MB patch.
-- **Retention:** **1.000 [.9985] against the released model, by construction.** Against its fp16 ancestor Qwen3-8B it is **88.9%** (dev data).
-- **Feedback:** closed-form edit of 1,024 `down_proj` columns in the last 6 layers, stored as fp16 columns.
-
-| rule | verdict | how it follows the rule, and the caveat |
-|---|---|---|
-| 1 size | PASS | 7.44% of Qwen3-8B fp16 including patch, calibration prompts and code |
-| 2 faithful | GRAY | 100% (2,489 of 2,489) against the release, every kind and source. That is true by construction and measures none of our compression. Against the fp16 ancestor it is 88.9%. Depends on ruling B |
-| 3 exam | PASS | see the shared note. Base accuracy .907 |
-| 4 no new trained parts | GRAY | no head, adapter, lookup or prompt, but 50 MB of fitted fp16 columns ship, plus 182 unlabeled calibration prompts (ruling A, G) |
-| 5 feedback teaches | PASS | teach 0 to .893 [.881, .905] over 10 draws; neighbours .995; exam retention after feedback .9988; cross-source teach .81 to .91; new label from real generation |
-| 6 shuffled and empty worse | PASS | shuffled .005, wrong 0, empty 0 |
-| feedback controls (real / shuffled / empty) | | **.893 / .005 / 0** |
-| 7 real job | PASS | the skill word is generated |
-| 8 something to keep | PASS | base .907 (chance .143); some single cells are near 1.0 |
-| 9 spirit | GRAY | we did no compression of our own. The reading is unruled (RULES 4f) |
-
-Also open: second task BANK6 gives exam retention 1.000 but teach only .727 with shuffled .10 (up to .49). A new skill close to an old one (Email vs Lists) can steal old items in continual mode (neighbours down to .86).
+Own-data dry run (2026-11-09): this is why it is no longer primary. Banking77-200 retention 79.3% [71.8]; router-prompt agreement 46%; generic prompts identical 11%; an unseen label `Timer` is emitted 100% but 21.7% of Alarm requests flip to it. It stays the only entry that is our own compression of an unmodified public model, so it is the filing if ruling B (pre-compressed start) goes against L1.
 
 ### L5: dense Qwen2.5-32B, our compression, no pruning
 
@@ -279,8 +282,8 @@ Each box names the rule or rules it breaks. "Dev" means our own development data
 
 1. **Guessed readings (listed here, not asked of anyone).** The gray rulings are our best-evidence guesses, not settled: A, a closed-form edit of existing tensors is probably not "training" or a "head" because it adds no new part and runs through the model's own forward pass; B, starting from an already-compressed release is probably allowed ("before or after you cut it"), but our own compression is the stronger story; C, pruning experts with the task's own unlabeled prompts is probably data-dependent selection, not a trained part; D, a multimodal start model's whole fp16 size is probably the literal denominator, but dropping unused towers risks the spirit rule; E, vocabulary trimming is probably fine only where label tokens survive. We plan around these guesses and keep the gray labels. Details in [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md).
 2. **Re-read entrant #4's issue, read-only,** for a maintainer reply. It edits existing rows of a pruned model and does run the new label end to end, so its verdict is the best available signal on A and C.
-3. **Pick the entry to file** (owner's decision before the freeze). Current order: L9b, then L1, then L5, then L2. If A goes against us we file nothing as a pass.
-4. **L9b open items:** own-data dry run (about 300 unrelated prompts plus a new label close to an old one, for example `Timer` next to Alarm); a fresh-clone run of the answer and feedback commands; the locked test of the protection-weight-50 variant (dev: teach .65 to .75, shuffled .00 to .01; never run on the locked sets), to try to fix the shuffled-control leak.
+3. **Pick the entry to file** (owner's decision before the freeze). Current order: L1, then L9b, then L5, then L3, then L2. If A goes against us we file nothing as a pass.
+4. **Filing-package open items:** a durable copy of the L1 artifact the maintainer can fetch (it sits in a private volume), and a final fresh-clone run at the filing commit. Done: own-data dry runs for L1, L9b and L5, and fresh-clone runs of L1 and L9b. Drafts are in `v2/FILING/`.
 5. **Packers and loaders:** L5 needs a single-file loader and a standalone feedback command; L12 needs a packer and a feedback carrier that teaches (the L9b shared-expert carrier is the obvious one); L9b on BANK6 needs a real packer for the Hadamard plus error-feedback recipe.
 6. **L2 default:** decide margin m64 (dev-selected, teach .973, shuffled .756) or m16 (teach .913, shuffled .352, neighbours .991, not dev-selected).
 7. **Cloud tidy-up:** the AWS box sweep did not run because the `lab` login expired. The owner runs `aws login --profile lab`, then the three regions are re-swept for leftover boxes. Rotate the Vast API key if it may have leaked.
