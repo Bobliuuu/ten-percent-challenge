@@ -35,8 +35,9 @@ class PackedMoE(nn.Module):
         return out.view(B, T, D)
 
 def load(adir, dev="cuda", carrier=True):
-    import transformers
+    import transformers, torch._dynamo   # import before any torch.device('meta') context (lazy model-module import otherwise fails on torch 2.8)
     from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM
+    import transformers.models.qwen3_5_moe.modeling_qwen3_5_moe  # noqa
     cfg = AutoConfig.from_pretrained(adir); tc = getattr(cfg, "text_config", cfg); dt = torch.bfloat16
     with torch.device("meta"): lm = AutoModelForCausalLM.from_config(tc, dtype=dt, attn_implementation="sdpa")
     K = None
