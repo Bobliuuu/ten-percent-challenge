@@ -87,7 +87,7 @@ Honest reading: the three real `Timer` draws coincide to the last digit (8 templ
 - **Second task BANK6 is weak.** Same lossless pack on a banking task (shared exam, 2,237 items): retention 1.000 against Bonsai, but feedback for a new label `Security` teaches only **.727** (Banking77 .814, Bitext cross-source .641), neighbours .989 (one draw .977), and the shuffled control is **.101 on average with one draw at .49**. It passes by the letter and is a grayer proof than SKILL7. No second task ships in this entry.
 - **Continual feedback tail.** A third skill added after two rounds can steal old items when its words overlap an old skill (Email against Lists, neighbours .863 after round 2 in one draw).
 - **One narrow task.** 7-way routing is commercial but has a small label set; the base sits near its ceiling on most cells.
-- **Locked-exam feedback numbers** were measured with the `cols` patch; the `scale` default was checked on the locked teach and neighbour sets (6 draws) and end to end, not on the full exam after feedback.
+- **Locked-exam feedback numbers for the shipped `scale` carrier** (8 draws, shipped defaults fixed in advance, `lanes/L1/results/locked_L1_scale.json`): real teach .899 [.887, .909], neighbours .9936 (worst .9915), shuffled .0015, wrong 0, empty 0, exam retention after real feedback .9996 / .9988 / .9988 (draws 0-2), one `Recipe` output on the 2,744 exam items. Weaker than `cols` on neighbours by about 0.2 points, and one shuffled-annotation draw costs exam retention .978 (the `cols` carrier was not run on that arm).
 - **Base is a single reference run** per batch size (three batch sizes agree to .9993 to .9996).
 - Hardware: one CUDA GPU with about 17 GB, `torch`, `transformers==4.56.2`.
 

@@ -480,3 +480,9 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-10 L1 scale-carrier locked exam: Modal app tenpct-l1-lockscale (deployed, spawned run; result in volume tenpct-l1-art:/results/locked_L1_scale.json)
 - 2026-11-10T05:42Z vast id 60023691 label tenpct-l1scale GPU A100 PCIE 40GB $0.353/h (+5% guard) started
 - 2026-11-10 L1 scale locked: Modal queue >15 min (call cancelled, app stopped); moved to Vast 60023691 (tenpct-l1scale), bundle v2/research/V_vast/bundles/l1scale, results v2/lanes/L1/results/vast_scale
+- 2026-11-10T05:51Z vast id 60024742 label tenpct-l1scale GPU RTX A6000 48GB $0.509/h (+5% guard) started
+- 2026-11-10T05:59Z vast id 60025610 label tenpct-l1scale GPU A100 PCIE 40GB $0.523/h (+5% guard) started
+- 2026-11-10T06:13Z vast id 60025610 tenpct-l1scale destroyed after 0.23 h (~$0.12)
+- 2026-11-10T06:13Z vast id 60027423 label tenpct-l1scale GPU L40S 45GB $0.428/h (+5% guard) started
+- 2026-11-10 L1 scale locked: Vast 60027423 (L40S, tenpct-l1scale) driven manually after launcher ssh hang; DESTROY when done
+- 2026-11-10 L1 scale-carrier locked exam DONE (Vast 60027423 destroyed, verified; earlier 60023691/60024742/60025610 destroyed). Results lanes/L1/results/locked_L1_scale.json

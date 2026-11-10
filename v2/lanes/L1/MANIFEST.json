@@ -115,5 +115,42 @@
   "status": "uploaded and verified 2026-11-09",
   "hf_revision": "d5f0329dee86c10cd59ed5a94a04393c54fa0e18",
   "note": "fresh anonymous download on Modal L40S: all sha256 match SHA256SUMS.artifact; answer/feedback/answer e2e ok (Recipe 4/4, neighbours unchanged 7/7), empty feedback restores tree. HF adds .gitattributes (2.5 KB, not part of the tree)."
+ },
+ "locked_scale_carrier_2026_11_10": {
+  "source": "results/locked_L1_scale.json",
+  "config": {
+   "carrier": "scale",
+   "layers": 6,
+   "lam": 100,
+   "awt": 10,
+   "margin": 16,
+   "ridge": 0.05
+  },
+  "draws": 8,
+  "teach_real": 0.8986,
+  "teach_real_ci": [
+   0.887,
+   0.909
+  ],
+  "teach_by_src": {
+   "mtop": 0.92,
+   "clinc150": 0.896,
+   "hwu64": 0.808,
+   "massive": 0.803
+  },
+  "neighbours_real": 0.9936,
+  "neighbours_worst": 0.9915,
+  "teach_shuffled": 0.0015,
+  "teach_wrong": 0.0,
+  "teach_empty": 0.0,
+  "neighbours_wrong": 0.9918,
+  "exam_retention_after_real": {
+   "draw0": "2488/2489",
+   "draw1": "2486/2489",
+   "draw2": "2486/2489"
+  },
+  "exam_retention_after_shuffled_draw0": "2435/2489 (.9783)",
+  "exam_retention_after_wrong_draw0": "2487/2489",
+  "recipe_leak_exam_per_draw": 1
  }
 }

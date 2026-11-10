@@ -169,3 +169,9 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - id 59725181 tenpct-L12B destroyed after 0.11 h (~$0.15)
 - id 59725539 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.20)
 - 2026-11-10T05:42Z vast id 60023691 label tenpct-l1scale GPU A100 PCIE 40GB $0.353/h (+5% guard) started
+- id 60023691 destroyed (load timeout 480s, ~$0.05)
+- 2026-11-10T05:51Z vast id 60024742 label tenpct-l1scale GPU RTX A6000 48GB $0.509/h (+5% guard) started
+- id 60024742 destroyed (load timeout 480s, ~$0.07)
+- 2026-11-10T05:59Z vast id 60025610 label tenpct-l1scale GPU A100 PCIE 40GB $0.523/h (+5% guard) started
+- id 60025610 tenpct-l1scale destroyed after 0.23 h (~$0.12)
+- 2026-11-10T06:13Z vast id 60027423 label tenpct-l1scale GPU L40S 45GB $0.428/h (+5% guard) started
