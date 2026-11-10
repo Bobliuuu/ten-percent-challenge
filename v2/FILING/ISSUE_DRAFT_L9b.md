@@ -1,6 +1,6 @@
-# ISSUE DRAFT (fallback entry L9b). NOT POSTED.
+# ISSUE DRAFT (backup entry L9b). NOT POSTED.
 
-Use only if reading B (pre-compressed start) is dropped by the owner. Same placeholders and checklist as `ISSUE_DRAFT.md`. Numbers: `v2/lanes/L9b/REPORT.md`, `MANIFEST.json`, `v2/ENTRY_DECISION.md`.
+Use only if reading B (pre-compressed start) is dropped by the owner. Placeholders filled; same checklist as `ISSUE_DRAFT.md`. Numbers: `v2/lanes/L9b/REPORT.md`, `MANIFEST.json`, `v2/ENTRY_DECISION.md`.
 
 ---
 
@@ -10,7 +10,7 @@ Use only if reading B (pre-compressed start) is dropped by the owner. Same place
 - **Start model:** Qwen/Qwen3.5-35B-A3B (35.95 B parameters, 256 experts per layer), unmodified full-precision release. **Compression is ours:** keep 102 of 256 experts per layer, chosen by routing mass on unlabeled task prompts (no labels, no gradient), 3-bit grouped RTN on kept experts, 6-bit attention and shared expert, 4-bit embedding and output layer. The vision tower is not shipped.
 - **Task:** 7-way voice-skill routing; the model writes the skill word (greedy, exact match, no constrained decoding).
 - **Feedback:** at most 25 annotations `{"text","label"}` (new label allowed). A closed-form edit of the shared-expert `down_proj` columns of the last 10 MoE layers, stored as replacement columns in `fb.bin` (20,981,760 B).
-- **Artifact:** <<ARTIFACT LOCATION AND SHA256, owner to fill; body.bin sha256 `e0a1266db5eb7c4f877dfaeb107bf41baa5b5240ff945eb4d42a52f400efe88b`>>. Locked files: `v2/exam/` in <<REPO LINK>>.
+- **Artifact:** not hosted: it lives on a private volume and is rebuildable from the repo scripts (`body.bin` sha256 `e0a1266db5eb7c4f877dfaeb107bf41baa5b5240ff945eb4d42a52f400efe88b`). Locked files: `v2/exam/` in https://github.com/Bobliuuu/ten-percent-challenge.
 
 ## Size
 | item | bytes |
@@ -80,11 +80,12 @@ Results are in the section above. What they show, stated without softening: on a
 - Generic prompts: identical continuation **11%** (for example "17 times 23" gives 17). **The packed model diverges badly from the base outside its task.**
 - Unseen label `Timer`: emitted 100%, but **21.7% of Alarm requests flip to Timer**.
 - Second task BANK6, same recipe with RTN: retention 97.37% [96.58], Card 94.4, Identity 91.7, which fails 98/95. A better quantizer (Hadamard plus error feedback, real packed file, 9.692%) reaches 98.51% [97.89], with Wilson lower bounds below the bar for Card and Identity, and its feedback is still partial (teach .4 to .6, shuffled up to .5). No second task ships.
+- Later try (L14, same model, broad unlabeled calibration of chat, math, code and text, Hadamard 2-bit VQ experts, 62.5% of experts kept, same bytes): own-data 90.6% / 71% / 39% (retention / router agreement / generic identical), a strict upgrade on 79 / 46 / 11 but still not base-like. The gate failed there, so it was stopped before any locked exam or packing; this entry's numbers above are unchanged.
 
 ## How to run
 ```
-python answer.py --artifact <<DIR>> --task skill_task.json "wake me at six" "play some jazz"
-python feedback.py --artifact <<DIR>> --task skill_task.json --ann ann.jsonl
+python answer.py --artifact <DIR> --task skill_task.json "wake me at six" "play some jazz"
+python feedback.py --artifact <DIR> --task skill_task.json --ann ann.jsonl
 ```
 Needs one GPU with at least 40 GB (tested on 80 GB and 141 GB cards). A fresh clone run of both commands worked end to end (body.bin hash verified, `Recipe` emitted after feedback). Rows: `v2/lanes/ANNOTATION_SCHEMA.md`.
 

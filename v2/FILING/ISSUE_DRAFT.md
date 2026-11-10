@@ -1,6 +1,6 @@
 # ISSUE DRAFT (entry L1). NOT POSTED.
 
-Status: draft prepared 2026-11-09. Nothing in this file has been posted anywhere. Fill the `<<...>>` placeholders and run `CHECKLIST.md` before anyone files it. Numbers come from `v2/lanes/L1/REPORT.md`, `v2/lanes/L1/MANIFEST.json` and `v2/ENTRY_DECISION.md`; nothing was re-run for this draft.
+Status: draft, updated 2026-11-10. Nothing in this file has been posted anywhere. Placeholders are filled (`<DIR>` is the folder you download the artifact into); run `CHECKLIST.md` before anyone files it. Numbers come from `v2/lanes/L1/REPORT.md`, `v2/lanes/L1/MANIFEST.json` and `v2/ENTRY_DECISION.md`.
 
 ---
 
@@ -12,8 +12,8 @@ Status: draft prepared 2026-11-09. Nothing in this file has been posted anywhere
 - **Task:** route a voice-assistant request to one of 7 skills (Alarm, Calendar, Lists, Music, News, Transport, Weather). The model writes the skill word by plain greedy decoding. No constrained decoding, no head, no lookup, no multiple-choice letters.
 - **Feedback:** at most 25 annotated mistakes `{"text": ..., "label": ...}`; the label may be a word that is not in the menu (we teach `Recipe`). A one-shot closed-form calculation (no gradient, no optimiser) changes the **existing** per-128-group scales of the 1-bit MLP `down_proj` in the last 6 layers, so that the model's own forward pass writes the new word. Annotations are not stored and nothing goes in the prompt. Empty feedback leaves the tree byte-identical to the release.
 - **Ship list:** weights (`bits.bin`, `scales.bin`, `small.pt`, `index.json`), tokenizer and config, licence, `answer.py`, `feedback.py`, `bonsai_loader.py`, `common.py`, `skill_task.json`, `feedback_calib.jsonl` (182 UNLABELED prompts, used only to protect old behaviour during the edit), `tensor_manifest.json`, and `patch.pt` (exists only after feedback).
-- **Artifact:** https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow (hashes in `v2/lanes/L1/build/SHA256SUMS.artifact`)
-- **Locked files:** `v2/exam/` in <<REPO LINK>> (`MANIFEST.json` has a sha256 per file; `python3 -I v2/exam/loader.py` verifies them).
+- **Artifact:** https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow (public, revision `d5f0329dee86c10cd59ed5a94a04393c54fa0e18`; hashes in `v2/lanes/L1/build/SHA256SUMS.artifact`)
+- **Locked files:** `v2/exam/` in https://github.com/Bobliuuu/ten-percent-challenge (`MANIFEST.json` has a sha256 per file; `python3 -I v2/exam/loader.py` verifies them).
 
 ## Size (rule 1), real bytes, everything shipped
 
@@ -95,14 +95,14 @@ Honest reading: the three real `Timer` draws coincide to the last digit (8 templ
 
 ```
 # answer (one label per line; uses patch.pt automatically if feedback was given)
-python answer.py --artifact <<DIR>> --task skill_task.json "wake me at six" "play some jazz"
-python answer.py --artifact <<DIR>> --task skill_task.json --in requests.jsonl
+python answer.py --artifact <DIR> --task skill_task.json "wake me at six" "play some jazz"
+python answer.py --artifact <DIR> --task skill_task.json --in requests.jsonl
 
 # feedback: ann.jsonl has <= 25 rows like {"text": "how long do I boil an egg", "label": "Recipe"}
-python feedback.py --artifact <<DIR>> --task skill_task.json --ann ann.jsonl
+python feedback.py --artifact <DIR> --task skill_task.json --ann ann.jsonl
 
 # one process: feedback applied in memory, then answers
-python answer.py --artifact <<DIR>> --task skill_task.json --feedback ann.jsonl "how long do I boil an egg"
+python answer.py --artifact <DIR> --task skill_task.json --feedback ann.jsonl "how long do I boil an egg"
 ```
 
 Giving an empty `ann.jsonl` removes the patch. `--task` takes any JSON `{"prompt": "...{t}", "labels": [...]}`, so other label sets can be tried on the same weights. Rows are documented in `v2/lanes/ANNOTATION_SCHEMA.md`. A fresh-clone run (clean container, repo cloned, weights fetched, answer then feedback then answer) gave 4 of 4 unseen recipe prompts answered `Recipe` (base: Transport, off-menu, Transport, Lists), 7 of 7 neighbours unchanged, and empty feedback restored the identical tree.
@@ -180,4 +180,4 @@ Each has the strongest argument for it, then the risk. None is claimed as a pass
 
 ## Where the detail lives
 
-`v2/RULES.md` (rules), `v2/ENTRY_DECISION.md`, `v2/lanes/L1/REPORT.md` and `MANIFEST.json`, `v2/exam/`, `v2/RED_TEAM.md`. The same repo holds a second entry, L9b, with its own compression (`ISSUE_DRAFT_L9b.md`); it is not what this issue files.
+`v2/RULES.md` (rules), `v2/ENTRY_DECISION.md`, `v2/lanes/L1/REPORT.md` and `MANIFEST.json`, `v2/exam/`, `v2/RED_TEAM.md`. The same repo holds a backup entry, L9b, with its own compression (`ISSUE_DRAFT_L9b.md`), and further measured lanes (L12 packed end to end, fails own data and BANK6; L3, L14 own-data results); they are not what this issue files.

@@ -1,10 +1,10 @@
 # FILING CHECKLIST (manual steps left). Nothing here has been done for the owner.
 
-Deadline 2026-11-12 17:05 UTC. Our freeze 2026-11-11 08:00 UTC. Nothing is filed or published without the owner's explicit go-ahead. Drafts: `ISSUE_DRAFT.md` (L1, primary), `ISSUE_DRAFT_L9b.md` (fallback, only if reading B is dropped).
+Deadline 2026-11-12 17:05 UTC. Our freeze 2026-11-11 08:00 UTC. Nothing is filed or published without the owner's explicit go-ahead. Drafts: `ISSUE_DRAFT.md` (L1, primary), `ISSUE_DRAFT_L9b.md` (backup, only if reading B is dropped), `ISSUE_EDIT_BODY.md` (final text to replace the body of our existing issue).
 
 ## Blocking
-1. **Artifact hosting.** The L1 weights live only in a private Modal volume (`tenpct-l1-art`, `/art`); L9b's only in `tenpct-l9b`. The issue says "ship the artifact", so the owner must choose where it goes (about 1.17 GB for L1, 6.7 GB for L9b) and who may see it. Then fill `<<ARTIFACT LOCATION AND SHA256 MANIFEST>>` in the draft. Hashes to quote: `v2/lanes/L1/build/SHA256SUMS.artifact`; L9b `MANIFEST.json` key `artifact_sha256`.
-2. **Repo visibility.** The issue links `v2/exam/` (locked files) and the lane folders. Confirm the repo link the maintainer will use is reachable, then fill `<<REPO LINK>>`. The repo is pushed; confirm it is public or shared with the maintainer.
+1. **Artifact hosting.** The L1 weights live only in a private Modal volume (`tenpct-l1-art`, `/art`); L9b's only in `tenpct-l9b`. The issue says "ship the artifact", so the owner must choose where it goes (about 1.17 GB for L1, 6.7 GB for L9b) and who may see it. L1 is now public on Hugging Face (revision d5f0329dee86c10cd59ed5a94a04393c54fa0e18); L9b is marked not hosted. Hashes to quote: `v2/lanes/L1/build/SHA256SUMS.artifact`; L9b `MANIFEST.json` key `artifact_sha256`.
+2. **Repo visibility.** The issue links `v2/exam/` (locked files) and the lane folders. Confirm the repo link the maintainer will use is reachable, the link is filled in (https://github.com/Bobliuuu/ten-percent-challenge). The repo is pushed; confirm it is public or shared with the maintainer.
 3. **Owner's go-ahead** to post. Posting is a GitHub write and needs a person.
 
 ## Before posting
