@@ -11,7 +11,7 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.5.1"
 def run():
     import subprocess, hashlib, glob, os, shutil, json
     from huggingface_hub import snapshot_download
-    snap = snapshot_download("prism-ml/Bonsai-8B-unpacked", local_dir="/tmp/snap")
+    snap = snapshot_download("prism-ml/Bonsai-8B-unpacked", revision="376f381570d6115bc03f82adcfa4af0c7672ae54", local_dir="/tmp/snap")
     subprocess.check_call(["python", "/pack1.py", "/tmp/snap", "/tmp/art"])
     for f in ("tokenizer.json", "tokenizer_config.json", "vocab.json", "merges.txt", "config.json", "generation_config.json", "chat_template.jinja", "LICENSE", "NOTICE.txt"):
         if os.path.exists("/tmp/snap/" + f): shutil.copy("/tmp/snap/" + f, "/tmp/art/" + f)

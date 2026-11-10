@@ -112,6 +112,8 @@
   "visibility": "public",
   "contents": "counted L1 tree: 14 weight/tokenizer files (sha256 in SHA256SUMS.artifact) + answer.py feedback.py bonsai_loader.py common.py skill_task.json feedback_calib.jsonl tensor_manifest.json + MANIFEST.json + model card README.md",
   "roundtrip": "v2/lanes/L1/results/hf_roundtrip.json",
-  "status": "uploading 2026-11-09"
+  "status": "uploaded and verified 2026-11-09",
+  "hf_revision": "d5f0329dee86c10cd59ed5a94a04393c54fa0e18",
+  "note": "fresh anonymous download on Modal L40S: all sha256 match SHA256SUMS.artifact; answer/feedback/answer e2e ok (Recipe 4/4, neighbours unchanged 7/7), empty feedback restores tree. HF adds .gitattributes (2.5 KB, not part of the tree)."
  }
 }

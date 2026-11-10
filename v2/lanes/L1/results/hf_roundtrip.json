@@ -1,0 +1,143 @@
+{
+ "repo": "Bobliu/tenpct-l1-bonsai8b-grow",
+ "hf_revision": "d5f0329dee86c10cd59ed5a94a04393c54fa0e18",
+ "files": {
+  ".gitattributes": [
+   "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+   1570
+  ],
+  "LICENSE": [
+   "69849221bfb90053de2134ef5e6d540287b4b98062326492f1f96f5da685524b",
+   10174
+  ],
+  "MANIFEST.json": [
+   "6caff10bce7c67e9e607d1c93e1c74179e887ef712c4de7b1395303c6616ad76",
+   5136
+  ],
+  "NOTICE.txt": [
+   "7334e66ce48a4ee267ee936c7d2a4f16bd865c766c60ba56b9e04526fae33e0b",
+   412
+  ],
+  "README.md": [
+   "c1a43b9f57226b14aa85867dc61d667d3e1f16ed20b7b75c102cfe0de4b191ec",
+   2937
+  ],
+  "SHA256SUMS.artifact": [
+   "c487582ff8eb3af9e19c21165a79297bd5f95a2188b01ae06534c9e63d22dd17",
+   1132
+  ],
+  "answer.py": [
+   "3b79a8fc71d73b80b233680486e60677d839cbdb6266f2fbfcaf43441b080e2f",
+   2629
+  ],
+  "bits.bin": [
+   "9157d77b19abbc678c5686260484eb757af31fa030dc41f89bcbf6c84adbd464",
+   1023529984
+  ],
+  "bonsai_loader.py": [
+   "0a738767d209b1bcb9e458b03c5e31232d1e5d045fbd6221295d60746b85b3c8",
+   2849
+  ],
+  "chat_template.jinja": [
+   "30a75d10e60b57e2f260420163dd59720dacf9f63b9a8de070d65dd80a7b30f7",
+   4063
+  ],
+  "common.py": [
+   "8abc5275fb2c05e6a6d2ae2996ec24a3b218fb1bedf0116222e8c642577385ed",
+   1924
+  ],
+  "config.json": [
+   "a78641619bed9a35ea647c2323d1be6df537b8250adcd0a19a90566270ff2636",
+   3057
+  ],
+  "feedback.py": [
+   "39b105b1441276f0d328228c0ac35ecbcc95a1c2b69a453bd3546fdc0fb6cd81",
+   19159
+  ],
+  "feedback_calib.jsonl": [
+   "4d1c8d09cfe76015f6f2830fba3886d5febb5071272087b78f3e4acc569bcbc1",
+   45503
+  ],
+  "generation_config.json": [
+   "ac5fa673967419cfbe771573f2b84ada1c5569c09f737713985037f6993e118c",
+   313
+  ],
+  "index.json": [
+   "6748c296a94ae2080117b6b1ebea4795f700ab1fa1e54035f2c67718bc889674",
+   14593
+  ],
+  "merges.txt": [
+   "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+   1671853
+  ],
+  "scales.bin": [
+   "de436190259cec019c356ad924af437f320d228175eade602f1db1e30f2dfdd4",
+   127941248
+  ],
+  "skill_task.json": [
+   "9a565bd7a9025d11cd061b0c7a4fe59e40ea6703314a96cd95c091c9da917af9",
+   320
+  ],
+  "small.pt": [
+   "8257f8dfe26ff0e8fed1fbb2904e480df131cc1f77b56a9fb1b34e845988fe77",
+   652262
+  ],
+  "tensor_manifest.json": [
+   "79fb57cf4fe52d8e4ca55c0603349572152e6bd802ecb98293668be2ee9c0a37",
+   25189
+  ],
+  "tokenizer.json": [
+   "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+   11422654
+  ],
+  "tokenizer_config.json": [
+   "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+   5404
+  ],
+  "vocab.json": [
+   "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+   2776833
+  ]
+ },
+ "mismatch_vs_SHA256SUMS.artifact": [],
+ "tree_bytes_excl_card_manifest": 1168133125,
+ "base_tree": "db28a70eb3f1512c",
+ "base_teach": [
+  "Transport",
+  "None of the listed skills can handle a request for a recipe.",
+  "Transport",
+  "Lists"
+ ],
+ "base_neigh": [
+  "Calendar",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "feedback_stdout": "{\"patched_layers\": [30, 31, 32, 33, 34, 35], \"cols\": 1024, \"patch_bytes\": 4720692}",
+ "patch_bytes": 4720692,
+ "after_teach": [
+  "Recipe",
+  "Recipe",
+  "Recipe",
+  "Recipe"
+ ],
+ "after_neigh": [
+  "Calendar",
+  "Music",
+  "Weather",
+  "Lists",
+  "News",
+  "Calendar",
+  "Transport"
+ ],
+ "teach_recipe_frac": 1.0,
+ "neigh_unchanged_frac": 1.0,
+ "total_bytes_with_patch": 1172853817,
+ "empty_patch_exists": false,
+ "empty_tree_identical": true,
+ "empty_answers_equal_base": true
+}
