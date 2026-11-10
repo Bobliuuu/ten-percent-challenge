@@ -1,0 +1,26 @@
+[
+ {
+  "name": "B6_gptqhad3_mass_k33",
+  "score": "mass",
+  "keep": 0.33,
+  "eb": 3,
+  "quant": "gptq",
+  "had": true,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ {
+  "name": "B6_gptqhad3_mass_k40",
+  "score": "mass",
+  "keep": 0.4,
+  "eb": 3,
+  "quant": "gptq",
+  "had": true,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ }
+]

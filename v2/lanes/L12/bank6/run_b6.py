@@ -15,6 +15,20 @@ a = ap.parse_args(); ROOT = os.path.abspath(a.root); HERE = os.path.dirname(os.p
 sys.path.insert(0, ROOT + "/v2/exam"); sys.path.insert(0, HERE); sys.path.insert(0, os.path.dirname(HERE))
 import torch, loader as L, l12_core as C
 from l12_core import log
+
+# --- robustness patch (own file only): engine gptq_b returns non-finite weights for some experts on Qwen3.5 (SEL acc 0 in L12 vastB and in sel1 here).
+# Retry those experts with 10x/100x/1000x damping, then fall back to RTN in the (rotated) space. Counts are logged.
+_orig_gptq = C.gptq_b; GP = dict(retry=0, rtn=0, calls=0)
+def _gptq_safe(W, H, bits, g, damp=0.01):
+    Q = _orig_gptq(W, H, bits, g, damp); GP["calls"] += W.shape[0]
+    bad = ~torch.isfinite(Q).flatten(1).all(1)
+    for dm in (damp * 10, damp * 100, damp * 1000):
+        if not bad.any(): break
+        idx = bad.nonzero().flatten(); GP["retry"] += len(idx); Q2 = _orig_gptq(W[idx], H[idx], bits, g, dm); Q[idx] = Q2; bad = ~torch.isfinite(Q).flatten(1).all(1)
+    if bad.any():
+        idx = bad.nonzero().flatten(); GP["rtn"] += len(idx); Q[idx] = C.rtn(W[idx], bits, g, True).to(Q.dtype)
+    return Q
+C.gptq_b = _gptq_safe
 L.verify(); T = "BANK6"; os.makedirs(a.out + "/data", exist_ok=True)
 w = lambda n, rows: open(f"{a.out}/data/{n}.jsonl", "w").write("".join(json.dumps(r) + "\n" for r in rows))
 cal = L.load(T, "cal"); sel = L.load(T, "sel"); w("cal", cal); w("sel", sel); w("rep", sel[:50])
@@ -32,7 +46,7 @@ if a.mode == "sel":
         try: eng.run_cfg(cfg)
         except Exception as ex:
             import traceback; traceback.print_exc(); print("FAILED", cfg["name"], repr(ex)[:300], flush=True); eng.free_live(); torch.cuda.empty_cache()
-    print("SEL_DONE"); sys.exit()
+    print("SEL_DONE", GP); sys.exit()
 
 cfg = cfg_of(a.cfg)
 if a.mode == "gdiag":
@@ -43,7 +57,7 @@ if a.mode == "gdiag":
             qf = q.float(); bad = (~torch.isfinite(qf)).flatten(1).any(1)
             rel = ((qf - o).pow(2).flatten(1).sum(1) / o.pow(2).flatten(1).sum(1).clamp(min=1e-12))
             print("GDIAG layer", l, nm, "nonfinite experts", int(bad.sum()), "of", q.shape[0], "relerr median", float(rel[~bad].median()) if (~bad).any() else None, "max", float(rel[~bad].max()) if (~bad).any() else None, flush=True)
-    sel_ = tk(sel); o = eng.gen_eval(sel_[:40]); print("GDIAG outs", o[:10], flush=True); print("DONE gdiag"); sys.exit()
+    sel_ = tk(sel); o = eng.gen_eval(sel_[:40]); print("GDIAG gptq stats", GP, flush=True); print("GDIAG outs", o[:10], flush=True); print("DONE gdiag"); sys.exit()
 if a.mode == "exam":
     exam = tk(L.load(T, "exam")); full_base(); base = eng.gen_eval(exam)
     ok = lambda outs: {r["id"]: o == r["answer"] for r, o in zip(exam, outs)}; bok = ok(base)
