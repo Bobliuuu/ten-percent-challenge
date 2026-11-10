@@ -1,0 +1,253 @@
+{
+ "cfg": {
+  "name": "B6_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ "bytes": {
+  "parts": {
+   "router": 10485760,
+   "keep_mask": 1280,
+   "experts": 4183818240,
+   "attn": 666659840,
+   "embed": 264212480,
+   "head": 264212480,
+   "shared_expert": 65372160,
+   "norms_misc": 2483456,
+   "tokenizer_config": 12828480,
+   "code_meta": 60000
+  },
+  "total": 5470134176,
+  "ratio": 0.07607588481268988,
+  "ratio_text_only": 0.07890995091286489,
+  "fp16_bytes": 71903655008,
+  "fp16_text_bytes": 69321221376
+ },
+ "rtn_fallbacks": 0,
+ "report": {
+  "overall": {
+   "n": 2022,
+   "kept": 1949,
+   "ret": 0.9638971315529179,
+   "wilson_lo": 0.9548465207251405
+  },
+  "by_kind": {
+   "Card": {
+    "n": 391,
+    "kept": 377,
+    "ret": 0.9641943734015346,
+    "wilson_lo": 0.9408022618878829
+   },
+   "Cash": {
+    "n": 287,
+    "kept": 280,
+    "ret": 0.975609756097561,
+    "wilson_lo": 0.950518923227986
+   },
+   "Exchange": {
+    "n": 343,
+    "kept": 336,
+    "ret": 0.9795918367346939,
+    "wilson_lo": 0.9584797949169986
+   },
+   "Identity": {
+    "n": 292,
+    "kept": 269,
+    "ret": 0.9212328767123288,
+    "wilson_lo": 0.8845833609962227
+   },
+   "TopUp": {
+    "n": 326,
+    "kept": 306,
+    "ret": 0.9386503067484663,
+    "wilson_lo": 0.9071446096341389
+   },
+   "Transfer": {
+    "n": 383,
+    "kept": 381,
+    "ret": 0.9947780678851175,
+    "wilson_lo": 0.9811623529546613
+   }
+  },
+  "by_src": {
+   "banking77": {
+    "n": 1507,
+    "kept": 1450,
+    "ret": 0.962176509621765,
+    "wilson_lo": 0.9513102715919441
+   },
+   "bitext_bank": {
+    "n": 515,
+    "kept": 499,
+    "ret": 0.9689320388349515,
+    "wilson_lo": 0.9501321761037247
+   }
+  },
+  "base_acc": 0.9038891372373715,
+  "n_items": 2237,
+  "n_per_kind": {
+   "Transfer": 400,
+   "Card": 400,
+   "Cash": 400,
+   "Identity": 330,
+   "TopUp": 360,
+   "Exchange": 347
+  },
+  "never_used_source_items": 600,
+  "never_used_retention": {
+   "n": 515,
+   "kept": 499,
+   "ret": 0.9689320388349515,
+   "wilson_lo": 0.9501321761037247
+  },
+  "gate_overall_98": false,
+  "gate_kind_95": false,
+  "rule3": {
+   "total_ge_2000": true,
+   "per_kind_ge_300": true,
+   "never_used_ge_500": true
+  }
+ },
+ "report_clean_only": {
+  "overall": {
+   "n": 1689,
+   "kept": 1631,
+   "ret": 0.9656601539372409,
+   "wilson_lo": 0.9558644998875665
+  },
+  "by_kind": {
+   "Card": {
+    "n": 391,
+    "kept": 377,
+    "ret": 0.9641943734015346,
+    "wilson_lo": 0.9408022618878829
+   },
+   "Cash": {
+    "n": 287,
+    "kept": 280,
+    "ret": 0.975609756097561,
+    "wilson_lo": 0.950518923227986
+   },
+   "Exchange": {
+    "n": 141,
+    "kept": 138,
+    "ret": 0.9787234042553191,
+    "wilson_lo": 0.9393144822954277
+   },
+   "Identity": {
+    "n": 161,
+    "kept": 149,
+    "ret": 0.9254658385093167,
+    "wilson_lo": 0.8742484769216828
+   },
+   "TopUp": {
+    "n": 326,
+    "kept": 306,
+    "ret": 0.9386503067484663,
+    "wilson_lo": 0.9071446096341389
+   },
+   "Transfer": {
+    "n": 383,
+    "kept": 381,
+    "ret": 0.9947780678851175,
+    "wilson_lo": 0.9811623529546613
+   }
+  },
+  "by_src": {
+   "banking77": {
+    "n": 1174,
+    "kept": 1132,
+    "ret": 0.9642248722316865,
+    "wilson_lo": 0.9519962597546913
+   },
+   "bitext_bank": {
+    "n": 515,
+    "kept": 499,
+    "ret": 0.9689320388349515,
+    "wilson_lo": 0.9501321761037247
+   }
+  },
+  "base_acc": 0.8941238750661725,
+  "n_items": 1889,
+  "n_per_kind": {
+   "Transfer": 400,
+   "Card": 400,
+   "Cash": 400,
+   "Identity": 187,
+   "TopUp": 360,
+   "Exchange": 142
+  },
+  "never_used_source_items": 600,
+  "never_used_retention": {
+   "n": 515,
+   "kept": 499,
+   "ret": 0.9689320388349515,
+   "wilson_lo": 0.9501321761037247
+  },
+  "gate_overall_98": false,
+  "gate_kind_95": false,
+  "rule3": {
+   "total_ge_2000": false,
+   "per_kind_ge_300": false,
+   "never_used_ge_500": true
+  }
+ },
+ "exam_sha": "7c12c7d359545ec256fab33eccf3408ddf23dafbc1688af0b46710faeccbb7ae",
+ "base_outs_top": [
+  [
+   "Card",
+   517
+  ],
+  [
+   "Transfer",
+   435
+  ],
+  [
+   "Exchange",
+   351
+  ],
+  [
+   "TopUp",
+   330
+  ],
+  [
+   "Cash",
+   309
+  ],
+  [
+   "Identity",
+   295
+  ]
+ ],
+ "quant_flip_outs": [
+  [
+   "Cash",
+   35
+  ],
+  [
+   "Card",
+   29
+  ],
+  [
+   "Transfer",
+   5
+  ],
+  [
+   "Exchange",
+   2
+  ],
+  [
+   "Identity",
+   1
+  ],
+  [
+   "TopUp",
+   1
+  ]
+ ]
+}
