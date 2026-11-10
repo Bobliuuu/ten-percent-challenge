@@ -168,3 +168,4 @@ Planned first job (once capacity exists): 72B gamma=1 (cfg {"gamma":1.0}) via D_
 - id 59724228 tenpct-L12A destroyed after 0.19 h (~$0.25)
 - id 59725181 tenpct-L12B destroyed after 0.11 h (~$0.15)
 - id 59725539 tenpct-rival3_clin1 destroyed after 0.18 h (~$0.20)
+- 2026-11-10T05:42Z vast id 60023691 label tenpct-l1scale GPU A100 PCIE 40GB $0.353/h (+5% guard) started

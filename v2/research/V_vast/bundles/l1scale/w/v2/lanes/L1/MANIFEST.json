@@ -1,0 +1,119 @@
+{
+ "lane": "L1",
+ "start_model": "prism-ml/Bonsai-8B-unpacked (natively 1-bit, g128; lossless repack: sign bits + fp16 group scales)",
+ "task": "SKILL7 voice-skill routing (primary); NEWS 4-label (secondary)",
+ "commands": {
+  "answer": "python answer.py --artifact DIR --task skill_task.json [--in items.jsonl|-] [text ...]",
+  "feedback": "python feedback.py --artifact DIR --task skill_task.json --ann ann.jsonl   (rows {text,label}; <=25; label may be a NEW word; default carrier scale, --carrier cols|lr optional)"
+ },
+ "build": "OLD build note (kept for provenance): weights via v2/research/B_native/scripts/pack1.py (copied to build/pack1.py) on the public prism-ml/Bonsai-8B-unpacked snapshot. CURRENT: build/modal_publish.py rebuilds the weights on Modal, checks every hash against SHA256SUMS (ALL_MATCH) and publishes them PRIVATELY to Modal Volume `tenpct-l1-art` dir /art (no public hosting); sha256 manifest = build/SHA256SUMS.artifact (also inside the volume). Code (answer/feedback/bonsai_loader/common), skill_task.json, feedback_calib.jsonl, tensor_manifest.json come from this repo folder and are copied next to the volume files (build/modal_dry_run.py shows the exact fresh-clone procedure).",
+ "shipped_files_bytes": {
+  "LICENSE": 10174,
+  "NOTICE.txt": 412,
+  "answer.py": 2629,
+  "bits.bin": 1023529984,
+  "bonsai_loader.py": 2849,
+  "chat_template.jinja": 4063,
+  "common.py": 1924,
+  "config.json": 3057,
+  "feedback.py": 19159,
+  "feedback_calib.jsonl": 45503,
+  "generation_config.json": 313,
+  "index.json": 14593,
+  "merges.txt": 1671853,
+  "patch.pt": 50347483,
+  "scales.bin": 127941248,
+  "skill_task.json": 320,
+  "small.pt": 652655,
+  "tensor_manifest.json": 25189,
+  "tokenizer.json": 11422654,
+  "tokenizer_config.json": 5404,
+  "vocab.json": 2776833
+ },
+ "total_bytes_with_feedback_patch": 1218467357,
+ "patch_bytes_after_25_annotations": 50347483,
+ "code_bytes": 26881,
+ "calibration_file_bytes": 45503,
+ "baselines": {
+  "qwen3_8b_fp16_bytes": 16381470720,
+  "bonsai_fp16_bytes": 16377096192
+ },
+ "pct_of_qwen3_8b_fp16": 7.4381,
+ "pct_of_bonsai_fp16": 7.4401,
+ "cap_9_9pct_bytes": 1621765601,
+ "slack_to_9_9pct_bytes": 403298244,
+ "notes": "includes tensor_manifest.json (25,189 B, safetensors headers of the base snapshot, v2/lanes/L1/tensor_manifest.json). Source of byte counts: results/e2e_locked.json (art dir after the shipped feedback.py on 25 annotations).",
+ "base_tree_bytes_without_patch": 1168130816,
+ "l1plus": {
+  "code_bytes": 25734,
+  "readme_bytes": 3964,
+  "base_tree_bytes_without_patch": 1168133633,
+  "carriers": {
+   "cols_default": {
+    "patch_bytes": 50347483,
+    "total_bytes": 1218481116,
+    "pct_qwen3_8b": 7.4382,
+    "pct_bonsai": 7.4402
+   },
+   "lr_default(~0.50MB,25 items)": {
+    "patch_bytes": 503808,
+    "total_bytes": 1168637441,
+    "pct_qwen3_8b": 7.1339,
+    "pct_bonsai": 7.1358
+   },
+   "scale(overlay)": {
+    "patch_bytes": 4718592,
+    "total_bytes": 1172852225,
+    "pct_qwen3_8b": 7.1596,
+    "pct_bonsai": 7.1615
+   },
+   "cols_L18_c256": {
+    "patch_bytes": 37757952,
+    "total_bytes": 1205891585,
+    "pct_qwen3_8b": 7.3613,
+    "pct_bonsai": 7.3633
+   }
+  },
+  "note": "L1+ code (answer/feedback/common/loader, README) replaces the sealed L1 code; default flags write a bit-identical patch to the sealed code (v2/bonsai/l1plus/results/e2e_l1p.json regression_patch_identical). patch bytes: results/{fin1,fin2,locked}.json"
+ },
+ "default_carrier": "scale",
+ "scale_default": {
+  "carrier": "scale",
+  "strength_lam": 100,
+  "patch_bytes_overlay": 4720692,
+  "counted": "the scale patch is counted as a 4,720,692 B overlay file (patch.pt) added to the tree; writing the new scales into scales.bin in place would add 0 B (not done, patch stays removable)",
+  "total_bytes_real_tree_after_feedback": 1172852247,
+  "pct_of_qwen3_8b_fp16": 7.1596,
+  "pct_of_bonsai_fp16": 7.1615,
+  "source": "results/e2e_locked_scale_default.json (tree after the shipped feedback.py)",
+  "cols_total_bytes_for_comparison": 1218467357
+ },
+ "private_artifact": {
+  "store": "Modal Volume tenpct-l1-art:/art (private, workspace only)",
+  "sha256_manifest": "build/SHA256SUMS.artifact",
+  "dry_run": "results/dry_run.json"
+ },
+ "bytes_audit_2026_11_09": {
+  "tree_bytes_incl_code_calib_manifest_license_tokenizer": 1168130816,
+  "scale_patch": 4720692,
+  "total": 1172851508,
+  "pct_of_qwen3_8b_fp16": 7.1596,
+  "code_bytes": 26881,
+  "calibration_bytes": 45503,
+  "slack_to_10pct": 465295564,
+  "slack_to_9_9pct": 448914093,
+  "cols_carrier_total": 1218478299,
+  "cols_pct": 7.4381,
+  "note": "current code sizes (feedback.py 19,159 B); supersedes older shipped_files_bytes/code_bytes"
+ },
+ "public_artifact": {
+  "host": "Hugging Face",
+  "url": "https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow",
+  "visibility": "public",
+  "contents": "counted L1 tree: 14 weight/tokenizer files (sha256 in SHA256SUMS.artifact) + answer.py feedback.py bonsai_loader.py common.py skill_task.json feedback_calib.jsonl tensor_manifest.json + MANIFEST.json + model card README.md",
+  "roundtrip": "v2/lanes/L1/results/hf_roundtrip.json",
+  "status": "uploaded and verified 2026-11-09",
+  "hf_revision": "d5f0329dee86c10cd59ed5a94a04393c54fa0e18",
+  "note": "fresh anonymous download on Modal L40S: all sha256 match SHA256SUMS.artifact; answer/feedback/answer e2e ok (Recipe 4/4, neighbours unchanged 7/7), empty feedback restores tree. HF adds .gitattributes (2.5 KB, not part of the tree)."
+ }
+}

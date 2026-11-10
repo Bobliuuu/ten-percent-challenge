@@ -478,3 +478,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L12 Vast box 60003234 (A100-80GB Oregon, tenpct-l12e-lockV): rebuilt pack from HF (run_pack.py; 15/44 files sha-identical to the Modal pack, 29 differ: not bit-reproducible across hosts/torch), locked exam from rebuilt packed files, then 6 feedback draws; destroy when done
 - 2026-11-09 L12 e2e done: Vast box 60003234 destroyed; Modal lockexam/lockfb_a/lockfb_b queued calls cancelled (never scheduled)
 - 2026-11-10 L1 scale-carrier locked exam: Modal app tenpct-l1-lockscale (deployed, spawned run; result in volume tenpct-l1-art:/results/locked_L1_scale.json)
+- 2026-11-10T05:42Z vast id 60023691 label tenpct-l1scale GPU A100 PCIE 40GB $0.353/h (+5% guard) started
+- 2026-11-10 L1 scale locked: Modal queue >15 min (call cancelled, app stopped); moved to Vast 60023691 (tenpct-l1scale), bundle v2/research/V_vast/bundles/l1scale, results v2/lanes/L1/results/vast_scale
