@@ -170,6 +170,8 @@ def main(job):
             for v in V:
                 nm = v["name"]; kl = kept[nm][l]; pos = [C["pos"][int(e)] for e in kl]; st = stats[nm]
                 outg, outd = [], []
+                if v["m"] == "bf16":
+                    Qgu[nm][l] = ex.gate_up_proj.data[kl.to(dev)].cpu().clone(); Qdn[nm][l] = ex.down_proj.data[kl.to(dev)].cpu().clone(); st["bits"] += len(kl) * EXP_PARAMS * 16.0; st["n"] += len(kl); continue
                 for c0 in range(0, len(kl), ebatch):
                     ee = kl[c0:c0 + ebatch]; pp = torch.tensor(pos[c0:c0 + ebatch], device=dev)
                     W1 = ex.gate_up_proj.data[ee.to(dev)].float(); W2 = ex.down_proj.data[ee.to(dev)].float()
@@ -185,11 +187,17 @@ def main(job):
             log("layer", l, {v["name"]: round(stats[v["name"]]["bits"] / max(1, stats[v["name"]]["n"]) / EXP_PARAMS, 4) for v in V})
         G["col"] = None; torch.cuda.empty_cache()
     Ex.forward = stock   # evaluate with the stock expert forward (as the packed loader does)
-    log("quantised; fake-quantising non-expert tensors"); nq = fq_nonexperts(model, job.get("attn_b", 6), job.get("emb_b", 4), job.get("head_b", 4)); log("non-expert tensors fake-quantised:", nq)
+    snap_ne = {n: p.data.cpu().clone() for n, p in model.named_parameters() if not re.match(r"model\.layers\.(\d+)\.mlp\.(experts\.(gate_up_proj|down_proj)|gate\.weight)$", n) and (("embed_tokens" in n) or n.startswith("lm_head") or (p.data.dim() == 2 and p.data.numel() >= 65536 and p.data.shape[-1] % 128 == 0))}
+    cnt_attn = sum(t.numel() for n, t in snap_ne.items() if "embed_tokens" not in n and not n.startswith("lm_head")); cnt_emb = snap_ne["model.embed_tokens.weight"].numel() if "model.embed_tokens.weight" in snap_ne else sum(t.numel() for n, t in snap_ne.items() if "embed_tokens" in n); cnt_head = sum(t.numel() for n, t in snap_ne.items() if n.startswith("lm_head"))
+    log("non-expert 2D params: attn-ish", cnt_attn, "emb", cnt_emb, "head", cnt_head)
+    PN = dict(model.named_parameters())
     orig = [(b.experts.gate_up_proj, b.experts.down_proj, b.gate.weight, b.experts.num_experts) for b in bl]
     results = {}
     for v in V:
         nm = v["name"]; k = v["k"]; st = stats[nm]
+        for n_, t_ in snap_ne.items(): PN[n_].data.copy_(t_.to(PN[n_].device))
+        ab, eb_, hb = v.get("attn_b", 6), v.get("emb_b", 4), v.get("head_b", 4)
+        if v.get("nonexp", True): fq_nonexperts(model, ab, eb_, hb)
         for l, b in enumerate(bl):
             kl = kept[nm][l].to(dev)
             b.experts.gate_up_proj = nn.Parameter(Qgu[nm][l].to(dev), requires_grad=False); b.experts.down_proj = nn.Parameter(Qdn[nm][l].to(dev), requires_grad=False)
@@ -197,7 +205,7 @@ def main(job):
         outs = R.gen(S); cor = core.correct(outs, S); sc = core.score(cor, bc, S); pk = per_kind(cor, bc, S)
         O = own_run(R, S3); osum = own_summary(OB, O, gold)
         extra = v.get("D", 4) * v.get("K", 256) * 2 if v["m"].startswith("vq") else 0
-        total = FIXED_REST + MANIFEST_EXTRA + k * 40 * 2048 * 2 + st["bits"] / 8 + extra
+        total = FIXED_REST + MANIFEST_EXTRA + k * 40 * 2048 * 2 + st["bits"] / 8 + extra + (cnt_attn * (ab - 6) + cnt_emb * (eb_ - 4) + cnt_head * (hb - 4)) / 8 * (1 + 1 / 128)
         res = dict(name=nm, tag=tag, cal=job["cal"], spec=v, ret=sc["ret"], ret_lo=sc["ret_lo"], n_bc=sc["n_bc"], comp_acc=sc["comp_acc"], base_acc=sc["base_acc"], per_kind=pk, worst_kind=sc["worst_kind"], worst_cell=sc["worst_cell"],
                    expert_bpw=st["bits"] / max(1, st["n"]) / EXP_PARAMS, bytes_est=int(total), bytes_pct=100 * total / FP16_REF, under_cap=bool(total <= CAP * FP16_REF),
                    relerr_gu=sum(st["relgu"]) / max(1, len(st["relgu"])), relerr_dn=sum(st["reldn"]) / max(1, len(st["reldn"])), n_fallback_pooledH=st["fallback"], own=osum)

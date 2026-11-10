@@ -1,0 +1,30 @@
+{
+ "tag": "l0_levers",
+ "cal": [
+  [
+   "task",
+   2031
+  ],
+  [
+   "general",
+   1896
+  ]
+ ],
+ "variants": [
+  {
+   "name": "vq2_k160_head6",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 160,
+   "head_b": 6
+  },
+  {
+   "name": "vq2_k150_head6_attn8",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 150,
+   "head_b": 6,
+   "attn_b": 8
+  }
+ ]
+}

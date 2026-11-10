@@ -1,0 +1,42 @@
+{
+ "tag": "d0_diag",
+ "cal": [
+  [
+   "task",
+   2031
+  ],
+  [
+   "general",
+   1896
+  ]
+ ],
+ "variants": [
+  {
+   "name": "D_prune160_bf16_nonexpbf16",
+   "m": "bf16",
+   "bits": 16,
+   "k": 160,
+   "nonexp": false
+  },
+  {
+   "name": "D_prune160_bf16_nonexpq",
+   "m": "bf16",
+   "bits": 16,
+   "k": 160
+  },
+  {
+   "name": "D_k256_vq2_nonexpbf16",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 256,
+   "nonexp": false
+  },
+  {
+   "name": "D_k160_vq2_nonexpbf16",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 160,
+   "nonexp": false
+  }
+ ]
+}
