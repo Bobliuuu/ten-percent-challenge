@@ -7,14 +7,14 @@ dies if the Mac reboots, so the on-host guard is the primary). Hand terminate: `
 
 | alias | instance id | region/zone | type | GPU | vCPU/RAM | $/h (us-east-1 list; other regions slightly higher) | launched Z | deadline Z |
 |---|---|---|---|---|---|---|---|---|
-| tenpct-g1 | REDACTED-HOST | us-east-2a | g7e.2xlarge | RTX PRO 6000 96GB | 8/64 | 3.363 | 21:32 (6 Nov) | 05:32 (7 Nov) |
-| tenpct-g2 | REDACTED-HOST | us-east-2a | g7e.2xlarge | RTX PRO 6000 96GB | 8/64 | 3.363 | 21:32 | 05:32 |
-| tenpct-g3 | REDACTED-HOST | eu-north-1a | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:07 (7 Nov) | 08:07 |
-| tenpct-g4 | REDACTED-HOST | eu-north-1a | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:10 | 08:10 |
-| tenpct-g5 | REDACTED-HOST | us-east-1c | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:10 | 08:10 |
-| tenpct-g6 | REDACTED-HOST | ap-south-1a | g6e.4xlarge | L40S 48GB | 16/124 | ~3.004 | 00:10 | 08:10 |
-| tenpct-g7 | REDACTED-HOST | ap-northeast-2a | g6e.4xlarge | L40S 48GB | 16/124 | ~3.004 | 00:10 | 08:10 |
-| tenpct-g8 | REDACTED-HOST | eu-north-1c | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:14 | 08:14 |
+| tenpct-g1 | i-REDACTED | us-east-2a | g7e.2xlarge | RTX PRO 6000 96GB | 8/64 | 3.363 | 21:32 (6 Nov) | 05:32 (7 Nov) |
+| tenpct-g2 | i-REDACTED | us-east-2a | g7e.2xlarge | RTX PRO 6000 96GB | 8/64 | 3.363 | 21:32 | 05:32 |
+| tenpct-g3 | i-REDACTED | eu-north-1a | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:07 (7 Nov) | 08:07 |
+| tenpct-g4 | i-REDACTED | eu-north-1a | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:10 | 08:10 |
+| tenpct-g5 | i-REDACTED | us-east-1c | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:10 | 08:10 |
+| tenpct-g6 | i-REDACTED | ap-south-1a | g6e.4xlarge | L40S 48GB | 16/124 | ~3.004 | 00:10 | 08:10 |
+| tenpct-g7 | i-REDACTED | ap-northeast-2a | g6e.4xlarge | L40S 48GB | 16/124 | ~3.004 | 00:10 | 08:10 |
+| tenpct-g8 | i-REDACTED | eu-north-1c | g7e.4xlarge | RTX PRO 6000 96GB | 16/124 | 3.998 | 00:14 | 08:14 |
 
 g3-g7 verified over SSH at 00:20Z (GPU visible, READY present, deadline timer set). g8 launched later; verify with `ssh tenpct-g8`.
 
@@ -68,19 +68,19 @@ Note: the g1-g8 boxes already see /opt/dlami/nvme at 1.9 TB (g7e) -- g6e.4xlarge
 
 | alias | instance id | region | type | $/h | launched Z | deadline Z | state | est. $ so far |
 |---|---|---|---|---|---|---|---|---|
-| tenpct-g1 | REDACTED-HOST | us-east-2 | g7e.2xlarge | 3.363 | 2026-11-06T21:32 | 2026-11-07T05:32 | running | 12.7 |
-| tenpct-g2 | REDACTED-HOST | us-east-2 | g7e.2xlarge | 3.363 | 2026-11-06T21:32 | 2026-11-07T05:32 | running | 12.7 |
-| tenpct-g3 | REDACTED-HOST | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:07 | 2026-11-08T00:07 (EXTENDED +16h) | running | 4.8 |
-| tenpct-g4 | REDACTED-HOST | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 4.6 |
-| tenpct-g5 | REDACTED-HOST | us-east-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:10 | 2026-11-08T00:10 (EXTENDED +16h) | running | 4.6 |
-| tenpct-g6 | REDACTED-HOST | ap-south-1 | g6e.4xlarge | 3.004 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 3.5 |
-| tenpct-g7 | REDACTED-HOST | ap-northeast-2 | g6e.4xlarge | 3.004 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 3.5 |
-| tenpct-g8 | REDACTED-HOST | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:14 | 2026-11-07T08:14 | running | 4.3 |
-| tenpct-g9 | REDACTED-HOST | ap-south-1 | g6e.12xlarge | 10.493 | 2026-11-07T01:17 | 2026-11-07T13:17 (12h) | running | 0.4 |
-| tenpct-g10 | REDACTED-HOST | ap-northeast-2 | g6e.12xlarge | 10.493 | 2026-11-07T01:17 | 2026-11-07T13:17 (12h) | running | 0.4 |
-| tenpct-g11 | REDACTED-HOST | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T01:18 | 2026-11-07T13:17 (12h) | running | 0.1 |
-| tenpct-g12 | REDACTED-HOST | eu-west-2 | g7e.2xlarge | 3.363 | 2026-11-07T01:18 | 2026-11-07T13:18 (12h) | running | 0.1 |
-| tenpct-g13 | REDACTED-HOST | ap-northeast-1 | g6e.2xlarge | 2.240 | 2026-11-07T01:19 | 2026-11-07T13:19 (12h) | running | 0.0 |
+| tenpct-g1 | i-REDACTED | us-east-2 | g7e.2xlarge | 3.363 | 2026-11-06T21:32 | 2026-11-07T05:32 | running | 12.7 |
+| tenpct-g2 | i-REDACTED | us-east-2 | g7e.2xlarge | 3.363 | 2026-11-06T21:32 | 2026-11-07T05:32 | running | 12.7 |
+| tenpct-g3 | i-REDACTED | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:07 | 2026-11-08T00:07 (EXTENDED +16h) | running | 4.8 |
+| tenpct-g4 | i-REDACTED | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 4.6 |
+| tenpct-g5 | i-REDACTED | us-east-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:10 | 2026-11-08T00:10 (EXTENDED +16h) | running | 4.6 |
+| tenpct-g6 | i-REDACTED | ap-south-1 | g6e.4xlarge | 3.004 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 3.5 |
+| tenpct-g7 | i-REDACTED | ap-northeast-2 | g6e.4xlarge | 3.004 | 2026-11-07T00:10 | 2026-11-07T08:10 | running | 3.5 |
+| tenpct-g8 | i-REDACTED | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T00:14 | 2026-11-07T08:14 | running | 4.3 |
+| tenpct-g9 | i-REDACTED | ap-south-1 | g6e.12xlarge | 10.493 | 2026-11-07T01:17 | 2026-11-07T13:17 (12h) | running | 0.4 |
+| tenpct-g10 | i-REDACTED | ap-northeast-2 | g6e.12xlarge | 10.493 | 2026-11-07T01:17 | 2026-11-07T13:17 (12h) | running | 0.4 |
+| tenpct-g11 | i-REDACTED | eu-north-1 | g7e.4xlarge | 3.998 | 2026-11-07T01:18 | 2026-11-07T13:17 (12h) | running | 0.1 |
+| tenpct-g12 | i-REDACTED | eu-west-2 | g7e.2xlarge | 3.363 | 2026-11-07T01:18 | 2026-11-07T13:18 (12h) | running | 0.1 |
+| tenpct-g13 | i-REDACTED | ap-northeast-1 | g6e.2xlarge | 2.240 | 2026-11-07T01:19 | 2026-11-07T13:19 (12h) | running | 0.0 |
 
 Current burn: $59.3/h. Estimated total spent on tenpct-g1..g13 so far: $52 (list prices, upper bound; excludes EBS/egress).
 <!-- AUTO:END -->

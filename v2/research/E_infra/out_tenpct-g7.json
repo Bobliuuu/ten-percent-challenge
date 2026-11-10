@@ -1,1 +1,1 @@
-{"name": "tenpct-g7", "instance_id": "REDACTED-HOST", "region": "ap-northeast-2", "zone": "ap-northeast-2a", "type": "g6e.4xlarge", "deadline": "2026-11-07T08:10:10+00:00", "sg": "sg-024b66e5c92db6e06"}
+{"name": "tenpct-g7", "instance_id": "i-REDACTED", "region": "ap-northeast-2", "zone": "ap-northeast-2a", "type": "g6e.4xlarge", "deadline": "2026-11-07T08:10:10+00:00", "sg": "sg-024b66e5c92db6e06"}

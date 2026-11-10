@@ -1378,7 +1378,7 @@ aws call failed: TimeoutExpired
 2026-11-07T10:12:27.426670 total=$285.08 burn=$4.60/h boxes=1 remaining_h=-0.02
 /Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:37: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
   print(dt.datetime.utcnow().isoformat(), "TERMINATE", reg, ids, r.returncode, r.stderr[:200], flush=True)
-2026-11-07T10:12:28.660051 TERMINATE eu-north-1 ['REDACTED-HOST'] 0 
+2026-11-07T10:12:28.660051 TERMINATE eu-north-1 ['i-REDACTED'] 0 
 /Users/jhome/ten-percent/v2/research/E_infra/cost_guard.py:50: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
   print(dt.datetime.utcnow().isoformat(), f"total=${total:.2f} burn=${burn:.2f}/h boxes={len(inst)} remaining_h={(TERMINATE_AT-total)/burn if burn else 0:.2f}", flush=True)
 2026-11-07T10:13:36.909145 total=$285.08 burn=$0.00/h boxes=0 remaining_h=0.00

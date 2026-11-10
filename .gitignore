@@ -25,3 +25,4 @@ v2/entry32b/dev_inj.jsonl
 v2/entry32b/calib_inj.jsonl
 v2/lanes/L9b/vast_launch.log
 v2/lanes/L9b/vast_results/run.log
+v2/research/V_vast/.vast_ssh_key*

@@ -1,1 +1,1 @@
-{"name": "tenpct-g5", "instance_id": "REDACTED-HOST", "region": "us-east-1", "zone": "us-east-1c", "type": "g7e.4xlarge", "deadline": "2026-11-07T08:10:07+00:00", "sg": "sg-0a1c66ce6372f530a"}
+{"name": "tenpct-g5", "instance_id": "i-REDACTED", "region": "us-east-1", "zone": "us-east-1c", "type": "g7e.4xlarge", "deadline": "2026-11-07T08:10:07+00:00", "sg": "sg-0a1c66ce6372f530a"}

@@ -5,14 +5,14 @@ from pathlib import Path
 H = Path(__file__).parent
 PRICE = {"g7e.2xlarge":3.363,"g7e.4xlarge":3.998,"g7e.12xlarge":8.3,"g6e.2xlarge":2.24,"g6e.4xlarge":3.004,"g6e.12xlarge":10.493,"p5.4xlarge":6.88,"p4d.24xlarge":21.96}  # us-east-1 list, approx (g7e.12xl estimated)
 # (name,region,type,launched,deadline) for batch 1 + extensions; deadlines as currently set
-rows = [("tenpct-g1","us-east-2","g7e.2xlarge","2026-11-06T21:32","2026-11-07T05:32","REDACTED-HOST"),
- ("tenpct-g2","us-east-2","g7e.2xlarge","2026-11-06T21:32","2026-11-07T05:32","REDACTED-HOST"),
- ("tenpct-g3","eu-north-1","g7e.4xlarge","2026-11-07T00:07","2026-11-08T00:07 (EXTENDED +16h)","REDACTED-HOST"),
- ("tenpct-g4","eu-north-1","g7e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","REDACTED-HOST"),
- ("tenpct-g5","us-east-1","g7e.4xlarge","2026-11-07T00:10","2026-11-08T00:10 (EXTENDED +16h)","REDACTED-HOST"),
- ("tenpct-g6","ap-south-1","g6e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","REDACTED-HOST"),
- ("tenpct-g7","ap-northeast-2","g6e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","REDACTED-HOST"),
- ("tenpct-g8","eu-north-1","g7e.4xlarge","2026-11-07T00:14","2026-11-07T08:14","REDACTED-HOST")]
+rows = [("tenpct-g1","us-east-2","g7e.2xlarge","2026-11-06T21:32","2026-11-07T05:32","i-REDACTED"),
+ ("tenpct-g2","us-east-2","g7e.2xlarge","2026-11-06T21:32","2026-11-07T05:32","i-REDACTED"),
+ ("tenpct-g3","eu-north-1","g7e.4xlarge","2026-11-07T00:07","2026-11-08T00:07 (EXTENDED +16h)","i-REDACTED"),
+ ("tenpct-g4","eu-north-1","g7e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","i-REDACTED"),
+ ("tenpct-g5","us-east-1","g7e.4xlarge","2026-11-07T00:10","2026-11-08T00:10 (EXTENDED +16h)","i-REDACTED"),
+ ("tenpct-g6","ap-south-1","g6e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","i-REDACTED"),
+ ("tenpct-g7","ap-northeast-2","g6e.4xlarge","2026-11-07T00:10","2026-11-07T08:10","i-REDACTED"),
+ ("tenpct-g8","eu-north-1","g7e.4xlarge","2026-11-07T00:14","2026-11-07T08:14","i-REDACTED")]
 if (H/"launched.jsonl").exists():
     for l in (H/"launched.jsonl").read_text().splitlines():
         j = json.loads(l); rows.append((j["name"],j["region"],j["type"],j["launched_at"][:16],j["deadline"][:16]+" (12h)",j["instance_id"]))
