@@ -56,3 +56,27 @@ Carrier size: dense 20 layers = **41,963,520 B** (0.058 pt). Total with carrier 
 
 ## 5. Where things are
 Code: `run_fbo.py`, `run_fbs.py`, `run_fbf.py`, `run_pack.py`, `l12_pack.py`, `l12_loader.py`, `modal_l12b.py`, `launch_l12b.py`, `summ_fb.py`. Results: `results/modal/` (`fbo1_final.json`, `fbs1.log`/`fbs1_partial.json`, `fbs2_final.json`, `fbf1_final.json`, `fbf2_final.json`, `pack1/pack_result.json` with all sha256), `results/final/` (locked exam, 2026-11-08/09). `MANIFEST.json` (hashes of code, packed files, byte accounting). Launches logged in `RUNS.md`. Modal app `tenpct-l12b`, private volume `tenpct-l12b`.
+
+
+## 6. Own-data dry run (same protocol as L9b sec 11 / L1 / L5; `owndata/`, `owndata/results/owndata_summary.json`, Modal A100-80GB, app `tenpct-l12-owndata`, one job: base bf16 and L12 in the same process, 2026-11-09)
+Body = `Q35_B3_rtn4_mass_k25` through the fake-quant engine path (the packed tensors reproduce it bit-exactly, section 2); no end-to-end packed loader had landed when this ran, so this is NOT a run from the packed files. Greedy, same sets and prompts as L9b/L5 (`owndata/_helpers.py`), router prompt = SKILL7 prompt. Carrier arm = shared-expert `down_proj` carrier of 3c (nlay 20, lam 2000, awt 30, m64; 27,276,288 B for the Recipe arm).
+| set | L12 (this lane) | L1 | L9b |
+|---|---|---|---|
+| Banking77-200, 77-label menu: base / L12 acc | 69.5% / 55.5% | n/a | 70.0% / 61.0% |
+| retention of base-correct (n=139) [Wilson lo] | **71.9% [64.0]** (identical output 65.5%) | 100% | 79.3% [71.8] |
+| same queries under the 7-skill router prompt: same label as base | **44%** (base news 40 / lists 28 / none 16 / transport 13; L12 lists 26 / news 19 / transport 19 / alarm 12 / music 11) | 94% | 46% |
+| 100 generic prompts: identical 24-token continuation / same first line | **7% / 11%** | 96% (identical) | 11% / 16% |
+| unseen Timer, 12 annotations x3 draws, carrier: emitted | 0.964 / 1.0 / 1.0 | .964 | 1.0 |
+| Alarm -> Timer flip (60 Alarm requests) | 15.0% / 18.3% / 18.3% | (large) | 21.7% |
+| other 60 SEL requests correct (empty .95) | .95 .95 .95; others->Timer 0 | | 96.7% (unchanged) |
+No-feedback arm (L12 body vs base): rows 1-3 above. Reading: **L12 diverges from the base outside its task about as badly as L9b** (same cause: 75% of routed experts removed on task-prompt routing mass, plus 4-bit everything). Same signature: "17 times 23" base 391 / L12 "17", "48 x 12" 576 / "48", i.e. the model echoes the first operand. Its SKILL7 retention (99.2%) does not carry to other data. Banking retention is a bit lower than L9b (71.9 vs 79.3) and the L12 router distribution on banking is spread more (alarm 12, music 11), the base is news/lists/none.
+Feedback arms (carrier, real draw 0, L12 body): Recipe-25 carrier (25 annotated mistakes from `ann_pool`, draw 100; real = Recipe): banking retention 68.3% [60.2], router agreement 42%, generic 6% / 12% (no-feedback 71.9 / 44 / 7 / 11): the carrier changes the own-data behaviour by no more than the draw-to-draw noise of the base comparison. Timer real draw 0 (12 annotations): banking 71.2% [63.2], agreement 43%, generic 6% / 11%.
+Timer controls (12 annotations, 3 draws; 28 held-out Timer requests; empty and base: Timer 0.0, Alarm kept 100%, others .95 / .967):
+| condition | Timer emitted | Alarm kept | Alarm -> Timer | others correct |
+|---|---|---|---|---|
+| real | .964 1.0 1.0 | .85 .817 .817 | .15 .183 .183 | .95 .95 .95 |
+| shuffled (half the labels Alarm) | 0 0 0 | 1.0 1.0 1.0 | 0 | .967 .95 .95 |
+| wrong (random old label) | 0 0 0 | .883 .80 .80 | 0 | .95 .933 .917 |
+| 20 annotations (whole pool), draw 0: real / shuffled / wrong | 1.0 / 0 / 0 | .817 / .983 / .80 | .183 / 0 / 0 | .95 / .967 / .933 |
+Reading: unlike L9b, the shuffled control here is not degenerate (Timer 0, not .93-1.0), and the wrong-label control also emits no Timer; so the carrier learns the close unseen label end to end (emission about 1.0) but, as on L9b, takes 15-18% of the neighbouring old label (Alarm) with it; the wrong-label control moves 12-20% of Alarm to other labels (without emitting Timer), so some Alarm loss is generic edit damage and not only the Timer pull. After undoing each edit, the own-data outputs are identical to the unpatched L12 outputs (`own_same: true`).
+Caveats: the 4-bit RTN fake-quant path with bf16 batch-composition noise: an immediate re-generation of 48 banking prompts in a different batch composition was not bit-identical (`deterministic_recheck: false`; the L1 job used the same check), so single-digit differences between arms (71.9 vs 68.3 vs 71.2) are noise-level. Not run from packed files (the packed runtime in this lane had not been tested yet). Timer pool has 20 rows (the helper's `rows[:20]`), so the 25-annotation arm is 12 and 20. Raw outputs of every arm in `owndata/results/owndata_full.json`. Our best-evidence reading: a judge who tries own prompts will see a degraded general model on L12, same as L9b; L1 is the only entry here whose own-data behaviour is intact.

@@ -1,0 +1,727 @@
+{
+ "model": "Qwen3.5-35B-A3B base vs L12 (mass k25 + RTN4, fake-quant engine)",
+ "cfg": {
+  "name": "Q35_B3_rtn4_mass_k25",
+  "score": "mass",
+  "keep": 0.25,
+  "eb": 4,
+  "attn_b": 4,
+  "emb_b": 4,
+  "head_b": 4,
+  "shared_b": 4
+ },
+ "n_banking": 200,
+ "n_router": 100,
+ "n_generic": 100,
+ "timer_base": {
+  "tag": "base (unquantised)",
+  "timer_emitted": 0.0,
+  "alarm_still_alarm": 1.0,
+  "alarm_to_timer": 0.0,
+  "others_correct": 0.9666666666666667,
+  "others_to_timer": 0.0,
+  "timer_sample": [
+   "Alarm",
+   "Alarm",
+   "Alarm",
+   "Alarm"
+  ]
+ },
+ "bytes": {
+  "parts": {
+   "router": 10485760,
+   "keep_mask": 1280,
+   "experts": 4183818240,
+   "attn": 666659840,
+   "embed": 264212480,
+   "head": 264212480,
+   "shared_expert": 65372160,
+   "norms_misc": 2483456,
+   "tokenizer_config": 12828480,
+   "code_meta": 60000
+  },
+  "total": 5470134176,
+  "ratio": 0.07607588481268988,
+  "ratio_text_only": 0.07890995091286489,
+  "fp16_bytes": 71903655008,
+  "fp16_text_bytes": 69321221376
+ },
+ "no_feedback": {
+  "tag": "L12 body, no feedback",
+  "banking77_200": {
+   "base_acc": 0.695,
+   "patched_acc": 0.555,
+   "retention": 0.7194244604316546,
+   "retention_wilson_lo": 0.6396078607127861,
+   "n_base_correct": 139,
+   "same_output": 0.655
+  },
+  "router_on_banking_100": {
+   "same_label": 0.44,
+   "base_dist": {
+    "news": 40,
+    "lists": 28,
+    "none": 16,
+    "transport": 13,
+    "calendar": 2,
+    "alarm": 1
+   },
+   "patched_dist": {
+    "lists": 26,
+    "news": 19,
+    "transport": 19,
+    "alarm": 12,
+    "music": 11,
+    "none": 10,
+    "calendar": 3
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.07,
+   "same_first_line": 0.11
+  },
+  "diverge": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "17"
+   ],
+   [
+    "What is 48 times 12? Answer with just the number.",
+    "576",
+    "48"
+   ],
+   [
+    "What is 305 times 7? Answer with just the number.",
+    "2135",
+    "305"
+   ],
+   [
+    "What is 91 times 14? Answer with just the number.",
+    "1274",
+    "91"
+   ],
+   [
+    "What is 56 times 56? Answer with just the number.",
+    "3136",
+    "56"
+   ],
+   [
+    "What is 123 times 4? Answer with just the number.",
+    "492",
+    "123"
+   ],
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "77"
+   ],
+   [
+    "What is 250 times 18? Answer with just the number.",
+    "4500",
+    "18"
+   ],
+   [
+    "What is 64 times 9? Answer with just the number.",
+    "576",
+    "64"
+   ],
+   [
+    "What is 19 times 21? Answer with just the number.",
+    "399",
+    "19"
+   ],
+   [
+    "What is the capital of Japan? One word.",
+    "Tokyo",
+    "Tok"
+   ],
+   [
+    "What is the capital of Brazil? One word.",
+    "Bras\u00edlia",
+    "None"
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "decled_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "unable_to_verify_identity",
+    "unable_to_verify_identity"
+   ],
+   [
+    "get_physical_card",
+    "card_arrival",
+    "card_arrival"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "deterministic_recheck": false,
+ "timer_l12_empty": {
+  "tag": "l12 empty",
+  "timer_emitted": 0.0,
+  "alarm_still_alarm": 1.0,
+  "alarm_to_timer": 0.0,
+  "others_correct": 0.95,
+  "others_to_timer": 0.0,
+  "timer_sample": [
+   "Alarm",
+   "Alarm",
+   "Alarm",
+   "Alarm"
+  ]
+ },
+ "recipe25_carrier": {
+  "tag": "25 Recipe-pool annotations, shared-expert carrier",
+  "banking77_200": {
+   "base_acc": 0.695,
+   "patched_acc": 0.53,
+   "retention": 0.6834532374100719,
+   "retention_wilson_lo": 0.6020815409207787,
+   "n_base_correct": 139,
+   "same_output": 0.625
+  },
+  "router_on_banking_100": {
+   "same_label": 0.42,
+   "base_dist": {
+    "news": 40,
+    "lists": 28,
+    "none": 16,
+    "transport": 13,
+    "calendar": 2,
+    "alarm": 1
+   },
+   "patched_dist": {
+    "lists": 27,
+    "transport": 21,
+    "none": 19,
+    "news": 15,
+    "alarm": 8,
+    "music": 5,
+    "calendar": 4,
+    "weather": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.06,
+   "same_first_line": 0.12
+  },
+  "diverge": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "17"
+   ],
+   [
+    "What is 48 times 12? Answer with just the number.",
+    "576",
+    "48"
+   ],
+   [
+    "What is 305 times 7? Answer with just the number.",
+    "2135",
+    "305"
+   ],
+   [
+    "What is 91 times 14? Answer with just the number.",
+    "1274",
+    "91"
+   ],
+   [
+    "What is 56 times 56? Answer with just the number.",
+    "3136",
+    "56"
+   ],
+   [
+    "What is 123 times 4? Answer with just the number.",
+    "492",
+    "123"
+   ],
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "77"
+   ],
+   [
+    "What is 250 times 18? Answer with just the number.",
+    "4500",
+    "18"
+   ],
+   [
+    "What is 64 times 9? Answer with just the number.",
+    "576",
+    "64"
+   ],
+   [
+    "What is 19 times 21? Answer with just the number.",
+    "399",
+    "19"
+   ],
+   [
+    "What is the capital of Japan? One word.",
+    "Tokyo",
+    "None"
+   ],
+   [
+    "What is the capital of Brazil? One word.",
+    "Bras\u00edlia",
+    "None"
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "decled_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "unable_to_verify_identity",
+    "unable_to_verify_identity"
+   ],
+   [
+    "get_physical_card",
+    "card_arrival",
+    "card_arrival"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ],
+  "timer_eval": {
+   "tag": "recipe25 carrier",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 1.0,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.95,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm",
+    "Alarm",
+    "Alarm",
+    "Alarm"
+   ]
+  },
+  "carrier_bytes": 27276288
+ },
+ "unpatched_after_recipe": {
+  "own_same": true
+ },
+ "timer_real_d0_patch": {
+  "tag": "Timer real draw 0, carrier",
+  "banking77_200": {
+   "base_acc": 0.695,
+   "patched_acc": 0.56,
+   "retention": 0.7122302158273381,
+   "retention_wilson_lo": 0.632059366818631,
+   "n_base_correct": 139,
+   "same_output": 0.64
+  },
+  "router_on_banking_100": {
+   "same_label": 0.43,
+   "base_dist": {
+    "news": 40,
+    "lists": 28,
+    "none": 16,
+    "transport": 13,
+    "calendar": 2,
+    "alarm": 1
+   },
+   "patched_dist": {
+    "transport": 21,
+    "lists": 19,
+    "none": 18,
+    "news": 17,
+    "music": 14,
+    "calendar": 6,
+    "alarm": 5
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.06,
+   "same_first_line": 0.11
+  },
+  "diverge": [
+   [
+    "What is 17 times 23? Answer with just the number.",
+    "391",
+    "17"
+   ],
+   [
+    "What is 48 times 12? Answer with just the number.",
+    "576",
+    "48"
+   ],
+   [
+    "What is 305 times 7? Answer with just the number.",
+    "2135",
+    "305"
+   ],
+   [
+    "What is 91 times 14? Answer with just the number.",
+    "1274",
+    "91"
+   ],
+   [
+    "What is 56 times 56? Answer with just the number.",
+    "3136",
+    "56"
+   ],
+   [
+    "What is 123 times 4? Answer with just the number.",
+    "492",
+    "123"
+   ],
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "7733"
+   ],
+   [
+    "What is 250 times 18? Answer with just the number.",
+    "4500",
+    "18"
+   ],
+   [
+    "What is 64 times 9? Answer with just the number.",
+    "576",
+    "64"
+   ],
+   [
+    "What is 19 times 21? Answer with just the number.",
+    "399",
+    "19"
+   ],
+   [
+    "What is the capital of Japan? One word.",
+    "Tokyo",
+    "Tok"
+   ],
+   [
+    "What is the capital of Brazil? One word.",
+    "Bras\u00edlia",
+    "None"
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "decled_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "unable_to_verify_identity",
+    "unable_to_verify_identity"
+   ],
+   [
+    "get_physical_card",
+    "card_arrival",
+    "card_arrival"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "timer_n12": {
+  "n_ann": 12,
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 0.9642857142857143,
+     "alarm_still_alarm": 0.85,
+     "alarm_to_timer": 0.15,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "carrier_bytes": 25178112
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 1.0,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ],
+     "carrier_bytes": 41963520
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8833333333333333,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "News",
+      "News",
+      "News",
+      "News"
+     ],
+     "carrier_bytes": 41963520
+    }
+   },
+   {
+    "draw": 1,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.18333333333333332,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "carrier_bytes": 25178112
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 1.0,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ],
+     "carrier_bytes": 41963520
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9333333333333333,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Lists",
+      "Lists",
+      "Lists",
+      "Lists"
+     ],
+     "carrier_bytes": 41963520
+    }
+   },
+   {
+    "draw": 2,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.18333333333333332,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "carrier_bytes": 25178112
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 1.0,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ],
+     "carrier_bytes": 41963520
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9166666666666666,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "News",
+      "News",
+      "News",
+      "News"
+     ],
+     "carrier_bytes": 41963520
+    }
+   }
+  ]
+ },
+ "timer_n20": {
+  "n_ann": 20,
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.18333333333333332,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "carrier_bytes": 23079936
+    },
+    "shuffled": {
+     "tag": "shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9833333333333333,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Alarm",
+      "Alarm",
+      "Alarm",
+      "Alarm"
+     ],
+     "carrier_bytes": 41963520
+    },
+    "wrong": {
+     "tag": "wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.0,
+     "others_correct": 0.9333333333333333,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "News",
+      "News",
+      "News",
+      "News"
+     ],
+     "carrier_bytes": 41963520
+    }
+   }
+  ]
+ },
+ "unpatched_after": {
+  "timer": {
+   "tag": "after_undo_empty",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 1.0,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.95,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm",
+    "Alarm",
+    "Alarm",
+    "Alarm"
+   ]
+  },
+  "own_same": true
+ }
+}
