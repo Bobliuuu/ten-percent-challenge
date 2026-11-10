@@ -2,7 +2,7 @@
 
 The [10% challenge](https://github.com/DeusExperiments/ten-percent-challenge) asks for a model that is at most 10% of the size of a trained model, behaves the same as that model on an exam it never saw, and can learn from a few user corrections, all without training the weights. This repo is our working record: code, exams, results.
 
-Last updated 2026-11-09. Deadline **2026-11-12 17:05 UTC**. Nothing here has been posted anywhere; the drafts for filing are in [`v2/FILING/`](v2/FILING/).
+Last updated 2026-11-10. Deadline **2026-11-12 17:05 UTC**. The filing drafts are in [`v2/FILING/`](v2/FILING/).
 
 ## 📋 1. Summary and honest status
 
@@ -37,7 +37,6 @@ Last updated 2026-11-09. Deadline **2026-11-12 17:05 UTC**. Nothing here has bee
 | ⚠️ GRAY | depends on a reading nobody has ruled on; we argue it, we do not claim a pass |
 | ⚠️ WEAK | met thinly, or one measurement is thin |
 | ❌ FAIL | not met |
-| ⏳ PENDING | result not committed yet; not used here |
 
 ### 📏 The rules we are judged by
 
@@ -57,7 +56,7 @@ The 9 judging rules and 5 challenge rules are copied word for word in [`v2/RULES
 
 **Shared rule 3 note (all lanes below).** The shared exam has 2,744 items, 344 to 420 per kind, and 1,489 items from sources never used for building (HWU64 and MTOP). Caveats: it is our exam; 532 rows are flagged `seen_tox`, and without them Lists and Transport have fewer than 300 base-correct items.
 
-**Ranking** ([`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md)): L1 is the primary entry, L9b the alternate that needs no pre-compressed start, L12 a new third lane (see its section).
+**Ranking** ([`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md)): L1 is the primary entry, L9b the alternate that needs no pre-compressed start, L12 a complete third lane that fails the own-data check and is not filed (see its section).
 
 ## 🥇 2. L1 (primary): Bonsai-8B plus a closed-form feedback patch
 
@@ -138,45 +137,51 @@ python feedback.py --artifact <DIR> --task skill_task.json --ann ann.jsonl
 - ❌ Second task BANK6 with the same recipe fails rule 2 (retention 97.37% [96.58], Card 94.4, Identity 91.7); a better quantizer clears the bar on dev only and has no real packer.
 - ⚠️ Shuffled control up to .40-.47 on bad draws; a strict setting gets shuffled .02 but teach .53.
 - ⚠️ 21.7% of Alarm requests flip to a new close label `Timer`.
-- ⚠️ The artifact currently lives only on a private volume (re-packable from the repo scripts).
+- ⚠️ The artifact is not hosted: it lives on a private volume and is rebuildable from the repo scripts, not downloadable.
 
 Detail: [`v2/lanes/L9b/REPORT.md`](v2/lanes/L9b/REPORT.md), filing draft [`v2/FILING/ISSUE_DRAFT_L9b.md`](v2/FILING/ISSUE_DRAFT_L9b.md).
 
 ## 🥉 4. L12: Qwen3.5-35B-A3B, 64 of 256 experts, 4-bit RTN everywhere
 
-**What it is.** Same base model as L9b with a lighter compression: keep 64 of 256 routed experts per MoE layer (routing mass on task prompts), every expert, attention projection, shared expert, embedding and output layer RTN 4-bit with group size 128. Feedback: the L9b-style closed-form edit of the shared-expert `down_proj` (20 layers, dense columns). Status: **a credible third lane, not yet an entry**: there is a real packed file and a bit-exact loader, but no end-to-end answer from the packed files has been committed. Only committed results are used below; everything else is ⏳ PENDING.
+**What it is.** Same base model as L9b with a lighter compression: keep 64 of 256 routed experts per MoE layer (routing mass on task prompts), every expert, attention projection, shared expert, embedding and output layer RTN 4-bit with group size 128. Feedback: the L9b-style closed-form edit of the shared-expert `down_proj` (default 10 layers, 512 columns each, stored as replacement columns in `fb.bin`). Status: **a complete, end-to-end third lane that is not filed: it fails the own-data check (below).** Numbers come from the packed files through the shipped loader and commands.
 
 | item | value |
 |---|---|
-| size | packed files **5,470,302,256 B = 7.608%** of the full-checkpoint fp16 (7.892% of text-only); with the 42 MB carrier **7.666%** (7.952% text-only). Slack about 2.3 points |
-| retention | locked exam **99.17% [98.75]**, min kind .972; a second pass of the same body gave 98.95 [98.48] (batch-composition noise about 0.2 pt) |
-| packing | 44 safetensors files; loader parity on 432 tensors: 0 mismatches, bit-exact |
-| feedback | `Recipe` teach **.867 mean** (.78-.93, 5 draws, 164 locked items); neighbours .974-.983 (empty .9715-.977); exam retention after feedback .9895-.991 |
-| controls | real **.867** / shuffled **0.000** (5 draws) / wrong **0.000** / empty 0 |
-| own data | ⏳ PENDING (job written, results not committed) |
-| dev-only carrier selection | ⏳ PENDING (job written, results not committed). Until it lands, the carrier hyperparameters below were tuned on the locked teach and neighbour sets and the teach figure is optimistic |
-| end-to-end packed answer and feedback commands | ⏳ PENDING (`answer.py`, `feedback.py` exist in `v2/lanes/L12`; no committed run) |
+| size | 44 packed files plus config, tokenizer, code, calibration file and `fb.bin` at its ceiling: **7.92%** of the text-only fp16 (7.64% of the full multimodal checkpoint). Slack about 1.4 GB on the text-only reading |
+| retention | locked exam from the packed loader **.9898 [.9852]** (2,655 base-correct items), min kind .966 (Calendar). The packed files used here are an independent rebuild of the same recipe on another host: 15 of 44 files are byte-identical to the first pack, 29 differ (routing-statistics or rounding drift); the first pack scored .9917 through the research engine |
+| packing | loader parity on 432 tensors: 0 mismatches, bit-exact; packed generation equals the fake-quant path on 198 of 200 dev items |
+| feedback (6 locked draws, dev-selected carrier) | `Recipe` teach **.884 mean** (.707 to .963); neighbours .960-.977 (empty .9744); exam retention after feedback .9879-.9902 |
+| controls | real **.884** / shuffled **0.000** (6 draws) / wrong **0.000** / empty 0 |
+| carrier selection | chosen on DEV data only (31 configs x 4 draws), then measured once on the locked splits: the old "tuned on locked splits" caveat is gone. Margin, lambda and weight were inherited from an earlier locked-tuned grid and varied one factor at a time |
+| shipped commands | `answer.py` and `feedback.py` run end to end on the packed files: 4 of 4 unseen recipe prompts answer `Recipe` (before: Music, Lists, Music or News, Alarm or News), 0 of 47 old probes change, empty feedback restores the outputs |
+| own data (fake-quant path, not packed) | Banking77-200 retention **71.9% [64.0]**; router-prompt agreement **44%**; generic prompts identical **7%**; `Timer` emitted .96 to 1.0 with 15-18% of Alarm requests flipped |
 
 | rule | verdict | how it follows the rule, and the caveat |
 |---|---|---|
-| 1 size | ✅ PASS | 7.67% with the carrier; the byte figure does not yet include the answer and feedback code or a calibration file |
-| 2 faithful | ✅ PASS | 99.17% [98.75] overall, min kind .972; one base run |
+| 1 size | ✅ PASS | 7.92% text-only reading, 7.64% against the full checkpoint |
+| 2 faithful | ✅ PASS on SKILL7, ❌ FAIL on BANK6 | .9898 [.9852], min kind .966. BANK6 retention 96.39% (below) |
 | 3 exam | ✅ PASS | see the shared note |
 | 4 no new trained parts | ⚠️ GRAY | pruning (reading C) and a closed-form edit of existing columns (A, G) |
-| 5 feedback teaches | ⚠️ WEAK | teach .867 (draws .78-.93), but carrier hyperparameters were chosen on the locked teach and neighbour splits, so the figure is optimistic |
-| 6 shuffled and empty worse | ✅ PASS | shuffled 0 and wrong 0 in every one of the 5 exam-scored draws (and 94 grid control runs) |
+| 5 feedback teaches | ⚠️ WEAK | teach .884 (draws .707-.963), neighbours kept, carrier chosen on dev only |
+| 6 shuffled and empty worse | ✅ PASS | shuffled 0 and wrong 0 in all 6 packed draws |
 | 7 real job | ✅ PASS | generated skill word |
 | 8 something to keep | ⚠️ WEAK | base .9676 |
 | 9 spirit | ⚠️ GRAY | task-calibrated pruning of 75% of experts |
 
-**How to run.** ⏳ PENDING: the packed-file commands `v2/lanes/L12/answer.py ARTIFACT_DIR --task skill_task.json "..."` and `feedback.py --artifact ... --ann ann.jsonl` are written but have no committed end-to-end result; the research engine reproduces the numbers above (`v2/lanes/L12/run_pack.py` rebuilds the packed files in about 10 minutes on one A100).
+**How to run** (one GPU of at least 40 GB; reference PyTorch kernels, about 15 s load; folder [`v2/lanes/L12`](v2/lanes/L12/)):
+
+```
+python answer.py --artifact <DIR> --task skill_task.json "wake me at six" "play some jazz"
+python feedback.py --artifact <DIR> --task skill_task.json --ann ann.jsonl
+```
+
+`run_pack.py` rebuilds the packed files in about 10 minutes on one A100; the first pack's file hashes are not reproduced by a rebuild.
 
 **Weaknesses.**
-- ❌ Second task BANK6: locked exam retention **96.39% [95.48]** fails rule 2 (Identity 92.1, TopUp 93.9; `v2/lanes/L12/bank6/results/exam1/`).
-- ⚠️ Carrier hyperparameters were tuned on the locked splits; only the body and the final carrier were scored on the full exam, once.
-- ⚠️ Draw variance is large (.78-.93).
-- ⚠️ The carrier is computed in memory; no `fb.bin` was written or loaded, and no end-to-end packed generation is committed.
-- ⚠️ Same pruning exposure as L9b (reading C); its own-data behaviour is not yet known.
+- ❌ **Fails own data.** Banking77 retention 71.9%, router agreement 44%, generic prompts identical 7%, and "17 times 23" gives 17: outside its task the model is not the base (same cause as L9b: 75% of experts removed on task-prompt routing mass, plus 4-bit everywhere). Timer arm flips 15-18% of Alarm requests. The own-data run used the fake-quant path, not the packed loader.
+- ❌ Second task BANK6: locked exam retention **96.39% [95.48]** fails rule 2 (Identity 92.1, TopUp 93.9); its `Security` carrier teaches about .70 with clean controls but costs 2-3.5 pt of neighbours (`v2/lanes/L12/bank6/`).
+- ⚠️ Draw variance is large (.707-.963).
+- ⚠️ Research-grade runtime; the packed file is a rebuild, not the first pack.
 
 Detail: [`v2/lanes/L12/REPORT.md`](v2/lanes/L12/REPORT.md).
 
@@ -186,12 +191,13 @@ These are measured and kept for the record; none is a filing candidate. Numbers 
 
 | lane | what | size | retention | why it is not an entry |
 |---|---|---|---|---|
-| L5 | dense Qwen2.5-32B, GPTQ + Hadamard + rANS | 9.926% with carrier | 98.27% [97.70] | ⚠️ teach only .53; thin margin; two source-by-kind cells below 95; BANK6 fails; no single-file loader; Banking77 own-data 0% strict |
-| L3 | Qwen3-30B-A3B, 85/128 experts, 2-bit VQ | 9.896% with carrier | 99.32% [98.92] | ⚠️ teach .799; 134 MB fp16 carrier; BANK6 teach .16 |
-| L4 | Qwen3-30B-A3B, 80/128 experts, GPTQ 2-bit | 9.895% estimate | 98.94% [98.47] | ❌ shuffled up to .494; no packed file; prompt uses retrieved examples |
+| L5 | dense Qwen2.5-32B, GPTQ + Hadamard + rANS | 9.926% with carrier | 98.27% [97.70] | ⚠️ teach only .53; thin margin; two source-by-kind cells below 95; BANK6 fails; no single-file loader; own data 0% strict / 30% router agreement / 3% generic; fresh clone 2 of 4 recipe prompts |
+| L3 | Qwen3-30B-A3B, 85/128 experts, 2-bit VQ | 9.896% with carrier | 99.32% [98.92] | ⚠️ teach .799; 134 MB fp16 carrier; BANK6 teach .16; own data 87.2% [80.5] / router 88% / generic 37% (best of the own-compressed lanes, still not base-like), carrier lowers Banking77 to 84.2% |
+| L4 | Qwen3-30B-A3B, 80/128 experts, GPTQ 2-bit | 9.895% estimate | 98.94% [98.47] | ❌ shuffled up to .494; teach about .5; no packed exporter; prompt uses retrieved examples |
 | L9 | Qwen3-235B-A22B, 88/128 experts, 2-bit | 9.896% with carrier | 98.98% [98.52] | ⚠️ one feedback draw; about 330 GB of GPU memory to run |
-| L10 | Qwen2.5-Omni-7B text path | 9.879% of the whole multimodal fp16 | 99.55% [99.21] | ⚠️ denominator includes parts we discard; no packed file; one draw |
-| L2 | Ternary-Bonsai-2-27B recompressed | 9.943% | 100% vs release, 99.32% vs ancestor | ⚠️ shuffled control leaks (.756 vs real .973); 96 GB GPU; tiny slack |
+| L10 | Qwen2.5-Omni-7B text path | 9.767% packed (9.879% quantised text path) of the whole multimodal fp16 | 99.55% [99.21] | ⚠️ denominator includes parts we discard; one feedback draw (teach .86); not run on own data |
+| L2 | Ternary-Bonsai-2-27B recompressed | 9.943% | 100% vs release, 99.32% vs ancestor | ⚠️ shuffled control leaks (.756 vs real .973); 96 GB GPU; tiny slack; rebuilt from the public release and all 13 files match their hashes, but not hosted |
+| L14 | L9b recipe with broad calibration (chat, math, code, text) and Hadamard 2-bit VQ experts | about 9.7% | 99.2-99.65% on dev | ❌ stopped at the own-data gate: best 90.6% / 71% / 39% (L1 100 / 94 / 96). A strict upgrade on L9b off-task (79 / 46 / 11) at the same bytes, but not base-like; no locked exam, no feedback, no real packer |
 | L6 | other small MoE models (Qwen1.5-MoE, DeepSeek-V2-Lite, OLMoE) | 9.87% best | 85.9% best | ❌ retention |
 | L7 | BitNet-b1.58-2B-4T, Falcon-E | | 97.7% on one task, 95.8% pooled | ❌ vocabulary trim brittle; feedback cannot be shown to teach |
 | L8 | depth/width pruning of Qwen2.5-14B | | about 0% | ❌ layers cannot be dropped |
@@ -203,8 +209,8 @@ An earlier issue we filed (Qwen2.5-7B tool selection) did not pass: 93.9% retent
 ## 🧭 6. What's left
 
 1. Guessed readings (ours, not settled): A, a closed-form edit of existing tensors is not "training" or a "head" because it adds no new part and runs through the model's own forward pass; B, starting from a released compressed model is allowed ("before or after you cut it"); C, pruning with the task's own unlabeled prompts is selection, not a trained part; D, a multimodal start model's whole fp16 size is the literal denominator; E, vocabulary trimming is fine only where label tokens survive. Details in [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md).
-2. L12: commit the pending own-data, dev-only carrier selection, and end-to-end packed-file runs, then update its section.
-3. Filing package: a durable public copy of the L1 artifact and a final fresh-clone run at the filing commit; drafts in [`v2/FILING/`](v2/FILING/).
+2. L12 and L14 are closed: L12 fails own data and BANK6, L14 stopped at its own-data gate.
+3. Filing package: the L1 artifact is public at [Hugging Face (revision `d5f0329dee86c10cd59ed5a94a04393c54fa0e18`)](https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow); remaining is a final fresh-clone run at the filing commit; drafts in [`v2/FILING/`](v2/FILING/).
 4. Freeze 2026-11-11 08:00 UTC. Deadline 2026-11-12 17:05 UTC.
 
 ## 🔁 7. Reproduce and where things live
@@ -217,7 +223,7 @@ Large artifacts are not stored in git. Each is rebuilt from the public base-mode
 | the rules, word for word | [`v2/RULES.md`](v2/RULES.md), [`GOAL_README.md`](GOAL_README.md) |
 | which entry to file, fallbacks, open readings | [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md) |
 | per-entry detail | [`v2/CANDIDATES.md`](v2/CANDIDATES.md), [`v2/SOLUTIONS.md`](v2/SOLUTIONS.md) |
-| lane reports, manifests (byte accounting), raw results | `v2/lanes/L1`, `L2`, `L3`, `L4`, `L5`, `L9`, `L9b`, `L10`, `L12` (each `REPORT.md`, `MANIFEST.json`, `results/`) |
+| lane reports, manifests (byte accounting), raw results | `v2/lanes/L1`, `L2`, `L3`, `L4`, `L5`, `L9`, `L9b`, `L10`, `L12`, `L14` (each `REPORT.md`, `MANIFEST.json`, `results/`) |
 | filing drafts | [`v2/FILING/`](v2/FILING/) |
 | skeptical review | [`v2/RED_TEAM.md`](v2/RED_TEAM.md) |
 | shared locked exam, plan and hashes | `v2/exam/` (`EXAM_PLAN.md`, `MANIFEST.json`, `loader.py`) |
@@ -282,9 +288,9 @@ flowchart TD
     SEL --> R4["RTN 4-bit, group 128<br/>experts, attention, shared expert, embedding, output"]
     R4 --> PK["Packed safetensors<br/>44 files, 5.47 GB"]
     PK --> LDR["l12_loader<br/>bit-exact parity on 432 tensors"]
-    LDR --> RT["Runtime and answer.py<br/>end-to-end run pending"]
-    ANN["ann.jsonl<br/>at most 25 rows"] --> FBS["Closed-form solve<br/>shared-expert down_proj, 20 layers"]
-    FBS --> CAR["Carrier<br/>42 MB, in memory so far"]
+    LDR --> RT["Runtime and answer.py<br/>end-to-end from packed files"]
+    ANN["ann.jsonl<br/>at most 25 rows"] --> FBS["Closed-form solve<br/>shared-expert down_proj, last 10 layers"]
+    FBS --> CAR["fb.bin carrier<br/>10.5 MB observed, 21 MB ceiling"]
     CAR --> RT
     RT --> LAB["Skill word"]
 ```

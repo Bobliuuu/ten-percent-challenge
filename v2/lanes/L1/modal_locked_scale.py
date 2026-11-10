@@ -13,7 +13,7 @@ def run():
     shutil.copytree("/vol/art", "/work/art"); L = "/repo/v2/lanes/L1"
     for f in ("answer.py", "feedback.py", "bonsai_loader.py", "common.py", "skill_task.json", "feedback_calib.jsonl", "tensor_manifest.json"): shutil.copy(L + "/" + f, "/work/art/" + f)
     from huggingface_hub import snapshot_download
-    snap = snapshot_download("prism-ml/Bonsai-8B-unpacked")
+    snap = snapshot_download("prism-ml/Bonsai-8B-unpacked", revision="376f381570d6115bc03f82adcfa4af0c7672ae54")
     p = subprocess.run(["python", "-u", L + "/run_locked_scale.py", "/work/art", snap, "/repo", "/work/out.json"], stdout=open("/work/log.txt", "w"), stderr=subprocess.STDOUT)
     os.makedirs("/vol/results", exist_ok=True); shutil.copy("/work/log.txt", "/vol/results/locked_L1_scale.log")
     if os.path.exists("/work/out.json"): shutil.copy("/work/out.json", "/vol/results/locked_L1_scale.json")
