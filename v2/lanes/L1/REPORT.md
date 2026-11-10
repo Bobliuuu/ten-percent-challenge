@@ -204,3 +204,9 @@ Reading: unlike L9b (packed model diverges: retention 79.3%, generic identical 1
 
 ## Bytes audit 2026-11-09 (everything counted: weights, tokenizer, code, calibration file, tensor manifest, licence, patch)
 See `MANIFEST.json` key `bytes_audit_2026_11_09` (re-computed from current file sizes; the earlier code_bytes 15,939 was stale, feedback.py is now 19,159 B). Code (answer, feedback, loader, common, task json) 26,881 B; calibration file 45,503 B; tensor_manifest 25,189 B; all inside the total. Default `scale` carrier: tree + 4,720,692 B patch ~7.16% of Qwen3-8B fp16 (7.16 % either way; slack to 10% about 4.6e8 B); `cols` carrier ~7.44%.
+
+---
+
+# L1 SCALE-carrier locked exam (2026-11-10; the shipped default carrier)
+
+PRE-REGISTRATION (written before the run, nothing on the locked set is tuned): the published entry ships `scale` (patch 4,720,692 B) but the full locked-exam feedback numbers above are for `cols`. This section runs the SAME locked protocol (`run_locked_scale.py`, derived from `run_locked.py`; Modal volume `tenpct-l1-art` artifact + the shipped `feedback.py`/`bonsai_loader.py` code) ONCE, with the carrier config fixed in advance = the shipped `feedback.py` defaults: carrier scale, layers 6, lam 100, awt 10, margin 16, ridge 0.05. 8 draws of 25 annotations from `ann_pool` (seeds 2500+d, same draws as the cols run) for real / shuffled / wrong; empty = no patch; teach on the 164 locked teach items; neighbours = the base-correct locked neighbour ids; exam re-scored after real feedback for draws 0-2 (and shuffled/wrong draw 0), with the count of `Recipe` outputs on the exam as the leak count. Whatever comes out is reported; no re-runs for a better number.
