@@ -105,5 +105,13 @@
   "cols_carrier_total": 1218478299,
   "cols_pct": 7.4381,
   "note": "current code sizes (feedback.py 19,159 B); supersedes older shipped_files_bytes/code_bytes"
+ },
+ "public_artifact": {
+  "host": "Hugging Face",
+  "url": "https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow",
+  "visibility": "public",
+  "contents": "counted L1 tree: 14 weight/tokenizer files (sha256 in SHA256SUMS.artifact) + answer.py feedback.py bonsai_loader.py common.py skill_task.json feedback_calib.jsonl tensor_manifest.json + MANIFEST.json + model card README.md",
+  "roundtrip": "v2/lanes/L1/results/hf_roundtrip.json",
+  "status": "uploading 2026-11-09"
  }
 }
