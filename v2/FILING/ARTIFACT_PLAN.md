@@ -90,3 +90,6 @@ python answer.py --artifact . --task skill_task.json "how do I roast a turkey"
 - Choice of host (B recommended) and whether any public upload is OK at all before 2026-11-12 17:05 UTC; deadline leaves 3 days.
 - Pin `snapshot_download(..., revision=...)` in `build/modal_publish.py` (not done here).
 - `answer.py` is plain HF generate with `bonsai_loader.py`; the maintainer needs a GPU. Without one there is no CPU path (8B in fp16).
+
+## 7. Final fresh-clone run (2026-11-09, Modal L40S, detached)
+`build/modal_dry_run.py` against a shallow clone of public `main` at commit 3b12a02 (HEAD at launch; later commits only touch v2/FILING and other lanes): weights from the private volume, 0 sha256 mismatches, shipped answer.py -> feedback.py (8 annotations, `scale` carrier, patch 4,720,692 B) -> answer.py: 4/4 unseen recipe prompts answer `Recipe`, 7/7 neighbour prompts unchanged, empty feedback removes the patch and the tree is identical to base. Raw: `v2/lanes/L1/results/dry_run.json`. This is the 3-item-class smoke from the script, NOT the 2744-item locked run (that is `results/locked_L1.json`, done 2026-11-08).

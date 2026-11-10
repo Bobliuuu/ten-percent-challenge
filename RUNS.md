@@ -468,3 +468,5 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L12 owndata dry run od1 (v2/lanes/L12/owndata, app tenpct-l12-owndata) fc-01M71KZZTQYZ7BYMJQGF1TZSP9
 - 2026-11-09 L12 devsel: dev-only selection of shared-expert carrier (31 configs, 4 dev draws, real/shuffle; 8 jobs dev0-dev7; app tenpct-l12-devsel, vol tenpct-l12-devsel:/r/dev<j>)
 - 2026-11-10 02:23Z L3 own-data dry run: app tenpct-l3-owndata, call fc-01M71M93AQRBC7D36D445ARPCJ (spawn via v2/lanes/L3/owndata/launch.py; results tenpct-l3-art:/results/owndata_l3.json)
+- 2026-11-09 L14 launched t0_task b0_broad b1_broad_hi (app tenpct-l14, vol tenpct-l14:/res14) 02:26Z
+- 2026-11-09 L1 final fresh-clone dry run (v2/lanes/L1/build/modal_dry_run.py, app ap-p6oCH1rMDNCA8FqbAr3Pcd, clone commit 3b12a02): 0 sha mismatches, 4/4 Recipe, 7/7 neighbours unchanged, empty feedback restores tree (results/dry_run.json)
