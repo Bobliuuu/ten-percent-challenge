@@ -6,7 +6,7 @@ import os, json, glob, math, sys
 import torch, torch.nn as nn, torch.nn.functional as F
 from safetensors.torch import load_file
 
-NLAY_FB, LAM, AWT, MARGIN, COLS = 20, 2000.0, 30.0, 64.0, 512   # carrier hyperparameters (chosen on locked splits, see REPORT caveat 1)
+NLAY_FB, LAM, AWT, MARGIN, COLS = 10, 2000.0, 30.0, 64.0, 512   # carrier hyperparameters (nlay 10 = dev-only pick of devsel/; REPORT sec 6)
 
 def unpack4(b, n):
     b = b.to(torch.uint8); return torch.stack([b & 15, b >> 4], 1).reshape(-1)[:n]

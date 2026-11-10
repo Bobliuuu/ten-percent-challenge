@@ -3,7 +3,7 @@
 The first real run additionally round-trips through fb.bin (save, undo, load_carrier) and checks teach outputs are identical."""
 import sys, os, json, argparse, random, collections, hashlib, time
 ap = argparse.ArgumentParser(); ap.add_argument("--mode", default="exam"); ap.add_argument("--draws", default="100"); ap.add_argument("--out"); ap.add_argument("--root", default="/workspace/fin"); ap.add_argument("--art", default="/r/art")
-ap.add_argument("--exam_outs", default="exam_outs_Q35_B3_rtn4_mass_k25.json"); ap.add_argument("--nann", type=int, default=25); ap.add_argument("--nlay", type=int, default=20); ap.add_argument("--lam", type=float, default=2000.0); ap.add_argument("--awt", type=float, default=30.0); ap.add_argument("--m", type=float, default=64.0)
+ap.add_argument("--exam_outs", default="exam_outs_Q35_B3_rtn4_mass_k25.json"); ap.add_argument("--nann", type=int, default=25); ap.add_argument("--nlay", type=int, default=10); ap.add_argument("--lam", type=float, default=2000.0); ap.add_argument("--awt", type=float, default=30.0); ap.add_argument("--m", type=float, default=64.0)
 a = ap.parse_args(); ROOT = os.path.abspath(a.root); sys.path.insert(0, ROOT + "/v2/exam"); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import torch, loader as L, l12_runtime as RT
 T0 = time.time(); log = lambda *x: print(f"[{time.time()-T0:6.0f}s]", *x, flush=True)

@@ -1,6 +1,6 @@
 """L12 feedback command. usage: python feedback.py --artifact DIR --ann ann.jsonl [--task skill_task.json] [--cal feedback_cal.jsonl]
 ann.jsonl rows (<= 25): {"text": raw request, "label": correct label} (or {"query": full prompt, "label": ...}). The label may be a NEW word (e.g. Recipe). An empty/absent --ann removes fb.bin (restores the packed model).
-Always starts from the packed weights (a second call REPLACES the previous carrier, it does not stack). Writes ARTIFACT_DIR/fb.bin + fb.json (replacement columns of the shared-expert down_proj of the last 20 layers); answer.py applies them."""
+Always starts from the packed weights (a second call REPLACES the previous carrier, it does not stack). Writes ARTIFACT_DIR/fb.bin + fb.json (replacement columns of the shared-expert down_proj of the last 10 layers (dev-selected)); answer.py applies them."""
 import sys, os, json, argparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import annot, l12_runtime as RT
