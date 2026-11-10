@@ -1,0 +1,22 @@
+{
+ "tag": "d5_noprune_nonexpq",
+ "cal": [
+  [
+   "task",
+   2031
+  ],
+  [
+   "general",
+   1896
+  ]
+ ],
+ "variants": [
+  {
+   "name": "D_k256_bf16_nonexpq",
+   "m": "bf16",
+   "bits": 16,
+   "k": 256,
+   "nonexp": true
+  }
+ ]
+}

@@ -153,8 +153,13 @@ def main(job):
         if base_m == "gptq": return QB.mb_gptq(lambda: QB.IntQ(b, v.get("g", 128), False), rot, v.get("damp", 0.01))
         if base_m == "vq": D = v.get("D", 4); K = v.get("K", int(round(2 ** (b * D)))); return QB.mb_gptq(lambda: QB.VQ(D, K, "gauss"), rot, v.get("damp", 0.01))
         raise ValueError(m)
+    need_h = any(v["m"] != "bf16" for v in V)
     for g0 in range(0, NL, lgroup):
         layers = list(range(g0, min(NL, g0 + lgroup))); G["col"] = {}
+        if not need_h:
+            for l in layers:
+                for v in V: kl = kept[v["name"]][l]; Qgu[v["name"]][l] = bl[l].experts.gate_up_proj.data[kl.to(dev)].cpu().clone(); Qdn[v["name"]][l] = bl[l].experts.down_proj.data[kl.to(dev)].cpu().clone(); stats[v["name"]]["bits"] += len(kl) * EXP_PARAMS * 16.0; stats[v["name"]]["n"] += len(kl)
+            continue
         for l in layers:
             pos = torch.full((E,), -1, dtype=torch.long); pos[torch.tensor(ukept[l])] = torch.arange(kmax); k = kmax
             G["col"][id(bl[l].experts)] = dict(pos=pos.tolist(), gu=torch.zeros(k, 2048, 2048, device=dev), dn=torch.zeros(k, 512, 512, device=dev), n=[0] * k)
@@ -191,7 +196,9 @@ def main(job):
     cnt_attn = sum(t.numel() for n, t in snap_ne.items() if "embed_tokens" not in n and not n.startswith("lm_head")); cnt_emb = snap_ne["model.embed_tokens.weight"].numel() if "model.embed_tokens.weight" in snap_ne else sum(t.numel() for n, t in snap_ne.items() if "embed_tokens" in n); cnt_head = sum(t.numel() for n, t in snap_ne.items() if n.startswith("lm_head"))
     log("non-expert 2D params: attn-ish", cnt_attn, "emb", cnt_emb, "head", cnt_head)
     PN = dict(model.named_parameters())
-    orig = [(b.experts.gate_up_proj, b.experts.down_proj, b.gate.weight, b.experts.num_experts) for b in bl]
+    orig = [(b.experts.gate_up_proj.data.cpu(), b.experts.down_proj.data.cpu(), b.gate.weight, b.experts.num_experts) for b in bl]
+    for b in bl: b.experts.gate_up_proj = nn.Parameter(torch.empty(0, device=dev), requires_grad=False); b.experts.down_proj = nn.Parameter(torch.empty(0, device=dev), requires_grad=False)
+    torch.cuda.empty_cache()
     results = {}
     for v in V:
         nm = v["name"]; k = v["k"]; st = stats[nm]
@@ -213,5 +220,6 @@ def main(job):
         o = osum; log("RESULT", nm, "SEL", round(100 * res["ret"], 2), "bytes%", round(res["bytes_pct"], 3), "bank77 ret", round(100 * o["banking77_200"]["retention"], 1), "router agree", o["router_on_banking_100"]["same_label"], "generic ident", o["generic_100"]["identical_24tok"])
         print("RESULT_JSON", json.dumps(res), flush=True)
         for l, b in enumerate(bl):
-            b.experts.gate_up_proj, b.experts.down_proj, b.gate.weight, b.experts.num_experts = orig[l]; b.gate.num_experts = E
+            b.experts.gate_up_proj = nn.Parameter(torch.empty(0, device=dev), requires_grad=False); b.experts.down_proj = nn.Parameter(torch.empty(0, device=dev), requires_grad=False); b.gate.weight = orig[l][2]; b.experts.num_experts = orig[l][3]; b.gate.num_experts = E
+        torch.cuda.empty_cache()
     return results

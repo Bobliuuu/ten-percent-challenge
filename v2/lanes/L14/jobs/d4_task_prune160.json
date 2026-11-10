@@ -1,0 +1,18 @@
+{
+ "tag": "d4_task_prune160",
+ "cal": [
+  [
+   "task",
+   2031
+  ]
+ ],
+ "variants": [
+  {
+   "name": "D_taskcal_prune160_bf16",
+   "m": "bf16",
+   "bits": 16,
+   "k": 160,
+   "nonexp": false
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "tag": "d1_prune205",
+ "cal": [
+  [
+   "task",
+   2031
+  ],
+  [
+   "general",
+   1896
+  ]
+ ],
+ "variants": [
+  {
+   "name": "D_prune205_bf16",
+   "m": "bf16",
+   "bits": 16,
+   "k": 205,
+   "nonexp": false
+  }
+ ]
+}
