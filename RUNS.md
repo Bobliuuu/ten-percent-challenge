@@ -473,3 +473,6 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L12 owndata od1 finished (results v2/lanes/L12/owndata/results)
 - 2026-11-09 L12 e2e from packed files (app tenpct-l12e, vol tenpct-l12b:/art, /e2e): prep1, parity1 (fake-quant vs packed, 200 dev: 198 identical), cli1 (answer/feedback CLIs), lockexam (locked exam once from packed loader), lockfb_a (draws 100-102), lockfb_b (draws 103-105)
 - 2026-11-09 L12 devsel locked measurement (dev-chosen nlay10 cols512 m64 lam2000 awt30; 8 draws split lockedA/lockedB, full exam; app tenpct-l12-devsel)
+- 2026-11-09 L12 locked packed runs moved to Vast (Modal A100 queue >1 h, 10-GPU cap): Vast instance 60001957 (A100-80GB, label tenpct-l12e-lock44184874/41153689; destroy when done); 60001956 and 60001371 destroyed unused
+- 2026-11-09 L14 launched d1_prune184/205/230 d4 d5 (prune-only diagnostics)
+- 2026-11-09 L12 Vast box 60003234 (A100-80GB Oregon, tenpct-l12e-lockV): rebuilt pack from HF (run_pack.py; 15/44 files sha-identical to the Modal pack, 29 differ: not bit-reproducible across hosts/torch), locked exam from rebuilt packed files, then 6 feedback draws; destroy when done
