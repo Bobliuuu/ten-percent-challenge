@@ -1,0 +1,623 @@
+{
+ "model": "Qwen3-30B-A3B-Instruct-2507 base vs L3 packed skill7x artifact",
+ "n_banking": 200,
+ "n_router": 100,
+ "n_generic": 100,
+ "banking_menu": 77,
+ "base_timer": {
+  "tag": "base (no feedback)",
+  "timer_emitted": 0.0,
+  "alarm_still_alarm": 1.0,
+  "alarm_to_timer": 0.0,
+  "others_correct": 0.9333333333333333,
+  "others_to_timer": 0.0,
+  "timer_sample": [
+   "Alarm",
+   "Alarm",
+   "Alarm",
+   "Alarm"
+  ]
+ },
+ "nofeedback": {
+  "tag": "packed, no feedback",
+  "banking77_200": {
+   "base_acc": 0.665,
+   "patched_acc": 0.625,
+   "retention": 0.8721804511278195,
+   "retention_wilson_lo": 0.8048213737306376,
+   "n_base_correct": 133,
+   "same_output": 0.8
+  },
+  "router_on_banking_100": {
+   "same_label": 0.88,
+   "base_dist": {
+    "lists": 77,
+    "none": 10,
+    "alarm": 5,
+    "transport": 5,
+    "finance": 2,
+    "news": 1
+   },
+   "patched_dist": {
+    "lists": 79,
+    "transport": 7,
+    "none": 6,
+    "alarm": 5,
+    "news": 2,
+    "finance": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.37,
+   "same_first_line": 0.43
+  },
+  "diverge": [
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "2611"
+   ],
+   [
+    "Give one antonym of 'silent'. One word.",
+    "Noisy",
+    "loud"
+   ],
+   [
+    "Give one antonym of 'bright'. One word.",
+    "dull",
+    "dim"
+   ],
+   [
+    "Give one antonym of 'fragile'. One word.",
+    "Sturdy",
+    "robust"
+   ],
+   [
+    "Translate to French: how much does this cost",
+    "Combien cela co\u00fbte-t-il ?",
+    "C'est combien cela co co co co co co co co co co co co co co co co co co co"
+   ],
+   [
+    "Translate to French: nice to meet you",
+    "Enchant\u00e9(e) de faire votre connaissance",
+    "Enchant\u00e9 de vous rencontrer"
+   ],
+   [
+    "Explain photosynthesis in one short sentence.",
+    "Photosynthesis is the process by which green plants use sunlight to convert carbon dioxide and water into glucose and oxygen.",
+    "Photosynthesis is the process by which plants convert sunlight into energy through the production of chlorophotosynthesis."
+   ],
+   [
+    "Explain inflation in one short sentence.",
+    "Inflation is the rate at which the general level of prices for goods and services rises, eroding purchasing power over time",
+    "Inflation is the increase in prices of goods and services over time, reducing the purchasing power of money."
+   ],
+   [
+    "Explain a hash table in one short sentence.",
+    "A hash table is a data structure that stores key-value pairs by using a hash function to compute an index into an array",
+    "A hash table is a data structure that maps keys to values using a hash function to efficiently store and retrieve data."
+   ],
+   [
+    "Explain gravity in one short sentence.",
+    "Gravity is a force that attracts objects with mass toward each other.",
+    "Gravity is the force that pulls objects toward the center of a planet or body due to its mass."
+   ],
+   [
+    "Explain the TCP handshake in one short sentence.",
+    "The TCP handshake is a three-step process where a client and server establish a connection by synchronizing sequence numbers and acknowledging each",
+    "The TCP handshake involves three steps: SYN, SYN-ACK, and ACK to establish a reliable connection between two devices."
+   ],
+   [
+    "Explain a black hole in one short sentence.",
+    "A black hole is a region in space where gravity is so strong that nothing, not even light, can escape it.",
+    "A black hole is a space phenomenon where gravity pulls everything into a singularity, making it impossible to escape once inside."
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "virtual_card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_my_identity"
+   ],
+   [
+    "get_physical_card",
+    "change_pin",
+    "card_arrival"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "n_old_err_pool": 21,
+ "recipe_carrier": {
+  "tag": "12 Recipe + 12 old-skill errors, final carrier",
+  "banking77_200": {
+   "base_acc": 0.665,
+   "patched_acc": 0.595,
+   "retention": 0.8421052631578947,
+   "retention_wilson_lo": 0.7706548048050484,
+   "n_base_correct": 133,
+   "same_output": 0.795
+  },
+  "router_on_banking_100": {
+   "same_label": 0.78,
+   "base_dist": {
+    "lists": 77,
+    "none": 10,
+    "alarm": 5,
+    "transport": 5,
+    "finance": 2,
+    "news": 1
+   },
+   "patched_dist": {
+    "lists": 59,
+    "none": 12,
+    "transport": 11,
+    "alarm": 7,
+    "calendar": 4,
+    "finance": 3,
+    "news": 3,
+    "currency": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.37,
+   "same_first_line": 0.43
+  },
+  "diverge": [
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "2611"
+   ],
+   [
+    "Give one antonym of 'silent'. One word.",
+    "Noisy",
+    "loud"
+   ],
+   [
+    "Give one antonym of 'bright'. One word.",
+    "dull",
+    "dim"
+   ],
+   [
+    "Give one antonym of 'fragile'. One word.",
+    "Sturdy",
+    "robust"
+   ],
+   [
+    "Translate to French: how much does this cost",
+    "Combien cela co\u00fbte-t-il ?",
+    "C'est combien cela co co co co co co co co co co co co co co co co co co co"
+   ],
+   [
+    "Translate to French: nice to meet you",
+    "Enchant\u00e9(e) de faire votre connaissance",
+    "Enchant\u00e9 de vous rencontrer"
+   ],
+   [
+    "Explain photosynthesis in one short sentence.",
+    "Photosynthesis is the process by which green plants use sunlight to convert carbon dioxide and water into glucose and oxygen.",
+    "Photosynthesis is the process by which plants convert sunlight into energy through the absorption of sunlight and release of carbon dioxide."
+   ],
+   [
+    "Explain inflation in one short sentence.",
+    "Inflation is the rate at which the general level of prices for goods and services rises, eroding purchasing power over time",
+    "Inflation is the rise in prices of goods and services over time, reducing the purchasing power of money."
+   ],
+   [
+    "Explain a hash table in one short sentence.",
+    "A hash table is a data structure that stores key-value pairs by using a hash function to compute an index into an array",
+    "A hash table is a data structure that stores key-value pairs using hashing to efficiently retrieve values based on keys."
+   ],
+   [
+    "Explain gravity in one short sentence.",
+    "Gravity is a force that attracts objects with mass toward each other.",
+    "Gravity is the force that pulls objects toward the center of a planet or body due to its mass."
+   ],
+   [
+    "Explain the TCP handshake in one short sentence.",
+    "The TCP handshake is a three-step process where a client and server establish a connection by synchronizing sequence numbers and acknowledging each",
+    "The TCP handshake involves three steps: SYN, SYN-ACK, and ACK to establish a reliable connection between two devices."
+   ],
+   [
+    "Explain a black hole in one short sentence.",
+    "A black hole is a region in space where gravity is so strong that nothing, not even light, can escape it.",
+    "A black hole is a space phenomenon where gravity is so intense that nothing can escape it once it enters."
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "virtual_card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_my_identity"
+   ],
+   [
+    "get_physical_card",
+    "change_pin",
+    "card_acceptance"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ],
+  "edit_bytes": 134217728
+ },
+ "timer_unseen_label": {
+  "n_pool": 20,
+  "n_test": 28,
+  "n_alarm_nb": 60,
+  "n_other_nb": 60,
+  "empty": {
+   "tag": "empty (packed, no feedback)",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 1.0,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.9166666666666666,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm",
+    "Alarm",
+    "Alarm",
+    "Alarm"
+   ]
+  },
+  "draws": [
+   {
+    "draw": 0,
+    "real": {
+     "tag": "d0 real",
+     "timer_emitted": 0.9642857142857143,
+     "alarm_still_alarm": 0.8333333333333334,
+     "alarm_to_timer": 0.15,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "edit_bytes": 134217728
+    },
+    "shuffled": {
+     "tag": "d0 shuffled",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9166666666666666,
+     "alarm_to_timer": 0.03333333333333333,
+     "others_correct": 0.9166666666666666,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "News",
+      "News",
+      "Calendar",
+      "News"
+     ],
+     "edit_bytes": 134217728
+    },
+    "wrong": {
+     "tag": "d0 wrong",
+     "timer_emitted": 0.0,
+     "alarm_still_alarm": 0.9333333333333333,
+     "alarm_to_timer": 0.05,
+     "others_correct": 0.9166666666666666,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Weather",
+      "Weather",
+      "Calendar",
+      "Weather"
+     ],
+     "edit_bytes": 134217728
+    }
+   },
+   {
+    "draw": 1,
+    "real": {
+     "tag": "d1 real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.7666666666666667,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "edit_bytes": 134217728
+    },
+    "shuffled": {
+     "tag": "d1 shuffled",
+     "timer_emitted": 0.03571428571428571,
+     "alarm_still_alarm": 0.8166666666666667,
+     "alarm_to_timer": 0.016666666666666666,
+     "others_correct": 0.9333333333333333,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Lists",
+      "Calendar",
+      "Calendar",
+      "Lists"
+     ],
+     "edit_bytes": 134217728
+    },
+    "wrong": {
+     "tag": "d1 wrong",
+     "timer_emitted": 0.17857142857142858,
+     "alarm_still_alarm": 0.8,
+     "alarm_to_timer": 0.06666666666666667,
+     "others_correct": 0.9333333333333333,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Weather",
+      "Weather",
+      "Lists",
+      "Calendar"
+     ],
+     "edit_bytes": 134217728
+    }
+   },
+   {
+    "draw": 2,
+    "real": {
+     "tag": "d2 real",
+     "timer_emitted": 1.0,
+     "alarm_still_alarm": 0.7666666666666667,
+     "alarm_to_timer": 0.21666666666666667,
+     "others_correct": 0.95,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Timer",
+      "Timer",
+      "Timer",
+      "Timer"
+     ],
+     "edit_bytes": 134217728
+    },
+    "shuffled": {
+     "tag": "d2 shuffled",
+     "timer_emitted": 0.07142857142857142,
+     "alarm_still_alarm": 0.7833333333333333,
+     "alarm_to_timer": 0.016666666666666666,
+     "others_correct": 0.9333333333333333,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Calendar",
+      "Calendar",
+      "Calendar",
+      "Calendar"
+     ],
+     "edit_bytes": 134217728
+    },
+    "wrong": {
+     "tag": "d2 wrong",
+     "timer_emitted": 0.03571428571428571,
+     "alarm_still_alarm": 0.8333333333333334,
+     "alarm_to_timer": 0.06666666666666667,
+     "others_correct": 0.9666666666666667,
+     "others_to_timer": 0.0,
+     "timer_sample": [
+      "Weather",
+      "Transport",
+      "Lists",
+      "Music"
+     ],
+     "edit_bytes": 134217728
+    }
+   }
+  ]
+ },
+ "timer_real_d0_carrier": {
+  "tag": "Timer real draw 0, final carrier",
+  "banking77_200": {
+   "base_acc": 0.665,
+   "patched_acc": 0.595,
+   "retention": 0.8421052631578947,
+   "retention_wilson_lo": 0.7706548048050484,
+   "n_base_correct": 133,
+   "same_output": 0.795
+  },
+  "router_on_banking_100": {
+   "same_label": 0.8,
+   "base_dist": {
+    "lists": 77,
+    "none": 10,
+    "alarm": 5,
+    "transport": 5,
+    "finance": 2,
+    "news": 1
+   },
+   "patched_dist": {
+    "lists": 80,
+    "transport": 10,
+    "alarm": 3,
+    "none": 2,
+    "calendar": 2,
+    "news": 2,
+    "finance": 1
+   }
+  },
+  "generic_100": {
+   "identical_24tok": 0.37,
+   "same_first_line": 0.43
+  },
+  "diverge": [
+   [
+    "What is 77 times 33? Answer with just the number.",
+    "2541",
+    "2611"
+   ],
+   [
+    "Give one antonym of 'silent'. One word.",
+    "Noisy",
+    "loud"
+   ],
+   [
+    "Give one antonym of 'bright'. One word.",
+    "dull",
+    "dim"
+   ],
+   [
+    "Give one antonym of 'fragile'. One word.",
+    "Sturdy",
+    "robust"
+   ],
+   [
+    "Translate to French: how much does this cost",
+    "Combien cela co\u00fbte-t-il ?",
+    "C'est combien cela co co co co co co co co co co co co co co co co co co co"
+   ],
+   [
+    "Translate to French: nice to meet you",
+    "Enchant\u00e9(e) de faire votre connaissance",
+    "Enchant\u00e9 de vous rencontrer"
+   ],
+   [
+    "Explain photosynthesis in one short sentence.",
+    "Photosynthesis is the process by which green plants use sunlight to convert carbon dioxide and water into glucose and oxygen.",
+    "Photosynthesis is the process by which plants use sunlight, water, and nutrients to produce energy and grow."
+   ],
+   [
+    "Explain inflation in one short sentence.",
+    "Inflation is the rate at which the general level of prices for goods and services rises, eroding purchasing power over time",
+    "Inflation is the increase in prices of goods and services over time, reducing the purchasing power of money."
+   ],
+   [
+    "Explain a hash table in one short sentence.",
+    "A hash table is a data structure that stores key-value pairs by using a hash function to compute an index into an array",
+    "A hash table is a data structure that maps keys to values using a hash function to efficiently store and retrieve data."
+   ],
+   [
+    "Explain gravity in one short sentence.",
+    "Gravity is a force that attracts objects with mass toward each other.",
+    "Gravity is the force that pulls objects toward the center of a planet or body due to its mass."
+   ],
+   [
+    "Explain the TCP handshake in one short sentence.",
+    "The TCP handshake is a three-step process where a client and server establish a connection by synchronizing sequence numbers and acknowledging each",
+    "The TCP handshake involves three steps: SYN, SYN-ACK, and ACK to establish a reliable connection between two devices."
+   ],
+   [
+    "Explain a black hole in one short sentence.",
+    "A black hole is a region in space where gravity is so strong that nothing, not even light, can escape it.",
+    "A black hole is a space phenomenon where gravity is so intense that nothing can escape it."
+   ]
+  ],
+  "samples_bank": [
+   [
+    "exchange_rate",
+    "exchange_rate",
+    "exchange_rate"
+   ],
+   [
+    "age_limit",
+    "age_limit",
+    "age_limit"
+   ],
+   [
+    "virtual_card_not_working",
+    "virtual_card_not_working",
+    "virtual_card_not_working"
+   ],
+   [
+    "declined_card_payment",
+    "declined_card_payment",
+    "declined_card_payment"
+   ],
+   [
+    "unable_to_verify_identity",
+    "verify_my_identity",
+    "verify_my_identity"
+   ],
+   [
+    "get_physical_card",
+    "change_pin",
+    "card_arrival"
+   ],
+   [
+    "verify_source_of_funds",
+    "verify_source_of_funds",
+    "verify_source_of_funds"
+   ],
+   [
+    "card_not_working",
+    "card_not_working",
+    "card_not_working"
+   ]
+  ]
+ },
+ "unpatched_after": {
+  "timer": {
+   "tag": "after restore",
+   "timer_emitted": 0.0,
+   "alarm_still_alarm": 1.0,
+   "alarm_to_timer": 0.0,
+   "others_correct": 0.9166666666666666,
+   "others_to_timer": 0.0,
+   "timer_sample": [
+    "Alarm",
+    "Alarm",
+    "Alarm",
+    "Alarm"
+   ]
+  },
+  "own_same": true
+ }
+}
