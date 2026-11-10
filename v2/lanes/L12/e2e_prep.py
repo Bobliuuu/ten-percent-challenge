@@ -1,8 +1,8 @@
 """Assemble the L12 artifact dir /r/art from the packed files (sha256-verified against MANIFEST.json) + config/tokenizer/chat template + shipped code. Prints the byte inventory."""
 import sys, os, json, argparse, shutil, hashlib, glob
-ap = argparse.ArgumentParser(); ap.add_argument("--out"); ap.add_argument("--root", default="/workspace/fin"); ap.add_argument("--art", default="/r/art"); ap.add_argument("--src", default="/r/pack1/packed"); a = ap.parse_args()
+ap = argparse.ArgumentParser(); ap.add_argument("--out"); ap.add_argument("--root", default="/workspace/fin"); ap.add_argument("--art", default="/r/art"); ap.add_argument("--src", default="/r/pack1/packed"); ap.add_argument("--hub", default="/hf/hub"); a = ap.parse_args()
 L = a.root + "/v2/lanes/L12"; M = json.load(open(L + "/MANIFEST.json")); os.makedirs(a.art, exist_ok=True)
-snap = glob.glob("/hf/hub/models--Qwen--Qwen3.5-35B-A3B/snapshots/*")[0]
+snap = glob.glob(a.hub + "/models--Qwen--Qwen3.5-35B-A3B/snapshots/*")[0]
 def sha(p):
     h = hashlib.sha256()
     with open(p, "rb") as f:

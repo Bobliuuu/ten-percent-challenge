@@ -1,0 +1,48 @@
+{
+ "dir": "/Users/jhome/l12-work/art/art",
+ "base_fp16_bytes": 69321221376.0,
+ "total_bytes": 5495615528,
+ "pct_base": 7.9277534626685915,
+ "cap": 10.0,
+ "ok": true,
+ "categories": [
+  {
+   "category": "weights",
+   "files": 45,
+   "bytes": 5482651888,
+   "pct_base": 7.9090526380975925
+  },
+  {
+   "category": "tokenizer",
+   "files": 2,
+   "bytes": 12824692,
+   "pct_base": 0.018500383786428917
+  },
+  {
+   "category": "data/docs",
+   "files": 1,
+   "bytes": 101819,
+   "pct_base": 0.00014687998563633388
+  },
+  {
+   "category": "code",
+   "files": 4,
+   "bytes": 16153,
+   "pct_base": 2.33016667614463e-05
+  },
+  {
+   "category": "config",
+   "files": 5,
+   "bytes": 13220,
+   "pct_base": 1.907063917453848e-05
+  },
+  {
+   "category": "template",
+   "files": 1,
+   "bytes": 7756,
+   "pct_base": 1.118849299831471e-05
+  }
+ ],
+ "flags": [],
+ "dup": []
+}
