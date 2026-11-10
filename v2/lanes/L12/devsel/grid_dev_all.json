@@ -1,0 +1,219 @@
+[
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 10,
+"cols": 512,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 40,
+"cols": 512,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 128,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 256,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 32,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 48,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 80,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 500,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 1000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 5000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 2000,
+"awt": 10
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 2000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 48,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 256,
+"margin": 64,
+"lam": 5000,
+"awt": 30
+},
+{
+"nlay": 40,
+"cols": 512,
+"margin": 64,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 10,
+"cols": 512,
+"margin": 64,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 32,
+"lam": 2000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 80,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 40,
+"cols": 512,
+"margin": 48,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 128,
+"margin": 64,
+"lam": 2000,
+"awt": 100
+},
+{
+"nlay": 10,
+"cols": 512,
+"margin": 32,
+"lam": 500,
+"awt": 10
+},
+{
+"nlay": 40,
+"cols": 256,
+"margin": 32,
+"lam": 1000,
+"awt": 10
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 48,
+"lam": 1000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 1000,
+"awt": 100
+},
+{
+"nlay": 20,
+"cols": 256,
+"margin": 80,
+"lam": 5000,
+"awt": 100
+},
+{
+"nlay": 40,
+"cols": 128,
+"margin": 64,
+"lam": 2000,
+"awt": 100
+},
+{
+"nlay": 10,
+"cols": 256,
+"margin": 64,
+"lam": 2000,
+"awt": 30
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 48,
+"lam": 2000,
+"awt": 10
+},
+{
+"nlay": 20,
+"cols": 512,
+"margin": 64,
+"lam": 300,
+"awt": 3
+}
+]
