@@ -10,7 +10,7 @@ import sys, os, json, argparse, random, collections, hashlib
 ap = argparse.ArgumentParser(); ap.add_argument("--mode", required=True); ap.add_argument("--cfg", default="b6_rtn4_k25.json"); ap.add_argument("--cfgs", default=None); ap.add_argument("--grid", default=None)
 ap.add_argument("--out", default="/workspace/out"); ap.add_argument("--root", default="/workspace/fin"); ap.add_argument("--model", default="Qwen/Qwen3.5-35B-A3B")
 ap.add_argument("--draws", type=int, default=3); ap.add_argument("--seed0", type=int, default=100); ap.add_argument("--nann", type=int, default=25); ap.add_argument("--ncal", type=int, default=698)
-ap.add_argument("--conds", default="real,shuffle,wrong"); ap.add_argument("--max_new", type=int, default=8)
+ap.add_argument("--gmode", default="gptq"); ap.add_argument("--conds", default="real,shuffle,wrong"); ap.add_argument("--max_new", type=int, default=8)
 a = ap.parse_args(); ROOT = os.path.abspath(a.root); HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT + "/v2/exam"); sys.path.insert(0, HERE); sys.path.insert(0, os.path.dirname(HERE))
 import torch, loader as L, l12_core as C
@@ -20,7 +20,10 @@ from l12_core import log
 # Retry those experts with 10x/100x/1000x damping, then fall back to RTN in the (rotated) space. Counts are logged.
 _orig_gptq = C.gptq_b; GP = dict(retry=0, rtn=0, calls=0)
 def _gptq_safe(W, H, bits, g, damp=0.01):
+    if a.gmode == "rtn_rot": GP["calls"] += W.shape[0]; return C.rtn(W, bits, g, True).to(torch.float32)
     Q = _orig_gptq(W, H, bits, g, damp); GP["calls"] += W.shape[0]
+    GP["H_nonfinite"] = GP.get("H_nonfinite", 0) + int((~torch.isfinite(H)).flatten(1).any(1).sum()); GP["W_nonfinite"] = GP.get("W_nonfinite", 0) + int((~torch.isfinite(W)).flatten(1).any(1).sum()); GP["Q_nonfinite_first"] = GP.get("Q_nonfinite_first", 0) + int((~torch.isfinite(Q)).flatten(1).any(1).sum())
+    GP["Hmax"] = max(GP.get("Hmax", 0.0), float(H[torch.isfinite(H)].abs().max())) if torch.isfinite(H).any() else GP.get("Hmax", 0.0)
     bad = ~torch.isfinite(Q).flatten(1).all(1)
     for dm in (damp * 10, damp * 100, damp * 1000):
         if not bad.any(): break
@@ -51,6 +54,8 @@ if a.mode == "sel":
 cfg = cfg_of(a.cfg)
 if a.mode == "gdiag":
     full_base(); kept, by, nfb = eng.build(cfg)
+    for l in range(eng.NL):
+        lv = eng.blocks[l].live; print("GDIAG all", l, "G", float(lv.G.float().abs().max()), "U", float(lv.U.float().abs().max()), "D", float(lv.D.float().abs().max()), "finite", bool(torch.isfinite(lv.G).all() and torch.isfinite(lv.U).all() and torch.isfinite(lv.D).all()), "orig max", float(eng.OG[l].abs().max()), float(eng.OU[l].abs().max()), float(eng.OD[l].abs().max()), flush=True)
     for l in range(0, eng.NL, 4):
         lv = eng.blocks[l].live; og = eng.OG[l][torch.tensor(kept[l])].to(eng.dev).float()
         for nm, q, o in (("G", lv.G, og), ("D", lv.D, eng.OD[l][torch.tensor(kept[l])].to(eng.dev).float())):
