@@ -59,7 +59,7 @@ Optional carriers for the same edit: `cols` (50.3 MB patch) totals 7.438%; `lr` 
 | 2 | faithful | **GRAY** | Retention against Bonsai-8B is 1.000 (2,489 of 2,489 base-correct; Wilson lower .9985; every kind and every source 1.000; never-used sources 1.000, lower .9971). That is true **by construction** (lossless repack) and measures none of our own compression. Against the fp16 ancestor Qwen3-8B retention is **88.9%** (dev data), which would fail. It rests on reading B below |
 | 3 | exam is unseen | PASS on counts, with caveats | 2,744 items, every kind 344 or more, 1,489 items from sources never used for building (HWU64, MTOP), sealed by hash before any run, scored once. Caveats: it is our exam; without the 532 `seen_tox` rows three kinds have fewer than 300 base-correct items (Lists 206, Transport 233, Alarm 253) |
 | 4 | no new trained parts | **GRAY** | No head, classifier, adapter, lookup, prompt or new tensor. But the feedback is a closed-form fit to the annotations that rewrites values of existing tensors, and 182 unlabeled calibration prompts ship. Readings A and G |
-| 5 | feedback teaches | PASS on the letter | New label `Recipe`, base teach 0.000, real teach .893 [.881, .905] over 10 draws (`cols`), .904 over 6 draws (`scale`, default), .909 end to end through the shipped commands, on 164 locked unseen items; neighbours kept .994-.997; exam retention after feedback .9988; cross-source teach MTOP .91, CLINC .89, HWU64 .81, MASSIVE .86-.88 |
+| 5 | feedback teaches | PASS on the letter | New label `Recipe`, base teach 0.000, real teach .893 [.881, .905] over 10 draws (`cols`), .899 over 8 draws (`scale`, default, full locked exam), .909 end to end through the shipped commands, on 164 locked unseen items; neighbours kept .994-.997; exam retention after feedback .9988; cross-source teach MTOP .91, CLINC .89, HWU64 .81, MASSIVE .86-.88 |
 | 6 | controls clearly worse | PASS on SKILL7 | shuffled .001-.005, wrong 0.000, empty 0.000, against real .90 |
 | 7 | real job | PASS | the skill word is generated; a word outside the menu (`Recipe`, `Timer`) comes out as generated text |
 | 8 | something to keep | PASS, with limits | base accuracy .907 (chance .143), below its ceiling; several single cells near 1.0, CLINC Alarm .52 on dev |
@@ -70,7 +70,7 @@ Optional carriers for the same edit: `cols` (50.3 MB patch) totals 7.438%; `lr` 
 | arm (25 annotations) | teach | neighbours kept |
 |---|---|---|
 | real, `cols`, 10 draws | .893 [.881, .905] | .9952 (worst draw .9915) |
-| real, `scale` default, 6 draws | .904 (.890-.927) | .9938 (worst .9915) |
+| real, `scale` default, 8 draws (locked exam) | .899 [.887, .909] | .9936 (worst .9915) |
 | real, `scale`, shipped commands end to end | .909 | .9972 |
 | shuffled (the new label on 25 unrelated ordinary inputs) | .001-.005 | 1.000 |
 | wrong (annotated inputs, a wrong old skill) | 0.000 | .9943 |
@@ -105,7 +105,7 @@ Weaknesses we know of:
 - **Second task BANK6 is weak.** Same lossless pack on a banking task (2,237 exam items): retention 1.000, but `Security` teaches only **.727**, neighbours .989 (one draw .977), and the shuffled control averages .101 with one draw at .49. No second task ships.
 - **Close new labels steal old items** (Alarm to Timer 21.7%); in continual mode a third skill whose words overlap an old one (Email against Lists) dropped neighbours to .863 in one draw.
 - **One narrow task**, small label set, base near its ceiling on several cells.
-- **Locked-exam feedback numbers** were measured with the `cols` patch; the `scale` default was checked on the locked teach and neighbour sets (6 draws) and end to end, not on the full exam after feedback.
+- **Locked-exam feedback numbers, shipped `scale` carrier (8 draws of 25 annotations):** teach .899 [.887, .909], neighbours kept .9936 (worst draw .9915), exam retention after feedback .9988-.9996 (draws 0-2; 2,488/2,489 on draw 0), `Recipe` leaks 1 of 2,744 items. This is close to `cols` on teach (.893) and about 0.2 points worse on neighbours (.9952); MASSIVE teach is .803 vs .857 for `cols`. **Shuffled-label control on the full exam is worse with `scale`: draw 0 exam retention .9783 (2,435/2,489), lowest kind .934, lowest source .964, which fails our own 98% / per-kind .95 gates** (teach stays .0015, so rule 6 holds, but a junk patch damages some exam items). `cols` was not run on that arm, so no comparison. Wrong arm: .9992 retention, neighbours .9918.
 - **Base is one reference run** per batch size (three batch sizes agree to .9993-.9996).
 - Hardware: about 17 GB of GPU memory.
 

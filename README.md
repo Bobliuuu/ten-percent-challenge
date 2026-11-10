@@ -96,7 +96,7 @@ An empty `ann.jsonl` removes the patch and restores the release byte for byte.
 - ⚠️ Second task BANK6: exam retention 1.000 but `Security` teach only .727, shuffled .10 (one draw .49).
 - ⚠️ A new skill close to an old one steals old items: Alarm-to-Timer flips 21.7%; Email vs Lists in continual mode drops neighbours to .86.
 - ⚠️ One narrow task with seven labels; the base is near its ceiling on several cells.
-- ⚠️ Locked-exam teach numbers were measured with the `cols` patch; the `scale` default was checked on the locked teach and neighbour sets (6 draws) and end to end, not on the full exam after feedback.
+- ⚠️ Shipped `scale` carrier on the full locked exam (8 draws): teach .899, neighbours .9936, exam retention after feedback .9988-.9996. Shuffled-label control damaged the exam (retention .9783, fails our 98% gate; `cols` not measured on that arm).
 - ⚠️ The three real `Timer` draws coincide to the last digit (8 templates): one measurement.
 
 Detail: [`v2/lanes/L1/REPORT.md`](v2/lanes/L1/REPORT.md), filing draft [`v2/FILING/ISSUE_DRAFT.md`](v2/FILING/ISSUE_DRAFT.md).
