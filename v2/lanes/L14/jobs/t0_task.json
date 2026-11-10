@@ -1,0 +1,17 @@
+{
+ "tag": "t0_task",
+ "cal": [
+  [
+   "task",
+   2031
+  ]
+ ],
+ "variants": [
+  {
+   "name": "vq2_k160",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 160
+  }
+ ]
+}

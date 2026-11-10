@@ -1,0 +1,28 @@
+{
+ "tag": "b0_broad",
+ "cal": [
+  [
+   "task",
+   2031
+  ],
+  [
+   "general",
+   1896
+  ]
+ ],
+ "variants": [
+  {
+   "name": "vq2_k160",
+   "m": "vq_had",
+   "bits": 2,
+   "k": 160
+  },
+  {
+   "name": "gptq3_k102",
+   "m": "gptq_had",
+   "bits": 3,
+   "g": 128,
+   "k": 102
+  }
+ ]
+}
