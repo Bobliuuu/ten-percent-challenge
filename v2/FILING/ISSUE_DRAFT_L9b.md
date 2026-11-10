@@ -23,18 +23,56 @@ Use only if reading B (pre-compressed start) is dropped by the owner. Same place
 
 The denominator is the text-only size (the vision tower is dropped for a text task). Against the full checkpoint the figure is lower, so this is the less favourable reading. Without feedback files: 9.674%.
 
-## The 9 rules as we read them
-| # | status | evidence and caveat |
+## Why this entry should pass each step and rule (rule by rule)
+
+Labels: PASS = met as written on our exam. GRAY = depends on a reading nobody has ruled on (we argue it but do not call it a pass). WEAK = met thinly. Sources: `v2/lanes/L9b/REPORT.md` (sections numbered there), `MANIFEST.json`, `v2/ENTRY_DECISION.md`.
+
+### The 5 challenge steps
+
+| step | status | argument and evidence |
 |---|---|---|
-| 1 | PASS | 9.704% as above; slack about 157 MB to 9.9% |
-| 2 | PASS | retention 99.55% [99.21], every kind at least 98.4 (Lists), worst source-by-kind cell 97.1; never-used sources 99.45% [98.91]; 3 quantizer draws 99.47 to 99.55. One base run |
-| 3 | PASS on counts, caveats | 2,744 items, 344 to 420 per kind, 1,448 base-correct from never-used sources; the exam is ours; on the exam without `seen_tox` rows, Lists and Transport are below 300 per kind |
-| 4 | **GRAY** | pruning and rounding select or round existing weights using unlabeled task prompts; feedback is a closed-form edit of existing columns stored as a carrier (readings A, C, G) |
-| 5 | PASS (moderate), if A holds | teach 0 to .74-.76 (8-draw means, .60 to .83) on 164 locked items; neighbours 98.0 to 98.6% vs 98.3% empty |
-| 6 | **GRAY on bad draws** | shuffled mean .16 to .18 over 8 draws, range .00 to .40 (.47 on one early draw); real .74 to .76; wrong 0; empty 0. A strict-controls option (`--m 32 --lam 2000 --awt 50`) gives shuffled .02 mean (max .09) but teach only .53 |
-| 7 | PASS | generated skill word |
-| 8 | **WEAK** | base .9676, chance .14, only 3.2% errors left to keep |
-| 9 | **GRAY** | 60% of experts removed using the task's own prompts, so the packed model is a task specialist |
+| 1. One trained model above 0.5B; commercial, not narrow | PASS on the model, **GRAY** on "not narrow" | Qwen3.5-35B-A3B, 35.95 B parameters, unmodified public release. Task: voice-assistant skill routing over four public datasets (reading H: seven labels is a small label set). This entry weakens the argument: the packed model is a task specialist (see rule 9 and own data) |
+| 2. At most 10% of fp16 | PASS | 9.704% with carrier and code (9.674% without); against the full checkpoint 9.35% |
+| 3. Match the base | PASS | retention 99.55% [99.21] of base-correct items, one base run |
+| 4. Exam never seen | PASS on counts | 2,744 locked items sealed by hash, scored once; our exam, not yours |
+| 5. Grow with feedback, no weight training | PASS (moderate), conditional on reading A | teach 0 to .74-.76 (8-draw means), neighbours kept |
+
+### The 9 judging rules
+
+**1. Size counts everything. PASS.** 6,726,991,874 B = 9.704% of the text-only fp16 size (table above), slack about 157 MB to 9.9%. Counted: `body.bin`, tokenizer, config, `core.py`, `qpack.py`, `answer.py`, `fb.bin`, feedback code, task json and the 300-row calibration file. The denominator is the text-only size, which is the less favourable of the two readings (the full checkpoint gives 9.35%).
+
+**2. Same means faithful. PASS.** Retention 99.55% [Wilson lower 99.21] on the 2,744-item exam; every kind at least 98.4 (Lists); worst source-by-kind cell 97.1; never-used sources 99.45% [98.91]; three quantizer draws 99.47 to 99.55. The base is a single run and the exam is ours. This is our own compression of an unmodified public model, so no reading about a pre-compressed start is needed.
+
+**3. The exam is unseen ground. PASS on counts, with caveats.** 2,744 items, 344 to 420 per kind, 1,448 base-correct items from never-used sources. Caveat: on the exam without the 532 `seen_tox` rows Lists and Transport fall below 300 per kind.
+
+**4. No new trained parts. GRAY (readings A, C, G).** No head, classifier, adapter, lookup, side memory, prompt text or new tensor. Two things are data-dependent: (i) which 102 of 256 experts per layer to keep, chosen by routing mass on unlabeled task prompts (no labels, no gradient), and rounding to 3 bits (RTN, no learned rounding); (ii) the feedback edit, a closed-form solve of existing shared-expert `down_proj` columns stored as replacement columns in `fb.bin`. Strongest argument: pruning and rounding select or round weights the model already has, which is "compression technique" in the maintainer's wording on issue #1 ("compression techniques are fine but no retraining"); the feedback edit adds no tensor and the answer comes from the model's own forward pass. Weak side: both steps are fitted to data in some sense, and `fb.bin` looks like a stored patch.
+
+**5. Feedback has to teach. PASS (moderate), conditional on A.** At most 25 annotated mistakes; 164 locked unseen items; teach 0 to .74-.76 (8-draw means; draws .60 to .83; cross-source MTOP and HWU64 included); neighbours 98.0 to 98.6% against 98.3% with empty feedback; worst neighbour cell 95.8 to 97.9. Weak side: teach is moderate, not high, and varies by draw.
+
+**6. Controls. GRAY on bad draws.** Real .74 to .76; wrong labels 0; empty 0; **shuffled mean .16 to .18 over 8 draws, range .00 to .40 (.47 on one early draw)**. The gap to real is about .58 on average, so "clearly worse" holds on average and on most draws; one draw is close to half of real. A strict-controls setting (`--m 32 --lam 2000 --awt 50`) gives shuffled mean .02 (max .09) but teach only .53. We report the leak rather than hide it.
+
+**7. Do the real job. PASS.** The model generates the skill word; exact string match; no constrained decoding.
+
+**8. The original must have something to keep. WEAK.** Base .9676 (chance .14): only 3.2% of items are wrong, so there is little headroom. It is below the ceiling and far above chance, which is the letter of the rule.
+
+**9. Spirit. GRAY.** 60% of experts are removed using the task's own prompts, so the packed model is a task specialist; on unrelated text it diverges from the base (own-data section: generic prompts identical 11%). Our reading: the exam is the task, the model matches the base on it (99.55%), is 9.7% of the size, and learns, which is the challenge as worded; but a judge who tries other prompts will see a degraded general model, and the second task BANK6 does not pass with the same recipe. We label this GRAY and expect it to be the entry's weakest rule.
+
+### How it answers the earlier objections to other entries
+
+The maintainer's written objections were: feedback that works only through a fitted classifier file; a nearest-centroid classifier computed outside the model; a grown model never run on new-label items; an answer command that cannot print a new label; output rows overwritten and called "the same head as before, just kept inside the model file".
+
+| objection | how this entry differs | evidence |
+|---|---|---|
+| fitted classifier file | none. `fb.bin` holds replacement columns for existing shared-expert `down_proj` tensors; without it the model is the packed base | REPORT section 10 (fresh-clone run) |
+| number computed in numpy | every teach number is real greedy generation of the grown model | REPORT feedback sections |
+| grown model never run on the new label | 164 locked new-label items, 8 draws; fresh clone: `feedback.py` then `answer.py` prints `recipe` on unseen recipe requests while the other probes are unchanged | `results/fresh_clone_run.json` |
+| answer command knows only old classes | `answer.py` prints generated text and takes `--task` JSON; `Recipe` and `Timer` come out although neither is in the menu | same, and own-data `Timer` emitted 100% |
+| output rows overwritten | no `lm_head` or embedding row is touched; the edit is on shared-expert `down_proj` columns of the last 10 MoE layers | `fb.bin` layout, 10 layers x 512 columns |
+| attributing learning to feedback | wrong 0, empty 0, shuffled mean .16 to .18 (draw-dependent, see rule 6) | REPORT section 8 |
+
+### The maintainer's own-data check (our proxy, not his data)
+
+Results are in the section above. What they show, stated without softening: on a different distribution the packed model **does not stay base-like**: Banking77 retention 79.3% [71.8], generic prompts identical 11%, router agreement 46%. It does keep learning: an unseen label `Timer` is emitted 100%. A caveat on our own control there: with a single new label the shuffled control is degenerate (half of the 12 labels set to `Alarm`, Timer .93 to 1.0), so it does not separate; the wrong-label control (Timer 0.0) does. If the maintainer's data looks like the router task it should behave as on the exam; if it looks like Banking77 it will not match the base. This is why L9b is the fallback entry, not the primary.
 
 ## Own-data dry run (our data, not yours) and BANK6: this entry is weak here
 - Banking77 (200 test queries, 77-label menu): base 70.0%, packed 61.0%; retention **79.3% [71.8]**; identical output 72.5%.
@@ -51,4 +89,11 @@ python feedback.py --artifact <<DIR>> --task skill_task.json --ann ann.jsonl
 Needs one GPU with at least 40 GB (tested on 80 GB and 141 GB cards). A fresh clone run of both commands worked end to end (body.bin hash verified, `Recipe` emitted after feedback). Rows: `v2/lanes/ANNOTATION_SCHEMA.md`.
 
 ## Readings we had to guess (our best-evidence reading, not settled)
-A: closed-form edit of existing weights is legal feedback. C: expert pruning chosen with the task's own unlabeled prompts is data-dependent selection, not a trained part. G: a stored carrier of replacement columns is not a "new part". R9: a task-specialised model that matches its base on the task and learns still meets the spirit. Each has a stated risk above (rules 4, 6, 9).
+
+- **A. A closed-form edit of existing weights is legal feedback (rule 4, step 5). GRAY.** For: step 5 requires learning "with no weight training", so some change to the model's own values is the only route the rules leave open (prompt, memory, head and adapter are banned); the edit has no gradient and adds no tensor. Risk: it is still a calculation fitted to annotations.
+- **C. Expert pruning chosen with the task's own unlabeled prompts is not a trained part (rule 4, rule 9). GRAY.** For: it deletes whole existing experts by routing frequency, with no labels and no gradient, which is compression. Risk: it is data-dependent selection that makes the model a task specialist.
+- **G. A stored carrier of replacement columns is not a new part (rule 4). GRAY.** For: the columns replace columns of an existing tensor and run through the same layer. Risk: `fb.bin` (21 MB) looks like an adapter.
+- **H. 7-way routing is commercial and not narrow (step 1). GRAY.** For: it is the first decision of a voice assistant, over four datasets. Risk: seven labels, and a base at 96.8%.
+- **R9. Spirit. GRAY.** Argued under rule 9; weakest here because of the generic-prompt divergence.
+
+Each risk is stated in the rule it affects (rules 4, 6, 8, 9).
