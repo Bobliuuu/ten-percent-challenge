@@ -465,3 +465,4 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-09 L9 fb_draws first launch failed (loader import path); relaunched with PYTHONPATH incl exam dir, g3 x2 (seeds 0-2, 3-5)
 - 2026-11-09 L9 locked fb draws 6 seeds done (results in v2/lanes/L9/results/fb_locked_k88_*.json)
 - 2026-11-09 L4 BANK6 locked-exposed m sweep (exploratory, NOT dev-selected): lock_x m64/m128/m128+lam300 fc-01M6ZQ6ZMT45MXXNZT75SHFY9C; lock_y m80/m96 8 draws fc-01M6ZRD13SEP32B3NE0YY20SKJ
+- 2026-11-09 L12 owndata dry run od1 (v2/lanes/L12/owndata, app tenpct-l12-owndata) fc-01M71KZZTQYZ7BYMJQGF1TZSP9
