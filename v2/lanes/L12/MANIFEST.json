@@ -236,5 +236,72 @@
    "results/modal/fbf2_final.json"
   ]
  },
- "hosts_and_ids_note": "Modal volume tenpct-l12b is private; no ids or hostnames are recorded here"
+ "hosts_and_ids_note": "Modal volume tenpct-l12b is private; no ids or hostnames are recorded here",
+ "repo_sha256_shipped_code": {
+  "l12_runtime.py": "bc4c3145567d9316642c37f0c9bb7ace589e8174412970e05b3db1e5281e0ca4",
+  "answer.py": "9410999cb0f58949c448b94c3f5b14d6f8eb01e440854cf24bf0618090ac5c68",
+  "feedback.py": "56b34b33929cca69fffe70a51c2bd1e69519da06c6c1b0e67fa9ce91b8183ec6",
+  "annot.py": "862c49ac392bc4a2dd7ac90c12dbe60d9640eb16e6476b9da4e3fba77a68f8c9",
+  "skill_task.json": "9a565bd7a9025d11cd061b0c7a4fe59e40ea6703314a96cd95c091c9da917af9",
+  "feedback_cal.jsonl": "c87e0b7297cf39e97d7e02e0ccf04eedfa0aca79c8a3f1effeef388a02419226"
+ },
+ "artifact_sha256": {
+  "attn_shared.safetensors": "82c310b8c96123a47aeb7e7db82a0163ddd4820a353656607a669631686811d9",
+  "embed.safetensors": "61d17a6c5d630180b8d8f4cf164f322623dd69e550b9342a68f153e258ba254e",
+  "head.safetensors": "123cb70ba88976e028ed14938499ee31e625702a4248a654564f554305ce91e2",
+  "layer0.safetensors": "d8c784cd24028311bf9dcf8b92289f9ae5cb86a924553208569dbfcf509303e0",
+  "layer1.safetensors": "bfda25f99a2bdcfa5754a0b3d34ae94d579ed7073f30ec04e6e0d47ad3437d83",
+  "layer10.safetensors": "e0f2fe75f1a131da3d04bacaeae32f20a526845356e097dcdfe129de28d57ad6",
+  "layer11.safetensors": "383d987e38f02e6bb6fae200960be768bb6fd29f1b4804c5f0cbefad9e3953c6",
+  "layer12.safetensors": "15ed9c12cca4d96755d547a4ce695d237bb36ab9458ed7c708244543877141e4",
+  "layer13.safetensors": "fd30026fbd0aa7df30a4dc918904719ed8396a06d81d7f3d1291134a7c0065a9",
+  "layer14.safetensors": "a367b94b3e79ac9cda9ce01df5d37dba792601db3333079f1e64aac0f31acaf6",
+  "layer15.safetensors": "d90eb0f4389baf0f66ca40beb139ab96bac9832019eaef84ff473e3c4a4dc827",
+  "layer16.safetensors": "cfab491f0ab1abd8b0a65431072729826dc1b576f44930b9179847d9fa61e311",
+  "layer17.safetensors": "af29b7691051dce9b200ab206f2d98b02fd0b870e89b632fb4ccf43c6447cd9a",
+  "layer18.safetensors": "5100282b5df2e64ba38126d5f168c87419d265dbee0f62250160d82c8c7a6860",
+  "layer19.safetensors": "1ce0191c318bec226040be90e60ce540af4c6e672289ae9924f74b2a1f29c2f3",
+  "layer2.safetensors": "a6f443a7da441557a1958de60b146031aad797cab0146c288d343d473acf7e98",
+  "layer20.safetensors": "f2cb8082e4a481095bc1aa9d0605093412d0fb680ecfd87cebd132a88c3df80f",
+  "layer21.safetensors": "4684283d730579c2b47c5436c0297d066f49993009602c0bfb7006f06e5275c0",
+  "layer22.safetensors": "2b02ed35761a11a00972f3a7e567a5ba4ce6a725b71e0e2d70752aefc8561c34",
+  "layer23.safetensors": "bab082af997534285c20610d8e9af5d788df26676512aea0e88fab3d42dbd598",
+  "layer24.safetensors": "a84fe319f5073ebfc6f21c0313c035ef51d4381130e0e5f1da4cd8b6be4087a2",
+  "layer25.safetensors": "a88ba9a6a70ce1464e26680e7361d626c363819481efbdfcc0add99db98c6dc8",
+  "layer26.safetensors": "ca65b4d0e11bc84bcc30aa21c814ed4fa79c5f1bcf336b43e033e72b56a41d65",
+  "layer27.safetensors": "27cc42356514f3acc6873c1506eb869c73adac92f238405a75b36de808240abc",
+  "layer28.safetensors": "73ac41a3677e8e805d089266f4ce2c81840bf371dac4af1d36ed6e30df4e6813",
+  "layer29.safetensors": "a5e6c6817ec1f6c320832284ccc77b036f9162f6df0a48fd3a37aa99e9a5b5df",
+  "layer3.safetensors": "8b2df3feefd0dd2189e4a65852378b464ddaad6e371985dc2247b16f5583f6b4",
+  "layer30.safetensors": "3c6d4a8ce0176a9cf5e9556a357198dad7001f5e93a9e4e2dea9a15b1d5a970f",
+  "layer31.safetensors": "c6d4c02db645ab46bcd285f4b0b920d9eff20dd154f327e8c7bb527cfc839826",
+  "layer32.safetensors": "4c5cce4726ced442628d5a90f5057697edff9899da47d8fbc2cf2bcabb638b84",
+  "layer33.safetensors": "c0ab4b754d3845c0a00944382fefe5634ce80b528e0ac090bd9e5cd1588e6a3f",
+  "layer34.safetensors": "25fb11a1b0ddb9387425a8710107fd2b9e25ee3a96ba4b53f67c687b7ddc1e64",
+  "layer35.safetensors": "3ae1573aa6d0afd54c952023dafb8b1577555bc9934094824c632fb4886aaf59",
+  "layer36.safetensors": "f092aef7613c77a103cb7be939124580c24e03319a72c247376c56b5aecf9b6e",
+  "layer37.safetensors": "102d99eddc500336d1da5228c96b25336e05d6bdbbb2f117451dc74cd9154b80",
+  "layer38.safetensors": "9634c623d4d1925692bd3eac991c3022f87ac82c082923997a600d6375ca39b0",
+  "layer39.safetensors": "6b486cc3ba244b7a51050b4cb5455b93a74c86dece37983de1233950b62c8f1d",
+  "layer4.safetensors": "f0bf0a56972ffe2cc6ac82627ee86ef8a19f6b25ed371d15382047a94553a624",
+  "layer5.safetensors": "4b7973384bf27c3499b49dd6a39b4646948e679da9346e1f89d722dfbbde71b5",
+  "layer6.safetensors": "cce423576165e53c5b2c68da3a35defe48417247982fec6db51a37981f581ca9",
+  "layer7.safetensors": "99368095254c75efbb28b6be477b7631efb313f34cf66b30dbb46d56fe4140a6",
+  "layer8.safetensors": "1ab5d3031ad91adc19b304de20764644f28bed5a38f2d5aeeb8719556ba337cb",
+  "layer9.safetensors": "f3ba6b28f6244bd968f55e7ac4ee6e77f6d01e822393c397e396bf8cb6f0d6d0",
+  "small.safetensors": "9f52687f61df3250c78ec0d525f56801c051711e262e69877dbbb19ddefa4d07"
+ },
+ "e2e_2026_11_09": {
+  "note": "Artifact dir = 44 packed files + config.json tokenizer.json tokenizer_config.json generation_config.json chat_template.jinja + shipped code + skill_task.json + feedback_cal.jsonl (300 rows) + MANIFEST.json + fb.bin/fb.json. Packed files above are the Modal-built pack (private volume tenpct-l12b:/art). A rebuild from the HF model on another host (Vast, torch 2.8) is NOT bit-identical: 15 of 44 files match sha256, 29 differ (same sizes; kept-expert sets or RTN rounding drift); the locked numbers of the e2e run come from that rebuilt pack, the 200-item parity and the CLI check from the Modal pack.",
+  "shipped_defaults": {
+   "nlay": 10,
+   "cols": 512,
+   "margin": 64,
+   "lam": 2000,
+   "awt": 30,
+   "source": "devsel/ dev-only pick"
+  },
+  "carrier_bytes_ceiling_nlay10": 20981760,
+  "carrier_bytes_observed_cli": 10490880
+ }
 }

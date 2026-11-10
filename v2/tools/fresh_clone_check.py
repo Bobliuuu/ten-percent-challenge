@@ -13,7 +13,7 @@ CAP = 10.0
 LANES = {
  "L9b": dict(denom=69321221376, declared=6726881085, src="MANIFEST total_with_feedback; denominator text-only fp16 (stricter than full 71.9 GB)",
              ans='python3 answer.py {art} --task skill_task.json "{txt}"', fb='python3 feedback.py --artifact {art} --ann {ann} --task skill_task.json'),
- "L12": dict(denom=69321221376, declared=5470428304 + 41963520 + 1024 + 9000, src="MANIFEST bytes_audit.total_text_only_worst_case (44 packed files + config/tokenizer/template + code + 300-row cal file + analytic 20-layer carrier ceiling); denominator text-only fp16",
+ "L12": dict(denom=69321221376, declared=5491424915, src="bytes_audit of the L12 artifact dir with the nlay-10 carrier at its analytic ceiling (44 packed files + config/tokenizer/template + code + 300-row cal file + MANIFEST); denominator text-only fp16",
              ans='python3 answer.py {art} "{txt}"', fb='python3 feedback.py --artifact {art} --ann {ann}'),
  "L1":  dict(denom=16381470720, declared=1218467357, src="MANIFEST total_bytes_with_feedback_patch; denominator Qwen3-8B fp16 (MANIFEST 7.438%)",
              ans='python3 answer.py --artifact {art} --task skill_task.json "{txt}"', fb='python3 feedback.py --artifact {art} --task skill_task.json --ann {ann}'),
