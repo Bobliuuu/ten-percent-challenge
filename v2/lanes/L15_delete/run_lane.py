@@ -35,13 +35,13 @@ def rate(rows, outs, lab=None): return float(np.mean([o == (lab or r["kind"]) fo
 def summ(D): s = D["stats"]; return {k: s[k] for k in ("n_deleted", "frac_of_target", "frac_of_all_params", "n_prior", "deleted_not_in_prior", "prior_restored", "skipped_steps", "seconds")} | {"bytes": D["bytes"], "hist_last": s["hist"][-1]}
 R["runs"] = []
 if mode == "dev":
-    nb = [r for r in sel[:300] if pool_out[r["id"]] == r["kind"]]; R["n_dev_neigh"] = len(nb)
+    half = min(300, len(sel) // 2); nb = [r for r in sel[:half] if pool_out[r["id"]] == r["kind"]]; R["n_dev_neigh"] = len(nb); nbids = {r["id"] for r in sel[:half]}
     for ci, cfg in enumerate(CFGS):
         for d in range(NDRAW):
             rr = random.Random(9100 + d); ix = rr.sample(ann_pool, 25); ids = {r["id"] for r in ix}; dt = [r for r in ann_pool if r["id"] not in ids]
-            shuf = rr.sample([r for r in sel_ok if r not in sel[:300]], 25)
+            ps = [r for r in sel_ok if r["id"] not in nbids]; shuf = rr.sample(ps, min(25, len(ps)))
             for arm, rows in (("real", ix), ("shuffled", shuf)):
-                D = learn(rows, [NEW] * 25, cfg, d); sv = DL.apply(m, D)
+                D = learn(rows, [NEW] * len(rows), cfg, d); sv = DL.apply(m, D)
                 o_t = gen(dt); o_n = gen(nb); DL.undo(m, sv)
                 rec = dict(cfg=ci, d=d, arm=arm, dev_teach=rate(dt, o_t, NEW), dev_teach_n=len(dt), dev_neigh_kept=rate(nb, o_n), dev_teach_out=collections.Counter(o_t).most_common(5)) | summ(D)
                 R["runs"].append(rec); json.dump(R, open(out, "w")); log(ci, d, arm, {k: rec[k] for k in ("dev_teach", "dev_neigh_kept", "n_deleted")})
