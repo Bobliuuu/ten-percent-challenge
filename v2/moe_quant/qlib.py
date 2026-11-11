@@ -236,6 +236,71 @@ def kmeans_w(X, K, iters=15, wts=None, seed=0):
         C[ok] = sums[ok] / cnt[ok, None]
     return C
 
+# ---------------------------------------------------------------- e-means codebook fitter (opt-in alternative to kmeans_w)
+# Minimal PyTorch port of Algorithm 1 of "E-Means: Scaling Laws for Mini-Batch K-Means" (Bessa et al., Meta FAIR, arXiv 2611.09501),
+# following the reference implementation in FAISS contrib/e_means (base.py, e_means.py), Copyright (c) Meta Platforms, Inc. and affiliates,
+# MIT licence. Ported: the batch and step scaling laws, cosine-annealed EMA step with a 0.1 floor, mass-weighted EMA centroid update,
+# revival of unused clusters by splitting mass-sampled donors every 5 updates, closing means from the last pass. Not ported: Triton/CuTe
+# kernels, spherical mode, distributed/sharded variants, max_points_per_centroid. Extension (not in the reference): optional per-row
+# weights `wts` (weighted sums and counts), so it is a drop-in for kmeans_w.
+_EM_BATCH_LAWS = {"throughput": (0.035134, 0.134749, 0.876473, 0.813344), "quality": (0.00439175, 0.134749, 0.876473, 0.813344)}
+_EM_ALPHA_LAW = (0.8244, -0.4617, 0.9003, -0.4498, -0.1057)
+
+def _em_pow2(v):
+    if v <= 1: return 1
+    lo = 2 ** int(math.floor(math.log2(v))); return lo if v / lo < 2 * lo / v else 2 * lo
+
+def emeans_recipe(n, k, d, epochs=5.0, batch_law="auto", batch_size=None, alpha0=None):
+    """(batch size B, initial EMA step alpha0, rows per pass) from the fitted laws (Eq. 6-7 of the paper, FAISS shipped coefficients)."""
+    law = ("quality" if d <= 16 else "throughput") if batch_law == "auto" else batch_law
+    if batch_size is None:
+        c, bk, bn, bt = _EM_BATCH_LAWS[law]; B = _em_pow2(c * k ** bk * n ** bn * epochs ** bt)
+        B = min(B, _em_pow2(n / 2)) if law == "throughput" else min(B, n // 2); B = max(1, min(B, n))
+    else: B = min(int(batch_size), n)
+    if alpha0 is None:
+        c, ak, ab, an, at = _EM_ALPHA_LAW; alpha0 = min(max(c * k ** ak * B ** ab * n ** an * epochs ** at, 1e-4), 1.0)
+    whole = math.floor(epochs); rem = int(round((epochs - whole) * n))
+    rows = [rem] if whole == 0 else [n] * (whole - 1) + ([rem] if rem else []) + [n]
+    return B, float(alpha0), rows
+
+def emeans_w(X, K, epochs=5.0, wts=None, seed=0, batch_law="auto", batch_size=None, alpha0=None, unused_threshold=None, chunk=16384):
+    """e-means on X[N,D] -> centroids [K,D] (fp32). Same contract as kmeans_w; `epochs` (passes over the data, may be fractional) is the only knob."""
+    dev = X.device; N, D = X.shape; X = X.float(); gen = torch.Generator().manual_seed(seed)
+    C = X[torch.randperm(N, generator=gen)[:K].to(dev)].clone()
+    if C.shape[0] < K: C = torch.cat([C, torch.randn(K - C.shape[0], D, device=dev) * X.std()])
+    w = wts.float() if wts is not None else None
+    B, a0, rows_per_pass = emeans_recipe(N, K, D, epochs, batch_law, batch_size, alpha0)
+    total = sum((r + B - 1) // B for r in rows_per_pass); tau = (0.0 if D <= 2 else 0.1) if unused_threshold is None else float(unused_threshold)
+    usage = torch.full((K,), 2.0 ** -16, device=dev); step = 0; sign = torch.ones(D, device=dev); sign[1::2] = -1.0
+    for ep, rows in enumerate(rows_per_pass):
+        order = torch.randperm(N, generator=torch.Generator().manual_seed((seed * 1000003 + ep) % 2 ** 32)).to(dev); last = ep == len(rows_per_pass) - 1
+        if last: psum = torch.zeros(K, D, device=dev); pcnt = torch.zeros(K, device=dev)
+        for b0 in range(0, rows, B):
+            idx = order[b0:min(b0 + B, rows)]; xb = X[idx]; Cn = 0.5 * (C ** 2).sum(1); ii = torch.empty(len(idx), dtype=torch.long, device=dev)
+            for a in range(0, len(idx), chunk): ii[a:a + chunk] = (xb[a:a + chunk] @ C.T - Cn).argmax(1)       # against the batch-start snapshot
+            wb = w[idx] if w is not None else torch.ones(len(idx), device=dev)
+            sums = torch.zeros(K, D, device=dev).index_add_(0, ii, xb * wb[:, None]); cnt = torch.zeros(K, device=dev).index_add_(0, ii, wb)
+            if last: psum += sums; pcnt += cnt
+            frac = min(step, total) / max(1, total); alpha = a0 * (0.1 + 0.9 * 0.5 * (1.0 + math.cos(math.pi * frac)))    # Eq. 5, floor 0.1
+            t = cnt > 0
+            if alpha < 1: usage *= (1.0 - alpha); retained = usage[t]
+            else: retained = torch.zeros_like(cnt[t])
+            mass = retained + alpha * cnt[t]; mean = sums[t] / cnt[t, None]; wt = (alpha * cnt[t] / mass)[:, None]
+            C[t] = torch.where(wt == 1, mean, C[t] + wt * (mean - C[t])); usage[t] = mass
+            if tau > 0 and (step + 1) % 5 == 0:                                                                      # revival (Alg. 1 line 9, App. J)
+                unused = usage < usage.sum() * tau / K; donors = (~unused) & (usage > 0); ns = min(int(unused.sum()), int(donors.sum()))
+                if ns:
+                    u = torch.rand(K, generator=gen).to(dev).clamp(min=1e-38); keys = torch.full((K,), -float("inf"), device=dev)
+                    keys[donors] = usage[donors].log() - (-u[donors].log()).log(); src = keys.topk(ns).indices; tgt = unused.nonzero()[:ns, 0]
+                    c0 = C[src]; C[src] = c0 * (1 - 1e-4 * sign); C[tgt] = c0 * (1 + 1e-4 * sign); usage[src] = usage[src] / 2; usage[tgt] = usage[src]
+            step += 1
+    ok = pcnt > 0; C[ok] = psum[ok] / pcnt[ok, None]                                                                  # closing means of the last pass
+    return C
+
+def fit_codebook(X, K, iters=15, wts=None, seed=0, method="lloyd"):
+    """codebook fitter switch: method 'lloyd' = kmeans_w(iters) (default, unchanged); 'emeans' = emeans_w with epochs=iters."""
+    return emeans_w(X, K, epochs=iters, wts=wts, seed=seed) if method == "emeans" else kmeans_w(X, K, iters=iters, wts=wts, seed=seed)
+
 _CB = {}
 def e8_codebook(K, dev):
     """first K points of the E8 lattice ordered by norm (D8 U D8+1/2, even coordinate sum), scaled to unit-variance Gaussian MSE optimum"""
@@ -280,8 +345,8 @@ def nn_argmax(X, C, Cn, bs=2048):
 class VQ:
     """D-dim VQ rounder. cb in {'gauss','e8'}; per-tensor sigma (use after rotation). stages>1 => residual multi-stage VQ (AQLM-like additive, codebooks Gaussian-trained on residuals, greedy+ICM re-encode).
     fit=True: codebooks fitted to this tensor's own vectors (data-fitted, shipped, bytes counted)."""
-    def __init__(s, D=8, K=4096, cb="gauss", stages=1, fit=False, icm=1, row_scale=None, cb_bits=16):
-        s.D, s.B, s.K, s.cbk, s.stages, s.fit, s.icm, s.rs, s.cbb = D, D, K, cb, stages, fit, icm, row_scale, cb_bits; s.g = None; s.dev = None
+    def __init__(s, D=8, K=4096, cb="gauss", stages=1, fit=False, icm=1, row_scale=None, cb_bits=16, fitter="lloyd"):
+        s.D, s.B, s.K, s.cbk, s.stages, s.fit, s.icm, s.rs, s.cbb, s.fitter = D, D, K, cb, stages, fit, icm, row_scale, cb_bits, fitter; s.g = None; s.dev = None
     def prepare(s, W):
         s.R, s.C = W.shape; dev = W.device; s.dev = dev
         s.sigma = float(W.pow(2).mean().sqrt()) if s.rs is None else None
@@ -294,7 +359,7 @@ class VQ:
             Xv = Wn.reshape(-1, s.D)[:: max(1, (Wn.numel() // s.D) // 200000)] if s.fit else torch.randn(200000, s.D, device=dev)
             res = Xv
             for m, Km in enumerate(Ks):
-                Cm = kmeans_w(res, Km, iters=12 if s.fit else 10, seed=m); s.cbs.append(Cm); Cn = 0.5 * (Cm ** 2).sum(1); ii = nn_argmax(res, Cm, Cn); res = res - Cm[ii]
+                Cm = fit_codebook(res, Km, iters=12 if s.fit else 10, seed=m, method=s.fitter); s.cbs.append(Cm); Cn = 0.5 * (Cm ** 2).sum(1); ii = nn_argmax(res, Cm, Cn); res = res - Cm[ii]
         s.cns = [0.5 * (c ** 2).sum(1) for c in s.cbs]; s.nb = 0
     def start_group(s, Wg): pass
     def _enc(s, X):
