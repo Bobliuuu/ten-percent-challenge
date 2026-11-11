@@ -486,3 +486,8 @@ modal app tenpct-l9b (v2/lanes/L9b/modal_l9b.py); pack1 spawn fc-01M6XX7HSHPET6X
 - 2026-11-10T06:13Z vast id 60027423 label tenpct-l1scale GPU L40S 45GB $0.428/h (+5% guard) started
 - 2026-11-10 L1 scale locked: Vast 60027423 (L40S, tenpct-l1scale) driven manually after launcher ssh hang; DESTROY when done
 - 2026-11-10 L1 scale-carrier locked exam DONE (Vast 60027423 destroyed, verified; earlier 60023691/60024742/60025610 destroyed). Results lanes/L1/results/locked_L1_scale.json
+
+## L15 deletion-mask feedback carrier (branch feat/deletion-feedback) 2026-11-11
+- Modal app `tenpct-l15` = ap-ZJs28BGrXL0kdvgU68C3w8 (deployed; volume tenpct-l15:/results/<tag>.{json,log}, RESULT_JSON in logs). Model: prism-ml/Bonsai-8B-unpacked @376f381 (output-identical to the L1 pack).
+- 2026-11-11T16:07Z smoke8b: `python v2/lanes/L15_delete/modal_l15.py lane smoke8b dev '[{"steps":20}]' 1 40` call fc-01M75NSNMA9KFNTZTQ1EVV954W (plumbing/memory smoke, 40-item limit)
+- 2026-11-11T16:15Z smoke06b: `modal_l15.py lane smoke06b dev '[{"steps":100}]' 1 60 Qwen/Qwen3-0.6B` (small-model smoke; local CPU smoke OOMed in RAM at step 0 on the shared laptop)
