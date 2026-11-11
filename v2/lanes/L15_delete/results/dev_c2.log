@@ -1,0 +1,54 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:29<01:29, 29.79s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:39<00:35, 17.76s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:39<00:09,  9.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:39<00:00,  9.92s/it]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[    51s] calib seqs 182
+[    67s] base outputs on pool/sel done
+[    69s]    {'step': 0, 'ce_ann': 3.2284, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3355375, 'gnorm': 6.0188}
+[    81s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3200867, 'gnorm': 0.0059}
+[    93s]    {'step': 40, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2451695, 'gnorm': 0.0037}
+[   104s]    {'step': 60, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 1941996, 'gnorm': 0.0024}
+[   116s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 1666506, 'gnorm': 0.0018}
+[   128s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1523608, 'gnorm': 0.0012}
+[   140s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1445441, 'gnorm': 0.0009}
+[   151s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1402089, 'gnorm': 0.0006}
+[   163s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1377864, 'gnorm': 0.0003}
+[   175s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1366193, 'gnorm': 0.0003}
+[   186s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1363028, 'gnorm': 0.0001}
+[   195s] 0 0 real {'dev_teach': 0.9781818181818182, 'dev_neigh_kept': 0.8637992831541219, 'n_deleted': 1363028}
+[   197s]    {'step': 0, 'ce_ann': 9.6689, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3354798, 'gnorm': 4.9484}
+[   209s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3560847, 'gnorm': 0.0063}
+[   221s]    {'step': 40, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2897430, 'gnorm': 0.0043}
+[   232s]    {'step': 60, 'ce_ann': 0.0006, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 2342692, 'gnorm': 0.0045}
+[   244s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 2050650, 'gnorm': 0.0023}
+[   256s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1889173, 'gnorm': 0.0016}
+[   268s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1801611, 'gnorm': 0.0011}
+[   280s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1748986, 'gnorm': 0.0007}
+[   292s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1719355, 'gnorm': 0.0004}
+[   303s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1703914, 'gnorm': 0.0003}
+[   315s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1699819, 'gnorm': 0.0002}
+[   325s] 0 0 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.0, 'n_deleted': 1699819}
+[   327s]    {'step': 0, 'ce_ann': 3.581, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3353328, 'gnorm': 5.7305}
+[   339s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3100288, 'gnorm': 0.0058}
+[   351s]    {'step': 40, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2363622, 'gnorm': 0.0036}
+[   362s]    {'step': 60, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 1885841, 'gnorm': 0.0025}
+[   374s]    {'step': 80, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 1629746, 'gnorm': 0.0016}
+[   386s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1494576, 'gnorm': 0.0011}
+[   398s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1422724, 'gnorm': 0.0008}
+[   410s]    {'step': 140, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1383688, 'gnorm': 0.0004}
+[   421s]    {'step': 160, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1362612, 'gnorm': 0.0006}
+[   433s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1352522, 'gnorm': 0.0004}
+[   444s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1350312, 'gnorm': 0.0001}
+[   454s] 0 1 real {'dev_teach': 0.9854545454545455, 'dev_neigh_kept': 0.8602150537634409, 'n_deleted': 1350312}
+[   456s]    {'step': 0, 'ce_ann': 10.2441, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3353907, 'gnorm': 4.7481}
+[   468s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3550395, 'gnorm': 0.0063}
+[   479s]    {'step': 40, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2889997, 'gnorm': 0.0043}
+[   491s]    {'step': 60, 'ce_ann': 0.0007, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 2340672, 'gnorm': 0.0053}
+[   503s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 2069519, 'gnorm': 0.0021}
+[   515s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1917002, 'gnorm': 0.0016}
+[   527s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1832061, 'gnorm': 0.001}
+[   539s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1780089, 'gnorm': 0.0007}
+[   551s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1750480, 'gnorm': 0.0004}
+[   563s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1734877, 'gnorm': 0.0003}
+[   574s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1730943, 'gnorm': 0.0001}
+[   586s] 0 1 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.0, 'n_deleted': 1730943}
+[   586s] DONE

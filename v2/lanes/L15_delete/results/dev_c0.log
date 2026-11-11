@@ -1,0 +1,54 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.48s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:01,  1.02it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.30it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.50it/s]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[    14s] calib seqs 182
+[    30s] base outputs on pool/sel done
+[    33s]    {'step': 0, 'ce_ann': 3.2284, 'ce_cal': 0.0058, 'sharp': 100.0, 'n_del': 3355372, 'gnorm': 6.0171}
+[    53s]    {'step': 20, 'ce_ann': 0.0008, 'ce_cal': 0.0028, 'sharp': 190.0, 'n_del': 3987334, 'gnorm': 0.0145}
+[    73s]    {'step': 40, 'ce_ann': 0.0004, 'ce_cal': 0.3211, 'sharp': 280.0, 'n_del': 4286315, 'gnorm': 1.37}
+[    93s]    {'step': 60, 'ce_ann': 0.0004, 'ce_cal': 0.0037, 'sharp': 370.0, 'n_del': 4401130, 'gnorm': 0.034}
+[   113s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0003, 'sharp': 460.0, 'n_del': 4360286, 'gnorm': 0.0039}
+[   133s]    {'step': 100, 'ce_ann': 0.0002, 'ce_cal': 0.0003, 'sharp': 550.0, 'n_del': 4246269, 'gnorm': 0.0037}
+[   153s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0004, 'sharp': 640.0, 'n_del': 4097700, 'gnorm': 0.0042}
+[   173s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0004, 'sharp': 730.0, 'n_del': 4020803, 'gnorm': 0.0042}
+[   193s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0001, 'sharp': 820.0, 'n_del': 3976981, 'gnorm': 0.0011}
+[   213s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0003, 'sharp': 910.0, 'n_del': 3928668, 'gnorm': 0.0026}
+[   232s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3903959, 'gnorm': 0.0004}
+[   251s] 0 0 real {'dev_teach': 0.96, 'dev_neigh_kept': 0.992831541218638, 'n_deleted': 3903959}
+[   253s]    {'step': 0, 'ce_ann': 9.6689, 'ce_cal': 0.0059, 'sharp': 100.0, 'n_del': 3354792, 'gnorm': 4.9308}
+[   273s]    {'step': 20, 'ce_ann': 0.1733, 'ce_cal': 0.5104, 'sharp': 190.0, 'n_del': 4048091, 'gnorm': 0.9706}
+[   294s]    {'step': 40, 'ce_ann': 0.0031, 'ce_cal': 0.0911, 'sharp': 280.0, 'n_del': 4624380, 'gnorm': 0.3657}
+[   314s]    {'step': 60, 'ce_ann': 0.0015, 'ce_cal': 0.0034, 'sharp': 370.0, 'n_del': 4919528, 'gnorm': 0.047}
+[   334s]    {'step': 80, 'ce_ann': 0.0007, 'ce_cal': 0.0007, 'sharp': 460.0, 'n_del': 4966520, 'gnorm': 0.0077}
+[   354s]    {'step': 100, 'ce_ann': 0.0005, 'ce_cal': 0.0007, 'sharp': 550.0, 'n_del': 4963453, 'gnorm': 0.0073}
+[   374s]    {'step': 120, 'ce_ann': 0.0003, 'ce_cal': 0.0008, 'sharp': 640.0, 'n_del': 4843059, 'gnorm': 0.0059}
+[   394s]    {'step': 140, 'ce_ann': 0.0002, 'ce_cal': 0.0004, 'sharp': 730.0, 'n_del': 4710808, 'gnorm': 0.0042}
+[   414s]    {'step': 160, 'ce_ann': 0.0001, 'ce_cal': 0.0003, 'sharp': 820.0, 'n_del': 4607347, 'gnorm': 0.0031}
+[   434s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 910.0, 'n_del': 4545431, 'gnorm': 0.0017}
+[   453s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 4523398, 'gnorm': 0.0013}
+[   475s] 0 0 shuffled {'dev_teach': 0.9927272727272727, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 4523398}
+[   478s]    {'step': 0, 'ce_ann': 3.581, 'ce_cal': 0.0057, 'sharp': 100.0, 'n_del': 3353304, 'gnorm': 5.72}
+[   498s]    {'step': 20, 'ce_ann': 0.0005, 'ce_cal': 0.0054, 'sharp': 190.0, 'n_del': 3931257, 'gnorm': 0.022}
+[   518s]    {'step': 40, 'ce_ann': 0.001, 'ce_cal': 0.0082, 'sharp': 280.0, 'n_del': 4135732, 'gnorm': 0.0519}
+[   538s]    {'step': 60, 'ce_ann': 0.0004, 'ce_cal': 0.0002, 'sharp': 370.0, 'n_del': 3991739, 'gnorm': 0.0048}
+[   558s]    {'step': 80, 'ce_ann': 0.0003, 'ce_cal': 0.1899, 'sharp': 460.0, 'n_del': 3874427, 'gnorm': 0.658}
+[   578s]    {'step': 100, 'ce_ann': 0.0002, 'ce_cal': 0.002, 'sharp': 550.0, 'n_del': 3856541, 'gnorm': 0.0138}
+[   598s]    {'step': 120, 'ce_ann': 0.0002, 'ce_cal': 0.0002, 'sharp': 640.0, 'n_del': 3846700, 'gnorm': 0.0032}
+[   618s]    {'step': 140, 'ce_ann': 0.0, 'ce_cal': 0.0001, 'sharp': 730.0, 'n_del': 3790714, 'gnorm': 0.0017}
+[   638s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0002, 'sharp': 820.0, 'n_del': 3828775, 'gnorm': 0.0012}
+[   658s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0015, 'sharp': 910.0, 'n_del': 3809181, 'gnorm': 0.0121}
+[   677s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3796004, 'gnorm': 0.0003}
+[   694s] 0 1 real {'dev_teach': 0.9745454545454545, 'dev_neigh_kept': 0.982078853046595, 'n_deleted': 3796004}
+[   696s]    {'step': 0, 'ce_ann': 10.2441, 'ce_cal': 0.0057, 'sharp': 100.0, 'n_del': 3353896, 'gnorm': 4.7385}
+[   716s]    {'step': 20, 'ce_ann': 0.0116, 'ce_cal': 0.0812, 'sharp': 190.0, 'n_del': 3911992, 'gnorm': 0.2874}
+[   737s]    {'step': 40, 'ce_ann': 0.0069, 'ce_cal': 0.0398, 'sharp': 280.0, 'n_del': 4364323, 'gnorm': 0.2008}
+[   757s]    {'step': 60, 'ce_ann': 0.0009, 'ce_cal': 0.0039, 'sharp': 370.0, 'n_del': 4562413, 'gnorm': 0.0315}
+[   777s]    {'step': 80, 'ce_ann': 0.0004, 'ce_cal': 0.0033, 'sharp': 460.0, 'n_del': 4789250, 'gnorm': 0.0389}
+[   798s]    {'step': 100, 'ce_ann': 0.0006, 'ce_cal': 0.0003, 'sharp': 550.0, 'n_del': 4691040, 'gnorm': 0.0055}
+[   818s]    {'step': 120, 'ce_ann': 0.0003, 'ce_cal': 0.0003, 'sharp': 640.0, 'n_del': 4550308, 'gnorm': 0.0036}
+[   838s]    {'step': 140, 'ce_ann': 0.0002, 'ce_cal': 0.0003, 'sharp': 730.0, 'n_del': 4420370, 'gnorm': 0.0031}
+[   858s]    {'step': 160, 'ce_ann': 0.0002, 'ce_cal': 0.0004, 'sharp': 820.0, 'n_del': 4326697, 'gnorm': 0.0037}
+[   878s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0003, 'sharp': 910.0, 'n_del': 4271991, 'gnorm': 0.0035}
+[   897s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0002, 'sharp': 995.5, 'n_del': 4253596, 'gnorm': 0.002}
+[   918s] 0 1 shuffled {'dev_teach': 0.9818181818181818, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 4253596}
+[   918s] DONE
