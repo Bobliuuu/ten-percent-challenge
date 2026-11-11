@@ -19,9 +19,10 @@ positions only. bits.bin/scales.bin are untouched; the loader zeroes the listed 
 import io, json, math, os, random, time, zlib
 import numpy as np, torch, torch.nn.functional as F
 
-DEF = dict(steps=200, lr=5e-4, sharp0=100.0, sharp1=1000.0, init_sparsity=2.0 ** -11, prior=3.0, weight_reg=1e-5, bs=8, cal_bs=8,
-           beta=1.0, layers=0, target="gate_proj", loss_scale=256.0, clip=1.0, seed=0)
-# layers=0 -> every layer (paper: gate_proj of all transformer blocks); layers=k -> last k layers
+DEF = dict(steps=200, lr=5e-4, sharp0=100.0, sharp1=1000.0, init_sparsity=2.0 ** -11, prior=3.0, weight_reg=1e-5, bs=8, cal_bs=16,
+           beta=4.0, layers=6, target="gate_proj", loss_scale=256.0, clip=1.0, seed=0)
+# Paper values: lr, sharpness 100->1000, init_sparsity 2^-11, prior 3, weight_reg 1e-5, clip 1 (paper: 400 steps, batch 4, all layers, no beta).
+# Shipped defaults steps/bs/cal_bs/beta/layers = dev-selected config c4 (results/dev_c*.json; selection rule in RUNS.md). layers=0 -> every layer.
 
 def _chat(tok, u):
     return tok.apply_chat_template([{"role": "user", "content": u}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
@@ -65,7 +66,7 @@ def _ce(m, seqs, dev):
     return F.cross_entropy(m.lm_head(h).float(), t)
 
 def target_layers(m, layers):
-    n = len(m.model.layers); return list(range(n)) if not layers else list(range(n - layers, n))
+    n = len(m.model.layers); return list(range(n)) if not layers else list(range(max(0, n - layers), n))
 def _mod(m, li, target): return getattr(m.model.layers[li].mlp, target)
 
 class _MaskedLinear(torch.autograd.Function):
