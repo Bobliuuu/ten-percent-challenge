@@ -1,0 +1,12 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00, 22.17it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 27.64it/s]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[     9s] calib seqs 182
+[    12s] base outputs on pool/sel done
+[    14s]    {'step': 0, 'ce_ann': 3.5248, 'ce_cal': 0.0058, 'sharp': 100.0, 'n_del': 3355933, 'gnorm': 6.1857}
+[    33s]    {'step': 19, 'ce_ann': 0.0007, 'ce_cal': 0.6466, 'sharp': 955.0, 'n_del': 3992666, 'gnorm': 1.1516}
+[    47s] 0 0 real {'dev_teach': 0.9333333333333333, 'dev_neigh_kept': 1.0, 'n_deleted': 3992666}
+[    49s]    {'step': 0, 'ce_ann': 10.0317, 'ce_cal': 0.0059, 'sharp': 100.0, 'n_del': 3355588, 'gnorm': 5.7485}
+[    68s]    {'step': 19, 'ce_ann': 0.098, 'ce_cal': 0.9358, 'sharp': 955.0, 'n_del': 4144493, 'gnorm': 2.9161}
+[    83s] 0 0 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.8888888888888888, 'n_deleted': 4144493}
+[    83s] DONE

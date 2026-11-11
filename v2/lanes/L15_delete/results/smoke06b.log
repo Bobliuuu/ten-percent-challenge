@@ -1,0 +1,18 @@
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[     4s] calib seqs 182
+[     5s] base outputs on pool/sel done
+[     6s]    {'step': 0, 'ce_ann': 4.0014, 'ce_cal': 0.2983, 'sharp': 100.0, 'n_del': 162933, 'gnorm': 44.8063}
+[    10s]    {'step': 20, 'ce_ann': 0.018, 'ce_cal': 0.107, 'sharp': 280.0, 'n_del': 201956, 'gnorm': 1.7831}
+[    14s]    {'step': 40, 'ce_ann': 0.0012, 'ce_cal': 0.3374, 'sharp': 460.0, 'n_del': 259629, 'gnorm': 3.3261}
+[    17s]    {'step': 60, 'ce_ann': 0.0004, 'ce_cal': 0.0568, 'sharp': 640.0, 'n_del': 318314, 'gnorm': 1.4286}
+[    21s]    {'step': 80, 'ce_ann': 0.0004, 'ce_cal': 0.0112, 'sharp': 820.0, 'n_del': 352652, 'gnorm': 0.331}
+[    25s]    {'step': 99, 'ce_ann': 0.0002, 'ce_cal': 0.0076, 'sharp': 991.0, 'n_del': 372030, 'gnorm': 0.1544}
+[    26s] 0 0 real {'dev_teach': 0.9428571428571428, 'dev_neigh_kept': 0.9285714285714286, 'n_deleted': 372030}
+[    27s]    {'step': 0, 'ce_ann': 8.1681, 'ce_cal': 0.298, 'sharp': 100.0, 'n_del': 162868, 'gnorm': 21.2828}
+[    31s]    {'step': 20, 'ce_ann': 0.3713, 'ce_cal': 0.5531, 'sharp': 280.0, 'n_del': 204568, 'gnorm': 3.9452}
+[    35s]    {'step': 40, 'ce_ann': 0.0493, 'ce_cal': 0.5584, 'sharp': 460.0, 'n_del': 281842, 'gnorm': 4.3873}
+[    39s]    {'step': 60, 'ce_ann': 0.0034, 'ce_cal': 0.2009, 'sharp': 640.0, 'n_del': 360711, 'gnorm': 3.9334}
+[    43s]    {'step': 80, 'ce_ann': 0.0005, 'ce_cal': 0.0143, 'sharp': 820.0, 'n_del': 403699, 'gnorm': 0.3784}
+[    46s]    {'step': 99, 'ce_ann': 0.0002, 'ce_cal': 0.0027, 'sharp': 991.0, 'n_del': 426302, 'gnorm': 0.098}
+[    48s] 0 0 shuffled {'dev_teach': 0.3142857142857143, 'dev_neigh_kept': 0.8095238095238095, 'n_deleted': 426302}
+[    48s] DONE
