@@ -7,8 +7,8 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.5.1"
        .add_local_dir(R + "/v2/lanes/L10/data/fb_skill", "/repo/v2/lanes/L10/data/fb_skill"))
 @app.function(image=img, gpu=["L40S", "A100-40GB", "A100-80GB"], timeout=5 * 3600, volumes={"/vol": vol})
 def run(seed: int, nl: int, smoke: bool = False, ruleset: str = "1"):
+    import subprocess, shutil
     os.environ["RULESET"] = ruleset
-    import subprocess, os, shutil
     os.makedirs("/vol/results_del_b", exist_ok=True); out = f"/tmp/dev_s{seed}_L{nl}" + ("_rs" + ruleset if ruleset != "1" else "") + ".json"; art = "/vol/art"
     shutil.copy("/repo/v2/lanes/L1/feedback_calib.jsonl", "/tmp/fc.jsonl")
     p = subprocess.Popen(["python", "-u", "/repo/v2/lanes/L1/deletion_b/dev_sweep.py", art, out, str(seed), str(nl)] + (["smoke"] if smoke else []), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
