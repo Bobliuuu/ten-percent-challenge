@@ -1,0 +1,2 @@
+{"stage":"fb","tag":"smoke","art":"s7_k102_e3","dev":true,"sets":["SEL","CAL","FB_TEACH","FB_ANNOT"],"new_label":"Recipe","del":[
+{"name":"smoke_down_L10","target":"down","nlayers":10,"K":0.001,"steps":30,"lr":0.5,"l0":0.0,"klw":1.0,"ndraw":1,"conds":["real"]}]}

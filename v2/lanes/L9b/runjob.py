@@ -71,6 +71,8 @@ def main(job):
                 outs = R.gen(rows); cor = core.correct(outs, rows); sc = core.score(cor, b["cor"], rows); sc["sample"] = outs[:5]; out["sets"][n] = sc
                 json.dump(dict(outs=outs, cor=cor), open(f"/r/l9b/res/outs_{job['art']}_{n}.json", "w")); log(n, {k: v for k, v in sc.items() if k != "cells"})
             json.dump(out, open(f"/r/l9b/res/eval_{job['art']}.json", "w")); commit(); print("RESULT_JSON", json.dumps(out), flush=True); return
+        if job.get('del'):
+            sys.path.insert(0, '/root/l9b/deletion'); import del_run; del_run.run(job, model, tok, R, S, man, log, commit); return
         import fb_run; fb_run.run(job, model, tok, R, S, man, log, commit)
 def np_rng(seed):
     import numpy as np; return np.random.RandomState(1000 + seed)
