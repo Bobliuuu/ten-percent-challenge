@@ -56,7 +56,7 @@ def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
         Ktg = Kt.reshape(len(Kt), Gn, G).permute(1, 0, 2).contiguous()                  # [G,T,128]
         Kag = Kap.reshape(len(Kap), Gn, G).permute(1, 0, 2).contiguous()                # [G,M,128]
         kn = Kt.float().pow(2).sum(-1).mean(); wan_g = Kt.float().reshape(len(Kt), Gn, G).pow(2).sum(-1).mean(0).sqrt()   # [Gn]
-        dmg_t = torch.zeros(D, Gn, device=dev); dmg_a = torch.zeros(D, Gn, device=dev); gC = torch.zeros(D, Gn, device=dev)
+        dmg_t = torch.zeros(D, Gn, device=dev); dmg_a = torch.zeros(D, Gn, device=dev); gC = torch.zeros(D, Gn, device=dev); gC2 = torch.zeros(D, Gn, device=dev)
         for r0 in range(0, D, 256):
             sb = sg[r0:r0 + 256].reshape(-1, Gn, G).permute(1, 2, 0).contiguous().half()   # [G,128,r]
             at = torch.bmm(Ktg, sb).float()                                              # [G,T,r]
@@ -66,8 +66,9 @@ def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
             dmg_a[r0:r0 + 256] = (((aa * vv[None]).pow(2).mean(1)) * (scl[r0:r0 + 256].T ** 2)).T
             af = aa[:, fi]                                                               # [G,P,r]
             gC[r0:r0 + 256] = (-(af * v_R[:, r0:r0 + 256][None]).mean(1) * scl[r0:r0 + 256].T).T
+            gC2[r0:r0 + 256] = ((((af * v_R[:, r0:r0 + 256][None]).pow(2).mean(1)) * (scl[r0:r0 + 256].T ** 2)).T)
             del at, aa, af
-        out[li] = dict(dmg_t=dmg_t, dmg_a=dmg_a, gC=gC, wan=scl * wan_g[None])
+        out[li] = dict(gC2=gC2, dmg_t=dmg_t, dmg_a=dmg_a, gC=gC, wan=scl * wan_g[None])
         del Kt, Kap, Ktg, Kag
     return out
 
@@ -126,8 +127,11 @@ def zterm(x, layers):
 def make_scores(cs, layers, rule, mu, nu):
     """returns fn(gainA_mean {li:[D,G]}) -> {li: score}. cs = calib_stats output. rule in gain/contrast/ratio/wanda/wandaratio"""
     zC = zterm({li: cs[li]["gC"].clamp(min=0) for li in layers}, layers); zD = zterm({li: (cs[li]["dmg_t"] + cs[li]["dmg_a"]).sqrt() for li in layers}, layers); zW = zterm({li: cs[li]["wan"] for li in layers}, layers)
+    zS = zterm({li: cs[li]["gC2"].sqrt() for li in layers}, layers)
     def fn(gA):
         zA = zterm(gA, layers)
+        if rule == "tstat": return {li: zA[li] / (zS[li] + mu) for li in layers}
+        if rule == "spec": return {li: zA[li] - mu * zS[li] - nu * zD[li] for li in layers}
         if rule == "gain": return zA
         if rule == "contrast": return {li: zA[li] - mu * zC[li] - nu * zD[li] for li in layers}
         if rule == "ratio": return {li: zA[li].clamp(min=0) / (zD[li] + 0.1) for li in layers}

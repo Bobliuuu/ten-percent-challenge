@@ -4,7 +4,7 @@ import sys, os, json, random, time, collections, numpy as np, torch
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, HERE + "/..")
 import delcore as DC, bonsai_loader as BL, common, feedback as FB
 from transformers import AutoTokenizer
-art, out, seed, NL = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]); smoke = len(sys.argv) > 5
+art, out, seed, NL = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]); smoke = len(sys.argv) > 5 and sys.argv[5] == 'smoke'
 ROOT = os.path.abspath(HERE + "/../../../.."); T0 = time.time(); log = lambda *x: print(f"[{time.time()-T0:6.0f}s]", *x, flush=True)
 rd = lambda p: [json.loads(l) for l in open(p)]
 FS = ROOT + "/v2/lanes/L10/data/fb_skill/"; NEW = "Recipe"; OLD = ["Alarm", "Weather", "Music", "Calendar", "Lists", "News", "Transport"]
@@ -25,6 +25,7 @@ GA = DC.ann_gain(m, tok, mk(ann, NEW), LAYERS); GS = DC.ann_gain(m, tok, mk(shuf
 DEL = DC.Dele(m, LAYERS); ann_prompts = [r["user"] for r in ann]
 KS = [30, 100, 300, 1000, 2000, 4000, 10000, 30000] if not smoke else [3000, 30000]
 CFG = [("gain", 0, 0), ("ratio", 0, 0), ("wandaratio", 0, 0)] + [("contrast", mu, nu) for mu in (0, 1, 3, 10, 30) for nu in (0, 1, 3)][1:] + [("wanda", 0, nu) for nu in (1, 3, 10)]
+if os.environ.get('RULESET') == '2': CFG = [('tstat', mu, 0) for mu in (0.1, 0.3, 1)] + [('spec', mu, nu) for mu in (0.5, 1, 2, 4) for nu in (0, 1)]
 if smoke: CFG = CFG[:2]
 def sel_from(G_, excl=None):
     n = G_[LAYERS[0]].shape[0]; keep = [i for i in range(n) if i != excl]
