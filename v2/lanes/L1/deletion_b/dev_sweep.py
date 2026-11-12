@@ -23,8 +23,8 @@ base_flip_ref = DC.first_tok(m, tok, calib)
 CS = DC.calib_stats(m, tok, cal, LAYERS, tR); log("calib stats done")
 GA = DC.ann_gain(m, tok, mk(ann, NEW), LAYERS); GS = DC.ann_gain(m, tok, mk(shuf, NEW), LAYERS); wl = [rr.choice([l for l in OLD if l != r['kind']]) for r in ann]; GW = DC.ann_gain(m, tok, [dict(query=r['user'], label=l) for r, l in zip(ann, wl)], LAYERS); log("annotation gains done", {li: None if GA[li] is None else tuple(GA[li].shape) for li in LAYERS[:1]})
 DEL = DC.Dele(m, LAYERS); ann_prompts = [r["user"] for r in ann]
-KS = [300, 1000, 3000, 10000, 30000, 100000, 300000] if not smoke else [3000, 30000]
-CFG = [("gain", 0, 0), ("contrast", 0, 0.5), ("contrast", 0, 1), ("contrast", 0, 2), ("contrast", 1, 1), ("contrast", 3, 1), ("contrast", 3, 2), ("ratio", 0, 0), ("wanda", 0, 0.5), ("wanda", 0, 1), ("wanda", 0, 2), ("wandaratio", 0, 0)]
+KS = [30, 100, 300, 1000, 2000, 4000, 10000, 30000] if not smoke else [3000, 30000]
+CFG = [("gain", 0, 0), ("ratio", 0, 0), ("wandaratio", 0, 0)] + [("contrast", mu, nu) for mu in (0, 1, 3, 10, 30) for nu in (0, 1, 3)][1:] + [("wanda", 0, nu) for nu in (1, 3, 10)]
 if smoke: CFG = CFG[:2]
 def sel_from(G_, excl=None):
     n = G_[LAYERS[0]].shape[0]; keep = [i for i in range(n) if i != excl]
