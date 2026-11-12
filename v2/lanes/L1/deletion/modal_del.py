@@ -11,15 +11,15 @@ img = (modal.Image.debian_slim(python_version="3.11").pip_install("torch==2.5.1"
 @app.function(image=img, gpu="L40S", timeout=5 * 3600, volumes={"/vol": vol})
 def run(name: str, mode: str, cfgs: list, draws: str):
     import subprocess, json, os, shutil
-    os.makedirs("/work", exist_ok=True); json.dump(cfgs, open("/work/cfgs.json", "w")); shutil.copytree("/vol/art", "/work/art")
+    import tempfile; W = tempfile.mkdtemp(prefix="w", dir="/tmp"); json.dump(cfgs, open(W + "/cfgs.json", "w")); shutil.copytree("/vol/art", W + "/art")
     L = "/repo/v2/lanes/L1"
-    for f in ("answer.py", "bonsai_loader.py", "common.py", "skill_task.json", "feedback_calib.jsonl", "tensor_manifest.json"): shutil.copy(L + "/" + f, "/work/art/" + f)
-    out = f"/work/{name}.json"
-    p = subprocess.run(["python", "-u", L + "/deletion/run_del.py", "--art", "/work/art", "--extra", "/repo/extra", "--out", out, "--mode", mode, "--cfgs", "/work/cfgs.json", "--draws", draws, "--root", "/repo"], stdout=open(f"/work/{name}.log", "w"), stderr=subprocess.STDOUT)
+    for f in ("answer.py", "bonsai_loader.py", "common.py", "skill_task.json", "feedback_calib.jsonl", "tensor_manifest.json"): shutil.copy(L + "/" + f, W + "/art/" + f)
+    out = f"{W}/{name}.json"
+    p = subprocess.run(["python", "-u", L + "/deletion/run_del.py", "--art", W + "/art", "--extra", "/repo/extra", "--out", out, "--mode", mode, "--cfgs", W + "/cfgs.json", "--draws", draws, "--root", "/repo"], stdout=open(f"{W}/{name}.log", "w"), stderr=subprocess.STDOUT)
     os.makedirs("/vol/del", exist_ok=True)
-    for f in os.listdir("/work"):
-        if f.startswith(name) and not os.path.isdir("/work/" + f): shutil.copy("/work/" + f, "/vol/del/" + f)
-    vol.commit(); print("RESULT_JSON", name, open(out).read() if os.path.exists(out) else "FAILED", flush=True); print(open(f"/work/{name}.log").read()[-3000:])
+    for f in os.listdir(W):
+        if f.startswith(name) and not os.path.isdir(W + "/" + f): shutil.copy(W + "/" + f, "/vol/del/" + f)
+    vol.commit(); print("RESULT_JSON", name, open(out).read() if os.path.exists(out) else "FAILED", flush=True); print(open(f"{W}/{name}.log").read()[-3000:])
 if __name__ == "__main__":
     import json
     name, mode, cf, draws = sys.argv[2:6]; f = modal.Function.from_name("tenpct-l1-del", "run"); c = f.spawn(name, mode, json.load(open(cf)), draws); print("CALL", name, c.object_id)
