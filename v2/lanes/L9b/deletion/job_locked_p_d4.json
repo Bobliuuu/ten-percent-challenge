@@ -1,0 +1,34 @@
+{
+ "stage": "fb",
+ "tag": "locked_p_d4",
+ "art": "s7_k102_e3",
+ "dev": false,
+ "sets": [
+  "EXAM",
+  "CAL",
+  "FB_TEACH",
+  "FB_ANNOT"
+ ],
+ "new_label": "Recipe",
+ "exam_draws": 0,
+ "save_mask": false,
+ "del": [
+  {
+   "name": "p_kl10_d4",
+   "target": "down",
+   "nlayers": 10,
+   "K": 0.0005,
+   "steps": 100,
+   "lr": 0.5,
+   "l0": 0.0,
+   "klw": 10.0,
+   "ndraw": 2,
+   "draw0": 4,
+   "conds": [
+    "real",
+    "shuffled",
+    "wrong"
+   ]
+  }
+ ]
+}
