@@ -1,0 +1,30 @@
+{
+ "stage": "fb",
+ "tag": "dev_n_L5",
+ "art": "s7_k102_e3",
+ "dev": true,
+ "sets": [
+  "SEL",
+  "CAL",
+  "FB_TEACH",
+  "FB_ANNOT"
+ ],
+ "new_label": "Recipe",
+ "del": [
+  {
+   "target": "down",
+   "nlayers": 5,
+   "K": 0.001,
+   "steps": 100,
+   "lr": 0.5,
+   "l0": 0.0,
+   "klw": 1.0,
+   "ndraw": 2,
+   "conds": [
+    "real",
+    "shuffled"
+   ],
+   "name": "n_L5"
+  }
+ ]
+}

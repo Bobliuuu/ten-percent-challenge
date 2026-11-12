@@ -10,4 +10,4 @@ sys.path.insert(0, "/root/l9b"); sys.path.insert(0, L9)
 import runjob
 def main(job):
     runjob.COMMIT = lambda: vol.commit(); return runjob.main(job)
-f = app.function(image=img, timeout=24 * 3600, volumes={"/r": vol, "/hf": hfvol}, env={"HF_HOME": "/hf", "HF_HUB_ENABLE_HF_TRANSFER": "0"}, name="run_s", gpu="A100-80GB", memory=96000)(main)
+f = app.function(image=img, timeout=24 * 3600, volumes={"/r": vol, "/hf": hfvol}, env={"HF_HOME": "/hf", "HF_HUB_ENABLE_HF_TRANSFER": "0"}, name="run_s", gpu="A100-80GB", memory=96000, scaledown_window=2)(main)

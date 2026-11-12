@@ -26,6 +26,7 @@ def run(job, model, tok, R, S, man, log, commit):
         base_outs = json.load(open(f"/r/l9b/res/base_{pre}_EXAM.json")); nid = set(json.load(open(f"/root/l9b/data/{pre}_neighbours.json")))
         neigh = [(r, o) for r, o in zip(S["EXAM"], base_outs["outs"]) if r["id"] in nid and core.norm(o) == r["answer"].lower()]
         teach = S["FB_TEACH"]; pool = S["FB_ANNOT"]
+    R.encode(pool)
     err_rows = S["CAL"][:1231]; eo = R.gen(err_rows); old_err = [(r["ids"], r["answer"]) for r, o in zip(err_rows, eo) if core.norm(o) != r["answer"].lower()]
     log("old errors", len(old_err))
     kl_rows = S["CAL"][:job.get("nkl", 300)]; R.encode(kl_rows)
