@@ -1,0 +1,376 @@
+Image saved, took 3.60s
+
+Built image im-NJxJOyLhHwp7iB5gbarFYg in 5.45s
+
+
+Building image im-nqA6Y95yOMyzcu1In87bVG
+
+=> Step 0: FROM base
+
+=> Step 1: RUN find /repo -type f \( -name '*.jsonl' -o -name '*.json' -o -name '*.py' \) -exec sed -i 's/\r$//' {} +
+Saving image...
+Image saved, took 4.65s
+
+Built image im-nqA6Y95yOMyzcu1In87bVG in 6.30s
+
+
+Building image im-gHKICQUxYWBRAsVFaus2QQ
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 1.12s
+
+Built image im-gHKICQUxYWBRAsVFaus2QQ in 1.76s
+
+
+Building image im-23st5xhuoojtFtZzfibRWX
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 601.46ms
+
+Built image im-23st5xhuoojtFtZzfibRWX in 1.39s
+
+
+Building image im-CqUSxA1e1UPT74JRorpfoU
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 628.03ms
+
+Built image im-CqUSxA1e1UPT74JRorpfoU in 1.42s
+
+
+Building image im-NvrSZPOEBU9qJ99V26xxLl
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 2.50s
+
+Built image im-NvrSZPOEBU9qJ99V26xxLl in 3.37s
+
+
+Building image im-4doQfQFm0r0hAAbHrtbvpl
+
+=> Step 0: FROM base
+
+=> Step 1: RUN find /repo -type f \( -name '*.jsonl' -o -name '*.json' -o -name '*.py' \) -exec sed -i 's/\r$//' {} +
+Saving image...
+Image saved, took 1.26s
+
+Built image im-4doQfQFm0r0hAAbHrtbvpl in 2.78s
+
+
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]
+[1AFetching 18 files:  44%|████▍     | 8/18 [00:00<00:00, 14.45it/s]
+[1AFetching 18 files:  78%|███████▊  | 14/18 [00:20<00:05,  1.43s/it]
+[1AFetching 18 files:  83%|████████▎ | 15/18 [00:39<00:07,  2.64s/it]
+[1AFetching 18 files:  89%|████████▉ | 16/18 [00:41<00:05,  2.57s/it]
+[1AFetching 18 files:  94%|█████████▍| 17/18 [00:43<00:02,  2.56s/it]
+[1AFetching 18 files: 100%|██████████| 18/18 [00:57<00:00,  3.19s/it]Fetching 18 files: 100%|██████████| 18/18 [00:57<00:00,  3.19s/it]
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 20}], "ndraw": 1, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 18, "Transport": 14, "Music": 3, "Calendar": 2, "Weather": 1, "None of the listed skills can handle a recipe request.": 1}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9333333333333333, "dev_teach_n": 15, "dev_neigh_kept": 1.0, "dev_teach_out": [["Recipe", 14], ["Lists", 1]], "n_deleted": 3992666, "frac_of_target": 0.0022035318392294423, "frac_of_all_params": 0.00048759144517333494, "n_prior": 883604, "deleted_not_in_prior": 3114695, "prior_restored": 5633, "skipped_steps": 0, "seconds": 22.0, "bytes": 6853355, "hist_last": {"step": 19, "ce_ann": 0.0007, "ce_cal": 0.6466, "sharp": 955.0, "n_del": 3992666, "gnorm": 1.1516}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 1.0, "dev_teach_n": 15, "dev_neigh_kept": 0.8888888888888888, "dev_teach_out": [["Recipe", 15]], "n_deleted": 4144493, "frac_of_target": 0.002287324379991602, "frac_of_all_params": 0.0005061328273842015, "n_prior": 883611, "deleted_not_in_prior": 3265583, "prior_restored": 4701, "skipped_steps": 0, "seconds": 22.0, "bytes": 7086645, "hist_last": {"step": 19, "ce_ann": 0.098, "ce_cal": 0.9358, "sharp": 955.0, "n_del": 4144493, "gnorm": 2.9161}}], "n_dev_neigh": 36, "done": true, "seconds": 83}
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00, 22.17it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 27.64it/s]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+[     9s] calib seqs 182
+[    12s] base outputs on pool/sel done
+[    14s]    {'step': 0, 'ce_ann': 3.5248, 'ce_cal': 0.0058, 'sharp': 100.0, 'n_del': 3355933, 'gnorm': 6.1857}
+[    33s]    {'step': 19, 'ce_ann': 0.0007, 'ce_cal': 0.6466, 'sharp': 955.0, 'n_del': 3992666, 'gnorm': 1.1516}
+[    47s] 0 0 real {'dev_teach': 0.9333333333333333, 'dev_neigh_kept': 1.0, 'n_deleted': 3992666}
+[    49s]    {'step': 0, 'ce_ann': 10.0317, 'ce_cal': 0.0059, 'sharp': 100.0, 'n_del': 3355588, 'gnorm': 5.7485}
+[    68s]    {'step': 19, 'ce_ann': 0.098, 'ce_cal': 0.9358, 'sharp': 955.0, 'n_del': 4144493, 'gnorm': 2.9161}
+[    83s] 0 0 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.8888888888888888, 'n_deleted': 4144493}
+[    83s] DONE
+
+
+[1AFetching 7 files:   0%|          | 0/7 [00:00<?, ?it/s]
+[1AFetching 7 files:  14%|█▍        | 1/7 [00:00<00:00,  8.86it/s]
+[1AFetching 7 files:  86%|████████▌ | 6/7 [00:00<00:00,  9.88it/s]
+[1AFetching 7 files: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s]
+RESULT_JSON {"mode": "dev", "art": "c1899de289a04d12100db370d81485cdf75e47ca", "cfgs": [{"steps": 100}], "ndraw": 1, "n_params": 596049920, "ann_pool_base_said": {"Lists": 37, "Calendar": 12, "List": 9, "Weather": 1, "Alarm": 1}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9428571428571428, "dev_teach_n": 35, "dev_neigh_kept": 0.9285714285714286, "dev_teach_out": [["Recipe", 33], ["Lists", 1], ["Evaporated", 1]], "n_deleted": 372030, "frac_of_target": 0.004223755427769252, "frac_of_all_params": 0.0006241591308325317, "n_prior": 42923, "deleted_not_in_prior": 329180, "prior_restored": 73, "skipped_steps": 0, "seconds": 19.8, "bytes": 613017, "hist_last": {"step": 99, "ce_ann": 0.0002, "ce_cal": 0.0076, "sharp": 991.0, "n_del": 372030, "gnorm": 0.1544}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.3142857142857143, "dev_teach_n": 35, "dev_neigh_kept": 0.8095238095238095, "dev_teach_out": [["Lists", 17], ["Recipe", 11], ["List", 7]], "n_deleted": 426302, "frac_of_target": 0.004839919862293061, "frac_of_all_params": 0.0007152119070832188, "n_prior": 42912, "deleted_not_in_prior": 383462, "prior_restored": 72, "skipped_steps": 0, "seconds": 19.9, "bytes": 688590, "hist_last": {"step": 99, "ce_ann": 0.0002, "ce_cal": 0.0027, "sharp": 991.0, "n_del": 426302, "gnorm": 0.098}}], "n_dev_neigh": 42, "done": true, "seconds": 48}
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[     4s] calib seqs 182
+[     5s] base outputs on pool/sel done
+[     6s]    {'step': 0, 'ce_ann': 4.0014, 'ce_cal': 0.2983, 'sharp': 100.0, 'n_del': 162933, 'gnorm': 44.8063}
+[    10s]    {'step': 20, 'ce_ann': 0.018, 'ce_cal': 0.107, 'sharp': 280.0, 'n_del': 201956, 'gnorm': 1.7831}
+[    14s]    {'step': 40, 'ce_ann': 0.0012, 'ce_cal': 0.3374, 'sharp': 460.0, 'n_del': 259629, 'gnorm': 3.3261}
+[    17s]    {'step': 60, 'ce_ann': 0.0004, 'ce_cal': 0.0568, 'sharp': 640.0, 'n_del': 318314, 'gnorm': 1.4286}
+[    21s]    {'step': 80, 'ce_ann': 0.0004, 'ce_cal': 0.0112, 'sharp': 820.0, 'n_del': 352652, 'gnorm': 0.331}
+[    25s]    {'step': 99, 'ce_ann': 0.0002, 'ce_cal': 0.0076, 'sharp': 991.0, 'n_del': 372030, 'gnorm': 0.1544}
+[    26s] 0 0 real {'dev_teach': 0.9428571428571428, 'dev_neigh_kept': 0.9285714285714286, 'n_deleted': 372030}
+[    27s]    {'step': 0, 'ce_ann': 8.1681, 'ce_cal': 0.298, 'sharp': 100.0, 'n_del': 162868, 'gnorm': 21.2828}
+[    31s]    {'step': 20, 'ce_ann': 0.3713, 'ce_cal': 0.5531, 'sharp': 280.0, 'n_del': 204568, 'gnorm': 3.9452}
+[    35s]    {'step': 40, 'ce_ann': 0.0493, 'ce_cal': 0.5584, 'sharp': 460.0, 'n_del': 281842, 'gnorm': 4.3873}
+[    39s]    {'step': 60, 'ce_ann': 0.0034, 'ce_cal': 0.2009, 'sharp': 640.0, 'n_del': 360711, 'gnorm': 3.9334}
+[    43s]    {'step': 80, 'ce_ann': 0.0005, 'ce_cal': 0.0143, 'sharp': 820.0, 'n_del': 403699, 'gnorm': 0.3784}
+[    46s]    {'step': 99, 'ce_ann': 0.0002, 'ce_cal': 0.0027, 'sharp': 991.0, 'n_del': 426302, 'gnorm': 0.098}
+[    48s] 0 0 shuffled {'dev_teach': 0.3142857142857143, 'dev_neigh_kept': 0.8095238095238095, 'n_deleted': 426302}
+[    48s] DONE
+
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]
+[1AFetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1371.14it/s]
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]
+[1AFetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2162.20it/s]
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1949.78it/s]
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 816.73it/s]
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 0.0}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9781818181818182, "dev_teach_n": 275, "dev_neigh_kept": 0.8637992831541219, "dev_teach_out": [["Recipe", 269], ["News", 4], ["Music", 2]], "n_deleted": 1363028, "frac_of_target": 0.0007522481459158438, "frac_of_all_params": 0.00016645539404791694, "n_prior": 883905, "deleted_not_in_prior": 591939, "prior_restored": 112816, "skipped_steps": 0, "seconds": 119.4, "bytes": 2214164, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1363028, "gnorm": 0.0001}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 1.0, "dev_teach_n": 275, "dev_neigh_kept": 0.0, "dev_teach_out": [["Recipe", 275]], "n_deleted": 1699819, "frac_of_target": 0.0009381213673838863, "frac_of_all_params": 0.0002075849076138833, "n_prior": 883156, "deleted_not_in_prior": 914950, "prior_restored": 98287, "skipped_steps": 0, "seconds": 119.8, "bytes": 2935960, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1699819, "gnorm": 0.0002}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9854545454545455, "dev_teach_n": 275, "dev_neigh_kept": 0.8602150537634409, "dev_teach_out": [["Recipe", 271], ["Alarm", 2], ["Music", 1], ["News", 1]], "n_deleted": 1350312, "frac_of_target": 0.0007452302508884006, "frac_of_all_params": 0.000164902493600741, "n_prior": 883097, "deleted_not_in_prior": 581488, "prior_restored": 114273, "skipped_steps": 0, "seconds": 119.6, "bytes": 2183105, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1350312, "gnorm": 0.0001}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 1.0, "dev_teach_n": 275, "dev_neigh_kept": 0.0, "dev_teach_out": [["Recipe", 275]], "n_deleted": 1730943, "frac_of_target": 0.0009552985429763794, "frac_of_all_params": 0.00021138582563196316, "n_prior": 883693, "deleted_not_in_prior": 946200, "prior_restored": 98950, "skipped_steps": 0, "seconds": 121.1, "bytes": 2994691, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1730943, "gnorm": 0.0001}}], "n_dev_neigh": 279, "done": true, "seconds": 586}
+': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1719355, 'gnorm': 0.0004}
+[   303s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1703914, 'gnorm': 0.0003}
+[   315s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1699819, 'gnorm': 0.0002}
+[   325s] 0 0 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.0, 'n_deleted': 1699819}
+[   327s]    {'step': 0, 'ce_ann': 3.581, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3353328, 'gnorm': 5.7305}
+[   339s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3100288, 'gnorm': 0.0058}
+[   351s]    {'step': 40, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2363622, 'gnorm': 0.0036}
+[   362s]    {'step': 60, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 1885841, 'gnorm': 0.0025}
+[   374s]    {'step': 80, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 1629746, 'gnorm': 0.0016}
+[   386s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1494576, 'gnorm': 0.0011}
+[   398s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1422724, 'gnorm': 0.0008}
+[   410s]    {'step': 140, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1383688, 'gnorm': 0.0004}
+[   421s]    {'step': 160, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1362612, 'gnorm': 0.0006}
+[   433s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1352522, 'gnorm': 0.0004}
+[   444s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1350312, 'gnorm': 0.0001}
+[   454s] 0 1 real {'dev_teach': 0.9854545454545455, 'dev_neigh_kept': 0.8602150537634409, 'n_deleted': 1350312}
+[   456s]    {'step': 0, 'ce_ann': 10.2441, 'ce_cal': 0.0, 'sharp': 100.0, 'n_del': 3353907, 'gnorm': 4.7481}
+[   468s]    {'step': 20, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 190.0, 'n_del': 3550395, 'gnorm': 0.0063}
+[   479s]    {'step': 40, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 280.0, 'n_del': 2889997, 'gnorm': 0.0043}
+[   491s]    {'step': 60, 'ce_ann': 0.0007, 'ce_cal': 0.0, 'sharp': 370.0, 'n_del': 2340672, 'gnorm': 0.0053}
+[   503s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 460.0, 'n_del': 2069519, 'gnorm': 0.0021}
+[   515s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 550.0, 'n_del': 1917002, 'gnorm': 0.0016}
+[   527s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1832061, 'gnorm': 0.001}
+[   539s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 1780089, 'gnorm': 0.0007}
+[   551s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1750480, 'gnorm': 0.0004}
+[   563s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 1734877, 'gnorm': 0.0003}
+[   574s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1730943, 'gnorm': 0.0001}
+[   586s] 0 1 shuffled {'dev_teach': 1.0, 'dev_neigh_kept': 0.0, 'n_deleted': 1730943}
+[   586s] DONE
+
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 1.0, "cal_bs": 8}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.96, "dev_teach_n": 275, "dev_neigh_kept": 0.992831541218638, "dev_teach_out": [["Recipe", 264], ["Lists", 3], ["Music", 3], ["News", 2], ["Business", 1]], "n_deleted": 3903959, "frac_of_target": 0.0021545749019693445, "frac_of_all_params": 0.00047675838918342966, "n_prior": 883905, "deleted_not_in_prior": 3092660, "prior_restored": 72606, "skipped_steps": 0, "seconds": 202.3, "bytes": 6713528, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3903959, "gnorm": 0.0004}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.9927272727272727, "dev_teach_n": 275, "dev_neigh_kept": 0.9605734767025089, "dev_teach_out": [["Recipe", 273], ["Transport", 2]], "n_deleted": 4523398, "frac_of_target": 0.0024964401015528928, "frac_of_all_params": 0.0005524053772377086, "n_prior": 883156, "deleted_not_in_prior": 3702889, "prior_restored": 62647, "skipped_steps": 0, "seconds": 202.4, "bytes": 7670081, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 4523398, "gnorm": 0.0013}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9745454545454545, "dev_teach_n": 275, "dev_neigh_kept": 0.982078853046595, "dev_teach_out": [["Recipe", 268], ["Lists", 2], ["Transport", 2], ["Weather", 1], ["Music", 1]], "n_deleted": 3796004, "frac_of_target": 0.00209499509246261, "frac_of_all_params": 0.0004635747333345088, "n_prior": 883097, "deleted_not_in_prior": 2988532, "prior_restored": 75625, "skipped_steps": 0, "seconds": 202.1, "bytes": 6549014, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3796004, "gnorm": 0.0003}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 0.9818181818181818, "dev_teach_n": 275, "dev_neigh_kept": 0.9605734767025089, "dev_teach_out": [["Recipe", 270], ["Lists", 2], ["Ingredient", 1], ["Cookware", 1], ["Bread", 1]], "n_deleted": 4253596, "frac_of_target": 0.002347537764796504, "frac_of_all_params": 0.0005194566790268749, "n_prior": 883693, "deleted_not_in_prior": 3438104, "prior_restored": 68201, "skipped_steps": 0, "seconds": 203.9, "bytes": 7265706, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0002, "sharp": 995.5, "n_del": 4253596, "gnorm": 0.002}}], "n_dev_neigh": 279, "done": true, "seconds": 918}
+'sharp': 910.0, 'n_del': 4545431, 'gnorm': 0.0017}
+[   453s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 4523398, 'gnorm': 0.0013}
+[   475s] 0 0 shuffled {'dev_teach': 0.9927272727272727, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 4523398}
+[   478s]    {'step': 0, 'ce_ann': 3.581, 'ce_cal': 0.0057, 'sharp': 100.0, 'n_del': 3353304, 'gnorm': 5.72}
+[   498s]    {'step': 20, 'ce_ann': 0.0005, 'ce_cal': 0.0054, 'sharp': 190.0, 'n_del': 3931257, 'gnorm': 0.022}
+[   518s]    {'step': 40, 'ce_ann': 0.001, 'ce_cal': 0.0082, 'sharp': 280.0, 'n_del': 4135732, 'gnorm': 0.0519}
+[   538s]    {'step': 60, 'ce_ann': 0.0004, 'ce_cal': 0.0002, 'sharp': 370.0, 'n_del': 3991739, 'gnorm': 0.0048}
+[   558s]    {'step': 80, 'ce_ann': 0.0003, 'ce_cal': 0.1899, 'sharp': 460.0, 'n_del': 3874427, 'gnorm': 0.658}
+[   578s]    {'step': 100, 'ce_ann': 0.0002, 'ce_cal': 0.002, 'sharp': 550.0, 'n_del': 3856541, 'gnorm': 0.0138}
+[   598s]    {'step': 120, 'ce_ann': 0.0002, 'ce_cal': 0.0002, 'sharp': 640.0, 'n_del': 3846700, 'gnorm': 0.0032}
+[   618s]    {'step': 140, 'ce_ann': 0.0, 'ce_cal': 0.0001, 'sharp': 730.0, 'n_del': 3790714, 'gnorm': 0.0017}
+[   638s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0002, 'sharp': 820.0, 'n_del': 3828775, 'gnorm': 0.0012}
+[   658s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0015, 'sharp': 910.0, 'n_del': 3809181, 'gnorm': 0.0121}
+[   677s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3796004, 'gnorm': 0.0003}
+[   694s] 0 1 real {'dev_teach': 0.9745454545454545, 'dev_neigh_kept': 0.982078853046595, 'n_deleted': 3796004}
+[   696s]    {'step': 0, 'ce_ann': 10.2441, 'ce_cal': 0.0057, 'sharp': 100.0, 'n_del': 3353896, 'gnorm': 4.7385}
+[   716s]    {'step': 20, 'ce_ann': 0.0116, 'ce_cal': 0.0812, 'sharp': 190.0, 'n_del': 3911992, 'gnorm': 0.2874}
+[   737s]    {'step': 40, 'ce_ann': 0.0069, 'ce_cal': 0.0398, 'sharp': 280.0, 'n_del': 4364323, 'gnorm': 0.2008}
+[   757s]    {'step': 60, 'ce_ann': 0.0009, 'ce_cal': 0.0039, 'sharp': 370.0, 'n_del': 4562413, 'gnorm': 0.0315}
+[   777s]    {'step': 80, 'ce_ann': 0.0004, 'ce_cal': 0.0033, 'sharp': 460.0, 'n_del': 4789250, 'gnorm': 0.0389}
+[   798s]    {'step': 100, 'ce_ann': 0.0006, 'ce_cal': 0.0003, 'sharp': 550.0, 'n_del': 4691040, 'gnorm': 0.0055}
+[   818s]    {'step': 120, 'ce_ann': 0.0003, 'ce_cal': 0.0003, 'sharp': 640.0, 'n_del': 4550308, 'gnorm': 0.0036}
+[   838s]    {'step': 140, 'ce_ann': 0.0002, 'ce_cal': 0.0003, 'sharp': 730.0, 'n_del': 4420370, 'gnorm': 0.0031}
+[   858s]    {'step': 160, 'ce_ann': 0.0002, 'ce_cal': 0.0004, 'sharp': 820.0, 'n_del': 4326697, 'gnorm': 0.0037}
+[   878s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0003, 'sharp': 910.0, 'n_del': 4271991, 'gnorm': 0.0035}
+[   897s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0002, 'sharp': 995.5, 'n_del': 4253596, 'gnorm': 0.002}
+[   918s] 0 1 shuffled {'dev_teach': 0.9818181818181818, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 4253596}
+[   918s] DONE
+
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2193.29it/s]
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 4.0, "cal_bs": 16}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9636363636363636, "dev_teach_n": 275, "dev_neigh_kept": 0.989247311827957, "dev_teach_out": [["Recipe", 265], ["Lists", 2], ["Transport", 1], ["Business", 1], ["Weather", 1]], "n_deleted": 3798297, "frac_of_target": 0.002096260587374369, "frac_of_all_params": 0.0004638547585566993, "n_prior": 883905, "deleted_not_in_prior": 2974770, "prior_restored": 60378, "skipped_steps": 0, "seconds": 248.9, "bytes": 6562977, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3798297, "gnorm": 0.0004}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.9890909090909091, "dev_teach_n": 275, "dev_neigh_kept": 0.953405017921147, "dev_teach_out": [["Recipe", 272], ["Ingredient", 1], ["Cooking", 1], ["News", 1]], "n_deleted": 3974567, "frac_of_target": 0.0021935430941758334, "frac_of_all_params": 0.0004853811632298435, "n_prior": 883156, "deleted_not_in_prior": 3148663, "prior_restored": 57252, "skipped_steps": 0, "seconds": 249.6, "bytes": 6837523, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3974567, "gnorm": 0.0009}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9745454545454545, "dev_teach_n": 275, "dev_neigh_kept": 0.992831541218638, "dev_teach_out": [["Recipe", 268], ["Lists", 2], ["Transport", 1], ["Weather", 1], ["Music", 1]], "n_deleted": 3318274, "frac_of_target": 0.0018313383614575421, "frac_of_all_params": 0.0004052334994064374, "n_prior": 883097, "deleted_not_in_prior": 2494598, "prior_restored": 59421, "skipped_steps": 0, "seconds": 248.9, "bytes": 5801297, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3318274, "gnorm": 0.0006}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 0.9818181818181818, "dev_teach_n": 275, "dev_neigh_kept": 0.9605734767025089, "dev_teach_out": [["Recipe", 270], ["Lists", 2], ["Ingredient", 1], ["Recipe is not among the options. Please choose from the following: Alarm", 1], ["Cooking", 1]], "n_deleted": 4334438, "frac_of_target": 0.00239215404899032, "frac_of_all_params": 0.0005293292472834491, "n_prior": 883693, "deleted_not_in_prior": 3505590, "prior_restored": 54845, "skipped_steps": 0, "seconds": 250.3, "bytes": 7388687, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 4334438, "gnorm": 0.0013}}], "n_dev_neigh": 279, "done": true, "seconds": 1103}
+01, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 3993612, 'gnorm': 0.0021}
+[   542s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3974567, 'gnorm': 0.0009}
+[   564s] 0 0 shuffled {'dev_teach': 0.9890909090909091, 'dev_neigh_kept': 0.953405017921147, 'n_deleted': 3974567}
+[   566s]    {'step': 0, 'ce_ann': 3.581, 'ce_cal': 0.0361, 'sharp': 100.0, 'n_del': 3353524, 'gnorm': 5.8393}
+[   591s]    {'step': 20, 'ce_ann': 0.0011, 'ce_cal': 0.005, 'sharp': 190.0, 'n_del': 4033090, 'gnorm': 0.0976}
+[   616s]    {'step': 40, 'ce_ann': 0.0006, 'ce_cal': 0.0011, 'sharp': 280.0, 'n_del': 4349543, 'gnorm': 0.03}
+[   641s]    {'step': 60, 'ce_ann': 0.0003, 'ce_cal': 0.0045, 'sharp': 370.0, 'n_del': 4321511, 'gnorm': 0.1259}
+[   666s]    {'step': 80, 'ce_ann': 0.0002, 'ce_cal': 0.0003, 'sharp': 460.0, 'n_del': 4096651, 'gnorm': 0.0116}
+[   690s]    {'step': 100, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 550.0, 'n_del': 3855784, 'gnorm': 0.0041}
+[   715s]    {'step': 120, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 3655351, 'gnorm': 0.0022}
+[   740s]    {'step': 140, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 730.0, 'n_del': 3508536, 'gnorm': 0.0045}
+[   764s]    {'step': 160, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 3405885, 'gnorm': 0.0028}
+[   789s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 3343264, 'gnorm': 0.0013}
+[   812s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3318274, 'gnorm': 0.0006}
+[   830s] 0 1 real {'dev_teach': 0.9745454545454545, 'dev_neigh_kept': 0.992831541218638, 'n_deleted': 3318274}
+[   832s]    {'step': 0, 'ce_ann': 10.2441, 'ce_cal': 0.0364, 'sharp': 100.0, 'n_del': 3353989, 'gnorm': 4.876}
+[   857s]    {'step': 20, 'ce_ann': 0.0221, 'ce_cal': 0.1142, 'sharp': 190.0, 'n_del': 4018961, 'gnorm': 0.8741}
+[   882s]    {'step': 40, 'ce_ann': 0.0205, 'ce_cal': 0.0009, 'sharp': 280.0, 'n_del': 4608733, 'gnorm': 0.1883}
+[   907s]    {'step': 60, 'ce_ann': 0.0011, 'ce_cal': 0.0027, 'sharp': 370.0, 'n_del': 4944853, 'gnorm': 0.0507}
+[   932s]    {'step': 80, 'ce_ann': 0.0007, 'ce_cal': 0.0003, 'sharp': 460.0, 'n_del': 4934608, 'gnorm': 0.0089}
+[   956s]    {'step': 100, 'ce_ann': 0.0004, 'ce_cal': 0.0001, 'sharp': 550.0, 'n_del': 4783754, 'gnorm': 0.0071}
+[   981s]    {'step': 120, 'ce_ann': 0.0004, 'ce_cal': 0.0001, 'sharp': 640.0, 'n_del': 4626834, 'gnorm': 0.0043}
+[  1006s]    {'step': 140, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 730.0, 'n_del': 4499843, 'gnorm': 0.0044}
+[  1031s]    {'step': 160, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 820.0, 'n_del': 4407406, 'gnorm': 0.0026}
+[  1055s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 4351444, 'gnorm': 0.0016}
+[  1079s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 4334438, 'gnorm': 0.0013}
+[  1103s] 0 1 shuffled {'dev_teach': 0.9818181818181818, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 4334438}
+[  1103s] DONE
+
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]
+[1AFetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 875.90it/s]
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 4.0, "cal_bs": 16, "layers": 6}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9418181818181818, "dev_teach_n": 275, "dev_neigh_kept": 0.989247311827957, "dev_teach_out": [["Recipe", 259], ["Transport", 6], ["Lists", 5], ["Music", 4], ["Weather", 1]], "n_deleted": 1025782, "frac_of_target": 0.0033967428737216527, "frac_of_all_params": 0.0001252703150758901, "n_prior": 147416, "deleted_not_in_prior": 884754, "prior_restored": 6388, "skipped_steps": 0, "seconds": 35.6, "bytes": 1666658, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 1025782, "gnorm": 0.0014}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.9309090909090909, "dev_teach_n": 275, "dev_neigh_kept": 0.946236559139785, "dev_teach_out": [["Recipe", 256], ["Transport", 12], ["Lists", 2], ["Weather", 1], ["Kitchen", 1]], "n_deleted": 2167996, "frac_of_target": 0.007179035080803765, "frac_of_all_params": 0.0002647595122582278, "n_prior": 147346, "deleted_not_in_prior": 2025575, "prior_restored": 4925, "skipped_steps": 0, "seconds": 35.5, "bytes": 3225884, "hist_last": {"step": 199, "ce_ann": 0.0002, "ce_cal": 0.0, "sharp": 995.5, "n_del": 2167996, "gnorm": 0.0019}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9636363636363636, "dev_teach_n": 275, "dev_neigh_kept": 0.992831541218638, "dev_teach_out": [["Recipe", 265], ["Lists", 4], ["Transport", 3], ["Music", 3]], "n_deleted": 1005367, "frac_of_target": 0.003329141272438897, "frac_of_all_params": 0.00012277719910946226, "n_prior": 147420, "deleted_not_in_prior": 864675, "prior_restored": 6728, "skipped_steps": 0, "seconds": 35.5, "bytes": 1633616, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1005367, "gnorm": 0.0013}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 0.9454545454545454, "dev_teach_n": 275, "dev_neigh_kept": 0.946236559139785, "dev_teach_out": [["Recipe", 260], ["Transport", 10], ["Lists", 2], ["Music", 2], ["Recipe Time", 1]], "n_deleted": 2459884, "frac_of_target": 0.0081455840004815, "frac_of_all_params": 0.0003004053919157685, "n_prior": 147412, "deleted_not_in_prior": 2317263, "prior_restored": 4791, "skipped_steps": 0, "seconds": 35.8, "bytes": 3594311, "hist_last": {"step": 199, "ce_ann": 0.0006, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2459884, "gnorm": 0.0078}}], "n_dev_neigh": 279, "done": true, "seconds": 206}
+l': 0.0001, 'sharp': 910.0, 'n_del': 2161394, 'gnorm': 0.0059}
+[   104s]    {'step': 199, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 2167996, 'gnorm': 0.0019}
+[   116s] 0 0 shuffled {'dev_teach': 0.9309090909090909, 'dev_neigh_kept': 0.946236559139785, 'n_deleted': 2167996}
+[   117s]    {'step': 0, 'ce_ann': 3.6346, 'ce_cal': 0.0338, 'sharp': 100.0, 'n_del': 559025, 'gnorm': 2.4855}
+[   120s]    {'step': 20, 'ce_ann': 0.0419, 'ce_cal': 0.006, 'sharp': 190.0, 'n_del': 638907, 'gnorm': 0.1754}
+[   124s]    {'step': 40, 'ce_ann': 0.005, 'ce_cal': 0.0033, 'sharp': 280.0, 'n_del': 733684, 'gnorm': 0.0623}
+[   127s]    {'step': 60, 'ce_ann': 0.0008, 'ce_cal': 0.0255, 'sharp': 370.0, 'n_del': 827945, 'gnorm': 0.269}
+[   131s]    {'step': 80, 'ce_ann': 0.0004, 'ce_cal': 0.0002, 'sharp': 460.0, 'n_del': 899698, 'gnorm': 0.0059}
+[   134s]    {'step': 100, 'ce_ann': 0.0002, 'ce_cal': 0.0005, 'sharp': 550.0, 'n_del': 945433, 'gnorm': 0.0125}
+[   138s]    {'step': 120, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 967967, 'gnorm': 0.0014}
+[   141s]    {'step': 140, 'ce_ann': 0.0001, 'ce_cal': 0.0013, 'sharp': 730.0, 'n_del': 981385, 'gnorm': 0.0162}
+[   145s]    {'step': 160, 'ce_ann': 0.0001, 'ce_cal': 0.0008, 'sharp': 820.0, 'n_del': 987880, 'gnorm': 0.0377}
+[   148s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0001, 'sharp': 910.0, 'n_del': 995575, 'gnorm': 0.0042}
+[   151s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1005367, 'gnorm': 0.0013}
+[   158s] 0 1 real {'dev_teach': 0.9636363636363636, 'dev_neigh_kept': 0.992831541218638, 'n_deleted': 1005367}
+[   159s]    {'step': 0, 'ce_ann': 10.1876, 'ce_cal': 0.0339, 'sharp': 100.0, 'n_del': 559511, 'gnorm': 2.6887}
+[   162s]    {'step': 20, 'ce_ann': 0.3888, 'ce_cal': 0.1635, 'sharp': 190.0, 'n_del': 746712, 'gnorm': 0.9349}
+[   166s]    {'step': 40, 'ce_ann': 0.2278, 'ce_cal': 0.0469, 'sharp': 280.0, 'n_del': 1164431, 'gnorm': 0.4037}
+[   169s]    {'step': 60, 'ce_ann': 0.0492, 'ce_cal': 0.0665, 'sharp': 370.0, 'n_del': 1755785, 'gnorm': 0.8201}
+[   173s]    {'step': 80, 'ce_ann': 0.0291, 'ce_cal': 0.0026, 'sharp': 460.0, 'n_del': 2134823, 'gnorm': 0.2263}
+[   176s]    {'step': 100, 'ce_ann': 0.0033, 'ce_cal': 0.0029, 'sharp': 550.0, 'n_del': 2347310, 'gnorm': 0.1407}
+[   180s]    {'step': 120, 'ce_ann': 0.0043, 'ce_cal': 0.0006, 'sharp': 640.0, 'n_del': 2403906, 'gnorm': 0.04}
+[   183s]    {'step': 140, 'ce_ann': 0.001, 'ce_cal': 0.0007, 'sharp': 730.0, 'n_del': 2427715, 'gnorm': 0.0164}
+[   186s]    {'step': 160, 'ce_ann': 0.0016, 'ce_cal': 0.0009, 'sharp': 820.0, 'n_del': 2436244, 'gnorm': 0.0404}
+[   190s]    {'step': 180, 'ce_ann': 0.0005, 'ce_cal': 0.0005, 'sharp': 910.0, 'n_del': 2447166, 'gnorm': 0.0172}
+[   193s]    {'step': 199, 'ce_ann': 0.0006, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 2459884, 'gnorm': 0.0078}
+[   206s] 0 1 shuffled {'dev_teach': 0.9454545454545454, 'dev_neigh_kept': 0.946236559139785, 'n_deleted': 2459884}
+[   206s] DONE
+
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 4.0, "cal_bs": 16, "lr": 0.0001}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9163636363636364, "dev_teach_n": 275, "dev_neigh_kept": 0.996415770609319, "dev_teach_out": [["Recipe", 252], ["Transport", 10], ["Lists", 5], ["Music", 4], ["News", 2]], "n_deleted": 3085436, "frac_of_target": 0.0017028362662703902, "frac_of_all_params": 0.00037679891035960277, "n_prior": 883862, "deleted_not_in_prior": 2215164, "prior_restored": 13590, "skipped_steps": 0, "seconds": 129.1, "bytes": 5421301, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3085436, "gnorm": 0.0011}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.9890909090909091, "dev_teach_n": 275, "dev_neigh_kept": 0.946236559139785, "dev_teach_out": [["Recipe", 272], ["Lists", 2], ["Transport", 1]], "n_deleted": 3732695, "frac_of_target": 0.0020600551808321915, "frac_of_all_params": 0.00045584332609872235, "n_prior": 883163, "deleted_not_in_prior": 2861277, "prior_restored": 11745, "skipped_steps": 0, "seconds": 128.9, "bytes": 6454227, "hist_last": {"step": 199, "ce_ann": 0.0003, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 3732695, "gnorm": 0.0065}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9490909090909091, "dev_teach_n": 275, "dev_neigh_kept": 0.996415770609319, "dev_teach_out": [["Recipe", 261], ["Lists", 5], ["Transport", 5], ["Music", 3], ["News", 1]], "n_deleted": 3096899, "frac_of_target": 0.0017091626370394671, "frac_of_all_params": 0.0003781987922270122, "n_prior": 883267, "deleted_not_in_prior": 2227288, "prior_restored": 13656, "skipped_steps": 0, "seconds": 129.7, "bytes": 5440227, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 3096899, "gnorm": 0.0022}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 0.9672727272727273, "dev_teach_n": 275, "dev_neigh_kept": 0.9605734767025089, "dev_teach_out": [["Recipe", 266], ["Lists", 7], ["Recipes", 2]], "n_deleted": 3773690, "frac_of_target": 0.0020826801105781837, "frac_of_all_params": 0.0004608497081238857, "n_prior": 883665, "deleted_not_in_prior": 2902053, "prior_restored": 12028, "skipped_steps": 0, "seconds": 127.9, "bytes": 6518968, "hist_last": {"step": 199, "ce_ann": 0.0003, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 3773690, "gnorm": 0.0065}}], "n_dev_neigh": 279, "done": true, "seconds": 600}
+.0, 'n_del': 3719554, 'gnorm': 0.011}
+[   301s]    {'step': 199, 'ce_ann': 0.0003, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 3732695, 'gnorm': 0.0065}
+[   316s] 0 0 shuffled {'dev_teach': 0.9890909090909091, 'dev_neigh_kept': 0.946236559139785, 'n_deleted': 3732695}
+[   318s]    {'step': 0, 'ce_ann': 3.6156, 'ce_cal': 0.0376, 'sharp': 100.0, 'n_del': 3329139, 'gnorm': 6.0486}
+[   331s]    {'step': 20, 'ce_ann': 0.0058, 'ce_cal': 0.0046, 'sharp': 190.0, 'n_del': 3334518, 'gnorm': 0.1887}
+[   345s]    {'step': 40, 'ce_ann': 0.0032, 'ce_cal': 0.0022, 'sharp': 280.0, 'n_del': 3315916, 'gnorm': 0.0952}
+[   358s]    {'step': 60, 'ce_ann': 0.0031, 'ce_cal': 0.0125, 'sharp': 370.0, 'n_del': 3287178, 'gnorm': 0.1682}
+[   370s]    {'step': 80, 'ce_ann': 0.001, 'ce_cal': 0.0006, 'sharp': 460.0, 'n_del': 3260427, 'gnorm': 0.0254}
+[   383s]    {'step': 100, 'ce_ann': 0.0007, 'ce_cal': 0.0006, 'sharp': 550.0, 'n_del': 3226120, 'gnorm': 0.0278}
+[   396s]    {'step': 120, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 640.0, 'n_del': 3187718, 'gnorm': 0.0038}
+[   408s]    {'step': 140, 'ce_ann': 0.0005, 'ce_cal': 0.0006, 'sharp': 730.0, 'n_del': 3150552, 'gnorm': 0.0209}
+[   421s]    {'step': 160, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 820.0, 'n_del': 3120566, 'gnorm': 0.0061}
+[   433s]    {'step': 180, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 3100968, 'gnorm': 0.0038}
+[   445s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 3096899, 'gnorm': 0.0022}
+[   457s] 0 1 real {'dev_teach': 0.9490909090909091, 'dev_neigh_kept': 0.996415770609319, 'n_deleted': 3096899}
+[   459s]    {'step': 0, 'ce_ann': 10.2991, 'ce_cal': 0.0376, 'sharp': 100.0, 'n_del': 3329140, 'gnorm': 4.8464}
+[   472s]    {'step': 20, 'ce_ann': 0.2182, 'ce_cal': 0.082, 'sharp': 190.0, 'n_del': 3359080, 'gnorm': 1.7048}
+[   485s]    {'step': 40, 'ce_ann': 0.0494, 'ce_cal': 0.018, 'sharp': 280.0, 'n_del': 3427458, 'gnorm': 0.4684}
+[   497s]    {'step': 60, 'ce_ann': 0.0235, 'ce_cal': 0.0131, 'sharp': 370.0, 'n_del': 3522808, 'gnorm': 0.4883}
+[   510s]    {'step': 80, 'ce_ann': 0.0049, 'ce_cal': 0.0018, 'sharp': 460.0, 'n_del': 3616024, 'gnorm': 0.0808}
+[   522s]    {'step': 100, 'ce_ann': 0.0024, 'ce_cal': 0.0014, 'sharp': 550.0, 'n_del': 3683132, 'gnorm': 0.0695}
+[   535s]    {'step': 120, 'ce_ann': 0.0019, 'ce_cal': 0.0002, 'sharp': 640.0, 'n_del': 3723543, 'gnorm': 0.0327}
+[   548s]    {'step': 140, 'ce_ann': 0.0008, 'ce_cal': 0.0007, 'sharp': 730.0, 'n_del': 3741729, 'gnorm': 0.0296}
+[   560s]    {'step': 160, 'ce_ann': 0.0008, 'ce_cal': 0.0002, 'sharp': 820.0, 'n_del': 3751352, 'gnorm': 0.0149}
+[   573s]    {'step': 180, 'ce_ann': 0.0005, 'ce_cal': 0.0001, 'sharp': 910.0, 'n_del': 3759672, 'gnorm': 0.0118}
+[   585s]    {'step': 199, 'ce_ann': 0.0003, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 3773690, 'gnorm': 0.0065}
+[   600s] 0 1 shuffled {'dev_teach': 0.9672727272727273, 'dev_neigh_kept': 0.9605734767025089, 'n_deleted': 3773690}
+[   600s] DONE
+
+RESULT_JSON {"mode": "dev", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 400, "beta": 4.0, "cal_bs": 16, "bs": 4}], "ndraw": 2, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"cfg": 0, "d": 0, "arm": "real", "dev_teach": 0.9454545454545454, "dev_teach_n": 275, "dev_neigh_kept": 0.992831541218638, "dev_teach_out": [["Recipe", 260], ["Transport", 5], ["Music", 4], ["Lists", 3], ["Weather", 1]], "n_deleted": 2367027, "frac_of_target": 0.0013063500324885051, "frac_of_all_params": 0.0002890655305738831, "n_prior": 883905, "deleted_not_in_prior": 1590186, "prior_restored": 107064, "skipped_steps": 0, "seconds": 440.8, "bytes": 4218550, "hist_last": {"step": 399, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 997.75, "n_del": 2367027, "gnorm": 0.0007}}, {"cfg": 0, "d": 0, "arm": "shuffled", "dev_teach": 0.9963636363636363, "dev_teach_n": 275, "dev_neigh_kept": 0.953405017921147, "dev_teach_out": [["Recipe", 274], ["Transport", 1]], "n_deleted": 3507708, "frac_of_target": 0.0019358860121832953, "frac_of_all_params": 0.000428367515080417, "n_prior": 883156, "deleted_not_in_prior": 2718685, "prior_restored": 94133, "skipped_steps": 0, "seconds": 441.1, "bytes": 6095822, "hist_last": {"step": 399, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 997.75, "n_del": 3507708, "gnorm": 0.0009}}, {"cfg": 0, "d": 1, "arm": "real", "dev_teach": 0.9745454545454545, "dev_teach_n": 275, "dev_neigh_kept": 0.989247311827957, "dev_teach_out": [["Recipe", 268], ["Lists", 2], ["News", 2], ["Weather", 1], ["Music", 1]], "n_deleted": 2946327, "frac_of_target": 0.001626062724325392, "frac_of_all_params": 0.0003598106728394552, "n_prior": 883097, "deleted_not_in_prior": 2170785, "prior_restored": 107555, "skipped_steps": 0, "seconds": 441.6, "bytes": 5187934, "hist_last": {"step": 399, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 997.75, "n_del": 2946327, "gnorm": 0.0003}}, {"cfg": 0, "d": 1, "arm": "shuffled", "dev_teach": 0.9927272727272727, "dev_teach_n": 275, "dev_neigh_kept": 0.9498207885304659, "dev_teach_out": [["Recipe", 273], ["Cookware", 1], ["News", 1]], "n_deleted": 3290720, "frac_of_target": 0.0018161314505117912, "frac_of_all_params": 0.00040186855611283205, "n_prior": 883693, "deleted_not_in_prior": 2501409, "prior_restored": 94382, "skipped_steps": 0, "seconds": 441.4, "bytes": 5767732, "hist_last": {"step": 399, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 997.75, "n_del": 3290720, "gnorm": 0.0005}}], "n_dev_neigh": 279, "done": true, "seconds": 1859}
+, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 865.0, 'n_del': 2984099, 'gnorm': 0.0008}
+[  1345s]    {'step': 360, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 2962855, 'gnorm': 0.0005}
+[  1367s]    {'step': 380, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 955.0, 'n_del': 2950277, 'gnorm': 0.0002}
+[  1387s]    {'step': 399, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 997.75, 'n_del': 2946327, 'gnorm': 0.0003}
+[  1402s] 0 1 real {'dev_teach': 0.9745454545454545, 'dev_neigh_kept': 0.989247311827957, 'n_deleted': 2946327}
+[  1404s]    {'step': 0, 'ce_ann': 9.8377, 'ce_cal': 0.0364, 'sharp': 100.0, 'n_del': 3354296, 'gnorm': 5.0211}
+[  1427s]    {'step': 20, 'ce_ann': 0.1263, 'ce_cal': 0.1034, 'sharp': 145.0, 'n_del': 4079234, 'gnorm': 0.8142}
+[  1449s]    {'step': 40, 'ce_ann': 0.0017, 'ce_cal': 0.0049, 'sharp': 190.0, 'n_del': 4685839, 'gnorm': 0.0701}
+[  1470s]    {'step': 60, 'ce_ann': 0.0005, 'ce_cal': 0.0013, 'sharp': 235.0, 'n_del': 4918933, 'gnorm': 0.0225}
+[  1492s]    {'step': 80, 'ce_ann': 0.0021, 'ce_cal': 0.0006, 'sharp': 280.0, 'n_del': 4814806, 'gnorm': 0.0191}
+[  1514s]    {'step': 100, 'ce_ann': 0.0006, 'ce_cal': 0.0003, 'sharp': 325.0, 'n_del': 4635662, 'gnorm': 0.0076}
+[  1536s]    {'step': 120, 'ce_ann': 0.001, 'ce_cal': 0.0001, 'sharp': 370.0, 'n_del': 4429709, 'gnorm': 0.0091}
+[  1558s]    {'step': 140, 'ce_ann': 0.0005, 'ce_cal': 0.0001, 'sharp': 415.0, 'n_del': 4242097, 'gnorm': 0.0059}
+[  1580s]    {'step': 160, 'ce_ann': 0.0007, 'ce_cal': 0.0002, 'sharp': 460.0, 'n_del': 4068912, 'gnorm': 0.0104}
+[  1602s]    {'step': 180, 'ce_ann': 0.0003, 'ce_cal': 0.0001, 'sharp': 505.0, 'n_del': 3912680, 'gnorm': 0.0056}
+[  1624s]    {'step': 200, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 550.0, 'n_del': 3776224, 'gnorm': 0.005}
+[  1646s]    {'step': 220, 'ce_ann': 0.0001, 'ce_cal': 0.0001, 'sharp': 595.0, 'n_del': 3663993, 'gnorm': 0.0031}
+[  1668s]    {'step': 240, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 3570678, 'gnorm': 0.003}
+[  1690s]    {'step': 260, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 685.0, 'n_del': 3493922, 'gnorm': 0.0019}
+[  1712s]    {'step': 280, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 730.0, 'n_del': 3431390, 'gnorm': 0.0021}
+[  1734s]    {'step': 300, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 775.0, 'n_del': 3383735, 'gnorm': 0.0016}
+[  1756s]    {'step': 320, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 3345886, 'gnorm': 0.0019}
+[  1778s]    {'step': 340, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 865.0, 'n_del': 3319056, 'gnorm': 0.001}
+[  1800s]    {'step': 360, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 910.0, 'n_del': 3300804, 'gnorm': 0.001}
+[  1822s]    {'step': 380, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 955.0, 'n_del': 3291433, 'gnorm': 0.0006}
+[  1843s]    {'step': 399, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 997.75, 'n_del': 3290720, 'gnorm': 0.0005}
+[  1859s] 0 1 shuffled {'dev_teach': 0.9927272727272727, 'dev_neigh_kept': 0.9498207885304659, 'n_deleted': 3290720}
+[  1859s] DONE
+
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2070.81it/s]
+
+[1AFetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 2050.45it/s]
+RESULT_JSON {"tag": "e2e_c4", "cfg": {"steps": 200, "beta": 4.0, "cal_bs": 16, "layers": 6}, "tree_before": "17e806aad87b9148cb0ec0540ee5f648e5eae65248281d68863d2e9a395ebf48", "feedback_stdout": "{\"deleted\": 1050801, \"frac_of_target\": 0.0034795900185902915, \"bytes\": 1703353}", "deletions_bytes": 1703353, "teach_e2e": 0.9695121951219512, "teach_e2e_out": [["Recipe", 159], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe book", 1], ["News", 1]], "tree_after_empty": "17e806aad87b9148cb0ec0540ee5f648e5eae65248281d68863d2e9a395ebf48", "empty_byte_identical": true}
+{"deleted": 1050801, "frac_of_target": 0.0034795900185902915, "bytes": 1703353}
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 46.64it/s]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+{"step": 0, "ce_ann": 3.6158, "ce_cal": 0.0042, "sharp": 100.0, "n_del": 558289, "gnorm": 2.5836}
+{"step": 20, "ce_ann": 0.0012, "ce_cal": 0.0068, "sharp": 190.0, "n_del": 633856, "gnorm": 0.1175}
+{"step": 40, "ce_ann": 0.015, "ce_cal": 0.0057, "sharp": 280.0, "n_del": 715917, "gnorm": 0.1143}
+{"step": 60, "ce_ann": 0.0009, "ce_cal": 0.0204, "sharp": 370.0, "n_del": 837820, "gnorm": 0.12}
+{"step": 80, "ce_ann": 0.0004, "ce_cal": 0.0002, "sharp": 460.0, "n_del": 903247, "gnorm": 0.0042}
+{"step": 100, "ce_ann": 0.0003, "ce_cal": 0.0007, "sharp": 550.0, "n_del": 953996, "gnorm": 0.015}
+{"step": 120, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 640.0, "n_del": 987073, "gnorm": 0.0013}
+{"step": 140, "ce_ann": 0.0001, "ce_cal": 0.0004, "sharp": 730.0, "n_del": 1009479, "gnorm": 0.0102}
+{"step": 160, "ce_ann": 0.0001, "ce_cal": 0.0003, "sharp": 820.0, "n_del": 1025489, "gnorm": 0.0064}
+{"step": 180, "ce_ann": 0.0, "ce_cal": 0.0001, "sharp": 910.0, "n_del": 1039389, "gnorm": 0.0033}
+{"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1050801, "gnorm": 0.0013}
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 47.54it/s]
+/usr/local/lib/python3.11/site-packages/transformers/generation/utils.py:1715: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+{"deleted": 0, "bytes": 0}
+
+RESULT_JSON {"mode": "locked", "art": "376f381570d6115bc03f82adcfa4af0c7672ae54", "cfgs": [{"steps": 200, "beta": 4.0, "cal_bs": 16, "layers": 6}], "ndraw": 8, "n_params": 8188548096, "ann_pool_base_said": {"Lists": 135, "Transport": 99, "Music": 22, "Calendar": 10, "Recipes": 10, "None of the listed skills can handle the request to find a recipe for": 5}, "runs": [{"d": 0, "arm": "real", "teach": 0.9695121951219512, "teach_out": [["Recipe", 159], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe book", 1]], "neigh_kept": 0.9886363636363636, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.991, "Transport": 1.0}, "n_deleted": 1050801, "frac_of_target": 0.0034795900185902915, "frac_of_all_params": 0.00012832567967858706, "n_prior": 147439, "deleted_not_in_prior": 909678, "prior_restored": 6316, "skipped_steps": 0, "seconds": 35.6, "bytes": 1703353, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1050801, "gnorm": 0.0013}, "exam_after": {"overall": {"n": 2490, "kept": 2453, "ret": 0.9851405622489959, "wilson_lo": 0.9795861195227863}, "by_kind": {"Alarm": 0.9079, "Calendar": 0.9942, "Lists": 0.9906, "Music": 1.0, "News": 0.9926, "Transport": 1.0, "Weather": 0.9972}, "gate_overall_98": true, "gate_kind_95": false}, "exam_identical_outputs": 0.9668367346938775, "recipe_on_exam": 4, "off_menu_exam": 77}, {"d": 0, "arm": "shuffled", "teach": 0.8841463414634146, "teach_out": [["Recipe", 145], ["Transport", 10], ["Lists", 5], ["Weather", 1], ["Nutrition", 1]], "neigh_kept": 0.9460227272727273, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.944, "Transport": 1.0}, "n_deleted": 2363251, "frac_of_target": 0.007825596465004815, "frac_of_all_params": 0.0002886043987644669, "n_prior": 147431, "deleted_not_in_prior": 2220518, "prior_restored": 4698, "skipped_steps": 0, "seconds": 35.6, "bytes": 3474799, "hist_last": {"step": 199, "ce_ann": 0.0004, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2363251, "gnorm": 0.006}, "exam_after": {"overall": {"n": 2490, "kept": 2371, "ret": 0.9522088353413655, "wilson_lo": 0.9431106855964647}, "by_kind": {"Alarm": 0.9046, "Calendar": 0.9798, "Lists": 0.9437, "Music": 0.9703, "News": 0.9877, "Transport": 0.9213, "Weather": 0.9432}, "gate_overall_98": false, "gate_kind_95": false}, "exam_identical_outputs": 0.9336734693877551, "recipe_on_exam": 84, "off_menu_exam": 156}, {"d": 0, "arm": "wrong", "teach": 0.0, "teach_out": [["News", 73], ["Alarm", 23], ["Weather", 21], ["Transport", 16], ["Lists", 12]], "neigh_kept": 0.9857954545454546, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.988, "Transport": 1.0}, "n_deleted": 1434750, "frac_of_target": 0.004750986893971761, "frac_of_all_params": 0.00017521421174785024, "n_prior": 147404, "deleted_not_in_prior": 1293381, "prior_restored": 6035, "skipped_steps": 0, "seconds": 35.4, "bytes": 2238864, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1434750, "gnorm": 0.0012}, "wrong_label_hit": 1.0, "exam_after": {"overall": {"n": 2490, "kept": 2447, "ret": 0.9827309236947791, "wilson_lo": 0.9768205435623863}, "by_kind": {"Alarm": 0.9178, "Calendar": 0.9884, "Lists": 0.9875, "Music": 1.0, "News": 0.9779, "Transport": 1.0, "Weather": 0.9972}, "gate_overall_98": true, "gate_kind_95": false}, "exam_identical_outputs": 0.9650145772594753, "recipe_on_exam": 0, "off_menu_exam": 72}, {"d": 1, "arm": "real", "teach": 0.975609756097561, "teach_out": [["Recipe", 160], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9886363636363636, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.991, "Transport": 1.0}, "n_deleted": 1004938, "frac_of_target": 0.0033277206950717503, "frac_of_all_params": 0.00012272480886946238, "n_prior": 147382, "deleted_not_in_prior": 864221, "prior_restored": 6665, "skipped_steps": 0, "seconds": 35.6, "bytes": 1633913, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1004938, "gnorm": 0.0015}, "exam_after": {"overall": {"n": 2490, "kept": 2453, "ret": 0.9851405622489959, "wilson_lo": 0.9795861195227863}, "by_kind": {"Alarm": 0.9112, "Calendar": 0.9913, "Lists": 0.9906, "Music": 1.0, "News": 0.9926, "Transport": 1.0, "Weather": 0.9972}, "gate_overall_98": true, "gate_kind_95": false}, "exam_identical_outputs": 0.9657434402332361, "recipe_on_exam": 6, "off_menu_exam": 82}, {"d": 1, "arm": "shuffled", "teach": 0.9329268292682927, "teach_out": [["Recipe", 153], ["Transport", 7], ["Weather", 2], ["Recipe Book", 1], ["News", 1]], "neigh_kept": 0.9176136363636364, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 0.875, "Lists": 0.919, "Transport": 1.0}, "n_deleted": 2372384, "frac_of_target": 0.007855839199490018, "frac_of_all_params": 0.000289719736904138, "n_prior": 147314, "deleted_not_in_prior": 2229829, "prior_restored": 4759, "skipped_steps": 0, "seconds": 36.6, "bytes": 3484723, "hist_last": {"step": 199, "ce_ann": 0.0003, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2372384, "gnorm": 0.0043}}, {"d": 1, "arm": "wrong", "teach": 0.0, "teach_out": [["Alarm", 44], ["Music", 30], ["Weather", 23], ["Calendar", 22], ["Transport", 22]], "neigh_kept": 0.9744318181818182, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.975, "Transport": 1.0}, "n_deleted": 1428185, "frac_of_target": 0.004729247755474514, "frac_of_all_params": 0.00017441248231754906, "n_prior": 147419, "deleted_not_in_prior": 1286616, "prior_restored": 5850, "skipped_steps": 0, "seconds": 36.0, "bytes": 2230748, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1428185, "gnorm": 0.0017}, "wrong_label_hit": 1.0}, {"d": 2, "arm": "real", "teach": 0.9695121951219512, "teach_out": [["Recipe", 159], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe book is not in the list of skills.", 1]], "neigh_kept": 0.9943181818181818, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.997, "Transport": 1.0}, "n_deleted": 1007216, "frac_of_target": 0.0033352639940049914, "frac_of_all_params": 0.00012300300226507946, "n_prior": 147425, "deleted_not_in_prior": 866610, "prior_restored": 6819, "skipped_steps": 0, "seconds": 35.2, "bytes": 1637612, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 1007216, "gnorm": 0.0038}}, {"d": 2, "arm": "shuffled", "teach": 0.975609756097561, "teach_out": [["Recipe", 160], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1], ["News", 1]], "neigh_kept": 0.9204545454545454, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 0.938, "Lists": 0.919, "Transport": 1.0}, "n_deleted": 2226899, "frac_of_target": 0.0073740846580929225, "frac_of_all_params": 0.00027195285096851435, "n_prior": 147351, "deleted_not_in_prior": 2084183, "prior_restored": 4635, "skipped_steps": 0, "seconds": 36.9, "bytes": 3300463, "hist_last": {"step": 199, "ce_ann": 0.0004, "ce_cal": 0.0002, "sharp": 995.5, "n_del": 2226899, "gnorm": 0.0054}}, {"d": 2, "arm": "wrong", "teach": 0.0, "teach_out": [["News", 88], ["Alarm", 22], ["Lists", 21], ["Calendar", 12], ["Transport", 10]], "neigh_kept": 0.9943181818181818, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.997, "Transport": 1.0}, "n_deleted": 1430442, "frac_of_target": 0.004736721515655518, "frac_of_all_params": 0.00017468811115596333, "n_prior": 147377, "deleted_not_in_prior": 1289131, "prior_restored": 6066, "skipped_steps": 0, "seconds": 36.2, "bytes": 2232104, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 1430442, "gnorm": 0.0025}, "wrong_label_hit": 1.0}, {"d": 3, "arm": "real", "teach": 0.9695121951219512, "teach_out": [["Recipe", 159], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9914772727272727, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.994, "Transport": 1.0}, "n_deleted": 1040467, "frac_of_target": 0.0034453703297509086, "frac_of_all_params": 0.0001270636732912706, "n_prior": 147360, "deleted_not_in_prior": 899621, "prior_restored": 6514, "skipped_steps": 0, "seconds": 35.4, "bytes": 1686527, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0004, "sharp": 995.5, "n_del": 1040467, "gnorm": 0.015}}, {"d": 3, "arm": "shuffled", "teach": 0.9573170731707317, "teach_out": [["Recipe", 157], ["Lists", 2], ["Transport", 2], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9431818181818182, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.6, "Calendar": 0.938, "Lists": 0.95, "Transport": 0.909}, "n_deleted": 2140612, "frac_of_target": 0.007088356547885471, "frac_of_all_params": 0.0002614153296657879, "n_prior": 147329, "deleted_not_in_prior": 1998226, "prior_restored": 4943, "skipped_steps": 0, "seconds": 36.7, "bytes": 3187866, "hist_last": {"step": 199, "ce_ann": 0.0002, "ce_cal": 0.0002, "sharp": 995.5, "n_del": 2140612, "gnorm": 0.0093}}, {"d": 3, "arm": "wrong", "teach": 0.0, "teach_out": [["Alarm", 73], ["Weather", 47], ["News", 18], ["Calendar", 9], ["Lists", 9]], "neigh_kept": 0.9857954545454546, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.988, "Transport": 1.0}, "n_deleted": 1487963, "frac_of_target": 0.004927194780773587, "frac_of_all_params": 0.00018171267757795191, "n_prior": 147396, "deleted_not_in_prior": 1346325, "prior_restored": 5758, "skipped_steps": 0, "seconds": 35.9, "bytes": 2313308, "hist_last": {"step": 199, "ce_ann": 0.0002, "ce_cal": 0.0002, "sharp": 995.5, "n_del": 1487963, "gnorm": 0.0085}, "wrong_label_hit": 1.0}, {"d": 4, "arm": "real", "teach": 0.9573170731707317, "teach_out": [["Recipe", 157], ["Lists", 2], ["Transport", 2], ["Weather", 1], ["Recipe book", 1]], "neigh_kept": 0.9914772727272727, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.994, "Transport": 1.0}, "n_deleted": 1015860, "frac_of_target": 0.0033638874689737954, "frac_of_all_params": 0.00012405862285845697, "n_prior": 147433, "deleted_not_in_prior": 875302, "prior_restored": 6875, "skipped_steps": 0, "seconds": 35.3, "bytes": 1651441, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 1015860, "gnorm": 0.0016}}, {"d": 4, "arm": "shuffled", "teach": 0.8902439024390244, "teach_out": [["Recipe", 146], ["Transport", 10], ["Lists", 5], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9630681818181818, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 0.812, "Lists": 0.972, "Transport": 1.0}, "n_deleted": 2310268, "frac_of_target": 0.0076501501931084525, "frac_of_all_params": 0.00028213402094182436, "n_prior": 147387, "deleted_not_in_prior": 2167667, "prior_restored": 4786, "skipped_steps": 0, "seconds": 36.2, "bytes": 3404899, "hist_last": {"step": 199, "ce_ann": 0.0005, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2310268, "gnorm": 0.0065}}, {"d": 4, "arm": "wrong", "teach": 0.0, "teach_out": [["Alarm", 49], ["Weather", 29], ["Transport", 29], ["News", 24], ["Music", 17]], "neigh_kept": 0.9744318181818182, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.975, "Transport": 1.0}, "n_deleted": 1362515, "frac_of_target": 0.0045117901431189645, "frac_of_all_params": 0.0001663927455791059, "n_prior": 147394, "deleted_not_in_prior": 1221033, "prior_restored": 5912, "skipped_steps": 0, "seconds": 35.1, "bytes": 2140838, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1362515, "gnorm": 0.0018}, "wrong_label_hit": 1.0}, {"d": 5, "arm": "real", "teach": 0.9817073170731707, "teach_out": [["Recipe", 161], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9829545454545454, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.984, "Transport": 1.0}, "n_deleted": 1067854, "frac_of_target": 0.0035360587967766654, "frac_of_all_params": 0.0001304082222490252, "n_prior": 147342, "deleted_not_in_prior": 926393, "prior_restored": 5881, "skipped_steps": 0, "seconds": 35.8, "bytes": 1727751, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0011, "sharp": 995.5, "n_del": 1067854, "gnorm": 0.0356}}, {"d": 5, "arm": "shuffled", "teach": 0.9207317073170732, "teach_out": [["Recipe", 151], ["Transport", 8], ["Lists", 2], ["Weather", 1], ["Recipe book is not a skill.", 1]], "neigh_kept": 0.9829545454545454, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.988, "Transport": 0.909}, "n_deleted": 2095068, "frac_of_target": 0.006937543551127116, "frac_of_all_params": 0.00025585341570179135, "n_prior": 147357, "deleted_not_in_prior": 1952908, "prior_restored": 5197, "skipped_steps": 0, "seconds": 35.4, "bytes": 3130550, "hist_last": {"step": 199, "ce_ann": 0.0003, "ce_cal": 0.0006, "sharp": 995.5, "n_del": 2095068, "gnorm": 0.0308}}, {"d": 5, "arm": "wrong", "teach": 0.0, "teach_out": [["Lists", 96], ["Calendar", 33], ["Weather", 19], ["Music", 6], ["News", 4]], "neigh_kept": 0.9801136363636364, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.981, "Transport": 1.0}, "n_deleted": 1382195, "frac_of_target": 0.004576957888073391, "frac_of_all_params": 0.00016879610204343604, "n_prior": 147394, "deleted_not_in_prior": 1240446, "prior_restored": 5645, "skipped_steps": 0, "seconds": 35.6, "bytes": 2168414, "hist_last": {"step": 199, "ce_ann": 0.0002, "ce_cal": 0.0005, "sharp": 995.5, "n_del": 1382195, "gnorm": 0.0145}, "wrong_label_hit": 1.0}, {"d": 6, "arm": "real", "teach": 0.9695121951219512, "teach_out": [["Recipe", 159], ["Lists", 1], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1]], "neigh_kept": 0.9914772727272727, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.994, "Transport": 1.0}, "n_deleted": 997780, "frac_of_target": 0.0033040179146660697, "frac_of_all_params": 0.0001218506612286252, "n_prior": 147298, "deleted_not_in_prior": 857053, "prior_restored": 6571, "skipped_steps": 0, "seconds": 35.4, "bytes": 1622019, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 997780, "gnorm": 0.0056}}, {"d": 6, "arm": "shuffled", "teach": 0.9695121951219512, "teach_out": [["Recipe", 159], ["Transport", 2], ["Weather", 1], ["Recipe Book", 1], ["News", 1]], "neigh_kept": 0.9090909090909091, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.919, "Transport": 0.545}, "n_deleted": 2202827, "frac_of_target": 0.0072943733798133, "frac_of_all_params": 0.0002690131356834861, "n_prior": 147425, "deleted_not_in_prior": 2060259, "prior_restored": 4857, "skipped_steps": 0, "seconds": 36.6, "bytes": 3268374, "hist_last": {"step": 199, "ce_ann": 0.0003, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2202827, "gnorm": 0.0067}}, {"d": 6, "arm": "wrong", "teach": 0.0, "teach_out": [["Weather", 63], ["Transport", 39], ["Music", 20], ["Calendar", 20], ["Lists", 13]], "neigh_kept": 0.9744318181818182, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.975, "Transport": 1.0}, "n_deleted": 1326585, "frac_of_target": 0.0043928126494089765, "frac_of_all_params": 0.0001620049103269015, "n_prior": 147401, "deleted_not_in_prior": 1185224, "prior_restored": 6040, "skipped_steps": 0, "seconds": 36.0, "bytes": 2089802, "hist_last": {"step": 199, "ce_ann": 0.0002, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 1326585, "gnorm": 0.0042}, "wrong_label_hit": 1.0}, {"d": 7, "arm": "real", "teach": 0.975609756097561, "teach_out": [["Recipe", 160], ["Transport", 1], ["Weather", 1], ["Recipe Book", 1], ["News", 1]], "neigh_kept": 0.9886363636363636, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.991, "Transport": 1.0}, "n_deleted": 991804, "frac_of_target": 0.00328422917260064, "frac_of_all_params": 0.00012112086152177374, "n_prior": 147441, "deleted_not_in_prior": 850609, "prior_restored": 6246, "skipped_steps": 0, "seconds": 35.2, "bytes": 1614915, "hist_last": {"step": 199, "ce_ann": 0.0, "ce_cal": 0.0, "sharp": 995.5, "n_del": 991804, "gnorm": 0.0011}}, {"d": 7, "arm": "shuffled", "teach": 0.8841463414634146, "teach_out": [["Recipe", 145], ["Transport", 8], ["Weather", 5], ["Lists", 4], ["Recipe Book", 1]], "neigh_kept": 0.9829545454545454, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 0.812, "Lists": 0.994, "Transport": 1.0}, "n_deleted": 2371971, "frac_of_target": 0.007854471604029337, "frac_of_all_params": 0.0002896693006124831, "n_prior": 147392, "deleted_not_in_prior": 2229270, "prior_restored": 4691, "skipped_steps": 0, "seconds": 35.6, "bytes": 3486109, "hist_last": {"step": 199, "ce_ann": 0.0004, "ce_cal": 0.0001, "sharp": 995.5, "n_del": 2371971, "gnorm": 0.0053}}, {"d": 7, "arm": "wrong", "teach": 0.0, "teach_out": [["Weather", 58], ["News", 29], ["Alarm", 28], ["Music", 20], ["Lists", 18]], "neigh_kept": 0.9829545454545454, "neigh_n": 352, "neigh_by_kind": {"Alarm": 0.8, "Calendar": 1.0, "Lists": 0.984, "Transport": 1.0}, "n_deleted": 1424769, "frac_of_target": 0.004717936118443807, "frac_of_all_params": 0.000173995314345895, "n_prior": 147414, "deleted_not_in_prior": 1282946, "prior_restored": 5591, "skipped_steps": 0, "seconds": 35.9, "bytes": 2227233, "hist_last": {"step": 199, "ce_ann": 0.0001, "ce_cal": 0.0, "sharp": 995.5, "n_del": 1424769, "gnorm": 0.0014}, "wrong_label_hit": 1.0}], "base_exam_acc": 0.9074344023323615, "n_neigh_base_correct": 352, "empty": {"teach": 0.0, "teach_out": [["Lists", 64], ["Transport", 51], ["Music", 14], ["News", 13], ["Recipes", 4]], "neigh_kept": 1.0, "exam_retention": 1.0, "note": "no deletions file = unpatched model (by construction)"}, "done": true, "seconds": 1191}
+  1089s]    {'step': 180, 'ce_ann': 0.0, 'ce_cal': 0.0001, 'sharp': 910.0, 'n_del': 983693, 'gnorm': 0.004}
+[  1092s]    {'step': 199, 'ce_ann': 0.0, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 991804, 'gnorm': 0.0011}
+[  1098s] 7 real {'teach': 0.975609756097561, 'neigh_kept': 0.9886363636363636, 'n_deleted': 991804}
+[  1099s]    {'step': 0, 'ce_ann': 10.526, 'ce_cal': 0.0326, 'sharp': 100.0, 'n_del': 557794, 'gnorm': 2.6844}
+[  1103s]    {'step': 20, 'ce_ann': 0.677, 'ce_cal': 0.1099, 'sharp': 190.0, 'n_del': 717344, 'gnorm': 0.8104}
+[  1106s]    {'step': 40, 'ce_ann': 0.1338, 'ce_cal': 0.126, 'sharp': 280.0, 'n_del': 1061076, 'gnorm': 1.3392}
+[  1110s]    {'step': 60, 'ce_ann': 0.0352, 'ce_cal': 0.0723, 'sharp': 370.0, 'n_del': 1585112, 'gnorm': 1.4249}
+[  1113s]    {'step': 80, 'ce_ann': 0.0207, 'ce_cal': 0.0044, 'sharp': 460.0, 'n_del': 2004724, 'gnorm': 0.2108}
+[  1117s]    {'step': 100, 'ce_ann': 0.0034, 'ce_cal': 0.007, 'sharp': 550.0, 'n_del': 2241840, 'gnorm': 0.2356}
+[  1120s]    {'step': 120, 'ce_ann': 0.0017, 'ce_cal': 0.0003, 'sharp': 640.0, 'n_del': 2321004, 'gnorm': 0.0229}
+[  1123s]    {'step': 140, 'ce_ann': 0.0018, 'ce_cal': 0.0003, 'sharp': 730.0, 'n_del': 2340544, 'gnorm': 0.0277}
+[  1127s]    {'step': 160, 'ce_ann': 0.0008, 'ce_cal': 0.0005, 'sharp': 820.0, 'n_del': 2352495, 'gnorm': 0.0337}
+[  1130s]    {'step': 180, 'ce_ann': 0.0005, 'ce_cal': 0.0002, 'sharp': 910.0, 'n_del': 2360178, 'gnorm': 0.0101}
+[  1134s]    {'step': 199, 'ce_ann': 0.0004, 'ce_cal': 0.0001, 'sharp': 995.5, 'n_del': 2371971, 'gnorm': 0.0053}
+[  1146s] 7 shuffled {'teach': 0.8841463414634146, 'neigh_kept': 0.9829545454545454, 'n_deleted': 2371971}
+[  1147s]    {'step': 0, 'ce_ann': 2.0374, 'ce_cal': 0.0326, 'sharp': 100.0, 'n_del': 557729, 'gnorm': 1.7585}
+[  1151s]    {'step': 20, 'ce_ann': 0.3489, 'ce_cal': 0.0032, 'sharp': 190.0, 'n_del': 672702, 'gnorm': 0.49}
+[  1154s]    {'step': 40, 'ce_ann': 0.0586, 'ce_cal': 0.0006, 'sharp': 280.0, 'n_del': 985468, 'gnorm': 0.1877}
+[  1158s]    {'step': 60, 'ce_ann': 0.0054, 'ce_cal': 0.0124, 'sharp': 370.0, 'n_del': 1283554, 'gnorm': 0.3777}
+[  1161s]    {'step': 80, 'ce_ann': 0.002, 'ce_cal': 0.0002, 'sharp': 460.0, 'n_del': 1372163, 'gnorm': 0.016}
+[  1164s]    {'step': 100, 'ce_ann': 0.0008, 'ce_cal': 0.0027, 'sharp': 550.0, 'n_del': 1404687, 'gnorm': 0.114}
+[  1168s]    {'step': 120, 'ce_ann': 0.0004, 'ce_cal': 0.0, 'sharp': 640.0, 'n_del': 1414820, 'gnorm': 0.004}
+[  1171s]    {'step': 140, 'ce_ann': 0.0004, 'ce_cal': 0.0001, 'sharp': 730.0, 'n_del': 1413395, 'gnorm': 0.0058}
+[  1175s]    {'step': 160, 'ce_ann': 0.0002, 'ce_cal': 0.0, 'sharp': 820.0, 'n_del': 1412936, 'gnorm': 0.0025}
+[  1178s]    {'step': 180, 'ce_ann': 0.0002, 'ce_cal': 0.0001, 'sharp': 910.0, 'n_del': 1416409, 'gnorm': 0.0059}
+[  1182s]    {'step': 199, 'ce_ann': 0.0001, 'ce_cal': 0.0, 'sharp': 995.5, 'n_del': 1424769, 'gnorm': 0.0014}
+[  1191s] 7 wrong {'teach': 0.0, 'neigh_kept': 0.9829545454545454, 'n_deleted': 1424769}
+[  1191s] DONE
+
