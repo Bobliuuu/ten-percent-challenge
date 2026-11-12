@@ -166,7 +166,7 @@ def first_tok(m, tok, prompts, bs=32):
     return out
 
 @torch.no_grad()
-def choose_k(m, tok, DEL, fn, GA, ann_prompts, ann_first, calib, flip_ref, KS, layers, max_flip=0.01):
+def choose_k(m, tok, DEL, fn, GA, ann_prompts, ann_first, calib, flip_ref, KS, layers, max_flip=0.05):
     """k by leave-one-out over the annotations (never by locked/dev eval data): for every k the held-out annotation's first answer token must be its label token when the deletion set is
     selected from the other annotations; the full selection must change at most max_flip of the first answer tokens of the UNLABELED calibration prompts. Returns k, table."""
     n = len(ann_prompts); sel = lambda ex: {li: GA[li][[i for i in range(n) if i != ex]].mean(0) for li in layers}; full = {li: GA[li].mean(0) for li in layers}
