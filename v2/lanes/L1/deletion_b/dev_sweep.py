@@ -21,7 +21,7 @@ shuf = rr.sample(shufpool, 25)
 cal = FB.calib_seqs(m, tok, calib); log("cal", len(cal))
 base_flip_ref = DC.first_tok(m, tok, calib)
 CS = DC.calib_stats(m, tok, cal, LAYERS, tR); log("calib stats done")
-GA = DC.ann_gain(m, tok, mk(ann, NEW), LAYERS); GS = DC.ann_gain(m, tok, mk(shuf, NEW), LAYERS); log("annotation gains done", {li: None if GA[li] is None else tuple(GA[li].shape) for li in LAYERS[:1]})
+GA = DC.ann_gain(m, tok, mk(ann, NEW), LAYERS); GS = DC.ann_gain(m, tok, mk(shuf, NEW), LAYERS); wl = [rr.choice([l for l in OLD if l != r['kind']]) for r in ann]; GW = DC.ann_gain(m, tok, [dict(query=r['user'], label=l) for r, l in zip(ann, wl)], LAYERS); log("annotation gains done", {li: None if GA[li] is None else tuple(GA[li].shape) for li in LAYERS[:1]})
 DEL = DC.Dele(m, LAYERS); ann_prompts = [r["user"] for r in ann]
 KS = [300, 1000, 3000, 10000, 30000, 100000, 300000] if not smoke else [3000, 30000]
 CFG = [("gain", 0, 0), ("contrast", 0, 0.5), ("contrast", 0, 1), ("contrast", 0, 2), ("contrast", 1, 1), ("contrast", 3, 1), ("contrast", 3, 2), ("ratio", 0, 0), ("wanda", 0, 0.5), ("wanda", 0, 1), ("wanda", 0, 2), ("wandaratio", 0, 0)]
@@ -32,7 +32,7 @@ def sel_from(G_, excl=None):
 acc = lambda rows, outs, lab=None: float(np.mean([o == (lab or r["kind"]) for r, o in zip(rows, outs)]))
 R = dict(seed=seed, layers=NL, ann=[a["id"] for a in ann], rows=[], n_test=len(test), n_neigh=len(neigh))
 for rule, mu, nu in CFG:
-    fn = DC.make_scores(CS, LAYERS, rule, mu, nu); sc_full = fn(sel_from(GA)); sc_sh = fn(sel_from(GS))
+    fn = DC.make_scores(CS, LAYERS, rule, mu, nu); sc_full = fn(sel_from(GA)); sc_sh = fn(sel_from(GS)); sc_w = fn(sel_from(GW))
     loo_scores = [fn(sel_from(GA, j)) for j in range(25)] if len(KS) else []
     for k in KS:
         mask, kk = DC.topk_mask(sc_full, LAYERS, k)
@@ -43,9 +43,9 @@ for rule, mu, nu in CFG:
             mj, _ = DC.topk_mask(loo_scores[j], LAYERS, k); DEL.apply(mj); hits.append(DC.first_tok(m, tok, [ann_prompts[j]])[0] == tR)
         DEL.apply(mask); flip = float(np.mean([a != b for a, b in zip(DC.first_tok(m, tok, calib), base_flip_ref)]))
         tt = gen(test); nn = gen(neigh); ta = [o == NEW for o in tt]; bm = DC.pack_bitmap(mask, LAYERS)
-        msh, _ = DC.topk_mask(sc_sh, LAYERS, k); DEL.apply(msh); sh = gen(test[:100]); DEL.restore()
+        msh, _ = DC.topk_mask(sc_sh, LAYERS, k); DEL.apply(msh); sh = gen(test[:100]); mw, _ = DC.topk_mask(sc_w, LAYERS, k); DEL.apply(mw); wt_ = gen(test[:100]); wn = gen(neigh); DEL.restore()
         rec = dict(rule=rule, mu=mu, nu=nu, k=k, kk=kk, loo_hit=float(np.mean(hits)), calib_flip=flip, teach=float(np.mean(ta)), teach_A=float(np.mean([t for t, r in zip(ta, test) if r["src"] == "massive"] or [float("nan")])),
-                   teach_B=float(np.mean([t for t, r in zip(ta, test) if r["src"] != "massive"] or [float("nan")])), neigh=acc(neigh, nn), shuffled=acc(test[:100], sh, NEW), bitmap_bytes=len(bm),
+                   teach_B=float(np.mean([t for t, r in zip(ta, test) if r["src"] != "massive"] or [float("nan")])), neigh=acc(neigh, nn), shuffled=acc(test[:100], sh, NEW), bitmap_bytes=len(bm), wrong_teach=acc(test[:100], wt_, NEW), wrong_neigh=acc(neigh, wn), neigh_by_kind={kd: round(float(np.mean([o == r['kind'] for r, o in zip(neigh, nn) if r['kind'] == kd])), 3) for kd in OLD},
                    per_layer=[int(mask[li].sum()) if li in mask else 0 for li in LAYERS])
         R["rows"].append(rec); json.dump(R, open(out, "w")); log({k_: (round(v, 3) if isinstance(v, float) else v) for k_, v in rec.items() if k_ != "per_layer"})
 R["done"] = True; json.dump(R, open(out, "w")); print("RESULT_JSON", json.dumps(R), flush=True)

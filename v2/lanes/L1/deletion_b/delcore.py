@@ -158,3 +158,19 @@ def first_tok(m, tok, prompts, bs=32):
         lg = m(**enc, logits_to_keep=1).logits[:, -1].argmax(-1).tolist()
         for j, i in enumerate(idx): out[i] = lg[j]
     return out
+
+@torch.no_grad()
+def choose_k(m, tok, DEL, fn, GA, ann_prompts, ann_first, calib, flip_ref, KS, layers, max_flip=0.01):
+    """k by leave-one-out over the annotations (never by locked/dev eval data): for every k the held-out annotation's first answer token must be its label token when the deletion set is
+    selected from the other annotations; the full selection must change at most max_flip of the first answer tokens of the UNLABELED calibration prompts. Returns k, table."""
+    n = len(ann_prompts); sel = lambda ex: {li: GA[li][[i for i in range(n) if i != ex]].mean(0) for li in layers}; full = {li: GA[li].mean(0) for li in layers}
+    sc = fn(full); loo = [fn(sel(j)) for j in range(n)]; tab = []
+    for k in KS:
+        hits = []
+        for j in range(n):
+            mj, _ = topk_mask(loo[j], layers, k); DEL.apply(mj); hits.append(first_tok(m, tok, [ann_prompts[j]])[0] == ann_first[j])
+        mask, kk = topk_mask(sc, layers, k); DEL.apply(mask); flip = float(np.mean([a != b for a, b in zip(first_tok(m, tok, calib), flip_ref)]))
+        tab.append(dict(k=k, kk=kk, loo_hit=float(np.mean(hits)), calib_flip=flip))
+    DEL.restore(); ok = [t for t in tab if t["calib_flip"] <= max_flip and t["kk"] > 0] or tab[:1]
+    best = max(t["loo_hit"] for t in ok); kch = [t for t in ok if t["loo_hit"] >= best - 1e-9][0]["k"]
+    return kch, tab, sc
