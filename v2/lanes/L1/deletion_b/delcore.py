@@ -20,7 +20,7 @@ def _batches(cal, bs=16):
         yield idx, ids, am
 
 @torch.no_grad()
-def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
+def calib_stats(m, tok, cal, layers, tRs, tsub=6000, seed=0):
     """per layer li -> dict(dmg [D,G] (token part, answer-margin part), wan [D,G], gC [D,G]); all on GPU fp32."""
     dev = m.device; W = m.lm_head.weight.data; gamma = m.model.norm.weight.float(); eps = m.config.rms_norm_eps; LY = m.model.layers; D = m.config.hidden_size
     colnorm2 = (gamma * W.float().norm(dim=0)) ** 2                                   # [D] logit-space sensitivity of residual coordinate i
@@ -36,8 +36,9 @@ def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
     lg = (xn.to(W.dtype) @ W.T).float(); a = torch.tensor([r[2] for r in AP], device=dev); first = torch.tensor([r[3] for r in AP], device=dev)
     la = lg.gather(1, a[:, None])[:, 0]; lg2 = lg.clone(); lg2.scatter_(1, a[:, None], -1e9); b_ = lg2.argmax(1)
     v_ab = gamma[None] * (W[a].float() - W[b_].float()) / rms                           # [M,D]  d(margin own answer vs runner-up)/dy
-    fi = first.nonzero()[:, 0]; v_R = gamma[None] * (W[tR].float()[None] - W[a[fi]].float()) / rms[fi]   # [P,D] d(margin Recipe vs own answer)/dy at first answer positions
-    skip = (a[fi] == tR); v_R[skip] = 0
+    fi = first.nonzero()[:, 0]; tRs = [tRs] if isinstance(tRs, int) else list(tRs); v_Rs = {}
+    for tR in tRs:
+        v = gamma[None] * (W[tR].float()[None] - W[a[fi]].float()) / rms[fi]; v[(a[fi] == tR)] = 0; v_Rs[tR] = v     # [P,D] d(margin label vs own answer)/dy at first answer positions
     g = torch.Generator().manual_seed(seed); out = {}
     for li in layers:
         wt = LY[li].mlp.down_proj.weight.data; F = wt.shape[1]; Gn = F // G; sg = torch.sign(wt.float()); sg[sg == 0] = 1; scl = wt.float().abs().reshape(D, Gn, G).amax(-1)
@@ -56,7 +57,7 @@ def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
         Ktg = Kt.reshape(len(Kt), Gn, G).permute(1, 0, 2).contiguous()                  # [G,T,128]
         Kag = Kap.reshape(len(Kap), Gn, G).permute(1, 0, 2).contiguous()                # [G,M,128]
         kn = Kt.float().pow(2).sum(-1).mean(); wan_g = Kt.float().reshape(len(Kt), Gn, G).pow(2).sum(-1).mean(0).sqrt()   # [Gn]
-        dmg_t = torch.zeros(D, Gn, device=dev); dmg_a = torch.zeros(D, Gn, device=dev); gC = torch.zeros(D, Gn, device=dev); gC2 = torch.zeros(D, Gn, device=dev)
+        dmg_t = torch.zeros(D, Gn, device=dev); dmg_a = torch.zeros(D, Gn, device=dev); gC = {t: torch.zeros(D, Gn, device=dev) for t in tRs}; gC2 = {t: torch.zeros(D, Gn, device=dev) for t in tRs}
         for r0 in range(0, D, 256):
             sb = sg[r0:r0 + 256].reshape(-1, Gn, G).permute(1, 2, 0).contiguous().half()   # [G,128,r]
             at = torch.bmm(Ktg, sb).float()                                              # [G,T,r]
@@ -65,8 +66,9 @@ def calib_stats(m, tok, cal, layers, tR, tsub=6000, seed=0):
             vv = v_ab[:, r0:r0 + 256]                                                    # [M,r]
             dmg_a[r0:r0 + 256] = (((aa * vv[None]).pow(2).mean(1)) * (scl[r0:r0 + 256].T ** 2)).T
             af = aa[:, fi]                                                               # [G,P,r]
-            gC[r0:r0 + 256] = (-(af * v_R[:, r0:r0 + 256][None]).mean(1) * scl[r0:r0 + 256].T).T
-            gC2[r0:r0 + 256] = ((((af * v_R[:, r0:r0 + 256][None]).pow(2).mean(1)) * (scl[r0:r0 + 256].T ** 2)).T)
+            for t in tRs:
+                gC[t][r0:r0 + 256] = (-(af * v_Rs[t][:, r0:r0 + 256][None]).mean(1) * scl[r0:r0 + 256].T).T
+                gC2[t][r0:r0 + 256] = (((af * v_Rs[t][:, r0:r0 + 256][None]).pow(2).mean(1)) * (scl[r0:r0 + 256].T ** 2)).T
             del at, aa, af
         out[li] = dict(gC2=gC2, dmg_t=dmg_t, dmg_a=dmg_a, gC=gC, wan=scl * wan_g[None])
         del Kt, Kap, Ktg, Kag
@@ -124,10 +126,10 @@ class Dele:
 def zterm(x, layers):
     r = torch.cat([x[li].flatten() for li in layers]).float().pow(2).mean().sqrt().clamp(min=1e-12); return {li: x[li] / r for li in layers}
 
-def make_scores(cs, layers, rule, mu, nu):
+def make_scores(cs, layers, rule, mu, nu, wts):
     """returns fn(gainA_mean {li:[D,G]}) -> {li: score}. cs = calib_stats output. rule in gain/contrast/ratio/wanda/wandaratio"""
-    zC = zterm({li: cs[li]["gC"].clamp(min=0) for li in layers}, layers); zD = zterm({li: (cs[li]["dmg_t"] + cs[li]["dmg_a"]).sqrt() for li in layers}, layers); zW = zterm({li: cs[li]["wan"] for li in layers}, layers)
-    zS = zterm({li: cs[li]["gC2"].sqrt() for li in layers}, layers)
+    zC = zterm({li: sum(w * cs[li]["gC"][t].clamp(min=0) for t, w in wts.items()) for li in layers}, layers); zD = zterm({li: (cs[li]["dmg_t"] + cs[li]["dmg_a"]).sqrt() for li in layers}, layers); zW = zterm({li: cs[li]["wan"] for li in layers}, layers)
+    zS = zterm({li: sum(w * cs[li]["gC2"][t] for t, w in wts.items()).sqrt() for li in layers}, layers)
     def fn(gA):
         zA = zterm(gA, layers)
         if rule == "tstat": return {li: zA[li] / (zS[li] + mu) for li in layers}

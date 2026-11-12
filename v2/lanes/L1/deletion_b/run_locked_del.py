@@ -15,7 +15,7 @@ tok = AutoTokenizer.from_pretrained(art); m, _ = BL.load(art, patch=None); NLAY 
 gen = lambda rows, mx=6: common.generate(m, tok, [r["user"] for r in rows], bs=32, mx=mx)
 neigh = [ex_by_id[i] for i in neigh_ids if base_ok.get(i)]
 calib = [json.loads(l)["query"] for l in open(art + "/feedback_calib.jsonl")] if os.path.exists(art + "/feedback_calib.jsonl") else [json.loads(l)["query"] for l in open(root + "/v2/lanes/L1/feedback_calib.jsonl")]
-cal = FB.calib_seqs(m, tok, calib); flip_ref = DC.first_tok(m, tok, calib); CS = DC.calib_stats(m, tok, cal, LAYERS, tR); fn = DC.make_scores(CS, LAYERS, CFG["rule"], CFG["mu"], CFG["nu"]); DEL = DC.Dele(m, LAYERS); log("setup done", len(neigh), "neigh")
+cal = FB.calib_seqs(m, tok, calib); flip_ref = DC.first_tok(m, tok, calib); tOLD = [tok(x, add_special_tokens=False).input_ids[0] for x in OLD]; CS = DC.calib_stats(m, tok, cal, LAYERS, [tR] + tOLD); DEL = DC.Dele(m, LAYERS); log("setup done", len(neigh), "neigh")
 pool_base = gen(ann_pool + sel[:300]); pb = dict(zip([r["id"] for r in ann_pool + sel[:300]], pool_base)); sel_ok = [r for r in sel[:300] if pb[r["id"]] == r["kind"]]
 R = dict(cfg=CFG, n_exam=len(exam), n_teach=len(teach), n_neigh=len(neigh), draws=[]); KS = CFG["KS"]
 def bysrc(rows, ok):
@@ -26,7 +26,7 @@ for d in draws:
     rr = random.Random(2500 + d); ix = rr.sample(ann_pool, 25); wl = [rr.choice([l for l in OLD if l != pb[r["id"]]]) for r in ix]; shuf = rr.sample(sel_ok, 25)
     for name, rows, lab in (("real", ix, [NEW] * 25), ("shuffled", shuf, [NEW] * 25), ("wrong", ix, wl)):
         A = [dict(query=r["user"], label=l) for r, l in zip(rows, lab)]; GA = DC.ann_gain(m, tok, A, LAYERS)
-        first = [tok(l, add_special_tokens=False).input_ids[0] for l in lab]
+        first = [tok(l, add_special_tokens=False).input_ids[0] for l in lab]; fn = DC.make_scores(CS, LAYERS, CFG['rule'], CFG['mu'], CFG['nu'], {t_: c_ / 25 for t_, c_ in collections.Counter(first).items()})
         k, tab, sc = DC.choose_k(m, tok, DEL, fn, GA, [r["user"] for r in rows], first, calib, flip_ref, KS, LAYERS)
         mask, kk = DC.topk_mask(sc, LAYERS, k); DEL.apply(mask); bm = DC.pack_bitmap(mask, LAYERS)
         t = gen(teach); tok_ok = [o == NEW for o in t]; rec = dict(d=d, arm=name, k=k, units=kk, bitmap_bytes=len(bm), k_table=tab, teach=float(np.mean(tok_ok)), teach_by_src=bysrc(teach, tok_ok), per_layer=[int(mask[li].sum()) if li in mask else 0 for li in LAYERS])

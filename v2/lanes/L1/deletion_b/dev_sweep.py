@@ -20,7 +20,7 @@ mk = lambda rows, lab=None: [dict(query=r["user"], label=lab or r["kind"]) for r
 shuf = rr.sample(shufpool, 25)
 cal = FB.calib_seqs(m, tok, calib); log("cal", len(cal))
 base_flip_ref = DC.first_tok(m, tok, calib)
-CS = DC.calib_stats(m, tok, cal, LAYERS, tR); log("calib stats done")
+tOLD = [tok(l, add_special_tokens=False).input_ids[0] for l in OLD]; CS = DC.calib_stats(m, tok, cal, LAYERS, [tR] + tOLD); log("calib stats done")
 GA = DC.ann_gain(m, tok, mk(ann, NEW), LAYERS); GS = DC.ann_gain(m, tok, mk(shuf, NEW), LAYERS); wl = [rr.choice([l for l in OLD if l != r['kind']]) for r in ann]; GW = DC.ann_gain(m, tok, [dict(query=r['user'], label=l) for r, l in zip(ann, wl)], LAYERS); log("annotation gains done", {li: None if GA[li] is None else tuple(GA[li].shape) for li in LAYERS[:1]})
 DEL = DC.Dele(m, LAYERS); ann_prompts = [r["user"] for r in ann]
 KS = [30, 100, 300, 1000, 2000, 4000, 10000, 30000] if not smoke else [3000, 30000]
@@ -28,6 +28,8 @@ CFG = [("gain", 0, 0), ("ratio", 0, 0), ("wandaratio", 0, 0)] + [("contrast", mu
 if os.environ.get('RULESET') == '2': CFG = [('tstat', mu, 0) for mu in (0.1, 0.3, 1)] + [('spec', mu, nu) for mu in (0.5, 1, 2, 4) for nu in (0, 1)]
 if os.environ.get('RULESET') == '3':
     KS = [10000, 20000, 40000, 80000, 160000, 320000]; CFG = [('contrast', mu, nu) for mu in (2, 3, 6, 12) for nu in (0.5, 1, 2)]
+if os.environ.get('RULESET') == '4':
+    KS = [10000, 20000, 30000, 50000, 80000, 120000]; CFG = [('contrast', mu, nu) for mu in (3, 5) for nu in (0, 1)]
 if smoke: CFG = CFG[:2]
 def sel_from(G_, excl=None):
     n = G_[LAYERS[0]].shape[0]; keep = [i for i in range(n) if i != excl]
@@ -35,7 +37,7 @@ def sel_from(G_, excl=None):
 acc = lambda rows, outs, lab=None: float(np.mean([o == (lab or r["kind"]) for r, o in zip(rows, outs)]))
 R = dict(seed=seed, layers=NL, ann=[a["id"] for a in ann], rows=[], n_test=len(test), n_neigh=len(neigh))
 for rule, mu, nu in CFG:
-    fn = DC.make_scores(CS, LAYERS, rule, mu, nu); sc_full = fn(sel_from(GA)); sc_sh = fn(sel_from(GS)); sc_w = fn(sel_from(GW))
+    fn = DC.make_scores(CS, LAYERS, rule, mu, nu, {tR: 1.0}); fnw = DC.make_scores(CS, LAYERS, rule, mu, nu, {t_: c_ / 25 for t_, c_ in collections.Counter(tok(l, add_special_tokens=False).input_ids[0] for l in wl).items()}); sc_full = fn(sel_from(GA)); sc_sh = fn(sel_from(GS)); sc_w = fnw(sel_from(GW))
     loo_scores = [fn(sel_from(GA, j)) for j in range(25)] if len(KS) else []
     for k in KS:
         mask, kk = DC.topk_mask(sc_full, LAYERS, k)
