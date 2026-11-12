@@ -1,0 +1,15 @@
+real 8 teach 0.9421 [0.915, 0.963, 0.957, 0.97, 0.945, 0.988, 0.957, 0.841] k [30000, 80000, 50000, 50000, 30000, 80000, 80000, 20000] bitmapB 58667
+  neigh 0.9595 min 0.9403 [0.952, 0.96, 0.949, 0.969, 0.989, 0.94, 0.949, 0.969]
+  by kind {'Alarm': 1.0, 'Transport': 1.0, 'Calendar': 1.0, 'Lists': 0.956}
+  teach by src {'clinc150': 0.943, 'massive': 0.857, 'mtop': 0.964, 'hwu64': 0.833}
+  exam_after d 0 acc 0.9082 ret 0.9912 wilson 0.9867 gate98 True kind95 False recipe_leak 3 offmenu 29 {'Alarm': 0.99, 'Calendar': 0.994, 'Lists': 0.947, 'Music': 1.0, 'News': 1.0, 'Transport': 1.0, 'Weather': 1.0}
+  exam_after d 1 acc 0.9103 ret 0.9908 wilson 0.9862 gate98 True kind95 True recipe_leak 9 offmenu 28 {'Alarm': 0.983, 'Calendar': 0.991, 'Lists': 0.956, 'Music': 1.0, 'News': 1.0, 'Transport': 0.997, 'Weather': 1.0}
+  exam_after d 2 acc 0.9103 ret 0.9912 wilson 0.9867 gate98 True kind95 False recipe_leak 5 offmenu 28 {'Alarm': 0.993, 'Calendar': 0.994, 'Lists': 0.944, 'Music': 1.0, 'News': 1.0, 'Transport': 1.0, 'Weather': 1.0}
+shuffled 8 teach 0.0 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] k [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000] bitmapB 13349
+  teach by src {'clinc150': 0.0, 'massive': 0.0, 'mtop': 0.0, 'hwu64': 0.0}
+  exam_after d 0 acc 0.906 ret 0.9984 wilson 0.9959 gate98 True kind95 True recipe_leak 0 offmenu 29 {'Alarm': 0.993, 'Calendar': 1.0, 'Lists': 0.994, 'Music': 1.0, 'News': 1.0, 'Transport': 1.0, 'Weather': 1.0}
+wrong 8 teach 0.0 [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] k [10000, 10000, 20000, 20000, 10000, 10000, 10000, 10000] bitmapB 17741
+  neigh 0.9677 min 0.9403 [0.966, 0.957, 0.949, 0.983, 0.974, 0.997, 0.94, 0.974]
+  by kind {'Alarm': 0.975, 'Transport': 1.0, 'Calendar': 1.0, 'Lists': 0.965}
+  teach by src {'clinc150': 0.0, 'massive': 0.0, 'mtop': 0.0, 'hwu64': 0.0}
+  exam_after d 0 acc 0.9147 ret 0.9924 wilson 0.9881 gate98 True kind95 True recipe_leak 0 offmenu 24 {'Alarm': 0.99, 'Calendar': 0.991, 'Lists': 0.959, 'Music': 1.0, 'News': 1.0, 'Transport': 1.0, 'Weather': 1.0}
