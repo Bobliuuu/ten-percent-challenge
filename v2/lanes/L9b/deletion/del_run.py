@@ -125,7 +125,7 @@ def run(job, model, tok, R, S, man, log, commit):
             sc = core.score(cor, b["cor"], ex); return {k: v for k, v in sc.items() if k != "cells"}
         out = dict(name=cfg["name"], cfg=cfg, total_units=total, K=K, draws=[]); out["empty"] = eval_all("empty", True); log("empty", out["empty"])
         skills = sorted({r["answer"] for r in S["CAL"][:300]})
-        for d in range(cfg.get("ndraw", 2)):
+        for d in range(cfg.get("draw0", 0), cfg.get("draw0", 0) + cfg.get("ndraw", 2)):
             rng = random.Random(seed0 + d); nn_ = cfg.get("n_new", 12); ann_new = rng.sample(pool, nn_); ann_old = rng.sample(old_err, min(len(old_err), 25 - nn_))
             items = [(r["ids"], NEW) for r in ann_new] + list(ann_old); labels = [l for _, l in items]; draw = dict(draw=d, n_ann=len(items))
             for cond in cfg.get("conds", ("real", "shuffled", "wrong")):
@@ -135,7 +135,7 @@ def run(job, model, tok, R, S, man, log, commit):
                 t0 = time.time(); Z, hist = train(its, cfg["steps"], cfg["lr"], cfg.get("l0", 0.0), cfg.get("klw", 1.0), seed0 + d)
                 flat = apply(Z); res = eval_all(cond, cond == "real" or DEV); res["n_deleted"] = int(len(flat)); res["frac_deleted"] = len(flat) / total; res["carrier_bytes"] = len(encode_mask(flat, total))
                 res["per_layer"] = {str(l): int(sum(len(np.nonzero((Z[(l, n)] == 0).flatten().cpu().numpy())[0]) for n, _ in mods[l])) for l in LAY}
-                res["train_tail"] = hist[-3:]; res["train_secs"] = round(time.time() - t0)
+                res["train_tail"] = hist[-3:]; res["fit_acc"] = hist[-1][4]; res["train_secs"] = round(time.time() - t0)
                 if job.get("exam_draws", 0) > d and cond == "real": res["exam"] = exam_ret()
                 if cond == "real" and job.get("save_mask") and d == 0: np.save(f"/r/l9b/res/delmask_{job['art']}_{cfg['name']}.npy", flat)
                 draw[cond] = res; restore(); log("draw", d, cond, {k: v for k, v in res.items() if k not in ("teach_sample", "per_layer")})
