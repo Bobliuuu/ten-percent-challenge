@@ -1,0 +1,96 @@
+{
+ "l1_size_pct": 7.159627282842648,
+ "l1_base_acc": 90.7069970845481,
+ "l1_teach": 90.85365853658537,
+ "l1_neigh": 99.7159090909091,
+ "l1_shuffled": 0.0,
+ "l1_wrong": 0.0,
+ "l1_empty": 0.0,
+ "l1_empty_identical": true,
+ "l1_patch_mb": 4.720692,
+ "l1_controls": [
+  {
+   "arm": "real feedback",
+   "teach": 90.85365853658537
+  },
+  {
+   "arm": "shuffled labels",
+   "teach": 0.0
+  },
+  {
+   "arm": "wrong labels",
+   "teach": 0.0
+  },
+  {
+   "arm": "empty feedback",
+   "teach": 0.0
+  }
+ ],
+ "l1_own_ret": 100.0,
+ "l9_size_pct": 9.6737,
+ "l9_size_fb_pct": 9.7039,
+ "l9_size_full_pct": 9.3262,
+ "l9_ret_min": 99.47269303201507,
+ "l9_ret_max": 99.54802259887006,
+ "l9_ret_lo_min": 99.11679233069361,
+ "l9_base_acc": 96.75655976676384,
+ "l9_real": 75.83841463414635,
+ "l9_real_min": 64.02439024390245,
+ "l9_real_max": 82.92682926829268,
+ "l9_shuffled": 16.00609756097561,
+ "l9_shuffled_min": 0.0,
+ "l9_shuffled_max": 39.63414634146341,
+ "l9_wrong": 0.0,
+ "l9_wrong_min": 0.0,
+ "l9_wrong_max": 0.0,
+ "l9_ndraw": 8,
+ "l9_neigh": 98.23994252873564,
+ "l9_controls": [
+  {
+   "arm": "real feedback",
+   "teach": 75.83841463414635
+  },
+  {
+   "arm": "shuffled labels",
+   "teach": 16.00609756097561
+  },
+  {
+   "arm": "wrong labels",
+   "teach": 0.0
+  }
+ ],
+ "compare": [
+  {
+   "entry": "L1 Bonsai-8B",
+   "metric": "size, % of fp16",
+   "value": 7.159627282842648
+  },
+  {
+   "entry": "L9b Qwen3.5-35B-A3B",
+   "metric": "size, % of fp16",
+   "value": 9.7039
+  },
+  {
+   "entry": "limit",
+   "metric": "size, % of fp16",
+   "value": 10.0
+  }
+ ],
+ "sizes": [
+  {
+   "entry": "L1 (with patch, code, calibration)",
+   "pct": 7.159627282842648
+  },
+  {
+   "entry": "L9b (with feedback carrier)",
+   "pct": 9.7039
+  },
+  {
+   "entry": "challenge limit",
+   "pct": 10.0
+  }
+ ],
+ "exam_n": 2744,
+ "teach_n": 164,
+ "neigh_n": 379
+}

@@ -1,0 +1,296 @@
+# Spec for ~/video-readme-maker:  python3 ~/video-readme-maker/vrm.py all README.spec.yml
+# Every number is read from the lanes' own result files by tools/readme_data.py (results/derived/readme_data.json).
+# Claims about rulings and readings are copied from the previous README, kept verbatim in docs/FULL_ATTEMPT_RECORD.md.
+project:
+  name: The 10% challenge
+  emoji: "🌳"
+  tagline: "Our attempt: shrink a trained model below 10% of its fp16 size, keep its behaviour on an unseen exam, and teach it a new label from at most 25 corrections"
+  repo: Bobliuuu/ten-percent-challenge
+hero:
+  title: The 10% challenge
+  subtitle: "L1: Bonsai-8B + a closed-form feedback patch · alternate L9b: pruned 3-bit Qwen3.5-35B-A3B"
+  chips: [under 10% of fp16, locked exam, 25 annotations, no training]
+theme: {accent: "#3ddc97", accent2: "#27c8e8", accent3: "#f2c14e", good: "#3ddc97"}
+readme_out: README.md
+assets_dir: assets
+badges:
+  - {label: filed entry, message: "L1 · issue #2", color: 3ddc97, link: "https://github.com/DeusExperiments/ten-percent-challenge/issues/2"}
+  - {label: L1 size, message: "{{ n.l1_size.text }} of fp16", color: 27c8e8}
+  - {label: judging rules, message: "9 of 9 (our reading)", color: f2c14e}
+  - {label: Hugging Face, message: "L1 artifact", color: ffd21e, logo: huggingface, link: "https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow"}
+nav:
+  - {emoji: "🎬", label: Video, anchor: video}
+  - {emoji: "📋", label: Summary, anchor: summary}
+  - {emoji: "🥇", label: L1, anchor: l1}
+  - {emoji: "🥈", label: L9b, anchor: l9b}
+  - {emoji: "⚠️", label: Limitations, anchor: caveats}
+  - {emoji: "🔁", label: Reproduce, anchor: reproduce}
+  - {emoji: "🗺️", label: Repo map, anchor: repo-map}
+
+numbers:
+  l1_size: {file: results/derived/readme_data.json, path: l1_size_pct, fmt: "{:.2f}", unit: "%"}
+  l1_base: {file: results/derived/readme_data.json, path: l1_base_acc, fmt: "{:.1f}", unit: "%"}
+  l1_teach: {file: results/derived/readme_data.json, path: l1_teach, fmt: "{:.1f}", unit: "%"}
+  l1_neigh: {file: results/derived/readme_data.json, path: l1_neigh, fmt: "{:.1f}", unit: "%"}
+  l1_shuf: {file: results/derived/readme_data.json, path: l1_shuffled, fmt: "{:.1f}", unit: "%"}
+  l1_wrong: {file: results/derived/readme_data.json, path: l1_wrong, fmt: "{:.1f}", unit: "%"}
+  l1_empty: {file: results/derived/readme_data.json, path: l1_empty, fmt: "{:.1f}", unit: "%"}
+  l1_patch: {file: results/derived/readme_data.json, path: l1_patch_mb, fmt: "{:.1f}", unit: " MB"}
+  l9_size: {file: results/derived/readme_data.json, path: l9_size_fb_pct, fmt: "{:.2f}", unit: "%"}
+  l9_size0: {file: results/derived/readme_data.json, path: l9_size_pct, fmt: "{:.2f}", unit: "%"}
+  l9_ret_min: {file: results/derived/readme_data.json, path: l9_ret_min, fmt: "{:.2f}", unit: "%"}
+  l9_ret_max: {file: results/derived/readme_data.json, path: l9_ret_max, fmt: "{:.2f}", unit: "%"}
+  l9_teach: {file: results/derived/readme_data.json, path: l9_real, fmt: "{:.1f}", unit: "%"}
+  l9_shuf: {file: results/derived/readme_data.json, path: l9_shuffled, fmt: "{:.1f}", unit: "%"}
+  l9_shuf_max: {file: results/derived/readme_data.json, path: l9_shuffled_max, fmt: "{:.1f}", unit: "%"}
+  l9_wrong: {file: results/derived/readme_data.json, path: l9_wrong, fmt: "{:.1f}", unit: "%"}
+  l9_neigh: {file: results/derived/readme_data.json, path: l9_neigh, fmt: "{:.1f}", unit: "%"}
+  exam_n: {file: results/derived/readme_data.json, path: exam_n, fmt: "{:,.0f}"}
+  teach_n: {file: results/derived/readme_data.json, path: teach_n}
+
+intro: |
+  <a id="video"></a>
+  The [10% challenge](https://github.com/DeusExperiments/ten-percent-challenge) asks for a model that is at most 10% of the size of a trained model, behaves the same as that model on an exam it never saw,
+  and can learn from a few user corrections, all without training the weights. This repo is our working record: code, exams, results.
+
+  Our task is 7-way voice-skill routing ("which skill should handle this request?") on a locked exam of {{ n.exam_n }} items. The model writes a real word as its answer (greedy decoding, exact string match; no multiple choice).
+  A new label (for example `Recipe`) is taught from at most 25 corrections by a one-shot closed-form calculation that edits some **existing** weights: no head, adapter, lookup table or prompt.
+
+  > **Status, as stated in the repo.** Filed entry: **L1**, [issue #2](https://github.com/DeusExperiments/ten-percent-challenge/issues/2). It passes all 9 judging rules **under our reading**; three of those passes rest on readings the maintainer has not ruled on.
+  > Numbers below are read from the lanes' result files; nothing was re-run for this page.
+
+video:
+  url: ""
+  caption: "Explainer video (voice-over and subtitles): the challenge, the two entries, and the numbers with their caveats"
+  mp4: video/tenpct_explainer.mp4
+  gif: video/preview.gif
+  srt: video/tenpct_explainer.srt
+  poster: video/poster.png
+  out_dir: video/.render
+  fps: 24
+  max_mb: 22
+  render_crf: 18
+  poster_at: 40
+  music: true
+  voice: {engine: openai, voice: alloy, model: gpt-4o-mini-tts, tempo: 1.2}
+  scenes:
+    - type: title
+      title: "The 10% challenge"
+      subtitle: "Our attempt: small, faithful, and teachable"
+      chips: [under 10% of fp16, locked exam, 25 annotations]
+      say: "The ten percent challenge. Our attempt to shrink a trained model below ten percent of its size, keep its behaviour on an exam it never saw, and teach it a new label from a few corrections."
+    - type: problem
+      heading: "What the challenge asks"
+      bullets:
+        - "At most 10% of the model's fp16 size, every shipped byte counted"
+        - "Behave like the original on an unseen exam"
+        - "Learn from a few user corrections"
+        - "No weight training, no new heads or side memory"
+      say: "The challenge asks for a model at most ten percent of the original size, counting every shipped byte. It must behave the same as the original on an exam it never saw. And it must learn from a few user corrections, without training its weights, and without a new head or side memory."
+    - type: architecture
+      diagram: flow
+      heading: "Our pipeline"
+      say: "We start from a trained model and compress it without weight training, giving a packed artifact under ten percent of fp16. An answer command writes a skill word by greedy generation. A feedback command takes at most twenty five annotations and computes replacement values for existing tensors. The grown model is the same files plus that patch, and a locked exam, sealed by hash, is scored once."
+    - type: chart
+      chart: sizes
+      say: "Size. Our filed entry L1 is {{ n.l1_size.numtext }} percent of Qwen three eight B in fp sixteen, with the patch, code and calibration prompts counted. The alternate L9b, a pruned three bit Qwen three point five thirty five B A three B, is {{ n.l9_size.numtext }} percent with its feedback carrier. The limit is ten."
+    - type: chart
+      chart: l1_ctl
+      say: "Feedback on L1. Twenty five annotations teach the new label Recipe to {{ n.l1_teach.numtext }} percent of a locked set of {{ n.teach_n.numtext }} unseen requests, through the shipped commands. Neighbouring labels stay at {{ n.l1_neigh.numtext }} percent. Shuffled labels, wrong labels and empty feedback all teach zero."
+    - type: chart
+      chart: l9_ctl
+      say: "The alternate L9b. Over eight draws, real feedback teaches {{ n.l9_teach.numtext }} percent on average, while shuffled labels average {{ n.l9_shuf.numtext }} percent, with some draws up to {{ n.l9_shuf_max.numtext }}. Retention against the original model is {{ n.l9_ret_min.numtext }} to {{ n.l9_ret_max.numtext }} percent across three quantizer draws."
+    - type: results
+      heading: "L1 at a glance"
+      items:
+        - {label: "size, % of fp16", number: l1_size}
+        - {label: "teach new label", number: l1_teach}
+        - {label: "neighbours kept", number: l1_neigh}
+      say: "L1 at a glance: {{ n.l1_size.numtext }} percent of the size, {{ n.l1_teach.numtext }} percent teach on the new label, and {{ n.l1_neigh.numtext }} percent of neighbouring items kept."
+    - type: caveats
+      heading: "Honest caveats"
+      bullets:
+        - "The exam is ours, not the maintainer's"
+        - "L1 starts from a released 1-bit model; compression is its makers' work"
+        - "Three passes rest on readings nobody has ruled on"
+        - "One narrow task with seven labels"
+      say: "Caveats. The exam is ours, not the maintainer's. L1 starts from a released one bit model, so the compression is its makers' work. Three of the nine passes rest on readings the maintainer has not ruled on. And the task is one narrow task with seven labels."
+    - type: end
+      title: "The 10% challenge"
+      subtitle: "Reports, manifests and raw results are in the repo"
+      say: "Reports, manifests and raw results are in the repo."
+
+tables:
+  - id: l1_tbl
+    title: "L1 end to end through the shipped commands (v2/lanes/L1/results/e2e_locked_scale_default.json)"
+    file: results/derived/readme_data.json
+    rows_path: l1_controls
+    columns:
+      - {key: arm, title: feedback arm}
+      - {key: teach, title: "new-label teach (%)", align: right, fmt: "{:.1f}"}
+  - id: l9_tbl
+    title: "L9b, 8 feedback draws, mean (v2/lanes/L9b/results/fb_locked8.json)"
+    file: results/derived/readme_data.json
+    rows_path: l9_controls
+    columns:
+      - {key: arm, title: feedback arm}
+      - {key: teach, title: "new-label teach, mean (%)", align: right, fmt: "{:.1f}"}
+
+charts:
+  - id: sizes
+    type: bar
+    title: "Size against the limit (% of fp16 of the starting model)"
+    subtitle: "every shipped byte counted; limit is 10%"
+    file: results/derived/readme_data.json
+    rows_path: sizes
+    label: entry
+    y: pct
+    fmt: "{:.2f}"
+    unit: "%"
+    highlight: "L1 (with patch, code, calibration)"
+  - id: l1_ctl
+    type: bar
+    title: "L1: new-label teach rate by feedback arm (%)"
+    subtitle: "164 locked unseen requests for the new label; 25 annotations"
+    file: results/derived/readme_data.json
+    rows_path: l1_controls
+    label: arm
+    y: teach
+    fmt: "{:.1f}"
+    unit: "%"
+    highlight: "real feedback"
+  - id: l9_ctl
+    type: bar
+    title: "L9b: new-label teach rate by feedback arm (%, mean of 8 draws)"
+    subtitle: "shuffled-label arm varies widely between draws"
+    file: results/derived/readme_data.json
+    rows_path: l9_controls
+    label: arm
+    y: teach
+    fmt: "{:.1f}"
+    unit: "%"
+    highlight: "real feedback"
+
+diagrams:
+  - id: flow
+    title: "System overview: compress, answer, feedback"
+    nodes:
+      - {id: base, label: "trained base model", sub: "above 0.5B parameters", col: 0, row: 0, kind: io}
+      - {id: comp, label: "compression", sub: "no weight training", col: 1, row: 0}
+      - {id: pack, label: "packed artifact", sub: "at most 10% of fp16", col: 2, row: 0, kind: store}
+      - {id: ans, label: "answer command", sub: "greedy generation, free-text label", col: 3, row: 0, kind: accent}
+      - {id: fb, label: "feedback command", sub: "at most 25 annotations", col: 1, row: 1}
+      - {id: patch, label: "patch", sub: "replacement values for existing tensors", col: 2, row: 1}
+      - {id: exam, label: "locked exam", sub: "sealed by hash, scored once", col: 3, row: 1, kind: io}
+    edges:
+      - {from: base, to: comp}
+      - {from: comp, to: pack}
+      - {from: pack, to: ans}
+      - {from: fb, to: patch}
+      - {from: patch, to: ans, label: "grown model"}
+      - {from: ans, to: exam}
+
+sections:
+  - title: Summary and status
+    emoji: "📋"
+    id: summary
+    body: |
+      1. We shrink big models to under 10% of their fp16 size and score them on a locked exam of {{ n.exam_n }} items (7-way voice-skill routing).
+      2. The model writes a real word as its answer (greedy decoding, exact string match; no multiple choice, no constrained decoding).
+      3. We teach a new label from at most 25 corrections by a one-shot closed-form calculation that edits some **existing** weights. The model's own forward pass writes the new word.
+      4. **The filed entry (L1) passes all 9 judging rules under our reading** (see [issue #2](https://github.com/DeusExperiments/ten-percent-challenge/issues/2)). Three of those passes rest on readings the maintainer has not ruled on:
+         - **Rule 2** is measured against Bonsai-8B, the released model the entry starts from (1.000); against its fp16 ancestor Qwen3-8B, retention is 88.9% on dev data.
+         - **Rule 4:** feedback is a closed-form edit of existing weights (no head, adapter, lookup, prompt or new tensor), computed from the annotations.
+         - **Rule 9:** rule 1 allows a model "before or after you cut it"; the 1-bit compression is the release's makers' work, not ours.
+      5. Other lanes keep their own verdicts in [docs/FULL_ATTEMPT_RECORD.md](docs/FULL_ATTEMPT_RECORD.md) (GRAY where a reading decides them).
+
+      | rule | in a few words |
+      |---|---|
+      | 1 | size counts every shipped byte, against the fp16 size of the starting model |
+      | 2 | keep at least 98% of what the original got right, and at least 95% in every kind |
+      | 3 | exam is unseen: at least 2,000 items, 300 per kind, 500 from a source never used |
+      | 4 | no new trained parts (no heads, adapters, side memory, feedback in the prompt) |
+      | 5 | feedback must teach: at most 25 annotations, 25+ locked teach items, clear improvement, neighbours kept |
+      | 6 | shuffled-label and empty feedback must do clearly worse |
+      | 7 | the model keeps the task's real output (no multiple-choice stand-in) |
+      | 8 | the original must have something to keep (well above chance, below its ceiling) |
+      | 9 | spirit over letter: readings that defeat the purpose are rejected |
+
+      The rules are copied word for word in [`v2/RULES.md`](v2/RULES.md). Current status and the candidate table: [`STATUS.md`](STATUS.md).
+    diagrams: [flow]
+  - title: "L1 (primary): Bonsai-8B plus a closed-form feedback patch"
+    emoji: "🥇"
+    id: l1
+    body: |
+      **What it is.** Bonsai-8B, a 1-bit release built from Qwen3-8B by its makers, repacked losslessly (outputs identical to the release). We did no compression of our own here.
+      Feedback: closed-form edit of the existing per-128-group scales of the 1-bit MLP `down_proj` in the last 6 layers (default `scale` carrier, no new tensor).
+    charts: [sizes, l1_ctl]
+    tables: [l1_tbl]
+    after: |
+      Size {{ n.l1_size }} of Qwen3-8B fp16 counting patch ({{ n.l1_patch }}), code, calibration prompts, tensor manifest and licence. Exam accuracy of the base {{ n.l1_base }}. Teach {{ n.l1_teach }}, neighbours kept {{ n.l1_neigh }}; shuffled {{ n.l1_shuf }}, wrong {{ n.l1_wrong }}, empty {{ n.l1_empty }} (the empty-feedback tree is byte-identical to the release).
+
+      **How to run** (one CUDA GPU of about 17 GB, `torch`, `transformers==4.56.2`; folder [`v2/lanes/L1`](v2/lanes/L1/); weights: [Hugging Face artifact](https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow)):
+
+      ```
+      python answer.py --artifact <DIR> --task skill_task.json "wake me at six" "play some jazz"
+      python feedback.py --artifact <DIR> --task skill_task.json --ann ann.jsonl     # rows: {"text": "...", "label": "Recipe"}, at most 25
+      python answer.py --artifact <DIR> --task skill_task.json --feedback ann.jsonl "how long do I boil an egg"
+      ```
+      An empty `ann.jsonl` removes the patch and restores the release byte for byte. Detail: [`v2/lanes/L1/REPORT.md`](v2/lanes/L1/REPORT.md).
+    details:
+      - summary: "L1 weaknesses (from the lane report)"
+        body: |
+          - Second task BANK6: exam retention 1.000 but `Security` teach only .727, shuffled .10 (one draw .49).
+          - A new skill close to an old one steals old items: Alarm-to-Timer flips 21.7%; Email vs Lists in continual mode drops neighbours to .86.
+          - One narrow task with seven labels; the base is near its ceiling on several cells.
+          - The shuffled-label control damaged the exam in one measurement (retention .9783, below our 98% gate; `cols` not measured on that arm).
+          - The three real `Timer` draws coincide to the last digit (8 templates): one measurement.
+  - title: "L9b (alternate): Qwen3.5-35B-A3B, pruned and 3-bit, our own compression"
+    emoji: "🥈"
+    id: l9b
+    body: |
+      **What it is.** Qwen3.5-35B-A3B (an unmodified full-precision release). We keep 102 of 256 experts per layer (chosen by routing mass on unlabeled task prompts), 3-bit RTN on kept experts, 6-bit attention and shared expert, 4-bit embedding and output layer; the vision tower is not shipped.
+      Feedback: closed-form edit of the shared-expert `down_proj` columns of the last 10 MoE layers, stored as replacement columns.
+    charts: [l9_ctl]
+    tables: [l9_tbl]
+    after: |
+      Size {{ n.l9_size0 }} on the packed file, {{ n.l9_size }} with the feedback carrier (text-only fp16 reference). Retention against the original {{ n.l9_ret_min }} to {{ n.l9_ret_max }} across three quantizer draws; teach {{ n.l9_teach }} mean over 8 draws, shuffled {{ n.l9_shuf }} mean (up to {{ n.l9_shuf_max }} on a bad draw), wrong {{ n.l9_wrong }}; neighbours {{ n.l9_neigh }}.
+      Detail: [`v2/lanes/L9b/REPORT.md`](v2/lanes/L9b/REPORT.md). Other lanes (L2 to L14) and the failed ones are in [docs/FULL_ATTEMPT_RECORD.md](docs/FULL_ATTEMPT_RECORD.md) and [`v2/WHAT_WE_TRIED.md`](v2/WHAT_WE_TRIED.md).
+  - title: Reproduce
+    emoji: "🔁"
+    id: reproduce
+    body: |
+      Large artifacts are not stored in git; each is rebuilt from the public base-model snapshot with its lane's pack scripts. The shared exam loads with `python3 -I v2/exam/loader.py`.
+
+      ```bash
+      python3 tools/readme_data.py                              # lane result files -> results/derived/readme_data.json
+      python3 ~/video-readme-maker/vrm.py all README.spec.yml   # README.md, assets/, video/
+      ```
+
+      | what | where |
+      |---|---|
+      | current status and candidate table | [`STATUS.md`](STATUS.md) |
+      | rules, word for word | [`v2/RULES.md`](v2/RULES.md), [`GOAL_README.md`](GOAL_README.md) |
+      | which entry to file | [`v2/ENTRY_DECISION.md`](v2/ENTRY_DECISION.md) |
+      | lane reports, manifests, raw results | `v2/lanes/L1`, `L9b`, ... (each `REPORT.md`, `MANIFEST.json`, `results/`) |
+      | filing drafts | [`v2/FILING/`](v2/FILING/) |
+      | shared locked exam | `v2/exam/` |
+
+caveats:
+  - "**The exam is ours.** {{ n.exam_n }} items from public data, sealed by hash before any run and scored once; it is not the maintainer's exam. 532 rows are flagged `seen_tox`."
+  - "**L1 starts from a released 1-bit model** (Bonsai-8B); the compression is its makers' work, and retention against the fp16 ancestor Qwen3-8B is 88.9% on dev data."
+  - "**Three of L1's nine passes rest on readings nobody has ruled on** (rules 2, 4 and 9)."
+  - "**One narrow task with seven labels**; the base is near its ceiling on several cells."
+  - "**L9b is the alternate** (not the filed entry): its shuffled-label control varies widely between draws, and the quantised artifact is regenerated from the public model."
+
+repo_map:
+  - {path: v2/lanes/L1/, desc: "primary entry: Bonsai-8B repack, answer and feedback commands, results"}
+  - {path: v2/lanes/L9b/, desc: "alternate entry: pruned 3-bit Qwen3.5-35B-A3B, packer, results"}
+  - {path: v2/exam/, desc: "shared locked exam, plan, hashes, loader"}
+  - {path: v2/FILING/, desc: "filing drafts and checklists"}
+  - {path: STATUS.md, desc: "current status and candidate table"}
+  - {path: docs/FULL_ATTEMPT_RECORD.md, desc: "previous full README with every lane, verdict tables and architecture diagrams"}
+  - {path: tools/readme_data.py, desc: "derives README and video numbers from lane result files"}
+  - {path: README.spec.yml, desc: "spec for video-readme-maker"}
+  - {path: video/, desc: "explainer mp4, srt, poster, preview gif (generated)"}
+footer: "Generated with video-readme-maker from README.spec.yml and the lanes' result files."
