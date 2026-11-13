@@ -6,7 +6,7 @@
 
 **Our attempt: shrink a trained model below 10% of its fp16 size, keep its behaviour on an unseen exam, and teach it a new label from at most 25 corrections**
 
-[![filed entry: L1 · issue #2](https://img.shields.io/badge/filed%20entry-L1%20%C2%B7%20issue%20%232-3ddc97)](https://github.com/DeusExperiments/ten-percent-challenge/issues/2) ![L1 size: 7.16% of fp16](https://img.shields.io/badge/L1%20size-7.16%25%20of%20fp16-27c8e8) ![judging rules: 9 of 9 (our reading)](https://img.shields.io/badge/judging%20rules-9%20of%209%20%28our%20reading%29-f2c14e) [![Hugging Face: L1 artifact](https://img.shields.io/badge/Hugging%20Face-L1%20artifact-ffd21e?logo=huggingface&logoColor=white)](https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow)
+[![filed entry: L1 · issue #2](https://img.shields.io/badge/filed%20entry-L1%20%C2%B7%20issue%20%232-3ddc97)](https://github.com/DeusExperiments/ten-percent-challenge/issues/2) ![L1 size: 7.16% of fp16](https://img.shields.io/badge/L1%20size-7.16%25%20of%20fp16-27c8e8) ![judging rules: 9 of 9 (our reading)](https://img.shields.io/badge/judging%20rules-9%20of%209%20%28our%20reading%29-f2c14e) [![release: v0.1.0](https://img.shields.io/badge/release-v0.1.0-27c8e8?logo=github&logoColor=white)](https://github.com/Bobliuuu/ten-percent-challenge/releases/tag/v0.1.0) [![Hugging Face: L1 artifact](https://img.shields.io/badge/Hugging%20Face-L1%20artifact-ffd21e?logo=huggingface&logoColor=white)](https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow)
 
 [🎬 Video](#video) · [📋 Summary](#summary) · [🥇 L1](#l1) · [🥈 L9b](#l9b) · [⚠️ Limitations](#caveats) · [🔁 Reproduce](#reproduce) · [🗺️ Repo map](#repo-map)
 

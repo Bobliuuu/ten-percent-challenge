@@ -17,6 +17,7 @@ badges:
   - {label: filed entry, message: "L1 · issue #2", color: 3ddc97, link: "https://github.com/DeusExperiments/ten-percent-challenge/issues/2"}
   - {label: L1 size, message: "{{ n.l1_size.text }} of fp16", color: 27c8e8}
   - {label: judging rules, message: "9 of 9 (our reading)", color: f2c14e}
+  - {label: release, message: v0.1.0, color: 27c8e8, logo: github, link: "https://github.com/Bobliuuu/ten-percent-challenge/releases/tag/v0.1.0"}
   - {label: Hugging Face, message: "L1 artifact", color: ffd21e, logo: huggingface, link: "https://huggingface.co/Bobliu/tenpct-l1-bonsai8b-grow"}
 nav:
   - {emoji: "🎬", label: Video, anchor: video}
